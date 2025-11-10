@@ -8,11 +8,75 @@
 
 ---
 
-## 📚 Table of Contents
+## Table of Contents
 
 1. [Methods](#methods)
-   - [GET /service/beverages](#1-get-servicesbeverages)
-   - [GET /service/beverages/{id}](#2-get-servicesbeveragesid)
+
+   **User Management**
+
+   - [1. Create a User](#1-create-a-user)
+   - [2. Authenticate a User](#2-authenticate-a-user)
+   - [3. Update a User](#3-update-a-user)
+   - [4. Delete a User](#4-delete-a-user)
+
+   **Budget Management**
+
+   - [5. Create a Budget](#5-create-a-budget)
+   - [6. Get a Budget](#6-get-a-budget)
+   - [7. Update a Budget](#7-update-a-budget)
+   - [8. Delete a Budget](#8-delete-a-budget)
+
+   **Envelope Categories**
+
+   - [9. Create an Envelope Category](#9-create-an-envelope-category)
+   - [10. Update an Envelope Category](#10-update-an-envelope-category)
+   - [11. Delete an Envelope Category](#11-delete-an-envelope-category)
+
+   **Envelopes**
+
+   - [12. Create an Envelope](#12-create-an-envelope)
+   - [13. Update an Envelope](#13-update-an-envelope)
+   - [14. Delete an Envelope](#14-delete-an-envelope)
+
+   **Accounts**
+
+   - [15. Create a Bank Account](#15-create-a-bank-account)
+   - [16. Update a Bank Account](#16-update-a-bank-account)
+   - [17. Delete a Bank Account](#17-delete-a-bank-account)
+   - [18. Create a Debt Account](#18-create-a-debt-account)
+   - [19. Update a Debt Account](#19-update-a-debt-account)
+   - [20. Delete a Debt Account](#20-delete-a-debt-account)
+   - [21. Create an Investment Account](#21-create-an-investment-account)
+   - [22. Update an Investment Account](#22-update-an-investment-account)
+   - [23. Delete an Investment Account](#23-delete-an-investment-account)
+
+   **Paychecks**
+
+   - [24. Create a Paycheck](#24-create-a-paycheck)
+   - [25. Update a Paycheck](#25-update-a-paycheck)
+   - [26. Delete a Paycheck](#26-delete-a-paycheck)
+   - [27. Create a Paycheck Split](#27-create-a-paycheck-split)
+   - [28. Update a Paycheck Split](#28-update-a-paycheck-split)
+   - [29. Delete a Paycheck Split](#29-delete-a-paycheck-split)
+
+   **Transactions**
+
+   - [30. Create a Payment Transaction](#30-create-a-payment-transaction)
+   - [31. Update a Payment Transaction](#31-update-a-payment-transaction)
+   - [32. Delete a Payment Transaction](#32-delete-a-payment-transaction)
+   - [33. Create a Transfer Transaction](#33-create-a-transfer-transaction)
+   - [34. Update a Transfer Transaction](#34-update-a-transfer-transaction)
+   - [35. Delete a Transfer Transaction](#35-delete-a-transfer-transaction)
+   - [36. Create a Transaction Split](#36-create-a-transaction-split)
+   - [37. Update a Transaction Split](#37-update-a-transaction-split)
+   - [38. Delete a Transaction Split](#38-delete-a-transaction-split)
+
+   **Planned Expenses**
+
+   - [39. Create a Planned Expense](#39-create-a-planned-expense)
+   - [40. Update a Planned Expense](#40-update-a-planned-expense)
+   - [41. Delete a Planned Expense](#41-delete-a-planned-expense)
+
 2. [Glossary](#glossary)
    - [Status Codes](#status-codes)
 
