@@ -1,0 +1,6 @@
+@MakesCentsBackend_HostAddress = http://localhost:5047
+
+GET {{MakesCentsBackend_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
