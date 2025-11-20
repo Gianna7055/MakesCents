@@ -10,6 +10,9 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace MakesCentsBackend.Controllers
 {
+    /// <summary>
+    /// API controller for paychecks
+    /// </summary>
     [Route("api/[controller]")]
     [ApiController]
     public class PaychecksController : ControllerBase

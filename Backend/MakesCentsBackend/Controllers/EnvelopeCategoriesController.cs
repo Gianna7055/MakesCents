@@ -10,6 +10,9 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace MakesCentsBackend.Controllers
 {
+    /// <summary>
+    /// API controller for envelope categories
+    /// </summary>
     [Route("api/[controller]")]
     [ApiController]
     public class EnvelopeCategoriesController : ControllerBase
