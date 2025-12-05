@@ -95,17 +95,17 @@ Create a new user
 
 #### **Parameters**
 
-| Type | Name             | Data Type | Description                      |
-| ---- | ---------------- | --------- | -------------------------------- |
-| Body | `username`       | `string`  | The username for the new user    |
-| Body | `email`          | `string`  | The email for the new user       |
-| Body | `hashedPassword` | `string`  | The hashed password for the user |
+| Type | Name           | Data Type | Description                      |
+| ---- | -------------- | --------- | -------------------------------- |
+| Body | `username`     | `string`  | The username for the new user    |
+| Body | `email`        | `string`  | The email for the new user       |
+| Body | `passwordHash` | `string`  | The hashed password for the user |
 
 ```JSON
 {
   "username": "My Username",
   "email": "example@gmail.com",
-  "hashedPassword": "akjfhen48w9ruibfwle"
+  "passwordHash": "akjfhen48w9ruibfwle"
 }
 ```
 
@@ -113,7 +113,7 @@ Create a new user
 
 ```JSON
 {
-  "status": 200,
+  "status": 201,
   "userId": 1,
   "token": "udtrcgjvhhoiftu.3wetsrydtfygt76r85e7.786r5erudjgkgo"
 }
@@ -143,17 +143,17 @@ Login a user
 
 #### **Parameters**
 
-| Type | Name             | Data Type | Description                                    |
-| ---- | ---------------- | --------- | ---------------------------------------------- |
-| Body | `username`       | `string`  | The username of the user logging in - nullable |
-| Body | `email`          | `string`  | The email of the user logging in - nullable    |
-| Body | `hashedPassword` | `string`  | The hashed password of the user logging in     |
+| Type | Name           | Data Type | Description                                    |
+| ---- | -------------- | --------- | ---------------------------------------------- |
+| Body | `username`     | `string`  | The username of the user logging in - nullable |
+| Body | `email`        | `string`  | The email of the user logging in - nullable    |
+| Body | `passwordHash` | `string`  | The hashed password of the user logging in     |
 
 ```JSON
 {
   "username": null,
   "email": "example@gmail.com",
-  "hashedPassword": "akjfhen48w9ruibfwle"
+  "passwordHash": "akjfhen48w9ruibfwle"
 }
 ```
 
@@ -161,7 +161,7 @@ Login a user
 
 ```JSON
 {
-  "status": 200,
+  "status": 201,
   "userId": 1,
   "token": "udtrcgjvhhoiftu.3wetsrydtfygt76r85e7.786r5erudjgkgo"
 }
@@ -2671,11 +2671,23 @@ All status codes follow the standard HTTP conventions.
 - **4XX** – Error occurred on client’s part
 - **5XX** – Error occurred on server’s part
 
-| Status Code | Description            |
-| ----------- | ---------------------- |
-| 200         | OK                     |
-| 403         | User not authenticated |
-| 404         | Resource not found     |
-| 500         | Internal Server Error  |
+| Status Code | Name                  | Description                                                   |
+| ----------- | --------------------- | ------------------------------------------------------------- |
+| 200 | OK | The request was successful. The response body contains the requested data. |
+| 201 | Created | A new resource was successfully created. The response typically includes the new resource in the body and its URL in the Location header. |
+| 202 | Accepted | The request has been accepted for processing but is not yet complete. Used for asynchronous operations. |
+| 204 | No Content | The request was successful but there is no content to return. Commonly used for DELETE operations. |
+| 400 | Bad Request | The request was malformed or contains invalid syntax. Check that all required parameters are included and properly formatted. |
+| 401 | Unauthorized | Authentication credentials are missing, invalid, or expired. Verify your API key or access token. |
+| 403 | Forbidden | The request is valid, but you don't have permission to access this resource. Check your account permissions. |
+| 404 | Not Found | The requested resource does not exist. Verify the resource ID and endpoint URL. |
+| 405 | Method Not Allowed | The HTTP method used is not supported for this endpoint. Check the allowed methods in the endpoint documentation. |
+| 409 | Conflict | The request conflicts with the current state of the resource. This often occurs when trying to create a duplicate resource. |
+| 422 | Unprocessable Entity | The request is well-formed but contains semantic errors. Check that field values meet validation requirements. |
+| 429 | Too Many Requests | You have exceeded the rate limit. Wait before making additional requests or upgrade your plan. |
+| 500 | Internal Server Error | An unexpected error occurred on the server. If this persists, contact support. |
+| 502 | Bad Gateway | The server received an invalid response from an upstream server. This is usually temporary—try again. |
+| 503 | Service Unavailable | The service is temporarily unavailable, often due to maintenance or high load. Retry your request after a short delay. |
+| 504 | Gateway Timeout | The server did not receive a timely response from an upstream server. Retry your request. |
 
 [↑ Back to top](#api-specification-doc)
