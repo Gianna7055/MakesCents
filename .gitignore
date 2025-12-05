@@ -67,6 +67,6 @@ Thumbs.db
 /Frontend/pnpm-debug.log*
 
 # ================================
-# Documents folder
+# Documentation folder
 # ================================
-# Typically you want to track everything in Documents, so no ignores here
+/Documentation/*.mwb.bak
