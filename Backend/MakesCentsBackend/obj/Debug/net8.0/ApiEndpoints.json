@@ -1,1 +1,70 @@
-[]
+[
+  {
+    "ContainingType": "MakesCentsBackend.Controllers.UserController",
+    "Method": "GetUserByIdAsync",
+    "RelativePath": "api/user",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MakesCentsBackend.Controllers.UserController",
+    "Method": "UpdateUserAsync",
+    "RelativePath": "api/user",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "user",
+        "Type": "MakesCentsBackend.Models.EditUserDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MakesCentsBackend.Controllers.UserController",
+    "Method": "DeleteUserAsync",
+    "RelativePath": "api/user",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MakesCentsBackend.Controllers.UserController",
+    "Method": "LoginUserAsync",
+    "RelativePath": "api/user/login",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "user",
+        "Type": "MakesCentsBackend.Models.LoginRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MakesCentsBackend.Controllers.UserController",
+    "Method": "RegisterUserAsync",
+    "RelativePath": "api/user/register",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "user",
+        "Type": "MakesCentsBackend.Models.UserEntity",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  }
+]

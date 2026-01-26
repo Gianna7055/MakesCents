@@ -5,12 +5,12 @@
  * Makes Cents - Paycheck Split Model
  * Sources: 
  */
-namespace MakesCentsBackend.Models
+namespace MakesCentsBackend.Models.Entities
 {
     /// <summary>
     /// Model for a paycheck split
     /// </summary>
-    public class PaycheckSplitModel
+    public class PaycheckSplitEntity
     {
         // Class Level Properties
         public int PaycheckSplitId { get; set; } = 0;

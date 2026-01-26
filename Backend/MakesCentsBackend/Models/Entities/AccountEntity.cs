@@ -7,12 +7,12 @@
  */
 using MakesCentsBackend.Models.Enums;
 
-namespace MakesCentsBackend.Models
+namespace MakesCentsBackend.Models.Entities
 {
     /// <summary>
     /// Model for an abstract account
     /// </summary>
-    public abstract class AccountModel
+    public abstract class AccountEntity
     {
         // Class Level Properties
         public int AccountId { get; set; } = 0;
@@ -23,6 +23,6 @@ namespace MakesCentsBackend.Models
         public decimal Balance { get; set; } = 0m;
         public DateTime CreatedAt { get; set; } = new DateTime();
         public DateTime LastUpdatedAt { get; set; } = new DateTime();
-        public List<TransactionModel> Transactions { get; set; } = new List<TransactionModel>();
+        public List<TransactionEntity> Transactions { get; set; } = new List<TransactionEntity>();
     }
 }

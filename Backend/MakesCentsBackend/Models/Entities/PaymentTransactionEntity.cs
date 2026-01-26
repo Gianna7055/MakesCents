@@ -7,12 +7,12 @@
  */
 using MakesCentsBackend.Models.Enums;
 
-namespace MakesCentsBackend.Models
+namespace MakesCentsBackend.Models.Entities
 {
     /// <summary>
     /// Model for a payment transaction
     /// </summary>
-    public class PaymentTransactionModel : TransactionModel
+    public class PaymentTransactionEntity : TransactionEntity
     {
         // Class Level Properties
         public int PaymentTransactionId { get; set; } = 0;
@@ -20,6 +20,6 @@ namespace MakesCentsBackend.Models
         public PaymentTransactionType PaymentTransactionType { get; set; } = PaymentTransactionType.Unknown;
         public string MerchantSourceName { get; set; } = "";
         public int? CheckNumber { get; set; } = null;
-        public List<TransactionSplitModel> TransactionSplits { get; set; } = new List<TransactionSplitModel>();
+        public List<TransactionSplitEntity> TransactionSplits { get; set; } = new List<TransactionSplitEntity>();
     }
 }

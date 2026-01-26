@@ -7,12 +7,12 @@
  */
 using MakesCentsBackend.Models.Enums;
 
-namespace MakesCentsBackend.Models
+namespace MakesCentsBackend.Models.Entities
 {
     /// <summary>
     /// Model for a debt account
     /// </summary>
-    public class DebtAccountModel : AccountModel
+    public class DebtAccountEntity : AccountEntity
     {
         // Class Level Properties
         public int DebtAccountId { get; set; } = 0;

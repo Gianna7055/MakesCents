@@ -1,9 +1,668 @@
 {
-  "openapi": "3.0.1",
+  "openapi": "3.0.4",
   "info": {
     "title": "MakesCentsBackend",
     "version": "1.0"
   },
-  "paths": { },
-  "components": { }
+  "paths": {
+    "/api/user/register": {
+      "post": {
+        "tags": [
+          "User"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserEntity"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserEntity"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserEntity"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/user/login": {
+      "post": {
+        "tags": [
+          "User"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/user": {
+      "get": {
+        "tags": [
+          "User"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "User"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EditUserDTO"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EditUserDTO"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/EditUserDTO"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "User"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "AccountEntity": {
+        "type": "object",
+        "properties": {
+          "accountId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "budgetId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "accountType": {
+            "$ref": "#/components/schemas/AccountType"
+          },
+          "accountName": {
+            "type": "string",
+            "nullable": true
+          },
+          "institution": {
+            "type": "string",
+            "nullable": true
+          },
+          "balance": {
+            "type": "number",
+            "format": "double"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "lastUpdatedAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "transactions": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/TransactionEntity"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "AccountType": {
+        "enum": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "type": "integer",
+        "format": "int32"
+      },
+      "BudgetEntity": {
+        "type": "object",
+        "properties": {
+          "budgetId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "userId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "month": {
+            "$ref": "#/components/schemas/Month"
+          },
+          "year": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "budgetName": {
+            "type": "string",
+            "nullable": true
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "lastUpdatedAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "envelopeCategories": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/EnvelopeCategoryEntity"
+            },
+            "nullable": true
+          },
+          "accounts": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AccountEntity"
+            },
+            "nullable": true
+          },
+          "paychecks": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PaycheckEntity"
+            },
+            "nullable": true
+          },
+          "transactions": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/TransactionEntity"
+            },
+            "nullable": true
+          },
+          "plannedExpenses": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PlannedExpenseEntity"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "EditUserDTO": {
+        "type": "object",
+        "properties": {
+          "userId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "username": {
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "passwordHash": {
+            "type": "string",
+            "nullable": true
+          },
+          "isDarkMode": {
+            "type": "boolean",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "EnvelopeCategoryEntity": {
+        "type": "object",
+        "properties": {
+          "envelopeCategoryId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "budgetId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "envelopeCategoryName": {
+            "type": "string",
+            "nullable": true
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "lastUpdatedAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "envelopes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/EnvelopeEntity"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "EnvelopeEntity": {
+        "type": "object",
+        "properties": {
+          "envelopeId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "envelopeCategoryId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "envelopeName": {
+            "type": "string",
+            "nullable": true
+          },
+          "plannedAmount": {
+            "type": "number",
+            "format": "double"
+          },
+          "remainingAmount": {
+            "type": "number",
+            "format": "double"
+          },
+          "isSinkingFund": {
+            "type": "boolean"
+          },
+          "goalAmount": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "goalEndDate": {
+            "type": "string",
+            "format": "date",
+            "nullable": true
+          },
+          "transferEnvelopeId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "lastUpdatedAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "transactions": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/TransactionEntity"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "LoginRequest": {
+        "type": "object",
+        "properties": {
+          "usernameOrEmail": {
+            "maxLength": 320,
+            "type": "string",
+            "nullable": true
+          },
+          "password": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Month": {
+        "enum": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13
+        ],
+        "type": "integer",
+        "format": "int32"
+      },
+      "PaycheckEntity": {
+        "type": "object",
+        "properties": {
+          "paycheckId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "budgetId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "startingDate": {
+            "type": "string",
+            "format": "date"
+          },
+          "secondaryDate": {
+            "type": "string",
+            "format": "date",
+            "nullable": true
+          },
+          "totalAmount": {
+            "type": "number",
+            "format": "double"
+          },
+          "paycheckRegularity": {
+            "$ref": "#/components/schemas/PaycheckRegularity"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "lastUpdatedAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "paycheckSplits": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PaycheckSplitEntity"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "PaycheckRegularity": {
+        "enum": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "type": "integer",
+        "format": "int32"
+      },
+      "PaycheckSplitEntity": {
+        "type": "object",
+        "properties": {
+          "paycheckSplitId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "paycheckId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "envelopeId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "amount": {
+            "type": "number",
+            "format": "double"
+          },
+          "orderIndex": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "lastUpdatedAt": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "additionalProperties": false
+      },
+      "PlannedExpenseEntity": {
+        "type": "object",
+        "properties": {
+          "plannedExpenseId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "budgetId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "envelopeId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "plannedExpenseRegularity": {
+            "$ref": "#/components/schemas/PlannedExpenseRegularity"
+          },
+          "dayOfMonth": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "weekday": {
+            "$ref": "#/components/schemas/Weekday"
+          },
+          "plannedExpenseOccurrence": {
+            "$ref": "#/components/schemas/PlannedExpenseOccurrence"
+          },
+          "amount": {
+            "type": "number",
+            "format": "double"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "lastUpdatedAt": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "additionalProperties": false
+      },
+      "PlannedExpenseOccurrence": {
+        "enum": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "type": "integer",
+        "format": "int32"
+      },
+      "PlannedExpenseRegularity": {
+        "enum": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "type": "integer",
+        "format": "int32"
+      },
+      "TransactionEntity": {
+        "type": "object",
+        "properties": {
+          "transactionId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "budgetId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "transactionDate": {
+            "type": "string",
+            "format": "date"
+          },
+          "totalAmount": {
+            "type": "number",
+            "format": "double"
+          },
+          "isReconciled": {
+            "type": "boolean"
+          },
+          "notes": {
+            "type": "string",
+            "nullable": true
+          },
+          "transactionType": {
+            "$ref": "#/components/schemas/TransactionType"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "lastUpdatedAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "deletedAt": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "TransactionType": {
+        "enum": [
+          1,
+          2,
+          3
+        ],
+        "type": "integer",
+        "format": "int32"
+      },
+      "UserEntity": {
+        "type": "object",
+        "properties": {
+          "userId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "username": {
+            "maxLength": 30,
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
+            "maxLength": 320,
+            "type": "string",
+            "format": "email",
+            "nullable": true
+          },
+          "passwordHash": {
+            "type": "string",
+            "nullable": true
+          },
+          "isDarkMode": {
+            "type": "boolean"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "lastUpdatedAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "budget": {
+            "$ref": "#/components/schemas/BudgetEntity"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Weekday": {
+        "enum": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        "type": "integer",
+        "format": "int32"
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "User"
+    }
+  ]
 }

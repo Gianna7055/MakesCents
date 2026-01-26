@@ -7,12 +7,12 @@
  */
 using MakesCentsBackend.Models.Enums;
 
-namespace MakesCentsBackend.Models
+namespace MakesCentsBackend.Models.Entities
 {
     /// <summary>
     /// Model for an abstract transaction
     /// </summary>
-    public abstract class TransactionModel
+    public abstract class TransactionEntity
     {
         // Class Level Properties
         public int TransactionId { get; set; } = 0;

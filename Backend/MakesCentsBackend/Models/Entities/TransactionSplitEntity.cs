@@ -5,12 +5,12 @@
  * Makes Cents - Transaction Split Model
  * Sources: 
  */
-namespace MakesCentsBackend.Models
+namespace MakesCentsBackend.Models.Entities
 {
     /// <summary>
     /// Model for a transaction split model
     /// </summary>
-    public class TransactionSplitModel
+    public class TransactionSplitEntity
     {
         // Class Level Properties
         public int TransactionSplitId { get; set; } = 0;

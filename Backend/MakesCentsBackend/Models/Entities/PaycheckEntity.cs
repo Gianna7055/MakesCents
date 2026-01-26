@@ -7,12 +7,12 @@
  */
 using MakesCentsBackend.Models.Enums;
 
-namespace MakesCentsBackend.Models
+namespace MakesCentsBackend.Models.Entities
 {
     /// <summary>
     /// Model for a paycheck
     /// </summary>
-    public class PaycheckModel
+    public class PaycheckEntity
     {
         // Class Level Properties
         public int PaycheckId { get; set; } = 0;
@@ -23,6 +23,6 @@ namespace MakesCentsBackend.Models
         public PaycheckRegularity PaycheckRegularity { get; set; } = PaycheckRegularity.Unknown;
         public DateTime CreatedAt { get; set; } = new DateTime();
         public DateTime LastUpdatedAt { get; set; } = new DateTime();
-        public List<PaycheckSplitModel> PaycheckSplits { get; set; } = new List<PaycheckSplitModel>();
+        public List<PaycheckSplitEntity> PaycheckSplits { get; set; } = new List<PaycheckSplitEntity>();
     }
 }

@@ -7,12 +7,12 @@
  */
 using MakesCentsBackend.Models.Enums;
 
-namespace MakesCentsBackend.Models
+namespace MakesCentsBackend.Models.Entities
 {
     /// <summary>
     /// Model for a transfer transaction
     /// </summary>
-    public class TransferTransactionModel : TransactionModel
+    public class TransferTransactionEntity : TransactionEntity
     {
         // Class Level Properties
         public int TransferTransactionId { get; set; } = 0;

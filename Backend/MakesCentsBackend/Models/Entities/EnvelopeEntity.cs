@@ -5,12 +5,12 @@
  * Makes Cents - Envelope Model
  * Sources: 
  */
-namespace MakesCentsBackend.Models
+namespace MakesCentsBackend.Models.Entities
 {
     /// <summary>
     /// Model for an envelope
     /// </summary>
-    public class EnvelopeModel
+    public class EnvelopeEntity
     {
         // Class Level Properties
         public int EnvelopeId { get; set; } = 0;
@@ -30,6 +30,6 @@ namespace MakesCentsBackend.Models
 
         public DateTime CreatedAt { get; set; } = new DateTime();
         public DateTime LastUpdatedAt { get; set; } = new DateTime();
-        public List<TransactionModel> Transactions { get; set; } = new List<TransactionModel>();
+        public List<TransactionEntity> Transactions { get; set; } = new List<TransactionEntity>();
     }
 }

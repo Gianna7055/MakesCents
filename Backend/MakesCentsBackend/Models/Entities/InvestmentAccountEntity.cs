@@ -7,12 +7,12 @@
  */
 using MakesCentsBackend.Models.Enums;
 
-namespace MakesCentsBackend.Models
+namespace MakesCentsBackend.Models.Entities
 {
     /// <summary>
     /// Model for an investment account
     /// </summary>
-    public class InvestmentAccountModel : AccountModel
+    public class InvestmentAccountEntity : AccountEntity
     {
         // Class Level Properties
         public int InvestmentAccountId { get; set; } = 0;
