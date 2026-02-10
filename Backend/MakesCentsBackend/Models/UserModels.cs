@@ -1,11 +1,8 @@
 ﻿/*
  * Gianna Ross
- * File Created: 1/15/2026
- * File Last Updated: 1/15/2026
- * Makes Cents - User Models
+ * Makes Cents
  * Sources: 
  */
-using System.ComponentModel.DataAnnotations;
 
 namespace MakesCentsBackend.Models
 {
@@ -16,14 +13,8 @@ namespace MakesCentsBackend.Models
     {
         // Class Level Properties
         public int UserId { get; set; } = 0;
-
-        [MaxLength(30)]
         public string Username { get; set; } = "";
-
-        [EmailAddress]
-        [MaxLength(320)]
         public string Email { get; set; } = "";
-
         public string PasswordHash { get; set; } = "";
         public bool IsDarkMode { get; set; } = false;
         public DateTime CreatedAt { get; set; } = new DateTime();
@@ -38,7 +29,7 @@ namespace MakesCentsBackend.Models
     {
         // Class level properties
         public UserEntity User { get; set; }
-        public int Status { get; set; } = 0;
+        public int HttpStatus { get; set; } = 0;
         public string? Message { get; set; }
         public string? Token { get; set; }
 
@@ -50,7 +41,7 @@ namespace MakesCentsBackend.Models
         public UserEntityResponse(UserEntity user, int status, string? message)
         {
             User = user;
-            Status = status;
+            HttpStatus = status;
             Message = message;
             Token = null;
         }
@@ -63,10 +54,11 @@ namespace MakesCentsBackend.Models
     {
         // Class level properties
         public UserDTO? User { get; set; } = null;
-        public int Status { get; set; } = 0;
+        public int HttpStatus { get; set; } = 0;
         public string? Message { get; set; } = null;
         public string? Token { get; set; } = null;
     }
+
     /// <summary>
     /// Model for a user
     /// </summary>
@@ -75,14 +67,170 @@ namespace MakesCentsBackend.Models
         // Class Level Properties
         public int UserId { get; set; } = 0;
 
-        [MaxLength(30)]
         public string Username { get; set; } = "";
 
-        [EmailAddress]
-        [MaxLength(320)]
         public string Email { get; set; } = "";
 
         public bool IsDarkMode { get; set; } = false;
         public BudgetEntity? Budget { get; set; } = null;
+    }
+
+    public class GetUserResponse
+    {
+        // Class Level Properties
+        public int HttpStatus { get; set; } = 0;
+        public string Message { get; set; } = "";
+        public GetUserDTO GetUserDTO { get; set; } = new GetUserDTO();
+
+        /// <summary>
+        /// Parameterized constructor that takes a status, message, and GetUserDTO object
+        /// </summary>
+        /// <param name="httpStatus"></param>
+        /// <param name="message"></param>
+        /// <param name="getUserDTO"></param>
+        public GetUserResponse(int httpStatus, string message, GetUserDTO getUserDTO)
+        {
+            HttpStatus = httpStatus;
+            Message = message;
+            GetUserDTO = getUserDTO;
+        }
+
+        /// <summary>
+        /// Parameterized constructor that takes a status and message
+        /// </summary>
+        /// <param name="httpStatus"></param>
+        /// <param name="message"></param>
+        public GetUserResponse(int httpStatus, string message)
+        {
+            HttpStatus = httpStatus;
+            Message = message;
+        }
+    }
+
+    /// <summary>
+    /// DTO model for getting a user
+    /// </summary>
+    public class GetUserDTO
+    {
+        // Class Level Properties
+        public int UserId { get; set; } = 0;
+
+        public string Username { get; set; } = "";
+
+        public string Email { get; set; } = "";
+
+        public bool IsDarkMode { get; set; } = false;
+    }
+
+    /// <summary>
+    /// Request model for editing a user
+    /// </summary>
+    public class EditUserRequest
+    {
+        // Class Level Properties
+        public int? UserId { get; set; } = null;
+
+        public string? Username { get; set; } = null;
+
+        public string? Email { get; set; } = null;
+        public string? PasswordHash { get; set; } = null;
+
+        public bool? IsDarkMode { get; set; } = null;
+    }
+
+    /// <summary>
+    /// Request model for a user
+    /// </summary>
+    public class LoginRequest
+    {
+        // Class Level Properties
+        public string? UsernameOrEmail { get; set; } = null;
+        public string? Password { get; set; } = null;
+    }
+
+    /// <summary>
+    /// Response model for the login process
+    /// </summary>
+    public class LoginResponse
+    {
+        public int UserId { get; set; } = 0;
+        public string PasswordHash { get; set; } = "";
+        public string Token { get; set; } = "";
+        public int HttpStatus { get; set; } = 0;
+        public string Message { get; set; } = "";
+
+        /// <summary>
+        /// Parameterized constructor for user id, username or email, password hash, and message
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <param name="usernameOrEmail"></param>
+        /// <param name="passwordHash"></param>
+        /// <param name="message"></param>
+        public LoginResponse(int userId, string passwordHash, int status, string message)
+        {
+            UserId = userId;
+            PasswordHash = passwordHash;
+            HttpStatus = status;
+            Message = message;
+        }
+
+        /// <summary>
+        /// Parameterized constructor for user id and message
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <param name="message"></param>
+        public LoginResponse(int userId, int status, string message)
+        {
+            UserId = userId;
+            HttpStatus = status;
+            Message = message;
+        }
+    }
+
+
+    public class RegisterRequest
+    {
+        // Class level properties
+        public string? Username { get; set; } = null;
+        public string? Email { get; set; } = null;
+        public string? PasswordHash { get; set; } = null;
+    }
+
+    /// <summary>
+    /// Response model for registration
+    /// </summary>
+    public class RegisterResponse
+    {
+        // Class level properties
+        public int UserId { get; set; }
+        public int HttpStatus { get; set; } = 0;
+        public string? Message { get; set; }
+        public string? Token { get; set; }
+
+        /// <summary>
+        /// Parameterized constructor for the register response model
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <param name="message"></param>
+        public RegisterResponse(int status, string? message, int userId)
+        {
+            UserId = userId;
+            HttpStatus = status;
+            Message = message;
+            Token = null;
+        }
+
+        /// <summary>
+        /// Parameterized constructor for the register response model
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <param name="message"></param>
+        public RegisterResponse(int status, string? message)
+        {
+            UserId = -1;
+            HttpStatus = status;
+            Message = message;
+            Token = null;
+        }
     }
 }

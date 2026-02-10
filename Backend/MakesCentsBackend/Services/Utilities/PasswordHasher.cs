@@ -1,11 +1,8 @@
 ﻿/*
  * Gianna Ross
- * File Created: 1/10/2025
- * File Last Updated: 1/10/2025
- * Makes Cents - Password Hasher
+ * Makes Cents
  * Sources: 
  */
-
 namespace MakesCentsBackend.Services.Utilities
 {
     /// <summary>

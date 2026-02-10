@@ -1,8 +1,6 @@
 ﻿/*
  * Gianna Ross
- * File Created: 1/15/2026
- * File Last Updated: 1/15/2026
- * Makes Cents - Mapping Profile for AutoMapper
+ * Makes Cents
  * Sources: 
  */
 using AutoMapper;
@@ -12,11 +10,13 @@ namespace MakesCentsBackend.Services.Mappers
 {
     public class UserMappingProfile : Profile
     {
+        /// <summary>
+        /// Default constructor for the User Mapping Profile
+        /// </summary>
         public UserMappingProfile()
         {
             CreateMap<UserEntity, UserDTO>();
             CreateMap<UserEntityResponse, UserDTOResponse>();
-
         }
     }
 }

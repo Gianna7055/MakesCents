@@ -1,7 +1,214 @@
 [
   {
+    "ContainingType": "MakesCentsBackend.Controllers.BankAccountController",
+    "Method": "CreateBankAccountAsync",
+    "RelativePath": "api/bank-accounts",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "bankAccount",
+        "Type": "MakesCentsBackend.Models.CreateBankAccountRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MakesCentsBackend.Controllers.BudgetController",
+    "Method": "CreateBudgetAsync",
+    "RelativePath": "api/budgets",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "budget",
+        "Type": "MakesCentsBackend.Models.CreateBudgetRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MakesCentsBackend.Controllers.BudgetController",
+    "Method": "UpdateBudgetAsync",
+    "RelativePath": "api/budgets/{budgetId}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "budgetId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "budget",
+        "Type": "MakesCentsBackend.Models.EditBudgetRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MakesCentsBackend.Controllers.BudgetController",
+    "Method": "DeleteBudgetAsync",
+    "RelativePath": "api/budgets/{budgetId}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "budgetId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MakesCentsBackend.Controllers.BudgetController",
+    "Method": "GetBudgetAsync",
+    "RelativePath": "api/budgets/year/{year}/month/{monthId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "year",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "monthId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MakesCentsBackend.Controllers.DebtAccountController",
+    "Method": "CreateDebtAccountAsync",
+    "RelativePath": "api/debt-accounts",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "debtAccount",
+        "Type": "MakesCentsBackend.Models.CreateDebtAccountRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MakesCentsBackend.Controllers.EnvelopeCategoryController",
+    "Method": "CreateEnvelopeCategoryAsync",
+    "RelativePath": "api/envelope-categories",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "envelopeCategory",
+        "Type": "MakesCentsBackend.Models.CreateEnvelopeCategoryRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MakesCentsBackend.Controllers.EnvelopeCategoryController",
+    "Method": "UpdateEnvelopeCategoryAsync",
+    "RelativePath": "api/envelope-categories/{envelopeCategoryId}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "envelopeCategoryId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "envelopeCategory",
+        "Type": "MakesCentsBackend.Models.EditEnvelopeCategoryRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MakesCentsBackend.Controllers.EnvelopeCategoryController",
+    "Method": "DeleteEnvelopeCategoryAsync",
+    "RelativePath": "api/envelope-categories/{envelopeCategoryId}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "envelopeCategoryId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MakesCentsBackend.Controllers.EnvelopeCategoryController",
+    "Method": "GetAllEnvelopeCategoriesAsync",
+    "RelativePath": "api/envelope-categories/budget/{budgetId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "budgetId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MakesCentsBackend.Controllers.EnvelopeController",
+    "Method": "CreateEnvelopeAsync",
+    "RelativePath": "api/envelopes",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "envelope",
+        "Type": "MakesCentsBackend.Models.CreateEnvelopeRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MakesCentsBackend.Controllers.InvestmentAccountController",
+    "Method": "CreateInvestmentAccountAsync",
+    "RelativePath": "api/investment-accounts",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "investmentAccount",
+        "Type": "MakesCentsBackend.Models.CreateInvestmentAccountRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "MakesCentsBackend.Controllers.UserController",
-    "Method": "GetUserByIdAsync",
+    "Method": "GetUserAsync",
     "RelativePath": "api/user",
     "HttpMethod": "GET",
     "IsController": true,
@@ -19,7 +226,7 @@
     "Parameters": [
       {
         "Name": "user",
-        "Type": "MakesCentsBackend.Models.EditUserDTO",
+        "Type": "MakesCentsBackend.Models.EditUserRequest",
         "IsRequired": true
       }
     ],
@@ -61,7 +268,7 @@
     "Parameters": [
       {
         "Name": "user",
-        "Type": "MakesCentsBackend.Models.UserEntity",
+        "Type": "MakesCentsBackend.Models.RegisterRequest",
         "IsRequired": true
       }
     ],
