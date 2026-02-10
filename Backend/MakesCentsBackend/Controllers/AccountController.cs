@@ -1,11 +1,8 @@
 ﻿/*
  * Gianna Ross
- * File Created: 11/16/2025
- * File Last Updated: 11/16/2025
- * Makes Cents - Accounts Controller
+ * Makes Cents
  * Sources: 
  */
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MakesCentsBackend.Controllers
@@ -13,9 +10,9 @@ namespace MakesCentsBackend.Controllers
     /// <summary>
     /// API controller for accounts
     /// </summary>
-    [Route("api/[controller]")]
+    [Route("api/accounts")]
     [ApiController]
-    public class AccountsController : ControllerBase
+    public class AccountController : ControllerBase
     {
     }
 }
