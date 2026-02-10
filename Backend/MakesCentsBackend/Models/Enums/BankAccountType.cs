@@ -1,8 +1,6 @@
 ﻿/*
  * Gianna Ross
- * File Created: 11/20/2025
- * File Last Updated: 12/15/2025
- * Makes Cents - Bank Account Type Enum
+ * Makes Cents
  * Sources: 
  */
 namespace MakesCentsBackend.Models.Enums

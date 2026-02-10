@@ -1,11 +1,9 @@
 ﻿/*
  * Gianna Ross
- * File Created: 11/20/2025
- * File Last Updated: 12/5/2025
- * Makes Cents - Transaction Split Model
+ * Makes Cents
  * Sources: 
  */
-namespace MakesCentsBackend.Models.Entities
+namespace MakesCentsBackend.Models
 {
     /// <summary>
     /// Model for a transaction split model
@@ -19,5 +17,15 @@ namespace MakesCentsBackend.Models.Entities
         public decimal Amount { get; set; } = 0m;
         public DateTime CreatedAt { get; set; } = new DateTime();
         public DateTime LastUpdatedAt { get; set; } = new DateTime();
+    }
+
+    /// <summary>
+    /// Request model for creating a new transaction split
+    /// </summary>
+    public class CreateTransactionSplitRequest
+    {
+        public int? TransactionId { get; set; } = null;
+        public int? EnvelopeId { get; set; } = null;
+        public decimal? Amount { get; set; } = null;
     }
 }

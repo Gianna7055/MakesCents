@@ -1,11 +1,8 @@
 ﻿/*
  * Gianna Ross
- * File Created: 12/5/2025
- * File Last Updated: 12/15/2025
- * Makes Cents - Debt Payment Regularity Enum
+ * Makes Cents
  * Sources: 
  */
-
 namespace MakesCentsBackend.Models.Enums
 {
     /// <summary>

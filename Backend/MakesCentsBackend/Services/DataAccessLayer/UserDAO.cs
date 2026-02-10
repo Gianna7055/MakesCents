@@ -1,8 +1,6 @@
 ﻿/*
  * Gianna Ross
- * File Created: 12/15/2025
- * File Last Updated: 12/15/2025
- * Makes Cents - User DAO
+ * Makes Cents
  * Sources: 
  */
 using Dapper;
@@ -19,14 +17,14 @@ namespace MakesCentsBackend.Services.DataAccessLayer
     {
         // Class level variables
         string query = "";
-        private readonly IDbConnection _connection;
+        private readonly MySqlConnection _connection;
         
         /// <summary>
         /// Parameterized constructor for the User DAO
         /// Takes in DI parameters
         /// </summary>
         /// <param name="connection"></param>
-        public UserDAO(IDbConnection connection)
+        public UserDAO(MySqlConnection connection)
         {
             _connection = connection;
         }
@@ -37,7 +35,7 @@ namespace MakesCentsBackend.Services.DataAccessLayer
         /// <param name="user">the data for the new user</param>
         /// <returns>The Id of the new user</returns>
         /// 
-        public async Task<RegisterResponse> RegisterUserAsync(UserEntity user)
+        public async Task<RegisterResponse> RegisterUserAsync(RegisterRequest user)
         {
             // Declare and initialize
             query =
@@ -46,35 +44,42 @@ namespace MakesCentsBackend.Services.DataAccessLayer
                 VALUES (@Username, @Email, @PasswordHash, FALSE);
                 SELECT LAST_INSERT_ID();
                 """;
-            int id = -1;
+            int userId;
             string errorColumn = "";
 
-            // Normalize the username and email
-            user.Username = user.Username.ToLower();
-            user.Email = user.Email.ToLower();
             // Use dapper to execute the request and get the users new id
             try
             {
                 // Execute the async scalar method using dapper
-                id = await _connection.ExecuteScalarAsync<int>(query, user);
+                userId = await _connection.ExecuteScalarAsync<int>(query, user);
             }
-            catch (MySqlException ex) when (ex.Number == 1062)
+            catch (MySqlException ex)
             {
-                // Make sure the email was not duplicated (check error)
-                if (ex.Message.Contains("'email'"))
+                // Check if the error is 1062
+                if (ex.Number == 1062)
                 {
-                    errorColumn = "Email";
+                    // Make sure the email was not duplicated (check error)
+                    if (ex.Message.Contains("'email'"))
+                    {
+                        errorColumn = "Email";
+                    }
+                    // Check if the username was duplicated
+                    else if (ex.Message.Contains("'username'"))
+                    {
+                        errorColumn = "Username";
+                    }
+                    // Return the model ith a duplication error
+                    return new RegisterResponse(400, $"{errorColumn} already exists", -1);
                 }
-                // Check if the username was duplicated
-                else if (ex.Message.Contains("'username'"))
-                {
-                    errorColumn = "Username";
-                }
-                // Return the model ith a duplication error
-                return new RegisterResponse(-1, 400, $"{errorColumn} already exists");
-            }          
+                return new RegisterResponse(500, $"{ex.Number}: {ex.Message}", -1);
+            }
+            catch (Exception ex)
+            {
+                // Return the issue
+                return new RegisterResponse(500, $"{ex.Message}", -1);
+            }
             // Return the new id
-            return new RegisterResponse(id, 201, "User registered successfully");
+            return new RegisterResponse(201, "User registered successfully", userId);
         }
 
         /// <summary>
@@ -127,7 +132,7 @@ namespace MakesCentsBackend.Services.DataAccessLayer
         /// </summary>
         /// <param name="userId"></param>
         /// <returns></returns>
-        public async Task<UserEntityResponse> FindUserFromIdAsync(int userId)
+        public async Task<GetUserResponse> GetUserAsync(int userId)
         {
             // Declare and initialize
             query =
@@ -140,28 +145,28 @@ namespace MakesCentsBackend.Services.DataAccessLayer
                     WHERE user_id = @UserId
                     LIMIT 1;
                 """;
-            UserEntity? foundUser;
+            GetUserDTO? foundUser;
 
             try
             {
                 // Get the user from the executed query
-                foundUser = await _connection.QuerySingleOrDefaultAsync<UserEntity>(query, new { UserId = userId });
+                foundUser = await _connection.QuerySingleOrDefaultAsync<GetUserDTO>(query, new { UserId = userId });
             }
             catch (Exception ex)
             {
                 // Return any errors
-                return new UserEntityResponse(new UserEntity { UserId = -1 }, 400, ex.Message);
+                return new GetUserResponse(400, ex.Message);
             }
             // Make sure a user was found
             if (foundUser != null)
             {
                 // Return the found users id and a success message
-                return new UserEntityResponse(foundUser, 200, "User Found");
+                return new GetUserResponse(200, "User Found", foundUser);
             }
             else
             {
                 // Return an error that the user was not found
-                return new UserEntityResponse(new UserEntity { UserId = -1 }, 400, "User not found");
+                return new GetUserResponse(404, "User not found");
             }
         }
 
@@ -170,7 +175,7 @@ namespace MakesCentsBackend.Services.DataAccessLayer
         /// </summary>
         /// <param name="user"></param>
         /// <returns></returns>
-        public async Task<EditUserResponse> UpdateUserAsync(EditUserDTO user)
+        public async Task<BaseIdResponse> UpdateUserAsync(EditUserRequest user)
         {
             // Declare and initialize
             List<string> updates = new List<string>();
@@ -197,7 +202,7 @@ namespace MakesCentsBackend.Services.DataAccessLayer
             // If no fields to update, return early
             if (updates.Count == 0)
             {
-                return new EditUserResponse(user.UserId, 400, "No fields to update");
+                return new BaseIdResponse(400, "No fields to update");
             }
             // Assemble the query
             query = $"""
@@ -211,33 +216,51 @@ namespace MakesCentsBackend.Services.DataAccessLayer
                 // Execute the query
                 rowsAffected = await _connection.ExecuteAsync(query, user);
             }
-            catch (MySqlException ex) when (ex.Number == 1062)
+            catch (MySqlException ex)
             {
-                // Make sure the email was not duplicated (check error)
-                if (ex.Message.Contains("'email'"))
+                // Check if the error is 1062
+                if (ex.Number == 1062)
                 {
-                    errorColumn = "Email";
+                    // Make sure the email was not duplicated (check error)
+                    if (ex.Message.Contains("'email'"))
+                    {
+                        errorColumn = "Email";
+                    }
+                    // Check if the username was duplicated
+                    else if (ex.Message.Contains("'username'"))
+                    {
+                        errorColumn = "Username";
+                    }
+                    // Return the model ith a duplication error
+                    return new BaseIdResponse(400, $"{errorColumn} already exists");
                 }
-                // Check if the username was duplicated
-                else if (ex.Message.Contains("'username'"))
-                {
-                    errorColumn = "Username";
-                }
-                // Return the model ith a duplication error
-                return new EditUserResponse(user.UserId, 400, $"{errorColumn} already exists");
+                return new BaseIdResponse(500, $"{ex.Number}: {ex.Message}");
             }
+            catch (Exception ex)
+            {
+                // Return the issue
+                return new BaseIdResponse(500, $"{ex.Message}");
+            }
+
             // Make sure the row was affected
             if (rowsAffected == 1)
             {
-                return new EditUserResponse(user.UserId, 200, "Update was successful");
+                if (user.UserId is int userId)
+                {
+                    return new BaseIdResponse(200, "Update was successful", userId);
+                }
+                else
+                {
+                    return new BaseIdResponse(400, "An error occurred");
+                }
             }
             else if (rowsAffected == 0)
             {
-                return new EditUserResponse(user.UserId, 404, "User not found");
+                return new BaseIdResponse(404, "User not found");
             }
             else
             {
-                return new EditUserResponse(user.UserId, 400, "An error occurred");
+                return new BaseIdResponse(400, "An error occurred");
             }
         }
 
@@ -250,7 +273,7 @@ namespace MakesCentsBackend.Services.DataAccessLayer
         {
             // Declare and initialize
             query = "DELETE FROM user WHERE user_id = @UserId";
-            int rowsAffected = 0;
+            int rowsAffected;
 
             // Execute the query
             rowsAffected = await _connection.ExecuteAsync(query, new { UserId = userId });

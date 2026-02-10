@@ -1,8 +1,6 @@
 ﻿/*
  * Gianna Ross
- * File Created: 1/10/2026
- * File Last Updated: 1/10/2026
- * Makes Cents - JWT Service
+ * Makes Cents
  * Sources: https://chatgpt.com/c/6962a61c-d0f8-8333-99ec-aee778f83ea2
  */
 using System.IdentityModel.Tokens.Jwt;
@@ -21,10 +19,13 @@ namespace MakesCentsBackend.Services.Utilities
         private readonly string _issuer;
         private readonly int _expiresMinutes;
 
-        // Constructor: inject IConfiguration directly
+        /// <summary>
+        /// Set readonly class variables
+        /// </summary>
+        /// <param name="configuration"></param>
+        /// <exception cref="Exception"></exception>
         public JwtService(IConfiguration configuration)
         {
-            // Pull JWT settings manually from app settings.json
             _key = configuration["Jwt:Key"] ?? throw new Exception("JWT Key missing");
             _issuer = configuration["Jwt:Issuer"] ?? throw new Exception("JWT Issuer missing");
             _expiresMinutes = int.TryParse(configuration["Jwt:ExpiresMinutes"], out var mins) ? mins : 60;
@@ -44,20 +45,20 @@ namespace MakesCentsBackend.Services.Utilities
             new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
         };
 
-            // 2. Convert your secret key string to a cryptographic key
+            // 2. Convert the secret key string to a cryptographic key
             var key = new SymmetricSecurityKey(
                 Encoding.UTF8.GetBytes(_key) // Secret must be UTF-8 bytes
             );
 
             // 3. Create signing credentials
-            // HMACSHA256 algorithm will sign the token with your secret key
+            // HMACSHA256 algorithm will sign the token with the secret key
             var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
 
             // 4. Create the JWT token
             var token = new JwtSecurityToken(
                 issuer: _issuer,              // Who issued the token
                 audience: null,                        // Optional, who can accept it (null for now)
-                claims: claims,                        // The claims we defined above
+                claims: claims,                        // The claims defined above
                 expires: DateTime.UtcNow.AddMinutes(_expiresMinutes), // Token expiration
                 signingCredentials: creds              // How the token is signed
             );

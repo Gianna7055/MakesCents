@@ -1,8 +1,6 @@
 ﻿/*
  * Gianna Ross
- * File Created: 12/15/2025
- * File Last Updated: 12/15/2025
- * Makes Cents - Planned Expense Occurrence Enum
+ * Makes Cents
  * Sources: 
  */
 namespace MakesCentsBackend.Models.Enums

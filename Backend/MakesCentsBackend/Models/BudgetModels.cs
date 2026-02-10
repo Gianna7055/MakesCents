@@ -1,12 +1,11 @@
 ﻿/*
  * Gianna Ross
- * File Created: 1/23/2026
- * File Last Updated: 1/23/2026
- * Makes Cents - Budget Models
+ * Makes Cents
  * Sources: 
  */
 using MakesCentsBackend.Models.Entities;
 using MakesCentsBackend.Models.Enums;
+using System.Text.Json.Serialization;
 
 namespace MakesCentsBackend.Models
 {
@@ -31,14 +30,120 @@ namespace MakesCentsBackend.Models
     }
 
     /// <summary>
-    /// DTO model for a budget
+    /// Request model for creating a budget
     /// </summary>
-    public class BudgetDTO
+    public class CreateBudgetRequest
     {
+        public int? UserId { get; set; } = null;
+        public Month Month { get; set; } = Month.Unknown;
+        public int? Year { get; set; } = null;
+        public string? BudgetName { get; set; } = null;
+    }
+
+    /// <summary>
+    /// DTO model for getting a budget
+    /// </summary>
+    public class GetBudgetRequest
+    {
+        public int? UserId { get; set; } = null;
+        public Month Month { get; set; } = Month.Unknown;
+        public int? Year { get; set; } = null;
+
+        /// <summary>
+        /// Parameterized constructor for a Get Budget DTO
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <param name="month"></param>
+        /// <param name="year"></param>
+        public GetBudgetRequest(int? userId, Month month, int? year)
+        {
+            UserId = userId;
+            Month = month;
+            Year = year;
+        }
+    }
+
+    /// <summary>
+    /// DTO model for sending a budget to the API for getting a budget
+    /// </summary>
+    public class GetBudgetDTO
+    {
+        // Class Level Properties
         public int BudgetId { get; set; } = 0;
         public int UserId { get; set; } = 0;
+
+        [JsonPropertyName("monthId")]
         public Month Month { get; set; } = Month.Unknown;
         public int Year { get; set; } = 0;
         public string BudgetName { get; set; } = "";
+        public List<SummaryEnvelopeCategoryResponse> EnvelopeCategories { get; set; } = new List<SummaryEnvelopeCategoryResponse>();
+
+        /// <summary>
+        /// Default constructor for a GetBudgetDTO
+        /// </summary>
+        public GetBudgetDTO()
+        {
+        }
+
+        /// <summary>
+        /// Parameterized constructor for a Get Budget DTO
+        /// </summary>
+        /// <param name="budgetId"></param>
+        public GetBudgetDTO(int budgetId, int userId, Month month, int year, string budgetName) : this(budgetId, userId, month, year)
+        {
+            BudgetName = budgetName;
+        }
+
+
+        /// <summary>
+        /// Parameterized constructor for a Get Budget DTO
+        /// </summary>
+        /// <param name="budgetId"></param>
+        public GetBudgetDTO(int budgetId, int userId, Month month, int year)
+        {
+            BudgetId = budgetId;
+            UserId = userId;
+            Month = month;
+            Year = year;
+        }
+    }
+
+    /// <summary>
+    /// Response model for getting a budget
+    /// </summary>
+    public class GetBudgetResponse
+    {
+        // Class Level Properties
+        public int HttpStatus { get; set; } = 0;
+        public string Message { get; set; } = "";
+        public GetBudgetDTO GetBudgetDTO { get; set; } = new GetBudgetDTO();
+
+        public GetBudgetResponse(int status, string message, GetBudgetDTO getBudgetDTO)
+        {
+            HttpStatus = status;
+            Message = message;
+            GetBudgetDTO = getBudgetDTO;
+        }
+
+        public GetBudgetResponse(int status, string message)
+        {
+            HttpStatus = status;
+            Message = message;
+        }
+
+        public GetBudgetResponse(int budgetId, int userId, Month month, int year, string budgetName)
+        {
+            GetBudgetDTO = new GetBudgetDTO(budgetId, userId, month, year, budgetName);
+        }
+    }
+
+    /// <summary>
+    /// Request model for updating a budget
+    /// </summary>
+    public class EditBudgetRequest
+    {
+        public int? BudgetId { get; set; } = null;
+        public int? UserId { get; set; } = null;
+        public string? BudgetName { get; set; } = null;
     }
 }

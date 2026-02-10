@@ -1,15 +1,13 @@
 ﻿/*
  * Gianna Ross
- * File Created: 1/10/2025
- * File Last Updated: 1/10/2025
- * Makes Cents - User Logic
+ * Makes Cents
  * Sources: 
  */
 using AutoMapper;
 using MakesCentsBackend.Models;
 using MakesCentsBackend.Services.DataAccessLayer;
 using MakesCentsBackend.Services.Utilities;
-using System.Data.Common;
+using System.ComponentModel.DataAnnotations;
 
 namespace MakesCentsBackend.Services.BusinessLogicLayer
 {
@@ -19,9 +17,9 @@ namespace MakesCentsBackend.Services.BusinessLogicLayer
     public class UserLogic
     {
         // Class level variables
-        private UserDAO _userDAO;
-        private JwtService _jwtService;
-        private IMapper _mapper;
+        private readonly UserDAO _userDAO;
+        private readonly JwtService _jwtService;
+        private readonly IMapper _mapper;
 
         /// <summary>
         /// Parameterized constructor for UserLogic 
@@ -40,22 +38,44 @@ namespace MakesCentsBackend.Services.BusinessLogicLayer
         /// </summary>
         /// <param name="user">The new user to create</param>
         /// <returns></returns>
-        public async Task<RegisterResponse> RegisterUserAsync(UserEntity user)
+        public async Task<RegisterResponse> RegisterUserAsync(RegisterRequest user)
         {
             // Declare and initialize
             RegisterResponse response;
+            int maxUsernameLength = 30;
+            int maxEmailLength = 320;
 
             // Make sure the user has the required fields
+            // Check for missing fields
             if (String.IsNullOrEmpty(user.Username) || String.IsNullOrEmpty(user.Email) || String.IsNullOrEmpty(user.PasswordHash))
             {
-                return new RegisterResponse(-1, 400, "Missing information for registration");
+                return new RegisterResponse(400, "Missing information for registration");
             }
+            // Check if the email is in a valid format
+            else if (!new EmailAddressAttribute().IsValid(user.Email))
+            {
+                return new RegisterResponse(400, "Invalid email format");
+            }
+            // Check if the username is a valid length
+            else if (user.Username.Length > maxUsernameLength)
+            {
+                return new RegisterResponse(400, "Username exceeds maximum length of " + maxUsernameLength);
+            }
+            // Check if the email is a valid length
+            else if (user.Email.Length > maxEmailLength)
+            {
+                return new RegisterResponse(400, "Email exceeds maximum length of " + maxEmailLength);
+            }
+
             // Hash the users password
             user.PasswordHash = PasswordHasher.HashPassword(user.PasswordHash);
+            // Normalize the username and email
+            user.Username = user.Username.ToLower();
+            user.Email = user.Email.ToLower();
             // Call the Create User method in the DAO
             response = await _userDAO.RegisterUserAsync(user);
             // Check if the response came back with an error status
-            if (response.Status == 400)
+            if (response.HttpStatus == 400)
             {
                 // Return the existing error response
                 return response;
@@ -76,19 +96,26 @@ namespace MakesCentsBackend.Services.BusinessLogicLayer
             // Declare and initialize
             LoginResponse response;
 
-            // Make sure a username/email (saved in username) and password were provided
+            // Make sure a username/email (saved in usernameOrEmail) and password were provided
             if (String.IsNullOrEmpty(user.UsernameOrEmail) || String.IsNullOrEmpty(user.Password))
             {
                 return new LoginResponse(-1, 400, "Missing information for login");
             }
+            // Check to make sure the usernameOrEmail is the correct length
+            else if (user.UsernameOrEmail.Length > 320)
+            {
+                return new LoginResponse(-1, 400, "Username or email exceeds maximum length");
+            }
+
             // Get the user from the DAO based on the username
             response = await _userDAO.FindUserByUsernameOrEmailAsync(user.UsernameOrEmail);
             // Check if the response status is 400
-            if (response.Status == 400)
+            if (response.HttpStatus == 400)
             {
                 // Check if the error was due to an unfound user
                 if (response.Message == "User not found")
                 {
+                    response.HttpStatus = 401;
                     // Return the invalid login response
                     response.Message = "Invalid username or password";
                 }
@@ -105,7 +132,8 @@ namespace MakesCentsBackend.Services.BusinessLogicLayer
                 return response;
             }
             // Else, return the invalid login response
-            response.Message = "Invalid username or password";
+            response.HttpStatus = 401;
+            response.Message = "Invalid password or password";
             return response;
         }
 
@@ -114,18 +142,16 @@ namespace MakesCentsBackend.Services.BusinessLogicLayer
         /// </summary>
         /// <param name="userId"></param>
         /// <returns></returns>
-        public async Task<UserDTOResponse> FindUserFromIdAsync(int userId)
+        public async Task<GetUserResponse> GetUserAsync(int userId)
         {
             // Declare and initialize
-            UserEntityResponse entityResponse;
-            UserDTOResponse dtoResponse;
+            GetUserResponse response;
 
             // Call and return the Get User From Id Async method from the DAO
-            entityResponse = await _userDAO.FindUserFromIdAsync(userId);
-            dtoResponse = _mapper.Map<UserDTOResponse>(entityResponse);
+            response = await _userDAO.GetUserAsync(userId);
 
-            // Return the DTO response
-            return dtoResponse;
+            // Return the response
+            return response;
         }
 
         /// <summary>
@@ -133,15 +159,15 @@ namespace MakesCentsBackend.Services.BusinessLogicLayer
         /// </summary>
         /// <param name="user">The new user to create</param>
         /// <returns></returns>
-        public async Task<EditUserResponse> UpdateUserAsync(EditUserDTO user)
+        public async Task<BaseIdResponse> UpdateUserAsync(EditUserRequest user)
         {
             // Declare and initialize
-            EditUserResponse response;
+            BaseIdResponse response;
 
             // Make sure the user has the required fields
-            if (user.UserId == 0)
+            if (user.UserId == null)
             {
-                return new EditUserResponse(user.UserId, -1, "Missing information for update");
+                return new BaseIdResponse(400, "Missing information for update");
             }
             if (!string.IsNullOrEmpty(user.PasswordHash))
             {

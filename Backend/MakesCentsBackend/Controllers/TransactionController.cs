@@ -1,11 +1,8 @@
 ﻿/*
  * Gianna Ross
- * File Created: 11/16/2025
- * File Last Updated: 11/16/2025
- * Makes Cents - Transactions Controller
+ * Makes Cents
  * Sources: 
  */
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MakesCentsBackend.Controllers
@@ -15,7 +12,7 @@ namespace MakesCentsBackend.Controllers
     /// </summary>
     [Route("api/[controller]")]
     [ApiController]
-    public class TransactionsController : ControllerBase
+    public class TransactionController : ControllerBase
     {
     }
 }

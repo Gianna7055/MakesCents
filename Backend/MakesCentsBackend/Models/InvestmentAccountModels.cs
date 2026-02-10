@@ -1,13 +1,11 @@
 ﻿/*
  * Gianna Ross
- * File Created: 11/20/2025
- * File Last Updated: 12/15/2025
- * Makes Cents - Investment Account Model
+ * Makes Cents
  * Sources: 
  */
 using MakesCentsBackend.Models.Enums;
 
-namespace MakesCentsBackend.Models.Entities
+namespace MakesCentsBackend.Models
 {
     /// <summary>
     /// Model for an investment account
@@ -20,5 +18,17 @@ namespace MakesCentsBackend.Models.Entities
         public string? InvestmentAccountNumber { get; set; } = null;
         public bool IsTaxDeferred { get; set; } = false;
         public bool IsTaxExempt { get; set; } = false;
+    }
+
+    /// <summary>
+    /// Request model to create an investment account
+    /// </summary>
+    public class CreateInvestmentAccountRequest : CreateAccountRequest
+    {
+        // Class variables
+        public InvestmentAccountType InvestmentAccountType { get; set; } = InvestmentAccountType.Unknown;
+        public Optional<int?> AccountNumber { get; set; } = null;
+        public bool? IsTaxDeferred { get; set; } = null;
+        public bool? IsTaxExempt { get; set; } = null;
     }
 }

@@ -1,13 +1,11 @@
 ﻿/*
  * Gianna Ross
- * File Created: 11/20/2025
- * File Last Updated: 12/15/2025
- * Makes Cents - Debt Account Model
+ * Makes Cents
  * Sources: 
  */
 using MakesCentsBackend.Models.Enums;
 
-namespace MakesCentsBackend.Models.Entities
+namespace MakesCentsBackend.Models
 {
     /// <summary>
     /// Model for a debt account
@@ -21,5 +19,18 @@ namespace MakesCentsBackend.Models.Entities
         public DateOnly? DateOfNextBill { get; set; } = null;
         public decimal? AmountOfNextBill { get; set; } = null;
         public DebtPaymentRegularity? DebtPaymentRegularity { get; set; } = null;
+    }
+
+    /// <summary>
+    /// Request model for creating a debt account model
+    /// </summary>
+    public class CreateDebtAccountRequest : CreateAccountRequest
+    {
+        // Class properties
+        public DebtAccountType DebtAccountType { get; set; } = DebtAccountType.Unknown;
+        public Optional<int?> AccountNumber { get; set; } = null;
+        public Optional<DateOnly?> DateOfNextBill { get; set; } = null;
+        public Optional<decimal?> AmountOfNextBill { get; set; } = null;
+        public Optional<DebtPaymentRegularity?> DebtPaymentRegularity { get; set; } = null;
     }
 }

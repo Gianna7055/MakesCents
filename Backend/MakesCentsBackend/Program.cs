@@ -1,36 +1,78 @@
-using AutoMapper;
+/*
+ * Gianna Ross
+ * Makes Cents
+ * Sources: 
+ */
+using Dapper;
+using MakesCentsBackend.Models.Converters;
 using MakesCentsBackend.Services.BusinessLogicLayer;
 using MakesCentsBackend.Services.DataAccessLayer;
 using MakesCentsBackend.Services.Mappers;
 using MakesCentsBackend.Services.Utilities;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 using MySqlConnector;
-using System.Data;
 using System.Text;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+// Disable the automatic model checking (for control of error responses)
+builder.Services.Configure<ApiBehaviorOptions>(options =>
+{
+    options.SuppressModelStateInvalidFilter = true;
+});
 
 // Add a scoped DI for the connection string
-builder.Services.AddScoped<IDbConnection>(sp =>
+builder.Services.AddScoped<MySqlConnection>(sp =>
     new MySqlConnection(
         builder.Configuration.GetConnectionString("DefaultConnection")));
+
+// Add support for enum conversions
+builder.Services.AddControllers()
+    .AddJsonOptions(options =>
+        options.JsonSerializerOptions.Converters.Add(
+            new JsonStringEnumConverter()));
+// Add the Optional<T> converter
+builder.Services.AddControllers()
+    .AddJsonOptions(options =>
+    {
+        options.JsonSerializerOptions.Converters.Add(new OptionalJsonConverterFactory());
+        options.JsonSerializerOptions.PropertyNamingPolicy = JsonNamingPolicy.CamelCase;
+    });
+
+// Add the Authorization Service with DI
+builder.Services.AddScoped<AuthorizationService>();
 
 // Add AutoMapper with DI
 builder.Services.AddAutoMapper(config =>
 {
     config.AddProfile<UserMappingProfile>();
 }, AppDomain.CurrentDomain.GetAssemblies());
+SqlMapper.AddTypeHandler(new DateOnlyHandler());
 
 // Add a scoped logic classes that will persist for each request
 builder.Services.AddScoped<UserLogic>();
 builder.Services.AddScoped<BudgetLogic>();
+builder.Services.AddScoped<EnvelopeCategoryLogic>();
+builder.Services.AddScoped<EnvelopeLogic>();
+builder.Services.AddScoped<BankAccountLogic>();
+builder.Services.AddScoped<DebtAccountLogic>();
+builder.Services.AddScoped<InvestmentAccountLogic>();
+builder.Services.AddScoped<PaycheckLogic>();
 
 // Add a scoped DAO classes that will persist for each request
 builder.Services.AddScoped<UserDAO>();
 builder.Services.AddScoped<BudgetDAO>();
+builder.Services.AddScoped<EnvelopeCategoryDAO>();
+builder.Services.AddScoped<EnvelopeDAO>();
+builder.Services.AddScoped<BankAccountDAO>();
+builder.Services.AddScoped<DebtAccountDAO>();
+builder.Services.AddScoped<InvestmentAccountDAO>();
+builder.Services.AddScoped<PaycheckDAO>();
 
 // Get the JWT key and issuer
 var jwtKey = builder.Configuration["Jwt:Key"];

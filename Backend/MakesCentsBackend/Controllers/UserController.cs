@@ -1,8 +1,6 @@
 ﻿/*
  * Gianna Ross
- * File Created: 11/16/2025
- * File Last Updated: 11/16/2025
- * Makes Cents - User Controller
+ * Makes Cents
  * Sources: 
  */
 using MakesCentsBackend.Models;
@@ -21,8 +19,12 @@ namespace MakesCentsBackend.Controllers
     public class UserController : ControllerBase
     {
         // Class level variables
-        private UserLogic _userLogic;
+        private readonly UserLogic _userLogic;
 
+        /// <summary>
+        /// Parameterized constructor to bring in DI variables
+        /// </summary>
+        /// <param name="userLogic"></param>
         public UserController(UserLogic userLogic)
         {
             _userLogic = userLogic;
@@ -35,22 +37,16 @@ namespace MakesCentsBackend.Controllers
         /// <returns>The code status, user id, token, and message</returns>
         [AllowAnonymous]
         [HttpPost("register")]
-        public async Task<ActionResult> RegisterUserAsync(UserEntity user)
+        public async Task<ActionResult> RegisterUserAsync(RegisterRequest user)
         {
             // Declare and initialize
             RegisterResponse response;
-
-            // Validate the model
-            if (!ModelState.IsValid)
-            {
-                return BadRequest("Missing information for registration");
-            }
 
             // Call the method in the logic class
             response = await _userLogic.RegisterUserAsync(user);
 
             // Check if the userId came back correctly
-            if (response.Status == 400)
+            if (response.HttpStatus == 400)
             {
                 return BadRequest(response.Message);
             }
@@ -58,7 +54,7 @@ namespace MakesCentsBackend.Controllers
             // Return a success otherwise
             return Created("", new
             {
-                status = response.Status,
+                status = response.HttpStatus,
                 userId = response.UserId,
                 token = response.Token,
                 message = response.Message
@@ -77,28 +73,29 @@ namespace MakesCentsBackend.Controllers
             // Declare and initialize
             LoginResponse response;
 
-            // Validate the model
-            if (!ModelState.IsValid)
-            {
-                return BadRequest("Missing information for login");
-            }
             // Call the method from the logic class
             response = await _userLogic.LoginUserAsync(user);
-
             // Check if the userId came back correctly
-            if (response.Status == 400)
+            if (response.HttpStatus == 400)
             {
                 return BadRequest(response.Message);
             }
-
-            // Return a success otherwise
-            return Created("", new
+            // Check if the userId came back correctly
+            else if (response.HttpStatus == 401)
             {
-                status = response.Status,
-                userId = response.UserId,
-                token = response.Token,
-                message = response.Message
-            });
+                return Unauthorized(response.Message);
+            }
+            else
+            {
+                // Return a success otherwise
+                return Ok(new
+                {
+                    status = response.HttpStatus,
+                    userId = response.UserId,
+                    token = response.Token,
+                    message = response.Message
+                });
+            }
         }
 
         /// <summary>
@@ -108,29 +105,35 @@ namespace MakesCentsBackend.Controllers
         /// <returns></returns>
         [HttpGet]
         [Authorize]
-        public async Task<ActionResult> GetUserByIdAsync()
+        public async Task<ActionResult> GetUserAsync()
         {
             // Declare and initialize
-            UserDTOResponse response;
+            GetUserResponse response;
             // Get the user id from the JWT token
             int userId = ClaimsPrincipalExtensions.GetUserId(User);
             
             // Call the method from the logic class
-            response = await _userLogic.FindUserFromIdAsync(userId);
+            response = await _userLogic.GetUserAsync(userId);
 
             // Check if the status came back correctly
-            if (response.Status == 400)
+            if (response.HttpStatus == 400)
             {
                 return BadRequest(response.Message);
             }
-
-            // Return a success otherwise
-            return Ok(new
+            else if (response.HttpStatus == 404)
             {
-                status = response.Status,
-                user = response.User,
-                message = response.Message
-            });
+                return NotFound(response.Message);
+            }
+            else
+            {
+                // Return a success otherwise
+                return Ok(new
+                {
+                    status = response.HttpStatus,
+                    message = response.Message,
+                    user = response.GetUserDTO
+                });
+            }
         }
 
         /// <summary>
@@ -141,10 +144,10 @@ namespace MakesCentsBackend.Controllers
         /// <returns></returns>
         [HttpPut]
         [Authorize]
-        public async Task<ActionResult> UpdateUserAsync(EditUserDTO user)
+        public async Task<ActionResult> UpdateUserAsync(EditUserRequest user)
         {
             // Declare and initialize
-            EditUserResponse response;
+            BaseIdResponse response;
             // Get the user id from the JWT token
             int userId = ClaimsPrincipalExtensions.GetUserId(User);
 
@@ -154,12 +157,12 @@ namespace MakesCentsBackend.Controllers
             response = await _userLogic.UpdateUserAsync(user);
 
             // Check if the status came back as a success
-            if (response.Status == 400)
+            if (response.HttpStatus == 400)
             {
                 // Return a bad request
                 return BadRequest(response.Message);
             }
-            else if (response.Status == 404)
+            else if (response.HttpStatus == 404)
             {
                 // Return a not found
                 return NotFound(response.Message);
@@ -169,9 +172,9 @@ namespace MakesCentsBackend.Controllers
                 // Return Ok
                 return Ok(new
                 {
-                    status = response.Status,
+                    status = response.HttpStatus,
                     message = response.Message,
-                    userId = response.UserId
+                    userId = response.Id
                 });
             }
         }
@@ -193,7 +196,7 @@ namespace MakesCentsBackend.Controllers
             // Call the logic method to delete the user
             response = await _userLogic.DeleteUserAsync(userId);
 
-            if (response.Status == 40)
+            if (response.HttpStatus == 404)
             {
                 // Return a not found
                 return NotFound(response.Message);
@@ -203,10 +206,10 @@ namespace MakesCentsBackend.Controllers
                 // Return Ok
                 return Ok(new
                 {
-                    status = response.Status,
+                    status = response.HttpStatus,
                     message = response.Message,
                 });
-             }
+            }
         }
     }
 }
