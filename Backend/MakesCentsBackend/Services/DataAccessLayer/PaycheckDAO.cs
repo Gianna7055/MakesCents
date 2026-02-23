@@ -66,7 +66,7 @@ namespace MakesCentsBackend.Services.DataAccessLayer
                     // Execute the query and get the paycheck id
                     paycheckId = await _connection.QuerySingleAsync<int>(query, paycheck, dbTransaction);
                     // Set the paycheck id in the response
-                    response.PaycheckId = paycheckId;
+                    response.Id = paycheckId;
                     // Loop through the paycheck splits
                     foreach (CreatePaycheckSplitRequest split in paycheck.PaycheckSplits)
                     {
@@ -80,7 +80,7 @@ namespace MakesCentsBackend.Services.DataAccessLayer
                         """;
                         // Execute the query
                         paycheckSplitId = await _connection.QuerySingleAsync<int>(query, split, dbTransaction);
-                        // Add the new id to the DTO split id list
+                        // Add the new id to the response split id list
                         response.PaycheckSplitIds.Add(paycheckSplitId);
                     }
                     // Commit the transaction
@@ -113,6 +113,89 @@ namespace MakesCentsBackend.Services.DataAccessLayer
             response.HttpStatus = 201;
             response.Message = "Paycheck created successfully";
             // Return the result
+            return response;
+        }
+
+
+        public async Task<GetAllPaychecksResponse> GetAllPaychecksAsync(BaseGetRequest request)
+        {
+            // Declare and initialize
+            query = """
+                SELECT 
+                    paycheck.paycheck_id AS PaycheckId,
+                    paycheck.budget_id AS BudgetId,
+                    paycheck.starting_date AS StartingDate,
+                    paycheck.secondary_date AS SecondaryDate,
+                    paycheck.total_amount AS TotalAmount,
+                    paycheck.paycheck_regularity_id AS PaycheckRegularityId
+                FROM paycheck
+                WHERE paycheck.budget_id = @BudgetId
+                ORDER BY paycheck.starting_date DESC;
+                """;
+            GetAllPaychecksResponse response = new GetAllPaychecksResponse();
+
+            // Make sure the budget belongs to the user
+            if (!await _authService.VerifyUserOwnsBudgetAsync(request.EntityId, request.UserId))
+            {
+                return new GetAllPaychecksResponse(403, "Budget does not belong to the current user.");
+            }
+            // Execute the query
+            response.Paychecks = (await _connection.QueryAsync<SummaryPaycheckResponse>(query, new { BudgetId = request.EntityId })).ToList();
+
+            // Set the http status and message for the response
+            response.HttpStatus = 200;
+            response.Message = "Paychecks found";
+            // Return the response
+            return response;
+        }
+
+
+        public async Task<GetPaycheckResponse> GetPaycheckAsync(BaseGetRequest request)
+        {
+            // Declare and initialize
+            GetPaycheckResponse response = new GetPaycheckResponse();
+            GetPaycheckDTOModel responseDTO;
+
+            // Set up the query to get the paycheck
+            query = """
+                SELECT 
+                    paycheck.paycheck_id AS PaycheckId,
+                    paycheck.budget_id AS BudgetId,
+                    paycheck.starting_date AS StartingDate,
+                    paycheck.secondary_date AS SecondaryDate,
+                    paycheck.total_amount AS TotalAmount,
+                    paycheck.paycheck_regularity_id AS PaycheckRegularityId
+                FROM paycheck
+                WHERE paycheck.paycheck_id = @PaycheckId
+                """;
+            // Execute the query and get the DTO
+            responseDTO = await _connection.QuerySingleAsync<GetPaycheckDTOModel>(query, new { PaycheckId = request.EntityId });
+            // Make sure the paycheck is not null
+            if (responseDTO == null)
+            {
+                return new GetPaycheckResponse(404, "Paycheck not found");
+            }
+
+            // Set up the query for the list of paycheck splits
+            query = """
+                SELECT 
+                    paycheck_split.paycheck_split_id AS PaycheckSplitId,
+                    paycheck_split.paycheck_id AS PaycheckId,
+                    paycheck_split.envelope_id AS EnvelopeId,
+                    paycheck_split.amount AS Amount,
+                    paycheck_split.order_index AS OrderIndex
+                FROM paycheck_split
+                WHERE paycheck_split.paycheck_id = @PaycheckId;
+                """;
+            // Execute the query
+            responseDTO.PaycheckSplits = (await _connection.QueryAsync<GetPaycheckSplitDTOModel>(query, new { PaycheckId = request.EntityId })).ToList();
+
+            // Set the paycheck split in the response model
+            response.Paycheck = responseDTO;
+            // Set the status and the message for the response
+            response.HttpStatus = 200;
+            response.Message = "Debt account found";
+            // Return the response
             return response;
         }
     }

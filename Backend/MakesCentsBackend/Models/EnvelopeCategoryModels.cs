@@ -46,12 +46,10 @@ namespace MakesCentsBackend.Models
     /// <summary>
     /// Response model for getting all envelope categories
     /// </summary>
-    public class GetAllEnvelopeCategoriesResponse
+    public class GetAllEnvelopeCategoriesResponse : BaseResponse
     {
         // Class properties
-        public int HttpStatus { get; set; } = 0;
-        public string Message { get; set; } = "";
-        public List<SummaryEnvelopeCategoryResponse> AllEnvelopeCategories { get; set; } = new List<SummaryEnvelopeCategoryResponse>();
+        public List<SummaryEnvelopeCategoryResponse> EnvelopeCategories { get; set; } = new List<SummaryEnvelopeCategoryResponse>();
 
         /// <summary>
         /// Default constructor for GetEnvelopeCategoryResponse
@@ -59,9 +57,7 @@ namespace MakesCentsBackend.Models
         /// <param name="status"></param>
         /// <param name="message"></param>
         /// <param name="allEnvelopeCategories"></param>
-        public GetAllEnvelopeCategoriesResponse()
-        {
-        }
+        public GetAllEnvelopeCategoriesResponse() : base() { }
 
         /// <summary>
         /// Parameterized constructor for GetEnvelopeCategoryResponse
@@ -69,11 +65,7 @@ namespace MakesCentsBackend.Models
         /// <param name="status"></param>
         /// <param name="message"></param>
         /// <param name="allEnvelopeCategories"></param>
-        public GetAllEnvelopeCategoriesResponse(int status, string message)
-        {
-            HttpStatus = status;
-            Message = message;
-        }
+        public GetAllEnvelopeCategoriesResponse(int status, string message) : base(status, message) { }
     }
 
     /// <summary>

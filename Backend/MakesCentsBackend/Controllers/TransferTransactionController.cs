@@ -11,40 +11,40 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace MakesCentsBackend.Controllers
 {
-    [Route("api/investment-accounts")]
+    [Route("api/transfer-transactions")]
     [ApiController]
-    public class InvestmentAccountController : ControllerBase
+    public class TransferTransactionController : ControllerBase
     {
-        // Class level variables
-        private readonly InvestmentAccountLogic _investmentAccountLogic;
+        // Class level properties
+        private readonly TransferTransactionLogic _transferTransactionLogic;
 
         /// <summary>
         /// Parameterized constructor to bring in DI variables
         /// </summary>
-        /// <param name="investmentAccountLogic"></param>
-        public InvestmentAccountController(InvestmentAccountLogic investmentAccountLogic)
+        /// <param name="transferTransactionLogic"></param>
+        public TransferTransactionController(TransferTransactionLogic transferTransactionLogic)
         {
-            _investmentAccountLogic = investmentAccountLogic;
+            _transferTransactionLogic = transferTransactionLogic;
         }
 
         /// <summary>
-        /// HTTP POST method to create a new investment account
+        /// HTTP POST method to create a new transfer transaction
         /// </summary>
-        /// <param name="investmentAccount"></param>
+        /// <param name="transferTransaction"></param>
         /// <returns></returns>
         [Authorize]
         [HttpPost]
-        public async Task<ActionResult> CreateInvestmentAccountAsync(CreateInvestmentAccountRequest investmentAccount)
+        public async Task<ActionResult> CreateTransferTransactionAsync(CreateTransferTransactionRequest transferTransaction)
         {
             // Declare and initialize
-            CreateInvestmentAccountResponse response;
-            // Get the user id from the JWT token
+            CreateTransferTransactionResponse response;
+            // Get the User id from the JWT token
             int userId = ClaimsPrincipalExtensions.GetUserId(User);
 
-            // Set the user id for the budget
-            investmentAccount.UserId = userId;
+            // Set the user id for the transfer transaction
+            transferTransaction.UserId = userId;
             // Call the logic method
-            response = await _investmentAccountLogic.CreateInvestmentAccountAsync(investmentAccount);
+            response = await _transferTransactionLogic.CreateTransferTransactionAsync(transferTransaction);
             // Check the status
             if (response.HttpStatus == 400)
             {
@@ -56,35 +56,34 @@ namespace MakesCentsBackend.Controllers
                 // Return the forbidden response
                 return StatusCode(StatusCodes.Status403Forbidden, response.Message);
             }
-            // Response HttpStatus is 201
-            else
+            else // Response HttpStatus is 201
             {
                 // Return the success
                 return Created("", new
                 {
                     status = response.HttpStatus,
                     message = response.Message,
-                    accountId = response.AccountId,
-                    investmentAccountId = response.InvestmentAccountId
+                    transactionId = response.Id,
+                    transferTransactionId = response.TransferTransactionId
                 });
             }
         }
 
         [Authorize]
-        [HttpGet("{investmentAccountId}")]
-        public async Task<ActionResult> GetInvestmentAccountAsync(int investmentAccountId)
+        [HttpGet("{paycheckTransactionId}")]
+        public async Task<ActionResult> GetTransferTransactionAsync(int paycheckTransactionId)
         {
             // Declare and initialize
-            GetInvestmentAccountDTOResponse response;
+            GetTransferTransactionDTOResponse response;
             BaseGetRequest request = new BaseGetRequest();
             // Get the user id from the JWT token
             int userId = ClaimsPrincipalExtensions.GetUserId(User);
 
-            // Set the user id and the budget id in the request
+            // Set the user and paycheck transaction ids in the request
             request.UserId = userId;
-            request.EntityId = investmentAccountId;
+            request.EntityId = paycheckTransactionId;
             // Call the logic method
-            response = await _investmentAccountLogic.GetInvestmentAccountAsync(request);
+            response = await _transferTransactionLogic.GetTransferTransactionAsync(request);
             // Check if the response came back as not found
             if (response.HttpStatus == 404)
             {
@@ -92,7 +91,7 @@ namespace MakesCentsBackend.Controllers
                 {
                     status = response.HttpStatus,
                     message = response.Message,
-                    investmentAccountId = investmentAccountId
+                    paycheckTransactionId = paycheckTransactionId
                 });
             }
             else if (response.HttpStatus == 403)
@@ -105,7 +104,7 @@ namespace MakesCentsBackend.Controllers
             {
                 status = response.HttpStatus,
                 message = response.Message,
-                investmentAccount = response.InvestmentAccount
+                transferTransaction = response.TransferTransaction
             });
         }
     }

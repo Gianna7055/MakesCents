@@ -48,7 +48,7 @@ namespace MakesCentsBackend.Controllers
             // Get the user id from the JWT token
             int userId = ClaimsPrincipalExtensions.GetUserId(User);
 
-            // Set the user id for the budget
+            // Set the user id for the envelope
             envelope.UserId = userId;
             // Call the logic method
             response = await _envelopeLogic.CreateEnvelopeAsync(envelope);
@@ -72,13 +72,58 @@ namespace MakesCentsBackend.Controllers
             });
         }
 
-        /*
         [Authorize]
-        [HttpGet("{envelopeCategoryId}")]
+        [HttpGet("{envelopeId}")]
         public async Task<ActionResult> GetEnvelopeAsync(int envelopeId)
         {
+            // Declare and initialize
+            GetEnvelopeDTOResponse response;
+            BaseGetRequest request = new BaseGetRequest();
+            // Get the user id from the JWT token
+            int userId = ClaimsPrincipalExtensions.GetUserId(User);
 
+            // Set the user id in the request
+            request.UserId = userId;
+            request.EntityId = envelopeId;
+            // Call the logic method
+            response = await _envelopeLogic.GetEnvelopeAsync(request);
+            // Check if the response came back as not found
+            if (response.HttpStatus == 404)
+            {
+                return NotFound(new
+                {
+                    status = response.HttpStatus,
+                    message = response.Message,
+                    envelopeId = envelopeId
+                });
+            }
+            else if (response.HttpStatus == 403)
+            {
+                // Return the forbidden response
+                return Forbid(response.Message);
+            }
+            // Return the OK response
+            return Ok(new
+            {
+                status = response.HttpStatus,
+                message = response.Message,
+                envelope = response.EnvelopeDTO
+            });
         }
-        */
+
+        [Authorize]
+        [HttpPut("{envelopeId}")]
+        public async Task<ActionResult> UpdateEnvelopeAsync(int envelopeId, UpdateEnvelopeRequest request)
+        {
+            // Declare and initialize
+            BaseIdResponse response;
+            // Get the user id from the JWT token
+            int userId = ClaimsPrincipalExtensions.GetUserId(User);
+
+            // Set the envelope id and the user id in the request
+            request.UserId = userId;
+            request.EnvelopeId = envelopeId;
+            // Call the logic method
+        }
     }
 }

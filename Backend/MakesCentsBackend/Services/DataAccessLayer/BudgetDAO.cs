@@ -78,6 +78,13 @@ namespace MakesCentsBackend.Services.DataAccessLayer
         public async Task<GetBudgetResponse> GetBudgetAsync(GetBudgetRequest budget)
         {
             // Declare and initialize
+            GetBudgetResponse? budgetResponse;
+            List<SummaryEnvelopeCategoryResponse> envelopeCategoryResponses;
+            List<SummaryEnvelopeResponse> envelopeResponses;
+            Dictionary<int, SummaryEnvelopeCategoryResponse> envelopeCategoryLookup;
+            int budgetId = 0;
+
+            // Set up the query to get the budget
             query = """
                 SELECT 
                     budget.budget_id as BudgetId,
@@ -89,63 +96,51 @@ namespace MakesCentsBackend.Services.DataAccessLayer
                 WHERE budget.user_id = @UserId
                     AND budget.year = @Year
                     AND budget.month_id = @Month;
-
+                """;
+            // Execute the query
+            budgetResponse = await _connection.QuerySingleAsync<GetBudgetResponse>(query, budget);
+            // Make sure the budget is not null
+            if (budgetResponse == null)
+            {
+                return new GetBudgetResponse(404, "Budget not found");
+            }
+            // Get the budget id
+            budgetId = budgetResponse.GetBudgetDTO.BudgetId;
+            // Set up the query to get the envelope categories
+            query = """
                 SELECT 
                     envelope_category.envelope_category_id as EnvelopeCategoryId,
                     envelope_category.budget_id as BudgetId,
                     envelope_category.envelope_category_name as EnvelopeCategoryName
                 FROM envelope_category
-                JOIN budget ON budget.budget_id = envelope_category.budget_id
-                WHERE budget.user_id = @UserId
-                    AND budget.year = @Year
-                    AND budget.month_id = @Month;
-
+                WHERE envelope_category.budget_id = @BudgetId;
+                """;
+            // Read the envelope categories
+            envelopeCategoryResponses = (await _connection.QueryAsync<SummaryEnvelopeCategoryResponse>(query, new { BudgetId = budgetId })).ToList();
+            // Set up the query for reading the envelopes
+            query = """
                 SELECT 
                     envelope.envelope_id as EnvelopeId,
                     envelope.envelope_name as EnvelopeName,
                     envelope.remaining_amount as RemainingAmount,
                     envelope.envelope_category_id as EnvelopeCategoryId
                 FROM envelope
-                JOIN envelope_category ON envelope_category.envelope_category_id = envelope.envelope_category_id
-                JOIN budget ON budget.budget_id = envelope_category.budget_id
-                WHERE envelope_category.envelope_category_id IN (
-                    SELECT envelope_category_id
-                    FROM envelope_category
-                    WHERE budget.user_id = @UserId
-                    AND budget.year = @Year
-                    AND budget.month_id = @Month);
+                JOIN envelope_category 
+                    ON envelope_category.envelope_category_id = envelope.envelope_category_id
+                WHERE envelope_category.budget_id = @BudgetId;
                 """;
-            GetBudgetResponse? budgetResponse;
-            List<SummaryEnvelopeCategoryResponse> envelopeCategoryResponses;
-            List<SummaryEnvelopeResponse> envelopeResponses;
-            Dictionary<int, SummaryEnvelopeCategoryResponse> envelopeCategoryLookup;
-
-            // Call the query
-            using (SqlMapper.GridReader multi = await _connection.QueryMultipleAsync(query, budget))
+            // Read the envelopes
+            envelopeResponses = (await _connection.QueryAsync<SummaryEnvelopeResponse>(query, new { BudgetId = budgetId })).ToList();
+            // Create a dictionary for the envelope categories
+            envelopeCategoryLookup = envelopeCategoryResponses.ToDictionary(category => category.EnvelopeCategoryId);
+            // Loop through the envelopes to put them in the correct categories
+            foreach (SummaryEnvelopeResponse envelope in envelopeResponses)
             {
-                // Read the budget
-                budgetResponse = await multi.ReadSingleOrDefaultAsync<GetBudgetResponse>();
-                // Make sure the budget is not null
-                if (budgetResponse is null)
+                // Get the envelope category for each envelope
+                if (envelopeCategoryLookup.TryGetValue(envelope.EnvelopeCategoryId, out SummaryEnvelopeCategoryResponse? singleEnvelopeCategory))
                 {
-                    return new GetBudgetResponse(404, "Budget not found");
-                }
-                // Read the list of categories
-                envelopeCategoryResponses = (await multi.ReadAsync<SummaryEnvelopeCategoryResponse>()).ToList();
-                // Read the list of envelopes
-                envelopeResponses = (await multi.ReadAsync<SummaryEnvelopeResponse>()).ToList();
-
-                // Create a dictionary for the envelope categories
-                envelopeCategoryLookup = envelopeCategoryResponses.ToDictionary(category => category.EnvelopeCategoryId);
-                // Loop through the envelopes to put them in the correct categories
-                foreach (SummaryEnvelopeResponse envelope in envelopeResponses)
-                {
-                    // Get the envelope category for each envelope
-                    if (envelopeCategoryLookup.TryGetValue(envelope.EnvelopeCategoryId, out SummaryEnvelopeCategoryResponse? singleEnvelopeCategory))
-                    {
-                        // Add the envelope to the envelope category
-                        singleEnvelopeCategory.Envelopes.Add(envelope);
-                    }
+                    // Add the envelope to the envelope category
+                    singleEnvelopeCategory.Envelopes.Add(envelope);
                 }
             }
             // Set the envelope category list of the budget to the existing list

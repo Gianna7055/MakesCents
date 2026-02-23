@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "qNcMV52CoxI=",
+  "dgSpecHash": "xVjUE2RbFgs=",
   "success": true,
   "projectFilePath": "C:\\Users\\giannaross\\source\\repos\\MakesCents\\Backend\\MakesCentsBackend\\MakesCentsBackend.csproj",
   "expectedPackageFiles": [
@@ -28,10 +28,7 @@
     "C:\\Users\\giannaross\\.nuget\\packages\\system.diagnostics.diagnosticsource\\10.0.0\\system.diagnostics.diagnosticsource.10.0.0.nupkg.sha512",
     "C:\\Users\\giannaross\\.nuget\\packages\\system.identitymodel.tokens.jwt\\8.15.0\\system.identitymodel.tokens.jwt.8.15.0.nupkg.sha512",
     "C:\\Users\\giannaross\\.nuget\\packages\\system.text.json\\8.0.5\\system.text.json.8.0.5.nupkg.sha512",
-    "C:\\Users\\giannaross\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\8.0.13\\microsoft.windowsdesktop.app.ref.8.0.13.nupkg.sha512",
-    "C:\\Users\\giannaross\\.nuget\\packages\\microsoft.netcore.app.ref\\8.0.13\\microsoft.netcore.app.ref.8.0.13.nupkg.sha512",
-    "C:\\Users\\giannaross\\.nuget\\packages\\microsoft.netcore.app.host.win-arm64\\8.0.13\\microsoft.netcore.app.host.win-arm64.8.0.13.nupkg.sha512",
-    "C:\\Users\\giannaross\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\8.0.13\\microsoft.aspnetcore.app.ref.8.0.13.nupkg.sha512"
+    "C:\\Users\\giannaross\\.nuget\\packages\\microsoft.netcore.app.host.win-x86\\8.0.24\\microsoft.netcore.app.host.win-x86.8.0.24.nupkg.sha512"
   ],
   "logs": []
 }

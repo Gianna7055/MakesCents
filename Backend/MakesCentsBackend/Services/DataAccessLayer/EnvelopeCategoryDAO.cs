@@ -78,9 +78,20 @@ namespace MakesCentsBackend.Services.DataAccessLayer
         }
 
 
-        public async Task<GetAllEnvelopeCategoriesResponse> GetAllEnvelopeCategoriesAsync(int budgetId, int userId)
+        public async Task<GetAllEnvelopeCategoriesResponse> GetAllEnvelopeCategoriesAsync(BaseGetRequest request)
         {
             // Declare and initialize
+            GetAllEnvelopeCategoriesResponse allEnvelopeCategoriesResponse = new GetAllEnvelopeCategoriesResponse();
+            List<SummaryEnvelopeCategoryResponse> envelopeCategoryResponses;
+            List<SummaryEnvelopeResponse> envelopeResponses;
+            Dictionary<int, SummaryEnvelopeCategoryResponse> envelopeCategoryLookup;
+
+            // Make sure the budget belongs to the user
+            if (!await _authService.VerifyUserOwnsBudgetAsync(request.EntityId, request.UserId))
+            {
+                return new GetAllEnvelopeCategoriesResponse(403, "Budget does not belong to the current user.");
+            }
+            // Set up the query to get the envelope categories
             query = """
                 SELECT 
                     envelope_category.envelope_category_id as EnvelopeCategoryId,
@@ -88,54 +99,38 @@ namespace MakesCentsBackend.Services.DataAccessLayer
                     envelope_category.envelope_category_name as EnvelopeCategoryName
                 FROM envelope_category
                 WHERE envelope_category.budget_id = @BudgetId;
-                
+                """;
+            // Read the envelope categories
+            envelopeCategoryResponses = (await _connection.QueryAsync<SummaryEnvelopeCategoryResponse>(query, new { BudgetId = request.EntityId })).ToList();
+            // Set up the query for reading the envelopes
+            query = """
                 SELECT 
                     envelope.envelope_id as EnvelopeId,
                     envelope.envelope_name as EnvelopeName,
                     envelope.remaining_amount as RemainingAmount,
                     envelope.envelope_category_id as EnvelopeCategoryId
                 FROM envelope
-                JOIN envelope_category ON envelope_category.envelope_category_id = envelope.envelope_category_id
+                JOIN envelope_category 
+                    ON envelope_category.envelope_category_id = envelope.envelope_category_id
                 WHERE envelope_category.budget_id = @BudgetId;
                 """;
-            GetAllEnvelopeCategoriesResponse allEnvelopeCategoriesResponse = new GetAllEnvelopeCategoriesResponse();
-            List<SummaryEnvelopeCategoryResponse> envelopeCategoryResponses;
-            List<SummaryEnvelopeResponse> envelopeResponses;
-            Dictionary<int, SummaryEnvelopeCategoryResponse> envelopeCategoryLookup;
-
-            // Make sure the budget belongs to the user
-            if (!await _authService.VerifyUserOwnsBudgetAsync(budgetId, userId))
+            // Read the envelopes
+            envelopeResponses = (await _connection.QueryAsync<SummaryEnvelopeResponse>(query, new { BudgetId = request.EntityId })).ToList();
+            // Create a dictionary for the envelope categories
+            envelopeCategoryLookup = envelopeCategoryResponses.ToDictionary(category => category.EnvelopeCategoryId);
+            // Loop through the envelopes to put them in the correct categories
+            foreach (SummaryEnvelopeResponse envelope in envelopeResponses)
             {
-                return new GetAllEnvelopeCategoriesResponse(403, "Budget does not belong to the current user.");
-            }
-
-            // Call the query
-            using (SqlMapper.GridReader multi = await _connection.QueryMultipleAsync(query, new { BudgetId = budgetId }))
-            {
-                // Read the envelope categories
-                envelopeCategoryResponses = (await multi.ReadAsync<SummaryEnvelopeCategoryResponse>()).ToList();
-                // Make sure the envelope category is not null
-                if (envelopeCategoryResponses == null || envelopeCategoryResponses.Count == 0)
+                // Get the envelope category for each envelope
+                if (envelopeCategoryLookup.TryGetValue(envelope.EnvelopeCategoryId, out SummaryEnvelopeCategoryResponse? singleEnvelopeCategory))
                 {
-                    return new GetAllEnvelopeCategoriesResponse(404, "Budget not found");
-                }
-                // Read the list of envelopes
-                envelopeResponses = (await multi.ReadAsync<SummaryEnvelopeResponse>()).ToList();
-                // Create a dictionary for the envelope categories
-                envelopeCategoryLookup = envelopeCategoryResponses.ToDictionary(category => category.EnvelopeCategoryId);
-                // Loop through the envelopes to put them in the correct categories
-                foreach (SummaryEnvelopeResponse envelope in envelopeResponses)
-                {
-                    // Get the envelope category for each envelope
-                    if (envelopeCategoryLookup.TryGetValue(envelope.EnvelopeCategoryId, out SummaryEnvelopeCategoryResponse? singleEnvelopeCategory))
-                    {
-                        // Add the envelope to the envelope category
-                        singleEnvelopeCategory.Envelopes.Add(envelope);
-                    }
+                    // Add the envelope to the envelope category
+                    singleEnvelopeCategory.Envelopes.Add(envelope);
                 }
             }
+
             // Set the envelope list of the envelope category to the existing list
-            allEnvelopeCategoriesResponse.AllEnvelopeCategories = envelopeCategoryResponses;
+            allEnvelopeCategoriesResponse.EnvelopeCategories = envelopeCategoryResponses;
             // Set the status and message for the envelope category response
             allEnvelopeCategoriesResponse.HttpStatus = 200;
             allEnvelopeCategoriesResponse.Message = "Envelope categories found";

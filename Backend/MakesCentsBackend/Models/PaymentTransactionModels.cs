@@ -3,7 +3,6 @@
  * Makes Cents
  * Sources: 
  */
-using MakesCentsBackend.Models.Entities;
 using MakesCentsBackend.Models.Enums;
 
 namespace MakesCentsBackend.Models
@@ -38,12 +37,10 @@ namespace MakesCentsBackend.Models
     /// <summary>
     /// Response model for creating a payment transaction
     /// </summary>
-    public class CreatePaymentTransactionResponse
+    public class CreatePaymentTransactionResponse : CreateTransactionResponse
     {
 
         // Class level properties
-        public int HttpStatus { get; set; } = 0;
-        public string? Message { get; set; } = null;
         public int? PaymentTransactionId { get; set; } = null;
         public List<int> TransactionSplitIds { get; set; } = new List<int>();
 
@@ -52,17 +49,32 @@ namespace MakesCentsBackend.Models
         /// </summary>
         /// <param name="httpStatus"></param>
         /// <param name="message"></param>
-        public CreatePaymentTransactionResponse(int httpStatus, string? message)
-        {
-            HttpStatus = httpStatus;
-            Message = message;
-        }
+        public CreatePaymentTransactionResponse(int httpStatus, string message) : base(httpStatus, message) { }
 
         /// <summary>
         /// Default constructor for Create Payment Transaction Response
         /// </summary>
-        public CreatePaymentTransactionResponse()
-        {
-        }
+        public CreatePaymentTransactionResponse() : base() { }
     }
-}
+
+
+    public class GetPaymentTransactionDTOModel : GetTransactionDTOModel
+    {
+        // Class properties
+        public int PaymentTransactionId { get; set; } = 0;
+        public int AccountId { get; set; } = 0;
+        public PaymentTransactionType PaymentTransactionType { get; set; } = PaymentTransactionType.Unknown;
+        public string MerchantSourceName { get; set; } = "";
+        public int? CheckNumber { get; set; } = null;
+        public List<GetTransactionSplitDTOModel> TransactionSplits { get; set; } = new List<GetTransactionSplitDTOModel>();
+    }
+
+    public class GetPaymentTransactionResponse : BaseResponse
+    {
+        // Class properties
+        public GetPaymentTransactionDTOModel PaymentTransaction { get; set; } = new GetPaymentTransactionDTOModel();
+
+        public GetPaymentTransactionResponse() : base() { }
+        public GetPaymentTransactionResponse(int httpStatus, string message) : base(httpStatus, message) { }
+    }
+}   

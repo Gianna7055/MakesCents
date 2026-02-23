@@ -5,6 +5,29 @@
     "version": "1.0"
   },
   "paths": {
+    "/api/accounts/budget/{budgetId}": {
+      "get": {
+        "tags": [
+          "Account"
+        ],
+        "parameters": [
+          {
+            "name": "budgetId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/bank-accounts": {
       "post": {
         "tags": [
@@ -29,6 +52,29 @@
             }
           }
         },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/bank-accounts/{bankAccountId}": {
+      "get": {
+        "tags": [
+          "BankAccount"
+        ],
+        "parameters": [
+          {
+            "name": "bankAccountId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "OK"
@@ -193,6 +239,29 @@
         }
       }
     },
+    "/api/debt-accounts/{debtAccountId}": {
+      "get": {
+        "tags": [
+          "DebtAccount"
+        ],
+        "parameters": [
+          {
+            "name": "debtAccountId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/envelopes": {
       "post": {
         "tags": [
@@ -217,6 +286,29 @@
             }
           }
         },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/envelopes/{envelopeId}": {
+      "get": {
+        "tags": [
+          "Envelope"
+        ],
+        "parameters": [
+          {
+            "name": "envelopeId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "OK"
@@ -365,6 +457,237 @@
             }
           }
         },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/investment-accounts/{investmentAccountId}": {
+      "get": {
+        "tags": [
+          "InvestmentAccount"
+        ],
+        "parameters": [
+          {
+            "name": "investmentAccountId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/paychecks": {
+      "post": {
+        "tags": [
+          "Paycheck"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreatePaycheckRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreatePaycheckRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreatePaycheckRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/paychecks/budget/{budgetId}": {
+      "get": {
+        "tags": [
+          "Paycheck"
+        ],
+        "parameters": [
+          {
+            "name": "budgetId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/paychecks/{paycheckId}": {
+      "get": {
+        "tags": [
+          "Paycheck"
+        ],
+        "parameters": [
+          {
+            "name": "paycheckId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/payment-transactions": {
+      "post": {
+        "tags": [
+          "PaymentTransaction"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreatePaymentTransactionRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreatePaymentTransactionRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreatePaymentTransactionRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/payment-transactions/{paycheckTransactionId}": {
+      "get": {
+        "tags": [
+          "PaymentTransaction"
+        ],
+        "parameters": [
+          {
+            "name": "paycheckTransactionId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Transaction/{budgetId}": {
+      "get": {
+        "tags": [
+          "Transaction"
+        ],
+        "parameters": [
+          {
+            "name": "budgetId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/transfer-transactions": {
+      "post": {
+        "tags": [
+          "TransferTransaction"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateTransferTransactionRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateTransferTransactionRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateTransferTransactionRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/transfer-transactions/{paycheckTransactionId}": {
+      "get": {
+        "tags": [
+          "TransferTransaction"
+        ],
+        "parameters": [
+          {
+            "name": "paycheckTransactionId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "OK"
@@ -716,6 +1039,194 @@
         },
         "additionalProperties": false
       },
+      "CreatePaycheckRequest": {
+        "type": "object",
+        "properties": {
+          "budgetId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "userId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "paycheckName": {
+            "type": "string",
+            "nullable": true
+          },
+          "startingDate": {
+            "type": "string",
+            "format": "date",
+            "nullable": true
+          },
+          "secondaryDate": {
+            "$ref": "#/components/schemas/DateOnlyNullableOptional"
+          },
+          "totalAmount": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "paycheckRegularity": {
+            "$ref": "#/components/schemas/PaycheckRegularity"
+          },
+          "paycheckSplits": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CreatePaycheckSplitRequest"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CreatePaycheckSplitRequest": {
+        "type": "object",
+        "properties": {
+          "paycheckId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "envelopeId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "amount": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CreatePaymentTransactionRequest": {
+        "type": "object",
+        "properties": {
+          "budgetId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "userId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "transactionId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "transactionDate": {
+            "type": "string",
+            "format": "date",
+            "nullable": true
+          },
+          "totalAmount": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "notes": {
+            "$ref": "#/components/schemas/StringOptional"
+          },
+          "accountId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "paymentTransactionType": {
+            "$ref": "#/components/schemas/PaymentTransactionType"
+          },
+          "merchantSourceName": {
+            "type": "string",
+            "nullable": true
+          },
+          "checkNumber": {
+            "$ref": "#/components/schemas/Int32NullableOptional"
+          },
+          "transactionSplits": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CreateTransactionSplitRequest"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CreateTransactionSplitRequest": {
+        "type": "object",
+        "properties": {
+          "transactionId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "envelopeId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "amount": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CreateTransferTransactionRequest": {
+        "type": "object",
+        "properties": {
+          "budgetId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "userId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "transactionId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "transactionDate": {
+            "type": "string",
+            "format": "date",
+            "nullable": true
+          },
+          "totalAmount": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "notes": {
+            "$ref": "#/components/schemas/StringOptional"
+          },
+          "transferFromId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "transferToId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "transferTransactionType": {
+            "$ref": "#/components/schemas/TransferTransactionType"
+          }
+        },
+        "additionalProperties": false
+      },
       "DateOnlyNullableOptional": {
         "type": "object",
         "properties": {
@@ -906,6 +1417,30 @@
         ],
         "type": "string"
       },
+      "PaycheckRegularity": {
+        "enum": [
+          "Unknown",
+          "Weekly",
+          "BiWeeklyEveryTwoWeeks",
+          "BiMonthlyTwiceAMonth",
+          "Monthly"
+        ],
+        "type": "string"
+      },
+      "PaymentTransactionType": {
+        "enum": [
+          "Unknown",
+          "ATM",
+          "Check",
+          "DebitCard",
+          "CreditCard",
+          "Deposit",
+          "Paycheck",
+          "Refund",
+          "LoanDeposit"
+        ],
+        "type": "string"
+      },
       "RegisterRequest": {
         "type": "object",
         "properties": {
@@ -923,10 +1458,35 @@
           }
         },
         "additionalProperties": false
+      },
+      "StringOptional": {
+        "type": "object",
+        "properties": {
+          "hasValue": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "value": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "TransferTransactionType": {
+        "enum": [
+          "Unknown",
+          "Account",
+          "Envelope"
+        ],
+        "type": "string"
       }
     }
   },
   "tags": [
+    {
+      "name": "Account"
+    },
     {
       "name": "BankAccount"
     },
@@ -944,6 +1504,18 @@
     },
     {
       "name": "InvestmentAccount"
+    },
+    {
+      "name": "Paycheck"
+    },
+    {
+      "name": "PaymentTransaction"
+    },
+    {
+      "name": "Transaction"
+    },
+    {
+      "name": "TransferTransaction"
     },
     {
       "name": "User"

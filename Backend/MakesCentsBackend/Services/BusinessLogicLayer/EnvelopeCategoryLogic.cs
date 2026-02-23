@@ -44,17 +44,17 @@ namespace MakesCentsBackend.Services.BusinessLogicLayer
         }
 
         /// <summary>
-        /// Logic method to get an envelope category
+        /// Logic method to get all envelope categories
         /// </summary>
         /// <param name="envelopeCategoryId"></param>
         /// <returns></returns>
-        public async Task<GetAllEnvelopeCategoriesResponse> GetAllEnvelopeCategoriesAsync(int envelopeCategoryId, int userId)
+        public async Task<GetAllEnvelopeCategoriesResponse> GetAllEnvelopeCategoriesAsync(BaseGetRequest request)
         {
             // Declare and initialize
             GetAllEnvelopeCategoriesResponse response;
 
             // Call the DAO method
-            response = await _envelopeCategoryDAO.GetAllEnvelopeCategoriesAsync(envelopeCategoryId, userId);
+            response = await _envelopeCategoryDAO.GetAllEnvelopeCategoriesAsync(request);
             // Return the response
             return response;
         }

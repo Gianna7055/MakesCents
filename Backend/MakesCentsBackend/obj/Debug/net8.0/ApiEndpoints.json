@@ -1,5 +1,21 @@
 [
   {
+    "ContainingType": "MakesCentsBackend.Controllers.AccountController",
+    "Method": "GetAllAccounts",
+    "RelativePath": "api/accounts/budget/{budgetId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "budgetId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "MakesCentsBackend.Controllers.BankAccountController",
     "Method": "CreateBankAccountAsync",
     "RelativePath": "api/bank-accounts",
@@ -10,6 +26,22 @@
       {
         "Name": "bankAccount",
         "Type": "MakesCentsBackend.Models.CreateBankAccountRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MakesCentsBackend.Controllers.BankAccountController",
+    "Method": "GetBankAccountAsync",
+    "RelativePath": "api/bank-accounts/{bankAccountId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "bankAccountId",
+        "Type": "System.Int32",
         "IsRequired": true
       }
     ],
@@ -106,6 +138,22 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "MakesCentsBackend.Controllers.DebtAccountController",
+    "Method": "GetDebtAccountAsync",
+    "RelativePath": "api/debt-accounts/{debtAccountId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "debtAccountId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "MakesCentsBackend.Controllers.EnvelopeCategoryController",
     "Method": "CreateEnvelopeCategoryAsync",
     "RelativePath": "api/envelope-categories",
@@ -191,6 +239,22 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "MakesCentsBackend.Controllers.EnvelopeController",
+    "Method": "GetEnvelopeAsync",
+    "RelativePath": "api/envelopes/{envelopeId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "envelopeId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "MakesCentsBackend.Controllers.InvestmentAccountController",
     "Method": "CreateInvestmentAccountAsync",
     "RelativePath": "api/investment-accounts",
@@ -201,6 +265,150 @@
       {
         "Name": "investmentAccount",
         "Type": "MakesCentsBackend.Models.CreateInvestmentAccountRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MakesCentsBackend.Controllers.InvestmentAccountController",
+    "Method": "GetInvestmentAccountAsync",
+    "RelativePath": "api/investment-accounts/{investmentAccountId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "investmentAccountId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MakesCentsBackend.Controllers.PaycheckController",
+    "Method": "CreatePaycheckAsync",
+    "RelativePath": "api/paychecks",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "paycheck",
+        "Type": "MakesCentsBackend.Models.CreatePaycheckRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MakesCentsBackend.Controllers.PaycheckController",
+    "Method": "GetOnePaycheck",
+    "RelativePath": "api/paychecks/{paycheckId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "paycheckId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MakesCentsBackend.Controllers.PaycheckController",
+    "Method": "GetAllPaychecksAsync",
+    "RelativePath": "api/paychecks/budget/{budgetId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "budgetId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MakesCentsBackend.Controllers.PaymentTransactionController",
+    "Method": "CreatePaymentTransactionAsync",
+    "RelativePath": "api/payment-transactions",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "paymentTransaction",
+        "Type": "MakesCentsBackend.Models.CreatePaymentTransactionRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MakesCentsBackend.Controllers.PaymentTransactionController",
+    "Method": "GetPaymentTransactionAsync",
+    "RelativePath": "api/payment-transactions/{paycheckTransactionId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "paycheckTransactionId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MakesCentsBackend.Controllers.TransactionController",
+    "Method": "GetAllTransactionsAsync",
+    "RelativePath": "api/Transaction/{budgetId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "budgetId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MakesCentsBackend.Controllers.TransferTransactionController",
+    "Method": "CreateTransferTransactionAsync",
+    "RelativePath": "api/transfer-transactions",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "transferTransaction",
+        "Type": "MakesCentsBackend.Models.CreateTransferTransactionRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MakesCentsBackend.Controllers.TransferTransactionController",
+    "Method": "GetTransferTransactionAsync",
+    "RelativePath": "api/transfer-transactions/{paycheckTransactionId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "paycheckTransactionId",
+        "Type": "System.Int32",
         "IsRequired": true
       }
     ],

@@ -15,9 +15,9 @@ namespace MakesCentsBackend.Services.Mappers
         /// </summary>
         /// <param name="db"></param>
         /// <returns></returns>
-        public static SummaryTransactionResponse ToResponse(SummaryTransactionDbModel db)
+        public static SummaryTransactionDTOModel ToSummaryResponse(SummaryTransactionEntityModel db)
         {
-            SummaryTransactionResponse response = new()
+            SummaryTransactionDTOModel response = new()
             {
                 Date = db.Date,
                 Location = GetLocation(db),
@@ -33,7 +33,7 @@ namespace MakesCentsBackend.Services.Mappers
         /// </summary>
         /// <param name="db"></param>
         /// <returns></returns>
-        private static string GetLocation(SummaryTransactionDbModel db)
+        private static string GetLocation(SummaryTransactionEntityModel db)
         {
             if (db.TransactionType == TransactionType.Payment)
             {
@@ -63,22 +63,22 @@ namespace MakesCentsBackend.Services.Mappers
         /// </summary>
         /// <param name="db"></param>
         /// <returns></returns>
-        private static string GetEnvelopeDisplay(SummaryTransactionDbModel db)
+        private static string GetEnvelopeDisplay(SummaryTransactionEntityModel db)
         {
             // Return the envelopes name if the transaction is a payment
-            if (db.TransactionType == TransactionType.Payment && !string.IsNullOrEmpty(db.Envelopes))
+            if (db.TransactionType == TransactionType.Payment && !string.IsNullOrEmpty(db.EnvelopeNames))
             {
-                return db.Envelopes;
+                return db.EnvelopeNames;
             }
             // Return the envelope names if the transaction is an envelope transaction
             if (db.TransactionType == TransactionType.Transfer && db.TransferTransactionType == TransferTransactionType.Envelope)
             {
-                return db.TransferFromEnvelope + " > " + db.TransferToEnvelope;
+                return db.TransferFromEnvelope + " -> " + db.TransferToEnvelope;
             }
             // Return the account names if the transaction is an account transaction
             if (db.TransactionType == TransactionType.Transfer && db.TransferTransactionType == TransferTransactionType.Account)
             {
-                return db.TransferFromAccount + " > " + db.TransferToAccount;
+                return db.TransferFromAccount + " -> " + db.TransferToAccount;
             }
 
             return string.Empty;

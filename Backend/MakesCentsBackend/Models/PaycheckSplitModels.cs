@@ -6,36 +6,37 @@
 namespace MakesCentsBackend.Models
 {
     /// <summary>
-    /// Model for a transaction split model
+    /// Model for a paycheck split
     /// </summary>
-    public class TransactionSplitEntity
+    public class PaycheckSplitEntity
     {
         // Class Level Properties
-        public int TransactionSplitId { get; set; } = 0;
-        public int TransactionId { get; set; } = 0;
+        public int PaycheckSplitId { get; set; } = 0;
+        public int PaycheckId { get; set; } = 0;
         public int EnvelopeId { get; set; } = 0;
         public decimal Amount { get; set; } = 0m;
+        public int OrderIndex { get; set; } = 0;
         public DateTime CreatedAt { get; set; } = new DateTime();
         public DateTime LastUpdatedAt { get; set; } = new DateTime();
     }
 
     /// <summary>
-    /// Request model for creating a new transaction split
+    /// Request model to create a paycheck split
     /// </summary>
-    public class CreateTransactionSplitRequest
+    public class CreatePaycheckSplitRequest
     {
-        public int? TransactionId { get; set; } = null;
+        public int? PaycheckId { get; set; } = null;
         public int? EnvelopeId { get; set; } = null;
         public decimal? Amount { get; set; } = null;
     }
 
 
-    public class GetTransactionSplitDTOModel
+    public class GetPaycheckSplitDTOModel
     {
         // Class properties
-        public int TransactionSplitId { get; set; } = 0;
-        public int TransactionId { get; set; } = 0;
+        public int PaycheckSplitId { get; set; } = 0;
+        public int PaycheckId { get; set; } = 0;
         public int EnvelopeId { get; set; } = 0;
-        public decimal Amount { get; set; } = 0m;
+        public decimal? Amount { get; set; } = 0m;
     }
 }

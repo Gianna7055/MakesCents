@@ -40,7 +40,7 @@ namespace MakesCentsBackend.Controllers
         public async Task<ActionResult> CreateBankAccountAsync(CreateBankAccountRequest bankAccount)
         {
             // Declare and initialize
-            BaseIdResponse response;
+            CreateBankAccountResponse response;
             // Get the user id from the JWT token
             int userId = ClaimsPrincipalExtensions.GetUserId(User);
 
@@ -57,7 +57,7 @@ namespace MakesCentsBackend.Controllers
             else if (response.HttpStatus == 403)
             {
                 // Return the forbidden response
-                return Forbid(response.Message);
+                return StatusCode(StatusCodes.Status403Forbidden, response.Message);
             }
             else // responses HttpStatus is 201
             {
@@ -66,9 +66,49 @@ namespace MakesCentsBackend.Controllers
                 {
                     status = response.HttpStatus,
                     message = response.Message,
-                    bankAccountId = response.Id
+                    accountId = response.AccountId,
+                    bankAccountId = response.BankAccountId
                 });
             }
+        }
+
+        [Authorize]
+        [HttpGet("{bankAccountId}")]
+        public async Task<ActionResult> GetBankAccountAsync(int bankAccountId)
+        {
+            // Declare and initialize
+            GetBankAccountDTOResponse response;
+            BaseGetRequest request = new BaseGetRequest();
+            // Get the user id from the JWT token
+            int userId = ClaimsPrincipalExtensions.GetUserId(User);
+
+            // Set the user id and the budget id in the request
+            request.UserId = userId;
+            request.EntityId = bankAccountId;
+            // Call the logic method
+            response = await _bankAccountLogic.GetBankAccountAsync(request);
+            // Check if the response came back as not found
+            if (response.HttpStatus == 404)
+            {
+                return NotFound(new
+                {
+                    status = response.HttpStatus,
+                    message = response.Message,
+                    bankAccountId = bankAccountId
+                });
+            }
+            else if (response.HttpStatus == 403)
+            {
+                // Return the forbidden response
+                return Forbid(response.Message);
+            }
+            // Return the OK response
+            return Ok(new
+            {
+                status = response.HttpStatus,
+                message = response.Message,
+                bankAccount = response.BankAccount
+            });
         }
     }
 }

@@ -83,11 +83,15 @@ namespace MakesCentsBackend.Controllers
         {
             // Declare and initialize
             GetAllEnvelopeCategoriesResponse response;
+            BaseGetRequest request = new BaseGetRequest();
             // Get the user id from the JWT token
             int userId = ClaimsPrincipalExtensions.GetUserId(User);
 
+            // Set the user id in the request
+            request.UserId = userId;
+            request.EntityId = budgetId;
             // Call the logic method
-            response = await _envelopeCategoryLogic.GetAllEnvelopeCategoriesAsync(budgetId, userId);
+            response = await _envelopeCategoryLogic.GetAllEnvelopeCategoriesAsync(request);
             // Check if the response came back as not found
             if (response.HttpStatus == 404)
             {
@@ -108,7 +112,7 @@ namespace MakesCentsBackend.Controllers
             {
                 status = response.HttpStatus,
                 message = response.Message,
-                envelopeCategories = response.AllEnvelopeCategories
+                envelopeCategories = response.EnvelopeCategories
             });
         }
 

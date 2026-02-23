@@ -67,10 +67,88 @@ namespace MakesCentsBackend.Controllers
                 {
                     status = response.HttpStatus,
                     message = response.Message,
-                    paycheckId = response.PaycheckId,
+                    paycheckId = response.Id,
                     paycheckSplitIds = response.PaycheckSplitIds
                 });
             }
+        }
+
+        [Authorize]
+        [HttpGet("budget/{budgetId}")]
+        public async Task<ActionResult> GetAllPaychecksAsync(int budgetId)
+        {
+            // Declare and initialize
+            GetAllPaychecksResponse response;
+            BaseGetRequest request = new BaseGetRequest();
+            // Get the user id from the JWT token
+            int userId = ClaimsPrincipalExtensions.GetUserId(User);
+
+            // Set the user id and budget id in the request
+            request.UserId = userId;
+            request.EntityId = budgetId;
+            // Call the logic method
+            response = await _paycheckLogic.GetAllPaychecksAsync(request);
+            // Check if the response came back as not found
+            if (response.HttpStatus == 404)
+            {
+                return NotFound(new
+                {
+                    status = response.HttpStatus,
+                    message = response.Message,
+                    budgetId = budgetId
+                });
+            }
+            else if (response.HttpStatus == 403)
+            {
+                // Return the forbidden response
+                return Forbid(response.Message);
+            }
+            // Return the OK response
+            return Ok(new
+            {
+                status = response.HttpStatus,
+                message = response.Message,
+                paychecks = response.Paychecks
+            });
+        }
+
+        [Authorize]
+        [HttpGet("{paycheckId}")]
+        public async Task<ActionResult> GetPaycheck(int paycheckId)
+        {
+            // Declare and initialize
+            GetPaycheckResponse response;
+            BaseGetRequest request = new BaseGetRequest();
+            // Get the users id from the JWT token
+            int userId = ClaimsPrincipalExtensions.GetUserId(User);
+
+            // Add the user id and the paycheck id to the request
+            request.UserId = userId;
+            request.EntityId = paycheckId;
+            // Call the logic method
+            response = await _paycheckLogic.GetPaycheckAsync(request);
+            // Check if the response came back as not found
+            if (response.HttpStatus == 404)
+            {
+                return NotFound(new
+                {
+                    status = response.HttpStatus,
+                    message = response.Message,
+                    paycheckId = paycheckId
+                });
+            }
+            else if (response.HttpStatus == 403)
+            {
+                // Return the forbidden response
+                return Forbid(response.Message);
+            }
+            // Return the OK response
+            return Ok(new
+            {
+                status = response.HttpStatus,
+                message = response.Message,
+                paycheck = response.Paycheck
+            });
         }
     }
 }

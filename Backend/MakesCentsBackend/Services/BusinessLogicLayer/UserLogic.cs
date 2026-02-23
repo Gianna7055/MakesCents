@@ -81,7 +81,7 @@ namespace MakesCentsBackend.Services.BusinessLogicLayer
                 return response;
             }
             // Generate a JWT token and add it to the response
-            response.Token = _jwtService.GenerateToken(response.UserId);
+            response.Token = _jwtService.GenerateToken(response.Id);
             // Return the response
             return response;
         }
@@ -99,12 +99,12 @@ namespace MakesCentsBackend.Services.BusinessLogicLayer
             // Make sure a username/email (saved in usernameOrEmail) and password were provided
             if (String.IsNullOrEmpty(user.UsernameOrEmail) || String.IsNullOrEmpty(user.Password))
             {
-                return new LoginResponse(-1, 400, "Missing information for login");
+                return new LoginResponse(400, "Missing information for login");
             }
             // Check to make sure the usernameOrEmail is the correct length
             else if (user.UsernameOrEmail.Length > 320)
             {
-                return new LoginResponse(-1, 400, "Username or email exceeds maximum length");
+                return new LoginResponse(400, "Username or email exceeds maximum length");
             }
 
             // Get the user from the DAO based on the username
@@ -126,7 +126,7 @@ namespace MakesCentsBackend.Services.BusinessLogicLayer
             if (PasswordHasher.VerifyPassword(user.Password, response.PasswordHash))
             {
                 // Generate a JWT token and add it to the response
-                response.Token = _jwtService.GenerateToken(response.UserId);
+                response.Token = _jwtService.GenerateToken(response.Id);
                 response.Message = "Login successful";
                 // Return the successful login
                 return response;

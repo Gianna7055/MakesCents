@@ -6,6 +6,7 @@
 using MakesCentsBackend.Models;
 using MakesCentsBackend.Models.Enums;
 using MakesCentsBackend.Services.DataAccessLayer;
+using Microsoft.AspNetCore.Mvc;
 
 namespace MakesCentsBackend.Services.BusinessLogicLayer
 {
@@ -43,6 +44,7 @@ namespace MakesCentsBackend.Services.BusinessLogicLayer
             {
                 return new CreatePaycheckResponse(400, "Paycheck must contain at least one split");
             }
+            // Loop through the splits to make sure the necessary information was sent
             foreach (CreatePaycheckSplitRequest split in paycheck.PaycheckSplits)
             {
                 if (split == null)
@@ -54,6 +56,7 @@ namespace MakesCentsBackend.Services.BusinessLogicLayer
                 if (split.EnvelopeId == null)
                     return new CreatePaycheckResponse(400, "Split envelope is required");
             }
+            // Total the splits
             sumOfSplits = paycheck.PaycheckSplits.Sum(s => s.Amount);
             if (sumOfSplits == null || sumOfSplits.Value != paycheck.TotalAmount)
             {
@@ -65,5 +68,30 @@ namespace MakesCentsBackend.Services.BusinessLogicLayer
             // Return the response
             return response;
         }
+
+
+        public async Task<GetAllPaychecksResponse> GetAllPaychecksAsync(BaseGetRequest request)
+        {
+            // Declare and initialize
+            GetAllPaychecksResponse response;
+
+            // Call the DAO method
+            response = await _paycheckDAO.GetAllPaychecksAsync(request);
+            // Return the response
+            return response;
+        }
+
+
+        public async Task<GetPaycheckResponse> GetPaycheckAsync(BaseGetRequest request)
+        {
+            // Declare and initialize
+            GetPaycheckResponse response;
+
+            // Call the DAO method
+            response = await _paycheckDAO.GetPaycheckAsync(request);
+            // Return the response
+            return response;
+        }
+
     }
 }

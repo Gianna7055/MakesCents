@@ -61,7 +61,7 @@ namespace MakesCentsBackend.Models
         public Optional<int?> TransferEnvelopeId { get; set; } = null;
     }
 
-    public class GetEnvelopeDTO
+    public class GetEnvelopeBaseModel
     {
         // Class properties
         public int EnvelopeId { get; set; } = 0;
@@ -97,18 +97,72 @@ namespace MakesCentsBackend.Models
         /// Null when <see cref="IsSinkingFund"/> is true (sinking fund envelope).
         /// </summary>
         public int? TransferEnvelopeId { get; set; } = null;
+    }
 
-        public List<SummaryTransactionResponse> Transactions { get; set; } = [];
+    public class GetEnvelopeDTO : GetEnvelopeBaseModel
+    {
+        // Class properties
+        public List<SummaryTransactionDTOModel> Transactions { get; set; } = new List<SummaryTransactionDTOModel>();
     }
 
     /// <summary>
     /// Response model for getting a specific envelope
     /// </summary>
-    public class GetEnvelopeResponse
+    public class GetEnvelopeDTOResponse : BaseResponse
     {
         // Class properties
-        public int StatusStatus { get; set; } = 0;
-        public string Message { get; set; } = "";
         public GetEnvelopeDTO EnvelopeDTO { get; set; } = new GetEnvelopeDTO();
+    }
+
+
+    /// <summary>
+    /// Entity model for getting a specific envelope
+    /// </summary>
+    public class GetEnvelopeEntity : GetEnvelopeBaseModel
+    {
+        // Class properties
+        public List<SummaryTransactionEntityModel> Transactions { get; set; } = [];
+    }
+
+    /// <summary>
+    /// Entity response model for getting a specific envelope
+    /// </summary>
+    public class GetEnvelopeEntityResponse : BaseResponse
+    {
+        // Class properties
+        public GetEnvelopeEntity EnvelopeEntity { get; set; } = new GetEnvelopeEntity();
+
+
+        /// <summary>
+        /// Default constructor for GetEnvelopeEntityResponse
+        /// </summary>
+        /// <param name="status"></param>
+        /// <param name="message"></param>
+        /// <param name="allEnvelopeCategories"></param>
+        public GetEnvelopeEntityResponse() : base() { }
+
+        /// <summary>
+        /// Parameterized constructor for GetEnvelopeEntityResponse
+        /// </summary>
+        /// <param name="status"></param>
+        /// <param name="message"></param>
+        /// <param name="allEnvelopeCategories"></param>
+        public GetEnvelopeEntityResponse(int status, string message) : base(status, message) { }
+    }
+
+
+    public class UpdateEnvelopeRequest
+    {
+        // Class properties
+        public int EnvelopeId { get; set; } = 0;
+        public int? EnvelopeCategoryId { get; set; } = null;
+        public int? UserId { get; set; } = null;
+        public string? EnvelopeName { get; set; } = null;
+        public decimal? PlannedAmount { get; set; } = null;
+        public decimal? RemainingAmount { get; set; } = null;
+        public bool? IsSinkingFund { get; set; } = null;
+        public Optional<decimal?> GoalAmount { get; set; } = null;
+        public Optional<DateOnly?> GoalEndDate { get; set; } = null;
+        public Optional<int?> TransferEnvelopeId { get; set; } = null;
     }
 }

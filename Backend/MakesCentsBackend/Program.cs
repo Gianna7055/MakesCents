@@ -50,7 +50,7 @@ builder.Services.AddScoped<AuthorizationService>();
 // Add AutoMapper with DI
 builder.Services.AddAutoMapper(config =>
 {
-    config.AddProfile<UserMappingProfile>();
+    config.AddProfile<MappingProfile>();
 }, AppDomain.CurrentDomain.GetAssemblies());
 SqlMapper.AddTypeHandler(new DateOnlyHandler());
 
@@ -63,6 +63,10 @@ builder.Services.AddScoped<BankAccountLogic>();
 builder.Services.AddScoped<DebtAccountLogic>();
 builder.Services.AddScoped<InvestmentAccountLogic>();
 builder.Services.AddScoped<PaycheckLogic>();
+builder.Services.AddScoped<PaymentTransactionLogic>();
+builder.Services.AddScoped<TransferTransactionLogic>();
+builder.Services.AddScoped<AccountLogic>();
+builder.Services.AddScoped<TransactionLogic>();
 
 // Add a scoped DAO classes that will persist for each request
 builder.Services.AddScoped<UserDAO>();
@@ -73,6 +77,10 @@ builder.Services.AddScoped<BankAccountDAO>();
 builder.Services.AddScoped<DebtAccountDAO>();
 builder.Services.AddScoped<InvestmentAccountDAO>();
 builder.Services.AddScoped<PaycheckDAO>();
+builder.Services.AddScoped<PaymentTransactionDAO>();
+builder.Services.AddScoped<TransferTransactionDAO>();
+builder.Services.AddScoped<AccountDAO>();
+builder.Services.AddScoped<TransactionDAO>();
 
 // Get the JWT key and issuer
 var jwtKey = builder.Configuration["Jwt:Key"];

@@ -81,9 +81,7 @@ namespace MakesCentsBackend.Models
         /// <summary>
         /// Default constructor for a GetBudgetDTO
         /// </summary>
-        public GetBudgetDTO()
-        {
-        }
+        public GetBudgetDTO() { }
 
         /// <summary>
         /// Parameterized constructor for a Get Budget DTO
@@ -111,30 +109,12 @@ namespace MakesCentsBackend.Models
     /// <summary>
     /// Response model for getting a budget
     /// </summary>
-    public class GetBudgetResponse
+    public class GetBudgetResponse : BaseResponse
     {
         // Class Level Properties
-        public int HttpStatus { get; set; } = 0;
-        public string Message { get; set; } = "";
         public GetBudgetDTO GetBudgetDTO { get; set; } = new GetBudgetDTO();
 
-        public GetBudgetResponse(int status, string message, GetBudgetDTO getBudgetDTO)
-        {
-            HttpStatus = status;
-            Message = message;
-            GetBudgetDTO = getBudgetDTO;
-        }
-
-        public GetBudgetResponse(int status, string message)
-        {
-            HttpStatus = status;
-            Message = message;
-        }
-
-        public GetBudgetResponse(int budgetId, int userId, Month month, int year, string budgetName)
-        {
-            GetBudgetDTO = new GetBudgetDTO(budgetId, userId, month, year, budgetName);
-        }
+        public GetBudgetResponse(int status, string message) : base(status, message) { }
     }
 
     /// <summary>

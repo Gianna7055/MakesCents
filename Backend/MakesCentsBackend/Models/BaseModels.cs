@@ -24,6 +24,11 @@ namespace MakesCentsBackend.Models
             HttpStatus = httpStatus;
             Message = message;
         }
+
+        /// <summary>
+        /// Default constructor for a base response
+        /// </summary>
+        public BaseResponse() { }
     }
 
     /// <summary>
@@ -62,6 +67,11 @@ namespace MakesCentsBackend.Models
         {
             Id = -1;
         }
+
+        /// <summary>
+        /// Default constructor for a base Id response
+        /// </summary>
+        public BaseIdResponse() : base() { }
     }
 
     /// <summary>
@@ -97,4 +107,10 @@ namespace MakesCentsBackend.Models
         public static implicit operator Optional<T>(T? value) => new(value);
     }
 
+    public class BaseGetRequest
+    {
+        // Class properties
+        public int UserId { get; set; } = 0;
+        public int EntityId { get; set; } = 0;
+    }
 }

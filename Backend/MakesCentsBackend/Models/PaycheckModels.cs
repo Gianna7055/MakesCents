@@ -3,7 +3,6 @@
  * Makes Cents
  * Sources: 
  */
-using MakesCentsBackend.Models.Entities;
 using MakesCentsBackend.Models.Enums;
 
 namespace MakesCentsBackend.Models
@@ -43,12 +42,9 @@ namespace MakesCentsBackend.Models
     /// <summary>
     /// Response model for a DTO paycheck
     /// </summary>
-    public class CreatePaycheckResponse
+    public class CreatePaycheckResponse : BaseIdResponse
     {
         // Class level properties
-        public int HttpStatus { get; set; } = 0;
-        public string? Message { get; set; } = null;
-        public int? PaycheckId { get; set; } = null;
         public List<int> PaycheckSplitIds { get; set; } = new List<int>();
 
         /// <summary>
@@ -56,17 +52,66 @@ namespace MakesCentsBackend.Models
         /// </summary>
         /// <param name="httpStatus"></param>
         /// <param name="message"></param>
-        public CreatePaycheckResponse(int httpStatus, string? message)
-        {
-            HttpStatus = httpStatus;
-            Message = message;
-        }
+        public CreatePaycheckResponse(int httpStatus, string message) : base(httpStatus, message) { }
 
         /// <summary>
         /// Default constructor for a paycheck DTO Response
         /// </summary>
-        public CreatePaycheckResponse()
-        {
-        }
+        public CreatePaycheckResponse() : base() { }
+    }
+
+
+    public class SummaryPaycheckResponse
+    {
+        // Class properties
+        public int PaycheckId { get; set; } = 0;
+        public DateOnly StartingDate { get; set; } = new DateOnly();
+        public DateOnly? SecondaryDate { get; set; } = null;
+        public decimal TotalAmount { get; set; } = 0m;
+        public PaycheckRegularity PaycheckRegularity { get; set; } = PaycheckRegularity.Unknown;
+    }
+
+
+    public class GetAllPaychecksResponse : BaseResponse
+    {
+        // Class properties
+        public List<SummaryPaycheckResponse> Paychecks { get; set; } = new List<SummaryPaycheckResponse>();
+
+        /// <summary>
+        /// Default constructor for the get all paychecks response
+        /// </summary>
+        public GetAllPaychecksResponse() : base() { }
+
+        /// <summary>
+        /// Parameterized constructor with a status and a message
+        /// </summary>
+        /// <param name="httpStatus"></param>
+        /// <param name="message"></param>
+        public GetAllPaychecksResponse(int httpStatus, string message) : base(httpStatus, message) { }
+    }
+
+
+    public class GetPaycheckResponse : BaseResponse
+    {
+        // Class properties
+        public GetPaycheckDTOModel Paycheck { get; set; } = new GetPaycheckDTOModel();
+
+        public GetPaycheckResponse() { }
+
+        public GetPaycheckResponse(int httpStatus, string message) : base(httpStatus, message) { }
+    }
+
+
+    public class GetPaycheckDTOModel
+    {
+        // Class properties
+        public int PaycheckId { get; set; } = 0;
+        public int BudgetId { get; set; } = 0;
+        public string PaycheckName { get; set; } = "";
+        public DateOnly StartingDate { get; set; } = new DateOnly();
+        public DateOnly? SecondaryDate { get; set; } = null;
+        public decimal TotalAmount { get; set; } = 0m;
+        public PaycheckRegularity PaycheckRegularity { get; set; } = PaycheckRegularity.Unknown;
+        public List<GetPaycheckSplitDTO> PaycheckSplits { get; set; } = new List<GetPaycheckSplitDTO>();
     }
 }

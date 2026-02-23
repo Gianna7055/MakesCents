@@ -26,7 +26,7 @@ namespace MakesCentsBackend.Models
     }
 
 
-    public class SummaryTransactionResponse
+    public class SummaryTransactionDTOModel
     {
         // Class properties
         public int TransactionId { get; set; } = 0;
@@ -37,7 +37,7 @@ namespace MakesCentsBackend.Models
     }
 
 
-    public class SummaryTransactionDbModel
+    public class SummaryTransactionEntityModel
     {
         // Class properties
         public int TransactionId { get; set; } = 0;
@@ -47,7 +47,7 @@ namespace MakesCentsBackend.Models
 
         // Payment property
         public string? MerchantSourceName { get; set; } = null;
-        public string? Envelopes { get; set; } = "";
+        public string? EnvelopeNames { get; set; } = "";
 
         // Account transfer properties
         public string? TransferFromAccount { get; set; } = null;
@@ -60,15 +60,83 @@ namespace MakesCentsBackend.Models
         public decimal TotalAmount { get; set; } = 0m;
     }
 
+
     /// <summary>
     /// Request model to create a new transaction
     /// </summary>
+    /// 
     public abstract class CreateTransactionRequest
     {
         public int? BudgetId { get; set; } = null;
         public int? UserId { get; set; } = null;
+        public int? TransactionId { get; set; } = null;
         public DateOnly? TransactionDate { get; set; } = null;
         public decimal? TotalAmount { get; set; } = null;
         public Optional<string?> Notes { get; set; } = null;
+    }
+
+
+    /// <summary>
+    /// Response model for a transaction
+    /// </summary>
+    public class CreateTransactionResponse : BaseIdResponse
+    {
+        // Class level properties
+
+        /// <summary>
+        /// Parameterized constructor for a transaction response
+        /// </summary>
+        /// <param name="httpStatus"></param>
+        /// <param name="message"></param>
+        public CreateTransactionResponse(int httpStatus, string message) : base(httpStatus, message) { }
+
+        /// <summary>
+        /// Default constructor for a transaction response
+        /// </summary>
+        public CreateTransactionResponse() : base() { }
+    }
+
+
+    public class GetAllTransactionsEntityResponse : BaseResponse
+    {
+        // Class properties
+        public List<SummaryTransactionEntityModel> Transactions { get; set; } = new List<SummaryTransactionEntityModel>();
+
+        public GetAllTransactionsEntityResponse() : base() { }
+        public GetAllTransactionsEntityResponse(int httpStatus, string message) : base(httpStatus, message) { }
+    }
+
+
+    public class GetAllTransactionsDTOResponse : BaseResponse
+    {
+        // Class properties
+        public List<SummaryTransactionDTOModel> Transactions { get; set; } = new List<SummaryTransactionDTOModel>();
+    }
+
+
+    public class GetTransactionDTOModel
+    {
+        // Class variables
+        public int TransactionId { get; set; } = 0;
+        public int BudgetId { get; set; } = 0;
+        public int UserId { get; set; } = 0;
+        public DateOnly TransactionDate { get; set; } = new DateOnly(1, 1, 1);
+        public decimal TotalAmount { get; set; } = 0m;
+        public bool IsReconciled { get; set; } = false;
+        public string? Notes { get; set; } = null;
+        public TransactionType TransactionType { get; set; } = TransactionType.Unknown;
+    }
+
+    public class GetTransactionEntityModel
+    {
+        // Class variables
+        public int TransactionId { get; set; } = 0;
+        public int BudgetId { get; set; } = 0;
+        public int UserId { get; set; } = 0;
+        public DateOnly TransactionDate { get; set; } = new DateOnly(1, 1, 1);
+        public decimal TotalAmount { get; set; } = 0m;
+        public bool IsReconciled { get; set; } = false;
+        public string? Notes { get; set; } = null;
+        public TransactionType TransactionType { get; set; } = TransactionType.Unknown;
     }
 }

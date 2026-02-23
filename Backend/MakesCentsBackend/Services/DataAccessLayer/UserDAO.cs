@@ -112,7 +112,7 @@ namespace MakesCentsBackend.Services.DataAccessLayer
             catch (Exception ex)
             {
                 // Return any errors
-                return new LoginResponse(-1, 400, ex.Message);
+                return new LoginResponse(400, ex.Message);
             }
             // Make sure a user was found
             if (foundUser != null)
@@ -123,7 +123,7 @@ namespace MakesCentsBackend.Services.DataAccessLayer
             else
             {
                 // Return an error that the user was not found
-                return new LoginResponse(-1, 400, "User not found");
+                return new LoginResponse(400, "User not found");
             }
         }
 

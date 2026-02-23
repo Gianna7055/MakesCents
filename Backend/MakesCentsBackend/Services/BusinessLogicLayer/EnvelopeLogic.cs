@@ -3,6 +3,7 @@
  * Makes Cents
  * Sources: 
  */
+using AutoMapper;
 using MakesCentsBackend.Models;
 using MakesCentsBackend.Services.DataAccessLayer;
 
@@ -12,14 +13,16 @@ namespace MakesCentsBackend.Services.BusinessLogicLayer
     {
         // Class level variables
         private readonly EnvelopeDAO _envelopeDAO;
+        private readonly IMapper _mapper;
 
         /// <summary>
         /// Parameterized constructor to bring in DI variables
         /// </summary>
         /// <param name="envelopeDAO"></param>
-        public EnvelopeLogic(EnvelopeDAO envelopeDAO)
+        public EnvelopeLogic(EnvelopeDAO envelopeDAO, IMapper mapper)
         {
             _envelopeDAO = envelopeDAO;
+            _mapper = mapper;
         }
 
         /// <summary>
@@ -68,6 +71,30 @@ namespace MakesCentsBackend.Services.BusinessLogicLayer
             response = await _envelopeDAO.CreateEnvelopeAsync(envelope);
             // Return the response
             return response;
+        }
+
+        /// <summary>
+        /// Logic method to get a specific envelope
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        public async Task<GetEnvelopeDTOResponse> GetEnvelopeAsync(BaseGetRequest request)
+        {
+            // Declare and initialize
+            GetEnvelopeDTOResponse dtoResponse;
+            GetEnvelopeEntityResponse entityResponse;
+
+            // Call the DAO method
+            entityResponse = await _envelopeDAO.GetEnvelopeAsync(request);
+            // Map the entity response the dto response
+            dtoResponse = _mapper.Map<GetEnvelopeDTOResponse>(entityResponse);
+            // Map each entity transaction to a dto transaction
+            foreach (SummaryTransactionEntityModel entityTransaction in entityResponse.EnvelopeEntity.Transactions)
+            {
+                dtoResponse.EnvelopeDTO.Transactions.Add(_mapper.Map<SummaryTransactionDTOModel>(entityTransaction));
+            }
+            // Return the DTO
+            return dtoResponse;
         }
     }
 }

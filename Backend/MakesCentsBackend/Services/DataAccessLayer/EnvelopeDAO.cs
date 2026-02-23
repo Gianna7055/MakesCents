@@ -46,12 +46,6 @@ namespace MakesCentsBackend.Services.DataAccessLayer
             {
                 return new BaseIdResponse(403, "Envelope category does not belong to the current user.");
             }
-            // Make sure the envelope category belongs to the user
-            if (!await _authService.VerifyUserOwnsEnvelopeCategoryAsync(envelope.EnvelopeCategoryId, envelope.UserId))
-            {
-                return new BaseIdResponse(403, "Envelope category does not belong to the current user.");
-            }
-
             // Execute the request and get the new id for the envelope
             try
             {
@@ -79,6 +73,169 @@ namespace MakesCentsBackend.Services.DataAccessLayer
 
             // Return the new id
             return new BaseIdResponse(201, "Envelope created successfully", envelopeId);
+        }
+
+        /// <summary>
+        /// DAO method to update the remaining amount of an envelope by the amount
+        /// </summary>
+        /// <param name="dbTransaction"></param>
+        /// <param name="userId"></param>
+        /// <param name="envelopeId"></param>
+        /// <param name="amount"></param>
+        /// <returns></returns>
+        public async Task<bool> UpdateEnvelopeRemainingAmountAsync(int? userId, int? envelopeId, decimal? amount, MySqlTransaction dbTransaction)
+        {
+            // Declare and initialize
+            query = """
+                UPDATE envelope
+                SET balance = balance + @Amount
+                WHERE envelopeId = @EnvelopeId;
+                """;
+
+            // Make sure the envelope belongs to the user
+            if (!await _authService.VerifyUserOwnsEnvelopeAsync(envelopeId, userId))
+            {
+                return false;
+            }
+            // Execute the request
+            try
+            {
+                // Execute
+                await _connection.ExecuteAsync(query, new
+                {
+                    Amount = amount,
+                    EnvelopeId = envelopeId
+                }, dbTransaction);
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+            // Return true
+            return true;
+        }
+
+        /// <summary>
+        /// DAO method to get a single envelope
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        public async Task<GetEnvelopeEntityResponse> GetEnvelopeAsync(BaseGetRequest request)
+        {
+            // Declare and initialize
+            GetEnvelopeEntityResponse response = new GetEnvelopeEntityResponse();
+            GetEnvelopeEntity responseEntity;
+
+            // Make sure the envelope belongs to the user
+            if (!await _authService.VerifyUserOwnsEnvelopeAsync(request.EntityId, request.UserId))
+            {
+                // Return the false result
+                return new GetEnvelopeEntityResponse(403, "Envelope does not belong to the current user");
+            }
+            // Set up the query to get the envelope
+            query = """
+                SELECT 
+                    envelope.envelope_id AS EnvelopeId,
+                    envelope.envelope_category_id AS EnvelopeCategoryId,
+                    envelope.envelope_name AS EnvelopeName,
+                    envelope.planned_amount AS PlannedAmount,
+                    envelope.remaining_amount AS RemainingAmount,
+                    envelope.is_sinking_fund AS IsSinkingFund,
+                    envelope.goal_amount AS GoalAmount,
+                    envelope.goal_end_date AS GoalEndDate,
+                    envelope.transfer_envelope_id AS TransferEnvelopeId
+                FROM envelope
+                WHERE envelope.envelope_id = @EnvelopeId
+                """;
+            // Read the envelope
+            responseEntity = await _connection.QuerySingleAsync<GetEnvelopeEntity>(query, new { EnvelopeId = request.EntityId });
+            // Make sure the envelope was found
+            if (responseEntity == null)
+            {
+                // Return the issue
+                return new GetEnvelopeEntityResponse(404, "Envelope not found");
+            }
+            // Set up the query for reading the payment transactions
+            query = """
+                SELECT 
+                    transaction.transaction_id AS TransactionId,
+                    transaction.transaction_date AS Date,
+                    transaction.transaction_type_id AS TransactionTypeId,
+                    transaction.total_amount AS TotalAmount,
+                    payment_transaction.merchant_source_name AS MerchantSourceName,
+                    GROUP_CONCAT(DISTINCT envelope.envelope_name SEPARATOR ', ') AS EnvelopeNames
+                FROM transaction_split
+                INNER JOIN transaction ON transaction_split.transaction_id = transaction.transaction_id
+                INNER JOIN payment_transaction ON transaction.transaction_id = payment_transaction.transaction_id
+                LEFT JOIN transaction_split AS ts2 ON transaction.transaction_id = ts2.transaction_id
+                LEFT JOIN envelope ON ts2.envelope_id = envelope.envelope_id
+                WHERE transaction_split.envelope_id = @EnvelopeId
+                  AND transaction.deleted_at IS NULL
+                  AND transaction.transaction_type_id = 2
+                GROUP BY transaction.transaction_id
+                ORDER BY transaction.transaction_date DESC;
+                """;
+            // Read the payment transactions
+            responseEntity.Transactions = (await _connection.QueryAsync<SummaryTransactionEntityModel>(query, new { EnvelopeId = request.EntityId })).ToList();
+            // Set up the query to read the transfer transactions
+            query = """
+                SELECT 
+                    transaction.transaction_id AS TransactionId,
+                    transaction.transaction_date AS Date,
+                    transaction.transaction_type_id AS TransactionTypeId,
+                    transaction.total_amount AS TotalAmount,
+                    transfer_transaction.transfer_from_account_id AS TransferFromAccountId,
+                    transfer_transaction.transfer_to_account_id AS TransferToAccountId,
+                    transfer_transaction.transfer_from_envelope_id AS TransferFromEnvelopeId,
+                    transfer_transaction.transfer_to_envelope_id AS TransferToEnvelopeId
+                FROM transaction_split
+                INNER JOIN transaction ON transaction_split.transaction_id = transaction.transaction_id
+                INNER JOIN transfer_transaction ON transaction.transaction_id = transfer_transaction.transaction_id
+                WHERE transaction_split.envelope_id = @EnvelopeId
+                  AND transaction.deleted_at IS NULL
+                  AND transaction.transaction_type_id = 3
+                ORDER BY transaction.transaction_date DESC;
+                """;
+            // Read the transfer transactions
+            responseEntity.Transactions.AddRange((await _connection.QueryAsync<SummaryTransactionEntityModel>(query, new { EnvelopeId = request.EntityId })).ToList());
+            // Set the response entity in the response
+            response.EnvelopeEntity = responseEntity;
+            // Set the status and message for the envelope response
+            response.HttpStatus = 200;
+            response.Message = "Envelope found";
+            // Return the response
+            return response;
+        }
+
+
+        public async Task<GetEnvelopeBaseModel> GetEnvelopeForUpdateAsync(BaseGetRequest request)
+        {
+            // Declare and initialize
+            GetEnvelopeBaseModel response;
+
+            // Make sure the envelope belongs to the user
+            if (!await _authService.VerifyUserOwnsEnvelopeAsync(request.EntityId, request.UserId))
+            {
+                // Return the false result
+                return null;
+            }
+            // Set up the query to get the envelope
+            query = """
+                SELECT 
+                    envelope.envelope_id AS EnvelopeId,
+                    envelope.envelope_category_id AS EnvelopeCategoryId,
+                    envelope.envelope_name AS EnvelopeName,
+                    envelope.planned_amount AS PlannedAmount,
+                    envelope.remaining_amount AS RemainingAmount,
+                    envelope.is_sinking_fund AS IsSinkingFund,
+                    envelope.goal_amount AS GoalAmount,
+                    envelope.goal_end_date AS GoalEndDate,
+                    envelope.transfer_envelope_id AS TransferEnvelopeId
+                FROM envelope
+                WHERE envelope.envelope_id = @EnvelopeId
+                """;
+            // Read the envelope
+            response = await _connection.QuerySingleAsync<GetEnvelopeBaseModel>(query, new { EnvelopeId = request.EntityId });
         }
     }
 }

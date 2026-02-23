@@ -25,12 +25,10 @@ namespace MakesCentsBackend.Models
     /// <summary>
     /// Response model for an entity user
     /// </summary>
-    public class UserEntityResponse
+    public class UserEntityResponse : BaseResponse
     {
         // Class level properties
         public UserEntity User { get; set; }
-        public int HttpStatus { get; set; } = 0;
-        public string? Message { get; set; }
         public string? Token { get; set; }
 
         /// <summary>
@@ -38,11 +36,9 @@ namespace MakesCentsBackend.Models
         /// </summary>
         /// <param name="userId"></param>
         /// <param name="message"></param>
-        public UserEntityResponse(UserEntity user, int status, string? message)
+        public UserEntityResponse(UserEntity user, int status, string message) : base(status, message)
         {
             User = user;
-            HttpStatus = status;
-            Message = message;
             Token = null;
         }
     }
@@ -50,12 +46,10 @@ namespace MakesCentsBackend.Models
     /// <summary>
     /// Response model for a DTO user
     /// </summary>
-    public class UserDTOResponse
+    public class UserDTOResponse : BaseResponse
     {
         // Class level properties
         public UserDTO? User { get; set; } = null;
-        public int HttpStatus { get; set; } = 0;
-        public string? Message { get; set; } = null;
         public string? Token { get; set; } = null;
     }
 
@@ -75,11 +69,9 @@ namespace MakesCentsBackend.Models
         public BudgetEntity? Budget { get; set; } = null;
     }
 
-    public class GetUserResponse
+    public class GetUserResponse : BaseResponse
     {
         // Class Level Properties
-        public int HttpStatus { get; set; } = 0;
-        public string Message { get; set; } = "";
         public GetUserDTO GetUserDTO { get; set; } = new GetUserDTO();
 
         /// <summary>
@@ -88,10 +80,8 @@ namespace MakesCentsBackend.Models
         /// <param name="httpStatus"></param>
         /// <param name="message"></param>
         /// <param name="getUserDTO"></param>
-        public GetUserResponse(int httpStatus, string message, GetUserDTO getUserDTO)
+        public GetUserResponse(int httpStatus, string message, GetUserDTO getUserDTO) : base(httpStatus, message)
         {
-            HttpStatus = httpStatus;
-            Message = message;
             GetUserDTO = getUserDTO;
         }
 
@@ -100,11 +90,7 @@ namespace MakesCentsBackend.Models
         /// </summary>
         /// <param name="httpStatus"></param>
         /// <param name="message"></param>
-        public GetUserResponse(int httpStatus, string message)
-        {
-            HttpStatus = httpStatus;
-            Message = message;
-        }
+        public GetUserResponse(int httpStatus, string message) : base(httpStatus, message) { }
     }
 
     /// <summary>
@@ -151,13 +137,10 @@ namespace MakesCentsBackend.Models
     /// <summary>
     /// Response model for the login process
     /// </summary>
-    public class LoginResponse
+    public class LoginResponse : BaseIdResponse
     {
-        public int UserId { get; set; } = 0;
         public string PasswordHash { get; set; } = "";
         public string Token { get; set; } = "";
-        public int HttpStatus { get; set; } = 0;
-        public string Message { get; set; } = "";
 
         /// <summary>
         /// Parameterized constructor for user id, username or email, password hash, and message
@@ -166,25 +149,24 @@ namespace MakesCentsBackend.Models
         /// <param name="usernameOrEmail"></param>
         /// <param name="passwordHash"></param>
         /// <param name="message"></param>
-        public LoginResponse(int userId, string passwordHash, int status, string message)
+        public LoginResponse(int status, string message, int userId, string passwordHash) : base(status, message, userId)
         {
-            UserId = userId;
             PasswordHash = passwordHash;
-            HttpStatus = status;
-            Message = message;
         }
 
         /// <summary>
-        /// Parameterized constructor for user id and message
+        /// Parameterized constructor for status, message, and user id
         /// </summary>
         /// <param name="userId"></param>
         /// <param name="message"></param>
-        public LoginResponse(int userId, int status, string message)
-        {
-            UserId = userId;
-            HttpStatus = status;
-            Message = message;
-        }
+        public LoginResponse(int status, string message, int userId) : base(status, message, userId) { }
+
+        /// <summary>
+        /// Parameterized constructor for status and message
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <param name="message"></param>
+        public LoginResponse(int status, string message) : base(status, message, -1) { }
     }
 
 
@@ -199,12 +181,9 @@ namespace MakesCentsBackend.Models
     /// <summary>
     /// Response model for registration
     /// </summary>
-    public class RegisterResponse
+    public class RegisterResponse : BaseIdResponse
     {
         // Class level properties
-        public int UserId { get; set; }
-        public int HttpStatus { get; set; } = 0;
-        public string? Message { get; set; }
         public string? Token { get; set; }
 
         /// <summary>
@@ -212,11 +191,8 @@ namespace MakesCentsBackend.Models
         /// </summary>
         /// <param name="userId"></param>
         /// <param name="message"></param>
-        public RegisterResponse(int status, string? message, int userId)
+        public RegisterResponse(int status, string message, int userId) : base(status, message, userId)
         {
-            UserId = userId;
-            HttpStatus = status;
-            Message = message;
             Token = null;
         }
 
@@ -225,11 +201,8 @@ namespace MakesCentsBackend.Models
         /// </summary>
         /// <param name="userId"></param>
         /// <param name="message"></param>
-        public RegisterResponse(int status, string? message)
+        public RegisterResponse(int status, string message) : base (status, message, -1) 
         {
-            UserId = -1;
-            HttpStatus = status;
-            Message = message;
             Token = null;
         }
     }

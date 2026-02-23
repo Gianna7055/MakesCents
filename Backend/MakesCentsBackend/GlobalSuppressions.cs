@@ -15,3 +15,4 @@ using System.Diagnostics.CodeAnalysis;
 [assembly: SuppressMessage("Style", "IDE0028:Simplify collection initialization", Justification = "Keep for clarity purposes")]
 [assembly: SuppressMessage("Style", "IDE0090:Use 'new(...)'", Justification = "Keep for clarity purposes")]
 [assembly: SuppressMessage("Style", "IDE0037:Use inferred member name", Justification = "Keep for clarity purposes")]
+[assembly: SuppressMessage("Style", "IDE0063:Use simple 'using' statement", Justification = "Keep for clarity purposes")]
