@@ -16,15 +16,15 @@ namespace MakesCentsBackend.Services.Mappers
         public MappingProfile()
         {
             // User Maps
-            CreateMap<UserEntity, UserDTO>();
+            CreateMap<UserEntityModel, UserDTOModel>();
             CreateMap<UserEntityResponse, UserDTOResponse>();
 
             // Envelope Maps
-            CreateMap<GetEnvelopeEntity, GetEnvelopeDTO>();
+            CreateMap<GetEnvelopeEntityModel, GetEnvelopeDTOModel>();
             CreateMap<GetEnvelopeEntityResponse, GetEnvelopeDTOResponse>();
 
             // Bank Account Maps
-            CreateMap<GetBankAccountEntity, GetBankAccountDTO>();
+            CreateMap<GetBankAccountEntityModel, GetBankAccountDTOModel>();
             CreateMap<GetBankAccountEntityResponse, GetBankAccountDTOResponse>();
 
             // Transaction Maps

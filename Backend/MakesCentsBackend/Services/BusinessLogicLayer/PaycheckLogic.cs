@@ -36,7 +36,7 @@ namespace MakesCentsBackend.Services.BusinessLogicLayer
             decimal? sumOfSplits;
 
             // Make sure the necessary information was sent
-            if (paycheck.BudgetId == null || paycheck.UserId == null || string.IsNullOrEmpty(paycheck.PaycheckName) || paycheck.StartingDate == null || paycheck.TotalAmount == null || paycheck.PaycheckRegularity == PaycheckRegularity.Unknown)
+            if (paycheck.BudgetId == 0 || paycheck.UserId == 0 || string.IsNullOrEmpty(paycheck.PaycheckName) || paycheck.StartingDate == DateOnly.MinValue || paycheck.TotalAmount == 0m || paycheck.PaycheckRegularity == PaycheckRegularity.Unknown)
             {
                 return new CreatePaycheckResponse(400, "Missing information for paycheck creation");
             }
@@ -53,7 +53,7 @@ namespace MakesCentsBackend.Services.BusinessLogicLayer
                 if (split.Amount <= 0)
                     return new CreatePaycheckResponse(400, "Split amount must be greater than 0");
 
-                if (split.EnvelopeId == null)
+                if (split.EnvelopeId == 0)
                     return new CreatePaycheckResponse(400, "Split envelope is required");
             }
             // Total the splits
@@ -70,11 +70,17 @@ namespace MakesCentsBackend.Services.BusinessLogicLayer
         }
 
 
-        public async Task<GetAllPaychecksResponse> GetAllPaychecksAsync(BaseGetRequest request)
+        public async Task<GetAllPaychecksResponse> GetAllPaychecksAsync(BaseIdRequest request)
         {
             // Declare and initialize
             GetAllPaychecksResponse response;
 
+            // Make sure the required information was sent
+            if (request.EntityId == 0 || request.UserId == 0)
+            {
+                // Return the fail
+                return new GetAllPaychecksResponse(400, "Missing information to get all paychecks");
+            }
             // Call the DAO method
             response = await _paycheckDAO.GetAllPaychecksAsync(request);
             // Return the response
@@ -82,16 +88,59 @@ namespace MakesCentsBackend.Services.BusinessLogicLayer
         }
 
 
-        public async Task<GetPaycheckResponse> GetPaycheckAsync(BaseGetRequest request)
+        public async Task<GetPaycheckResponse> GetPaycheckAsync(BaseIdRequest request)
         {
             // Declare and initialize
             GetPaycheckResponse response;
 
+            // Make sure the required information was sent
+            if (request.EntityId == 0 || request.UserId == 0)
+            {
+                // Return the fail
+                return new GetPaycheckResponse(400, "Missing information to get paycheck");
+            }
             // Call the DAO method
             response = await _paycheckDAO.GetPaycheckAsync(request);
             // Return the response
             return response;
         }
 
+
+        public async Task<UpdatePaycheckResponse> UpdatePaycheckAsync(UpdatePaycheckRequest paycheck)
+        {
+            // Declare and initialize
+            UpdatePaycheckResponse response;
+
+            // Check to make sure the required information was provided
+            if (paycheck.PaycheckId == 0 || paycheck.UserId == 0)
+            {
+                return new UpdatePaycheckResponse(400, "Missing information for update");
+            }
+            if (paycheck.PaycheckSplits.Count != 0 || paycheck.PaycheckSplits.Sum(s => s.Amount) != paycheck.TotalAmount)
+            {
+                return new UpdatePaycheckResponse(400, "Split totals must equal paycheck total");
+            }
+
+            // Call the DAO method
+            response = await _paycheckDAO.UpdatePaycheckAsync(paycheck);
+            // Return the response
+            return response;
+        }
+
+        /// <summary>
+        /// Logic method to delete an paycheck
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        public async Task<BaseResponse> DeletePaycheckAsync(BaseIdRequest request)
+        {
+            // Check to make sure the required information was provided
+            if (request.EntityId == 0 || request.UserId == 0)
+            {
+                return new BaseResponse(400, "Missing information for update");
+            }
+            // Return a call the the DAO method
+            return await _paycheckDAO.DeletePaycheckAsync(request);
+        }
     }
 }

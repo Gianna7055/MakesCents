@@ -4,8 +4,10 @@
  * Sources: 
  */
 using Dapper;
+using Humanizer;
 using MakesCentsBackend.Models;
 using MySqlConnector;
+using System.Reflection;
 
 namespace MakesCentsBackend.Services.DataAccessLayer
 {
@@ -120,11 +122,11 @@ namespace MakesCentsBackend.Services.DataAccessLayer
         /// </summary>
         /// <param name="request"></param>
         /// <returns></returns>
-        public async Task<GetEnvelopeEntityResponse> GetEnvelopeAsync(BaseGetRequest request)
+        public async Task<GetEnvelopeEntityResponse> GetEnvelopeAsync(BaseIdRequest request)
         {
             // Declare and initialize
             GetEnvelopeEntityResponse response = new GetEnvelopeEntityResponse();
-            GetEnvelopeEntity responseEntity;
+            GetEnvelopeEntityModel responseEntity;
 
             // Make sure the envelope belongs to the user
             if (!await _authService.VerifyUserOwnsEnvelopeAsync(request.EntityId, request.UserId))
@@ -148,7 +150,7 @@ namespace MakesCentsBackend.Services.DataAccessLayer
                 WHERE envelope.envelope_id = @EnvelopeId
                 """;
             // Read the envelope
-            responseEntity = await _connection.QuerySingleAsync<GetEnvelopeEntity>(query, new { EnvelopeId = request.EntityId });
+            responseEntity = await _connection.QuerySingleAsync<GetEnvelopeEntityModel>(query, new { EnvelopeId = request.EntityId });
             // Make sure the envelope was found
             if (responseEntity == null)
             {
@@ -208,16 +210,16 @@ namespace MakesCentsBackend.Services.DataAccessLayer
         }
 
 
-        public async Task<GetEnvelopeBaseModel> GetEnvelopeForUpdateAsync(BaseGetRequest request)
+        public async Task<GetEnvelopeEntityResponse> GetEnvelopeForUpdateAsync(BaseIdRequest request)
         {
             // Declare and initialize
-            GetEnvelopeBaseModel response;
+            GetEnvelopeEntityResponse response = new GetEnvelopeEntityResponse();
 
             // Make sure the envelope belongs to the user
             if (!await _authService.VerifyUserOwnsEnvelopeAsync(request.EntityId, request.UserId))
             {
                 // Return the false result
-                return null;
+                return new GetEnvelopeEntityResponse(404, "Envelope not found");
             }
             // Set up the query to get the envelope
             query = """
@@ -235,7 +237,124 @@ namespace MakesCentsBackend.Services.DataAccessLayer
                 WHERE envelope.envelope_id = @EnvelopeId
                 """;
             // Read the envelope
-            response = await _connection.QuerySingleAsync<GetEnvelopeBaseModel>(query, new { EnvelopeId = request.EntityId });
+            response.EnvelopeEntity = await _connection.QuerySingleAsync<GetEnvelopeEntityModel>(query, new { EnvelopeId = request.EntityId });
+            // Set the status and message for the envelope response
+            response.HttpStatus = 200;
+            response.Message = "Envelope found";
+            // Return the response
+            return response;
+        }
+
+
+        public async Task<BaseIdResponse> UpdateEnvelopeAsync(UpdateEnvelopeRequest envelope)
+        {
+            // Declare and initialize
+            List<string> updates = new List<string>();
+            int rowsAffected;
+
+            // Make sure the envelope belongs to the user
+            if (!await _authService.VerifyUserOwnsEnvelopeAsync(envelope.EnvelopeId, envelope.UserId))
+            {
+                return new BaseIdResponse(403, "Envelope does not belong to the current user.", envelope.EnvelopeId);
+            }
+
+            // Loop through each field to see if an update is necessary
+            foreach (PropertyInfo property in typeof(UpdateEnvelopeRequest).GetProperties())
+            {
+                // Skip the id
+                if (property.Name == "EnvelopeId" || property.Name == "UserId") continue;
+                object? propertyValue = property.GetValue(envelope);
+
+                // Check if the property is IOptional and has a value
+                if (propertyValue is IOptional optional && optional.HasValue)
+                {
+                    // Add the Optional<T> to the query
+                    updates.Add($"{property.Name.Underscore()} = @{property.Name}");
+                }
+                // Check if the property is null
+                else if (propertyValue != null)
+                {
+                    // Add the property to the query
+                    updates.Add($"{property.Name.Underscore()} = @{property.Name}");
+                }
+            }
+
+            // If no fields to update, return early
+            if (updates.Count == 0)
+            {
+                return new BaseIdResponse(400, "No fields to update");
+            }
+            // Assemble the query
+            query = $"""
+                UPDATE envelope 
+                SET {string.Join(", ", updates)}
+                WHERE envelope_id = @EnvelopeId
+                """;
+            try
+            {
+                // Execute the query
+                rowsAffected = await _connection.ExecuteAsync(query, envelope);
+            }
+            catch (MySqlException ex)
+            {
+                // Check if the error is 1062
+                if (ex.Number == 1062)
+                {
+                    // Check if the error is due to a non-unique name
+                    if (ex.Message.Contains("'unique_envelope_name'"))
+                    {
+                        return new BaseIdResponse(400, "Envelope name already exists in this budget");
+                    }
+                }
+                return new BaseIdResponse(500, $"{ex.Number}: {ex.Message}");
+            }
+            catch (Exception ex)
+            {
+                // Return the issue
+                return new BaseIdResponse(500, $"{ex.Message}");
+            }
+
+            // Make sure the row was affected
+            if (rowsAffected == 1)
+            {
+                return new BaseIdResponse(200, "Envelope updated successfully", envelope.EnvelopeId);
+            }
+            else if (rowsAffected == 0)
+            {
+                return new BaseIdResponse(404, "Envelope not found");
+            }
+            else
+            {
+                return new BaseIdResponse(400, "An error occurred");
+            }
+        }
+
+
+        public async Task<BaseResponse> DeleteEnvelopeAsync(BaseIdRequest request)
+        {
+            // Declare and initialize
+            query = """
+                DELETE FROM envelope 
+                WHERE envelope_id = @EnvelopeId
+                """;
+            int rowsAffected;
+
+            // Make sure the envelope belongs to the user
+            if (!await _authService.VerifyUserOwnsEnvelopeAsync(request.EntityId, request.UserId))
+            {
+                return new BaseIdResponse(403, "Envelope does not belong to the current user.");
+            }
+            // Execute the query
+            rowsAffected = await _connection.ExecuteAsync(query, new { EnvelopeId = request.EntityId });
+
+            // Check the number of rows found
+            if (rowsAffected == 0)
+            {
+                // Return that the user was not found
+                return new BaseResponse(404, "Envelope not found");
+            }
+            // Return the success
+            return new BaseResponse(200, "Envelope deleted successfully");
         }
     }
 }

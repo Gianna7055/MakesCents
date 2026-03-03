@@ -78,7 +78,7 @@ namespace MakesCentsBackend.Controllers
         {
             // Declare and initialize
             GetEnvelopeDTOResponse response;
-            BaseGetRequest request = new BaseGetRequest();
+            BaseIdRequest request = new BaseIdRequest();
             // Get the user id from the JWT token
             int userId = ClaimsPrincipalExtensions.GetUserId(User);
 
@@ -124,6 +124,72 @@ namespace MakesCentsBackend.Controllers
             request.UserId = userId;
             request.EnvelopeId = envelopeId;
             // Call the logic method
+            response = await _envelopeLogic.UpdateEnvelopeAsync(request);
+
+            // Check if the status came back as a success
+            if (response.HttpStatus == 400)
+            {
+                // Return a bad request
+                return BadRequest(response.Message);
+            }
+            else if (response.HttpStatus == 403)
+            {
+                // Return the forbidden response
+                return Forbid(response.Message);
+            }
+            else if (response.HttpStatus == 404)
+            {
+                // Return a not found
+                return NotFound(response.Message);
+            }
+            else
+            {
+                // Return Ok
+                return Ok(new
+                {
+                    status = response.HttpStatus,
+                    message = response.Message,
+                    envelopeId = response.Id
+                });
+            }
+        }
+
+
+        [Authorize]
+        [HttpDelete("{envelopeId}")]
+        public async Task<ActionResult> DeleteEnvelopeAsync(int envelopeId)
+        {
+            // Declare and initialize
+            BaseResponse response;
+            BaseIdRequest request = new BaseIdRequest();
+            // Get the user id from the JWT token
+            int userId = ClaimsPrincipalExtensions.GetUserId(User);
+
+            // Set the user id and the entity id in the request
+            request.UserId = userId;
+            request.EntityId = envelopeId;
+            // Call the logic method to delete the envelope
+            response = await _envelopeLogic.DeleteEnvelopeAsync(request);
+
+            if (response.HttpStatus == 404)
+            {
+                // Return a not found
+                return NotFound(response.Message);
+            }
+            else if (response.HttpStatus == 403)
+            {
+                // Return the forbidden response
+                return Forbid(response.Message);
+            }
+            else
+            {
+                // Return Ok
+                return Ok(new
+                {
+                    status = response.HttpStatus,
+                    message = response.Message,
+                });
+            }
         }
     }
 }

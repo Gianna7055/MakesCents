@@ -4,9 +4,11 @@
  * Sources: 
  */
 using Dapper;
+using Humanizer;
 using MakesCentsBackend.Models;
 using MySqlConnector;
 using System.Data;
+using System.Reflection;
 
 namespace MakesCentsBackend.Services.DataAccessLayer
 {
@@ -17,6 +19,7 @@ namespace MakesCentsBackend.Services.DataAccessLayer
         private readonly AuthorizationService _authService;
         private readonly AccountDAO _accountDAO;
         private readonly EnvelopeDAO _envelopeDAO;
+        private readonly TransactionDAO _transactionDAO;
         string query = "";
 
         /// <summary>
@@ -24,12 +27,13 @@ namespace MakesCentsBackend.Services.DataAccessLayer
         /// </summary>
         /// <param name="connection"></param>
         /// <param name="authService"></param>
-        public PaymentTransactionDAO(MySqlConnection connection, AuthorizationService authService, AccountDAO accountDAO, EnvelopeDAO envelopeDAO)
+        public PaymentTransactionDAO(MySqlConnection connection, AuthorizationService authService, AccountDAO accountDAO, EnvelopeDAO envelopeDAO, TransactionDAO transactionDAO)
         {
             _connection = connection;
             _authService = authService;
             _accountDAO = accountDAO;
             _envelopeDAO = envelopeDAO;
+            _transactionDAO = transactionDAO;
         }
 
         /// <summary>
@@ -138,7 +142,7 @@ namespace MakesCentsBackend.Services.DataAccessLayer
             return response;
         }
 
-        public async Task<GetPaymentTransactionResponse> GetPaymentTransactionAsync(BaseGetRequest request)
+        public async Task<GetPaymentTransactionResponse> GetPaymentTransactionAsync(BaseIdRequest request)
         {
             // Declare and initialize
             GetPaymentTransactionResponse response = new GetPaymentTransactionResponse();
@@ -199,6 +203,182 @@ namespace MakesCentsBackend.Services.DataAccessLayer
             response.HttpStatus = 200;
             response.Message = "Payment transaction found";
             // Return the response
+            return response;
+        }
+
+
+        public async Task<UpdatePaymentTransactionResponse> UpdatePaymentTransactionAsync(UpdatePaymentTransactionRequest paymentTransaction)
+        {
+            // Declare and initialize
+            UpdatePaymentTransactionResponse response = new UpdatePaymentTransactionResponse();
+            List<string> updates = new List<string>();
+            List<int> existingSplitIds;
+            List<int> incomingSplitIds;
+            List<int> splitsToDelete;
+            int rowsAffected;
+            int transactionSplitId;
+            BaseIdResponse transactionResponse;
+
+            // Check if the connection is open
+            if (_connection.State != ConnectionState.Open)
+                // Open the connection
+                await _connection.OpenAsync();
+            // Setting up the transaction
+            using (MySqlTransaction dbTransaction = _connection.BeginTransaction())
+            {
+                // Call the transaction update method
+                transactionResponse = await _transactionDAO.UpdateTransactionAsync(paymentTransaction, dbTransaction);
+
+                // Check the transaction response
+                if (transactionResponse.HttpStatus != 200 || transactionResponse.Message != "No fields to update")
+                {
+                    // Roll the transaction back
+                    dbTransaction.Rollback();
+                    return new UpdatePaymentTransactionResponse(transactionResponse.HttpStatus, transactionResponse.Message);
+                }
+
+                // Loop through each field to see if an update is necessary
+                foreach (PropertyInfo property in typeof(UpdatePaymentTransactionRequest).GetProperties())
+                {
+                    // Skip base table properties
+                    if (typeof(UpdateTransactionRequest).GetProperty(property.Name) != null) continue;
+                    // Skip the id
+                    if (property.Name == "PaymentTransactionId") continue;
+                    object? propertyValue = property.GetValue(paymentTransaction);
+
+                    // Check if the property is IOptional and has a value
+                    if (propertyValue is IOptional optional && optional.HasValue)
+                    {
+                        // Add the Optional<T> to the query
+                        updates.Add($"{property.Name.Underscore()} = @{property.Name}");
+                    }
+                    // Check if the property is null
+                    else if (propertyValue != null)
+                    {
+                        // Add the property to the query
+                        updates.Add($"{property.Name.Underscore()} = @{property.Name}");
+                    }
+                }
+
+                // If there are no fields to update, return early
+                if (updates.Count == 0)
+                {
+                    return new UpdatePaymentTransactionResponse(400, "No fields to update");
+                }
+                // Assemble the query
+                query = $"""
+                    UPDATE payment_transaction 
+                    SET {string.Join(", ", updates)}
+                    WHERE payment_transaction_id = @PaymentTransactionId
+                    """;
+
+                try
+                {
+                    // Execute the query
+                    rowsAffected = await _connection.ExecuteAsync(query, paymentTransaction, dbTransaction);
+                }
+                catch (Exception ex)
+                {
+                    // Roll the transaction back
+                    dbTransaction.Rollback();
+                    // Return the issue
+                    return new UpdatePaymentTransactionResponse(500, $"{ex.Message}");
+                }
+
+                if (rowsAffected == 0)
+                {
+                    // Roll the transaction back
+                    dbTransaction.Rollback();
+                    return new UpdatePaymentTransactionResponse(404, "Payment transaction not found");
+                }
+
+                // Update the transaction splits table
+                if (paymentTransaction.TransactionSplits != null)
+                {
+                    // Get the existing splits from the database
+                    query = """
+                        SELECT transaction_split_id AS TransactionSplitId 
+                        FROM transaction_split 
+                        WHERE transaction_id = @TransactionId
+                        """;
+                    try
+                    {
+                        // Return the ids to an int list
+                        existingSplitIds = (await _connection.QueryAsync<int>(query, new { TransactionId = paymentTransaction.TransactionId }, dbTransaction)).ToList();
+                    }
+                    catch (Exception ex)
+                    {
+                        // Roll the transaction back
+                        dbTransaction.Rollback();
+                        // Return the issue
+                        return new UpdatePaymentTransactionResponse(500, $"{ex.Message}");
+                    }
+                    // Get the incoming slit ids
+                    incomingSplitIds = paymentTransaction.TransactionSplits.Where(s => s.TransactionSplitId != null).Select(s => s.TransactionSplitId!.Value).ToList();
+
+                    // Get the splits to delete by comparing the existing and incoming splits
+                    splitsToDelete = existingSplitIds.Except(incomingSplitIds).ToList();
+                    // Check if there are splits to delete
+                    if (splitsToDelete.Count > 0)
+                    {
+                        query = """
+                            DELETE FROM transaction_split 
+                            WHERE transaction_split_id 
+                            IN @SplitIds
+                            """;
+                        await _connection.QueryAsync(query, new { SplitIds = splitsToDelete }, dbTransaction);
+                    }
+
+                    // Loop through the splits to insert and update
+                    foreach (UpdateTransactionSplitRequest split in paymentTransaction.TransactionSplits)
+                    {
+                        // Check if the transaction split id is null
+                        if (split.TransactionSplitId.HasValue)
+                        {
+                            // Update the existing split
+                            query = """
+                                UPDATE transaction_split 
+                                SET envelope_id = @EnvelopeId, 
+                                    amount = @Amount
+                                WHERE paycheck_split_id = @PaycheckSplitId
+                                """;
+                            try
+                            {
+                                // Return the ids to an int list
+                                existingSplitIds = (await _connection.QueryAsync<int>(query, split, dbTransaction)).ToList();
+                            }
+                            catch (Exception ex)
+                            {
+                                // Roll the transaction back
+                                dbTransaction.Rollback();
+                                // Return the issue
+                                return new UpdatePaymentTransactionResponse(500, $"{ex.Message}");
+                            }
+                        }
+                        else
+                        {
+                            // Set the transaction id
+                            split.TransactionId = paymentTransaction.TransactionId;
+                            // Add a new split
+                            query = """
+                                INSERT INTO transaction_split (transaction_id, envelope_id, amount)
+                                VALUES (@TransactionId, @EnvelopeId, @Amount);
+                                SELECT LAST_INSERT_ID();
+                            """;
+                            // Execute the query
+                            transactionSplitId = await _connection.QuerySingleAsync<int>(query, split, dbTransaction);
+                            // Add the new id to the response split id list
+                            response.TransactionSplitIds.Add(transactionSplitId);
+                        }
+                    }
+                }
+                // Commit the transaction
+                dbTransaction.Commit();
+            }
+            // Set the status and the message
+            response.HttpStatus = 201;
+            response.Message = "Payment transaction updated successfully";
+            // Return the result
             return response;
         }
     }

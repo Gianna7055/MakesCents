@@ -4,10 +4,12 @@
  * Sources: 
  */
 using Dapper;
+using Humanizer;
 using MakesCentsBackend.Models;
 using MakesCentsBackend.Models.Enums;
 using MySqlConnector;
 using System.Data;
+using System.Reflection;
 
 namespace MakesCentsBackend.Services.DataAccessLayer
 {
@@ -18,6 +20,7 @@ namespace MakesCentsBackend.Services.DataAccessLayer
         private readonly AuthorizationService _authService;
         private readonly AccountDAO _accountDAO;
         private readonly EnvelopeDAO _envelopeDAO;
+        private readonly TransactionDAO _transactionDAO;
         string query = "";
 
         /// <summary>
@@ -25,12 +28,13 @@ namespace MakesCentsBackend.Services.DataAccessLayer
         /// </summary>
         /// <param name="connection"></param>
         /// <param name="authService"></param>
-        public TransferTransactionDAO(MySqlConnection connection, AuthorizationService authService, AccountDAO accountDAO, EnvelopeDAO envelopeDAO)
+        public TransferTransactionDAO(MySqlConnection connection, AuthorizationService authService, AccountDAO accountDAO, EnvelopeDAO envelopeDAO, TransactionDAO transactionDAO)
         {
             _connection = connection;
             _authService = authService;
             _accountDAO = accountDAO;
             _envelopeDAO = envelopeDAO;
+            _transactionDAO = transactionDAO;
         }
 
 
@@ -128,7 +132,7 @@ namespace MakesCentsBackend.Services.DataAccessLayer
         }
 
 
-        public async Task<GetTransferTransactionEntityResponse> GetTransferTransactionAsync(BaseGetRequest request)
+        public async Task<GetTransferTransactionEntityResponse> GetTransferTransactionAsync(BaseIdRequest request)
         {
             // Declare and initialize
             GetTransferTransactionEntityResponse response = new GetTransferTransactionEntityResponse();
@@ -177,5 +181,91 @@ namespace MakesCentsBackend.Services.DataAccessLayer
             return response;
         }
 
+
+        public async Task<BaseIdResponse> UpdateTransferTransactionAsync(UpdateTransferTransactionRequest transferTransaction)
+        {
+            // Declare and initialize
+            BaseIdResponse transactionResponse;
+            int rowsAffected;
+            List<string> updates = new List<string>();
+
+            // Check if the connection is open
+            if (_connection.State != ConnectionState.Open)
+                // Open the connection
+                await _connection.OpenAsync();
+            // Setting up the transaction
+            using (MySqlTransaction dbTransaction = _connection.BeginTransaction())
+            {
+                // Call the transaction update method
+                transactionResponse = await _transactionDAO.UpdateTransactionAsync(transferTransaction, dbTransaction);
+
+                // Check the transaction response
+                if (transactionResponse.HttpStatus != 200 || transactionResponse.Message != "No fields to update")
+                {
+                    // Roll the transaction back
+                    dbTransaction.Rollback();
+                    return transactionResponse;
+                }
+
+                // Loop through each field to see if an update is necessary
+                foreach (PropertyInfo property in typeof(UpdateTransferTransactionRequest).GetProperties())
+                {
+                    // Skip base table properties
+                    if (typeof(UpdateTransactionRequest).GetProperty(property.Name) != null) continue;
+                    // Skip the id
+                    if (property.Name == "TransferTransactionId") continue;
+                    object? propertyValue = property.GetValue(transferTransaction);
+
+                    // Check if the property is IOptional and has a value
+                    if (propertyValue is IOptional optional && optional.HasValue)
+                    {
+                        // Add the Optional<T> to the query
+                        updates.Add($"{property.Name.Underscore()} = @{property.Name}");
+                    }
+                    // Check if the property is null
+                    else if (propertyValue != null)
+                    {
+                        // Add the property to the query
+                        updates.Add($"{property.Name.Underscore()} = @{property.Name}");
+                    }
+                }
+
+                // If there are no fields to update, return early
+                if (updates.Count == 0)
+                {
+                    return new BaseIdResponse(400, "No fields to update");
+                }
+                // Assemble the query
+                query = $"""
+                    UPDATE transfer_transaction 
+                    SET {string.Join(", ", updates)}
+                    WHERE transfer_transaction_id = @TransferTransactionId
+                    """;
+
+                try
+                {
+                    // Execute the query
+                    rowsAffected = await _connection.ExecuteAsync(query, transferTransaction, dbTransaction);
+                }
+                catch (Exception ex)
+                {
+                    // Roll the transaction back
+                    dbTransaction.Rollback();
+                    // Return the issue
+                    return new BaseIdResponse(500, $"{ex.Message}");
+                }
+
+                if (rowsAffected == 0)
+                {
+                    // Roll the transaction back
+                    dbTransaction.Rollback();
+                    return new BaseIdResponse(404, "Payment transaction not found");
+                }
+                // Commit the transaction
+                dbTransaction.Commit();
+            }
+            // Return the result
+            return new BaseIdResponse(201, "Transfer transaction updated successfully");
+        }
     }
 }

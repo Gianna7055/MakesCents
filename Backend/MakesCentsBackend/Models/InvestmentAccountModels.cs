@@ -10,7 +10,7 @@ namespace MakesCentsBackend.Models
     /// <summary>
     /// Model for an investment account
     /// </summary>
-    public class InvestmentAccountEntity : AccountEntity
+    public class InvestmentAccountEntityModel : AccountEntityModel
     {
         // Class Level Properties
         public int InvestmentAccountId { get; set; } = 0;
@@ -27,9 +27,9 @@ namespace MakesCentsBackend.Models
     {
         // Class variables
         public InvestmentAccountType InvestmentAccountType { get; set; } = InvestmentAccountType.Unknown;
-        public Optional<int?> AccountNumber { get; set; } = null;
-        public bool? IsTaxDeferred { get; set; } = null;
-        public bool? IsTaxExempt { get; set; } = null;
+        public Optional<int?> AccountNumber { get; set; }
+        public bool IsTaxDeferred { get; set; } = false;
+        public bool IsTaxExempt { get; set; } = false;
     }
 
     /// <summary>
@@ -54,7 +54,7 @@ namespace MakesCentsBackend.Models
     }
 
 
-    public class InvestmentAccountSummaryDTO : AccountSummaryDTO
+    public class InvestmentAccountSummaryDTOModel : AccountSummaryDTOModel
     {
         // Class properties
         public int InvestmentAccountId { get; set; } = 0;
@@ -64,7 +64,7 @@ namespace MakesCentsBackend.Models
     /// <summary>
     /// DTO model to get a specific investment account
     /// </summary>
-    public class GetInvestmentAccountDTO : GetAccountModel
+    public class GetInvestmentAccountDTOModel : GetAccountBaseModel
     {
         // Class properties
         public int InvestmentAccountId { get; set; } = 0;
@@ -77,7 +77,7 @@ namespace MakesCentsBackend.Models
         /// <summary>
         /// Default constructor for the get investment account DTO
         /// </summary>
-        public GetInvestmentAccountDTO() { }
+        public GetInvestmentAccountDTOModel() { }
     }
 
     /// <summary>
@@ -85,13 +85,15 @@ namespace MakesCentsBackend.Models
     /// </summary>
     public class GetInvestmentAccountDTOResponse : BaseResponse
     {
-        public GetInvestmentAccountDTO InvestmentAccount { get; set; } = new GetInvestmentAccountDTO();
+        public GetInvestmentAccountDTOModel InvestmentAccount { get; set; } = new GetInvestmentAccountDTOModel();
+
+        public GetInvestmentAccountDTOResponse(int httpStatus, string message) : base(httpStatus, message) { }
     }
 
     /// <summary>
     /// Entity model to get a specific investment account
     /// </summary>
-    public class GetInvestmentAccountEntity : GetAccountModel
+    public class GetInvestmentAccountEntityModel : GetAccountBaseModel
     {
         // Class properties
         public int InvestmentAccountId { get; set; } = 0;
@@ -107,7 +109,7 @@ namespace MakesCentsBackend.Models
     /// </summary>
     public class GetInvestmentAccountEntityResponse : BaseResponse
     {
-        public GetInvestmentAccountEntity InvestmentAccount { get; set; } = new GetInvestmentAccountEntity();
+        public GetInvestmentAccountEntityModel InvestmentAccount { get; set; } = new GetInvestmentAccountEntityModel();
 
         /// <summary>
         /// Default constructor
@@ -120,5 +122,16 @@ namespace MakesCentsBackend.Models
         /// <param name="status"></param>
         /// <param name="message"></param>
         public GetInvestmentAccountEntityResponse(int status, string message) : base(status, message) { }
+    }
+
+
+    public class UpdateInvestmentAccountRequest : UpdateAccountRequest
+    {
+        // Class properties
+        public int InvestmentAccountId { get; set; } = 0;
+        public InvestmentAccountType? InvestmentAccountType { get; set; } = null;
+        public Optional<int?> AccountNumber { get; set; }
+        public bool? IsTaxDeferred { get; set; } = null;
+        public bool? IsTextExempt { get; set; } = null;
     }
 }

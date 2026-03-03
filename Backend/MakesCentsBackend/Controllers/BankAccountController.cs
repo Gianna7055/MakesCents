@@ -78,7 +78,7 @@ namespace MakesCentsBackend.Controllers
         {
             // Declare and initialize
             GetBankAccountDTOResponse response;
-            BaseGetRequest request = new BaseGetRequest();
+            BaseIdRequest request = new BaseIdRequest();
             // Get the user id from the JWT token
             int userId = ClaimsPrincipalExtensions.GetUserId(User);
 
@@ -109,6 +109,49 @@ namespace MakesCentsBackend.Controllers
                 message = response.Message,
                 bankAccount = response.BankAccount
             });
+        }
+
+        [Authorize]
+        [HttpPut("{bankAccountId}")]
+        public async Task<ActionResult> UpdateBankAccountAsync(int bankAccountId, UpdateBankAccountRequest bankAccount)
+        {
+            // Declare and initialize
+            BaseIdResponse response;
+            // Get the user id from the JWT token
+            int userId = ClaimsPrincipalExtensions.GetUserId(User);
+
+            // Set the envelope id and the user id in the request
+            bankAccount.UserId = userId;
+            bankAccount.BankAccountId = bankAccountId;
+            // Call the logic method
+            response = await _bankAccountLogic.UpdateBankAccountAsync(bankAccount);
+
+            // Check if the status came back as a success
+            if (response.HttpStatus == 400)
+            {
+                // Return a bad request
+                return BadRequest(response.Message);
+            }
+            else if (response.HttpStatus == 403)
+            {
+                // Return the forbidden response
+                return Forbid(response.Message);
+            }
+            else if (response.HttpStatus == 404)
+            {
+                // Return a not found
+                return NotFound(response.Message);
+            }
+            else
+            {
+                // Return Ok
+                return Ok(new
+                {
+                    status = response.HttpStatus,
+                    message = response.Message,
+                    bankAccountId = response.Id
+                });
+            }
         }
     }
 }

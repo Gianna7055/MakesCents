@@ -12,7 +12,7 @@ namespace MakesCentsBackend.Models
     /// <summary>
     /// Entity model for a budget
     /// </summary>
-    public class BudgetEntity
+    public class BudgetEntityModel
     {
         // Class Level Properties
         public int BudgetId { get; set; } = 0;
@@ -20,12 +20,12 @@ namespace MakesCentsBackend.Models
         public Month Month { get; set; } = Month.Unknown;
         public int Year { get; set; } = 0;
         public string BudgetName { get; set; } = "";
-        public DateTime CreatedAt { get; set; } = new DateTime();
-        public DateTime LastUpdatedAt { get; set; } = new DateTime();
-        public List<EnvelopeCategoryEntity> EnvelopeCategories { get; set; } = new List<EnvelopeCategoryEntity>();
-        public List<AccountEntity> Accounts { get; set; } = new List<AccountEntity>();
-        public List<PaycheckEntity> Paychecks { get; set; } = new List<PaycheckEntity>();
-        public List<TransactionEntity> Transactions { get; set; } = new List<TransactionEntity>();
+        public DateTime CreatedAt { get; set; } = DateTime.MinValue;
+        public DateTime LastUpdatedAt { get; set; } = DateTime.MinValue;
+        public List<EnvelopeCategoryEntityModel> EnvelopeCategories { get; set; } = new List<EnvelopeCategoryEntityModel>();
+        public List<AccountEntityModel> Accounts { get; set; } = new List<AccountEntityModel>();
+        public List<PaycheckEntityModel> Paychecks { get; set; } = new List<PaycheckEntityModel>();
+        public List<TransactionEntityModel> Transactions { get; set; } = new List<TransactionEntityModel>();
         public List<PlannedExpenseEntity> PlannedExpenses { get; set; } = new List<PlannedExpenseEntity>();
     }
 
@@ -34,10 +34,10 @@ namespace MakesCentsBackend.Models
     /// </summary>
     public class CreateBudgetRequest
     {
-        public int? UserId { get; set; } = null;
+        public int UserId { get; set; } = 0;
         public Month Month { get; set; } = Month.Unknown;
-        public int? Year { get; set; } = null;
-        public string? BudgetName { get; set; } = null;
+        public int Year { get; set; } = 0;
+        public string BudgetName { get; set; } = "";
     }
 
     /// <summary>
@@ -45,9 +45,9 @@ namespace MakesCentsBackend.Models
     /// </summary>
     public class GetBudgetRequest
     {
-        public int? UserId { get; set; } = null;
+        public int UserId { get; set; } = 0;
         public Month Month { get; set; } = Month.Unknown;
-        public int? Year { get; set; } = null;
+        public int Year { get; set; } = 0;
 
         /// <summary>
         /// Parameterized constructor for a Get Budget DTO
@@ -55,7 +55,7 @@ namespace MakesCentsBackend.Models
         /// <param name="userId"></param>
         /// <param name="month"></param>
         /// <param name="year"></param>
-        public GetBudgetRequest(int? userId, Month month, int? year)
+        public GetBudgetRequest(int userId, Month month, int year)
         {
             UserId = userId;
             Month = month;
@@ -66,7 +66,7 @@ namespace MakesCentsBackend.Models
     /// <summary>
     /// DTO model for sending a budget to the API for getting a budget
     /// </summary>
-    public class GetBudgetDTO
+    public class GetBudgetDTOModel
     {
         // Class Level Properties
         public int BudgetId { get; set; } = 0;
@@ -81,13 +81,13 @@ namespace MakesCentsBackend.Models
         /// <summary>
         /// Default constructor for a GetBudgetDTO
         /// </summary>
-        public GetBudgetDTO() { }
+        public GetBudgetDTOModel() { }
 
         /// <summary>
         /// Parameterized constructor for a Get Budget DTO
         /// </summary>
         /// <param name="budgetId"></param>
-        public GetBudgetDTO(int budgetId, int userId, Month month, int year, string budgetName) : this(budgetId, userId, month, year)
+        public GetBudgetDTOModel(int budgetId, int userId, Month month, int year, string budgetName) : this(budgetId, userId, month, year)
         {
             BudgetName = budgetName;
         }
@@ -97,7 +97,7 @@ namespace MakesCentsBackend.Models
         /// Parameterized constructor for a Get Budget DTO
         /// </summary>
         /// <param name="budgetId"></param>
-        public GetBudgetDTO(int budgetId, int userId, Month month, int year)
+        public GetBudgetDTOModel(int budgetId, int userId, Month month, int year)
         {
             BudgetId = budgetId;
             UserId = userId;
@@ -112,7 +112,7 @@ namespace MakesCentsBackend.Models
     public class GetBudgetResponse : BaseResponse
     {
         // Class Level Properties
-        public GetBudgetDTO GetBudgetDTO { get; set; } = new GetBudgetDTO();
+        public GetBudgetDTOModel GetBudgetDTO { get; set; } = new GetBudgetDTOModel();
 
         public GetBudgetResponse(int status, string message) : base(status, message) { }
     }
@@ -122,8 +122,8 @@ namespace MakesCentsBackend.Models
     /// </summary>
     public class EditBudgetRequest
     {
-        public int? BudgetId { get; set; } = null;
-        public int? UserId { get; set; } = null;
+        public int BudgetId { get; set; } = 0;
+        public int UserId { get; set; } = 0;
         public string? BudgetName { get; set; } = null;
     }
 }

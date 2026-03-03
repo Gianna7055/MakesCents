@@ -36,7 +36,7 @@ namespace MakesCentsBackend.Controllers
         {
             // Declare or initialize
             GetAllTransactionsDTOResponse response;
-            BaseGetRequest request = new BaseGetRequest();
+            BaseIdRequest request = new BaseIdRequest();
             // Get the user id from the JWT token
             int userId = ClaimsPrincipalExtensions.GetUserId(User);
 
@@ -67,6 +67,44 @@ namespace MakesCentsBackend.Controllers
                 message = response.Message,
                 transactions = response.Transactions
             });
+        }
+
+
+        [Authorize]
+        [HttpDelete("{transactionId}")]
+        public async Task<ActionResult> DeleteTransactionAsync(int transactionId)
+        {
+            // Declare and initialize
+            BaseResponse response;
+            BaseIdRequest request = new BaseIdRequest();
+            // Get the user id from the JWT token
+            int userId = ClaimsPrincipalExtensions.GetUserId(User);
+
+            // Set the user id and the entity id in the request
+            request.UserId = userId;
+            request.EntityId = transactionId;
+            // Call the logic method to delete the transaction
+            response = await _transactionLogic.DeleteTransactionAsync(request);
+
+            if (response.HttpStatus == 404)
+            {
+                // Return a not found
+                return NotFound(response.Message);
+            }
+            else if (response.HttpStatus == 403)
+            {
+                // Return the forbidden response
+                return Forbid(response.Message);
+            }
+            else
+            {
+                // Return Ok
+                return Ok(new
+                {
+                    status = response.HttpStatus,
+                    message = response.Message,
+                });
+            }
         }
     }
 }

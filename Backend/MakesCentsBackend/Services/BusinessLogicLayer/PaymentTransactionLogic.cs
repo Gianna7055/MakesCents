@@ -36,7 +36,7 @@ namespace MakesCentsBackend.Services.BusinessLogicLayer
             decimal? sumOfSplits;
 
             // Make sure the necessary information was sent
-            if (paymentTransaction.BudgetId == null || paymentTransaction.UserId == null || paymentTransaction.TransactionDate == null || paymentTransaction.TotalAmount == null || paymentTransaction.PaymentTransactionType == PaymentTransactionType.Unknown)
+            if (paymentTransaction.BudgetId == 0 || paymentTransaction.UserId == 0 || paymentTransaction.TransactionDate == DateOnly.MinValue || paymentTransaction.TotalAmount == 0m || paymentTransaction.PaymentTransactionType == PaymentTransactionType.Unknown)
             {
                 return new CreatePaymentTransactionResponse(400, "Missing information for payment transaction creation");
             }
@@ -53,7 +53,7 @@ namespace MakesCentsBackend.Services.BusinessLogicLayer
                 if (split.Amount <= 0)
                     return new CreatePaymentTransactionResponse(400, "Split amount must be greater than 0");
 
-                if (split.EnvelopeId == null)
+                if (split.EnvelopeId == 0)
                     return new CreatePaymentTransactionResponse(400, "Split envelope is required");
             }
             // Total the splits
@@ -70,16 +70,43 @@ namespace MakesCentsBackend.Services.BusinessLogicLayer
         }
 
 
-        public async Task<GetPaymentTransactionResponse> GetPaymentTransactionAsync(BaseGetRequest request)
+        public async Task<GetPaymentTransactionResponse> GetPaymentTransactionAsync(BaseIdRequest request)
         {
             // Declare and initialize
             GetPaymentTransactionResponse response;
 
+            // Make sure the required information was sent
+            if (request.EntityId == 0 || request.UserId == 0)
+            {
+                // Return the fail
+                return new GetPaymentTransactionResponse(400, "Missing information to get payment transaction");
+            }
             // Call the DAO method
             response = await _paymentTransactionDAO.GetPaymentTransactionAsync(request);
             // Return the response
             return response;
         }
 
+
+        public async Task<UpdatePaymentTransactionResponse> UpdatePaymentTransactionAsync(UpdatePaymentTransactionRequest paymentTransaction)
+        {
+            // Declare and initialize
+            UpdatePaymentTransactionResponse response;
+
+            // Check to make sure the required information was provided
+            if (paymentTransaction.TransactionId == 0 || paymentTransaction.PaymentTransactionId == 0 || paymentTransaction.UserId == 0)
+            {
+                // Return that there is not enough information
+                return new UpdatePaymentTransactionResponse(400, "Missing information for update");
+            }
+            if (paymentTransaction.TransactionSplits.Count != 0 || paymentTransaction.TransactionSplits.Sum(s => s.Amount) != paymentTransaction.TotalAmount)
+            {
+                return new UpdatePaymentTransactionResponse(400, "Split totals must equal paycheck total");
+            }
+            // Call the update method in the DAO
+            response = await _paymentTransactionDAO.UpdatePaymentTransactionAsync(paymentTransaction);
+            // Return the response
+            return response;
+        }
     }
 }

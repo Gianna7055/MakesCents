@@ -4,10 +4,11 @@
  * Sources: 
  */
 using Dapper;
+using Humanizer;
 using MakesCentsBackend.Models;
-using Microsoft.AspNetCore.Mvc;
 using MySqlConnector;
 using System.Data;
+using System.Reflection;
 
 namespace MakesCentsBackend.Services.DataAccessLayer
 {
@@ -24,15 +25,17 @@ namespace MakesCentsBackend.Services.DataAccessLayer
         string query = "";
         private readonly MySqlConnection _connection;
         private readonly AuthorizationService _authService;
+        private readonly AccountDAO _accountDAO;
 
         /// <summary>
         /// Parameterized constructor to bring in DI variables
         /// </summary>
         /// <param name="connection"></param>
-        public BankAccountDAO(MySqlConnection connection, AuthorizationService authService)
+        public BankAccountDAO(MySqlConnection connection, AuthorizationService authService, AccountDAO accountDAO)
         {
             _connection = connection;
             _authService = authService;
+            _accountDAO = accountDAO;
         }
 
         /// <summary>
@@ -118,11 +121,11 @@ namespace MakesCentsBackend.Services.DataAccessLayer
         }
 
 
-        public async Task<GetBankAccountEntityResponse> GetBankAccountAsync(BaseGetRequest request)
+        public async Task<GetBankAccountEntityResponse> GetBankAccountAsync(BaseIdRequest request)
         {
             // Declare and initialize
             GetBankAccountEntityResponse response = new GetBankAccountEntityResponse();
-            GetBankAccountEntity bankAccount;
+            GetBankAccountEntityModel bankAccount;
 
             // Make sure the account belongs to the user
             if (!await _authService.VerifyUserOwnsAccountAsync(request.EntityId, request.UserId))
@@ -146,7 +149,7 @@ namespace MakesCentsBackend.Services.DataAccessLayer
                 WHERE bank_account.bank_account_id = @BankAccountId;
                 """;
             // Get the bank account
-            bankAccount = await _connection.QueryFirstAsync<GetBankAccountEntity>(query, new { BankAccountId = request.EntityId });
+            bankAccount = await _connection.QueryFirstAsync<GetBankAccountEntityModel>(query, new { BankAccountId = request.EntityId });
             // Make sure the bank account is not null
             if (bankAccount == null)
             {
@@ -205,5 +208,93 @@ namespace MakesCentsBackend.Services.DataAccessLayer
             return response;
         }
 
+
+        public async Task<BaseIdResponse> UpdateBankAccountAsync(UpdateBankAccountRequest bankAccount)
+        {
+            // Declare and initialize
+            List<string> updates = new List<string>();
+            int rowsAffected;
+            BaseIdResponse accountResponse;
+
+            // Check if the connection is open
+            if (_connection.State != ConnectionState.Open)
+                // Open the connection
+                await _connection.OpenAsync();
+            // Setting up the transaction
+            using (MySqlTransaction dbTransaction = _connection.BeginTransaction())
+            {
+                // Call the update account method
+                accountResponse = await _accountDAO.UpdateAccountAsync(bankAccount, dbTransaction);
+
+                // Check the account response
+                if (accountResponse.HttpStatus != 200 || accountResponse.Message != "No fields to update")
+                {
+                    // Roll the transaction back
+                    dbTransaction.Rollback();
+                    return accountResponse;
+                }
+
+                // Loop through each field to see if an update is necessary
+                foreach (PropertyInfo property in typeof(UpdateBankAccountRequest).GetProperties())
+                {
+                    // Skip base table properties
+                    if (typeof(UpdateAccountRequest).GetProperty(property.Name) != null) continue;
+                    // Skip the id
+                    if (property.Name == "BankAccountId") continue;
+                    object? propertyValue = property.GetValue(bankAccount);
+
+                    // Check if the property is IOptional and has a value
+                    if (propertyValue is IOptional optional && optional.HasValue)
+                    {
+                        // Add the Optional<T> to the query
+                        updates.Add($"{property.Name.Underscore()} = @{property.Name}");
+                    }
+                    // Check if the property is null
+                    else if (propertyValue != null)
+                    {
+                        // Add the property to the query
+                        updates.Add($"{property.Name.Underscore()} = @{property.Name}");
+                    }
+                }
+
+                // If no fields to update, return early
+                if (updates.Count == 0)
+                {
+                    return new BaseIdResponse(400, "No fields to update");
+                }
+                // Assemble the query
+                query = $"""
+                    UPDATE bank_account
+                    SET {string.Join(", ", updates)}
+                    WHERE bank_account_id = @BankAccount
+                    """;
+                try
+                {
+                    // Execute the query
+                    rowsAffected = await _connection.ExecuteAsync(query, bankAccount, dbTransaction);
+                }
+                catch (Exception ex)
+                {
+                    // Roll the transaction back
+                    dbTransaction.Rollback();
+                    // Return the issue
+                    return new BaseIdResponse(500, $"{ex.Message}");
+                }
+            }
+
+            // Make sure the row was affected
+            if (rowsAffected == 1)
+            {
+                return new BaseIdResponse(200, "Bank account updated successfully", bankAccount.BankAccountId);
+            }
+            else if (rowsAffected == 0)
+            {
+                return new BaseIdResponse(404, "Bank account not found");
+            }
+            else
+            {
+                return new BaseIdResponse(400, "An error occurred");
+            }
+        }
     }
 }

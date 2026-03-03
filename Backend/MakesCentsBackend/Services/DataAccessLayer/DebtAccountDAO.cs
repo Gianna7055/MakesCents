@@ -4,9 +4,11 @@
  * Sources: 
  */
 using Dapper;
+using Humanizer;
 using MakesCentsBackend.Models;
 using MySqlConnector;
 using System.Data;
+using System.Reflection;
 
 namespace MakesCentsBackend.Services.DataAccessLayer
 {
@@ -16,16 +18,18 @@ namespace MakesCentsBackend.Services.DataAccessLayer
         string query = "";
         private readonly MySqlConnection _connection;
         private readonly AuthorizationService _authService;
+        private readonly AccountDAO _accountDAO;
 
         /// <summary>
         /// Parameterized constructor to bring in DI variables
         /// </summary>
         /// <param name="connection"></param>
         /// <param name="authService"></param>
-        public DebtAccountDAO(MySqlConnection connection, AuthorizationService authService)
+        public DebtAccountDAO(MySqlConnection connection, AuthorizationService authService, AccountDAO accountDAO)
         {
             _connection = connection;
             _authService = authService;
+            _accountDAO = accountDAO;
         }
 
         /// <summary>
@@ -112,11 +116,11 @@ namespace MakesCentsBackend.Services.DataAccessLayer
         }
 
 
-        public async Task<GetDebtAccountEntityResponse> GetDebtAccountAsync(BaseGetRequest request)
+        public async Task<GetDebtAccountEntityResponse> GetDebtAccountAsync(BaseIdRequest request)
         {
             // Declare and initialize
             GetDebtAccountEntityResponse response = new GetDebtAccountEntityResponse();
-            GetDebtAccountEntity debtAccount;
+            GetDebtAccountEntityModel debtAccount;
 
             // Make sure the account belongs to the user
             if (!await _authService.VerifyUserOwnsAccountAsync(request.EntityId, request.UserId))
@@ -144,7 +148,7 @@ namespace MakesCentsBackend.Services.DataAccessLayer
                 WHERE debt_account.debt_account_id = @DebtAccountId;
                 """;
             // Get the debt account
-            debtAccount = await _connection.QueryFirstAsync<GetDebtAccountEntity>(query, new { DebtAccountId = request.EntityId });
+            debtAccount = await _connection.QueryFirstAsync<GetDebtAccountEntityModel>(query, new { DebtAccountId = request.EntityId });
             // Make sure the debt account is not null
             if (debtAccount == null)
             {
@@ -201,6 +205,103 @@ namespace MakesCentsBackend.Services.DataAccessLayer
             response.Message = "Debt account found";
             // Return the response
             return response;
+        }
+
+
+        public async Task<BaseIdResponse> UpdateDebtAccountAsync(UpdateDebtAccountRequest debtAccount)
+        {
+            // Declare and initialize
+            List<string> updates = new List<string>();
+            int rowsAffected;
+            BaseIdResponse accountResponse;
+
+            // Check if the connection is open
+            if (_connection.State != ConnectionState.Open)
+                // Open the connection
+                await _connection.OpenAsync();
+            // Setting up the transaction
+            using (MySqlTransaction dbTransaction = _connection.BeginTransaction())
+            {
+                // Call the update account method
+                accountResponse = await _accountDAO.UpdateAccountAsync(debtAccount, dbTransaction);
+
+                // Check the account response
+                if (accountResponse.HttpStatus != 200 || accountResponse.Message != "No fields to update")
+                {
+                    // Roll the transaction back
+                    dbTransaction.Rollback();
+                    return accountResponse;
+                }
+
+                // Make sure the debt account belongs to the user
+                if (!await _authService.VerifyUserOwnsAccountAsync(debtAccount.DebtAccountId, debtAccount.UserId, dbTransaction))
+                {
+                    // Roll the transaction back
+                    dbTransaction.Rollback();
+                    return new BaseIdResponse(403, "Debt account does not belong to the current user.", debtAccount.DebtAccountId);
+                }
+
+                // Loop through each field to see if an update is necessary
+                foreach (PropertyInfo property in typeof(UpdateDebtAccountRequest).GetProperties())
+                {
+                    // Skip base table properties
+                    if (typeof(UpdateAccountRequest).GetProperty(property.Name) != null) continue;
+                    // Skip the id
+                    if (property.Name == "DebtAccountId" || property.Name == "UserId") continue;
+                    object? propertyValue = property.GetValue(debtAccount);
+
+                    // Check if the property is IOptional and has a value
+                    if (propertyValue is IOptional optional && optional.HasValue)
+                    {
+                        // Add the Optional<T> to the query
+                        updates.Add($"{property.Name.Underscore()} = @{property.Name}");
+                    }
+                    // Check if the property is null
+                    else if (propertyValue != null)
+                    {
+                        // Add the property to the query
+                        updates.Add($"{property.Name.Underscore()} = @{property.Name}");
+                    }
+                }
+
+                // If no fields to update, return early
+                if (updates.Count == 0)
+                {
+                    return new BaseIdResponse(400, "No fields to update");
+                }
+                // Assemble the query
+                query = $"""
+                UPDATE debt_account
+                SET {string.Join(", ", updates)}
+                WHERE debt_account_id = @DebtAccount
+                """;
+                try
+                {
+                    // Execute the query
+                    rowsAffected = await _connection.ExecuteAsync(query, debtAccount, dbTransaction);
+                }
+                catch (Exception ex)
+                {
+                    // Roll the transaction back
+                    dbTransaction.Rollback();
+                    // Return the issue
+                    return new BaseIdResponse(500, $"{ex.Message}");
+                }
+            }
+
+            // Make sure the row was affected
+            if (rowsAffected == 1)
+            {
+                return new BaseIdResponse(200, "Debt account updated successfully", debtAccount.DebtAccountId);
+            }
+            else if (rowsAffected == 0)
+            {
+                return new BaseIdResponse(404, "Debt account not found");
+            }
+            else
+            {
+                return new BaseIdResponse(400, "An error occurred");
+            }
         }
     }
 }

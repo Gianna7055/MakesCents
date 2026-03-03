@@ -10,18 +10,18 @@ namespace MakesCentsBackend.Models
     /// <summary>
     /// Model for a paycheck
     /// </summary>
-    public class PaycheckEntity
+    public class PaycheckEntityModel
     {
         // Class Level Properties
         public int PaycheckId { get; set; } = 0;
         public int BudgetId { get; set; } = 0;
-        public DateOnly StartingDate { get; set; } = new DateOnly();
+        public DateOnly StartingDate { get; set; } = DateOnly.MinValue;
         public DateOnly? SecondaryDate { get; set; } = null;
         public decimal TotalAmount { get; set; } = 0m;
         public PaycheckRegularity PaycheckRegularity { get; set; } = PaycheckRegularity.Unknown;
-        public DateTime CreatedAt { get; set; } = new DateTime();
-        public DateTime LastUpdatedAt { get; set; } = new DateTime();
-        public List<PaycheckSplitEntity> PaycheckSplits { get; set; } = new List<PaycheckSplitEntity>();
+        public DateTime CreatedAt { get; set; } = DateTime.MinValue;
+        public DateTime LastUpdatedAt { get; set; } = DateTime.MinValue;
+        public List<PaycheckSplitEntityModel> PaycheckSplits { get; set; } = new List<PaycheckSplitEntityModel>();
     }
 
     /// <summary>
@@ -29,12 +29,12 @@ namespace MakesCentsBackend.Models
     /// </summary>
     public class CreatePaycheckRequest
     {
-        public int? BudgetId { get; set; } = null;
-        public int? UserId { get; set; } = null;
-        public string? PaycheckName { get; set; } = null;
-        public DateOnly? StartingDate { get; set; } = null;
-        public Optional<DateOnly?> SecondaryDate { get; set; } = null;
-        public decimal? TotalAmount { get; set; } = null;
+        public int BudgetId { get; set; } = 0;
+        public int UserId { get; set; } = 0;
+        public string PaycheckName { get; set; } = "";
+        public DateOnly StartingDate { get; set; } = DateOnly.MinValue;
+        public Optional<DateOnly?> SecondaryDate { get; set; }
+        public decimal TotalAmount { get; set; } = 0m;
         public PaycheckRegularity PaycheckRegularity { get; set; } = PaycheckRegularity.Unknown;
         public List<CreatePaycheckSplitRequest> PaycheckSplits { get; set; } = new List<CreatePaycheckSplitRequest>();
     }
@@ -65,7 +65,7 @@ namespace MakesCentsBackend.Models
     {
         // Class properties
         public int PaycheckId { get; set; } = 0;
-        public DateOnly StartingDate { get; set; } = new DateOnly();
+        public DateOnly StartingDate { get; set; } = DateOnly.MinValue;
         public DateOnly? SecondaryDate { get; set; } = null;
         public decimal TotalAmount { get; set; } = 0m;
         public PaycheckRegularity PaycheckRegularity { get; set; } = PaycheckRegularity.Unknown;
@@ -108,10 +108,35 @@ namespace MakesCentsBackend.Models
         public int PaycheckId { get; set; } = 0;
         public int BudgetId { get; set; } = 0;
         public string PaycheckName { get; set; } = "";
-        public DateOnly StartingDate { get; set; } = new DateOnly();
+        public DateOnly StartingDate { get; set; } = DateOnly.MinValue;
         public DateOnly? SecondaryDate { get; set; } = null;
         public decimal TotalAmount { get; set; } = 0m;
         public PaycheckRegularity PaycheckRegularity { get; set; } = PaycheckRegularity.Unknown;
-        public List<GetPaycheckSplitDTO> PaycheckSplits { get; set; } = new List<GetPaycheckSplitDTO>();
+        public List<GetPaycheckSplitDTOModel> PaycheckSplits { get; set; } = new List<GetPaycheckSplitDTOModel>();
+    }
+
+
+    public class UpdatePaycheckRequest
+    {
+        // Class properties
+        public int PaycheckId { get; set; } = 0;
+        public int UserId { get; set; } = 0;
+        public DateOnly? StartingDate { get; set; }
+        public Optional<DateOnly?> SecondaryDate { get; set; }
+        public decimal? TotalAmount { get; set; }
+        public PaycheckRegularity? PaycheckRegularity { get; set; }
+        public List<UpdatePaycheckSplitRequest> PaycheckSplits { get; set; } = new List<UpdatePaycheckSplitRequest>();
+    }
+
+
+    public class UpdatePaycheckResponse : BaseIdResponse
+    {
+        // Class properties
+        public List<int> PaycheckSplitIds { get; set; } = new List<int>();
+
+        public UpdatePaycheckResponse(int httpStatus, string message) : base(httpStatus, message) { }
+        public UpdatePaycheckResponse(int httpStatus, string message, int id) : base(httpStatus, message, id) { }
+
+        public UpdatePaycheckResponse() : base() { }
     }
 }

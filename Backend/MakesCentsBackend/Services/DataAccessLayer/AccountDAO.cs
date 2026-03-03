@@ -4,8 +4,11 @@
  * Sources: 
  */
 using Dapper;
+using Humanizer;
 using MakesCentsBackend.Models;
 using MySqlConnector;
+using System.Collections.Generic;
+using System.Reflection;
 
 namespace MakesCentsBackend.Services.DataAccessLayer
 {
@@ -67,11 +70,11 @@ namespace MakesCentsBackend.Services.DataAccessLayer
         }
 
 
-        public async Task<GetAllAccountsResponse> GetAllAccountsAsync(BaseGetRequest request)
+        public async Task<GetAllAccountsResponse> GetAllAccountsAsync(BaseIdRequest request)
         {
             // Declare and initialize
             GetAllAccountsResponse response = new GetAllAccountsResponse();
-            List<AccountSummaryDTO> accounts = new List<AccountSummaryDTO>();
+            List<AccountSummaryDTOModel> accounts = new List<AccountSummaryDTOModel>();
 
             // Make sure the budget belongs to the user
             if (!await _authService.VerifyUserOwnsBudgetAsync(request.EntityId, request.UserId))
@@ -95,7 +98,7 @@ namespace MakesCentsBackend.Services.DataAccessLayer
                 ORDER BY account.account_name
                 """;
             // Read the list of bank accounts into the accounts list
-            accounts.AddRange((await _connection.QueryAsync<BankAccountSummaryDTO>(query, new { BudgetId = request.EntityId })).ToList());
+            accounts.AddRange((await _connection.QueryAsync<BankAccountSummaryDTOModel>(query, new { BudgetId = request.EntityId })).ToList());
 
             // Set up the query to get all the debt accounts
             query = """
@@ -113,7 +116,7 @@ namespace MakesCentsBackend.Services.DataAccessLayer
                 ORDER BY account.account_name
                 """;
             // Read the list of debt accounts into the accounts list
-            accounts.AddRange((await _connection.QueryAsync<DebtAccountSummaryDTO>(query, new { BudgetId = request.EntityId })).ToList());
+            accounts.AddRange((await _connection.QueryAsync<DebtAccountSummaryDTOModel>(query, new { BudgetId = request.EntityId })).ToList());
 
             // Set up the query to get all the investment accounts
             query = """
@@ -131,7 +134,7 @@ namespace MakesCentsBackend.Services.DataAccessLayer
                 ORDER BY account.account_name
                 """;
             // Read the list of investment accounts into the accounts list
-            accounts.AddRange((await _connection.QueryAsync<InvestmentAccountSummaryDTO>(query, new { BudgetId = request.EntityId })).ToList());
+            accounts.AddRange((await _connection.QueryAsync<InvestmentAccountSummaryDTOModel>(query, new { BudgetId = request.EntityId })).ToList());
 
             // Set the list in the response
             response.Accounts = accounts;
@@ -140,6 +143,126 @@ namespace MakesCentsBackend.Services.DataAccessLayer
             response.Message = "Accounts found";
             // Return the response
             return response;
+        }
+
+
+        public async Task<BaseIdResponse> UpdateAccountAsync(UpdateAccountRequest account, MySqlTransaction dbTransaction)
+        {
+            // Declare and initialize
+            List<string> updates = new List<string>();
+            int rowsAffected;
+
+            // Make sure the account belongs to the user
+            if (!await _authService.VerifyUserOwnsAccountAsync(account.AccountId, account.UserId))
+            {
+                return new BaseIdResponse(403, "Account does not belong to the current user.", account.AccountId);
+            }
+
+            // Loop through each field to see if an update is necessary
+            foreach (PropertyInfo property in typeof(UpdateAccountRequest).GetProperties())
+            {
+                // Skip the id
+                if (property.Name == "AccountId" || property.Name == "UserId") continue;
+                object? propertyValue = property.GetValue(account);
+
+                // Check if the property is IOptional and has a value
+                if (propertyValue is IOptional optional && optional.HasValue)
+                {
+                    // Add the Optional<T> to the query
+                    updates.Add($"{property.Name.Underscore()} = @{property.Name}");
+                }
+                // Check if the property is null
+                else if (propertyValue != null)
+                {
+                    // Add the property to the query
+                    updates.Add($"{property.Name.Underscore()} = @{property.Name}");
+                }
+            }
+
+            // If no fields to update, return early
+            if (updates.Count == 0)
+            {
+                return new BaseIdResponse(400, "No fields to update");
+            }
+            // Assemble the query
+            query = $"""
+                UPDATE account 
+                SET {string.Join(", ", updates)}
+                WHERE account_id = @AccountId
+                """;
+            try
+            {
+                // Execute the query
+                rowsAffected = await _connection.ExecuteAsync(query, account, dbTransaction);
+            }
+            catch (MySqlException ex)
+            {
+                // Roll the transaction back
+                dbTransaction.Rollback();
+                // Check if the error is 1062
+                if (ex.Number == 1062)
+                {
+                    // Check if the error is due to a non-unique name
+                    if (ex.Message.Contains("'unique_account_name'"))
+                    {
+                        return new BaseIdResponse(400, "Account name already exists in this budget");
+                    }
+                }
+                return new BaseIdResponse(500, $"{ex.Number}: {ex.Message}");
+            }
+            catch (Exception ex)
+            {
+                // Roll the transaction back
+                dbTransaction.Rollback();
+                // Return the issue
+                return new BaseIdResponse(500, $"{ex.Message}");
+            }
+
+            // Make sure the row was affected
+            if (rowsAffected == 1)
+            {
+                return new BaseIdResponse(200, "Account updated successfully", account.AccountId);
+            }
+            else if (rowsAffected == 0)
+            {
+                // Roll the transaction back
+                dbTransaction.Rollback();
+                return new BaseIdResponse(404, "Account not found");
+            }
+            else
+            {
+                // Roll the transaction back
+                dbTransaction.Rollback();
+                return new BaseIdResponse(400, "An error occurred");
+            }
+        }
+
+
+        public async Task<BaseResponse> DeleteAccountAsync(BaseIdRequest request)
+        {
+            // Declare and initialize
+            query = """
+                DELETE FROM account 
+                WHERE account_id = @AccountId
+                """;
+            int rowsAffected;
+
+            // Make sure the account belongs to the user
+            if (!await _authService.VerifyUserOwnsAccountAsync(request.EntityId, request.UserId))
+            {
+                return new BaseIdResponse(403, "Account does not belong to the current user.");
+            }
+            // Execute the query
+            rowsAffected = await _connection.ExecuteAsync(query, new { AccountId = request.EntityId });
+
+            // Check the number of rows found
+            if (rowsAffected == 0)
+            {
+                // Return that the user was not found
+                return new BaseResponse(404, "Account not found");
+            }
+            // Return the success
+            return new BaseResponse(200, "Account deleted successfully");
         }
     }
 }

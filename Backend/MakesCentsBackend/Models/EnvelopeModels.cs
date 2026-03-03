@@ -9,7 +9,7 @@ namespace MakesCentsBackend.Models
     /// <summary>
     /// Model for an envelope
     /// </summary>
-    public class EnvelopeEntity
+    public class EnvelopeEntityModel
     {
         // Class Level Properties
         public int EnvelopeId { get; set; } = 0;
@@ -27,9 +27,9 @@ namespace MakesCentsBackend.Models
         public int? TransferEnvelopeId { get; set; } = null;
 
 
-        public DateTime CreatedAt { get; set; } = new DateTime();
-        public DateTime LastUpdatedAt { get; set; } = new DateTime();
-        public List<TransactionEntity> Transactions { get; set; } = new List<TransactionEntity>();
+        public DateTime CreatedAt { get; set; } = DateTime.MinValue;
+        public DateTime LastUpdatedAt { get; set; } = DateTime.MinValue;
+        public List<TransactionEntityModel> Transactions { get; set; } = new List<TransactionEntityModel>();
     }
 
     /// <summary>
@@ -50,15 +50,15 @@ namespace MakesCentsBackend.Models
     public class CreateEnvelopeRequest
     {
         // Class properties
-        public int? EnvelopeCategoryId { get; set; } = null;
-        public int? UserId { get; set; } = null;
-        public string? EnvelopeName { get; set; } = null;
-        public decimal? PlannedAmount { get; set; } = null;
-        public decimal? RemainingAmount { get; set; } = null;
-        public bool? IsSinkingFund { get; set; } = null;
-        public Optional<decimal?> GoalAmount { get; set; } = null;
-        public Optional<DateOnly?> GoalEndDate { get; set; } = null;
-        public Optional<int?> TransferEnvelopeId { get; set; } = null;
+        public int EnvelopeCategoryId { get; set; } = 0;
+        public int UserId { get; set; } = 0;
+        public string EnvelopeName { get; set; } = "";
+        public decimal PlannedAmount { get; set; } = 0m;
+        public decimal RemainingAmount { get; set; } = 0m;
+        public bool IsSinkingFund { get; set; } = false;
+        public Optional<decimal?> GoalAmount { get; set; }
+        public Optional<DateOnly?> GoalEndDate { get; set; }
+        public Optional<int?> TransferEnvelopeId { get; set; }
     }
 
     public class GetEnvelopeBaseModel
@@ -99,7 +99,7 @@ namespace MakesCentsBackend.Models
         public int? TransferEnvelopeId { get; set; } = null;
     }
 
-    public class GetEnvelopeDTO : GetEnvelopeBaseModel
+    public class GetEnvelopeDTOModel : GetEnvelopeBaseModel
     {
         // Class properties
         public List<SummaryTransactionDTOModel> Transactions { get; set; } = new List<SummaryTransactionDTOModel>();
@@ -111,14 +111,16 @@ namespace MakesCentsBackend.Models
     public class GetEnvelopeDTOResponse : BaseResponse
     {
         // Class properties
-        public GetEnvelopeDTO EnvelopeDTO { get; set; } = new GetEnvelopeDTO();
+        public GetEnvelopeDTOModel EnvelopeDTO { get; set; } = new GetEnvelopeDTOModel();
+
+        public GetEnvelopeDTOResponse(int httpStatus, string message) : base(httpStatus, message) { }
     }
 
 
     /// <summary>
     /// Entity model for getting a specific envelope
     /// </summary>
-    public class GetEnvelopeEntity : GetEnvelopeBaseModel
+    public class GetEnvelopeEntityModel : GetEnvelopeBaseModel
     {
         // Class properties
         public List<SummaryTransactionEntityModel> Transactions { get; set; } = [];
@@ -130,7 +132,7 @@ namespace MakesCentsBackend.Models
     public class GetEnvelopeEntityResponse : BaseResponse
     {
         // Class properties
-        public GetEnvelopeEntity EnvelopeEntity { get; set; } = new GetEnvelopeEntity();
+        public GetEnvelopeEntityModel EnvelopeEntity { get; set; } = new GetEnvelopeEntityModel();
 
 
         /// <summary>
@@ -156,13 +158,12 @@ namespace MakesCentsBackend.Models
         // Class properties
         public int EnvelopeId { get; set; } = 0;
         public int? EnvelopeCategoryId { get; set; } = null;
-        public int? UserId { get; set; } = null;
+        public int UserId { get; set; } = 0;
         public string? EnvelopeName { get; set; } = null;
         public decimal? PlannedAmount { get; set; } = null;
-        public decimal? RemainingAmount { get; set; } = null;
         public bool? IsSinkingFund { get; set; } = null;
-        public Optional<decimal?> GoalAmount { get; set; } = null;
-        public Optional<DateOnly?> GoalEndDate { get; set; } = null;
-        public Optional<int?> TransferEnvelopeId { get; set; } = null;
+        public Optional<decimal?> GoalAmount { get; set; }
+        public Optional<DateOnly?> GoalEndDate { get; set; }
+        public Optional<int?> TransferEnvelopeId { get; set; }
     }
 }

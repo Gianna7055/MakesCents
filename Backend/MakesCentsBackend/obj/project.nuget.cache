@@ -1,12 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "xVjUE2RbFgs=",
+  "dgSpecHash": "qqL7tumDyTo=",
   "success": true,
   "projectFilePath": "C:\\Users\\giannaross\\source\\repos\\MakesCents\\Backend\\MakesCentsBackend\\MakesCentsBackend.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\giannaross\\.nuget\\packages\\automapper\\16.0.0\\automapper.16.0.0.nupkg.sha512",
     "C:\\Users\\giannaross\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512",
     "C:\\Users\\giannaross\\.nuget\\packages\\dapper\\2.1.66\\dapper.2.1.66.nupkg.sha512",
+    "C:\\Users\\giannaross\\.nuget\\packages\\humanizer.core\\3.0.1\\humanizer.core.3.0.1.nupkg.sha512",
     "C:\\Users\\giannaross\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\8.0.22\\microsoft.aspnetcore.authentication.jwtbearer.8.0.22.nupkg.sha512",
     "C:\\Users\\giannaross\\.nuget\\packages\\microsoft.extensions.apidescription.server\\8.0.0\\microsoft.extensions.apidescription.server.8.0.0.nupkg.sha512",
     "C:\\Users\\giannaross\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\10.0.0\\microsoft.extensions.dependencyinjection.abstractions.10.0.0.nupkg.sha512",

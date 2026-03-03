@@ -10,7 +10,7 @@ namespace MakesCentsBackend.Models
     /// <summary>
     /// Model for a bank account
     /// </summary>
-    public class BankAccountEntity : AccountEntity
+    public class BankAccountEntityModel : AccountEntityModel
     {
         // Class Level Properties
         public int BankAccountId { get; set; } = 0;
@@ -50,7 +50,7 @@ namespace MakesCentsBackend.Models
     /// <summary>
     /// DTO model for getting all accounts
     /// </summary>
-    public class BankAccountSummaryDTO : AccountSummaryDTO
+    public class BankAccountSummaryDTOModel : AccountSummaryDTOModel
     {
         // Class properties
         public int BankAccountId { get; set; } = 0;
@@ -60,7 +60,7 @@ namespace MakesCentsBackend.Models
     /// <summary>
     /// DTO model to get a specific bank account
     /// </summary>
-    public class GetBankAccountDTO : GetAccountModel
+    public class GetBankAccountDTOModel : GetAccountBaseModel
     {
         // Class properties
         public int BankAccountId { get; set; } = 0;
@@ -70,7 +70,7 @@ namespace MakesCentsBackend.Models
         /// <summary>
         /// Default constructor for the get bank account DTO
         /// </summary>
-        public GetBankAccountDTO() { }
+        public GetBankAccountDTOModel() { }
     }
 
     /// <summary>
@@ -78,13 +78,15 @@ namespace MakesCentsBackend.Models
     /// </summary>
     public class GetBankAccountDTOResponse : BaseResponse
     {
-        public GetBankAccountDTO BankAccount { get; set; } = new GetBankAccountDTO();
+        public GetBankAccountDTOModel BankAccount { get; set; } = new GetBankAccountDTOModel();
+
+        public GetBankAccountDTOResponse(int httpStatus, string message) : base(httpStatus, message) { } 
     }
 
     /// <summary>
     /// Entity model to get a specific bank account
     /// </summary>
-    public class GetBankAccountEntity : GetAccountModel
+    public class GetBankAccountEntityModel : GetAccountBaseModel
     {
         // Class properties
         public int BankAccountId { get; set; } = 0;
@@ -97,7 +99,7 @@ namespace MakesCentsBackend.Models
     /// </summary>
     public class GetBankAccountEntityResponse : BaseResponse
     {
-        public GetBankAccountEntity BankAccount { get; set; } = new GetBankAccountEntity();
+        public GetBankAccountEntityModel BankAccount { get; set; } = new GetBankAccountEntityModel();
 
         /// <summary>
         /// Default constructor
@@ -110,5 +112,13 @@ namespace MakesCentsBackend.Models
         /// <param name="status"></param>
         /// <param name="message"></param>
         public GetBankAccountEntityResponse(int status, string message) : base(status, message) { }
+    }
+
+
+    public class UpdateBankAccountRequest : UpdateAccountRequest
+    {
+        // Class properties
+        public int BankAccountId { get; set; } = 0;
+        public BankAccountType? BankAccountType { get; set; } = null;
     }
 }

@@ -32,7 +32,7 @@ namespace MakesCentsBackend.Services.BusinessLogicLayer
             CreateTransferTransactionResponse response;
             
             // Make sure the necessary information was sent
-            if (transferTransaction.BudgetId == null || transferTransaction.UserId == null || transferTransaction.TransactionDate == null || transferTransaction.TotalAmount == null || transferTransaction.TransferToId == null || transferTransaction.TransferFromId == null || transferTransaction.TransferTransactionType == TransferTransactionType.Unknown)
+            if (transferTransaction.BudgetId == 0 || transferTransaction.UserId == 0 || transferTransaction.TransactionDate == DateOnly.MinValue || transferTransaction.TotalAmount == 0m || transferTransaction.TransferToId == 0 || transferTransaction.TransferFromId == 0 || transferTransaction.TransferTransactionType == TransferTransactionType.Unknown)
             {
                 return new CreateTransferTransactionResponse(400, "Missing information for transfer transaction creation");
             }
@@ -43,12 +43,18 @@ namespace MakesCentsBackend.Services.BusinessLogicLayer
         }
 
 
-        public async Task<GetTransferTransactionDTOResponse> GetTransferTransactionAsync(BaseGetRequest request)
+        public async Task<GetTransferTransactionDTOResponse> GetTransferTransactionAsync(BaseIdRequest request)
         {
             // Declare and initialize
             GetTransferTransactionDTOResponse dtoResponse;
             GetTransferTransactionEntityResponse entityResponse;
 
+            // Make sure the required information was sent
+            if (request.EntityId == 0 || request.UserId == 0)
+            {
+                // Return the fail
+                return new GetTransferTransactionDTOResponse(400, "Missing information to get transfer transaction");
+            }
             // Call the DAO method
             entityResponse = await _transferTransactionDAO.GetTransferTransactionAsync(request);
             // Map the entity response to the dto response
@@ -67,6 +73,23 @@ namespace MakesCentsBackend.Services.BusinessLogicLayer
             }
             // Return the DTO
             return dtoResponse;
+        }
+
+        public async Task<BaseIdResponse> UpdateTransferTransactionAsync(UpdateTransferTransactionRequest transferTransaction)
+        {
+            // Declare and initialize
+            BaseIdResponse response;
+
+            // Check to make sure the required information was provided
+            if (transferTransaction.TransactionId == 0 || transferTransaction.TransferTransactionId == 0 || transferTransaction.UserId == 0)
+            {
+                // Return that there is not enough information
+                return new BaseIdResponse(400, "Missing information for update");
+            }
+            // Call the update method in the DAO
+            response = await _transferTransactionDAO.UpdateTransferTransactionAsync(transferTransaction);
+            // Return the response
+            return response;
         }
     }
 }

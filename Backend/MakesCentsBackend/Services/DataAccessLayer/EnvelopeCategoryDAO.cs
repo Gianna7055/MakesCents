@@ -78,7 +78,7 @@ namespace MakesCentsBackend.Services.DataAccessLayer
         }
 
 
-        public async Task<GetAllEnvelopeCategoriesResponse> GetAllEnvelopeCategoriesAsync(BaseGetRequest request)
+        public async Task<GetAllEnvelopeCategoriesResponse> GetAllEnvelopeCategoriesAsync(BaseIdRequest request)
         {
             // Declare and initialize
             GetAllEnvelopeCategoriesResponse allEnvelopeCategoriesResponse = new GetAllEnvelopeCategoriesResponse();
@@ -152,7 +152,7 @@ namespace MakesCentsBackend.Services.DataAccessLayer
             // Make sure the envelope category belongs to the user
             if (!await _authService.VerifyUserOwnsEnvelopeCategoryAsync(envelopeCategory.EnvelopeCategoryId, envelopeCategory.UserId))
             {
-                return new BaseIdResponse(403, "Envelope category does not belong to the current user.");
+                return new BaseIdResponse(403, "Envelope category does not belong to the current user.", envelopeCategory.EnvelopeCategoryId);
             }
             // Check each nullable field to see if update is necessary
             if (envelopeCategory.EnvelopeCategoryName != null)
@@ -167,8 +167,7 @@ namespace MakesCentsBackend.Services.DataAccessLayer
             // Assemble the query
             query = $"""
                 UPDATE envelope_category 
-                SET
-                {string.Join(", ", updates)}
+                SET {string.Join(", ", updates)}
                 WHERE envelope_category_id = @EnvelopeCategoryId
                 """;
             try
@@ -215,28 +214,31 @@ namespace MakesCentsBackend.Services.DataAccessLayer
         /// </summary>
         /// <param name="envelopeCategoryId"></param>
         /// <returns></returns>
-        public async Task<BaseResponse> DeleteEnvelopeCategoryAsync(int envelopeCategoryId, int userId)
+        public async Task<BaseResponse> DeleteEnvelopeCategoryAsync(BaseIdRequest request)
         {
             // Declare and initialize
-            query = "DELETE FROM envelope_category WHERE envelope_category_id = @EnvelopeCategoryId";
+            query = """
+                DELETE FROM envelope_category 
+                WHERE envelope_category_id = @EnvelopeCategoryId
+                """;
             int rowsAffected;
 
             // Make sure the envelope category belongs to the user
-            if (!await _authService.VerifyUserOwnsEnvelopeCategoryAsync(envelopeCategoryId, userId))
+            if (!await _authService.VerifyUserOwnsEnvelopeCategoryAsync(request.EntityId, request.UserId))
             {
                 return new BaseIdResponse(403, "Envelope category does not belong to the current user.");
             }
             // Execute the query
-            rowsAffected = await _connection.ExecuteAsync(query, new { EnvelopeCategoryId = envelopeCategoryId });
+            rowsAffected = await _connection.ExecuteAsync(query, new { EnvelopeCategoryId = request.EntityId });
 
             // Check the number of rows found
             if (rowsAffected == 0)
             {
                 // Return that the user was not found
-                return new BaseResponse(404, "Envelope Category not found");
+                return new BaseResponse(404, "Envelope category not found");
             }
             // Return the success
-            return new BaseResponse(200, "Envelope Category deleted successfully");
+            return new BaseResponse(200, "Envelope category deleted successfully");
         }
     }
 }

@@ -10,7 +10,7 @@ namespace MakesCentsBackend.Models
     /// <summary>
     /// Model for a debt account
     /// </summary>
-    public class DebtAccountEntity : AccountEntity
+    public class DebtAccountEntityModel : AccountEntityModel
     {
         // Class Level Properties
         public int DebtAccountId { get; set; } = 0;
@@ -28,10 +28,10 @@ namespace MakesCentsBackend.Models
     {
         // Class properties
         public DebtAccountType DebtAccountType { get; set; } = DebtAccountType.Unknown;
-        public Optional<int?> AccountNumber { get; set; } = null;
-        public Optional<DateOnly?> DateOfNextBill { get; set; } = null;
-        public Optional<decimal?> AmountOfNextBill { get; set; } = null;
-        public Optional<DebtPaymentRegularity?> DebtPaymentRegularity { get; set; } = null;
+        public Optional<int?> AccountNumber { get; set; }
+        public Optional<DateOnly?> DateOfNextBill { get; set; }
+        public Optional<decimal?> AmountOfNextBill { get; set; }
+        public Optional<DebtPaymentRegularity?> DebtPaymentRegularity { get; set; }
     }
 
     /// <summary>
@@ -56,7 +56,7 @@ namespace MakesCentsBackend.Models
     }
 
 
-    public class DebtAccountSummaryDTO : AccountSummaryDTO
+    public class DebtAccountSummaryDTOModel : AccountSummaryDTOModel
     {
         // Class properties
         public int DebtAccountId { get; set; } = 0;
@@ -66,7 +66,7 @@ namespace MakesCentsBackend.Models
     /// <summary>
     /// DTO model to get a specific debt account
     /// </summary>
-    public class GetDebtAccountDTO : GetAccountModel
+    public class GetDebtAccountDTOModel : GetAccountBaseModel
     {
         // Class properties
         public int DebtAccountId { get; set; } = 0;
@@ -80,7 +80,7 @@ namespace MakesCentsBackend.Models
         /// <summary>
         /// Default constructor for the get debt account DTO
         /// </summary>
-        public GetDebtAccountDTO() { }
+        public GetDebtAccountDTOModel() { }
     }
 
     /// <summary>
@@ -88,13 +88,14 @@ namespace MakesCentsBackend.Models
     /// </summary>
     public class GetDebtAccountDTOResponse : BaseResponse
     {
-        public GetDebtAccountDTO DebtAccount { get; set; } = new GetDebtAccountDTO();
+        public GetDebtAccountDTOModel DebtAccount { get; set; } = new GetDebtAccountDTOModel();
+        public GetDebtAccountDTOResponse(int httpStatus, string message) : base(httpStatus, message) { }
     }
 
     /// <summary>
     /// Entity model to get a specific debt account
     /// </summary>
-    public class GetDebtAccountEntity : GetAccountModel
+    public class GetDebtAccountEntityModel : GetAccountBaseModel
     {
         // Class properties
         public int DebtAccountId { get; set; } = 0;
@@ -111,7 +112,7 @@ namespace MakesCentsBackend.Models
     /// </summary>
     public class GetDebtAccountEntityResponse : BaseResponse
     {
-        public GetDebtAccountEntity DebtAccount { get; set; } = new GetDebtAccountEntity();
+        public GetDebtAccountEntityModel DebtAccount { get; set; } = new GetDebtAccountEntityModel();
 
         /// <summary>
         /// Default constructor
@@ -124,5 +125,17 @@ namespace MakesCentsBackend.Models
         /// <param name="status"></param>
         /// <param name="message"></param>
         public GetDebtAccountEntityResponse(int status, string message) : base(status, message) { }
+    }
+
+
+    public class UpdateDebtAccountRequest : UpdateAccountRequest
+    {
+        // Class properties
+        public int DebtAccountId { get; set; } = 0;
+        public DebtAccountType? DebtAccountType { get; set; } = null;
+        public Optional<int?> AccountNumber { get; set; } = null;
+        public Optional<DateOnly?> DateOfNextBill { get; set; }
+        public Optional<DateOnly?> AmountOfNextBill { get; set; }
+        public Optional<DebtPaymentRegularity?> DebtPaymentRegularity { get; set; }
     }
 }

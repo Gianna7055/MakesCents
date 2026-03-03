@@ -79,7 +79,7 @@ namespace MakesCentsBackend.Controllers
         {
             // Declare and initialize
             GetAllPaychecksResponse response;
-            BaseGetRequest request = new BaseGetRequest();
+            BaseIdRequest request = new BaseIdRequest();
             // Get the user id from the JWT token
             int userId = ClaimsPrincipalExtensions.GetUserId(User);
 
@@ -118,7 +118,7 @@ namespace MakesCentsBackend.Controllers
         {
             // Declare and initialize
             GetPaycheckResponse response;
-            BaseGetRequest request = new BaseGetRequest();
+            BaseIdRequest request = new BaseIdRequest();
             // Get the users id from the JWT token
             int userId = ClaimsPrincipalExtensions.GetUserId(User);
 
@@ -149,6 +149,89 @@ namespace MakesCentsBackend.Controllers
                 message = response.Message,
                 paycheck = response.Paycheck
             });
+        }
+
+
+        [Authorize]
+        [HttpPut("{paycheckId}")]
+        public async Task<ActionResult> UpdatePaycheckAsync(int paycheckId, UpdatePaycheckRequest paycheck)
+        {
+            // Declare and initialize
+            UpdatePaycheckResponse response;
+            // Get the user id from the JWT token
+            int userId = ClaimsPrincipalExtensions.GetUserId(User);
+
+            // Set the paycheck id and the user id in the request
+            paycheck.UserId = userId;
+            paycheck.PaycheckId = paycheckId;
+            // Call the logic method
+            response = await _paycheckLogic.UpdatePaycheckAsync(paycheck);
+
+            // Check if the status came back as a success
+            if (response.HttpStatus == 400)
+            {
+                // Return a bad request
+                return BadRequest(response.Message);
+            }
+            else if (response.HttpStatus == 403)
+            {
+                // Return the forbidden response
+                return Forbid(response.Message);
+            }
+            else if (response.HttpStatus == 404)
+            {
+                // Return a not found
+                return NotFound(response.Message);
+            }
+            else
+            {
+                // Return Ok
+                return Ok(new
+                {
+                    status = response.HttpStatus,
+                    message = response.Message,
+                    paycheckId = response.Id,
+                    paycheckSplitsIds = response.PaycheckSplitIds
+                });
+            }
+        }
+
+
+        [Authorize]
+        [HttpDelete("{paycheckId}")]
+        public async Task<ActionResult> DeletePaycheckAsync(int paycheckId)
+        {
+            // Declare and initialize
+            BaseResponse response;
+            BaseIdRequest request = new BaseIdRequest();
+            // Get the user id from the JWT token
+            int userId = ClaimsPrincipalExtensions.GetUserId(User);
+
+            // Set the user id and the entity id in the request
+            request.UserId = userId;
+            request.EntityId = paycheckId;
+            // Call the logic method to delete the paycheck
+            response = await _paycheckLogic.DeletePaycheckAsync(request);
+
+            if (response.HttpStatus == 404)
+            {
+                // Return a not found
+                return NotFound(response.Message);
+            }
+            else if (response.HttpStatus == 403)
+            {
+                // Return the forbidden response
+                return Forbid(response.Message);
+            }
+            else
+            {
+                // Return Ok
+                return Ok(new
+                {
+                    status = response.HttpStatus,
+                    message = response.Message,
+                });
+            }
         }
     }
 }

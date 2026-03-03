@@ -163,11 +163,15 @@ namespace MakesCentsBackend.Controllers
         {
             // Declare and initialize
             BaseResponse response;
+            BaseIdRequest request = new BaseIdRequest();
             // Get the user id from the JWT token
             int userId = ClaimsPrincipalExtensions.GetUserId(User);
 
+            // Set the user id and the entity id in the request
+            request.UserId = userId;
+            request.EntityId = budgetId;
             // Call the logic method to delete the budget
-            response = await _budgetLogic.DeleteBudgetAsync(budgetId, userId);
+            response = await _budgetLogic.DeleteBudgetAsync(request);
 
             if (response.HttpStatus == 404)
             {

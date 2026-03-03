@@ -31,6 +31,11 @@ builder.Services.AddScoped<MySqlConnection>(sp =>
     new MySqlConnection(
         builder.Configuration.GetConnectionString("DefaultConnection")));
 
+// Register handler for Optional<T> to use with dapper
+SqlMapper.AddTypeHandler(new OptionalDBConverter<decimal?>());
+SqlMapper.AddTypeHandler(new OptionalDBConverter<DateOnly?>());
+SqlMapper.AddTypeHandler(new OptionalDBConverter<int?>());
+
 // Add support for enum conversions
 builder.Services.AddControllers()
     .AddJsonOptions(options =>

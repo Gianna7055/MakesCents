@@ -83,7 +83,7 @@ namespace MakesCentsBackend.Controllers
         {
             // Declare and initialize
             GetAllEnvelopeCategoriesResponse response;
-            BaseGetRequest request = new BaseGetRequest();
+            BaseIdRequest request = new BaseIdRequest();
             // Get the user id from the JWT token
             int userId = ClaimsPrincipalExtensions.GetUserId(User);
 
@@ -173,11 +173,15 @@ namespace MakesCentsBackend.Controllers
         {
             // Declare and initialize
             BaseResponse response;
+            BaseIdRequest request = new BaseIdRequest();
             // Get the user id from the JWT token
             int userId = ClaimsPrincipalExtensions.GetUserId(User);
 
+            // Set the user id and the entity id in the request
+            request.UserId = userId;
+            request.EntityId = envelopeCategoryId;
             // Call the logic method to delete the envelope category
-            response = await _envelopeCategoryLogic.DeleteEnvelopeCategoryAsync(envelopeCategoryId, userId);
+            response = await _envelopeCategoryLogic.DeleteEnvelopeCategoryAsync(request);
 
             if (response.HttpStatus == 404)
             {

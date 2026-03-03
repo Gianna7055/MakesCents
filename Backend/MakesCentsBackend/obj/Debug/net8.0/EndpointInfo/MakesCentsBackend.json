@@ -28,6 +28,29 @@
         }
       }
     },
+    "/api/accounts/{accountId}": {
+      "delete": {
+        "tags": [
+          "Account"
+        ],
+        "parameters": [
+          {
+            "name": "accountId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/bank-accounts": {
       "post": {
         "tags": [
@@ -75,6 +98,46 @@
             }
           }
         ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "BankAccount"
+        ],
+        "parameters": [
+          {
+            "name": "bankAccountId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateBankAccountRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateBankAccountRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateBankAccountRequest"
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
             "description": "OK"
@@ -260,6 +323,46 @@
             "description": "OK"
           }
         }
+      },
+      "put": {
+        "tags": [
+          "DebtAccount"
+        ],
+        "parameters": [
+          {
+            "name": "debtAccountId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateDebtAccountRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateDebtAccountRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateDebtAccountRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
       }
     },
     "/api/envelopes": {
@@ -295,6 +398,67 @@
     },
     "/api/envelopes/{envelopeId}": {
       "get": {
+        "tags": [
+          "Envelope"
+        ],
+        "parameters": [
+          {
+            "name": "envelopeId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Envelope"
+        ],
+        "parameters": [
+          {
+            "name": "envelopeId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateEnvelopeRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateEnvelopeRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateEnvelopeRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "delete": {
         "tags": [
           "Envelope"
         ],
@@ -485,6 +649,46 @@
             "description": "OK"
           }
         }
+      },
+      "put": {
+        "tags": [
+          "InvestmentAccount"
+        ],
+        "parameters": [
+          {
+            "name": "investmentAccountId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateInvestmentAccountRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateInvestmentAccountRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateInvestmentAccountRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
       }
     },
     "/api/paychecks": {
@@ -562,6 +766,67 @@
             "description": "OK"
           }
         }
+      },
+      "put": {
+        "tags": [
+          "Paycheck"
+        ],
+        "parameters": [
+          {
+            "name": "paycheckId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdatePaycheckRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdatePaycheckRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdatePaycheckRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Paycheck"
+        ],
+        "parameters": [
+          {
+            "name": "paycheckId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
       }
     },
     "/api/payment-transactions": {
@@ -618,6 +883,48 @@
         }
       }
     },
+    "/api/payment-transactions/{paymentTransactionId}": {
+      "put": {
+        "tags": [
+          "PaymentTransaction"
+        ],
+        "parameters": [
+          {
+            "name": "paymentTransactionId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdatePaymentTransactionRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdatePaymentTransactionRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdatePaymentTransactionRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/Transaction/{budgetId}": {
       "get": {
         "tags": [
@@ -626,6 +933,29 @@
         "parameters": [
           {
             "name": "budgetId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Transaction/{transactionId}": {
+      "delete": {
+        "tags": [
+          "Transaction"
+        ],
+        "parameters": [
+          {
+            "name": "transactionId",
             "in": "path",
             "required": true,
             "schema": {
@@ -688,6 +1018,48 @@
             }
           }
         ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/transfer-transactions/{transferTransactionId}": {
+      "put": {
+        "tags": [
+          "TransferTransaction"
+        ],
+        "parameters": [
+          {
+            "name": "transferTransactionId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateTransferTransactionRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateTransferTransactionRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateTransferTransactionRequest"
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
             "description": "OK"
@@ -824,18 +1196,15 @@
         "properties": {
           "budgetId": {
             "type": "integer",
-            "format": "int32",
-            "nullable": true
+            "format": "int32"
           },
           "userId": {
             "type": "integer",
-            "format": "int32",
-            "nullable": true
+            "format": "int32"
           },
           "accountId": {
             "type": "integer",
-            "format": "int32",
-            "nullable": true
+            "format": "int32"
           },
           "accountName": {
             "type": "string",
@@ -847,8 +1216,7 @@
           },
           "balance": {
             "type": "number",
-            "format": "double",
-            "nullable": true
+            "format": "double"
           },
           "bankAccountType": {
             "$ref": "#/components/schemas/BankAccountType"
@@ -861,16 +1229,14 @@
         "properties": {
           "userId": {
             "type": "integer",
-            "format": "int32",
-            "nullable": true
+            "format": "int32"
           },
           "month": {
             "$ref": "#/components/schemas/Month"
           },
           "year": {
             "type": "integer",
-            "format": "int32",
-            "nullable": true
+            "format": "int32"
           },
           "budgetName": {
             "type": "string",
@@ -884,18 +1250,15 @@
         "properties": {
           "budgetId": {
             "type": "integer",
-            "format": "int32",
-            "nullable": true
+            "format": "int32"
           },
           "userId": {
             "type": "integer",
-            "format": "int32",
-            "nullable": true
+            "format": "int32"
           },
           "accountId": {
             "type": "integer",
-            "format": "int32",
-            "nullable": true
+            "format": "int32"
           },
           "accountName": {
             "type": "string",
@@ -907,8 +1270,7 @@
           },
           "balance": {
             "type": "number",
-            "format": "double",
-            "nullable": true
+            "format": "double"
           },
           "debtAccountType": {
             "$ref": "#/components/schemas/DebtAccountType"
@@ -933,13 +1295,11 @@
         "properties": {
           "budgetId": {
             "type": "integer",
-            "format": "int32",
-            "nullable": true
+            "format": "int32"
           },
           "userId": {
             "type": "integer",
-            "format": "int32",
-            "nullable": true
+            "format": "int32"
           },
           "envelopeCategoryName": {
             "type": "string",
@@ -953,13 +1313,11 @@
         "properties": {
           "envelopeCategoryId": {
             "type": "integer",
-            "format": "int32",
-            "nullable": true
+            "format": "int32"
           },
           "userId": {
             "type": "integer",
-            "format": "int32",
-            "nullable": true
+            "format": "int32"
           },
           "envelopeName": {
             "type": "string",
@@ -967,17 +1325,14 @@
           },
           "plannedAmount": {
             "type": "number",
-            "format": "double",
-            "nullable": true
+            "format": "double"
           },
           "remainingAmount": {
             "type": "number",
-            "format": "double",
-            "nullable": true
+            "format": "double"
           },
           "isSinkingFund": {
-            "type": "boolean",
-            "nullable": true
+            "type": "boolean"
           },
           "goalAmount": {
             "$ref": "#/components/schemas/DecimalNullableOptional"
@@ -996,18 +1351,15 @@
         "properties": {
           "budgetId": {
             "type": "integer",
-            "format": "int32",
-            "nullable": true
+            "format": "int32"
           },
           "userId": {
             "type": "integer",
-            "format": "int32",
-            "nullable": true
+            "format": "int32"
           },
           "accountId": {
             "type": "integer",
-            "format": "int32",
-            "nullable": true
+            "format": "int32"
           },
           "accountName": {
             "type": "string",
@@ -1019,8 +1371,7 @@
           },
           "balance": {
             "type": "number",
-            "format": "double",
-            "nullable": true
+            "format": "double"
           },
           "investmentAccountType": {
             "$ref": "#/components/schemas/InvestmentAccountType"
@@ -1029,12 +1380,10 @@
             "$ref": "#/components/schemas/Int32NullableOptional"
           },
           "isTaxDeferred": {
-            "type": "boolean",
-            "nullable": true
+            "type": "boolean"
           },
           "isTaxExempt": {
-            "type": "boolean",
-            "nullable": true
+            "type": "boolean"
           }
         },
         "additionalProperties": false
@@ -1044,13 +1393,11 @@
         "properties": {
           "budgetId": {
             "type": "integer",
-            "format": "int32",
-            "nullable": true
+            "format": "int32"
           },
           "userId": {
             "type": "integer",
-            "format": "int32",
-            "nullable": true
+            "format": "int32"
           },
           "paycheckName": {
             "type": "string",
@@ -1058,16 +1405,14 @@
           },
           "startingDate": {
             "type": "string",
-            "format": "date",
-            "nullable": true
+            "format": "date"
           },
           "secondaryDate": {
             "$ref": "#/components/schemas/DateOnlyNullableOptional"
           },
           "totalAmount": {
             "type": "number",
-            "format": "double",
-            "nullable": true
+            "format": "double"
           },
           "paycheckRegularity": {
             "$ref": "#/components/schemas/PaycheckRegularity"
@@ -1087,18 +1432,15 @@
         "properties": {
           "paycheckId": {
             "type": "integer",
-            "format": "int32",
-            "nullable": true
+            "format": "int32"
           },
           "envelopeId": {
             "type": "integer",
-            "format": "int32",
-            "nullable": true
+            "format": "int32"
           },
           "amount": {
             "type": "number",
-            "format": "double",
-            "nullable": true
+            "format": "double"
           }
         },
         "additionalProperties": false
@@ -1108,36 +1450,30 @@
         "properties": {
           "budgetId": {
             "type": "integer",
-            "format": "int32",
-            "nullable": true
+            "format": "int32"
           },
           "userId": {
             "type": "integer",
-            "format": "int32",
-            "nullable": true
+            "format": "int32"
           },
           "transactionId": {
             "type": "integer",
-            "format": "int32",
-            "nullable": true
+            "format": "int32"
           },
           "transactionDate": {
             "type": "string",
-            "format": "date",
-            "nullable": true
+            "format": "date"
           },
           "totalAmount": {
             "type": "number",
-            "format": "double",
-            "nullable": true
+            "format": "double"
           },
           "notes": {
             "$ref": "#/components/schemas/StringOptional"
           },
           "accountId": {
             "type": "integer",
-            "format": "int32",
-            "nullable": true
+            "format": "int32"
           },
           "paymentTransactionType": {
             "$ref": "#/components/schemas/PaymentTransactionType"
@@ -1164,18 +1500,15 @@
         "properties": {
           "transactionId": {
             "type": "integer",
-            "format": "int32",
-            "nullable": true
+            "format": "int32"
           },
           "envelopeId": {
             "type": "integer",
-            "format": "int32",
-            "nullable": true
+            "format": "int32"
           },
           "amount": {
             "type": "number",
-            "format": "double",
-            "nullable": true
+            "format": "double"
           }
         },
         "additionalProperties": false
@@ -1185,41 +1518,34 @@
         "properties": {
           "budgetId": {
             "type": "integer",
-            "format": "int32",
-            "nullable": true
+            "format": "int32"
           },
           "userId": {
             "type": "integer",
-            "format": "int32",
-            "nullable": true
+            "format": "int32"
           },
           "transactionId": {
             "type": "integer",
-            "format": "int32",
-            "nullable": true
+            "format": "int32"
           },
           "transactionDate": {
             "type": "string",
-            "format": "date",
-            "nullable": true
+            "format": "date"
           },
           "totalAmount": {
             "type": "number",
-            "format": "double",
-            "nullable": true
+            "format": "double"
           },
           "notes": {
             "$ref": "#/components/schemas/StringOptional"
           },
           "transferFromId": {
             "type": "integer",
-            "format": "int32",
-            "nullable": true
+            "format": "int32"
           },
           "transferToId": {
             "type": "integer",
-            "format": "int32",
-            "nullable": true
+            "format": "int32"
           },
           "transferTransactionType": {
             "$ref": "#/components/schemas/TransferTransactionType"
@@ -1298,13 +1624,11 @@
         "properties": {
           "budgetId": {
             "type": "integer",
-            "format": "int32",
-            "nullable": true
+            "format": "int32"
           },
           "userId": {
             "type": "integer",
-            "format": "int32",
-            "nullable": true
+            "format": "int32"
           },
           "budgetName": {
             "type": "string",
@@ -1318,13 +1642,11 @@
         "properties": {
           "envelopeCategoryId": {
             "type": "integer",
-            "format": "int32",
-            "nullable": true
+            "format": "int32"
           },
           "userId": {
             "type": "integer",
-            "format": "int32",
-            "nullable": true
+            "format": "int32"
           },
           "envelopeCategoryName": {
             "type": "string",
@@ -1338,8 +1660,7 @@
         "properties": {
           "userId": {
             "type": "integer",
-            "format": "int32",
-            "nullable": true
+            "format": "int32"
           },
           "username": {
             "type": "string",
@@ -1480,6 +1801,358 @@
           "Envelope"
         ],
         "type": "string"
+      },
+      "UpdateBankAccountRequest": {
+        "type": "object",
+        "properties": {
+          "userId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "accountId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "accountName": {
+            "type": "string",
+            "nullable": true
+          },
+          "institution": {
+            "type": "string",
+            "nullable": true
+          },
+          "balance": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "bankAccountId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "bankAccountType": {
+            "$ref": "#/components/schemas/BankAccountType"
+          }
+        },
+        "additionalProperties": false
+      },
+      "UpdateDebtAccountRequest": {
+        "type": "object",
+        "properties": {
+          "userId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "accountId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "accountName": {
+            "type": "string",
+            "nullable": true
+          },
+          "institution": {
+            "type": "string",
+            "nullable": true
+          },
+          "balance": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "debtAccountId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "debtAccountType": {
+            "$ref": "#/components/schemas/DebtAccountType"
+          },
+          "accountNumber": {
+            "$ref": "#/components/schemas/Int32NullableOptional"
+          },
+          "dateOfNextBill": {
+            "$ref": "#/components/schemas/DateOnlyNullableOptional"
+          },
+          "amountOfNextBill": {
+            "$ref": "#/components/schemas/DateOnlyNullableOptional"
+          },
+          "debtPaymentRegularity": {
+            "$ref": "#/components/schemas/DebtPaymentRegularityNullableOptional"
+          }
+        },
+        "additionalProperties": false
+      },
+      "UpdateEnvelopeRequest": {
+        "type": "object",
+        "properties": {
+          "envelopeId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "envelopeCategoryId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "userId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "envelopeName": {
+            "type": "string",
+            "nullable": true
+          },
+          "plannedAmount": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "isSinkingFund": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "goalAmount": {
+            "$ref": "#/components/schemas/DecimalNullableOptional"
+          },
+          "goalEndDate": {
+            "$ref": "#/components/schemas/DateOnlyNullableOptional"
+          },
+          "transferEnvelopeId": {
+            "$ref": "#/components/schemas/Int32NullableOptional"
+          }
+        },
+        "additionalProperties": false
+      },
+      "UpdateInvestmentAccountRequest": {
+        "type": "object",
+        "properties": {
+          "userId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "accountId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "accountName": {
+            "type": "string",
+            "nullable": true
+          },
+          "institution": {
+            "type": "string",
+            "nullable": true
+          },
+          "balance": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "investmentAccountId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "investmentAccountType": {
+            "$ref": "#/components/schemas/InvestmentAccountType"
+          },
+          "accountNumber": {
+            "$ref": "#/components/schemas/Int32NullableOptional"
+          },
+          "isTaxDeferred": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "isTextExempt": {
+            "type": "boolean",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "UpdatePaycheckRequest": {
+        "type": "object",
+        "properties": {
+          "paycheckId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "userId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "startingDate": {
+            "type": "string",
+            "format": "date",
+            "nullable": true
+          },
+          "secondaryDate": {
+            "$ref": "#/components/schemas/DateOnlyNullableOptional"
+          },
+          "totalAmount": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "paycheckRegularity": {
+            "$ref": "#/components/schemas/PaycheckRegularity"
+          },
+          "paycheckSplits": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/UpdatePaycheckSplitRequest"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "UpdatePaycheckSplitRequest": {
+        "type": "object",
+        "properties": {
+          "paycheckId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "paycheckSplitId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "amount": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "envelopeId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "UpdatePaymentTransactionRequest": {
+        "type": "object",
+        "properties": {
+          "userId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "transactionId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "transactionDate": {
+            "type": "string",
+            "format": "date",
+            "nullable": true
+          },
+          "totalAmount": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "notes": {
+            "$ref": "#/components/schemas/StringOptional"
+          },
+          "paymentTransactionId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "accountId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "paymentTransactionType": {
+            "$ref": "#/components/schemas/PaymentTransactionType"
+          },
+          "merchantSourceName": {
+            "type": "string",
+            "nullable": true
+          },
+          "checkNumber": {
+            "$ref": "#/components/schemas/Int32NullableOptional"
+          },
+          "transactionSplits": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/UpdateTransactionSplitRequest"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "UpdateTransactionSplitRequest": {
+        "type": "object",
+        "properties": {
+          "transactionId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "transactionSplitId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "amount": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "envelopeId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "UpdateTransferTransactionRequest": {
+        "type": "object",
+        "properties": {
+          "userId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "transactionId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "transactionDate": {
+            "type": "string",
+            "format": "date",
+            "nullable": true
+          },
+          "totalAmount": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "notes": {
+            "$ref": "#/components/schemas/StringOptional"
+          },
+          "transferTransactionId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "transferFromId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "transferToId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "transferTransactionType": {
+            "$ref": "#/components/schemas/TransferTransactionType"
+          }
+        },
+        "additionalProperties": false
       }
     }
   },

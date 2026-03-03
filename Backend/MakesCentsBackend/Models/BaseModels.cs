@@ -74,11 +74,18 @@ namespace MakesCentsBackend.Models
         public BaseIdResponse() : base() { }
     }
 
+
+    public interface IOptional
+    {
+        bool HasValue { get; }
+        object? GetValue();
+    }
+
     /// <summary>
     /// Optional class for creating and updating nulls
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public readonly struct Optional<T>
+    public readonly struct Optional<T> : IOptional
     {
         /// <summary>
         /// Checks if the value was sent
@@ -89,6 +96,8 @@ namespace MakesCentsBackend.Models
         /// The value that was sent
         /// </summary>
         public T? Value { get; }
+
+        public object? GetValue() => Value;
 
         /// <summary>
         /// Parameterized constructor to set Value
@@ -101,16 +110,41 @@ namespace MakesCentsBackend.Models
         }
 
         /// <summary>
+        /// Parameterized constructor to bring in a HasValue value
+        /// </summary>
+        public Optional(bool hasValue)
+        {
+            HasValue = hasValue;
+        }
+
+        /// <summary>
+        /// Parameterized constructor to bring in a HasValue and Value values
+        /// </summary>
+        public Optional(bool hasValue, T? value)
+        {
+            HasValue = hasValue;
+            Value = value;
+        }
+
+        /// <summary>
         /// Allows Optional<decimal?> amount = 100m instead of amount = new Optional<decimal?>(100m)
         /// </summary>
         /// <param name="value"></param>
         public static implicit operator Optional<T>(T? value) => new(value);
     }
 
-    public class BaseGetRequest
+    public class BaseIdRequest
     {
         // Class properties
         public int UserId { get; set; } = 0;
         public int EntityId { get; set; } = 0;
+
+        public BaseIdRequest() { }
+
+        public BaseIdRequest(int userId, int entityId)
+        {
+            UserId = userId;
+            EntityId = entityId;
+        }
     }
 }

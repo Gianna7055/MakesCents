@@ -37,7 +37,7 @@ namespace MakesCentsBackend.Services.BusinessLogicLayer
             CreateDebtAccountResponse response;
 
             // Make sure the necessary information was sent
-            if (debtAccount.BudgetId == null || debtAccount.UserId == null || string.IsNullOrEmpty(debtAccount.AccountName) || string.IsNullOrEmpty(debtAccount.Institution) || debtAccount.Balance == null || debtAccount.DebtAccountType == DebtAccountType.Unknown)
+            if (debtAccount.BudgetId == 0 || debtAccount.UserId == 0 || string.IsNullOrEmpty(debtAccount.AccountName) || string.IsNullOrEmpty(debtAccount.Institution) || debtAccount.Balance == 0m || debtAccount.DebtAccountType == DebtAccountType.Unknown)
             {
                 return new CreateDebtAccountResponse(400, "Missing information for debt account creation");
             }
@@ -48,12 +48,18 @@ namespace MakesCentsBackend.Services.BusinessLogicLayer
         }
 
 
-        public async Task<GetDebtAccountDTOResponse> GetDebtAccountAsync(BaseGetRequest request)
+        public async Task<GetDebtAccountDTOResponse> GetDebtAccountAsync(BaseIdRequest request)
         {
             // Declare and initialize
             GetDebtAccountDTOResponse dtoResponse;
             GetDebtAccountEntityResponse entityResponse;
 
+            // Make sure the required information was sent
+            if (request.EntityId == 0 || request.UserId == 0)
+            {
+                // Return the fail
+                return new GetDebtAccountDTOResponse(400, "Missing information to get debt account");
+            }
             // Call the DAO method
             entityResponse = await _debtAccountDAO.GetDebtAccountAsync(request);
             // Map the entity response to the dto response
@@ -65,6 +71,23 @@ namespace MakesCentsBackend.Services.BusinessLogicLayer
             }
             // Return the DTO
             return dtoResponse;
+        }
+
+
+        public async Task<BaseIdResponse> UpdateDebtAccountAsync(UpdateDebtAccountRequest debtAccount)
+        {
+            // Declare and initialize
+            BaseIdResponse response;
+
+            // Check to make sure the required information was provided
+            if (debtAccount.DebtAccountId == 0 || debtAccount.UserId == 0)
+            {
+                return new BaseIdResponse(400, "Missing information for update");
+            }
+            // Call the update method in the DAO
+            response = await _debtAccountDAO.UpdateDebtAccountAsync(debtAccount);
+            // Return the response
+            return response;
         }
     }
 }

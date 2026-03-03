@@ -10,18 +10,18 @@ namespace MakesCentsBackend.Models
     /// <summary>
     /// Model for an abstract transaction
     /// </summary>
-    public abstract class TransactionEntity
+    public abstract class TransactionEntityModel
     {
         // Class Level Properties
         public int TransactionId { get; set; } = 0;
         public int BudgetId { get; set; } = 0;
-        public DateOnly TransactionDate { get; set; } = new DateOnly();
+        public DateOnly TransactionDate { get; set; } = DateOnly.MinValue;
         public decimal TotalAmount { get; set; } = 0m;
         public bool IsReconciled { get; set; } = false;
         public string? Notes { get; set; } = null;
         public TransactionType TransactionType { get; set; } = TransactionType.Unknown;
-        public DateTime CreatedAt { get; set; } = new DateTime();
-        public DateTime LastUpdatedAt { get; set; } = new DateTime();
+        public DateTime CreatedAt { get; set; } = DateTime.MinValue;
+        public DateTime LastUpdatedAt { get; set; } = DateTime.MinValue;
         public DateTime? DeletedAt { get; set; } = null;
     }
 
@@ -30,7 +30,7 @@ namespace MakesCentsBackend.Models
     {
         // Class properties
         public int TransactionId { get; set; } = 0;
-        public DateOnly Date { get; set; } = new DateOnly(1, 1, 1);
+        public DateOnly Date { get; set; } = DateOnly.MinValue;
         public string Location { get; set; } = "";
         public string Envelopes { get; set; } = "";
         public decimal Amount { get; set; } = 0m;
@@ -41,7 +41,7 @@ namespace MakesCentsBackend.Models
     {
         // Class properties
         public int TransactionId { get; set; } = 0;
-        public DateOnly Date { get; set; } = new DateOnly(1, 1, 1);
+        public DateOnly Date { get; set; } = DateOnly.MinValue;
         public TransactionType TransactionType { get; set; } = TransactionType.Unknown;
         public TransferTransactionType? TransferTransactionType { get; set; } = Enums.TransferTransactionType.Unknown;
 
@@ -67,12 +67,12 @@ namespace MakesCentsBackend.Models
     /// 
     public abstract class CreateTransactionRequest
     {
-        public int? BudgetId { get; set; } = null;
-        public int? UserId { get; set; } = null;
-        public int? TransactionId { get; set; } = null;
-        public DateOnly? TransactionDate { get; set; } = null;
-        public decimal? TotalAmount { get; set; } = null;
-        public Optional<string?> Notes { get; set; } = null;
+        public int BudgetId { get; set; } = 0;
+        public int UserId { get; set; } = 0;
+        public int TransactionId { get; set; } = 0;
+        public DateOnly TransactionDate { get; set; } = DateOnly.MinValue;
+        public decimal TotalAmount { get; set; } = 0m;
+        public Optional<string?> Notes { get; set; }
     }
 
 
@@ -109,6 +109,10 @@ namespace MakesCentsBackend.Models
 
     public class GetAllTransactionsDTOResponse : BaseResponse
     {
+        public GetAllTransactionsDTOResponse(int httpStatus, string message) : base(httpStatus, message)
+        {
+        }
+
         // Class properties
         public List<SummaryTransactionDTOModel> Transactions { get; set; } = new List<SummaryTransactionDTOModel>();
     }
@@ -120,7 +124,7 @@ namespace MakesCentsBackend.Models
         public int TransactionId { get; set; } = 0;
         public int BudgetId { get; set; } = 0;
         public int UserId { get; set; } = 0;
-        public DateOnly TransactionDate { get; set; } = new DateOnly(1, 1, 1);
+        public DateOnly TransactionDate { get; set; } = DateOnly.MinValue;
         public decimal TotalAmount { get; set; } = 0m;
         public bool IsReconciled { get; set; } = false;
         public string? Notes { get; set; } = null;
@@ -133,10 +137,21 @@ namespace MakesCentsBackend.Models
         public int TransactionId { get; set; } = 0;
         public int BudgetId { get; set; } = 0;
         public int UserId { get; set; } = 0;
-        public DateOnly TransactionDate { get; set; } = new DateOnly(1, 1, 1);
+        public DateOnly TransactionDate { get; set; } = DateOnly.MinValue;
         public decimal TotalAmount { get; set; } = 0m;
         public bool IsReconciled { get; set; } = false;
         public string? Notes { get; set; } = null;
         public TransactionType TransactionType { get; set; } = TransactionType.Unknown;
+    }
+
+
+    public class UpdateTransactionRequest
+    {
+        // Class properties
+        public int UserId { get; set; } = 0;
+        public int TransactionId { get; set; } = 0;
+        public DateOnly? TransactionDate { get; set; }
+        public decimal? TotalAmount { get; set; }
+        public Optional<string?> Notes { get; set; }
     }
 }

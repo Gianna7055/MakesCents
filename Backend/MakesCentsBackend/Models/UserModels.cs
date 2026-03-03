@@ -9,7 +9,7 @@ namespace MakesCentsBackend.Models
     /// <summary>
     /// Model for a user
     /// </summary>
-    public class UserEntity
+    public class UserEntityModel
     {
         // Class Level Properties
         public int UserId { get; set; } = 0;
@@ -17,9 +17,9 @@ namespace MakesCentsBackend.Models
         public string Email { get; set; } = "";
         public string PasswordHash { get; set; } = "";
         public bool IsDarkMode { get; set; } = false;
-        public DateTime CreatedAt { get; set; } = new DateTime();
-        public DateTime LastUpdatedAt { get; set; } = new DateTime();
-        public BudgetEntity? Budget { get; set; } = null;
+        public DateTime CreatedAt { get; set; } = DateTime.MinValue;
+        public DateTime LastUpdatedAt { get; set; } = DateTime.MinValue;
+        public BudgetEntityModel? Budget { get; set; } = null;
     }
     
     /// <summary>
@@ -28,7 +28,7 @@ namespace MakesCentsBackend.Models
     public class UserEntityResponse : BaseResponse
     {
         // Class level properties
-        public UserEntity User { get; set; }
+        public UserEntityModel User { get; set; }
         public string? Token { get; set; }
 
         /// <summary>
@@ -36,7 +36,7 @@ namespace MakesCentsBackend.Models
         /// </summary>
         /// <param name="userId"></param>
         /// <param name="message"></param>
-        public UserEntityResponse(UserEntity user, int status, string message) : base(status, message)
+        public UserEntityResponse(UserEntityModel user, int status, string message) : base(status, message)
         {
             User = user;
             Token = null;
@@ -49,14 +49,14 @@ namespace MakesCentsBackend.Models
     public class UserDTOResponse : BaseResponse
     {
         // Class level properties
-        public UserDTO? User { get; set; } = null;
+        public UserDTOModel? User { get; set; } = null;
         public string? Token { get; set; } = null;
     }
 
     /// <summary>
     /// Model for a user
     /// </summary>
-    public class UserDTO
+    public class UserDTOModel
     {
         // Class Level Properties
         public int UserId { get; set; } = 0;
@@ -66,13 +66,14 @@ namespace MakesCentsBackend.Models
         public string Email { get; set; } = "";
 
         public bool IsDarkMode { get; set; } = false;
-        public BudgetEntity? Budget { get; set; } = null;
+        public BudgetEntityModel? Budget { get; set; } = null;
     }
+
 
     public class GetUserResponse : BaseResponse
     {
         // Class Level Properties
-        public GetUserDTO GetUserDTO { get; set; } = new GetUserDTO();
+        public GetUserDTOModel GetUserDTO { get; set; } = new GetUserDTOModel();
 
         /// <summary>
         /// Parameterized constructor that takes a status, message, and GetUserDTO object
@@ -80,7 +81,7 @@ namespace MakesCentsBackend.Models
         /// <param name="httpStatus"></param>
         /// <param name="message"></param>
         /// <param name="getUserDTO"></param>
-        public GetUserResponse(int httpStatus, string message, GetUserDTO getUserDTO) : base(httpStatus, message)
+        public GetUserResponse(int httpStatus, string message, GetUserDTOModel getUserDTO) : base(httpStatus, message)
         {
             GetUserDTO = getUserDTO;
         }
@@ -96,7 +97,7 @@ namespace MakesCentsBackend.Models
     /// <summary>
     /// DTO model for getting a user
     /// </summary>
-    public class GetUserDTO
+    public class GetUserDTOModel
     {
         // Class Level Properties
         public int UserId { get; set; } = 0;
@@ -114,7 +115,7 @@ namespace MakesCentsBackend.Models
     public class EditUserRequest
     {
         // Class Level Properties
-        public int? UserId { get; set; } = null;
+        public int UserId { get; set; } = 0;
 
         public string? Username { get; set; } = null;
 
@@ -130,8 +131,8 @@ namespace MakesCentsBackend.Models
     public class LoginRequest
     {
         // Class Level Properties
-        public string? UsernameOrEmail { get; set; } = null;
-        public string? Password { get; set; } = null;
+        public string UsernameOrEmail { get; set; } = "";
+        public string Password { get; set; } = "";
     }
 
     /// <summary>
@@ -173,9 +174,9 @@ namespace MakesCentsBackend.Models
     public class RegisterRequest
     {
         // Class level properties
-        public string? Username { get; set; } = null;
-        public string? Email { get; set; } = null;
-        public string? PasswordHash { get; set; } = null;
+        public string Username { get; set; } = "";
+        public string Email { get; set; } = "";
+        public string PasswordHash { get; set; } = "";
     }
 
     /// <summary>

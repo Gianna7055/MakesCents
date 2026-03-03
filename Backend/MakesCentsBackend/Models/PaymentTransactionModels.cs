@@ -10,7 +10,7 @@ namespace MakesCentsBackend.Models
     /// <summary>
     /// Model for a payment transaction
     /// </summary>
-    public class PaymentTransactionEntity : TransactionEntity
+    public class PaymentTransactionEntityModel : TransactionEntityModel
     {
         // Class Level Properties
         public int PaymentTransactionId { get; set; } = 0;
@@ -18,7 +18,7 @@ namespace MakesCentsBackend.Models
         public PaymentTransactionType PaymentTransactionType { get; set; } = PaymentTransactionType.Unknown;
         public string MerchantSourceName { get; set; } = "";
         public int? CheckNumber { get; set; } = null;
-        public List<TransactionSplitEntity> TransactionSplits { get; set; } = new List<TransactionSplitEntity>();
+        public List<TransactionSplitEntityModel> TransactionSplits { get; set; } = new List<TransactionSplitEntityModel>();
     }
 
     /// <summary>
@@ -27,10 +27,10 @@ namespace MakesCentsBackend.Models
     public class CreatePaymentTransactionRequest : CreateTransactionRequest
     {
         // Class properties
-        public int? AccountId { get; set; } = null;
-        public PaymentTransactionType? PaymentTransactionType { get; set; } = Enums.PaymentTransactionType.Unknown;
-        public string? MerchantSourceName { get; set; } = null;
-        public Optional<int?> CheckNumber { get; set; } = null;
+        public int AccountId { get; set; } = 0;
+        public PaymentTransactionType PaymentTransactionType { get; set; } = Enums.PaymentTransactionType.Unknown;
+        public string MerchantSourceName { get; set; } = "";
+        public Optional<int?> CheckNumber { get; set; }
         public List<CreateTransactionSplitRequest> TransactionSplits { get; set; } = new List<CreateTransactionSplitRequest>();
     }
 
@@ -76,5 +76,29 @@ namespace MakesCentsBackend.Models
 
         public GetPaymentTransactionResponse() : base() { }
         public GetPaymentTransactionResponse(int httpStatus, string message) : base(httpStatus, message) { }
+    }
+
+
+    public class UpdatePaymentTransactionRequest : UpdateTransactionRequest
+    {
+        // Class properties
+        public int PaymentTransactionId { get; set; } = 0;
+        public int? AccountId { get; set; }
+        public PaymentTransactionType? PaymentTransactionType { get; set; }
+        public string? MerchantSourceName { get; set; }
+        public Optional<int?> CheckNumber { get; set; }
+        public List<UpdateTransactionSplitRequest> TransactionSplits { get; set; } = new List<UpdateTransactionSplitRequest>();
+    }
+
+
+    public class UpdatePaymentTransactionResponse : BaseIdResponse
+    {
+        // Class properties
+        public List<int> TransactionSplitIds { get; set; } = new List<int>();
+
+        public UpdatePaymentTransactionResponse(int httpStatus, string message) : base(httpStatus, message) { }
+        public UpdatePaymentTransactionResponse(int httpStatus, string message, int id) : base(httpStatus, message, id) { }
+
+        public UpdatePaymentTransactionResponse() : base() { }
     }
 }   

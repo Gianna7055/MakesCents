@@ -37,7 +37,7 @@ namespace MakesCentsBackend.Services.BusinessLogicLayer
             CreateInvestmentAccountResponse response;
 
             // Make sure the necessary information was sent
-            if (investmentAccount.BudgetId == null || investmentAccount.UserId == null || string.IsNullOrEmpty(investmentAccount.AccountName) || string.IsNullOrEmpty(investmentAccount.Institution) || investmentAccount.Balance == null || investmentAccount.InvestmentAccountType == InvestmentAccountType.Unknown || investmentAccount.IsTaxDeferred == null || investmentAccount.IsTaxExempt == null)
+            if (investmentAccount.BudgetId == 0 || investmentAccount.UserId == 0 || string.IsNullOrEmpty(investmentAccount.AccountName) || string.IsNullOrEmpty(investmentAccount.Institution) || investmentAccount.Balance == 0m || investmentAccount.InvestmentAccountType == InvestmentAccountType.Unknown)
             {
                 return new CreateInvestmentAccountResponse(400, "Missing information for investment account creation");
             }
@@ -48,12 +48,18 @@ namespace MakesCentsBackend.Services.BusinessLogicLayer
         }
 
 
-        public async Task<GetInvestmentAccountDTOResponse> GetInvestmentAccountAsync(BaseGetRequest request)
+        public async Task<GetInvestmentAccountDTOResponse> GetInvestmentAccountAsync(BaseIdRequest request)
         {
             // Declare and initialize
             GetInvestmentAccountDTOResponse dtoResponse;
             GetInvestmentAccountEntityResponse entityResponse;
 
+            // Make sure the required information was sent
+            if (request.EntityId == 0 || request.UserId == 0)
+            {
+                // Return the fail
+                return new GetInvestmentAccountDTOResponse(400, "Missing information to get investment account");
+            }
             // Call the DAO method
             entityResponse = await _investmentAccountDAO.GetInvestmentAccountAsync(request);
             // Map the entity response to the dto response
@@ -65,6 +71,23 @@ namespace MakesCentsBackend.Services.BusinessLogicLayer
             }
             // Return the DTO
             return dtoResponse;
+        }
+
+
+        public async Task<BaseIdResponse> UpdateInvestmentAccountAsync(UpdateInvestmentAccountRequest investmentAccount)
+        {
+            // Declare and initialize
+            BaseIdResponse response;
+
+            // Check to make sure the required information was provided
+            if (investmentAccount.InvestmentAccountId == 0 || investmentAccount.UserId == 0)
+            {
+                return new BaseIdResponse(400, "Missing information for update");
+            }
+            // Call the update method in the DAO
+            response = await _investmentAccountDAO.UpdateInvestmentAccountAsync(investmentAccount);
+            // Return the response
+            return response;
         }
     }
 }

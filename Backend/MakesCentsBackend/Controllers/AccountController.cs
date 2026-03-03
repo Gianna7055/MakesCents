@@ -37,7 +37,7 @@ namespace MakesCentsBackend.Controllers
         {
             // Declare and initialize
             GetAllAccountsResponse response;
-            BaseGetRequest request = new BaseGetRequest();
+            BaseIdRequest request = new BaseIdRequest();
             // Get the user id from the JWT token
             int userId = ClaimsPrincipalExtensions.GetUserId(User);
 
@@ -68,6 +68,44 @@ namespace MakesCentsBackend.Controllers
                 message = response.Message,
                 accounts = response.Accounts
             });
+        }
+
+
+        [Authorize]
+        [HttpDelete("{accountId}")]
+        public async Task<ActionResult> DeleteAccountAsync(int accountId)
+        {
+            // Declare and initialize
+            BaseResponse response;
+            BaseIdRequest request = new BaseIdRequest();
+            // Get the user id from the JWT token
+            int userId = ClaimsPrincipalExtensions.GetUserId(User);
+
+            // Set the user id and the entity id in the request
+            request.UserId = userId;
+            request.EntityId = accountId;
+            // Call the logic method to delete the account
+            response = await _accountLogic.DeleteAccountAsync(request);
+
+            if (response.HttpStatus == 404)
+            {
+                // Return a not found
+                return NotFound(response.Message);
+            }
+            else if (response.HttpStatus == 403)
+            {
+                // Return the forbidden response
+                return Forbid(response.Message);
+            }
+            else
+            {
+                // Return Ok
+                return Ok(new
+                {
+                    status = response.HttpStatus,
+                    message = response.Message,
+                });
+            }
         }
     }
 }

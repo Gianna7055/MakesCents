@@ -4,8 +4,11 @@
  * Sources: 
  */
 using Dapper;
+using Humanizer;
 using MakesCentsBackend.Models;
 using MySqlConnector;
+using System.Reflection;
+using System.Security.Principal;
 
 namespace MakesCentsBackend.Services.DataAccessLayer
 {
@@ -28,7 +31,7 @@ namespace MakesCentsBackend.Services.DataAccessLayer
         }
 
 
-        public async Task<GetAllTransactionsEntityResponse> GetAllTransactionsAsync(BaseGetRequest request)
+        public async Task<GetAllTransactionsEntityResponse> GetAllTransactionsAsync(BaseIdRequest request)
         {
             // Declare and initialize
             GetAllTransactionsEntityResponse response = new GetAllTransactionsEntityResponse();
@@ -81,6 +84,112 @@ namespace MakesCentsBackend.Services.DataAccessLayer
             response.Message = "Transactions found";
             // Return the response
             return response;
+        }
+
+
+        public async Task<BaseIdResponse> UpdateTransactionAsync(UpdateTransactionRequest transaction, MySqlTransaction dbTransaction)
+        {
+            // Declare and initialize
+            List<string> updates = new List<string>();
+            int rowsAffected;
+
+            // Make sure the transaction belongs to the user
+            if (!await _authService.VerifyUserOwnsTransactionAsync(transaction.TransactionId, transaction.UserId))
+            {
+                // Return the issue
+                return new BaseIdResponse(403, "Transaction does not belong to the current user", transaction.TransactionId);
+            }
+
+            // Loop through each file to see if an update is necessary
+            foreach (PropertyInfo property in typeof(UpdateTransactionRequest).GetProperties())
+            {
+                // Skip the ids
+                if (property.Name == "TransactionId" || property.Name == "UserId") continue;
+                object? propertyValue = property.GetValue(transaction);
+
+                // check if the property is IOptional and has a value
+                if (propertyValue is IOptional optional && optional.HasValue)
+                {
+                    // Add the Optional<T> to the query
+                    updates.Add($"{property.Name.Underscore()} = @{property.Name}");
+                }
+                // Check if the property is null
+                else if (propertyValue != null)
+                {
+                    // Add the property to the query
+                    updates.Add($"{property.Name.Underscore()} = @{property.Name}");
+                }
+            }
+            // If no fields to update, return early
+            if (updates.Count == 0)
+            {
+                return new BaseIdResponse(400, "No fields to update");
+            }
+            // Assemble the query
+            query = $"""
+                UPDATE transaction 
+                SET {string.Join(", ", updates)}
+                WHERE transaction_id = @TransactionId
+                """;
+
+            try
+            {
+                // Execute the query
+                rowsAffected = await _connection.ExecuteAsync(query, transaction, dbTransaction);
+            }
+            catch (Exception ex)
+            {
+                // Roll the transaction back
+                dbTransaction.Rollback();
+                // Return the issue
+                return new BaseIdResponse(500, $"{ex.Message}");
+            }
+
+            // Make sure the row was affected
+            if (rowsAffected == 1)
+            {
+                return new BaseIdResponse(200, "Transaction updated successfully", transaction.TransactionId);
+            }
+            else if (rowsAffected == 0)
+            {
+                // Roll the transaction back
+                dbTransaction.Rollback();
+                return new BaseIdResponse(404, "Transaction not found");
+            }
+            else
+            {
+                // Roll the transaction back
+                dbTransaction.Rollback();
+                return new BaseIdResponse(400, "An error occurred");
+            }
+        }
+
+
+        public async Task<BaseResponse> DeleteTransactionAsync(BaseIdRequest request)
+        {
+            // Declare and initialize
+            query = """
+                DELETE FROM transaction 
+                WHERE transaction_id = @TransactionId
+                """;
+            int rowsAffected;
+
+            // Make sure the transaction belongs to the user
+            if (!await _authService.VerifyUserOwnsTransactionAsync(request.EntityId, request.UserId))
+            {
+                return new BaseIdResponse(403, "Transaction does not belong to the current user.");
+            }
+            // Execute the query
+            rowsAffected = await _connection.ExecuteAsync(query, new { TransactionId = request.EntityId });
+
+            // Check the number of rows found
+            if (rowsAffected == 0)
+            {
+                // Return that the user was not found
+                return new BaseResponse(404, "Transaction not found");
+            }
+            // Return the success
+            return new BaseResponse(200, "Transaction deleted successfully");
         }
     }
 }

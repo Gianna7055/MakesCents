@@ -4,9 +4,11 @@
  * Sources: 
  */
 using Dapper;
+using Humanizer;
 using MakesCentsBackend.Models;
 using MySqlConnector;
 using System.Data;
+using System.Reflection;
 
 namespace MakesCentsBackend.Services.DataAccessLayer
 {
@@ -16,16 +18,18 @@ namespace MakesCentsBackend.Services.DataAccessLayer
         string query = "";
         private readonly MySqlConnection _connection;
         private readonly AuthorizationService _authService;
+        private readonly AccountDAO _accountDAO;
 
         /// <summary>
         /// Parameterized constructor to bring in DI variables
         /// </summary>
         /// <param name="connection"></param>
         /// <param name="authService"></param>
-        public InvestmentAccountDAO(MySqlConnection connection, AuthorizationService authService)
+        public InvestmentAccountDAO(MySqlConnection connection, AuthorizationService authService, AccountDAO accountDAO)
         {
             _connection = connection;
             _authService = authService;
+            _accountDAO = accountDAO;
         }
 
         /// <summary>
@@ -111,11 +115,11 @@ namespace MakesCentsBackend.Services.DataAccessLayer
             return response;
         }
 
-        public async Task<GetInvestmentAccountEntityResponse> GetInvestmentAccountAsync(BaseGetRequest request)
+        public async Task<GetInvestmentAccountEntityResponse> GetInvestmentAccountAsync(BaseIdRequest request)
         {
             // Declare and initialize
             GetInvestmentAccountEntityResponse response = new GetInvestmentAccountEntityResponse();
-            GetInvestmentAccountEntity investmentAccount;
+            GetInvestmentAccountEntityModel investmentAccount;
 
             // Make sure the account belongs to the user
             if (!await _authService.VerifyUserOwnsAccountAsync(request.EntityId, request.UserId))
@@ -142,7 +146,7 @@ namespace MakesCentsBackend.Services.DataAccessLayer
                 WHERE investment_account.investment_account_id = @InvestmentAccountId;
                 """;
             // Get the investment account
-            investmentAccount = await _connection.QueryFirstAsync<GetInvestmentAccountEntity>(query, new { InvestmentAccountId = request.EntityId });
+            investmentAccount = await _connection.QueryFirstAsync<GetInvestmentAccountEntityModel>(query, new { InvestmentAccountId = request.EntityId });
             // Make sure the investment account is not null
             if (investmentAccount == null)
             {
@@ -199,6 +203,103 @@ namespace MakesCentsBackend.Services.DataAccessLayer
             response.Message = "Investment account found";
             // Return the response
             return response;
+        }
+
+
+        public async Task<BaseIdResponse> UpdateInvestmentAccountAsync(UpdateInvestmentAccountRequest investmentAccount)
+        {
+            // Declare and initialize
+            List<string> updates = new List<string>();
+            int rowsAffected;
+            BaseIdResponse accountResponse;
+
+            // Check if the connection is open
+            if (_connection.State != ConnectionState.Open)
+                // Open the connection
+                await _connection.OpenAsync();
+            // Setting up the transaction
+            using (MySqlTransaction dbTransaction = _connection.BeginTransaction())
+            {
+                // Call the update account method
+                accountResponse = await _accountDAO.UpdateAccountAsync(investmentAccount, dbTransaction);
+
+                // Check the account response
+                if (accountResponse.HttpStatus != 200 || accountResponse.Message != "No fields to update")
+                {
+                    // Roll the transaction back
+                    dbTransaction.Rollback();
+                    return accountResponse;
+                }
+
+                // Make sure the investment account belongs to the user
+                if (!await _authService.VerifyUserOwnsAccountAsync(investmentAccount.InvestmentAccountId, investmentAccount.UserId, dbTransaction))
+                {
+                    // Roll the transaction back
+                    dbTransaction.Rollback();
+                    return new BaseIdResponse(403, "Investment account does not belong to the current user.", investmentAccount.InvestmentAccountId);
+                }
+
+                // Loop through each field to see if an update is necessary
+                foreach (PropertyInfo property in typeof(UpdateInvestmentAccountRequest).GetProperties())
+                {
+                    // Skip base table properties
+                    if (typeof(UpdateAccountRequest).GetProperty(property.Name) != null) continue;
+                    // Skip the id
+                    if (property.Name == "InvestmentAccountId" || property.Name == "UserId") continue;
+                    object? propertyValue = property.GetValue(investmentAccount);
+
+                    // Check if the property is IOptional and has a value
+                    if (propertyValue is IOptional optional && optional.HasValue)
+                    {
+                        // Add the Optional<T> to the query
+                        updates.Add($"{property.Name.Underscore()} = @{property.Name}");
+                    }
+                    // Check if the property is null
+                    else if (propertyValue != null)
+                    {
+                        // Add the property to the query
+                        updates.Add($"{property.Name.Underscore()} = @{property.Name}");
+                    }
+                }
+
+                // If no fields to update, return early
+                if (updates.Count == 0)
+                {
+                    return new BaseIdResponse(400, "No fields to update");
+                }
+                // Assemble the query
+                query = $"""
+                UPDATE investment_account
+                SET {string.Join(", ", updates)}
+                WHERE investment_account_id = @InvestmentAccount
+                """;
+                try
+                {
+                    // Execute the query
+                    rowsAffected = await _connection.ExecuteAsync(query, investmentAccount, dbTransaction);
+                }
+                catch (Exception ex)
+                {
+                    // Roll the transaction back
+                    dbTransaction.Rollback();
+                    // Return the issue
+                    return new BaseIdResponse(500, $"{ex.Message}");
+                }
+            }
+
+            // Make sure the row was affected
+            if (rowsAffected == 1)
+            {
+                return new BaseIdResponse(200, "Investment account updated successfully", investmentAccount.InvestmentAccountId);
+            }
+            else if (rowsAffected == 0)
+            {
+                return new BaseIdResponse(404, "Investment account not found");
+            }
+            else
+            {
+                return new BaseIdResponse(400, "An error occurred");
+            }
         }
     }
 }

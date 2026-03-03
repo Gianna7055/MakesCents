@@ -75,7 +75,7 @@ namespace MakesCentsBackend.Controllers
         {
             // Declare and initialize
             GetTransferTransactionDTOResponse response;
-            BaseGetRequest request = new BaseGetRequest();
+            BaseIdRequest request = new BaseIdRequest();
             // Get the user id from the JWT token
             int userId = ClaimsPrincipalExtensions.GetUserId(User);
 
@@ -106,6 +106,49 @@ namespace MakesCentsBackend.Controllers
                 message = response.Message,
                 transferTransaction = response.TransferTransaction
             });
+        }
+
+        [Authorize]
+        [HttpPut("{transferTransactionId}")]
+        public async Task<ActionResult> UpdateTransferTransactionAsync(int transferTransactionId, UpdateTransferTransactionRequest transferTransaction)
+        {
+            // Declare and initialize
+            BaseIdResponse response;
+            // Get the user id from the JWT token
+            int userId = ClaimsPrincipalExtensions.GetUserId(User);
+
+            // Set the payment transaction id and user id in the request
+            transferTransaction.UserId = userId;
+            transferTransaction.TransferTransactionId = transferTransactionId;
+            // Call the logic method
+            response = await _transferTransactionLogic.UpdateTransferTransactionAsync(transferTransaction);
+
+            // Check if the status came back as a success
+            if (response.HttpStatus == 400)
+            {
+                // Return a bad request
+                return BadRequest(response.Message);
+            }
+            else if (response.HttpStatus == 403)
+            {
+                // Return the forbidden response
+                return Forbid(response.Message);
+            }
+            else if (response.HttpStatus == 404)
+            {
+                // Return a not found
+                return NotFound(response.Message);
+            }
+            else
+            {
+                // Return Ok
+                return Ok(new
+                {
+                    status = response.HttpStatus,
+                    message = response.Message,
+                    transferTransactionId = response.Id
+                });
+            }
         }
     }
 }

@@ -10,7 +10,7 @@ namespace MakesCentsBackend.Models
     /// <summary>
     /// Model for an abstract account
     /// </summary>
-    public abstract class AccountEntity
+    public abstract class AccountEntityModel
     {
         // Class Level Properties
         public int AccountId { get; set; } = 0;
@@ -19,21 +19,21 @@ namespace MakesCentsBackend.Models
         public string AccountName { get; set; } = "";
         public string Institution { get; set; } = "";
         public decimal Balance { get; set; } = 0m;
-        public DateTime CreatedAt { get; set; } = new DateTime();
-        public DateTime LastUpdatedAt { get; set; } = new DateTime();
-        public List<TransactionEntity> Transactions { get; set; } = new List<TransactionEntity>();
+        public DateTime CreatedAt { get; set; } = DateTime.MinValue;
+        public DateTime LastUpdatedAt { get; set; } = DateTime.MinValue;
+        public List<TransactionEntityModel> Transactions { get; set; } = new List<TransactionEntityModel>();
     }
 
 
     public abstract class CreateAccountRequest
     {
         // Class properties
-        public int? BudgetId { get; set; } = null;
-        public int? UserId { get; set; } = null;
-        public int? AccountId { get; set; } = null;
-        public string? AccountName { get; set; } = null;
-        public string? Institution { get; set; } = null;
-        public decimal? Balance { get; set; } = null;
+        public int BudgetId { get; set; } = 0;
+        public int UserId { get; set; } = 0;
+        public int AccountId { get; set; } = 0;
+        public string AccountName { get; set; } = "";
+        public string Institution { get; set; } = "";
+        public decimal Balance { get; set; } = 0m;
     }
 
     /// <summary>
@@ -58,7 +58,7 @@ namespace MakesCentsBackend.Models
     }
 
 
-    public class AccountSummaryDTO
+    public class AccountSummaryDTOModel
     {
         // Class properties
         public int AccountId { get; set; } = 0;
@@ -66,7 +66,7 @@ namespace MakesCentsBackend.Models
         public int UserId { get; set; } = 0;
         public AccountType AccountType { get; set; } = AccountType.Unknown;
         public string AccountName { get; set; } = "";
-        public decimal balance { get; set; } = 0m;
+        public decimal Balance { get; set; } = 0m;
     }
 
     /// <summary>
@@ -75,7 +75,7 @@ namespace MakesCentsBackend.Models
     public class GetAllAccountsResponse : BaseResponse
     {
         // Class properties
-        public List<AccountSummaryDTO> Accounts { get; set; } = new List<AccountSummaryDTO>();
+        public List<AccountSummaryDTOModel> Accounts { get; set; } = new List<AccountSummaryDTOModel>();
 
         /// <summary>
         /// Initializes a new instance of the GetAllAccountsResponse class with the specified HTTP status code and
@@ -94,7 +94,7 @@ namespace MakesCentsBackend.Models
     /// <summary>
     /// Base class for getting a specific account
     /// </summary>
-    public class GetAccountModel
+    public class GetAccountBaseModel
     {
         // Class properties
         public int AccountId { get; set; } = 0;
@@ -103,5 +103,16 @@ namespace MakesCentsBackend.Models
         public AccountType AccountType { get; set; } = AccountType.Unknown;
         public string AccountName { get; set; } = "";
         public decimal Balance { get; set; } = 0;
+    }
+
+
+    public class UpdateAccountRequest
+    {
+        // Class properties
+        public int UserId { get; set; } = 0;
+        public int AccountId { get; set; } = 0;
+        public string? AccountName { get; set; } = null;
+        public string? Institution { get; set; } = null;
+        public decimal? Balance { get; set; } = null;
     }
 }

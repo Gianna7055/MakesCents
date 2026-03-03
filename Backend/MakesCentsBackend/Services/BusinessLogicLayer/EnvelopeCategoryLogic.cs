@@ -48,11 +48,17 @@ namespace MakesCentsBackend.Services.BusinessLogicLayer
         /// </summary>
         /// <param name="envelopeCategoryId"></param>
         /// <returns></returns>
-        public async Task<GetAllEnvelopeCategoriesResponse> GetAllEnvelopeCategoriesAsync(BaseGetRequest request)
+        public async Task<GetAllEnvelopeCategoriesResponse> GetAllEnvelopeCategoriesAsync(BaseIdRequest request)
         {
             // Declare and initialize
             GetAllEnvelopeCategoriesResponse response;
 
+            // Make sure the required information was sent
+            if (request.EntityId == 0 || request.UserId == 0)
+            {
+                // Return the fail
+                return new GetAllEnvelopeCategoriesResponse(400, "Missing information to get all envelope categories");
+            }
             // Call the DAO method
             response = await _envelopeCategoryDAO.GetAllEnvelopeCategoriesAsync(request);
             // Return the response
@@ -70,7 +76,7 @@ namespace MakesCentsBackend.Services.BusinessLogicLayer
             BaseIdResponse response;
 
             // Check to make sure the required information was provided
-            if (envelopeCategory.EnvelopeCategoryId == 0)
+            if (envelopeCategory.EnvelopeCategoryId == 0 || envelopeCategory.UserId == 0)
             {
                 return new BaseIdResponse(400, "Missing information for update");
             }
@@ -85,10 +91,15 @@ namespace MakesCentsBackend.Services.BusinessLogicLayer
         /// </summary>
         /// <param name="envelopeCategoryId"></param>
         /// <returns></returns>
-        public async Task<BaseResponse> DeleteEnvelopeCategoryAsync(int envelopeCategoryId, int userId)
+        public async Task<BaseResponse> DeleteEnvelopeCategoryAsync(BaseIdRequest request)
         {
+            // Check to make sure the required information was provided
+            if (request.EntityId == 0 || request.UserId == 0)
+            {
+                return new BaseResponse(400, "Missing information for update");
+            }
             // Return a call the the DAO method
-            return await _envelopeCategoryDAO.DeleteEnvelopeCategoryAsync(envelopeCategoryId, userId);
+            return await _envelopeCategoryDAO.DeleteEnvelopeCategoryAsync(request);
         }
     }
 }

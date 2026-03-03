@@ -147,6 +147,12 @@ namespace MakesCentsBackend.Services.BusinessLogicLayer
             // Declare and initialize
             GetUserResponse response;
 
+            // Make sure the required information was sent
+            if (userId == 0)
+            {
+                // Return the fail
+                return new GetUserResponse(400, "Missing information to get user");
+            }
             // Call and return the Get User From Id Async method from the DAO
             response = await _userDAO.GetUserAsync(userId);
 
@@ -165,9 +171,13 @@ namespace MakesCentsBackend.Services.BusinessLogicLayer
             BaseIdResponse response;
 
             // Make sure the user has the required fields
-            if (user.UserId == null)
+            if (user.UserId == 0)
             {
                 return new BaseIdResponse(400, "Missing information for update");
+            }
+            if (user.Email != null && !new EmailAddressAttribute().IsValid(user.Email))
+            {
+                return new BaseIdResponse(400, "Invalid email format");
             }
             if (!string.IsNullOrEmpty(user.PasswordHash))
             {

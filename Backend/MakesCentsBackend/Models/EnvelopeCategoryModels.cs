@@ -9,15 +9,15 @@ namespace MakesCentsBackend.Models
     /// <summary>
     /// Model for an envelope category
     /// </summary>
-    public class EnvelopeCategoryEntity
+    public class EnvelopeCategoryEntityModel
     {
         // Class Level Properties
         public int EnvelopeCategoryId { get; set; } = 0;
         public int BudgetId { get; set; } = 0;
         public string EnvelopeCategoryName { get; set; } = "";
-        public DateTime CreatedAt { get; set; } = new DateTime();
-        public DateTime LastUpdatedAt { get; set; } = new DateTime();
-        public List<EnvelopeEntity> Envelopes { get; set; } = new List<EnvelopeEntity>();
+        public DateTime CreatedAt { get; set; } = DateTime.MinValue;
+        public DateTime LastUpdatedAt { get; set; } = DateTime.MinValue;
+        public List<EnvelopeEntityModel> Envelopes { get; set; } = new List<EnvelopeEntityModel>();
     }
 
     /// <summary>
@@ -38,9 +38,9 @@ namespace MakesCentsBackend.Models
     public class CreateEnvelopeCategoryRequest
     {
         // Class level properties
-        public int? BudgetId { get; set; } = null;
-        public int? UserId { get; set; } = null;
-        public string? EnvelopeCategoryName { get; set; } = null;
+        public int BudgetId { get; set; } = 0;
+        public int UserId { get; set; } = 0;
+        public string EnvelopeCategoryName { get; set; } = "";
     }
 
     /// <summary>
@@ -74,8 +74,8 @@ namespace MakesCentsBackend.Models
     public class EditEnvelopeCategoryRequest
     {
         // Class properties
-        public int? EnvelopeCategoryId { get; set; } = null;
-        public int? UserId { get; set; } = null;
+        public int EnvelopeCategoryId { get; set; } = 0;
+        public int UserId { get; set; } = 0;
         public string? EnvelopeCategoryName { get; set; } = null;
     }
 }

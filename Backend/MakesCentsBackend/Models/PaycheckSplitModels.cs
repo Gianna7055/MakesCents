@@ -8,7 +8,7 @@ namespace MakesCentsBackend.Models
     /// <summary>
     /// Model for a paycheck split
     /// </summary>
-    public class PaycheckSplitEntity
+    public class PaycheckSplitEntityModel
     {
         // Class Level Properties
         public int PaycheckSplitId { get; set; } = 0;
@@ -16,8 +16,8 @@ namespace MakesCentsBackend.Models
         public int EnvelopeId { get; set; } = 0;
         public decimal Amount { get; set; } = 0m;
         public int OrderIndex { get; set; } = 0;
-        public DateTime CreatedAt { get; set; } = new DateTime();
-        public DateTime LastUpdatedAt { get; set; } = new DateTime();
+        public DateTime CreatedAt { get; set; } = DateTime.MinValue;
+        public DateTime LastUpdatedAt { get; set; } = DateTime.MinValue;
     }
 
     /// <summary>
@@ -25,9 +25,9 @@ namespace MakesCentsBackend.Models
     /// </summary>
     public class CreatePaycheckSplitRequest
     {
-        public int? PaycheckId { get; set; } = null;
-        public int? EnvelopeId { get; set; } = null;
-        public decimal? Amount { get; set; } = null;
+        public int PaycheckId { get; set; } = 0;
+        public int EnvelopeId { get; set; } = 0;
+        public decimal Amount { get; set; } = 0m;
     }
 
 
@@ -38,5 +38,15 @@ namespace MakesCentsBackend.Models
         public int PaycheckId { get; set; } = 0;
         public int EnvelopeId { get; set; } = 0;
         public decimal? Amount { get; set; } = 0m;
+    }
+
+
+    public class UpdatePaycheckSplitRequest
+    {
+        // Class variables
+        public int? PaycheckId { get; set; }
+        public int? PaycheckSplitId { get; set; }
+        public decimal? Amount { get; set; }
+        public int? EnvelopeId { get; set; }
     }
 }

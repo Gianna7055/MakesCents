@@ -10,7 +10,7 @@ namespace MakesCentsBackend.Models
     /// <summary>
     /// Model for a transfer transaction
     /// </summary>
-    public class TransferTransactionEntity : TransactionEntity
+    public class TransferTransactionEntityModel : TransactionEntityModel
     {
         // Class Level Properties
         public int TransferTransactionId { get; set; } = 0;
@@ -22,13 +22,13 @@ namespace MakesCentsBackend.Models
     }
 
     /// <summary>
-    /// Request model ot create a new transfer transaction
+    /// Request model to create a new transfer transaction
     /// </summary>
     public class CreateTransferTransactionRequest : CreateTransactionRequest
     {
         // Class properties
-        public int? TransferFromId { get; set; } = null;
-        public int? TransferToId { get; set; } = null;
+        public int TransferFromId { get; set; } = 0;
+        public int TransferToId { get; set; } = 0;
         public TransferTransactionType TransferTransactionType { get; set; } = TransferTransactionType.Unknown;
     }
 
@@ -91,5 +91,15 @@ namespace MakesCentsBackend.Models
 
         public GetTransferTransactionDTOResponse() : base() { }
         public GetTransferTransactionDTOResponse(int httpStatus, string message) : base(httpStatus, message) { }
+    }
+
+
+    public class UpdateTransferTransactionRequest : UpdateTransactionRequest
+    {
+        // Class properties
+        public int TransferTransactionId { get; set; } = 0;
+        public int? TransferFromId { get; set; }
+        public int? TransferToId { get; set; }
+        public TransferTransactionType? TransferTransactionType { get; set; }
     }
 }

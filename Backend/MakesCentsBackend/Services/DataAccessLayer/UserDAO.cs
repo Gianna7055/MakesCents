@@ -100,14 +100,14 @@ namespace MakesCentsBackend.Services.DataAccessLayer
                     WHERE username = @UsernameOrEmail OR email = @UsernameOrEmail
                     LIMIT 1;
                 """;
-            UserEntity? foundUser;
+            UserEntityModel? foundUser;
 
             // Normalize the passed in username
             usernameOrEmail = usernameOrEmail.ToLower();
             try
             {
                 // Get the user from the executed query
-                foundUser = await _connection.QuerySingleOrDefaultAsync<UserEntity>(query, new { UsernameOrEmail = usernameOrEmail });
+                foundUser = await _connection.QuerySingleOrDefaultAsync<UserEntityModel>(query, new { UsernameOrEmail = usernameOrEmail });
             }
             catch (Exception ex)
             {
@@ -118,7 +118,7 @@ namespace MakesCentsBackend.Services.DataAccessLayer
             if (foundUser != null)
             {
                 // Return the found users id and a success message
-                return new LoginResponse(foundUser.UserId, foundUser.PasswordHash, 201, "User Found");
+                return new LoginResponse(201, "User Found", foundUser.UserId, foundUser.PasswordHash);
             }
             else
             {
@@ -145,12 +145,12 @@ namespace MakesCentsBackend.Services.DataAccessLayer
                     WHERE user_id = @UserId
                     LIMIT 1;
                 """;
-            GetUserDTO? foundUser;
+            GetUserDTOModel? foundUser;
 
             try
             {
                 // Get the user from the executed query
-                foundUser = await _connection.QuerySingleOrDefaultAsync<GetUserDTO>(query, new { UserId = userId });
+                foundUser = await _connection.QuerySingleOrDefaultAsync<GetUserDTOModel>(query, new { UserId = userId });
             }
             catch (Exception ex)
             {
@@ -234,6 +234,22 @@ namespace MakesCentsBackend.Services.DataAccessLayer
                     // Return the model ith a duplication error
                     return new BaseIdResponse(400, $"{errorColumn} already exists");
                 }
+                // Check if the error was due to the input being too long
+                if (ex.Number == 1406)
+                {
+                    // Make sure the email was not duplicated (check error)
+                    if (ex.Message.Contains("'email'"))
+                    {
+                        errorColumn = "Email";
+                    }
+                    // Check if the username was duplicated
+                    else if (ex.Message.Contains("'username'"))
+                    {
+                        errorColumn = "Username";
+                    }
+                    // Return the model ith a duplication error
+                    return new BaseIdResponse(400, $"{errorColumn} is too long");
+                }
                 return new BaseIdResponse(500, $"{ex.Number}: {ex.Message}");
             }
             catch (Exception ex)
@@ -272,7 +288,10 @@ namespace MakesCentsBackend.Services.DataAccessLayer
         public async Task<BaseResponse> DeleteUserAsync(int userId)
         {
             // Declare and initialize
-            query = "DELETE FROM user WHERE user_id = @UserId";
+            query = """
+                DELETE FROM user 
+                WHERE user_id = @UserId
+                """;
             int rowsAffected;
 
             // Execute the query

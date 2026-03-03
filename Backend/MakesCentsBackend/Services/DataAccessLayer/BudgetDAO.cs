@@ -216,19 +216,22 @@ namespace MakesCentsBackend.Services.DataAccessLayer
         /// </summary>
         /// <param name="budgetId"></param>
         /// <returns></returns>
-        public async Task<BaseResponse> DeleteBudgetAsync(int budgetId, int userId)
+        public async Task<BaseResponse> DeleteBudgetAsync(BaseIdRequest request)
         {
             // Declare and initialize
-            query = "DELETE FROM budget WHERE budget_id = @BudgetId";
+            query = """
+                DELETE FROM budget 
+                WHERE budget_id = @BudgetId
+                """;
             int rowsAffected;
 
             // Make sure the budget belongs to the user
-            if (!await _authService.VerifyUserOwnsBudgetAsync(budgetId, userId))
+            if (!await _authService.VerifyUserOwnsBudgetAsync(request.EntityId, request.UserId))
             {
                 return new BaseIdResponse(403, "Budget does not belong to the current user.");
             }
             // Execute the query
-            rowsAffected = await _connection.ExecuteAsync(query, new { BudgetId = budgetId });
+            rowsAffected = await _connection.ExecuteAsync(query, new { BudgetId = request.EntityId });
 
             // Check the number of rows found
             if (rowsAffected == 0)

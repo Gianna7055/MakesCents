@@ -36,7 +36,7 @@ namespace MakesCentsBackend.Services.BusinessLogicLayer
             BaseIdResponse response;
 
             // Make sure the necessary information was sent
-            if (budget.UserId == null || budget.Month == Month.Unknown || budget.Year == null || string.IsNullOrEmpty(budget.BudgetName))
+            if (budget.UserId == 0 || budget.Month == Month.Unknown || budget.Year == 0 || string.IsNullOrEmpty(budget.BudgetName))
             {
                 return new BaseIdResponse(400, "Missing information for budget creation");
             }
@@ -57,10 +57,10 @@ namespace MakesCentsBackend.Services.BusinessLogicLayer
             GetBudgetResponse response;
 
             // Make sure the budget has a year, month, and user id
-            if (budget.Year == null || budget.UserId == null || budget.Month == Month.Unknown)
+            if (budget.Year == 0 || budget.UserId == 0 || budget.Month == Month.Unknown)
             {
                 // Return the not found status
-                return new GetBudgetResponse(404, "Budget not found");
+                return new GetBudgetResponse(404, "Missing information to get budget");
             }
             // Call the DAO method
             response = await _budgetDAO.GetBudgetAsync(budget);
@@ -79,7 +79,7 @@ namespace MakesCentsBackend.Services.BusinessLogicLayer
             BaseIdResponse response;
 
             // Check to make sure the required information was provided
-            if (budget.BudgetId == null)
+            if (budget.BudgetId == 0 || budget.UserId == 0)
             {
                 return new BaseIdResponse(400, "Missing information for update");
             }
@@ -90,14 +90,19 @@ namespace MakesCentsBackend.Services.BusinessLogicLayer
         }
 
         /// <summary>
-        /// Logic method to delete a budget
+        /// Logic method to delete an budget
         /// </summary>
-        /// <param name="budgetId"></param>
+        /// <param name="request"></param>
         /// <returns></returns>
-        public async Task<BaseResponse> DeleteBudgetAsync(int budgetId, int userId)
+        public async Task<BaseResponse> DeleteBudgetAsync(BaseIdRequest request)
         {
+            // Check to make sure the required information was provided
+            if (request.EntityId == 0 || request.UserId == 0)
+            {
+                return new BaseResponse(400, "Missing information for update");
+            }
             // Return a call the the DAO method
-            return await _budgetDAO.DeleteBudgetAsync(budgetId, userId);
+            return await _budgetDAO.DeleteBudgetAsync(request);
         }
     }
 }

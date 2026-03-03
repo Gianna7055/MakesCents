@@ -8,15 +8,15 @@ namespace MakesCentsBackend.Models
     /// <summary>
     /// Model for a transaction split model
     /// </summary>
-    public class TransactionSplitEntity
+    public class TransactionSplitEntityModel
     {
         // Class Level Properties
         public int TransactionSplitId { get; set; } = 0;
         public int TransactionId { get; set; } = 0;
         public int EnvelopeId { get; set; } = 0;
         public decimal Amount { get; set; } = 0m;
-        public DateTime CreatedAt { get; set; } = new DateTime();
-        public DateTime LastUpdatedAt { get; set; } = new DateTime();
+        public DateTime CreatedAt { get; set; } = DateTime.MinValue;
+        public DateTime LastUpdatedAt { get; set; } = DateTime.MinValue;
     }
 
     /// <summary>
@@ -24,9 +24,9 @@ namespace MakesCentsBackend.Models
     /// </summary>
     public class CreateTransactionSplitRequest
     {
-        public int? TransactionId { get; set; } = null;
-        public int? EnvelopeId { get; set; } = null;
-        public decimal? Amount { get; set; } = null;
+        public int TransactionId { get; set; } = 0;
+        public int EnvelopeId { get; set; } = 0;
+        public decimal Amount { get; set; } = 0m;
     }
 
 
@@ -37,5 +37,15 @@ namespace MakesCentsBackend.Models
         public int TransactionId { get; set; } = 0;
         public int EnvelopeId { get; set; } = 0;
         public decimal Amount { get; set; } = 0m;
+    }
+
+
+    public class UpdateTransactionSplitRequest
+    {
+        // Class variables
+        public int? TransactionId { get; set; }
+        public int? TransactionSplitId { get; set; }
+        public decimal? Amount { get; set; }
+        public int? EnvelopeId { get; set; }
     }
 }

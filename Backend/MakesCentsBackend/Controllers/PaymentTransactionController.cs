@@ -77,7 +77,7 @@ namespace MakesCentsBackend.Controllers
         {
             // Declare and initialize
             GetPaymentTransactionResponse response;
-            BaseGetRequest request = new BaseGetRequest();
+            BaseIdRequest request = new BaseIdRequest();
             // Get the user id from the JWT token
             int userId = ClaimsPrincipalExtensions.GetUserId(User);
 
@@ -108,6 +108,50 @@ namespace MakesCentsBackend.Controllers
                 message = response.Message,
                 paymentTransaction = response.PaymentTransaction
             });
+        }
+
+        [Authorize]
+        [HttpPut("{paymentTransactionId}")]
+        public async Task<ActionResult> UpdatePaymentTransactionAsync(int paymentTransactionId, UpdatePaymentTransactionRequest paymentTransaction)
+        {
+            // Declare and initialize
+            UpdatePaymentTransactionResponse response;
+            // Get the user id from the JWT token
+            int userId = ClaimsPrincipalExtensions.GetUserId(User);
+
+            // Set the payment transaction id and user id in the request
+            paymentTransaction.UserId = userId;
+            paymentTransaction.PaymentTransactionId = paymentTransactionId;
+            // Call the logic method
+            response = await _paymentTransactionLogic.UpdatePaymentTransactionAsync(paymentTransaction);
+
+            // Check if the status came back as a success
+            if (response.HttpStatus == 400)
+            {
+                // Return a bad request
+                return BadRequest(response.Message);
+            }
+            else if (response.HttpStatus == 403)
+            {
+                // Return the forbidden response
+                return Forbid(response.Message);
+            }
+            else if (response.HttpStatus == 404)
+            {
+                // Return a not found
+                return NotFound(response.Message);
+            }
+            else
+            {
+                // Return Ok
+                return Ok(new
+                {
+                    status = response.HttpStatus,
+                    message = response.Message,
+                    paymentTransactionId = response.Id,
+                    transactionSplitIds = response.TransactionSplitIds
+                });
+            }
         }
     }
 }

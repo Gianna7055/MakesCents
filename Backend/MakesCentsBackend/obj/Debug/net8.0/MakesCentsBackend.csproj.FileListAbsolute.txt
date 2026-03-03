@@ -53,3 +53,4 @@ C:\Users\giannaross\source\repos\MakesCents\Backend\MakesCentsBackend\obj\Debug\
 C:\Users\giannaross\source\repos\MakesCents\Backend\MakesCentsBackend\obj\Debug\net8.0\MakesCentsBackend.pdb
 C:\Users\giannaross\source\repos\MakesCents\Backend\MakesCentsBackend\obj\Debug\net8.0\MakesCentsBackend.genruntimeconfig.cache
 C:\Users\giannaross\source\repos\MakesCents\Backend\MakesCentsBackend\obj\Debug\net8.0\ref\MakesCentsBackend.dll
+C:\Users\giannaross\source\repos\MakesCents\Backend\MakesCentsBackend\bin\Debug\net8.0\Humanizer.dll
