@@ -1,5 +1,21 @@
 {
   "version": 2,
+<<<<<<< HEAD
+  "dgSpecHash": "uYx97XbEmJY=",
+  "success": true,
+  "projectFilePath": "\\\\Mac\\Home\\Desktop\\MakesCents\\MakesCents\\Backend\\MakesCentsBackend\\MakesCentsBackend.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\giannaross\\.nuget\\packages\\microsoft.extensions.apidescription.server\\6.0.5\\microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",
+    "C:\\Users\\giannaross\\.nuget\\packages\\microsoft.openapi\\1.6.14\\microsoft.openapi.1.6.14.nupkg.sha512",
+    "C:\\Users\\giannaross\\.nuget\\packages\\swashbuckle.aspnetcore\\6.6.2\\swashbuckle.aspnetcore.6.6.2.nupkg.sha512",
+    "C:\\Users\\giannaross\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.6.2\\swashbuckle.aspnetcore.swagger.6.6.2.nupkg.sha512",
+    "C:\\Users\\giannaross\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.6.2\\swashbuckle.aspnetcore.swaggergen.6.6.2.nupkg.sha512",
+    "C:\\Users\\giannaross\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\6.6.2\\swashbuckle.aspnetcore.swaggerui.6.6.2.nupkg.sha512",
+    "C:\\Users\\giannaross\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\8.0.13\\microsoft.windowsdesktop.app.ref.8.0.13.nupkg.sha512",
+    "C:\\Users\\giannaross\\.nuget\\packages\\microsoft.netcore.app.ref\\8.0.13\\microsoft.netcore.app.ref.8.0.13.nupkg.sha512",
+    "C:\\Users\\giannaross\\.nuget\\packages\\microsoft.netcore.app.host.win-arm64\\8.0.13\\microsoft.netcore.app.host.win-arm64.8.0.13.nupkg.sha512",
+    "C:\\Users\\giannaross\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\8.0.13\\microsoft.aspnetcore.app.ref.8.0.13.nupkg.sha512"
+=======
   "dgSpecHash": "qqL7tumDyTo=",
   "success": true,
   "projectFilePath": "C:\\Users\\giannaross\\source\\repos\\MakesCents\\Backend\\MakesCentsBackend\\MakesCentsBackend.csproj",
@@ -30,6 +46,7 @@
     "C:\\Users\\giannaross\\.nuget\\packages\\system.identitymodel.tokens.jwt\\8.15.0\\system.identitymodel.tokens.jwt.8.15.0.nupkg.sha512",
     "C:\\Users\\giannaross\\.nuget\\packages\\system.text.json\\8.0.5\\system.text.json.8.0.5.nupkg.sha512",
     "C:\\Users\\giannaross\\.nuget\\packages\\microsoft.netcore.app.host.win-x86\\8.0.24\\microsoft.netcore.app.host.win-x86.8.0.24.nupkg.sha512"
+>>>>>>> 1c2065124c6659ecf80cef5141c448d265eacf6e
   ],
   "logs": []
 }
