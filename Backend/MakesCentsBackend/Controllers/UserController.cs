@@ -46,11 +46,11 @@ namespace MakesCentsBackend.Controllers
             response = await _userLogic.RegisterUserAsync(user);
 
             // Check if the userId came back correctly
-            if (response.HttpStatus == 400)
+            if (response.HttpStatus != 201)
             {
-                return BadRequest(response.Message);
+                // Return an issue
+                return StatusCode(response.HttpStatus, response.Message);
             }
-
             // Return a success otherwise
             return Created("", new
             {
@@ -75,15 +75,11 @@ namespace MakesCentsBackend.Controllers
 
             // Call the method from the logic class
             response = await _userLogic.LoginUserAsync(user);
-            // Check if the userId came back correctly
-            if (response.HttpStatus == 400)
+            // Check if the user came back correctly
+            if (response.HttpStatus != 200)
             {
-                return BadRequest(response.Message);
-            }
-            // Check if the userId came back correctly
-            else if (response.HttpStatus == 401)
-            {
-                return Unauthorized(response.Message);
+                // Return an issue
+                return StatusCode(response.HttpStatus, response.Message);
             }
             else
             {
@@ -116,13 +112,10 @@ namespace MakesCentsBackend.Controllers
             response = await _userLogic.GetUserAsync(userId);
 
             // Check if the status came back correctly
-            if (response.HttpStatus == 400)
+            if (response.HttpStatus != 200)
             {
-                return BadRequest(response.Message);
-            }
-            else if (response.HttpStatus == 404)
-            {
-                return NotFound(response.Message);
+                // Return an issue
+                return StatusCode(response.HttpStatus, response.Message);
             }
             else
             {
@@ -157,15 +150,10 @@ namespace MakesCentsBackend.Controllers
             response = await _userLogic.UpdateUserAsync(user);
 
             // Check if the status came back as a success
-            if (response.HttpStatus == 400)
+            if (response.HttpStatus != 200)
             {
-                // Return a bad request
-                return BadRequest(response.Message);
-            }
-            else if (response.HttpStatus == 404)
-            {
-                // Return a not found
-                return NotFound(response.Message);
+                // Return an issue
+                return StatusCode(response.HttpStatus, response.Message);
             }
             else
             {
@@ -196,10 +184,10 @@ namespace MakesCentsBackend.Controllers
             // Call the logic method to delete the user
             response = await _userLogic.DeleteUserAsync(userId);
 
-            if (response.HttpStatus == 404)
+            if (response.HttpStatus != 200)
             {
-                // Return a not found
-                return NotFound(response.Message);
+                // Return an issue
+                return StatusCode(response.HttpStatus, response.Message);
             }
             else
             {

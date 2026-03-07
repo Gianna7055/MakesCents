@@ -46,15 +46,10 @@ namespace MakesCentsBackend.Controllers
             // Call the logic method
             response = await _transferTransactionLogic.CreateTransferTransactionAsync(transferTransaction);
             // Check the status
-            if (response.HttpStatus == 400)
+            if (response.HttpStatus != 201)
             {
-                // Return the bad request
-                return BadRequest(response.Message);
-            }
-            else if (response.HttpStatus == 403)
-            {
-                // Return the forbidden response
-                return StatusCode(StatusCodes.Status403Forbidden, response.Message);
+                // Return an issue
+                return StatusCode(response.HttpStatus, response.Message);
             }
             else // Response HttpStatus is 201
             {
@@ -94,10 +89,10 @@ namespace MakesCentsBackend.Controllers
                     paycheckTransactionId = paycheckTransactionId
                 });
             }
-            else if (response.HttpStatus == 403)
+            else if (response.HttpStatus != 200)
             {
-                // Return the forbidden response
-                return Forbid(response.Message);
+                // Return an issue
+                return StatusCode(response.HttpStatus, response.Message);
             }
             // Return the OK response
             return Ok(new
@@ -124,20 +119,10 @@ namespace MakesCentsBackend.Controllers
             response = await _transferTransactionLogic.UpdateTransferTransactionAsync(transferTransaction);
 
             // Check if the status came back as a success
-            if (response.HttpStatus == 400)
+            if (response.HttpStatus != 200)
             {
-                // Return a bad request
-                return BadRequest(response.Message);
-            }
-            else if (response.HttpStatus == 403)
-            {
-                // Return the forbidden response
-                return Forbid(response.Message);
-            }
-            else if (response.HttpStatus == 404)
-            {
-                // Return a not found
-                return NotFound(response.Message);
+                // Return an issue
+                return StatusCode(response.HttpStatus, response.Message);
             }
             else
             {

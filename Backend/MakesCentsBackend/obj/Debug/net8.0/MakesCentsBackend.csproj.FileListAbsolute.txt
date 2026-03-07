@@ -46,7 +46,6 @@ C:\Users\giannaross\source\repos\MakesCents\Backend\MakesCentsBackend\obj\Debug\
 C:\Users\giannaross\source\repos\MakesCents\Backend\MakesCentsBackend\obj\Debug\net8.0\staticwebassets.development.json
 C:\Users\giannaross\source\repos\MakesCents\Backend\MakesCentsBackend\obj\Debug\net8.0\staticwebassets.build.endpoints.json
 C:\Users\giannaross\source\repos\MakesCents\Backend\MakesCentsBackend\obj\Debug\net8.0\swae.build.ex.cache
-C:\Users\giannaross\source\repos\MakesCents\Backend\MakesCentsBackend\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
 C:\Users\giannaross\source\repos\MakesCents\Backend\MakesCentsBackend\obj\Debug\net8.0\MakesCen.FC35CDD1.Up2Date
 C:\Users\giannaross\source\repos\MakesCents\Backend\MakesCentsBackend\obj\Debug\net8.0\MakesCentsBackend.dll
 C:\Users\giannaross\source\repos\MakesCents\Backend\MakesCentsBackend\obj\Debug\net8.0\refint\MakesCentsBackend.dll
@@ -54,3 +53,5 @@ C:\Users\giannaross\source\repos\MakesCents\Backend\MakesCentsBackend\obj\Debug\
 C:\Users\giannaross\source\repos\MakesCents\Backend\MakesCentsBackend\obj\Debug\net8.0\MakesCentsBackend.genruntimeconfig.cache
 C:\Users\giannaross\source\repos\MakesCents\Backend\MakesCentsBackend\obj\Debug\net8.0\ref\MakesCentsBackend.dll
 C:\Users\giannaross\source\repos\MakesCents\Backend\MakesCentsBackend\bin\Debug\net8.0\Humanizer.dll
+C:\Users\giannaross\source\repos\MakesCents\Backend\MakesCentsBackend\bin\Debug\net8.0\typegen.json
+C:\Users\giannaross\source\repos\MakesCents\Backend\MakesCentsBackend\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt

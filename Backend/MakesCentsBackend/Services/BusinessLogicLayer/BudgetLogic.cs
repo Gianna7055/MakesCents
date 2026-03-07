@@ -40,6 +40,12 @@ namespace MakesCentsBackend.Services.BusinessLogicLayer
             {
                 return new BaseIdResponse(400, "Missing information for budget creation");
             }
+            // Check to make sure that month is okay
+            if (!Enum.IsDefined(typeof(Month), budget.Month))
+            {
+                // Return an issue
+                return new BaseIdResponse(400, "Month must be between 1 and 12");
+            }
             // Call the DAO method
             response = await _budgetDAO.CreateBudgetAsync(budget);
             // Return the response

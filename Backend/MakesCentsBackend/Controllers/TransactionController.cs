@@ -55,18 +55,18 @@ namespace MakesCentsBackend.Controllers
                     budgetId = budgetId
                 });
             }
-            else if (response.HttpStatus == 403)
+            else if (response.HttpStatus != 200)
             {
-                // Return the forbidden response
-                return Forbid(response.Message);
+                // Return an issue
+                return StatusCode(response.HttpStatus, response.Message);
             }
             // Return the OK response
             return Ok(new
-            {
-                status = response.HttpStatus,
-                message = response.Message,
-                transactions = response.Transactions
-            });
+                {
+                    status = response.HttpStatus,
+                    message = response.Message,
+                    transactions = response.Transactions
+                });
         }
 
 
@@ -86,15 +86,10 @@ namespace MakesCentsBackend.Controllers
             // Call the logic method to delete the transaction
             response = await _transactionLogic.DeleteTransactionAsync(request);
 
-            if (response.HttpStatus == 404)
+            if (response.HttpStatus != 200)
             {
-                // Return a not found
-                return NotFound(response.Message);
-            }
-            else if (response.HttpStatus == 403)
-            {
-                // Return the forbidden response
-                return Forbid(response.Message);
+                // Return an issue
+                return StatusCode(response.HttpStatus, response.Message);
             }
             else
             {

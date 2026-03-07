@@ -118,7 +118,7 @@ namespace MakesCentsBackend.Services.DataAccessLayer
             if (foundUser != null)
             {
                 // Return the found users id and a success message
-                return new LoginResponse(201, "User Found", foundUser.UserId, foundUser.PasswordHash);
+                return new LoginResponse(200, "User Found", foundUser.UserId, foundUser.PasswordHash);
             }
             else
             {

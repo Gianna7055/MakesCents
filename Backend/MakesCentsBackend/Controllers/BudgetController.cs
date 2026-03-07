@@ -50,18 +50,21 @@ namespace MakesCentsBackend.Controllers
             // Call the logic method
             response = await _budgetLogic.CreateBudgetAsync(budget);
             // Check the status
-            if (response.HttpStatus == 400)
+            if (response.HttpStatus != 201)
             {
-                // Return the bad request
-                return BadRequest(response.Message);
+                // Return an issue
+                return StatusCode(response.HttpStatus, response.Message);
             }
-            // Return the success
-            return Created("", new
+            else
             {
-                status = response.HttpStatus,
-                message = response.Message,
-                budgetId = response.Id
-            });
+                // Return the success
+                return Created("", new
+                {
+                    status = response.HttpStatus,
+                    message = response.Message,
+                    budgetId = response.Id
+                });
+            }
         }
 
         /// <summary>
@@ -96,15 +99,23 @@ namespace MakesCentsBackend.Controllers
                     userId = response.GetBudgetDTO.UserId,
                     monthId = response.GetBudgetDTO.Month,
                     year = response.GetBudgetDTO.Year
-                });    
+                });
             }
-            // Return the OK response
-            return Ok(new
+            else if (response.HttpStatus != 200)
             {
-                status = response.HttpStatus,
-                message = response.Message,
-                budget = response.GetBudgetDTO
-            });
+                // Return an issue
+                return StatusCode(response.HttpStatus, response.Message);
+            }
+            else
+            {
+                // Return the OK response
+                return Ok(new
+                {
+                    status = response.HttpStatus,
+                    message = response.Message,
+                    budget = response.GetBudgetDTO
+                });
+            }
         }
 
         /// <summary>
@@ -130,20 +141,10 @@ namespace MakesCentsBackend.Controllers
             response = await _budgetLogic.UpdateBudgetAsync(budget);
 
             // Check if the status came back as a success
-            if (response.HttpStatus == 400)
+            if (response.HttpStatus != 200)
             {
-                // Return a bad request
-                return BadRequest(response.Message);
-            }
-            else if (response.HttpStatus == 403)
-            {
-                // Return the forbidden response
-                return Forbid(response.Message);
-            }
-            else if (response.HttpStatus == 404)
-            {
-                // Return a not found
-                return NotFound(response.Message);
+                // Return an issue
+                return StatusCode(response.HttpStatus, response.Message);
             }
             else
             {
@@ -173,15 +174,10 @@ namespace MakesCentsBackend.Controllers
             // Call the logic method to delete the budget
             response = await _budgetLogic.DeleteBudgetAsync(request);
 
-            if (response.HttpStatus == 404)
+            if (response.HttpStatus != 200)
             {
-                // Return a not found
-                return NotFound(response.Message);
-            }
-            else if (response.HttpStatus == 403)
-            {
-                // Return the forbidden response
-                return Forbid(response.Message);
+                // Return an issue
+                return StatusCode(response.HttpStatus, response.Message);
             }
             else
             {

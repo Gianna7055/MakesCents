@@ -56,18 +56,21 @@ namespace MakesCentsBackend.Controllers
                     budgetId = budgetId
                 });
             }
-            else if (response.HttpStatus == 403)
+            else if (response.HttpStatus != 200)
             {
-                // Return the forbidden response
-                return Forbid(response.Message);
+                // Return an issue
+                return StatusCode(response.HttpStatus, response.Message);
             }
-            // Return the OK response
-            return Ok(new
+            else
             {
-                status = response.HttpStatus,
-                message = response.Message,
-                accounts = response.Accounts
-            });
+                // Return the OK response
+                return Ok(new
+                {
+                    status = response.HttpStatus,
+                    message = response.Message,
+                    accounts = response.Accounts
+                });
+            }
         }
 
 
@@ -87,15 +90,11 @@ namespace MakesCentsBackend.Controllers
             // Call the logic method to delete the account
             response = await _accountLogic.DeleteAccountAsync(request);
 
-            if (response.HttpStatus == 404)
+
+            if (response.HttpStatus != 200)
             {
-                // Return a not found
-                return NotFound(response.Message);
-            }
-            else if (response.HttpStatus == 403)
-            {
-                // Return the forbidden response
-                return Forbid(response.Message);
+                // Return an issue
+                return StatusCode(response.HttpStatus, response.Message);
             }
             else
             {

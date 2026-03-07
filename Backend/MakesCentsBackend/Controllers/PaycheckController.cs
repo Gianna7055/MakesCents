@@ -49,15 +49,10 @@ namespace MakesCentsBackend.Controllers
             // Call the logic method
             response = await _paycheckLogic.CreatePaycheckAsync(paycheck);
             // Check the status
-            if (response.HttpStatus == 400)
+            if (response.HttpStatus != 201)
             {
-                // Return the bad request
-                return BadRequest(response.Message);
-            }
-            else if (response.HttpStatus == 403)
-            {
-                // Return the forbidden response
-                return StatusCode(StatusCodes.Status403Forbidden, response.Message);
+                // Return an issue
+                return StatusCode(response.HttpStatus, response.Message);
             }
             // Response HttpStatus is 201
             else
@@ -98,10 +93,10 @@ namespace MakesCentsBackend.Controllers
                     budgetId = budgetId
                 });
             }
-            else if (response.HttpStatus == 403)
+            else if (response.HttpStatus != 200)
             {
-                // Return the forbidden response
-                return Forbid(response.Message);
+                // Return an issue
+                return StatusCode(response.HttpStatus, response.Message);
             }
             // Return the OK response
             return Ok(new
@@ -137,10 +132,10 @@ namespace MakesCentsBackend.Controllers
                     paycheckId = paycheckId
                 });
             }
-            else if (response.HttpStatus == 403)
+            else if (response.HttpStatus != 200)
             {
-                // Return the forbidden response
-                return Forbid(response.Message);
+                // Return an issue
+                return StatusCode(response.HttpStatus, response.Message);
             }
             // Return the OK response
             return Ok(new
@@ -168,20 +163,10 @@ namespace MakesCentsBackend.Controllers
             response = await _paycheckLogic.UpdatePaycheckAsync(paycheck);
 
             // Check if the status came back as a success
-            if (response.HttpStatus == 400)
+            if (response.HttpStatus != 200)
             {
-                // Return a bad request
-                return BadRequest(response.Message);
-            }
-            else if (response.HttpStatus == 403)
-            {
-                // Return the forbidden response
-                return Forbid(response.Message);
-            }
-            else if (response.HttpStatus == 404)
-            {
-                // Return a not found
-                return NotFound(response.Message);
+                // Return an issue
+                return StatusCode(response.HttpStatus, response.Message);
             }
             else
             {
@@ -213,15 +198,10 @@ namespace MakesCentsBackend.Controllers
             // Call the logic method to delete the paycheck
             response = await _paycheckLogic.DeletePaycheckAsync(request);
 
-            if (response.HttpStatus == 404)
+            if (response.HttpStatus != 200)
             {
-                // Return a not found
-                return NotFound(response.Message);
-            }
-            else if (response.HttpStatus == 403)
-            {
-                // Return the forbidden response
-                return Forbid(response.Message);
+                // Return an issue
+                return StatusCode(response.HttpStatus, response.Message);
             }
             else
             {
