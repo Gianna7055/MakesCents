@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "\\\\Mac\\Home\\Desktop\\MakesCents\\MakesCents\\Backend\\MakesCentsBackend\\MakesCentsBackend.csproj": {}
+    "C:\\Users\\giannaross\\source\\repos\\MakesCents\\Backend\\MakesCentsBackend\\MakesCentsBackend.csproj": {}
   },
   "projects": {
-    "\\\\Mac\\Home\\Desktop\\MakesCents\\MakesCents\\Backend\\MakesCentsBackend\\MakesCentsBackend.csproj": {
+    "C:\\Users\\giannaross\\source\\repos\\MakesCents\\Backend\\MakesCentsBackend\\MakesCentsBackend.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "\\\\Mac\\Home\\Desktop\\MakesCents\\MakesCents\\Backend\\MakesCentsBackend\\MakesCentsBackend.csproj",
+        "projectUniqueName": "C:\\Users\\giannaross\\source\\repos\\MakesCents\\Backend\\MakesCentsBackend\\MakesCentsBackend.csproj",
         "projectName": "MakesCentsBackend",
-        "projectPath": "\\\\Mac\\Home\\Desktop\\MakesCents\\MakesCents\\Backend\\MakesCentsBackend\\MakesCentsBackend.csproj",
+        "projectPath": "C:\\Users\\giannaross\\source\\repos\\MakesCents\\Backend\\MakesCentsBackend\\MakesCentsBackend.csproj",
         "packagesPath": "C:\\Users\\giannaross\\.nuget\\packages\\",
-        "outputPath": "\\\\Mac\\Home\\Desktop\\MakesCents\\MakesCents\\Backend\\MakesCentsBackend\\obj\\",
+        "outputPath": "C:\\Users\\giannaross\\source\\repos\\MakesCents\\Backend\\MakesCentsBackend\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -44,15 +44,43 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.200"
+        "SdkAnalysisLevel": "10.0.100"
       },
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[16.0.0, )"
+            },
+            "BCrypt.Net-Next": {
+              "target": "Package",
+              "version": "[4.0.3, )"
+            },
+            "Dapper": {
+              "target": "Package",
+              "version": "[2.1.66, )"
+            },
+            "Humanizer.Core": {
+              "target": "Package",
+              "version": "[3.0.1, )"
+            },
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[8.0.22, )"
+            },
+            "MySqlConnector": {
+              "target": "Package",
+              "version": "[2.5.0, )"
+            },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
-              "version": "[6.6.2, )"
+              "version": "[10.1.0, )"
+            },
+            "System.IdentityModel.Tokens.Jwt": {
+              "target": "Package",
+              "version": "[8.15.0, )"
             }
           },
           "imports": [
@@ -68,20 +96,8 @@
           "warn": true,
           "downloadDependencies": [
             {
-              "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[8.0.13, 8.0.13]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Host.win-arm64",
-              "version": "[8.0.13, 8.0.13]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Ref",
-              "version": "[8.0.13, 8.0.13]"
-            },
-            {
-              "name": "Microsoft.WindowsDesktop.App.Ref",
-              "version": "[8.0.13, 8.0.13]"
+              "name": "Microsoft.NETCore.App.Host.win-x86",
+              "version": "[8.0.24, 8.0.24]"
             }
           ],
           "frameworkReferences": {
@@ -92,7 +108,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files (x86)\\dotnet\\sdk\\9.0.200/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files (x86)\\dotnet\\sdk\\10.0.103/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
