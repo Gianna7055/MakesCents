@@ -167,6 +167,7 @@ CREATE TABLE account (
     balance DECIMAL(18,2) NOT NULL DEFAULT 0.00,
     created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
     last_updated_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    UNIQUE KEY unique_account_name (budget_id, account_name),
     FOREIGN KEY (budget_id) REFERENCES budget(budget_id) ON DELETE CASCADE ON UPDATE CASCADE,
     FOREIGN KEY (account_type_id) REFERENCES account_type_enum(account_type_enum_id) ON DELETE RESTRICT ON UPDATE CASCADE
 );
@@ -225,6 +226,7 @@ CREATE TABLE investment_account (
 CREATE TABLE paycheck (
     paycheck_id INT PRIMARY KEY AUTO_INCREMENT,
     budget_id INT NOT NULL,
+    paycheck_name VARCHAR(50) NOT NULL,
     starting_date DATE NOT NULL,
     secondary_date DATE NULL,
     total_amount DECIMAL(18,2) NOT NULL CHECK (total_amount > 0),

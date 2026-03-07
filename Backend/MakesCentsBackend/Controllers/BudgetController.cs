@@ -13,9 +13,10 @@ namespace MakesCentsBackend.Controllers
     /// <summary>
     /// API controller for budgets
     /// </summary>
-    [Route("api/[controller]")]
+    [Route("api/budgets")]
     [ApiController]
     public class BudgetController : ControllerBase
     {
+
     }
 }

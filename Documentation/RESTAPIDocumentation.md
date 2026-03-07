@@ -11,6 +11,82 @@
 
 ## Table of Contents
 
+1. [Common Concepts](#1-common-concepts)
+   - [Request/Response Format](#requestresponse-format)
+   - [Nullable Fields](#nullable-fields)
+   - [ID References](#id-references)
+   - [Soft Deletes](#soft-deletes)
+   - [User IDs](#user-ids)
+
+2. [API Reference](#2-api-reference)
+
+   **User Management**
+   - [1. Create a new user account](#1-create-a-new-user-account)
+   - [2. Authenticate a User](#2-authenticate-a-user)
+   - [3. Get User Profile](#3-get-user-profile)
+   - [4. Update a User](#4-update-a-user)
+   - [5. Delete a User](#5-delete-a-user)
+
+   **Budget Management**
+   - [6. Create a Budget](#6-create-a-budget)
+   - [7. Get a Budget](#7-get-a-budget)
+   - [8. Update a Budget](#8-update-a-budget)
+   - [9. Delete a Budget](#9-delete-a-budget)
+
+   **Envelope Categories**
+   - [10. Create an Envelope Category](#10-create-an-envelope-category)
+   - [11. Get All Categories for a Budget](#11-get-all-categories-for-a-budget)
+   - [12. Update an Envelope Category](#12-update-an-envelope-category)
+   - [13. Delete an Envelope Category](#13-delete-an-envelope-category)
+
+   **Envelopes**
+   - [14. Create an Envelope](#14-create-an-envelope)
+   - [15. Get a Specific Envelope](#15-get-a-specific-envelope)
+   - [16. Update an Envelope](#16-update-an-envelope)
+   - [17. Delete an Envelope](#17-delete-an-envelope)
+
+   **Accounts**
+   - [18. Create a Bank Account](#18-create-a-bank-account)
+   - [19. Create a Debt Account](#19-create-a-debt-account)
+   - [20. Create an Investment Account](#20-create-an-investment-account)
+   - [21. Get All Accounts for a Budget](#21-get-all-accounts-for-a-budget)
+   - [23. Get a Specific Bank Account](#23-get-a-specific-bank-account)
+   - [24. Get a Specific Debt Account](#24-get-a-specific-debt-account)
+   - [25. Get a Specific Investment Account](#25-get-a-specific-investment-account)
+   - [26. Update a Bank Account](#26-update-a-bank-account)
+   - [27. Update a Debt Account](#27-update-a-debt-account)
+   - [28. Update an Investment Account](#28-update-an-investment-account)
+   - [29. Delete an Account](#29-delete-an-account)
+
+   **Paychecks**
+   - [30. Create a Paycheck](#30-create-a-paycheck)
+   - [31. Get All Paychecks](#31-get-all-paychecks)
+   - [32. Get a Specific Paycheck](#32-get-a-specific-paycheck)
+   - [33. Update a Paycheck](#33-update-a-paycheck)
+   - [34. Delete a Paycheck](#34-delete-a-paycheck)
+
+   **Transactions**
+   - [35. Create a Payment Transaction](#35-create-a-payment-transaction)
+   - [36. Create a Transfer Transaction](#36-create-a-transfer-transaction)
+   - [37. Get All Transactions](#37-get-all-transactions)
+   - [38. Get a Specific Transaction](#38-get-a-specific-transaction)
+   - [39. Get a Specific Payment Transaction](#39-get-a-specific-payment-transaction)
+   - [40. Get a Specific Transfer Transaction](#40-get-a-specific-transfer-transaction)
+   - [41. Update a Payment Transaction](#41-update-a-payment-transaction)
+   - [42. Update a Transfer Transaction](#42-update-a-transfer-transaction)
+   - [43. Soft Delete a Transaction](#43-soft-delete-a-transaction)
+
+3. [Common Error Codes](#3-common-error-codes)
+
+4. [Glossary](#4-glossary)
+   - [Status Codes](#status-codes)
+
+5. [Authentication](#5-authentication)
+   - [Authentication Method](#authentication-method)
+   - [How to Authenticate Requests](#how-to-authenticate-requests)
+   - [Obtaining a Token](#obtaining-a-token)
+   - [Token Expiration](#token-expiration)
+
 ---
 
 ## 1. Common Concepts
@@ -33,6 +109,10 @@ All resources are identified by integer IDs. When referencing related resources,
 ### Soft Deletes
 
 Transactions use soft deletes - they are marked with a `deleted_at` timestamp rather than being permanently removed.
+
+### User IDs
+
+If needed, the user's Id will be retrieved from the JWT token
 
 ---
 
@@ -89,6 +169,15 @@ Register a new user in the Makes Cents system.
 }
 ```
 
+**Bad Request (400)**
+
+```json
+{
+  "status": 400,
+  "error": "Invalid email format"
+}
+```
+
 [↑ Back to top](#api-specification-doc)
 
 ---
@@ -106,17 +195,17 @@ Authenticate an existing user and return a JWT token for subsequent requests.
 
 #### **Parameters**
 
-| Type | Name           | Data Type | Description                                  |
-| ---- | -------------- | --------- | -------------------------------------------- |
-| Body | `username`     | `string`  | The username or email of the user logging in |
-| Body | `passwordHash` | `string`  | The hashed password of the user logging in   |
+| Type | Name              | Data Type | Description                                  |
+| ---- | ----------------- | --------- | -------------------------------------------- |
+| Body | `usernameOrEmail` | `string`  | The username or email of the user logging in |
+| Body | `password`        | `string`  | The hashed password of the user logging in   |
 
 #### **Request Example**
 
 ```JSON
 {
-  "username": "johndoe",
-  "passwordHash": "akjfhen48w9ruibfwle"
+  "usernameOrEmail": "johndoe",
+  "password": "akjfhen48w9ruibfwle"
 }
 ```
 
@@ -153,16 +242,15 @@ Retrieve user profile information.
 
 #### **Request**
 
-| Method | URL                  |
-| ------ | -------------------- |
-| GET    | `/api/user/{userId}` |
+| Method | URL         |
+| ------ | ----------- |
+| GET    | `/api/user` |
 
 #### **Parameters**
 
-| Type   | Name     | Data Type | Description        |
-| ------ | -------- | --------- | ------------------ |
-| Path   | `userId` | `int`     | The ID of the user |
-| Header | `token`  | `string`  | Bearer JWT token   |
+| Type   | Name    | Data Type | Description      |
+| ------ | ------- | --------- | ---------------- |
+| Header | `token` | `string`  | Bearer JWT token |
 
 #### **Responses**
 
@@ -171,6 +259,7 @@ Retrieve user profile information.
 ```json
 {
   "status": 200,
+  "message": "User found",
   "user": {
     "userId": 1,
     "username": "johndoe",
@@ -189,15 +278,14 @@ Update user profile information including username, email, or password.
 
 #### **Request**
 
-| Method | URL                  |
-| ------ | -------------------- |
-| PUT    | `/api/user/{userId}` |
+| Method | URL         |
+| ------ | ----------- |
+| PUT    | `/api/user` |
 
 #### **Parameters**
 
 | Type   | Name             | Data Type | Description                                                      |
 | ------ | ---------------- | --------- | ---------------------------------------------------------------- |
-| Path   | `userId`         | `int`     | The ID of the user                                               |
 | Header | `token`          | `string ` | JWT authorization token                                          |
 | Body   | `username`       | `string`  | The updated username of the user - optional                      |
 | Body   | `email`          | `string`  | The updated email of the user - optional                         |
@@ -244,16 +332,15 @@ Permanently delete a user account and all associated data.
 
 #### **Request**
 
-| Method | URL                  |
-| ------ | -------------------- |
-| DELETE | `/api/user/{userId}` |
+| Method | URL         |
+| ------ | ----------- |
+| DELETE | `/api/user` |
 
 #### **Parameters**
 
-| Type   | Name     | Data Type | Description             |
-| ------ | -------- | --------- | ----------------------- |
-| Path   | `userId` | `int`     | The Id of the user      |
-| Header | `token`  | `string ` | JWT authorization token |
+| Type   | Name    | Data Type | Description             |
+| ------ | ------- | --------- | ----------------------- |
+| Header | `token` | `string ` | JWT authorization token |
 
 #### **Responses**
 
@@ -273,7 +360,7 @@ Permanently delete a user account and all associated data.
 ### 6. Create a Budget
 
 **Description:**  
-Create a new blank budget specific month and year.
+Create a new blank budget for a specific month and year.
 
 #### **Request**
 
@@ -283,20 +370,18 @@ Create a new blank budget specific month and year.
 
 #### **Parameters**
 
-| Type   | Name         | Data Type | Description                        |
-| ------ | ------------ | --------- | ---------------------------------- |
-| Header | `token`      | `string ` | JWT authorization token            |
-| Body   | `userId`     | `int`     | The Id of the user logged in       |
-| Body   | `monthId`    | `int`     | The id of the month for the budget |
-| Body   | `year`       | `int`     | The year for the budget            |
-| Body   | `budgetName` | `string`  | The name of the budget             |
+| Type   | Name         | Data Type | Description              |
+| ------ | ------------ | --------- | ------------------------ |
+| Header | `token`      | `string ` | JWT authorization token  |
+| Body   | `month`      | `string`  | The month for the budget |
+| Body   | `year`       | `int`     | The year for the budget  |
+| Body   | `budgetName` | `string`  | The name of the budget   |
 
 #### **Request Example**
 
 ```JSON
 {
-  "userId": 1,
-  "monthId": 11,
+  "month": "November",
   "year": 2025,
   "budgetName": "My budget"
 }
@@ -309,8 +394,8 @@ Create a new blank budget specific month and year.
 ```json
 {
   "status": 201,
-  "budgetId": 1,
-  "message": "Budget created successfully"
+  "message": "Budget created successfully",
+  "budgetId": 1
 }
 ```
 
@@ -334,24 +419,26 @@ Get the initial data for a budget, including the budget name, envelope categorie
 
 #### **Request**
 
-| Method | URL                                                      |
-| ------ | -------------------------------------------------------- |
-| GET    | `/api/budgets/user/{userId}/year/{year}/month/{monthId}` |
+| Method | URL                                        |
+| ------ | ------------------------------------------ |
+| GET    | `/api/budgets/year/{year}/month/{monthId}` |
 
 #### **Parameters**
 
 | Type   | Name      | Data Type | Description             |
 | ------ | --------- | --------- | ----------------------- |
-| Path   | `userId`  | `int`     | The ID of the user      |
 | Path   | `year`    | `int`     | The year                |
 | Path   | `monthId` | `int`     | The month ID (1-12)     |
 | Header | `token`   | `string ` | JWT authorization token |
 
 #### **Responses**
 
+**Success (200 OK)**
+
 ```JSON
 {
   "status": 200,
+  "message": "Budget found",
   "budget": {
     "budgetId": 1,
     "userId": 11,
@@ -383,6 +470,18 @@ Get the initial data for a budget, including the budget name, envelope categorie
 }
 ```
 
+**Not Found (404)**
+
+```json
+{
+  "status": 404,
+  "error": "Budget not found",
+  "userId": 11,
+  "monthId": 11,
+  "year": 2025
+}
+```
+
 [↑ Back to top](#api-specification-doc)
 
 ---
@@ -394,9 +493,9 @@ Update an existing budget
 
 #### **Request**
 
-| Method | URL                       |
-| ------ | ------------------------- |
-| PUT    | `/api/budgets/{budgetId}` |
+| Method | URL             |
+| ------ | --------------- |
+| PUT    | `/api/budgets/` |
 
 #### **Parameters**
 
@@ -410,7 +509,7 @@ Update an existing budget
 
 ```JSON
 {
-  "name": "Updated Budget"
+  "budgetName": "Updated Budget"
 }
 ```
 
@@ -419,8 +518,8 @@ Update an existing budget
 ```json
 {
   "status": 200,
-  "budgetId": 1,
-  "message": "Budget updated successfully"
+  "message": "Budget updated successfully",
+  "budgetId": 1
 }
 ```
 
@@ -480,6 +579,15 @@ Create a new envelope category within a budget.
 | Body   | `budgetId`             | `int`     | The budget id for the new envelope category |
 | Body   | `envelopeCategoryName` | `string`  | The name for the envelope category          |
 
+#### **Request Example**
+
+```JSON
+{
+  "budgetId": 2,
+  "envelopeCategoryName": "Envelope Category 1"
+}
+```
+
 #### Responses
 
 **Success (201 Created)**
@@ -487,8 +595,8 @@ Create a new envelope category within a budget.
 ```json
 {
   "status": 201,
-  "envelopeCategoryId": 1,
-  "message": "Envelope category created successfully"
+  "message": "Envelope category created successfully",
+  "envelopeCategoryId": 1
 }
 ```
 
@@ -530,6 +638,7 @@ Retrieve all envelope categories for a specific budget.
 ```json
 {
   "status": 200,
+  "message": "Envelope categories found",
   "envelopeCategories": [
     {
       "envelopeCategoryId": 2,
@@ -702,6 +811,24 @@ Create a new envelope within an envelope category.
 }
 ```
 
+**Bad Request (400)**
+
+```json
+{
+  "status": 400,
+  "error": "Sinking funds require a goal amount and goal end date"
+}
+```
+
+**Bad Request (400)**
+
+```json
+{
+  "status": 400,
+  "error": "Rollover funds require a transfer envelope"
+}
+```
+
 [↑ Back to top](#api-specification-doc)
 
 ---
@@ -744,22 +871,17 @@ Retrieve detailed information for a specific envelope.
     "transactions": [
       {
         "transactionId": 5,
-        "budgetId": 1,
         "date": "YYYY-MM-DD",
-        "totalAmount": 10.99,
-        "transactionType": "Payment",
-        "paymentTypeId": 3,
-        "merchantSourceName": "Walmart"
+        "location": "Walmart",
+        "envelopes": "Groceries, Clothing",
+        "totalAmount": 10.99
       },
       {
         "transactionId": 15,
-        "budgetId": 1,
         "date": "YYYY-MM-DD",
-        "totalAmount": 75.0,
-        "transactionType": "Transfer",
-        "fromId": 4,
-        "toId": 3,
-        "transferTypeId": 1
+        "location": "Account Transfer",
+        "envelopes": "Squirrel Fund -> Rent",
+        "totalAmount": 75.0
       }
     ]
   }
@@ -788,7 +910,6 @@ Update the details of an existing envelope including amounts, name, and sinking 
 | Body   | `envelopeCategoryId` | `int`     | The envelope category id for the envelope - optional                                                              |
 | Body   | `envelopeName`       | `string`  | The name for the envelope - optional                                                                              |
 | Body   | `plannedAmount`      | `decimal` | The planned amount for the envelope - optional                                                                    |
-| Body   | `remainingAmount`    | `decimal` | The remaining amount for the envelope - optional                                                                  |
 | Body   | `isSinkingFund`      | `boolean` | If the envelope is a sinking fun - nullable + optional                                                            |
 | Body   | `goalAmount`         | `decimal` | The goal amount for the envelope if it is a sinking fund - nullable + optional                                    |
 | Body   | `goalEndDate`        | `Date`    | The end date for the goal if the envelope is a sinking fund - nullable + optional                                 |
@@ -864,14 +985,14 @@ Create a new bank account
 
 #### **Parameters**
 
-| Type   | Name                | Data Type | Description                                    |
-| ------ | ------------------- | --------- | ---------------------------------------------- |
-| Header | `token`             | `string ` | JWT authorization token                        |
-| Body   | `budgetId`          | `int`     | The budget id for the new bank account         |
-| Body   | `accountName`       | `string`  | The name of the bank account                   |
-| Body   | `institution`       | `string`  | The institution of the bank account            |
-| Body   | `balance`           | `decimal` | The balance of the bank account                |
-| Body   | `bankAccountTypeId` | `int`     | The int corresponding to the bank account type |
+| Type   | Name              | Data Type | Description                            |
+| ------ | ----------------- | --------- | -------------------------------------- |
+| Header | `token`           | `string ` | JWT authorization token                |
+| Body   | `budgetId`        | `int`     | The budget id for the new bank account |
+| Body   | `accountName`     | `string`  | The name of the bank account           |
+| Body   | `institution`     | `string`  | The institution of the bank account    |
+| Body   | `balance`         | `decimal` | The balance of the bank account        |
+| Body   | `bankAccountType` | `string`  | The bank account type                  |
 
 #### **Request Example**
 
@@ -881,7 +1002,7 @@ Create a new bank account
   "accountName": "Bank Account 1",
   "institution": "Bank Institution",
   "balance": 12300.34,
-  "bankAccountTypeId": 1
+  "bankAccountType": "Savings"
 }
 ```
 
@@ -892,8 +1013,8 @@ Create a new bank account
 ```json
 {
   "status": 201,
-  "bankAccountId": 1,
-  "message": "Bank account created successfully"
+  "message": "Bank account created successfully",
+  "bankAccountId": 1
 }
 ```
 
@@ -914,18 +1035,18 @@ Create a new debt account
 
 #### **Parameters**
 
-| Type   | Name                  | Data Type  | Description                                                                                             |
-| ------ | --------------------- | ---------- | ------------------------------------------------------------------------------------------------------- |
-| Header | `token`               | `string `  | JWT authorization token                                                                                 |
-| Body   | `budgetId`            | `int`      | The budget id for the new debt account                                                                  |
-| Body   | `accountName`         | `string`   | The name of the debt account                                                                            |
-| Body   | `institution`         | `string`   | The institution of the debt account                                                                     |
-| Body   | `balance`             | `decimal`  | The balance of the debt account                                                                         |
-| Body   | `debtAccountTypeId`   | `int`      | The int corresponding to the debt account type                                                          |
-| Body   | `accountNumber`       | `int`      | The account number of the debt account - nullable                                                       |
-| Body   | `dateOfNextBill`      | `Date`     | The date the next bill is due - nullable                                                                |
-| Body   | `amountOfNextBill`    | `decimal ` | The amount of the next bill due - nullable                                                              |
-| Body   | `paymentRegularityId` | `int`      | The int corresponding to the regularity of payment if "setup reoccurring payment" is checked - nullable |
+| Type   | Name                    | Data Type  | Description                                                                                             |
+| ------ | ----------------------- | ---------- | ------------------------------------------------------------------------------------------------------- |
+| Header | `token`                 | `string `  | JWT authorization token                                                                                 |
+| Body   | `budgetId`              | `int`      | The budget id for the new debt account                                                                  |
+| Body   | `accountName`           | `string`   | The name of the debt account                                                                            |
+| Body   | `institution`           | `string`   | The institution of the debt account                                                                     |
+| Body   | `balance`               | `decimal`  | The balance of the debt account                                                                         |
+| Body   | `debtAccountType`       | `int`      | The debt account type (matches enums)                                                                   |
+| Body   | `accountNumber`         | `int`      | The account number of the debt account - optional                                                       |
+| Body   | `dateOfNextBill`        | `Date`     | The date the next bill is due - optional                                                                |
+| Body   | `amountOfNextBill`      | `decimal ` | The amount of the next bill due - optional                                                              |
+| Body   | `debtPaymentRegularity` | `int`      | The int corresponding to the regularity of payment if "setup reoccurring payment" is checked - optional |
 
 #### **Request Example**
 
@@ -935,11 +1056,11 @@ Create a new debt account
   "accountName": "Debt Account 1",
   "institution": "Debt Institution",
   "balance": 12300.34,
-  "debtAccountTypeId": 4,
+  "debtAccountType": "CreditCard",
   "accountNumber": null,
   "dateOfNextBill": "YYYY-MM-DD",
   "amountOfNextBill": 1234.56,
-  "paymentRegularityId": 4
+  "debtPaymentRegularity": "Monthly"
 }
 ```
 
@@ -972,17 +1093,17 @@ Create a new investment account
 
 #### **Parameters**
 
-| Type   | Name                      | Data Type  | Description                                             |
-| ------ | ------------------------- | ---------- | ------------------------------------------------------- |
-| Header | `token`                   | `string `  | JWT authorization token                                 |
-| Body   | `budgetId`                | `int`      | The budget id for the new investment account            |
-| Body   | `accountName`             | `string`   | The name of the investment account                      |
-| Body   | `institution`             | `string`   | The institution of the investment account               |
-| Body   | `balance`                 | `decimal`  | The balance of the investment account                   |
-| Body   | `investmentAccountTypeId` | `int`      | The int corresponding to the investment account type    |
-| Body   | `accountNumber`           | `int`      | The account number of the investment account - nullable |
-| Body   | `isTaxDeferred`           | `boolean`  | If the investment account is tax deferred               |
-| Body   | `isTaxExempt`             | `boolean ` | If the investment account is tax exempt                 |
+| Type   | Name                    | Data Type  | Description                                             |
+| ------ | ----------------------- | ---------- | ------------------------------------------------------- |
+| Header | `token`                 | `string `  | JWT authorization token                                 |
+| Body   | `budgetId`              | `int`      | The budget id for the new investment account            |
+| Body   | `accountName`           | `string`   | The name of the investment account                      |
+| Body   | `institution`           | `string`   | The institution of the investment account               |
+| Body   | `balance`               | `decimal`  | The balance of the investment account                   |
+| Body   | `investmentAccountType` | `int`      | The int corresponding to the investment account type    |
+| Body   | `accountNumber`         | `int`      | The account number of the investment account - optional |
+| Body   | `isTaxDeferred`         | `boolean`  | If the investment account is tax deferred               |
+| Body   | `isTaxExempt`           | `boolean ` | If the investment account is tax exempt                 |
 
 #### **Request Example**
 
@@ -992,7 +1113,7 @@ Create a new investment account
   "accountName": "Investment Account 1",
   "institution": "Investment Institution",
   "balance": 12300.34,
-  "investmentAccountTypeId": 2,
+  "investmentAccountTypeId": "IRA",
   "accountNumber": null,
   "isTaxDeferred": false,
   "isTaxExempt": true,
@@ -1040,133 +1161,40 @@ Get all bank, debt, and investment accounts for a budget
 ```JSON
 {
   "status": 200,
+  "message": "Accounts found",
   "accounts": [
     {
         "accountId": 8,
         "budgetId": 1,
         "accountTypeId": 1,
         "accountName": "Bank Account 1",
-        "institution": "Bank Institution",
         "balance": 1234.56,
         "bankAccountId": 9,
-        "bankAccountTypeId": 2
+        "bankAccountType": "Savings"
       },
       {
-        "accountId": 8,
+        "accountId": 9,
         "budgetId": 1,
         "accountTypeId": 1,
-        "accountName": "Bank Account 1",
-        "institution": "Bank Institution",
+        "accountName": "Debt Account 1",
         "balance": 1234.56,
         "debtAccountId": 10,
-        "debtAccountTypeId": 4,
-        "debtAccountNumber": null,
-        "dateOfNextBill": "YYYY-MM-DD",
-        "amountOfNextBill": 12.45,
-        "debtPaymentRegularityId": 2
+        "debtAccountType": "CarLoan",
       },
       {
-        "accountId": 8,
+        "accountId": 10,
         "budgetId": 1,
         "accountTypeId": 1,
-        "accountName": "Bank Account 1",
-        "institution": "Bank Institution",
+        "accountName": "Investment Account 1",
         "balance": 1234.56,
         "investmentAccountId": 11,
-        "investmentAccountTypeId": 2,
-        "investmentAccountNumber": null,
-        "isTaxDeferred": true,
-        "isTaxExempt": false
+        "investmentAccountTypeId": "IRA",
       }
   ]
 }
 ```
 
 [↑ Back to top](#api-specification-doc)
-
----
-
-### 22. Get a Specific Account
-
-**Description:**  
-Retrieve detailed information for a specific account.
-
-#### **Request**
-
-| Method | URL                         |
-| ------ | --------------------------- |
-| GET    | `/api/accounts/{accountId}` |
-
-#### **Parameters**
-
-| Type   | Name        | Data Type | Description           |
-| ------ | ----------- | --------- | --------------------- |
-| Path   | `accountId` | `int`     | The ID of the account |
-| Header | `token`     | `string`  | Bearer JWT token      |
-
-#### **Responses**
-
-**Success (200 OK)**
-
-```json
-{
-  "status": 200,
-  "account": {
-    "accountId": 12,
-    "budgetId": 1,
-    "accountTypeId": 2,
-    "accountName": "Debt Account 1",
-    "institution": "Debt Institution",
-    "balance": 1234.56,
-    "debtAccountType": 4,
-    "accountNumber": 12345678,
-    "dateOfNextBill": "YYYY-MM-DD",
-    "amountOfNextBill": 123.45,
-    "paymentRegularity": 3,
-    "transactions": [
-      {
-        "transactionId": 5,
-        "budgetId": 1,
-        "date": "YYYY-MM-DD",
-        "totalAmount": 10.99,
-        "isReconciled": false,
-        "notes": "This is a note",
-        "transactionType": "Payment",
-        "accountId": 13,
-        "paymentType": 3,
-        "merchantSourceName": "Walmart",
-        "checkNumber": null,
-        "transactionSplits": [
-          {
-            "transactionSplitId": 6,
-            "transactionId": 5,
-            "envelopeId": 3,
-            "amount": 3.99
-          },
-          {
-            "transactionSplitId": 7,
-            "transactionId": 5,
-            "envelopeId": 4,
-            "amount": 7.0
-          }
-        ]
-      },
-      {
-        "transactionId": 15,
-        "budgetId": 1,
-        "date": "YYYY-MM-DD",
-        "totalAmount": 75.0,
-        "isReconciled": false,
-        "notes": "This is a note",
-        "transactionType": "Transfer",
-        "FromId": 4,
-        "ToId": 3,
-        "TransferType": 1
-      }
-    ]
-  }
-}
-```
 
 ---
 
@@ -1195,53 +1223,29 @@ Retrieve detailed information for a specific bank account.
 ```json
 {
   "status": 200,
-  "account": {
+  "bankAccount": {
     "accountId": 12,
     "budgetId": 1,
-    "accountTypeId": 1,
+    "accountType": "Bank",
     "accountName": "Bank Account 1",
     "institution": "Bank Institution",
     "balance": 1234.56,
-    "bankAccountType": 3,
+    "bankAccountId": 2,
+    "bankAccountType": "Checking",
     "transactions": [
       {
         "transactionId": 5,
-        "budgetId": 1,
         "date": "YYYY-MM-DD",
-        "totalAmount": 10.99,
-        "isReconciled": false,
-        "notes": "This is a note",
-        "transactionType": "Payment",
-        "accountId": 13,
-        "paymentType": 3,
-        "merchantSourceName": "Walmart",
-        "checkNumber": null,
-        "transactionSplits": [
-          {
-            "transactionSplitId": 6,
-            "transactionId": 5,
-            "envelopeId": 3,
-            "amount": 3.99
-          },
-          {
-            "transactionSplitId": 7,
-            "transactionId": 5,
-            "envelopeId": 4,
-            "amount": 7.0
-          }
-        ]
+        "location": "Walmart",
+        "envelopes": "Groceries, Clothing",
+        "totalAmount": 10.99
       },
       {
         "transactionId": 15,
-        "budgetId": 1,
         "date": "YYYY-MM-DD",
-        "totalAmount": 75.0,
-        "isReconciled": false,
-        "notes": "This is a note",
-        "transactionType": "Transfer",
-        "FromId": 4,
-        "ToId": 3,
-        "TransferType": 1
+        "location": "Account Transfer",
+        "envelopes": "Squirrel Fund -> Rent",
+        "totalAmount": 75.0
       }
     ]
   }
@@ -1282,50 +1286,26 @@ Retrieve detailed information for a specific debt account.
     "accountName": "Debt Account 1",
     "institution": "Debt Institution",
     "balance": 1234.56,
-    "debtAccountType": 4,
+    "debtAccountId": 4,
+    "debtAccountType": "Mortgage",
     "accountNumber": 12345678,
     "dateOfNextBill": "YYYY-MM-DD",
     "amountOfNextBill": 123.45,
-    "paymentRegularity": 3,
+    "debtPaymentRegularity": "Monthly",
     "transactions": [
       {
         "transactionId": 5,
-        "budgetId": 1,
         "date": "YYYY-MM-DD",
-        "totalAmount": 10.99,
-        "isReconciled": false,
-        "notes": "This is a note",
-        "transactionType": "Payment",
-        "accountId": 13,
-        "paymentType": 3,
-        "merchantSourceName": "Walmart",
-        "checkNumber": null,
-        "transactionSplits": [
-          {
-            "transactionSplitId": 6,
-            "transactionId": 5,
-            "envelopeId": 3,
-            "amount": 3.99
-          },
-          {
-            "transactionSplitId": 7,
-            "transactionId": 5,
-            "envelopeId": 4,
-            "amount": 7.0
-          }
-        ]
+        "location": "Walmart",
+        "envelopes": "Groceries, Clothing",
+        "totalAmount": 10.99
       },
       {
         "transactionId": 15,
-        "budgetId": 1,
         "date": "YYYY-MM-DD",
-        "totalAmount": 75.0,
-        "isReconciled": false,
-        "notes": "This is a note",
-        "transactionType": "Transfer",
-        "FromId": 4,
-        "ToId": 3,
-        "TransferType": 1
+        "location": "Account Transfer",
+        "envelopes": "Squirrel Fund -> Rent",
+        "totalAmount": 75.0
       }
     ]
   }
@@ -1362,53 +1342,29 @@ Retrieve detailed information for a specific investment account.
   "account": {
     "accountId": 12,
     "budgetId": 1,
-    "accountTypeId": 3,
+    "accountType": "Investment",
     "accountName": "Investment Account 1",
     "institution": "Investment Institution",
     "balance": 1234.56,
-    "investmentAccountType": 4,
+    "investmentAccountId": 9,
+    "investmentAccountType": "Brokerage",
     "accountNumber": 12345678,
     "isTaxDeferred": false,
     "isTaxExempt": true,
     "transactions": [
       {
         "transactionId": 5,
-        "budgetId": 1,
         "date": "YYYY-MM-DD",
-        "totalAmount": 10.99,
-        "isReconciled": false,
-        "notes": "This is a note",
-        "transactionType": "Payment",
-        "accountId": 13,
-        "paymentType": 3,
-        "merchantSourceName": "Walmart",
-        "checkNumber": null,
-        "transactionSplits": [
-          {
-            "transactionSplitId": 6,
-            "transactionId": 5,
-            "envelopeId": 3,
-            "amount": 3.99
-          },
-          {
-            "transactionSplitId": 7,
-            "transactionId": 5,
-            "envelopeId": 4,
-            "amount": 7.0
-          }
-        ]
+        "location": "Walmart",
+        "envelopes": "Groceries, Clothing",
+        "totalAmount": 10.99
       },
       {
         "transactionId": 15,
-        "budgetId": 1,
         "date": "YYYY-MM-DD",
-        "totalAmount": 75.0,
-        "isReconciled": false,
-        "notes": "This is a note",
-        "transactionType": "Transfer",
-        "FromId": 4,
-        "ToId": 3,
-        "TransferType": 1
+        "location": "Account Transfer",
+        "envelopes": "Squirrel Fund -> Rent",
+        "totalAmount": 75.0
       }
     ]
   }
@@ -1436,7 +1392,6 @@ Update an existing bank account
 | Header | `token`           | `string ` | JWT authorization token                                   |
 | Body   | `accountName`     | `string`  | The updated name of the bank account - optional           |
 | Body   | `institution`     | `string`  | The institution of the updated bank account - optional    |
-| Body   | `balance`         | `decimal` | The balance of the bank account - optional                |
 | Body   | `bankAccountType` | `int`     | The int corresponding to the bank account type - optional |
 
 #### **Request Example**
@@ -1476,18 +1431,18 @@ Update an existing debt account
 
 #### **Parameters**
 
-| Type   | Name                | Data Type  | Description                                                              |
-| ------ | ------------------- | ---------- | ------------------------------------------------------------------------ |
-| Path   | `debtAccountId`     | `int`      | The Id of the debt account                                               |
-| Header | `token`             | `string `  | JWT authorization token                                                  |
-| Body   | `accountName`       | `string`   | The updated name of the debt account - optional                          |
-| Body   | `institution`       | `string`   | The institution of the updated debt account - optional                   |
-| Body   | `balance`           | `decimal`  | The balance of the debt account - optional                               |
-| Body   | `debtAccountType`   | `int`      | The int corresponding to the debt account type - optional                |
-| Body   | `accountNumber`     | `int`      | The account number of the debt account - nullable - nullable + optional  |
-| Body   | `dateOfNextBill`    | `Date`     | The date the next bill is due - nullable + optional                      |
-| Body   | `amountOfNextBill`  | `decimal ` | The amount of the next bill due - nullable + optional                    |
-| Body   | `paymentRegularity` | `int`      | The int corresponding to the regularity of payment - nullable + optional |
+| Type   | Name                    | Data Type  | Description                                                              |
+| ------ | ----------------------- | ---------- | ------------------------------------------------------------------------ |
+| Path   | `debtAccountId`         | `int`      | The Id of the debt account                                               |
+| Header | `token`                 | `string `  | JWT authorization token                                                  |
+| Body   | `accountName`           | `string`   | The updated name of the debt account - optional                          |
+| Body   | `institution`           | `string`   | The institution of the updated debt account - optional                   |
+| Body   | `balance`               | `decimal`  | The balance of the debt account - optional                               |
+| Body   | `debtAccountType`       | `int`      | The int corresponding to the debt account type - optional                |
+| Body   | `accountNumber`         | `int`      | The account number of the debt account - nullable - nullable + optional  |
+| Body   | `dateOfNextBill`        | `Date`     | The date the next bill is due - nullable + optional                      |
+| Body   | `amountOfNextBill`      | `decimal ` | The amount of the next bill due - nullable + optional                    |
+| Body   | `debtPaymentRegularity` | `int`      | The int corresponding to the regularity of payment - nullable + optional |
 
 #### **Request Example**
 
@@ -1495,7 +1450,7 @@ Update an existing debt account
 {
   "accountName": "Updated Debt Account",
   "amountOfNextBill": 123.45,
-  "paymentRegularity": 2
+  "debtPaymentRegularity": 2
 }
 ```
 
@@ -1610,14 +1565,17 @@ Create a new paycheck
 
 #### **Parameters**
 
-| Type   | Name            | Data Type | Description                                             |
-| ------ | --------------- | --------- | ------------------------------------------------------- |
-| Header | `token`         | `string ` | JWT authorization token                                 |
-| Body   | `budgetId`      | `int`     | The budget id for the new paycheck                      |
-| Body   | `startingDate`  | `Date`    | The starting date for the paycheck                      |
-| Body   | `secondaryDate` | `Date`    | The secondary date for the paycheck - nullable          |
-| Body   | `totalAmount`   | `decimal` | The total amount of the paycheck                        |
-| Body   | `regularityId`  | `int`     | The int corresponding to the regularity of the paycheck |
+| Type   | Name                 | Data Type | Description                                             |
+| ------ | -------------------- | --------- | ------------------------------------------------------- |
+| Header | `token`              | `string ` | JWT authorization token                                 |
+| Body   | `budgetId`           | `int`     | The budget id for the new paycheck                      |
+| Body   | `startingDate`       | `Date`    | The starting date for the paycheck                      |
+| Body   | `secondaryDate`      | `Date`    | The secondary date for the paycheck - nullable          |
+| Body   | `totalAmount`        | `decimal` | The total amount of the paycheck                        |
+| Body   | `paycheckRegularity` | `int`     | The int corresponding to the regularity of the paycheck |
+| Body   | `envelopeId`         | `int`     | The envelope id for the paycheck split                  |
+| Body   | `amount`             | `decimal` | The amount of the paycheck split                        |
+| Body   | `orderIndex`         | `int`     | The order index for the paycheck split                  |
 
 #### **Request Example**
 
@@ -1627,7 +1585,17 @@ Create a new paycheck
   "startingDate": "YYYY-MM-DD",
   "secondaryDate": "YYYY-MM-DD",
   "totalAmount": 1234.56,
-  "regularityId": 2
+  "paycheckRegularity": "BiWeeklyEveryTwoWeeks;",
+  "paycheckSplits": [
+    {
+      "envelopeId": 4,
+      "amount": 234.56
+    },
+    {
+      "envelopeId": 3,
+      "amount": 1000
+    },
+  ]
 }
 ```
 
@@ -1638,8 +1606,54 @@ Create a new paycheck
 ```json
 {
   "status": 201,
+  "message": "Paycheck created successfully",
   "paycheckId": 1,
-  "message": "Paycheck created successfully"
+  "paycheckSplitIds": [1, 2, 3]
+}
+```
+
+**Bad Request(400)**
+
+```JSON
+{
+  "status": 400,
+  "error": "Paycheck must contain at least one split"
+}
+```
+
+**Bad Request(400)**
+
+```JSON
+{
+  "status": 400,
+  "error": "Split cannot be null"
+}
+```
+
+**Bad Request(400)**
+
+```JSON
+{
+  "status": 400,
+  "error": "Split amount must be greater than 0"
+}
+```
+
+**Bad Request(400)**
+
+```JSON
+{
+  "status": 400,
+  "error": "Split envelope is required"
+}
+```
+
+**Bad Request(400)**
+
+```JSON
+{
+  "status": 400,
+  "error": "Split totals must equal paycheck total"
 }
 ```
 
@@ -1674,11 +1688,19 @@ Get all paycheck for a specific budget
   "status": 200,
   "paychecks": [
     {
-        "paycheckId": 9,
-        "budgetId": 1,
-        "amount": 8000.29,
-        "regularityId": 1
-      }
+      "paycheckId": 2,
+      "startingDate": "YYYY-MM-DD",
+      "secondaryDate": null,
+      "totalAmount": 1234.56,
+      "paycheckRegularity": "BiWeeklyEveryTwoWeeks;"
+    },
+    {
+      "paycheckId": 8,
+      "startingDate": "YYYY-MM-DD",
+      "secondaryDate": "YYYY-MM-DD",
+      "totalAmount": 876.43,
+      "paycheckRegularity": "BiMonthlyTwiceAMonth;"
+    },
   ]
 }
 ```
@@ -1763,7 +1785,17 @@ Update an existing paycheck
 ```JSON
 {
   "startingDate": "YYYY-MM-DD",
-  "regularityId": 3
+  "regularityId": 3,
+  "paycheckSplits": [
+    {
+      "envelopeId": 2,
+      "orderIndex": 2
+    },
+    {
+      "amount": 500,
+      "orderIndex": 1
+    },
+  ]
 }
 ```
 
@@ -1774,8 +1806,8 @@ Update an existing paycheck
 ```JSON
 {
   "status": 200,
+  "message": "Paycheck updated successfully",
   "paycheckId": 1,
-  "message": "Paycheck updated successfully"
 }
 ```
 
@@ -1816,133 +1848,7 @@ Delete an existing paycheck
 
 ---
 
-### 35. Create a Paycheck Split
-
-**Description:**
-Create a new paycheck split
-
-#### **Request**
-
-| Method | URL                     |
-| ------ | ----------------------- |
-| POST   | `/api/paycheck-splits/` |
-
-#### **Parameters**
-
-| Type   | Name         | Data Type | Description                                |
-| ------ | ------------ | --------- | ------------------------------------------ |
-| Header | `token`      | `string ` | JWT authorization token                    |
-| Body   | `paycheckId` | `int`     | The paycheck id for the new paycheck split |
-| Body   | `envelopeId` | `int`     | The envelope id for the paycheck split     |
-| Body   | `amount`     | `decimal` | The amount of the paycheck split           |
-| Body   | `orderIndex` | `int`     | The order index for the paycheck split     |
-
-#### **Request Example**
-
-```JSON
-{
-  "paycheckId": 3,
-  "envelopeId": 4,
-  "amount": 234.56,
-  "orderIndex": 2
-}
-```
-
-#### **Responses**
-
-**Success (201 Created)**
-
-```json
-{
-  "status": 201,
-  "paycheckSplitId": 1,
-  "message": "Paycheck split created successfully"
-}
-```
-
-[↑ Back to top](#api-specification-doc)
-
----
-
-### 36. Update a Paycheck Split
-
-**Description:**
-Update an existing paycheck split
-
-#### **Request**
-
-| Method | URL                                      |
-| ------ | ---------------------------------------- |
-| PUT    | `/api/paycheck-splits/{paycheckSplitId}` |
-
-#### **Parameters**
-
-| Type   | Name              | Data Type | Description                                        |
-| ------ | ----------------- | --------- | -------------------------------------------------- |
-| Path   | `paycheckSplitId` | `int`     | The Id of the paycheck split                       |
-| Header | `token`           | `string ` | JWT authorization token                            |
-| Body   | `envelopeId`      | `int`     | The envelope id for the paycheck split - optional  |
-| Body   | `amount`          | `decimal` | The amount of the paycheck - optional              |
-| Body   | `orderNumber`     | `int`     | The order number for the paycheck split - optional |
-
-#### **Request Example**
-
-```JSON
-{
-  "envelopeId": 4
-}
-```
-
-#### **Responses**
-
-**Success (200 OK)**
-
-```JSON
-{
-  "status": 200,
-  "paycheckSplitId": 1,
-  "message": "Paycheck split updated successfully"
-}
-```
-
-[↑ Back to top](#api-specification-doc)
-
----
-
-### 37. Delete a Paycheck Split
-
-**Description:**
-Delete an existing paycheck split
-
-#### **Request**
-
-| Method | URL                                      |
-| ------ | ---------------------------------------- |
-| DELETE | `/api/paycheck-splits/{paycheckSplitId}` |
-
-#### **Parameters**
-
-| Type   | Name              | Data Type | Description                  |
-| ------ | ----------------- | --------- | ---------------------------- |
-| Path   | `paycheckSplitId` | `int`     | The Id of the paycheck split |
-| Header | `token`           | `string ` | JWT authorization token      |
-
-#### **Responses**
-
-**Success (200 OK)**
-
-```JSON
-{
-  "status": 200,
-  "message": "Paycheck slit deleted successfully"
-}
-```
-
-[↑ Back to top](#api-specification-doc)
-
----
-
-### 38. Create a Payment Transaction
+### 35. Create a Payment Transaction
 
 **Description:**
 Create a new payment transaction
@@ -1955,18 +1861,18 @@ Create a new payment transaction
 
 #### **Parameters**
 
-| Type   | Name                 | Data Type | Description                                                     |
-| ------ | -------------------- | --------- | --------------------------------------------------------------- |
-| Header | `token`              | `string ` | JWT authorization token                                         |
-| Body   | `budgetId`           | `int`     | The budget id for the new payment transaction                   |
-| Body   | `transactionDate`    | `Date`    | The date of the payment transaction                             |
-| Body   | `totalAmount`        | `decimal` | The total amount of the payment transaction                     |
-| Body   | `isReconciled`       | `boolean` | If the payment transaction has been reconciled                  |
-| Body   | `notes`              | `string`  | Notes for the payment transaction - nullable                    |
-| Body   | `accountId`          | `int`     | The account id for the new payment transaction                  |
-| Body   | `paymentTypeId`      | `int`     | The payment type for the new payment transaction                |
-| Body   | `merchantSourceName` | `string`  | The name of the merchant/source for the new payment transaction |
-| Body   | `checkNumber`        | `int`     | The check number for the new payment transaction - nullable     |
+| Type   | Name                     | Data Type | Description                                                     |
+| ------ | ------------------------ | --------- | --------------------------------------------------------------- |
+| Header | `token`                  | `string ` | JWT authorization token                                         |
+| Body   | `budgetId`               | `int`     | The budget id for the new payment transaction                   |
+| Body   | `transactionDate`        | `Date`    | The date of the payment transaction                             |
+| Body   | `totalAmount`            | `decimal` | The total amount of the payment transaction                     |
+| Body   | `isReconciled`           | `boolean` | If the payment transaction has been reconciled                  |
+| Body   | `notes`                  | `string`  | Notes for the payment transaction - nullable                    |
+| Body   | `accountId`              | `int`     | The account id for the new payment transaction                  |
+| Body   | `paymentTransactionType` | `string`  | The payment type for the new payment transaction                |
+| Body   | `merchantSourceName`     | `string`  | The name of the merchant/source for the new payment transaction |
+| Body   | `checkNumber`            | `int`     | The check number for the new payment transaction - nullable     |
 
 #### **Request Example**
 
@@ -1975,12 +1881,23 @@ Create a new payment transaction
   "budgetId": 1,
   "transactionDate": "YYYY-MM-DD",
   "totalAmount": 1234.56,
-  "isReconciled": false,
   "notes": "A note for my payment transaction",
   "accountId": 3,
-  "paymentTypeId": 3,
+  "paymentTypeId": "DebitCard",
   "merchantSourceName": "Walmart",
-  "checkNumber": null
+  "checkNumber": null,
+  "transactionSplits": [
+    {
+      "transactionId": 1,
+      "envelopeId": 4,
+      "amount": 234.56
+    },
+    {
+      "transactionId": 1,
+      "envelopeId": 2,
+      "amount": 1000
+    }
+  ]
 }
 ```
 
@@ -1991,8 +1908,10 @@ Create a new payment transaction
 ```JSON
 {
   "status": 200,
+  "message": "Payment transaction created successfully",
+  "transactionId": 3,
   "paymentTransactionId": 1,
-  "message": "Payment transaction created successfully"
+  "transactionSplitIds": [1, 2, 3]
 }
 ```
 
@@ -2000,42 +1919,43 @@ Create a new payment transaction
 
 ---
 
-### 39. Create a Transfer Transaction
+### 36. Create a Transfer Transaction
 
 **Description:**
 Create a new transfer transaction
 
 #### **Request**
 
-| Method | URL                                            |
-| ------ | ---------------------------------------------- |
-| POST   | `/api/transfer-transactions/budget/{budgetId}` |
+| Method | URL                          |
+| ------ | ---------------------------- |
+| POST   | `/api/transfer-transactions` |
 
 #### **Parameters**
 
-| Type   | Name             | Data Type | Description                                                     |
-| ------ | ---------------- | --------- | --------------------------------------------------------------- |
-| Header | `token`          | `string ` | JWT authorization token                                         |
-| Path   | `budgetId`       | `int`     | The budget id for the new transfer transaction                  |
-| Body   | `date`           | `Date`    | The date of the transfer transaction                            |
-| Body   | `totalAmount`    | `decimal` | The total amount of the transfer transaction                    |
-| Body   | `isReconciled`   | `boolean` | If the transfer transaction has been reconciled                 |
-| Body   | `notes`          | `string`  | Notes for the transfer transaction - nullable                   |
-| Body   | `fromId`         | `int`     | The id for account or envelope the transfer transaction is from |
-| Body   | `toId`           | `int`     | The id for account or envelope the transfer transaction is to   |
-| Body   | `transferTypeId` | `int`     | The transfer type for the new transfer transaction              |
+| Type   | Name                      | Data Type | Description                                                     |
+| ------ | ------------------------- | --------- | --------------------------------------------------------------- |
+| Header | `token`                   | `string ` | JWT authorization token                                         |
+| Body   | `budgetId`                | `int`     | The budget id for the new transfer transaction                  |
+| Body   | `date`                    | `Date`    | The date of the transfer transaction                            |
+| Body   | `totalAmount`             | `decimal` | The total amount of the transfer transaction                    |
+| Body   | `isReconciled`            | `boolean` | If the transfer transaction has been reconciled                 |
+| Body   | `notes`                   | `string`  | Notes for the transfer transaction - nullable                   |
+| Body   | `fromId`                  | `int`     | The id for account or envelope the transfer transaction is from |
+| Body   | `toId`                    | `int`     | The id for account or envelope the transfer transaction is to   |
+| Body   | `transferTransactionType` | `string`  | The transfer type for the new transfer transaction              |
 
 #### **Request Example**
 
 ```JSON
 {
+  "budgetId": 1,
   "date": "YYYY-MM-DD",
   "totalAmount": 1234.56,
   "isReconciled": false,
   "notes": "A note for my transfer transaction",
   "fromId": 3,
   "toId": 1,
-  "transferTypeId": 1
+  "transferTransactionType": "Envelope"
 }
 ```
 
@@ -2055,7 +1975,7 @@ Create a new transfer transaction
 
 ---
 
-### 40. Get All Transactions
+### 37. Get All Transactions
 
 **Description:**
 Get all transactions for a specific budget
@@ -2083,35 +2003,17 @@ Get all transactions for a specific budget
   "transactions": [
       {
         "transactionId": 5,
-        "budgetId": 1,
         "date": "YYYY-MM-DD",
-        "totalAmount": 10.99,
-        "transactionTypeId": 2,
-        "accountId": 13,
-        "paymentType": 3,
-        "merchantSourceName": "Walmart",
-        "transactionSplits": [
-          {
-            "transactionSplitId": 6,
-            "transactionId": 5,
-            "envelopeId": 3
-          },
-          {
-            "transactionSplitId": 7,
-            "transactionId": 5,
-            "envelopeId": 4
-          }
-        ]
+        "location": "Walmart",
+        "envelopes": "Groceries, Clothing",
+        "totalAmount": 10.99
       },
       {
         "transactionId": 15,
-        "budgetId": 1,
         "date": "YYYY-MM-DD",
-        "totalAmount": 75.00,
-        "transactionTypeId": 3,
-        "FromId": 4,
-        "ToId": 3,
-        "TransferType": 1,
+        "location": "Account Transfer",
+        "envelopes": "Squirrel Fund -> Rent",
+        "totalAmount": 75.0
       },
     ]
 }
@@ -2121,66 +2023,7 @@ Get all transactions for a specific budget
 
 ---
 
-### 41. Get a Specific Transaction
-
-**Description:**
-Get the details of a single transaction with the transaction splits
-
-#### **Request**
-
-| Method | URL                                 |
-| ------ | ----------------------------------- |
-| GET    | `/api/transactions/{transactionId}` |
-
-#### **Parameters**
-
-| Type   | Name            | Data Type | Description             |
-| ------ | --------------- | --------- | ----------------------- |
-| Path   | `transactionId` | `int`     | The transaction id      |
-| Header | `token`         | `string ` | JWT authorization token |
-
-#### **Responses**
-
-**Success (200 OK)**
-
-```JSON
-{
-  "status": 200,
-  "transaction": {
-    "transactionId": 5,
-    "budgetId": 1,
-    "date": "YYYY-MM-DD",
-    "totalAmount": 10.99,
-    "isReconciled": false,
-    "notes": "This is a note",
-    "transactionType": "Payment",
-    "accountId": 13,
-    "paymentType": 3,
-    "merchantSourceName": "Walmart",
-    "checkNumber": null,
-    "transactionSplits": [
-      {
-        "transactionSplitId": 6,
-        "transactionId": 5,
-        "envelopeId": 3,
-        "amount": 3.99
-      },
-      {
-        "transactionSplitId": 7,
-        "transactionId": 5,
-        "envelopeId": 4,
-        "amount": 7.00
-      }
-    ]
-  }
-}
-```
-
-[↑ Back to top](#api-specification-doc)
-
----
-
-### 42. Get a Specific Payment Transaction
+### 39. Get a Specific Payment Transaction
 
 **Description:**
 Get the details of a single payment transaction with the transaction splits
@@ -2205,7 +2048,7 @@ Get the details of a single payment transaction with the transaction splits
 ```JSON
 {
   "status": 200,
-  "transaction": {
+  "paymentTransaction": {
     "transactionId": 5,
     "budgetId": 1,
     "date": "YYYY-MM-DD",
@@ -2239,7 +2082,7 @@ Get the details of a single payment transaction with the transaction splits
 
 ---
 
-### 43. Get a Specific Transfer Transaction
+### 40. Get a Specific Transfer Transaction
 
 **Description:**
 Get the details of a single transfer transaction
@@ -2263,14 +2106,21 @@ Get the details of a single transfer transaction
 
 ```JSON
 {
-  "transactionId": 15,
-  "budgetId": 1,
-  "date": "YYYY-MM-DD",
-  "totalAmount": 75.00,
-  "transactionType": "Transfer",
-  "FromId": 4,
-  "ToId": 3,
-  "TransferType": 1,
+  "status": 201,
+  "message": "Transfer transaction found",
+  "transferTransaction":
+  {
+    "transactionId": 15,
+    "budgetId": 1,
+    "date": "YYYY-MM-DD",
+    "totalAmount": 75.00,
+    "isReconciled": false,
+    "notes": "This is a note",
+    "transactionType": "Transfer",
+    "transferFromId": 4,
+    "transferToId": 3,
+    "TransferType": "Account",
+  }
 }
 ```
 
@@ -2278,7 +2128,7 @@ Get the details of a single transfer transaction
 
 ---
 
-### 44. Update a Payment Transaction
+### 41. Update a Payment Transaction
 
 **Description:**
 Update an existing payment transaction
@@ -2309,7 +2159,17 @@ Update an existing payment transaction
 ```JSON
 {
   "date": "YYYY-MM-DD",
-  "merchantSourceName": "Frys"
+  "merchantSourceName": "Frys",
+  "transactionSplits": [
+    {
+      "transactionId": 1,
+      "envelopeId": 1
+    },
+    {
+      "transactionId": 1,
+      "amount": 500
+    }
+  ]
 }
 ```
 
@@ -2329,7 +2189,7 @@ Update an existing payment transaction
 
 ---
 
-### 45. Update a Transfer Transaction
+### 42. Update a Transfer Transaction
 
 **Description:**
 Update an existing transfer transaction
@@ -2378,7 +2238,7 @@ Update an existing transfer transaction
 
 ---
 
-### 46. Soft Delete a Transaction
+### 43. Soft Delete a Transaction
 
 **Description:**
 Soft delete an existing transaction (set the deleted at, but don't actually delete to create a recently deleted record)
@@ -2411,450 +2271,23 @@ Soft delete an existing transaction (set the deleted at, but don't actually dele
 
 ---
 
-### 47. Create a Transaction Split
-
-**Description:**
-Create a new transaction split
-
-#### **Request**
-
-| Method | URL                       |
-| ------ | ------------------------- |
-| POST   | `/api/transaction-splits` |
-
-#### **Parameters**
-
-| Type   | Name            | Data Type | Description                                      |
-| ------ | --------------- | --------- | ------------------------------------------------ |
-| Header | `token`         | `string ` | JWT authorization token                          |
-| Body   | `transactionId` | `int`     | The transaction id for the new transaction split |
-| Body   | `envelopeId`    | `int`     | The envelope id for the transaction split        |
-| Body   | `amount`        | `decimal` | The amount of the transaction split              |
-
-#### **Request Example**
-
-```JSON
-{
-  "transactionId": 1,
-  "envelopeId": 4,
-  "amount": 234.56
-}
-```
-
-#### **Responses**
-
-**Success (201 Created)**
-
-```json
-{
-  "status": 201,
-  "transactionSplitId": 1,
-  "message": "Transaction split created successfully"
-}
-```
-
-[↑ Back to top](#api-specification-doc)
-
----
-
-### 48. Update a Transaction Split
-
-**Description:**
-Update an existing transaction split
-
-#### **Request**
-
-| Method | URL                                            |
-| ------ | ---------------------------------------------- |
-| PUT    | `/api/transaction-splits/{transactionSplitId}` |
-
-#### **Parameters**
-
-| Type   | Name                 | Data Type | Description                                          |
-| ------ | -------------------- | --------- | ---------------------------------------------------- |
-| Header | `token`              | `string ` | JWT authorization token                              |
-| Path   | `transactionSplitId` | `int`     | The Id of the transaction split                      |
-| Body   | `envelopeId`         | `int`     | The envelope id for the transaction split - optional |
-| Body   | `amount`             | `decimal` | The amount of the transaction - optional             |
-
-#### **Request Example**
-
-```JSON
-{
-  "envelopeId": 2
-}
-```
-
-#### **Responses**
-
-**Success (200 OK)**
-
-```JSON
-{
-  "status": 200,
-  "transactionSplitId": 1,
-  "message": "Transaction split updated successfully"
-}
-```
-
-[↑ Back to top](#api-specification-doc)
-
----
-
-### 49. Delete a Transaction Split
-
-**Description:**
-Delete an existing transaction split
-
-#### **Request**
-
-| Method | URL                                            |
-| ------ | ---------------------------------------------- |
-| DELETE | `/api/transaction-splits/{transactionSplitId}` |
-
-#### **Parameters**
-
-| Type   | Name                 | Data Type | Description                     |
-| ------ | -------------------- | --------- | ------------------------------- |
-| Path   | `transactionSplitId` | `int`     | The Id of the transaction split |
-| Header | `token`              | `string ` | JWT authorization token         |
-
-#### **Responses**
-
-**Success (200 OK)**
-
-```JSON
-{
-  "status": 200,
-  "message": "Transaction split deleted successfully"
-}
-```
-
-[↑ Back to top](#api-specification-doc)
-
----
-
-### 50. Create a Planned Expense
-
-**Description:**
-Create a new planned expense
-
-#### **Request**
-
-| Method | URL                     |
-| ------ | ----------------------- |
-| POST   | `/api/planned-expenses` |
-
-#### **Parameters**
-
-| Type   | Name                         | Data Type | Description                                             |
-| ------ | ---------------------------- | --------- | ------------------------------------------------------- |
-| Header | `token`                      | `string ` | JWT authorization token                                 |
-| Body   | `budgetId`                   | `int`     | The budget id for the new planned expense               |
-| Body   | `envelopeId`                 | `int`     | The envelope id for the planned expense                 |
-| Body   | `plannedExpenseRegularityId` | `int`     | The Id for the regularity of the planned expense        |
-| Body   | `dayOfMonth`                 | `int`     | The day of the month for the planned expense - nullable |
-| Body   | `weekdayId`                  | `int`     | The Id of the weekday for the regularity - nullable     |
-| Body   | `plannedExpenseOccurrenceId` | `int`     | The Id for the planned expense occurrence - nullable    |
-| Body   | `amount`                     | `decimal` | The amount of the planned expense                       |
-
-#### **Request Example**
-
-```JSON
-{
-  "budgetId": 1,
-  "envelopeId": 2,
-  "plannedExpenseRegularityId": 2,
-  "dayOfMonth": 10,
-  "weekdayId": null,
-  "plannedExpenseOccurrenceId": null,
-  "amount": 12.34
-}
-```
-
-#### **Responses**
-
-**Success (200 OK)**
-
-```JSON
-{
-  "status": 200,
-  "plannedExpenseId": 1,
-  "message": "Planned expense created successfully"
-}
-```
-
-[↑ Back to top](#api-specification-doc)
-
----
-
-### 51. Get All Planned Expenses For a Budget
-
-**Description:**
-Get all planned expenses for a specific budget
-
-#### **Request**
-
-| Method | URL                                       |
-| ------ | ----------------------------------------- |
-| GET    | `/api/planned-expenses/budget/{budgetId}` |
-
-#### **Parameters**
-
-| Type   | Name       | Data Type | Description                                 |
-| ------ | ---------- | --------- | ------------------------------------------- |
-| Path   | `budgetId` | `int`     | The budget id for the planned expenses list |
-| Header | `token`    | `string ` | JWT authorization token                     |
-
-#### **Responses**
-
-**Success (200 OK)**
-
-```JSON
-{
-  "status": 200,
-  "plannedExpenses": [
-    {
-      "plannedExpenseId": 14,
-      "budgetId": 1,
-      "envelopeId": 2,
-      "plannedExpenseRegularityId": 2,
-      "dayOfMonth": 10,
-      "weekdayId": null,
-      "plannedExpenseOccurrenceId": null,
-      "amount": 12.34
-    }
-  ]
-}
-```
-
-[↑ Back to top](#api-specification-doc)
-
----
-
-### 52. Get All Planned Expenses For an Envelope
-
-**Description:**
-Get all planned expenses for a specific envelope
-
-#### **Request**
-
-| Method | URL                                                             |
-| ------ | --------------------------------------------------------------- |
-| GET    | `/api/planned-expenses/budget/{budgetId}/envelope/{envelopeId}` |
-
-#### **Parameters**
-
-| Type   | Name         | Data Type | Description                                   |
-| ------ | ------------ | --------- | --------------------------------------------- |
-| Path   | `budgetId`   | `int`     | The budget id for the planned expenses list   |
-| Path   | `envelopeId` | `int`     | The envelope id for the planned expenses list |
-| Header | `token`      | `string ` | JWT authorization token                       |
-
-#### **Responses**
-
-**Success (200 OK)**
-
-```JSON
-{
-  "status": 200,
-  "plannedExpenses": [
-    {
-      "plannedExpenseId": 14,
-      "budgetId": 1,
-      "envelopeId": 2,
-      "plannedExpenseRegularityId": 2,
-      "dayOfMonth": 10,
-      "weekdayId": null,
-      "plannedExpenseOccurrenceId": null,
-      "amount": 12.34
-    }
-  ]
-}
-```
-
-[↑ Back to top](#api-specification-doc)
-
----
-
-### 53. Get All Planned Expenses For an Account
-
-**Description:**
-Get all planned expenses for a specific account
-
-#### **Request**
-
-| Method | URL                                                           |
-| ------ | ------------------------------------------------------------- |
-| GET    | `/api/planned-expenses/budget/{budgetId}/account/{accountId}` |
-
-#### **Parameters**
-
-| Type   | Name        | Data Type | Description                                  |
-| ------ | ----------- | --------- | -------------------------------------------- |
-| Path   | `budgetId`  | `int`     | The budget id for the planned expenses list  |
-| Path   | `accountId` | `int`     | The account id for the planned expenses list |
-| Header | `token`     | `string ` | JWT authorization token                      |
-
-#### **Responses**
-
-**Success (200 OK)**
-
-```JSON
-{
-  "status": 200,
-  "plannedExpenses": [
-    {
-      "plannedExpenseId": 14,
-      "budgetId": 1,
-      "envelopeId": 2,
-      "plannedExpenseRegularityId": 2,
-      "dayOfMonth": 10,
-      "weekdayId": null,
-      "plannedExpenseOccurrenceId": null,
-      "amount": 12.34
-    }
-  ]
-}
-```
-
-[↑ Back to top](#api-specification-doc)
-
----
-
-### 54. Get a Specific Planned Expense
-
-**Description:**
-Get the details of a single planned expense
-
-#### **Request**
-
-| Method | URL                                        |
-| ------ | ------------------------------------------ |
-| GET    | `/api/planned-expenses/{plannedExpenseId}` |
-
-#### **Parameters**
-
-| Type   | Name               | Data Type | Description             |
-| ------ | ------------------ | --------- | ----------------------- |
-| Path   | `plannedExpenseId` | `int`     | The planned expense id  |
-| Header | `token`            | `string ` | JWT authorization token |
-
-#### **Responses**
-
-**Success (200 OK)**
-
-```JSON
-{
-  "status": 200,
-  "plannedExpenses": [
-    {
-      "plannedExpenseId": 14,
-      "budgetId": 1,
-      "envelopeId": 2,
-      "plannedExpenseRegularityId": 2,
-      "dayOfMonth": 10,
-      "weekdayId": null,
-      "plannedExpenseOccurrenceId": null,
-      "amount": 12.34
-    }
-  ]
-}
-```
-
-[↑ Back to top](#api-specification-doc)
-
----
-
-### 55. Update a Planned Expense
-
-**Description:**
-Update an existing planned expense
-
-#### **Request**
-
-| Method | URL                                        |
-| ------ | ------------------------------------------ |
-| PUT    | `/api/planned-expenses/{plannedExpenseId}` |
-
-#### **Parameters**
-
-| Type   | Name                         | Data Type | Description                                                        |
-| ------ | ---------------------------- | --------- | ------------------------------------------------------------------ |
-| Header | `token`                      | `string ` | JWT authorization token                                            |
-| Path   | `plannedExpenseId`           | `int`     | The Id of the planned expense                                      |
-| Body   | `envelopeId`                 | `int`     | The envelope id for the planned expense - optional                 |
-| Body   | `plannedExpenseRegularityId` | `int`     | The Id for the regularity of the planned expense - optional        |
-| Body   | `dayOfMonth`                 | `int`     | The day of the month for the planned expense - nullable + optional |
-| Body   | `weekdayId`                  | `int`     | The Id of the weekday for the regularity - nullable + optional     |
-| Body   | `plannedExpenseOccurrenceId` | `int`     | The Id for the planned expense occurrence - nullable + optional    |
-| Body   | `amount`                     | `decimal` | The amount of the planned expense - optional                       |
-
-#### **Request Example**
-
-```JSON
-{
-  "dayOfMonth": 19
-}
-```
-
-#### **Responses**
-
-**Success (200 OK)**
-
-```JSON
-{
-  "status": 200,
-  "plannedExpenseId": 1,
-  "message": "Planned expense updated successfully"
-}
-```
-
-[↑ Back to top](#api-specification-doc)
-
----
-
-### 56. Delete a Planned Expense
-
-**Description:**
-Delete an existing planned expense
-
-#### **Request**
-
-| Method | URL                                        |
-| ------ | ------------------------------------------ |
-| DELETE | `/api/planned-expenses/{plannedExpenseId}` |
-
-#### **Parameters**
-
-| Type   | Name               | Data Type | Description                   |
-| ------ | ------------------ | --------- | ----------------------------- |
-| Path   | `plannedExpenseId` | `int`     | The Id of the planned Expense |
-| Header | `token`            | `string ` | JWT authorization token       |
-
-#### **Responses**
-
-**Success (200 OK)**
-
-```JSON
-{
-  "status": 200,
-  "message": "Planned expense deleted successfully"
-}
-```
-
-[↑ Back to top](#api-specification-doc)
-
----
-
 ## 3. Common Error Codes
+
+**Bad Request(400)**
+
+```JSON
+{
+  "status": 400,
+  "error": "Missing information for [resource] creation/update"
+}
+```
 
 **Unauthorized(401)**
 
 ```JSON
 {
   "status": 401,
-  "error": "User not authenticated"
+  "error": "Unauthorized"
 }
 ```
 
@@ -2863,7 +2296,7 @@ Delete an existing planned expense
 ```json
 {
   "status": 403,
-  "error": "Forbidden. You do not have access to this resource."
+  "error": "[Resource] does not belong to the current user."
 }
 ```
 
@@ -2945,7 +2378,7 @@ Tokens are obtained through:
 
 ### Token Expiration
 
-Tokens expire after 24 hours. When a token expires, you'll receive a 401 Unauthorized response. Simply log in again to obtain a new token.
+Tokens expire after 60 minutes. When a token expires, you'll receive a 401 Unauthorized response. Simply log in again to obtain a new token.
 
 ```
 
