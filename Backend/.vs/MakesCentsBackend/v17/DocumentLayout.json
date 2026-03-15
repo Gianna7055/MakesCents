@@ -1,19 +1,24 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "\\\\Mac\\Home\\Desktop\\MakesCents\\MakesCents\\Backend\\",
+  "WorkspaceRootPath": "C:\\Users\\giannaross\\source\\repos\\MakesCents\\Backend\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{C2215582-B832-47FE-B364-C52CE86996E6}|MakesCentsBackend\\MakesCentsBackend.csproj|\\\\mac\\home\\desktop\\makescents\\makescents\\backend\\makescentsbackend\\controllers\\budgetcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C2215582-B832-47FE-B364-C52CE86996E6}|MakesCentsBackend\\MakesCentsBackend.csproj|c:\\users\\giannaross\\source\\repos\\makescents\\backend\\makescentsbackend\\services\\businesslogiclayer\\budgetlogic.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C2215582-B832-47FE-B364-C52CE86996E6}|MakesCentsBackend\\MakesCentsBackend.csproj|solutionrelative:makescentsbackend\\services\\businesslogiclayer\\budgetlogic.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C2215582-B832-47FE-B364-C52CE86996E6}|MakesCentsBackend\\MakesCentsBackend.csproj|c:\\users\\giannaross\\source\\repos\\makescents\\backend\\makescentsbackend\\controllers\\budgetcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C2215582-B832-47FE-B364-C52CE86996E6}|MakesCentsBackend\\MakesCentsBackend.csproj|solutionrelative:makescentsbackend\\controllers\\budgetcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
-      "VerticalTabListWidth": 256,
+      "VerticalTabListWidth": 180,
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 7,
+          "SelectedChildIndex": 8,
           "Children": [
             {
               "$type": "Bookmark",
@@ -44,16 +49,33 @@
               "Name": "ST:0:0:{fbcae063-e2c0-4ab1-a516-996ea3dafb72}"
             },
             {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{13b12e3e-c1b4-4539-9371-4fe9a0d523fc}"
+            },
+            {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "BudgetController.cs",
-              "DocumentMoniker": "\\\\Mac\\Home\\Desktop\\MakesCents\\MakesCents\\Backend\\MakesCentsBackend\\Controllers\\BudgetController.cs",
-              "RelativeDocumentMoniker": "MakesCentsBackend\\Controllers\\BudgetController.cs",
-              "ToolTip": "\\\\Mac\\Home\\Desktop\\MakesCents\\MakesCents\\Backend\\MakesCentsBackend\\Controllers\\BudgetController.cs",
-              "RelativeToolTip": "MakesCentsBackend\\Controllers\\BudgetController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAgAAAAAAAAAA==",
+              "Title": "BudgetLogic.cs",
+              "DocumentMoniker": "C:\\Users\\giannaross\\source\\repos\\MakesCents\\Backend\\MakesCentsBackend\\Services\\BusinessLogicLayer\\BudgetLogic.cs",
+              "RelativeDocumentMoniker": "MakesCentsBackend\\Services\\BusinessLogicLayer\\BudgetLogic.cs",
+              "ToolTip": "C:\\Users\\giannaross\\source\\repos\\MakesCents\\Backend\\MakesCentsBackend\\Services\\BusinessLogicLayer\\BudgetLogic.cs",
+              "RelativeToolTip": "MakesCentsBackend\\Services\\BusinessLogicLayer\\BudgetLogic.cs",
+              "ViewState": "AgIAAGoAAAAAYmZmZmYuwH0AAABMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-26T04:58:57.606Z",
+              "WhenOpened": "2026-03-12T21:56:05.881Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "BudgetController.cs",
+              "DocumentMoniker": "C:\\Users\\giannaross\\source\\repos\\MakesCents\\Backend\\MakesCentsBackend\\Controllers\\BudgetController.cs",
+              "RelativeDocumentMoniker": "MakesCentsBackend\\Controllers\\BudgetController.cs",
+              "ToolTip": "C:\\Users\\giannaross\\source\\repos\\MakesCents\\Backend\\MakesCentsBackend\\Controllers\\BudgetController.cs",
+              "RelativeToolTip": "MakesCentsBackend\\Controllers\\BudgetController.cs",
+              "ViewState": "AgIAAEoAAAAgNTMzM/MwwI4AAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-12T05:31:29.77Z",
               "EditorCaption": ""
             }
           ]

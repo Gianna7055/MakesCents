@@ -15,6 +15,7 @@
     <PackageReference Include="MySqlConnector" Version="2.5.0" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="10.1.0" />
     <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="8.15.0" />
+    <PackageReference Include="TypeGen" Version="7.0.0" />
   </ItemGroup>
 
 </Project>

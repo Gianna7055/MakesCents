@@ -15,7 +15,8 @@
           "Microsoft.AspNetCore.Authentication.JwtBearer": "8.0.22",
           "MySqlConnector": "2.5.0",
           "Swashbuckle.AspNetCore": "10.1.0",
-          "System.IdentityModel.Tokens.Jwt": "8.15.0"
+          "System.IdentityModel.Tokens.Jwt": "8.15.0",
+          "TypeGen": "7.0.0"
         },
         "runtime": {
           "MakesCentsBackend.dll": {}
@@ -251,6 +252,14 @@
             "fileVersion": "8.15.0.61118"
           }
         }
+      },
+      "TypeGen/7.0.0": {
+        "runtime": {
+          "lib/netstandard2.0/TypeGen.Core.dll": {
+            "assemblyVersion": "7.0.0.0",
+            "fileVersion": "7.0.0.0"
+          }
+        }
       }
     }
   },
@@ -420,6 +429,13 @@
       "sha512": "sha512-dpodi7ixz6hxK8YCBYAWzm0IA8JYXoKcz0hbCbNifo519//rjUI0fBD8rfNr+IGqq+2gm4oQoXwHk09LX5SqqQ==",
       "path": "system.identitymodel.tokens.jwt/8.15.0",
       "hashPath": "system.identitymodel.tokens.jwt.8.15.0.nupkg.sha512"
+    },
+    "TypeGen/7.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Wa75efpUNY/S16fQyjq0z96AL1JlqR6J76PjbRuSlI/1/YWEUN1HvUR9fZX69Qe4MDHDRK4Yn7NvbYmZXLMzaA==",
+      "path": "typegen/7.0.0",
+      "hashPath": "typegen.7.0.0.nupkg.sha512"
     }
   }
 }

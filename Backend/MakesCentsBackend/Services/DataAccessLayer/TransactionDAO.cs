@@ -177,7 +177,7 @@ namespace MakesCentsBackend.Services.DataAccessLayer
             // Make sure the transaction belongs to the user
             if (!await _authService.VerifyUserOwnsTransactionAsync(request.EntityId, request.UserId))
             {
-                return new BaseIdResponse(403, "Transaction does not belong to the current user.");
+                return new BaseIdResponse(403, "Transaction does not belong to the current user");
             }
             // Execute the query
             rowsAffected = await _connection.ExecuteAsync(query, new { TransactionId = request.EntityId });

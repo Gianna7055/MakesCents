@@ -4,6 +4,7 @@
  * Sources: 
  */
 using MakesCentsBackend.Models.Enums;
+using TypeGen.Core.TypeAnnotations;
 
 namespace MakesCentsBackend.Models
 {
@@ -23,6 +24,7 @@ namespace MakesCentsBackend.Models
     /// <summary>
     /// Request model to create an investment account
     /// </summary>
+    [ExportTsClass]
     public class CreateInvestmentAccountRequest : CreateAccountRequest
     {
         // Class variables
@@ -35,6 +37,7 @@ namespace MakesCentsBackend.Models
     /// <summary>
     /// Response model for creating an investment account
     /// </summary>
+    [ExportTsInterface]
     public class CreateInvestmentAccountResponse : CreateAccountResponse
     {
         // Class properties
@@ -54,6 +57,7 @@ namespace MakesCentsBackend.Models
     }
 
 
+    [ExportTsInterface]
     public class InvestmentAccountSummaryDTOModel : AccountSummaryDTOModel
     {
         // Class properties
@@ -64,6 +68,7 @@ namespace MakesCentsBackend.Models
     /// <summary>
     /// DTO model to get a specific investment account
     /// </summary>
+    [ExportTsInterface]
     public class GetInvestmentAccountDTOModel : GetAccountBaseModel
     {
         // Class properties
@@ -83,6 +88,7 @@ namespace MakesCentsBackend.Models
     /// <summary>
     /// Response model for getting a specific investment account
     /// </summary>
+    [ExportTsInterface]
     public class GetInvestmentAccountDTOResponse : BaseResponse
     {
         public GetInvestmentAccountDTOModel InvestmentAccount { get; set; } = new GetInvestmentAccountDTOModel();
@@ -125,6 +131,7 @@ namespace MakesCentsBackend.Models
     }
 
 
+    [ExportTsClass]
     public class UpdateInvestmentAccountRequest : UpdateAccountRequest
     {
         // Class properties

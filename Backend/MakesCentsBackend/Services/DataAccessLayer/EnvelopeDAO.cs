@@ -46,7 +46,7 @@ namespace MakesCentsBackend.Services.DataAccessLayer
             // Make sure the envelope category belongs to the user
             if (!await _authService.VerifyUserOwnsEnvelopeCategoryAsync(envelope.EnvelopeCategoryId, envelope.UserId))
             {
-                return new BaseIdResponse(403, "Envelope category does not belong to the current user.");
+                return new BaseIdResponse(403, "Envelope category does not belong to the current user");
             }
             // Execute the request and get the new id for the envelope
             try
@@ -255,7 +255,7 @@ namespace MakesCentsBackend.Services.DataAccessLayer
             // Make sure the envelope belongs to the user
             if (!await _authService.VerifyUserOwnsEnvelopeAsync(envelope.EnvelopeId, envelope.UserId))
             {
-                return new BaseIdResponse(403, "Envelope does not belong to the current user.", envelope.EnvelopeId);
+                return new BaseIdResponse(403, "Envelope does not belong to the current user", envelope.EnvelopeId);
             }
 
             // Loop through each field to see if an update is necessary
@@ -342,7 +342,7 @@ namespace MakesCentsBackend.Services.DataAccessLayer
             // Make sure the envelope belongs to the user
             if (!await _authService.VerifyUserOwnsEnvelopeAsync(request.EntityId, request.UserId))
             {
-                return new BaseIdResponse(403, "Envelope does not belong to the current user.");
+                return new BaseIdResponse(403, "Envelope does not belong to the current user");
             }
             // Execute the query
             rowsAffected = await _connection.ExecuteAsync(query, new { EnvelopeId = request.EntityId });

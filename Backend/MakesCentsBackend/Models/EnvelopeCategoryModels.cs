@@ -4,6 +4,8 @@
  * Sources: 
  */
 
+using TypeGen.Core.TypeAnnotations;
+
 namespace MakesCentsBackend.Models
 {
     /// <summary>
@@ -23,6 +25,7 @@ namespace MakesCentsBackend.Models
     /// <summary>
     /// Response model for an envelope category for the Get Budget method
     /// </summary>
+    [ExportTsInterface]
     public class SummaryEnvelopeCategoryResponse
     {
         // Class Level Properties
@@ -35,6 +38,7 @@ namespace MakesCentsBackend.Models
     /// <summary>
     /// Request model for creating an envelope category
     /// </summary>
+    [ExportTsClass]
     public class CreateEnvelopeCategoryRequest
     {
         // Class level properties
@@ -46,6 +50,7 @@ namespace MakesCentsBackend.Models
     /// <summary>
     /// Response model for getting all envelope categories
     /// </summary>
+    [ExportTsInterface]
     public class GetAllEnvelopeCategoriesResponse : BaseResponse
     {
         // Class properties
@@ -71,6 +76,7 @@ namespace MakesCentsBackend.Models
     /// <summary>
     /// Request model for editing an envelope category
     /// </summary>
+    [ExportTsClass]
     public class EditEnvelopeCategoryRequest
     {
         // Class properties

@@ -3,6 +3,8 @@
  * Makes Cents
  * Sources: 
  */
+using TypeGen.Core.TypeAnnotations;
+
 namespace MakesCentsBackend.Models
 {
     /// <summary>
@@ -23,6 +25,7 @@ namespace MakesCentsBackend.Models
     /// <summary>
     /// Request model to create a paycheck split
     /// </summary>
+    [ExportTsClass]
     public class CreatePaycheckSplitRequest
     {
         public int PaycheckId { get; set; } = 0;
@@ -31,6 +34,7 @@ namespace MakesCentsBackend.Models
     }
 
 
+    [ExportTsInterface]
     public class GetPaycheckSplitDTOModel
     {
         // Class properties
@@ -41,6 +45,7 @@ namespace MakesCentsBackend.Models
     }
 
 
+    [ExportTsInterface]
     public class UpdatePaycheckSplitRequest
     {
         // Class variables

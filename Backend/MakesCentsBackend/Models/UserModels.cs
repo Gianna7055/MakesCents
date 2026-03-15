@@ -4,6 +4,8 @@
  * Sources: 
  */
 
+using TypeGen.Core.TypeAnnotations;
+
 namespace MakesCentsBackend.Models
 {
     /// <summary>
@@ -21,10 +23,11 @@ namespace MakesCentsBackend.Models
         public DateTime LastUpdatedAt { get; set; } = DateTime.MinValue;
         public BudgetEntityModel? Budget { get; set; } = null;
     }
-    
+
     /// <summary>
     /// Response model for an entity user
     /// </summary>
+    [ExportTsInterface]
     public class UserEntityResponse : BaseResponse
     {
         // Class level properties
@@ -46,6 +49,7 @@ namespace MakesCentsBackend.Models
     /// <summary>
     /// Response model for a DTO user
     /// </summary>
+    [ExportTsInterface]
     public class UserDTOResponse : BaseResponse
     {
         // Class level properties
@@ -56,6 +60,7 @@ namespace MakesCentsBackend.Models
     /// <summary>
     /// Model for a user
     /// </summary>
+    [ExportTsInterface]
     public class UserDTOModel
     {
         // Class Level Properties
@@ -70,6 +75,7 @@ namespace MakesCentsBackend.Models
     }
 
 
+    [ExportTsInterface]
     public class GetUserResponse : BaseResponse
     {
         // Class Level Properties
@@ -97,6 +103,7 @@ namespace MakesCentsBackend.Models
     /// <summary>
     /// DTO model for getting a user
     /// </summary>
+    [ExportTsInterface]
     public class GetUserDTOModel
     {
         // Class Level Properties
@@ -112,6 +119,7 @@ namespace MakesCentsBackend.Models
     /// <summary>
     /// Request model for editing a user
     /// </summary>
+    [ExportTsClass]
     public class EditUserRequest
     {
         // Class Level Properties
@@ -128,6 +136,7 @@ namespace MakesCentsBackend.Models
     /// <summary>
     /// Request model for a user
     /// </summary>
+    [ExportTsClass]
     public class LoginRequest
     {
         // Class Level Properties
@@ -138,6 +147,7 @@ namespace MakesCentsBackend.Models
     /// <summary>
     /// Response model for the login process
     /// </summary>
+    [ExportTsInterface]
     public class LoginResponse : BaseIdResponse
     {
         public string PasswordHash { get; set; } = "";
@@ -171,6 +181,7 @@ namespace MakesCentsBackend.Models
     }
 
 
+    [ExportTsClass]
     public class RegisterRequest
     {
         // Class level properties
@@ -182,6 +193,7 @@ namespace MakesCentsBackend.Models
     /// <summary>
     /// Response model for registration
     /// </summary>
+    [ExportTsInterface]
     public class RegisterResponse : BaseIdResponse
     {
         // Class level properties

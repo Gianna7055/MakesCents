@@ -63,7 +63,7 @@ namespace MakesCentsBackend.Services.DataAccessLayer
                     // Make sure the budget belongs to the user
                     if (!await _authService.VerifyUserOwnsBudgetAsync(bankAccount.BudgetId, bankAccount.UserId, dbTransaction))
                     {
-                        return new CreateBankAccountResponse(403, "Budget does not belong to the current user.");
+                        return new CreateBankAccountResponse(403, "Budget does not belong to the current user");
                     }
                     // Query for insert for account table
                     query = """

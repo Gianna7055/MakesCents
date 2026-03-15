@@ -3,7 +3,10 @@
  * Makes Cents
  * Sources: 
  */
+using MakesCentsBackend.Models.Converters;
 using MakesCentsBackend.Models.Enums;
+using System.Text.Json.Serialization;
+using TypeGen.Core.TypeAnnotations;
 
 namespace MakesCentsBackend.Models
 {
@@ -20,15 +23,18 @@ namespace MakesCentsBackend.Models
     /// <summary>
     /// Request model for creating a bank account model
     /// </summary>
+    [ExportTsClass]
     public class CreateBankAccountRequest : CreateAccountRequest
     {
         // Class properties
+        [JsonConverter(typeof(SafeDefaultConverter<BankAccountType>))]
         public BankAccountType BankAccountType { get; set; } = BankAccountType.Unknown;
     }
 
     /// <summary>
     /// Response model for creating a bank account
     /// </summary>
+    [ExportTsInterface]
     public class CreateBankAccountResponse : CreateAccountResponse
     {
         // Class properties
@@ -50,6 +56,7 @@ namespace MakesCentsBackend.Models
     /// <summary>
     /// DTO model for getting all accounts
     /// </summary>
+    [ExportTsInterface]
     public class BankAccountSummaryDTOModel : AccountSummaryDTOModel
     {
         // Class properties
@@ -60,6 +67,7 @@ namespace MakesCentsBackend.Models
     /// <summary>
     /// DTO model to get a specific bank account
     /// </summary>
+    [ExportTsInterface]
     public class GetBankAccountDTOModel : GetAccountBaseModel
     {
         // Class properties
@@ -76,6 +84,7 @@ namespace MakesCentsBackend.Models
     /// <summary>
     /// Response model for getting a specific bank account
     /// </summary>
+    [ExportTsInterface]
     public class GetBankAccountDTOResponse : BaseResponse
     {
         public GetBankAccountDTOModel BankAccount { get; set; } = new GetBankAccountDTOModel();
@@ -115,9 +124,11 @@ namespace MakesCentsBackend.Models
     }
 
 
+    [ExportTsInterface]
     public class UpdateBankAccountRequest : UpdateAccountRequest
     {
         // Class properties
+        [JsonConverter(typeof(SafeDefaultConverter<int>))]
         public int BankAccountId { get; set; } = 0;
         public BankAccountType? BankAccountType { get; set; } = null;
     }

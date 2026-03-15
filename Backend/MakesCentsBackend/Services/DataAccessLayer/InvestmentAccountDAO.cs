@@ -236,7 +236,7 @@ namespace MakesCentsBackend.Services.DataAccessLayer
                 {
                     // Roll the transaction back
                     dbTransaction.Rollback();
-                    return new BaseIdResponse(403, "Investment account does not belong to the current user.", investmentAccount.InvestmentAccountId);
+                    return new BaseIdResponse(403, "Investment account does not belong to the current user", investmentAccount.InvestmentAccountId);
                 }
 
                 // Loop through each field to see if an update is necessary

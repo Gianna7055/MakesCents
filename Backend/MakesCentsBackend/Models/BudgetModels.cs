@@ -3,9 +3,11 @@
  * Makes Cents
  * Sources: 
  */
+using MakesCentsBackend.Models.Converters;
 using MakesCentsBackend.Models.Entities;
 using MakesCentsBackend.Models.Enums;
 using System.Text.Json.Serialization;
+using TypeGen.Core.TypeAnnotations;
 
 namespace MakesCentsBackend.Models
 {
@@ -32,21 +34,33 @@ namespace MakesCentsBackend.Models
     /// <summary>
     /// Request model for creating a budget
     /// </summary>
+    [ExportTsClass]
     public class CreateBudgetRequest
     {
         public int UserId { get; set; } = 0;
+
+        [JsonConverter(typeof(SafeDefaultConverter<Month>))]
         public Month Month { get; set; } = Month.Unknown;
+
+        [JsonConverter(typeof(SafeDefaultConverter<int>))]
         public int Year { get; set; } = 0;
+
+        [JsonConverter(typeof(SafeDefaultConverter<string>))]
         public string BudgetName { get; set; } = "";
     }
 
     /// <summary>
     /// DTO model for getting a budget
     /// </summary>
+    [ExportTsClass]
     public class GetBudgetRequest
     {
         public int UserId { get; set; } = 0;
+
+        [JsonConverter(typeof(SafeDefaultConverter<Month>))]
         public Month Month { get; set; } = Month.Unknown;
+
+        [JsonConverter(typeof(SafeDefaultConverter<int>))]
         public int Year { get; set; } = 0;
 
         /// <summary>
@@ -66,6 +80,7 @@ namespace MakesCentsBackend.Models
     /// <summary>
     /// DTO model for sending a budget to the API for getting a budget
     /// </summary>
+    [ExportTsInterface]
     public class GetBudgetDTOModel
     {
         // Class Level Properties
@@ -109,17 +124,20 @@ namespace MakesCentsBackend.Models
     /// <summary>
     /// Response model for getting a budget
     /// </summary>
+    [ExportTsInterface]
     public class GetBudgetResponse : BaseResponse
     {
         // Class Level Properties
         public GetBudgetDTOModel GetBudgetDTO { get; set; } = new GetBudgetDTOModel();
 
         public GetBudgetResponse(int status, string message) : base(status, message) { }
+        public GetBudgetResponse() : base() { }
     }
 
     /// <summary>
     /// Request model for updating a budget
     /// </summary>
+    [ExportTsClass]
     public class EditBudgetRequest
     {
         public int BudgetId { get; set; } = 0;

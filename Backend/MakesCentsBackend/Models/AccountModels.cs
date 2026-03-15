@@ -3,7 +3,11 @@
  * Makes Cents
  * Sources: 
  */
+using MakesCentsBackend.Models.Converters;
 using MakesCentsBackend.Models.Enums;
+using System.Text.Json.Serialization;
+using TypeGen.Core.TypeAnnotations;
+
 
 namespace MakesCentsBackend.Models
 {
@@ -24,21 +28,31 @@ namespace MakesCentsBackend.Models
         public List<TransactionEntityModel> Transactions { get; set; } = new List<TransactionEntityModel>();
     }
 
-
+    [ExportTsClass]
     public abstract class CreateAccountRequest
     {
         // Class properties
+        [JsonConverter(typeof(SafeDefaultConverter<int>))]
         public int BudgetId { get; set; } = 0;
+
         public int UserId { get; set; } = 0;
+
         public int AccountId { get; set; } = 0;
+
+        [JsonConverter(typeof(SafeDefaultConverter<string>))]
         public string AccountName { get; set; } = "";
+
+        [JsonConverter(typeof(SafeDefaultConverter<string>))]
         public string Institution { get; set; } = "";
+
+        [JsonConverter(typeof(SafeDefaultConverter<decimal>))]
         public decimal Balance { get; set; } = 0m;
     }
 
     /// <summary>
     /// Response model for an account
     /// </summary>
+    [ExportTsInterface]
     public class CreateAccountResponse : BaseResponse
     {
         // Class level properties
@@ -58,6 +72,7 @@ namespace MakesCentsBackend.Models
     }
 
 
+    [ExportTsInterface]
     public class AccountSummaryDTOModel
     {
         // Class properties
@@ -72,6 +87,7 @@ namespace MakesCentsBackend.Models
     /// <summary>
     /// Response model for getting all accounts
     /// </summary>
+    [ExportTsInterface]
     public class GetAllAccountsResponse : BaseResponse
     {
         // Class properties
@@ -94,6 +110,7 @@ namespace MakesCentsBackend.Models
     /// <summary>
     /// Base class for getting a specific account
     /// </summary>
+    [ExportTsClass]
     public class GetAccountBaseModel
     {
         // Class properties
@@ -106,10 +123,13 @@ namespace MakesCentsBackend.Models
     }
 
 
+    [ExportTsClass]
     public class UpdateAccountRequest
     {
         // Class properties
         public int UserId { get; set; } = 0;
+
+        [JsonConverter(typeof(SafeDefaultConverter<int>))]
         public int AccountId { get; set; } = 0;
         public string? AccountName { get; set; } = null;
         public string? Institution { get; set; } = null;
