@@ -419,17 +419,17 @@ Get the initial data for a budget, including the budget name, envelope categorie
 
 #### **Request**
 
-| Method | URL                                        |
-| ------ | ------------------------------------------ |
-| GET    | `/api/budgets/year/{year}/month/{monthId}` |
+| Method | URL                                      |
+| ------ | ---------------------------------------- |
+| GET    | `/api/budgets/year/{year}/month/{month}` |
 
 #### **Parameters**
 
-| Type   | Name      | Data Type | Description             |
-| ------ | --------- | --------- | ----------------------- |
-| Path   | `year`    | `int`     | The year                |
-| Path   | `monthId` | `int`     | The month ID (1-12)     |
-| Header | `token`   | `string ` | JWT authorization token |
+| Type   | Name    | Data Type | Description             |
+| ------ | ------- | --------- | ----------------------- |
+| Path   | `year`  | `int`     | The year                |
+| Path   | `month` | `string`  | The month of the budget |
+| Header | `token` | `string ` | JWT authorization token |
 
 #### **Responses**
 
@@ -442,7 +442,7 @@ Get the initial data for a budget, including the budget name, envelope categorie
   "budget": {
     "budgetId": 1,
     "userId": 11,
-    "monthId": 11,
+    "month": "November",
     "year": 2025,
     "budgetName": "My Budget",
     "envelopeCategories": [
