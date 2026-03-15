@@ -3,6 +3,8 @@
  * Makes Cents
  * Sources: 
  */
+using TypeGen.Core.TypeAnnotations;
+
 namespace MakesCentsBackend.Models
 {
     /// <summary>
@@ -22,6 +24,7 @@ namespace MakesCentsBackend.Models
     /// <summary>
     /// Request model for creating a new transaction split
     /// </summary>
+    [ExportTsClass]
     public class CreateTransactionSplitRequest
     {
         public int TransactionId { get; set; } = 0;
@@ -30,6 +33,7 @@ namespace MakesCentsBackend.Models
     }
 
 
+    [ExportTsInterface]
     public class GetTransactionSplitDTOModel
     {
         // Class properties
@@ -40,6 +44,7 @@ namespace MakesCentsBackend.Models
     }
 
 
+    [ExportTsClass]
     public class UpdateTransactionSplitRequest
     {
         // Class variables

@@ -137,7 +137,7 @@ namespace MakesCentsBackend.Services.DataAccessLayer
             // Make sure the budget belongs to the user
             if (!await _authService.VerifyUserOwnsBudgetAsync(request.EntityId, request.UserId))
             {
-                return new GetAllPaychecksResponse(403, "Budget does not belong to the current user.");
+                return new GetAllPaychecksResponse(403, "Budget does not belong to the current user");
             }
             // Execute the query
             response.Paychecks = (await _connection.QueryAsync<SummaryPaycheckResponse>(query, new { BudgetId = request.EntityId })).ToList();
@@ -160,7 +160,7 @@ namespace MakesCentsBackend.Services.DataAccessLayer
             // Make sure the paycheck belongs to the user
             if (!await _authService.VerifyUserOwnsPaycheckAsync(request.EntityId, request.UserId))
             {
-                return new GetPaycheckResponse(403, "Paycheck does not belong to the current user.");
+                return new GetPaycheckResponse(403, "Paycheck does not belong to the current user");
             }
             // Set up the query to get the paycheck
             query = """
@@ -227,7 +227,7 @@ namespace MakesCentsBackend.Services.DataAccessLayer
                 // Make sure the paycheck belongs to the user
                 if (!await _authService.VerifyUserOwnsPaycheckAsync(paycheck.PaycheckId, paycheck.UserId))
                 {
-                    return new UpdatePaycheckResponse(403, "Paycheck does not belong to the current user.", paycheck.PaycheckId);
+                    return new UpdatePaycheckResponse(403, "Paycheck does not belong to the current user", paycheck.PaycheckId);
                 }
 
                 // Update the paycheck table
@@ -401,7 +401,7 @@ namespace MakesCentsBackend.Services.DataAccessLayer
             // Make sure the paycheck belongs to the user
             if (!await _authService.VerifyUserOwnsPaycheckAsync(request.EntityId, request.UserId))
             {
-                return new BaseIdResponse(403, "Paycheck does not belong to the current user.");
+                return new BaseIdResponse(403, "Paycheck does not belong to the current user");
             }
             // Execute the query
             rowsAffected = await _connection.ExecuteAsync(query, new { PaycheckId = request.EntityId });

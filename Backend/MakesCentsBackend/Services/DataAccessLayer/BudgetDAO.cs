@@ -78,7 +78,8 @@ namespace MakesCentsBackend.Services.DataAccessLayer
         public async Task<GetBudgetResponse> GetBudgetAsync(GetBudgetRequest budget)
         {
             // Declare and initialize
-            GetBudgetResponse? budgetResponse;
+            GetBudgetResponse budgetResponse = new GetBudgetResponse();
+            GetBudgetDTOModel? budgetDTO;
             List<SummaryEnvelopeCategoryResponse> envelopeCategoryResponses;
             List<SummaryEnvelopeResponse> envelopeResponses;
             Dictionary<int, SummaryEnvelopeCategoryResponse> envelopeCategoryLookup;
@@ -98,12 +99,14 @@ namespace MakesCentsBackend.Services.DataAccessLayer
                     AND budget.month_id = @Month;
                 """;
             // Execute the query
-            budgetResponse = await _connection.QuerySingleAsync<GetBudgetResponse>(query, budget);
+            budgetDTO = await _connection.QuerySingleOrDefaultAsync<GetBudgetDTOModel>(query, budget);
             // Make sure the budget is not null
-            if (budgetResponse == null)
+            if (budgetDTO == null)
             {
                 return new GetBudgetResponse(404, "Budget not found");
             }
+            // Set the dto for the response
+            budgetResponse.GetBudgetDTO = budgetDTO;
             // Get the budget id
             budgetId = budgetResponse.GetBudgetDTO.BudgetId;
             // Set up the query to get the envelope categories
@@ -166,7 +169,7 @@ namespace MakesCentsBackend.Services.DataAccessLayer
             // Make sure the budget belongs to the user
             if (!await _authService.VerifyUserOwnsBudgetAsync(budget.BudgetId, budget.UserId))
             {
-                return new BaseIdResponse(403, "Budget does not belong to the current user.");
+                return new BaseIdResponse(403, "Budget does not belong to the current user");
             }
             // Check each nullable field to see if update is necessary
             if (budget.BudgetName != null)
@@ -184,7 +187,7 @@ namespace MakesCentsBackend.Services.DataAccessLayer
                 SET
                 {string.Join(", ", updates)}
                 WHERE budget_id = @BudgetId
-                AND UserId = @UserId
+                AND user_Id = @UserId
                 """;
             // Execute the query
             rowsAffected = await _connection.ExecuteAsync(query, budget);
@@ -228,7 +231,7 @@ namespace MakesCentsBackend.Services.DataAccessLayer
             // Make sure the budget belongs to the user
             if (!await _authService.VerifyUserOwnsBudgetAsync(request.EntityId, request.UserId))
             {
-                return new BaseIdResponse(403, "Budget does not belong to the current user.");
+                return new BaseIdResponse(403, "Budget does not belong to the current user");
             }
             // Execute the query
             rowsAffected = await _connection.ExecuteAsync(query, new { BudgetId = request.EntityId });

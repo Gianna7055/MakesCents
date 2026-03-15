@@ -36,7 +36,7 @@ namespace MakesCentsBackend.Services.BusinessLogicLayer
             BaseIdResponse response;
 
             // Make sure the necessary information was sent
-            if (budget.UserId == 0 || budget.Month == Month.Unknown || budget.Year == 0 || string.IsNullOrEmpty(budget.BudgetName))
+            if (budget.UserId == 0 || budget.Month == Month.Unknown || budget.Year == 0 || budget.BudgetName == null)
             {
                 return new BaseIdResponse(400, "Missing information for budget creation");
             }
@@ -45,6 +45,18 @@ namespace MakesCentsBackend.Services.BusinessLogicLayer
             {
                 // Return an issue
                 return new BaseIdResponse(400, "Month must be between 1 and 12");
+            }
+            // Check if the year is okay
+            if (budget.Year < DateTime.Now.Year - 2 || budget.Year > DateTime.Now.Year + 1)
+            {
+                // Return the issue
+                return new BaseIdResponse(400, "Incorrect year for budget creation");
+            }
+            // Make sure the budget name is between 1 and 50 characters
+            if (!(budget.BudgetName.Length > 1) || !(budget.BudgetName.Length <= 50))
+            {
+                // Return the issue
+                return new BaseIdResponse(400, "Budget name must be between 1 and 50 characters");
             }
             // Call the DAO method
             response = await _budgetDAO.CreateBudgetAsync(budget);
@@ -89,6 +101,12 @@ namespace MakesCentsBackend.Services.BusinessLogicLayer
             {
                 return new BaseIdResponse(400, "Missing information for update");
             }
+            // Make sure the budget name is between 1 and 50 characters
+            if (budget.BudgetName != null && (!(budget.BudgetName.Length > 1) || !(budget.BudgetName.Length <= 50)))
+            {
+                // Return the issue
+                return new BaseIdResponse(400, "Budget name must be between 1 and 50 characters");
+            }
             // Call the Create User method in the DAO
             response = await _budgetDAO.UpdateBudgetAsync(budget);
             // Return the response
@@ -105,7 +123,7 @@ namespace MakesCentsBackend.Services.BusinessLogicLayer
             // Check to make sure the required information was provided
             if (request.EntityId == 0 || request.UserId == 0)
             {
-                return new BaseResponse(400, "Missing information for update");
+                return new BaseResponse(400, "Missing information for delete");
             }
             // Return a call the the DAO method
             return await _budgetDAO.DeleteBudgetAsync(request);

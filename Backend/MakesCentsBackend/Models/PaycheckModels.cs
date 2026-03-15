@@ -4,6 +4,7 @@
  * Sources: 
  */
 using MakesCentsBackend.Models.Enums;
+using TypeGen.Core.TypeAnnotations;
 
 namespace MakesCentsBackend.Models
 {
@@ -27,6 +28,7 @@ namespace MakesCentsBackend.Models
     /// <summary>
     /// Request method to create a paycheck
     /// </summary>
+    [ExportTsClass]
     public class CreatePaycheckRequest
     {
         public int BudgetId { get; set; } = 0;
@@ -42,6 +44,7 @@ namespace MakesCentsBackend.Models
     /// <summary>
     /// Response model for a DTO paycheck
     /// </summary>
+    [ExportTsInterface]
     public class CreatePaycheckResponse : BaseIdResponse
     {
         // Class level properties
@@ -61,6 +64,7 @@ namespace MakesCentsBackend.Models
     }
 
 
+    [ExportTsInterface]
     public class SummaryPaycheckResponse
     {
         // Class properties
@@ -72,6 +76,7 @@ namespace MakesCentsBackend.Models
     }
 
 
+    [ExportTsInterface]
     public class GetAllPaychecksResponse : BaseResponse
     {
         // Class properties
@@ -91,6 +96,7 @@ namespace MakesCentsBackend.Models
     }
 
 
+    [ExportTsInterface]
     public class GetPaycheckResponse : BaseResponse
     {
         // Class properties
@@ -102,6 +108,7 @@ namespace MakesCentsBackend.Models
     }
 
 
+    [ExportTsInterface]
     public class GetPaycheckDTOModel
     {
         // Class properties
@@ -116,6 +123,7 @@ namespace MakesCentsBackend.Models
     }
 
 
+    [ExportTsClass]
     public class UpdatePaycheckRequest
     {
         // Class properties
@@ -129,6 +137,7 @@ namespace MakesCentsBackend.Models
     }
 
 
+    [ExportTsInterface]
     public class UpdatePaycheckResponse : BaseIdResponse
     {
         // Class properties

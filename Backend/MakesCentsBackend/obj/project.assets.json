@@ -404,6 +404,19 @@
         "build": {
           "buildTransitive/net6.0/System.Text.Json.targets": {}
         }
+      },
+      "TypeGen/7.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/TypeGen.Core.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/TypeGen.Core.dll": {
+            "related": ".xml"
+          }
+        }
       }
     }
   },
@@ -1160,6 +1173,54 @@
         "system.text.json.nuspec",
         "useSharedDesignerContext.txt"
       ]
+    },
+    "TypeGen/7.0.0": {
+      "sha512": "Wa75efpUNY/S16fQyjq0z96AL1JlqR6J76PjbRuSlI/1/YWEUN1HvUR9fZX69Qe4MDHDRK4Yn7NvbYmZXLMzaA==",
+      "type": "package",
+      "path": "typegen/7.0.0",
+      "hasTools": true,
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE",
+        "lib/net10.0/TypeGen.Core.dll",
+        "lib/net10.0/TypeGen.Core.xml",
+        "lib/netstandard2.0/TypeGen.Core.dll",
+        "lib/netstandard2.0/TypeGen.Core.xml",
+        "tools/Microsoft.Extensions.DependencyInjection.Abstractions.dll",
+        "tools/Microsoft.Extensions.DependencyInjection.dll",
+        "tools/Namotion.Reflection.dll",
+        "tools/Newtonsoft.Json.dll",
+        "tools/NuGet.Common.dll",
+        "tools/NuGet.Configuration.dll",
+        "tools/NuGet.Frameworks.dll",
+        "tools/System.CommandLine.dll",
+        "tools/TypeGen.Cli.deps.json",
+        "tools/TypeGen.Cli.dll",
+        "tools/TypeGen.Cli.pdb",
+        "tools/TypeGen.Cli.runtimeconfig.json",
+        "tools/TypeGen.Core.dll",
+        "tools/TypeGen.Core.pdb",
+        "tools/TypeGen.Core.xml",
+        "tools/TypeGen.exe",
+        "tools/cs/System.CommandLine.resources.dll",
+        "tools/de/System.CommandLine.resources.dll",
+        "tools/es/System.CommandLine.resources.dll",
+        "tools/fr/System.CommandLine.resources.dll",
+        "tools/it/System.CommandLine.resources.dll",
+        "tools/ja/System.CommandLine.resources.dll",
+        "tools/ko/System.CommandLine.resources.dll",
+        "tools/pl/System.CommandLine.resources.dll",
+        "tools/pt-BR/System.CommandLine.resources.dll",
+        "tools/ru/System.CommandLine.resources.dll",
+        "tools/runtimes/unix/lib/netstandard1.3/System.Security.Cryptography.ProtectedData.dll",
+        "tools/runtimes/win/lib/netstandard1.3/System.Security.Cryptography.ProtectedData.dll",
+        "tools/tr/System.CommandLine.resources.dll",
+        "tools/zh-Hans/System.CommandLine.resources.dll",
+        "tools/zh-Hant/System.CommandLine.resources.dll",
+        "typegen.7.0.0.nupkg.sha512",
+        "typegen.nuspec"
+      ]
     }
   },
   "projectFileDependencyGroups": {
@@ -1171,7 +1232,8 @@
       "Microsoft.AspNetCore.Authentication.JwtBearer >= 8.0.22",
       "MySqlConnector >= 2.5.0",
       "Swashbuckle.AspNetCore >= 10.1.0",
-      "System.IdentityModel.Tokens.Jwt >= 8.15.0"
+      "System.IdentityModel.Tokens.Jwt >= 8.15.0",
+      "TypeGen >= 7.0.0"
     ]
   },
   "packageFolders": {
@@ -1255,6 +1317,10 @@
           "System.IdentityModel.Tokens.Jwt": {
             "target": "Package",
             "version": "[8.15.0, )"
+          },
+          "TypeGen": {
+            "target": "Package",
+            "version": "[7.0.0, )"
           }
         },
         "imports": [

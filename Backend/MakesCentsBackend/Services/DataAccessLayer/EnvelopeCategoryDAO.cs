@@ -47,7 +47,7 @@ namespace MakesCentsBackend.Services.DataAccessLayer
             // Make sure the budget belongs to the user
             if (!await _authService.VerifyUserOwnsBudgetAsync(envelopeCategory.BudgetId, envelopeCategory.UserId))
             {
-                return new BaseIdResponse(403, "Budget does not belong to the current user.");
+                return new BaseIdResponse(403, "Budget does not belong to the current user");
             }
             // Execute the request and get the new id for the envelope category
             try
@@ -89,7 +89,7 @@ namespace MakesCentsBackend.Services.DataAccessLayer
             // Make sure the budget belongs to the user
             if (!await _authService.VerifyUserOwnsBudgetAsync(request.EntityId, request.UserId))
             {
-                return new GetAllEnvelopeCategoriesResponse(403, "Budget does not belong to the current user.");
+                return new GetAllEnvelopeCategoriesResponse(403, "Budget does not belong to the current user");
             }
             // Set up the query to get the envelope categories
             query = """
@@ -152,7 +152,7 @@ namespace MakesCentsBackend.Services.DataAccessLayer
             // Make sure the envelope category belongs to the user
             if (!await _authService.VerifyUserOwnsEnvelopeCategoryAsync(envelopeCategory.EnvelopeCategoryId, envelopeCategory.UserId))
             {
-                return new BaseIdResponse(403, "Envelope category does not belong to the current user.", envelopeCategory.EnvelopeCategoryId);
+                return new BaseIdResponse(403, "Envelope category does not belong to the current user", envelopeCategory.EnvelopeCategoryId);
             }
             // Check each nullable field to see if update is necessary
             if (envelopeCategory.EnvelopeCategoryName != null)
@@ -226,7 +226,7 @@ namespace MakesCentsBackend.Services.DataAccessLayer
             // Make sure the envelope category belongs to the user
             if (!await _authService.VerifyUserOwnsEnvelopeCategoryAsync(request.EntityId, request.UserId))
             {
-                return new BaseIdResponse(403, "Envelope category does not belong to the current user.");
+                return new BaseIdResponse(403, "Envelope category does not belong to the current user");
             }
             // Execute the query
             rowsAffected = await _connection.ExecuteAsync(query, new { EnvelopeCategoryId = request.EntityId });

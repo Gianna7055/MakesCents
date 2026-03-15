@@ -4,6 +4,7 @@
  * Sources: 
  */
 using MakesCentsBackend.Models.Enums;
+using TypeGen.Core.TypeAnnotations;
 
 namespace MakesCentsBackend.Models
 {
@@ -24,6 +25,7 @@ namespace MakesCentsBackend.Models
     /// <summary>
     /// Request model to create a new transfer transaction
     /// </summary>
+    [ExportTsClass]
     public class CreateTransferTransactionRequest : CreateTransactionRequest
     {
         // Class properties
@@ -33,7 +35,8 @@ namespace MakesCentsBackend.Models
     }
 
 
-    public class CreateTransferTransactionResponse : CreateTransactionResponse
+    [ExportTsInterface]
+    public class CreateTransferTransactionResponse : BaseIdResponse
     {
         // Class level properties
         public int? TransferTransactionId { get; set; } = null;
@@ -74,6 +77,7 @@ namespace MakesCentsBackend.Models
     }
 
 
+    [ExportTsInterface]
     public class GetTransferTransactionDTOModel : GetTransactionDTOModel
     {
         // Class properties
@@ -84,6 +88,7 @@ namespace MakesCentsBackend.Models
     }
 
 
+    [ExportTsInterface]
     public class GetTransferTransactionDTOResponse : BaseResponse
     {
         // Class properties
@@ -94,6 +99,7 @@ namespace MakesCentsBackend.Models
     }
 
 
+    [ExportTsClass]
     public class UpdateTransferTransactionRequest : UpdateTransactionRequest
     {
         // Class properties

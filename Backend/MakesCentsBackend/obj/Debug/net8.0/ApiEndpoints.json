@@ -140,7 +140,7 @@
   {
     "ContainingType": "MakesCentsBackend.Controllers.BudgetController",
     "Method": "GetBudgetAsync",
-    "RelativePath": "api/budgets/year/{year}/month/{monthId}",
+    "RelativePath": "api/budgets/year/{year}/month/{month}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -151,8 +151,8 @@
         "IsRequired": true
       },
       {
-        "Name": "monthId",
-        "Type": "System.Int32",
+        "Name": "month",
+        "Type": "System.String",
         "IsRequired": true
       }
     ],

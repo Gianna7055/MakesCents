@@ -176,7 +176,7 @@
         }
       }
     },
-    "/api/budgets/year/{year}/month/{monthId}": {
+    "/api/budgets/year/{year}/month/{month}": {
       "get": {
         "tags": [
           "Budget"
@@ -192,12 +192,11 @@
             }
           },
           {
-            "name": "monthId",
+            "name": "month",
             "in": "path",
             "required": true,
             "schema": {
-              "type": "integer",
-              "format": "int32"
+              "$ref": "#/components/schemas/Month"
             }
           }
         ],

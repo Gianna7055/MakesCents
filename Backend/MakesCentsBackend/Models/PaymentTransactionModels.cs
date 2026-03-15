@@ -4,6 +4,7 @@
  * Sources: 
  */
 using MakesCentsBackend.Models.Enums;
+using TypeGen.Core.TypeAnnotations;
 
 namespace MakesCentsBackend.Models
 {
@@ -24,6 +25,7 @@ namespace MakesCentsBackend.Models
     /// <summary>
     /// Request model to create a new payment transaction
     /// </summary>
+    [ExportTsClass]
     public class CreatePaymentTransactionRequest : CreateTransactionRequest
     {
         // Class properties
@@ -37,7 +39,8 @@ namespace MakesCentsBackend.Models
     /// <summary>
     /// Response model for creating a payment transaction
     /// </summary>
-    public class CreatePaymentTransactionResponse : CreateTransactionResponse
+    [ExportTsInterface]
+    public class CreatePaymentTransactionResponse : BaseIdResponse
     {
 
         // Class level properties
@@ -58,6 +61,7 @@ namespace MakesCentsBackend.Models
     }
 
 
+    [ExportTsInterface]
     public class GetPaymentTransactionDTOModel : GetTransactionDTOModel
     {
         // Class properties
@@ -69,6 +73,8 @@ namespace MakesCentsBackend.Models
         public List<GetTransactionSplitDTOModel> TransactionSplits { get; set; } = new List<GetTransactionSplitDTOModel>();
     }
 
+
+    [ExportTsInterface]
     public class GetPaymentTransactionResponse : BaseResponse
     {
         // Class properties
@@ -79,6 +85,7 @@ namespace MakesCentsBackend.Models
     }
 
 
+    [ExportTsClass]
     public class UpdatePaymentTransactionRequest : UpdateTransactionRequest
     {
         // Class properties
@@ -91,6 +98,7 @@ namespace MakesCentsBackend.Models
     }
 
 
+    [ExportTsInterface]
     public class UpdatePaymentTransactionResponse : BaseIdResponse
     {
         // Class properties

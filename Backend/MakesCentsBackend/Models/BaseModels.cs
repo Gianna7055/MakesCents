@@ -3,11 +3,14 @@
  * Makes Cents
  * Sources: https://chatgpt.com/c/697ef15b-bf50-832d-87fb-4b27cae268fd (Optional<T>)
  */
+using TypeGen.Core.TypeAnnotations;
+
 namespace MakesCentsBackend.Models
 {
     /// <summary>
     /// A base response model with only a status and message
     /// </summary>
+    [ExportTsInterface]
     public class BaseResponse
     {
         // Class Level Properties
@@ -34,6 +37,7 @@ namespace MakesCentsBackend.Models
     /// <summary>
     /// Base Response for a create or edit function
     /// </summary>
+    [ExportTsInterface]
     public class BaseIdResponse : BaseResponse
     {
         // Class Level Properties

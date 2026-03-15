@@ -57,7 +57,7 @@ namespace MakesCentsBackend.Services.DataAccessLayer
                     // Make sure the budget belongs to the user
                     if (!await _authService.VerifyUserOwnsBudgetAsync(debtAccount.BudgetId, debtAccount.UserId, dbTransaction))
                     {
-                        return new CreateDebtAccountResponse(403, "Budget does not belong to the current user.");
+                        return new CreateDebtAccountResponse(403, "Budget does not belong to the current user");
                     }
                     // Query for insert for account table
                     query = """
@@ -238,7 +238,7 @@ namespace MakesCentsBackend.Services.DataAccessLayer
                 {
                     // Roll the transaction back
                     dbTransaction.Rollback();
-                    return new BaseIdResponse(403, "Debt account does not belong to the current user.", debtAccount.DebtAccountId);
+                    return new BaseIdResponse(403, "Debt account does not belong to the current user", debtAccount.DebtAccountId);
                 }
 
                 // Loop through each field to see if an update is necessary

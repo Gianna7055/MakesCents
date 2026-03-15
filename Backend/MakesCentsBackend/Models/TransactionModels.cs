@@ -4,6 +4,7 @@
  * Sources: 
  */
 using MakesCentsBackend.Models.Enums;
+using TypeGen.Core.TypeAnnotations;
 
 namespace MakesCentsBackend.Models
 {
@@ -26,6 +27,7 @@ namespace MakesCentsBackend.Models
     }
 
 
+    [ExportTsInterface]
     public class SummaryTransactionDTOModel
     {
         // Class properties
@@ -64,7 +66,7 @@ namespace MakesCentsBackend.Models
     /// <summary>
     /// Request model to create a new transaction
     /// </summary>
-    /// 
+    [ExportTsClass]
     public abstract class CreateTransactionRequest
     {
         public int BudgetId { get; set; } = 0;
@@ -73,27 +75,6 @@ namespace MakesCentsBackend.Models
         public DateOnly TransactionDate { get; set; } = DateOnly.MinValue;
         public decimal TotalAmount { get; set; } = 0m;
         public Optional<string?> Notes { get; set; }
-    }
-
-
-    /// <summary>
-    /// Response model for a transaction
-    /// </summary>
-    public class CreateTransactionResponse : BaseIdResponse
-    {
-        // Class level properties
-
-        /// <summary>
-        /// Parameterized constructor for a transaction response
-        /// </summary>
-        /// <param name="httpStatus"></param>
-        /// <param name="message"></param>
-        public CreateTransactionResponse(int httpStatus, string message) : base(httpStatus, message) { }
-
-        /// <summary>
-        /// Default constructor for a transaction response
-        /// </summary>
-        public CreateTransactionResponse() : base() { }
     }
 
 
@@ -107,6 +88,7 @@ namespace MakesCentsBackend.Models
     }
 
 
+    [ExportTsInterface]
     public class GetAllTransactionsDTOResponse : BaseResponse
     {
         public GetAllTransactionsDTOResponse(int httpStatus, string message) : base(httpStatus, message)
@@ -118,6 +100,7 @@ namespace MakesCentsBackend.Models
     }
 
 
+    [ExportTsInterface]
     public class GetTransactionDTOModel
     {
         // Class variables
@@ -145,6 +128,7 @@ namespace MakesCentsBackend.Models
     }
 
 
+    [ExportTsInterface]
     public class UpdateTransactionRequest
     {
         // Class properties

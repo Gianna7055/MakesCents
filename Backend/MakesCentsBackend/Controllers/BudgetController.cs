@@ -74,17 +74,18 @@ namespace MakesCentsBackend.Controllers
         /// <param name="monthId"></param>
         /// <returns></returns>
         [Authorize]
-        [HttpGet("year/{year}/month/{monthId}")]
-        public async Task<ActionResult> GetBudgetAsync(int year, int monthId)
+        [HttpGet("year/{year}/month/{month}")]
+        public async Task<ActionResult> GetBudgetAsync(int year, Month month)
         {
             // Declare and initialize
             GetBudgetResponse response;
             // Get the user id from the JWT token
             int userId = ClaimsPrincipalExtensions.GetUserId(User);
-            // Get the month enum from the month id
-            Month month = Enum.IsDefined(typeof(Month), monthId)
-                ? (Month)monthId
-                : Month.Unknown;
+            // Change Month=0 to Month.Unknown
+            if (month == 0)
+            {
+                month = Month.Unknown;
+            }
             GetBudgetRequest getBudgetRequest = new GetBudgetRequest(userId, month, year);
 
             // Call the logic method
@@ -96,9 +97,9 @@ namespace MakesCentsBackend.Controllers
                 {
                     status = response.HttpStatus,
                     message = response.Message,
-                    userId = response.GetBudgetDTO.UserId,
-                    monthId = response.GetBudgetDTO.Month,
-                    year = response.GetBudgetDTO.Year
+                    userId = userId,
+                    month = month,
+                    year = year
                 });
             }
             else if (response.HttpStatus != 200)
@@ -133,6 +134,11 @@ namespace MakesCentsBackend.Controllers
             // Get the user id from the JWT token
             int userId = ClaimsPrincipalExtensions.GetUserId(User);
 
+            // Make sure the budget is not null
+            if (budget == null)
+            {
+                return StatusCode(StatusCodes.Status400BadRequest, "Missing information for budget update");
+            }
             // Set the user id for the budget
             budget.UserId = userId;
             // Add the budget id to the request model
