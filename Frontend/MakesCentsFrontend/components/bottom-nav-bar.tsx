@@ -6,11 +6,36 @@ import { IconSymbol } from "./ui/icon-symbol";
 import { Colors } from "../constants/theme";
 
 const NAV_ITEMS = [
-  { label: "Home", path: "/home", icon: "house" as const, iconSet: "material" as const },
-  { label: "Budget", path: "/budget", icon: "banknote" as const, iconSet: "fontAwesome5" as const },
-  { label: "Transactions", path: "/transactions", icon: "wallet.bifold" as const, iconSet: "fontAwesome5" as const },
-  { label: "Accounts", path: "/accounts", icon: "buildings.columns.fill" as const, iconSet: "fontAwesome5" as const },
-  { label: "Profile", path: "/profile", icon: "person.crop.circle.fill" as const, iconSet: "fontAwesome5" as const },
+  {
+    label: "Home",
+    path: "/home",
+    icon: "house" as const,
+    iconSet: "material" as const,
+  },
+  {
+    label: "Budget",
+    path: "/budget",
+    icon: "banknote" as const,
+    iconSet: "fontAwesome5" as const,
+  },
+  {
+    label: "Transactions",
+    path: "/transactions",
+    icon: "wallet.bifold" as const,
+    iconSet: "fontAwesome5" as const,
+  },
+  {
+    label: "Accounts",
+    path: "/accounts",
+    icon: "building.columns.fill" as const,
+    iconSet: "fontAwesome5" as const,
+  },
+  {
+    label: "Profile",
+    path: "/profile",
+    icon: "person.crop.circle.fill" as const,
+    iconSet: "fontAwesome5" as const,
+  },
 ];
 
 export default function BottomNavBar() {
@@ -27,7 +52,9 @@ export default function BottomNavBar() {
     <View style={[styles.container, { paddingBottom: bottom || 10 }]}>
       {NAV_ITEMS.map((item) => {
         const active = isActive(item.path);
-        const color = active ? Colors.light.tabIconSelected : Colors.light.tabIconDefault;
+        const color = active
+          ? Colors.light.tabIconSelected
+          : Colors.light.tabIconDefault;
         return (
           <TouchableOpacity
             key={item.path}
@@ -35,7 +62,12 @@ export default function BottomNavBar() {
             onPress={() => router.replace(item.path as any)}
             activeOpacity={0.7}
           >
-            <IconSymbol name={item.icon} size={28} color={color} iconSet={item.iconSet} />
+            <IconSymbol
+              name={item.icon}
+              size={28}
+              color={color}
+              iconSet={item.iconSet}
+            />
             <Text style={[styles.label, { color }]}>{item.label}</Text>
           </TouchableOpacity>
         );
