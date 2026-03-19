@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { globalStyles } from "../../css/styles";
 import { Button } from "../../components/buttons";
@@ -16,6 +16,9 @@ import Input from "../../components/inputs";
 export default function Register() {
   // Get the router object
   const router = useRouter();
+  const [username, setUsername] = useState<string>("");
+  const [email, setEmail] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
 
   // Functions to handle button clicks
   const handleLoginClick = () => {
@@ -36,9 +39,27 @@ export default function Register() {
         />
       </View>
       <Text style={globalStyles.Title}>Login</Text>
-      <Input name="Username" placeholder="Value" type="text"></Input>
-      <Input name="Email" placeholder="Value" type="text"></Input>
-      <Input name="Password" placeholder="Value" type="password"></Input>
+      <Input
+        name="Username"
+        placeholder="Value"
+        type="text"
+        value={username}
+        onChangeText={setUsername}
+      ></Input>
+      <Input
+        name="Email"
+        placeholder="Value"
+        type="text"
+        value={email}
+        onChangeText={setEmail}
+      ></Input>
+      <Input
+        name="Password"
+        placeholder="Value"
+        type="password"
+        value={password}
+        onChangeText={setPassword}
+      ></Input>
       <Button name="Register" onPress={handleRegisterClick} />
       <Text style={styles.subtext}>Already have an account?</Text>
       <Button name="Login" variant="secondary" onPress={handleLoginClick} />

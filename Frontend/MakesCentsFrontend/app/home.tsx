@@ -16,7 +16,7 @@ export default function Home() {
 
   const logout = () => {
     // Go back to the login page
-    router.replace("/temp/temp");
+    router.replace("/login-register/login");
   };
   return (
     <SafeAreaView style={globalStyles.Screen}>
