@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\giannaross\\source\\repos\\MakesCents\\Backend\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{C2215582-B832-47FE-B364-C52CE86996E6}|MakesCentsBackend\\MakesCentsBackend.csproj|c:\\users\\giannaross\\source\\repos\\makescents\\backend\\makescentsbackend\\models\\accountmodels.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C2215582-B832-47FE-B364-C52CE86996E6}|MakesCentsBackend\\MakesCentsBackend.csproj|solutionrelative:makescentsbackend\\models\\accountmodels.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{C2215582-B832-47FE-B364-C52CE86996E6}|MakesCentsBackend\\MakesCentsBackend.csproj|c:\\users\\giannaross\\source\\repos\\makescents\\backend\\makescentsbackend\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{C2215582-B832-47FE-B364-C52CE86996E6}|MakesCentsBackend\\MakesCentsBackend.csproj|solutionrelative:makescentsbackend\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
@@ -59,6 +63,19 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "AccountModels.cs",
+              "DocumentMoniker": "C:\\Users\\giannaross\\source\\repos\\MakesCents\\Backend\\MakesCentsBackend\\Models\\AccountModels.cs",
+              "RelativeDocumentMoniker": "MakesCentsBackend\\Models\\AccountModels.cs",
+              "ToolTip": "C:\\Users\\giannaross\\source\\repos\\MakesCents\\Backend\\MakesCentsBackend\\Models\\AccountModels.cs",
+              "RelativeToolTip": "MakesCentsBackend\\Models\\AccountModels.cs",
+              "ViewState": "AgIAABgAAACAAAAAAAAYwB4AAAATAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-19T00:31:51.574Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "launchSettings.json",
               "DocumentMoniker": "C:\\Users\\giannaross\\source\\repos\\MakesCents\\Backend\\MakesCentsBackend\\Properties\\launchSettings.json",
               "RelativeDocumentMoniker": "MakesCentsBackend\\Properties\\launchSettings.json",
@@ -71,7 +88,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "BudgetLogic.cs",
               "DocumentMoniker": "C:\\Users\\giannaross\\source\\repos\\MakesCents\\Backend\\MakesCentsBackend\\Services\\BusinessLogicLayer\\BudgetLogic.cs",
               "RelativeDocumentMoniker": "MakesCentsBackend\\Services\\BusinessLogicLayer\\BudgetLogic.cs",
@@ -83,7 +100,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "BudgetController.cs",
               "DocumentMoniker": "C:\\Users\\giannaross\\source\\repos\\MakesCents\\Backend\\MakesCentsBackend\\Controllers\\BudgetController.cs",
               "RelativeDocumentMoniker": "MakesCentsBackend\\Controllers\\BudgetController.cs",
