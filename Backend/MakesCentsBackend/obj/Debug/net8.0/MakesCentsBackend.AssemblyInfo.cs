@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MakesCentsBackend")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1ae86ed6ad0d9696fe4510835259ab278702dd61")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+639e0ca82e0dbceee545222e37a7ad95ec7de820")]
 [assembly: System.Reflection.AssemblyProductAttribute("MakesCentsBackend")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MakesCentsBackend")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
