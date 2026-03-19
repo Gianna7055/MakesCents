@@ -64,7 +64,7 @@
               "RelativeDocumentMoniker": "MakesCentsBackend\\Properties\\launchSettings.json",
               "ToolTip": "C:\\Users\\giannaross\\source\\repos\\MakesCents\\Backend\\MakesCentsBackend\\Properties\\launchSettings.json",
               "RelativeToolTip": "MakesCentsBackend\\Properties\\launchSettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACQAAAAvAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACgAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
               "WhenOpened": "2026-03-16T23:07:20.102Z",
               "EditorCaption": ""
@@ -79,7 +79,8 @@
               "RelativeToolTip": "MakesCentsBackend\\Services\\BusinessLogicLayer\\BudgetLogic.cs",
               "ViewState": "AgIAAGoAAAAAYmZmZmYuwH0AAABMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-12T21:56:05.881Z"
+              "WhenOpened": "2026-03-12T21:56:05.881Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -91,7 +92,8 @@
               "RelativeToolTip": "MakesCentsBackend\\Controllers\\BudgetController.cs",
               "ViewState": "AgIAAEoAAAAgNTMzM/MwwI4AAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-12T05:31:29.77Z"
+              "WhenOpened": "2026-03-12T05:31:29.77Z",
+              "EditorCaption": ""
             }
           ]
         }
