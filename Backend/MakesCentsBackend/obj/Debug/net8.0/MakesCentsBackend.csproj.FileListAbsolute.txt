@@ -1,7 +1,6 @@
 C:\Users\giannaross\source\repos\MakesCents\Backend\MakesCentsBackend\bin\Debug\net8.0\appsettings.Development.json
 C:\Users\giannaross\source\repos\MakesCents\Backend\MakesCentsBackend\bin\Debug\net8.0\appsettings.json
 C:\Users\giannaross\source\repos\MakesCents\Backend\MakesCentsBackend\bin\Debug\net8.0\libman.json
-C:\Users\giannaross\source\repos\MakesCents\Backend\MakesCentsBackend\bin\Debug\net8.0\typegen.json
 C:\Users\giannaross\source\repos\MakesCents\Backend\MakesCentsBackend\bin\Debug\net8.0\MakesCentsBackend.staticwebassets.endpoints.json
 C:\Users\giannaross\source\repos\MakesCents\Backend\MakesCentsBackend\bin\Debug\net8.0\MakesCentsBackend.exe
 C:\Users\giannaross\source\repos\MakesCents\Backend\MakesCentsBackend\bin\Debug\net8.0\MakesCentsBackend.deps.json
@@ -56,3 +55,4 @@ C:\Users\giannaross\source\repos\MakesCents\Backend\MakesCentsBackend\obj\Debug\
 C:\Users\giannaross\source\repos\MakesCents\Backend\MakesCentsBackend\obj\Debug\net8.0\MakesCentsBackend.pdb
 C:\Users\giannaross\source\repos\MakesCents\Backend\MakesCentsBackend\obj\Debug\net8.0\MakesCentsBackend.genruntimeconfig.cache
 C:\Users\giannaross\source\repos\MakesCents\Backend\MakesCentsBackend\obj\Debug\net8.0\ref\MakesCentsBackend.dll
+C:\Users\giannaross\source\repos\MakesCents\Backend\MakesCentsBackend\bin\Debug\net8.0\tgconfig.json

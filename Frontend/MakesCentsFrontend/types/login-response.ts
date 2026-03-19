@@ -6,6 +6,5 @@
 import { BaseIdResponse } from "./base-id-response";
 
 export interface LoginResponse extends BaseIdResponse {
-    passwordHash: string;
     token: string;
 }

@@ -87,7 +87,7 @@ namespace MakesCentsBackend.Services.DataAccessLayer
         /// </summary>
         /// <param name="user"></param>
         /// <returns></returns>
-        public async Task<LoginResponse> FindUserByUsernameOrEmailAsync(string usernameOrEmail)
+        public async Task<FindUserResponse> FindUserByUsernameOrEmailAsync(string usernameOrEmail)
         {
             // Declare and initialize
             query =
@@ -112,18 +112,18 @@ namespace MakesCentsBackend.Services.DataAccessLayer
             catch (Exception ex)
             {
                 // Return any errors
-                return new LoginResponse(400, ex.Message);
+                return new FindUserResponse(400, ex.Message);
             }
             // Make sure a user was found
             if (foundUser != null)
             {
                 // Return the found users id and a success message
-                return new LoginResponse(200, "User Found", foundUser.UserId, foundUser.PasswordHash);
+                return new FindUserResponse(200, "User Found", foundUser.UserId, foundUser.PasswordHash);
             }
             else
             {
                 // Return an error that the user was not found
-                return new LoginResponse(400, "User not found");
+                return new FindUserResponse(400, "User not found");
             }
         }
 

@@ -144,15 +144,10 @@ namespace MakesCentsBackend.Models
         public string Password { get; set; } = "";
     }
 
-    /// <summary>
-    /// Response model for the login process
-    /// </summary>
-    [ExportTsInterface]
-    public class LoginResponse : BaseIdResponse
+    public class FindUserResponse : BaseIdResponse
     {
         public string PasswordHash { get; set; } = "";
         public string Token { get; set; } = "";
-
         /// <summary>
         /// Parameterized constructor for user id, username or email, password hash, and message
         /// </summary>
@@ -160,10 +155,34 @@ namespace MakesCentsBackend.Models
         /// <param name="usernameOrEmail"></param>
         /// <param name="passwordHash"></param>
         /// <param name="message"></param>
-        public LoginResponse(int status, string message, int userId, string passwordHash) : base(status, message, userId)
+        public FindUserResponse(int status, string message, int userId, string passwordHash) : base(status, message, userId)
         {
             PasswordHash = passwordHash;
         }
+
+        /// <summary>
+        /// Parameterized constructor for status, message, and user id
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <param name="message"></param>
+        public FindUserResponse(int status, string message, int userId) : base(status, message, userId) { }
+
+        /// <summary>
+        /// Parameterized constructor for status and message
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <param name="message"></param>
+        public FindUserResponse(int status, string message) : base(status, message, -1) { }
+    }
+
+
+    /// <summary>
+    /// Response model for the login process
+    /// </summary>
+    [ExportTsInterface]
+    public class LoginResponse : BaseIdResponse
+    {
+        public string Token { get; set; } = "";
 
         /// <summary>
         /// Parameterized constructor for status, message, and user id
@@ -178,6 +197,8 @@ namespace MakesCentsBackend.Models
         /// <param name="userId"></param>
         /// <param name="message"></param>
         public LoginResponse(int status, string message) : base(status, message, -1) { }
+
+        public LoginResponse() : base() { }
     }
 
 

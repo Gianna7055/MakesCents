@@ -94,7 +94,8 @@ namespace MakesCentsBackend.Services.BusinessLogicLayer
         public async Task<LoginResponse> LoginUserAsync(LoginRequest user)
         {
             // Declare and initialize
-            LoginResponse response;
+            LoginResponse loginResponse = new LoginResponse();
+            FindUserResponse findUserResponse;
 
             // Make sure a username/email (saved in usernameOrEmail) and password were provided
             if (String.IsNullOrEmpty(user.UsernameOrEmail) || String.IsNullOrEmpty(user.Password))
@@ -108,33 +109,41 @@ namespace MakesCentsBackend.Services.BusinessLogicLayer
             }
 
             // Get the user from the DAO based on the username
-            response = await _userDAO.FindUserByUsernameOrEmailAsync(user.UsernameOrEmail);
+            findUserResponse = await _userDAO.FindUserByUsernameOrEmailAsync(user.UsernameOrEmail);
             // Check if the response status is 400
-            if (response.HttpStatus == 400)
+            if (findUserResponse.HttpStatus == 400)
             {
                 // Check if the error was due to an unfound user
-                if (response.Message == "User not found")
+                if (findUserResponse.Message == "User not found")
                 {
-                    response.HttpStatus = 401;
+                    loginResponse.HttpStatus = 401;
                     // Return the invalid login response
-                    response.Message = "Invalid username or password";
+                    loginResponse.Message = "Invalid username or password";
                 }
-                // Else, return the error as is
-                return response;
+                else
+                {
+                    // Map the find user response to a login response
+                    loginResponse.HttpStatus = findUserResponse.HttpStatus;
+                    loginResponse.Message = findUserResponse.Message;
+                }
+                // Return the login response
+                return loginResponse;
             }
             // Validate the users password
-            if (PasswordHasher.VerifyPassword(user.Password, response.PasswordHash))
+            if (PasswordHasher.VerifyPassword(user.Password, findUserResponse.PasswordHash))
             {
                 // Generate a JWT token and add it to the response
-                response.Token = _jwtService.GenerateToken(response.Id);
-                response.Message = "Login successful";
+                loginResponse.Id = findUserResponse.Id;
+                loginResponse.HttpStatus = findUserResponse.HttpStatus;
+                loginResponse.Token = _jwtService.GenerateToken(loginResponse.Id);
+                loginResponse.Message = "Login successful";
                 // Return the successful login
-                return response;
+                return loginResponse;
             }
             // Else, return the invalid login response
-            response.HttpStatus = 401;
-            response.Message = "Invalid password or password";
-            return response;
+            loginResponse.HttpStatus = 401;
+            loginResponse.Message = "Invalid password or password";
+            return loginResponse;
         }
 
         /// <summary>
