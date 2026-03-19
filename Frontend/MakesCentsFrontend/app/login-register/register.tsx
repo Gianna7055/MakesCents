@@ -1,26 +1,30 @@
-import React, { useState } from "react";
+import React from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { globalStyles } from "../../css/styles";
 import { Button } from "../../components/buttons";
 import { useRouter } from "expo-router";
-import { Dimensions, Image, StyleSheet, View, Text } from "react-native";
+import {
+  Dimensions,
+  Image,
+  StyleSheet,
+  View,
+  Text,
+  KeyboardAvoidingView,
+} from "react-native";
 import Input from "../../components/inputs";
 
-export default function Login() {
+export default function Register() {
   // Get the router object
   const router = useRouter();
-  const [usernameOrEmail, setUsernameOrEmail] = useState<string>("");
-  const [password, setPassword] = useState<string>("");
 
   // Functions to handle button clicks
   const handleLoginClick = () => {
     // Add nav here
-    router.replace("/home");
+    router.replace("/login-register/login");
   };
   const handleRegisterClick = () => {
     // Add nav here
-    console.log("In Register click EH");
-    router.replace("/login-register/register");
+    router.replace("/home");
   };
 
   return (
@@ -32,27 +36,12 @@ export default function Login() {
         />
       </View>
       <Text style={globalStyles.Title}>Login</Text>
-      <Input
-        name="Username/Email"
-        placeholder="Value"
-        type="text"
-        value={usernameOrEmail}
-        onChangeText={setUsernameOrEmail}
-      ></Input>
-      <Input
-        name="Password"
-        placeholder="Value"
-        type="password"
-        value={password}
-        onChangeText={setPassword}
-      ></Input>
-      <Button name="Login" onPress={handleLoginClick} />
-      <Text style={styles.subtext}>Don't have an account?</Text>
-      <Button
-        name="Register"
-        variant="secondary"
-        onPress={handleRegisterClick}
-      />
+      <Input name="Username" placeholder="Value" type="text"></Input>
+      <Input name="Email" placeholder="Value" type="text"></Input>
+      <Input name="Password" placeholder="Value" type="password"></Input>
+      <Button name="Register" onPress={handleRegisterClick} />
+      <Text style={styles.subtext}>Already have an account?</Text>
+      <Button name="Login" variant="secondary" onPress={handleLoginClick} />
     </SafeAreaView>
   );
 }

@@ -1,0 +1,6 @@
+﻿{
+  "assemblies": [
+    "bin/Debug/net8.0/MakesCentsBackend.dll"
+  ],
+  "outputPath": "../../Frontend/MakesCentsFrontend/types"
+}

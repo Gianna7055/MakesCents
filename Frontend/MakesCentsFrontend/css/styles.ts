@@ -13,6 +13,11 @@ export const globalStyles = StyleSheet.create({
         right: 0,
         bottom: 0,
     },
+    Title: {
+        fontFamily: 'Roboto',
+        fontSize: 24,
+        textAlign: "center",
+    },
 });
 
 

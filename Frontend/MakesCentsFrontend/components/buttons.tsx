@@ -1,6 +1,4 @@
-import React from "react";
 import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
-import { globalStyles } from "../css/styles";
 
 type ButtonProps = {
   name: string;
@@ -20,22 +18,22 @@ const Button = ({
   containerStyle,
 }: ButtonProps) => {
   const buttonStyle = [
-    styles.ButtonWrapper,
+    styles.buttonWrapper,
     variant === "primary"
-      ? styles.PrimaryButtonWrapper
-      : styles.SecondaryButtonWrapper,
+      ? styles.primaryButtonWrapper
+      : styles.secondaryButtonWrapper,
     style,
   ];
 
   const buttonTextStyle = [
-    styles.ButtonText,
+    styles.buttonText,
     variant === "primary"
-      ? styles.PrimaryButtonText
-      : styles.SecondaryButtonText,
+      ? styles.primaryButtonText
+      : styles.secondaryButtonText,
     textStyle,
   ];
   return (
-    <View style={[styles.ButtonContainer, containerStyle]}>
+    <View style={[styles.buttonContainer, containerStyle]}>
       <TouchableOpacity onPress={onPress}>
         <View style={[buttonStyle, style]}>
           <Text style={[buttonTextStyle, textStyle]}>{name}</Text>
@@ -49,33 +47,33 @@ export { Button };
 
 const styles = StyleSheet.create({
   // Base button styles
-  ButtonContainer: {
+  buttonContainer: {
     paddingTop: 15,
     alignItems: "center",
   },
-  ButtonWrapper: {
+  buttonWrapper: {
     borderRadius: 10,
     justifyContent: "center",
     alignItems: "center",
     height: 50,
     paddingHorizontal: 15,
   },
-  ButtonText: {
+  buttonText: {
     fontSize: 15,
     fontWeight: "bold",
   },
   // Primary button styles
-  PrimaryButtonWrapper: {
+  primaryButtonWrapper: {
     backgroundColor: "#088940",
   },
-  PrimaryButtonText: {
+  primaryButtonText: {
     color: "#FFF",
   },
   // Secondary button styles
-  SecondaryButtonWrapper: {
+  secondaryButtonWrapper: {
     backgroundColor: "#B0E3BF",
   },
-  SecondaryButtonText: {
+  secondaryButtonText: {
     color: "#000",
   },
 });

@@ -3,8 +3,8 @@ import React from "react";
 import { Platform, View, type StyleProp, type TextStyle } from "react-native";
 import MaterialIcons from "@expo/vector-icons/MaterialIcons";
 import FontAwesome5 from "@expo/vector-icons/FontAwesome5";
-import { SymbolView } from "expo-symbols";
 import { OpaqueColorValue } from "react-native";
+import { SymbolView } from "expo-symbols";
 
 /**
  * Only include the exact SF Symbols names you’re using.
