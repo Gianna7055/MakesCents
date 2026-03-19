@@ -6,23 +6,23 @@ import {
 import { globalStyles, safePadding } from "../css/styles";
 import BottomNavBar from "../components/bottom-nav-bar";
 import { ScrollView, Text } from "react-native";
-import { useRouter } from "expo-router";
 import { Button } from "../components/buttons";
+import { useRouter } from "expo-router";
 
-export default function Home() {
+export default function Profile() {
   // Create a router
   const router = useRouter();
   const insets = useSafeAreaInsets();
 
   const logout = () => {
     // Go back to the login page
-    router.replace("/temp/temp");
+    router.replace("/login-register/login");
   };
   return (
     <SafeAreaView style={globalStyles.Screen}>
       <ScrollView contentContainerStyle={safePadding(insets)}>
-        <Text>Home Screen</Text>
-        <Button name="Temp" onPress={logout} />
+        <Text>Profile Screen</Text>
+        <Button name="Log Out" onPress={logout} />
       </ScrollView>
       <BottomNavBar />
     </SafeAreaView>

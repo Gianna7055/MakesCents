@@ -4,9 +4,8 @@ import { globalStyles } from "../../css/styles";
 import { Button } from "../../components/buttons";
 import { useRouter } from "expo-router";
 
-
 export default function Login() {
-// Get the router object
+  // Get the router object
   const router = useRouter();
 
   // Functions to handle back and next button clicks
@@ -15,9 +14,10 @@ export default function Login() {
     router.replace("/home");
   };
 
-    return (
-        <SafeAreaView style={globalStyles.Screen}>
-            <Button name="Login" onPress={handleLoginClick} />
-        </SafeAreaView>
-    );
+  return (
+    <SafeAreaView style={globalStyles.Screen}>
+      <Button name="Login" onPress={handleLoginClick} />
+      <Button name="Login" variant="secondary" onPress={handleLoginClick} />
+    </SafeAreaView>
+  );
 }
