@@ -12,6 +12,10 @@ import {
   KeyboardAvoidingView,
 } from "react-native";
 import Input from "../../components/inputs";
+import { RegisterRequest } from "../../types/register-request";
+import { RegisterResponse } from "../../types/register-response";
+import { makesCentsUrl } from "../../data/datasource";
+import { tokenStorage } from "../../data/tokenStorage";
 
 export default function Register() {
   // Get the router object
@@ -21,13 +25,60 @@ export default function Register() {
   const [password, setPassword] = useState<string>("");
 
   // Functions to handle button clicks
+  async function handleRegisterClick() {
+    // Check if the username, email, or password is blank
+    if (!username || !email || !password) {
+      console.log("Missing username, email, or password");
+      /* 
+      --------------------------------------------------------------------------------------------
+        DEAL WITH MISSING USERNAME/EMAIL OR PASSWORD
+      --------------------------------------------------------------------------------------------
+      */
+    } else {
+      // Create the register request
+      const request = new RegisterRequest();
+      request.username = username;
+      request.email = email;
+      request.passwordHash = password;
+
+      // Call the API
+      const rawResponse: Response = await fetch(
+        makesCentsUrl + "/api/user/register",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(request),
+        },
+      );
+
+      const text = await rawResponse.text();
+      console.log("Status:", rawResponse.status);
+      console.log("Raw response:", text);
+
+      // Get the response from the raw response
+      const response: RegisterResponse = JSON.parse(text);
+
+      // Check the response code
+      if (response.httpStatus == 201) {
+        // Save the token from the response
+        tokenStorage.saveToken(response.token);
+        console.log("ID token from response:", response.token);
+
+        // Redirect to the home page
+        router.replace("/home");
+      } else {
+        console.log("Login failed");
+        /* 
+          --------------------------------------------------------------------------------------------
+            DEAL WITH REGISTER FAIL
+          --------------------------------------------------------------------------------------------
+          */
+      }
+    }
+  }
   const handleLoginClick = () => {
     // Add nav here
     router.replace("/login-register/login");
-  };
-  const handleRegisterClick = () => {
-    // Add nav here
-    router.replace("/home");
   };
 
   return (

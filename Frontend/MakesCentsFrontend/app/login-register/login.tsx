@@ -14,15 +14,18 @@ import {
 import Input from "../../components/inputs";
 import { LoginRequest } from "../../types/login-request";
 import { LoginResponse } from "../../types/login-response";
+import { makesCentsUrl } from "../../data/datasource";
+import { tokenStorage } from "../../data/tokenStorage";
 
-export default function Register() {
+export default function Login() {
   // Get the router object
   const router = useRouter();
   const [usernameOrEmail, setUsernameOrEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
 
   // Functions to handle button clicks
-  const handleLoginClick = () => {
+  async function handleLoginClick() {
+    console.log("In login click EH");
     // Check if the username/email or password is blank
     if (!usernameOrEmail || !password) {
       console.log("Missing Username/Email or Password");
@@ -31,18 +34,58 @@ export default function Register() {
         DEAL WITH MISSING USERNAME/EMAIL OR PASSWORD
       --------------------------------------------------------------------------------------------
       */
-    }
-    // Create the login request
-    const request = new LoginRequest();
-    request.usernameOrEmail = usernameOrEmail;
-    request.password = password;
+    } else {
+      console.log("Username/email:", usernameOrEmail);
+      console.log("Password:", password);
+      // Create the login request
+      const request = new LoginRequest();
+      request.usernameOrEmail = usernameOrEmail;
+      request.password = password;
 
-    /*const response: LoginResponse = await fetch("/api/user/login", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(request),
-    });*/
-  };
+      console.log("Request:", request);
+
+      // Call the API
+      const rawResponse: Response = await fetch(
+        makesCentsUrl + "/api/user/login",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(request),
+        },
+      );
+      console.log("Fetch complete");
+
+      console.log("Status:", rawResponse.status);
+      console.log("Response:", rawResponse.body);
+
+      console.log("Fetch complete");
+
+      const text = await rawResponse.text();
+      console.log("Status:", rawResponse.status);
+      console.log("Raw response:", text);
+
+      // Get the response from the raw response
+      const response: LoginResponse = JSON.parse(text);
+      console.log("Response:", response);
+
+      // Check the response code
+      if (response.httpStatus == 200) {
+        // Save the token from the response
+        tokenStorage.saveToken(response.token);
+        console.log("ID token from response:", response.token);
+
+        // Redirect to the home page
+        router.replace("/home");
+      } else {
+        console.log("Login failed");
+        /* 
+      --------------------------------------------------------------------------------------------
+        DEAL WITH LOGIN FAIL
+      --------------------------------------------------------------------------------------------
+      */
+      }
+    }
+  }
   const handleRegisterClick = () => {
     // Add nav here
     router.replace("/login-register/register");

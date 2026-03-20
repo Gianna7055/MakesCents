@@ -17,21 +17,23 @@ type InputProps = {
   onChangeText: (text: string) => void;
 };
 
-const Input = (input: InputProps) => {
+const Input = (props: InputProps) => {
   /* Logic */
   // Determine if this is a password field
-  const isPassword = input.type === "password";
+  const isPassword = props.type === "password";
 
   return (
     <View style={styles.inputContainer}>
-      <Text style={styles.inputHeader}>{input.name}</Text>
+      <Text style={styles.inputHeader}>{props.name}</Text>
       <KeyboardAvoidingView
         behavior={Platform.OS === "ios" ? "padding" : "height"}
       >
         <TextInput
           style={styles.input}
-          placeholder={input.placeholder}
+          placeholder={props.placeholder}
           secureTextEntry={isPassword}
+          value={props.value}
+          onChangeText={props.onChangeText}
         />
       </KeyboardAvoidingView>
     </View>

@@ -1,1 +1,1 @@
-export const makesCentsUrl: string = 'https://10.211.55.3:7234';
+export const makesCentsUrl: string = 'http://10.211.55.3:5047';
