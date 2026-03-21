@@ -3,24 +3,68 @@
   "WorkspaceRootPath": "C:\\Users\\giannaross\\source\\repos\\MakesCents\\Backend\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{C2215582-B832-47FE-B364-C52CE86996E6}|MakesCentsBackend\\MakesCentsBackend.csproj|c:\\users\\giannaross\\source\\repos\\makescents\\backend\\makescentsbackend\\services\\businesslogiclayer\\userlogic.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C2215582-B832-47FE-B364-C52CE86996E6}|MakesCentsBackend\\MakesCentsBackend.csproj|solutionrelative:makescentsbackend\\services\\businesslogiclayer\\userlogic.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C2215582-B832-47FE-B364-C52CE86996E6}|MakesCentsBackend\\MakesCentsBackend.csproj|c:\\users\\giannaross\\source\\repos\\makescents\\backend\\makescentsbackend\\services\\dataaccesslayer\\envelopedao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C2215582-B832-47FE-B364-C52CE86996E6}|MakesCentsBackend\\MakesCentsBackend.csproj|solutionrelative:makescentsbackend\\services\\dataaccesslayer\\envelopedao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C2215582-B832-47FE-B364-C52CE86996E6}|MakesCentsBackend\\MakesCentsBackend.csproj|c:\\users\\giannaross\\source\\repos\\makescents\\backend\\makescentsbackend\\services\\dataaccesslayer\\paymenttransactiondao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C2215582-B832-47FE-B364-C52CE86996E6}|MakesCentsBackend\\MakesCentsBackend.csproj|solutionrelative:makescentsbackend\\services\\dataaccesslayer\\paymenttransactiondao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C2215582-B832-47FE-B364-C52CE86996E6}|MakesCentsBackend\\MakesCentsBackend.csproj|c:\\users\\giannaross\\source\\repos\\makescents\\backend\\makescentsbackend\\services\\dataaccesslayer\\accountdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C2215582-B832-47FE-B364-C52CE86996E6}|MakesCentsBackend\\MakesCentsBackend.csproj|solutionrelative:makescentsbackend\\services\\dataaccesslayer\\accountdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C2215582-B832-47FE-B364-C52CE86996E6}|MakesCentsBackend\\MakesCentsBackend.csproj|c:\\users\\giannaross\\source\\repos\\makescents\\backend\\makescentsbackend\\controllers\\paymenttransactioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C2215582-B832-47FE-B364-C52CE86996E6}|MakesCentsBackend\\MakesCentsBackend.csproj|solutionrelative:makescentsbackend\\controllers\\paymenttransactioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C2215582-B832-47FE-B364-C52CE86996E6}|MakesCentsBackend\\MakesCentsBackend.csproj|c:\\users\\giannaross\\source\\repos\\makescents\\backend\\makescentsbackend\\models\\paymenttransactionmodels.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C2215582-B832-47FE-B364-C52CE86996E6}|MakesCentsBackend\\MakesCentsBackend.csproj|solutionrelative:makescentsbackend\\models\\paymenttransactionmodels.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C2215582-B832-47FE-B364-C52CE86996E6}|MakesCentsBackend\\MakesCentsBackend.csproj|c:\\users\\giannaross\\source\\repos\\makescents\\backend\\makescentsbackend\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C2215582-B832-47FE-B364-C52CE86996E6}|MakesCentsBackend\\MakesCentsBackend.csproj|solutionrelative:makescentsbackend\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C2215582-B832-47FE-B364-C52CE86996E6}|MakesCentsBackend\\MakesCentsBackend.csproj|c:\\users\\giannaross\\source\\repos\\makescents\\backend\\makescentsbackend\\models\\transactionmodels.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C2215582-B832-47FE-B364-C52CE86996E6}|MakesCentsBackend\\MakesCentsBackend.csproj|solutionrelative:makescentsbackend\\models\\transactionmodels.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C2215582-B832-47FE-B364-C52CE86996E6}|MakesCentsBackend\\MakesCentsBackend.csproj|c:\\users\\giannaross\\source\\repos\\makescents\\backend\\makescentsbackend\\models\\converters\\optionaldbconverter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C2215582-B832-47FE-B364-C52CE86996E6}|MakesCentsBackend\\MakesCentsBackend.csproj|solutionrelative:makescentsbackend\\models\\converters\\optionaldbconverter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C2215582-B832-47FE-B364-C52CE86996E6}|MakesCentsBackend\\MakesCentsBackend.csproj|c:\\users\\giannaross\\source\\repos\\makescents\\backend\\makescentsbackend\\models\\converters\\optionaljsonconverter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C2215582-B832-47FE-B364-C52CE86996E6}|MakesCentsBackend\\MakesCentsBackend.csproj|solutionrelative:makescentsbackend\\models\\converters\\optionaljsonconverter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C2215582-B832-47FE-B364-C52CE86996E6}|MakesCentsBackend\\MakesCentsBackend.csproj|c:\\users\\giannaross\\source\\repos\\makescents\\backend\\makescentsbackend\\services\\dataaccesslayer\\paycheckdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C2215582-B832-47FE-B364-C52CE86996E6}|MakesCentsBackend\\MakesCentsBackend.csproj|solutionrelative:makescentsbackend\\services\\dataaccesslayer\\paycheckdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{C2215582-B832-47FE-B364-C52CE86996E6}|MakesCentsBackend\\MakesCentsBackend.csproj|c:\\users\\giannaross\\source\\repos\\makescents\\backend\\makescentsbackend\\services\\dataaccesslayer\\userdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C2215582-B832-47FE-B364-C52CE86996E6}|MakesCentsBackend\\MakesCentsBackend.csproj|solutionrelative:makescentsbackend\\services\\dataaccesslayer\\userdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{C2215582-B832-47FE-B364-C52CE86996E6}|MakesCentsBackend\\MakesCentsBackend.csproj|c:\\users\\giannaross\\source\\repos\\makescents\\backend\\makescentsbackend\\services\\businesslogiclayer\\userlogic.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C2215582-B832-47FE-B364-C52CE86996E6}|MakesCentsBackend\\MakesCentsBackend.csproj|solutionrelative:makescentsbackend\\services\\businesslogiclayer\\userlogic.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C2215582-B832-47FE-B364-C52CE86996E6}|MakesCentsBackend\\MakesCentsBackend.csproj|c:\\users\\giannaross\\source\\repos\\makescents\\backend\\makescentsbackend\\models\\usermodels.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C2215582-B832-47FE-B364-C52CE86996E6}|MakesCentsBackend\\MakesCentsBackend.csproj|solutionrelative:makescentsbackend\\models\\usermodels.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{C2215582-B832-47FE-B364-C52CE86996E6}|MakesCentsBackend\\MakesCentsBackend.csproj|c:\\users\\giannaross\\source\\repos\\makescents\\backend\\makescentsbackend\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C2215582-B832-47FE-B364-C52CE86996E6}|MakesCentsBackend\\MakesCentsBackend.csproj|solutionrelative:makescentsbackend\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C2215582-B832-47FE-B364-C52CE86996E6}|MakesCentsBackend\\MakesCentsBackend.csproj|c:\\users\\giannaross\\source\\repos\\makescents\\backend\\makescentsbackend\\models\\accountmodels.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C2215582-B832-47FE-B364-C52CE86996E6}|MakesCentsBackend\\MakesCentsBackend.csproj|solutionrelative:makescentsbackend\\models\\accountmodels.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{C2215582-B832-47FE-B364-C52CE86996E6}|MakesCentsBackend\\MakesCentsBackend.csproj|c:\\users\\giannaross\\source\\repos\\makescents\\backend\\makescentsbackend\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{C2215582-B832-47FE-B364-C52CE86996E6}|MakesCentsBackend\\MakesCentsBackend.csproj|solutionrelative:makescentsbackend\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C2215582-B832-47FE-B364-C52CE86996E6}|MakesCentsBackend\\MakesCentsBackend.csproj|c:\\users\\giannaross\\source\\repos\\makescents\\backend\\makescentsbackend\\models\\accountmodels.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C2215582-B832-47FE-B364-C52CE86996E6}|MakesCentsBackend\\MakesCentsBackend.csproj|solutionrelative:makescentsbackend\\models\\accountmodels.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{C2215582-B832-47FE-B364-C52CE86996E6}|MakesCentsBackend\\MakesCentsBackend.csproj|c:\\users\\giannaross\\source\\repos\\makescents\\backend\\makescentsbackend\\services\\businesslogiclayer\\budgetlogic.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -38,7 +82,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 9,
+          "SelectedChildIndex": 10,
           "Children": [
             {
               "$type": "Bookmark",
@@ -74,46 +118,163 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "TransactionModels.cs",
+              "DocumentMoniker": "C:\\Users\\giannaross\\source\\repos\\MakesCents\\Backend\\MakesCentsBackend\\Models\\TransactionModels.cs",
+              "RelativeDocumentMoniker": "MakesCentsBackend\\Models\\TransactionModels.cs",
+              "ToolTip": "C:\\Users\\giannaross\\source\\repos\\MakesCents\\Backend\\MakesCentsBackend\\Models\\TransactionModels.cs",
+              "RelativeToolTip": "MakesCentsBackend\\Models\\TransactionModels.cs",
+              "ViewState": "AgIAACsAAAAAAAAAAAAwwEwAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-21T03:26:35.67Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "OptionalDBConverter.cs",
+              "DocumentMoniker": "C:\\Users\\giannaross\\source\\repos\\MakesCents\\Backend\\MakesCentsBackend\\Models\\Converters\\OptionalDBConverter.cs",
+              "RelativeDocumentMoniker": "MakesCentsBackend\\Models\\Converters\\OptionalDBConverter.cs",
+              "ToolTip": "C:\\Users\\giannaross\\source\\repos\\MakesCents\\Backend\\MakesCentsBackend\\Models\\Converters\\OptionalDBConverter.cs",
+              "RelativeToolTip": "MakesCentsBackend\\Models\\Converters\\OptionalDBConverter.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-21T02:13:42.282Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "PaymentTransactionDAO.cs",
+              "DocumentMoniker": "C:\\Users\\giannaross\\source\\repos\\MakesCents\\Backend\\MakesCentsBackend\\Services\\DataAccessLayer\\PaymentTransactionDAO.cs",
+              "RelativeDocumentMoniker": "MakesCentsBackend\\Services\\DataAccessLayer\\PaymentTransactionDAO.cs",
+              "ToolTip": "C:\\Users\\giannaross\\source\\repos\\MakesCents\\Backend\\MakesCentsBackend\\Services\\DataAccessLayer\\PaymentTransactionDAO.cs",
+              "RelativeToolTip": "MakesCentsBackend\\Services\\DataAccessLayer\\PaymentTransactionDAO.cs",
+              "ViewState": "AgIAAE8AAAAAEAAAAAD+v2QAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-21T02:13:07.96Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "PaycheckDAO.cs",
+              "DocumentMoniker": "C:\\Users\\giannaross\\source\\repos\\MakesCents\\Backend\\MakesCentsBackend\\Services\\DataAccessLayer\\PaycheckDAO.cs",
+              "RelativeDocumentMoniker": "MakesCentsBackend\\Services\\DataAccessLayer\\PaycheckDAO.cs",
+              "ToolTip": "C:\\Users\\giannaross\\source\\repos\\MakesCents\\Backend\\MakesCentsBackend\\Services\\DataAccessLayer\\PaycheckDAO.cs",
+              "RelativeToolTip": "MakesCentsBackend\\Services\\DataAccessLayer\\PaycheckDAO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-21T02:13:07.266Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "OptionalJsonConverter.cs",
+              "DocumentMoniker": "C:\\Users\\giannaross\\source\\repos\\MakesCents\\Backend\\MakesCentsBackend\\Models\\Converters\\OptionalJsonConverter.cs",
+              "RelativeDocumentMoniker": "MakesCentsBackend\\Models\\Converters\\OptionalJsonConverter.cs",
+              "ToolTip": "C:\\Users\\giannaross\\source\\repos\\MakesCents\\Backend\\MakesCentsBackend\\Models\\Converters\\OptionalJsonConverter.cs",
+              "RelativeToolTip": "MakesCentsBackend\\Models\\Converters\\OptionalJsonConverter.cs",
+              "ViewState": "AgIAADkAAACAmpmZmRklwGUAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-21T02:09:04.383Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "PaymentTransactionModels.cs",
+              "DocumentMoniker": "C:\\Users\\giannaross\\source\\repos\\MakesCents\\Backend\\MakesCentsBackend\\Models\\PaymentTransactionModels.cs",
+              "RelativeDocumentMoniker": "MakesCentsBackend\\Models\\PaymentTransactionModels.cs",
+              "ToolTip": "C:\\Users\\giannaross\\source\\repos\\MakesCents\\Backend\\MakesCentsBackend\\Models\\PaymentTransactionModels.cs",
+              "RelativeToolTip": "MakesCentsBackend\\Models\\PaymentTransactionModels.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAADwvxwAAABBAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-21T01:25:23.863Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "PaymentTransactionController.cs",
+              "DocumentMoniker": "C:\\Users\\giannaross\\source\\repos\\MakesCents\\Backend\\MakesCentsBackend\\Controllers\\PaymentTransactionController.cs",
+              "RelativeDocumentMoniker": "MakesCentsBackend\\Controllers\\PaymentTransactionController.cs",
+              "ToolTip": "C:\\Users\\giannaross\\source\\repos\\MakesCents\\Backend\\MakesCentsBackend\\Controllers\\PaymentTransactionController.cs",
+              "RelativeToolTip": "MakesCentsBackend\\Controllers\\PaymentTransactionController.cs",
+              "ViewState": "AgIAABYAAABAZmZmZmYswC4AAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-21T01:22:06.44Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "UserModels.cs",
+              "DocumentMoniker": "C:\\Users\\giannaross\\source\\repos\\MakesCents\\Backend\\MakesCentsBackend\\Models\\UserModels.cs",
+              "RelativeDocumentMoniker": "MakesCentsBackend\\Models\\UserModels.cs",
+              "ToolTip": "C:\\Users\\giannaross\\source\\repos\\MakesCents\\Backend\\MakesCentsBackend\\Models\\UserModels.cs",
+              "RelativeToolTip": "MakesCentsBackend\\Models\\UserModels.cs",
+              "ViewState": "AgIAAGMAAAAAMzMzM7M0wGwAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-19T22:44:36.094Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\giannaross\\source\\repos\\MakesCents\\Backend\\MakesCentsBackend\\Program.cs",
+              "RelativeDocumentMoniker": "MakesCentsBackend\\Program.cs",
+              "ToolTip": "C:\\Users\\giannaross\\source\\repos\\MakesCents\\Backend\\MakesCentsBackend\\Program.cs",
+              "RelativeToolTip": "MakesCentsBackend\\Program.cs",
+              "ViewState": "AgIAAA0AAAAARDMzMzMrwCkAAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-19T22:21:07.441Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
               "Title": "UserDAO.cs",
               "DocumentMoniker": "C:\\Users\\giannaross\\source\\repos\\MakesCents\\Backend\\MakesCentsBackend\\Services\\DataAccessLayer\\UserDAO.cs",
               "RelativeDocumentMoniker": "MakesCentsBackend\\Services\\DataAccessLayer\\UserDAO.cs",
               "ToolTip": "C:\\Users\\giannaross\\source\\repos\\MakesCents\\Backend\\MakesCentsBackend\\Services\\DataAccessLayer\\UserDAO.cs",
               "RelativeToolTip": "MakesCentsBackend\\Services\\DataAccessLayer\\UserDAO.cs",
-              "ViewState": "AgIAAGQAAAAANTMzM7MqwH0AAAArAAAAAAAAAA==",
+              "ViewState": "AgIAAEwAAACAZWZmZiYgwH8AAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-03-19T18:40:54.39Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 11,
               "Title": "UserLogic.cs",
               "DocumentMoniker": "C:\\Users\\giannaross\\source\\repos\\MakesCents\\Backend\\MakesCentsBackend\\Services\\BusinessLogicLayer\\UserLogic.cs",
               "RelativeDocumentMoniker": "MakesCentsBackend\\Services\\BusinessLogicLayer\\UserLogic.cs",
               "ToolTip": "C:\\Users\\giannaross\\source\\repos\\MakesCents\\Backend\\MakesCentsBackend\\Services\\BusinessLogicLayer\\UserLogic.cs",
               "RelativeToolTip": "MakesCentsBackend\\Services\\BusinessLogicLayer\\UserLogic.cs",
-              "ViewState": "AgIAAHMAAACA0czMzAwrwHsAAAARAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAJIAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-03-19T18:39:31.522Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 13,
               "Title": "UserController.cs",
               "DocumentMoniker": "C:\\Users\\giannaross\\source\\repos\\MakesCents\\Backend\\MakesCentsBackend\\Controllers\\UserController.cs",
               "RelativeDocumentMoniker": "MakesCentsBackend\\Controllers\\UserController.cs",
               "ToolTip": "C:\\Users\\giannaross\\source\\repos\\MakesCents\\Backend\\MakesCentsBackend\\Controllers\\UserController.cs",
               "RelativeToolTip": "MakesCentsBackend\\Controllers\\UserController.cs",
-              "ViewState": "AgIAAEIAAAAA/P////8HwF4AAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAADgAAABA1MzMzMwtwEYAAAA+AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-03-19T17:13:09.303Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 15,
               "Title": "AccountModels.cs",
               "DocumentMoniker": "C:\\Users\\giannaross\\source\\repos\\MakesCents\\Backend\\MakesCentsBackend\\Models\\AccountModels.cs",
               "RelativeDocumentMoniker": "MakesCentsBackend\\Models\\AccountModels.cs",
@@ -121,36 +282,11 @@
               "RelativeToolTip": "MakesCentsBackend\\Models\\AccountModels.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAACAAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-19T00:31:51.574Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-19T00:31:51.574Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "launchSettings.json",
-              "DocumentMoniker": "C:\\Users\\giannaross\\source\\repos\\MakesCents\\Backend\\MakesCentsBackend\\Properties\\launchSettings.json",
-              "RelativeDocumentMoniker": "MakesCentsBackend\\Properties\\launchSettings.json",
-              "ToolTip": "C:\\Users\\giannaross\\source\\repos\\MakesCents\\Backend\\MakesCentsBackend\\Properties\\launchSettings.json",
-              "RelativeToolTip": "MakesCentsBackend\\Properties\\launchSettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACQAAAAvAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2026-03-16T23:07:20.102Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "BudgetLogic.cs",
-              "DocumentMoniker": "C:\\Users\\giannaross\\source\\repos\\MakesCents\\Backend\\MakesCentsBackend\\Services\\BusinessLogicLayer\\BudgetLogic.cs",
-              "RelativeDocumentMoniker": "MakesCentsBackend\\Services\\BusinessLogicLayer\\BudgetLogic.cs",
-              "ToolTip": "C:\\Users\\giannaross\\source\\repos\\MakesCents\\Backend\\MakesCentsBackend\\Services\\BusinessLogicLayer\\BudgetLogic.cs",
-              "RelativeToolTip": "MakesCentsBackend\\Services\\BusinessLogicLayer\\BudgetLogic.cs",
-              "ViewState": "AgIAAGoAAAAAYmZmZmYuwH0AAABMAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-12T21:56:05.881Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 17,
               "Title": "BudgetController.cs",
               "DocumentMoniker": "C:\\Users\\giannaross\\source\\repos\\MakesCents\\Backend\\MakesCentsBackend\\Controllers\\BudgetController.cs",
               "RelativeDocumentMoniker": "MakesCentsBackend\\Controllers\\BudgetController.cs",
@@ -159,6 +295,62 @@
               "ViewState": "AgIAAEoAAAAgNTMzM/MwwI4AAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-03-12T05:31:29.77Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "launchSettings.json",
+              "DocumentMoniker": "C:\\Users\\giannaross\\source\\repos\\MakesCents\\Backend\\MakesCentsBackend\\Properties\\launchSettings.json",
+              "RelativeDocumentMoniker": "MakesCentsBackend\\Properties\\launchSettings.json",
+              "ToolTip": "C:\\Users\\giannaross\\source\\repos\\MakesCents\\Backend\\MakesCentsBackend\\Properties\\launchSettings.json",
+              "RelativeToolTip": "MakesCentsBackend\\Properties\\launchSettings.json",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAkwCgAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-03-16T23:07:20.102Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "BudgetLogic.cs",
+              "DocumentMoniker": "C:\\Users\\giannaross\\source\\repos\\MakesCents\\Backend\\MakesCentsBackend\\Services\\BusinessLogicLayer\\BudgetLogic.cs",
+              "RelativeDocumentMoniker": "MakesCentsBackend\\Services\\BusinessLogicLayer\\BudgetLogic.cs",
+              "ToolTip": "C:\\Users\\giannaross\\source\\repos\\MakesCents\\Backend\\MakesCentsBackend\\Services\\BusinessLogicLayer\\BudgetLogic.cs",
+              "RelativeToolTip": "MakesCentsBackend\\Services\\BusinessLogicLayer\\BudgetLogic.cs",
+              "ViewState": "AgIAAGoAAAAAYmZmZmYuwH0AAABMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-12T21:56:05.881Z"
+            }
+          ]
+        },
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "AccountDAO.cs",
+              "DocumentMoniker": "C:\\Users\\giannaross\\source\\repos\\MakesCents\\Backend\\MakesCentsBackend\\Services\\DataAccessLayer\\AccountDAO.cs",
+              "RelativeDocumentMoniker": "MakesCentsBackend\\Services\\DataAccessLayer\\AccountDAO.cs",
+              "ToolTip": "C:\\Users\\giannaross\\source\\repos\\MakesCents\\Backend\\MakesCentsBackend\\Services\\DataAccessLayer\\AccountDAO.cs*",
+              "RelativeToolTip": "MakesCentsBackend\\Services\\DataAccessLayer\\AccountDAO.cs*",
+              "ViewState": "AgIAABEAAADAmpmZmZkEwDgAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-21T03:38:01.934Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "EnvelopeDAO.cs",
+              "DocumentMoniker": "C:\\Users\\giannaross\\source\\repos\\MakesCents\\Backend\\MakesCentsBackend\\Services\\DataAccessLayer\\EnvelopeDAO.cs",
+              "RelativeDocumentMoniker": "MakesCentsBackend\\Services\\DataAccessLayer\\EnvelopeDAO.cs",
+              "ToolTip": "C:\\Users\\giannaross\\source\\repos\\MakesCents\\Backend\\MakesCentsBackend\\Services\\DataAccessLayer\\EnvelopeDAO.cs*",
+              "RelativeToolTip": "MakesCentsBackend\\Services\\DataAccessLayer\\EnvelopeDAO.cs*",
+              "ViewState": "AgIAAEUAAAAAODMzMzPjv2EAAABhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-21T03:40:27.263Z",
+              "EditorCaption": ""
             }
           ]
         }

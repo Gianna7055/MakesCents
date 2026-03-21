@@ -85,17 +85,17 @@ namespace MakesCentsBackend.Services.DataAccessLayer
         /// <param name="envelopeId"></param>
         /// <param name="amount"></param>
         /// <returns></returns>
-        public async Task<bool> UpdateEnvelopeRemainingAmountAsync(int? userId, int? envelopeId, decimal? amount, MySqlTransaction dbTransaction)
+        public async Task<bool> UpdateEnvelopeRemainingAmountAsync(int? userId, int? envelopeId, decimal? amount, MySqlTransaction dbTransaction, MySqlConnection connection)
         {
             // Declare and initialize
             query = """
                 UPDATE envelope
-                SET balance = balance + @Amount
-                WHERE envelopeId = @EnvelopeId;
+                SET remaining_amount = remaining_amount + @Amount
+                WHERE envelope_id = @EnvelopeId;
                 """;
 
             // Make sure the envelope belongs to the user
-            if (!await _authService.VerifyUserOwnsEnvelopeAsync(envelopeId, userId))
+            if (!await _authService.VerifyUserOwnsEnvelopeAsync(envelopeId, userId, dbTransaction))
             {
                 return false;
             }
@@ -103,7 +103,7 @@ namespace MakesCentsBackend.Services.DataAccessLayer
             try
             {
                 // Execute
-                await _connection.ExecuteAsync(query, new
+                await connection.ExecuteAsync(query, new
                 {
                     Amount = amount,
                     EnvelopeId = envelopeId

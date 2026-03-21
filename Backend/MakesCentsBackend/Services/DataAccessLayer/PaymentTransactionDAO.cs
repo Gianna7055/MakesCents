@@ -78,7 +78,7 @@ namespace MakesCentsBackend.Services.DataAccessLayer
                     query = """
                         INSERT INTO transaction (budget_id, transaction_date, total_amount, is_reconciled, notes, transaction_type_id)
                         VALUES (@BudgetId, @TransactionDate, @TotalAmount, false, @Notes, 2);
-                        SELECT LAST_INTSERT_ID();
+                        SELECT LAST_INSERT_ID();
                         """;
                     // Execute the query and get the transaction id
                     transactionId = await _connection.QuerySingleAsync<int>(query, paymentTransaction, dbTransaction);
@@ -91,13 +91,13 @@ namespace MakesCentsBackend.Services.DataAccessLayer
                     query = """
                         INSERT INTO payment_transaction (transaction_id, account_id, payment_transaction_type_id, merchant_source_name, check_number)
                         VALUES (@TransactionId, @AccountId, @PaymentTransactionType, @MerchantSourceName, @CheckNumber);
-                        SELECT LAST_INTSERT_ID();
+                        SELECT LAST_INSERT_ID();
                         """;
                     paymentTransactionId = await _connection.QuerySingleAsync<int>(query, paymentTransaction, dbTransaction);
                     // Set the payment transaction id in the response
                     response.PaymentTransactionId = paymentTransactionId;
                     // Update the balance of the account
-                    if (!await _accountDAO.UpdateAccountBalanceAsync(paymentTransaction.UserId, paymentTransaction.AccountId, paymentTransaction.TotalAmount, dbTransaction))
+                    if (!await _accountDAO.UpdateAccountBalanceAsync(paymentTransaction.UserId, paymentTransaction.AccountId, paymentTransaction.TotalAmount, dbTransaction, _connection))
                     {
                         // Roll the transaction back
                         dbTransaction.Rollback();
@@ -117,7 +117,7 @@ namespace MakesCentsBackend.Services.DataAccessLayer
                         // Execute the query
                         transactionSplitId = await _connection.QuerySingleAsync<int>(query, split, dbTransaction);
                         // Update the remaining amount of the envelope
-                        if (!await _envelopeDAO.UpdateEnvelopeRemainingAmountAsync(paymentTransaction.UserId, split.EnvelopeId, split.Amount, dbTransaction))
+                        if (!await _envelopeDAO.UpdateEnvelopeRemainingAmountAsync(paymentTransaction.UserId, split.EnvelopeId, split.Amount, dbTransaction, _connection))
                         {
                             // Roll the transaction back
                             dbTransaction.Rollback();
