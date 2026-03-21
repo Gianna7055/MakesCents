@@ -52,6 +52,7 @@ Thumbs.db
 **/BenchmarkDotNet.Artifacts/
 **/*.db
 **/appsettings.*.json
+**/appsettings.json
 
 # ================================
 # Node / React Native / Expo
