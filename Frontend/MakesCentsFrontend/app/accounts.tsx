@@ -12,7 +12,7 @@ export default function Accounts() {
   return (
     <SafeAreaView style={globalStyles.Screen}>
       <ScrollView contentContainerStyle={safePadding(insets)}>
-        <Text>Accounts Screen</Text>
+        <Text style={globalStyles.Title}>Accounts</Text>
       </ScrollView>
       <BottomNavBar />
     </SafeAreaView>

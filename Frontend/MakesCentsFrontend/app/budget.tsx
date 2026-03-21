@@ -12,7 +12,7 @@ export default function Budget() {
   return (
     <SafeAreaView style={globalStyles.Screen}>
       <ScrollView contentContainerStyle={safePadding(insets)}>
-        <Text>Budget Screen</Text>
+        <Text style={globalStyles.Title}>Budget</Text>
       </ScrollView>
       <BottomNavBar />
     </SafeAreaView>

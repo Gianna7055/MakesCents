@@ -14,7 +14,7 @@ import {
 import Input from "../../components/inputs";
 import { LoginRequest } from "../../types/login-request";
 import { LoginResponse } from "../../types/login-response";
-import makesCentsAxios, { makesCentsUrl } from "../../data/datasource";
+import { makesCentsPublicAxios } from "../../data/datasource";
 import axios, { AxiosResponse } from "axios";
 import { storage } from "../../data/storage";
 
@@ -27,8 +27,8 @@ export default function Login() {
   // Functions to handle button clicks
   async function handleLoginClick() {
     // Log the username/email and password
-    console.log("Username/Email:", usernameOrEmail);
-    console.log("Password:", password);
+    //console.log("Username/Email:", usernameOrEmail);
+    //console.log("Password:", password);
 
     // Check if the username/email or password is blank
     if (!usernameOrEmail || !password) {
@@ -45,12 +45,12 @@ export default function Login() {
       request.password = password;
 
       // Log the request
-      console.log("Request:", request);
+      //console.log("Request:", request);
 
       // Set up a try-catch to ensure safe-failure
       try {
         // Call the API
-        const axiosResponse: AxiosResponse = await makesCentsAxios.post(
+        const axiosResponse: AxiosResponse = await makesCentsPublicAxios.post(
           "/api/user/login",
           request,
         );
@@ -59,7 +59,7 @@ export default function Login() {
         const response: LoginResponse = axiosResponse.data;
 
         // Log the response
-        console.log("Response:", response);
+        //console.log("Response:", response);
 
         // Check the response code
         if (response.httpStatus == 200) {

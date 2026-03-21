@@ -1,6 +1,10 @@
 import React, { useState } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { globalStyles, safePadding, screenHeight } from "../../css/globalStyles";
+import {
+  globalStyles,
+  safePadding,
+  screenHeight,
+} from "../../css/globalStyles";
 import { Button } from "../../components/buttons";
 import { useRouter } from "expo-router";
 import {
@@ -14,9 +18,9 @@ import {
 import Input from "../../components/inputs";
 import { RegisterRequest } from "../../types/register-request";
 import { RegisterResponse } from "../../types/register-response";
-import makesCentsAxios, { makesCentsUrl } from "../../data/datasource";
+import { makesCentsPublicAxios } from "../../data/datasource";
 
-import axios, { AxiosResponse } from "axios";
+import { AxiosResponse } from "axios";
 import { storage } from "../../data/storage";
 
 export default function Register() {
@@ -46,7 +50,7 @@ export default function Register() {
       // Set up a try-catch to ensure safe-failure
       try {
         // Call the API
-        const axiosResponse: AxiosResponse = await makesCentsAxios.post(
+        const axiosResponse: AxiosResponse = await makesCentsPublicAxios.post(
           "/api/user/register",
           request,
         );

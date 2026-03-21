@@ -5,7 +5,7 @@ import {
 } from "react-native-safe-area-context";
 import BottomNavBar from "../components/bottom-nav-bar";
 import { ScrollView, Text } from "react-native";
-import { AxiosResponse } from "axios";
+import axios, { AxiosError, AxiosResponse } from "axios";
 import makesCentsAxios from "../data/datasource";
 import { GetAllTransactionsDTOResponse } from "../types/get-all-transactions-dto-response";
 import { SummaryTransactionDTOModel } from "../types/summary-transaction-dto-model";
@@ -31,19 +31,31 @@ export default function Transactions() {
       setToken(storedToken || "");
       setBudgetId(storedBudgetId || 0);
 
-      // Load transactions from the backend
-      const axiosResponse: AxiosResponse = await makesCentsAxios.get(
-        `/api/transaction/${storedBudgetId}`,
-        {
-          headers: {
-            Authorization: `Bearer ${storedToken}`,
+      try {
+        // Load transactions from the backend
+        const axiosResponse: AxiosResponse = await makesCentsAxios.get(
+          `/api/transaction/${storedBudgetId}`,
+          {
+            headers: {
+              Authorization: `Bearer ${storedToken}`,
+            },
           },
-        },
-      );
+        );
 
-      // Get the response
-      const response: GetAllTransactionsDTOResponse = axiosResponse.data;
-      setTransactions(response.transactions);
+        // Get the response
+        const response: GetAllTransactionsDTOResponse = axiosResponse.data;
+        setTransactions(response.transactions);
+      } catch (error) {
+        if (axios.isAxiosError(error)) {
+          console.log(
+            "Axios error:",
+            error.response?.status,
+            error.response?.data,
+          );
+        } else {
+          console.log("Error:", error);
+        }
+      }
     };
 
     // Main method call
