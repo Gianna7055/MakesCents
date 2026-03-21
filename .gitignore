@@ -18,8 +18,8 @@ Thumbs.db
 # Backend: ASP.NET Core / .NET
 # ================================
 # Build outputs
-/Backend/bin/
-/Backend/obj/
+**/bin/
+**/obj/
 
 # User-specific files
 /Backend/*.user
