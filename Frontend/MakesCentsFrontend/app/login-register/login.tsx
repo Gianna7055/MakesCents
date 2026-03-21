@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { globalStyles, screenHeight } from "../../css/globalStyles";
+import { globalStyles } from "../../css/styles";
 import { Button } from "../../components/buttons";
 import { useRouter } from "expo-router";
 import {
@@ -14,9 +14,8 @@ import {
 import Input from "../../components/inputs";
 import { LoginRequest } from "../../types/login-request";
 import { LoginResponse } from "../../types/login-response";
-import makesCentsAxios, { makesCentsUrl } from "../../data/datasource";
-import { storage } from "../../data/storage";
-import axios, { AxiosResponse } from "axios";
+import { makesCentsUrl } from "../../data/datasource";
+import { tokenStorage } from "../../data/tokenStorage";
 
 export default function Login() {
   // Get the router object
@@ -26,10 +25,7 @@ export default function Login() {
 
   // Functions to handle button clicks
   async function handleLoginClick() {
-    // Log the username/email and password
-    console.log("Username/Email:", usernameOrEmail);
-    console.log("Password:", password);
-
+    console.log("In login click EH");
     // Check if the username/email or password is blank
     if (!usernameOrEmail || !password) {
       console.log("Missing Username/Email or Password");
@@ -39,57 +35,57 @@ export default function Login() {
       --------------------------------------------------------------------------------------------
       */
     } else {
+      console.log("Username/email:", usernameOrEmail);
+      console.log("Password:", password);
       // Create the login request
       const request = new LoginRequest();
       request.usernameOrEmail = usernameOrEmail;
       request.password = password;
 
-      // Log the request
       console.log("Request:", request);
 
-      // Set up a try-catch to ensure safe-failure
-      try {
-        // Call the API
-        const axiosResponse: AxiosResponse = await makesCentsAxios.post(
-          "/api/user/login",
-          request,
-        );
+      // Call the API
+      const rawResponse: Response = await fetch(
+        makesCentsUrl + "/api/user/login",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(request),
+        },
+      );
+      console.log("Fetch complete");
 
-        // Get the response
-        const response: LoginResponse = axiosResponse.data;
+      console.log("Status:", rawResponse.status);
+      console.log("Response:", rawResponse.body);
 
-        // Log the response
-        console.log("Response:", response);
+      console.log("Fetch complete");
 
-        // Check the response code
-        if (response.httpStatus == 200) {
-          // Save the token from the response
-          storage.saveToken(response.token);
-          console.log("ID token from response:", response.token);
+      const text = await rawResponse.text();
+      console.log("Status:", rawResponse.status);
+      console.log("Raw response:", text);
 
-          // Redirect to the home page
-          router.replace("/home");
-        } else {
-          console.log("Login failed");
-          /* 
-          --------------------------------------------------------------------------------------------
-            DEAL WITH LOGIN FAIL
-          --------------------------------------------------------------------------------------------
-        */
-        }
-      } catch (error: any) {
-        console.log("Error:", error);
-        console.log("Status:", error.response?.status);
-        console.log("Response:", error.response?.data);
+      // Get the response from the raw response
+      const response: LoginResponse = JSON.parse(text);
+      console.log("Response:", response);
+
+      // Check the response code
+      if (response.httpStatus == 200) {
+        // Save the token from the response
+        tokenStorage.saveToken(response.token);
+        console.log("ID token from response:", response.token);
+
+        // Redirect to the home page
+        router.replace("/home");
+      } else {
+        console.log("Login failed");
         /* 
-        --------------------------------------------------------------------------------------------
-          DEAL WITH LOGIN FAIL
-        --------------------------------------------------------------------------------------------
-        */
+      --------------------------------------------------------------------------------------------
+        DEAL WITH LOGIN FAIL
+      --------------------------------------------------------------------------------------------
+      */
       }
     }
   }
-
   const handleRegisterClick = () => {
     // Add nav here
     router.replace("/login-register/register");
@@ -97,29 +93,27 @@ export default function Login() {
 
   return (
     <SafeAreaView style={globalStyles.Screen}>
-      <View style={globalStyles.horizLogoContainer}>
+      <View style={styles.logoContainer}>
         <Image
           source={require("../../assets/images/MakesCentsHorizLogo.png")}
-          style={globalStyles.horizLogo}
+          style={styles.logo}
         />
       </View>
       <Text style={globalStyles.Title}>Login</Text>
-      <KeyboardAvoidingView>
-        <Input
-          name="Username/Email"
-          placeholder="Value"
-          type="text"
-          value={usernameOrEmail}
-          onChangeText={setUsernameOrEmail}
-        ></Input>
-        <Input
-          name="Password"
-          placeholder="Value"
-          type="password"
-          value={password}
-          onChangeText={setPassword}
-        ></Input>
-      </KeyboardAvoidingView>
+      <Input
+        name="Username/Email"
+        placeholder="Value"
+        type="text"
+        value={usernameOrEmail}
+        onChangeText={setUsernameOrEmail}
+      ></Input>
+      <Input
+        name="Password"
+        placeholder="Value"
+        type="password"
+        value={password}
+        onChangeText={setPassword}
+      ></Input>
       <Button name="Login" onPress={handleLoginClick} />
       <Text style={styles.subtext}>Don't have an account?</Text>
       <Button
@@ -132,8 +126,19 @@ export default function Login() {
 }
 
 // Get screen width once
+const screenWidth = Dimensions.get("window").width;
+const screenHeight = Dimensions.get("window").height;
 
 const styles = StyleSheet.create({
+  logoContainer: {
+    alignItems: "center",
+    marginTop: screenHeight * 0.02,
+  },
+  logo: {
+    width: screenWidth * 0.8, // 60% of screen width
+    height: screenWidth * 0.8 * 0.5, // maintain aspect ratio ~2:1
+    resizeMode: "contain",
+  },
   subtext: {
     textAlign: "center",
     paddingTop: screenHeight * 0.02,

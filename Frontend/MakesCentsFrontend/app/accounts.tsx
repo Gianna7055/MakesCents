@@ -3,7 +3,7 @@ import {
   SafeAreaView,
   useSafeAreaInsets,
 } from "react-native-safe-area-context";
-import { globalStyles, safePadding } from "../css/globalStyles";
+import { globalStyles, safePadding } from "../css/styles";
 import BottomNavBar from "../components/bottom-nav-bar";
 import { ScrollView, Text } from "react-native";
 

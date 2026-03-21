@@ -73,7 +73,7 @@ namespace MakesCentsBackend.Services.DataAccessLayer
                     query = """
                         INSERT INTO transaction (budget_id, transaction_date, total_amount, is_reconciled, notes, transaction_type_id)
                         VALUES (@BudgetId, @TransactionDate, @TotalAmount, false, @Notes, 2);
-                        SELECT LAST_INSERT_ID();
+                        SELECT LAST_INTSERT_ID();
                         """;
                     // Execute the query and get the transaction id
                     transactionId = await _connection.QuerySingleAsync<int>(query, transferTransaction, dbTransaction);

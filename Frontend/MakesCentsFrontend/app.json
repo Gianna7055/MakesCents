@@ -14,8 +14,7 @@
           "NSAllowsArbitraryLoads": true,
           "NSAllowsLocalNetworking": true
         }
-      },
-      "bundleIdentifier": "com.gianna7055.MakesCentsFrontend"
+      }
     },
     "android": {
       "adaptiveIcon": {
@@ -24,8 +23,7 @@
         "backgroundImage": "./assets/images/android-icon-background.png",
         "monochromeImage": "./assets/images/android-icon-monochrome.png"
       },
-      "predictiveBackGestureEnabled": false,
-      "package": "com.gianna7055.MakesCentsFrontend"
+      "predictiveBackGestureEnabled": false
     },
     "web": {
       "output": "static",

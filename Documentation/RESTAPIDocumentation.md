@@ -1940,8 +1940,8 @@ Create a new transfer transaction
 | Body   | `totalAmount`             | `decimal` | The total amount of the transfer transaction                    |
 | Body   | `isReconciled`            | `boolean` | If the transfer transaction has been reconciled                 |
 | Body   | `notes`                   | `string`  | Notes for the transfer transaction - nullable                   |
-| Body   | `transferFromId`                  | `int`     | The id for account or envelope the transfer transaction is from |
-| Body   | `transferToId`                    | `int`     | The id for account or envelope the transfer transaction is to   |
+| Body   | `fromId`                  | `int`     | The id for account or envelope the transfer transaction is from |
+| Body   | `toId`                    | `int`     | The id for account or envelope the transfer transaction is to   |
 | Body   | `transferTransactionType` | `string`  | The transfer type for the new transfer transaction              |
 
 #### **Request Example**
@@ -1953,8 +1953,8 @@ Create a new transfer transaction
   "totalAmount": 1234.56,
   "isReconciled": false,
   "notes": "A note for my transfer transaction",
-  "transferFromId": 3,
-  "transferToId": 1,
+  "fromId": 3,
+  "toId": 1,
   "transferTransactionType": "Envelope"
 }
 ```
