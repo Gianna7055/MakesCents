@@ -4,7 +4,7 @@ import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
 type ButtonProps = {
   name: string;
   onPress: () => void;
-  variant?: "primary" | "secondary";
+  variant?: "primary" | "secondary" | "tertiary";
   style?: any;
   textStyle?: any;
   containerStyle?: any;
@@ -22,15 +22,19 @@ const Button = ({
     styles.ButtonWrapper,
     variant === "primary"
       ? styles.PrimaryButtonWrapper
-      : styles.SecondaryButtonWrapper,
+      : variant === "secondary"
+      ? styles.SecondaryButtonWrapper
+      : styles.TertiaryButtonWrapper,
     style,
   ];
-
+  
   const buttonTextStyle = [
     styles.ButtonText,
     variant === "primary"
       ? styles.PrimaryButtonText
-      : styles.SecondaryButtonText,
+      : variant === "secondary"
+      ? styles.SecondaryButtonText
+      : styles.TertiaryButtonText,
     textStyle,
   ];
   return (
@@ -76,5 +80,12 @@ const styles = StyleSheet.create({
   },
   SecondaryButtonText: {
     color: "#000",
+  },
+  // Tertiary button styles
+  TertiaryButtonWrapper: {
+    backgroundColor: "#BBBBBB",
+  },
+  TertiaryButtonText: {
+    color: "#303030",
   },
 });
