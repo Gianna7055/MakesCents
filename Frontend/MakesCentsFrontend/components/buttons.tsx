@@ -1,6 +1,6 @@
 import React from "react";
 import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
-import { globalStyles } from "../css/styles";
+import { globalStyles } from "../css/globalStyles";
 
 type ButtonProps = {
   name: string;

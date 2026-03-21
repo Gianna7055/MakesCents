@@ -54,7 +54,7 @@ namespace MakesCentsBackend.Controllers
             // Return a success otherwise
             return Created("", new
             {
-                status = response.HttpStatus,
+                httpStatus = response.HttpStatus,
                 userId = response.Id,
                 token = response.Token,
                 message = response.Message
@@ -86,7 +86,7 @@ namespace MakesCentsBackend.Controllers
                 // Return a success otherwise
                 return Ok(new
                 {
-                    status = response.HttpStatus,
+                    httpStatus = response.HttpStatus,
                     userId = response.Id,
                     token = response.Token,
                     message = response.Message
