@@ -68,12 +68,6 @@ export default function Register() {
         } else {
           console.log("Login failed");
           /* 
-
-
-
-
-
-
           --------------------------------------------------------------------------------------------
             DEAL WITH REGISTER FAIL
           --------------------------------------------------------------------------------------------
@@ -110,6 +104,7 @@ export default function Register() {
         type="text"
         value={username}
         onChangeText={setUsername}
+        autoCapitalize="none"
       ></Input>
       <Input
         name="Email"
@@ -117,6 +112,7 @@ export default function Register() {
         type="text"
         value={email}
         onChangeText={setEmail}
+        autoCapitalize="none"
       ></Input>
       <Input
         name="Password"
@@ -124,6 +120,7 @@ export default function Register() {
         type="password"
         value={password}
         onChangeText={setPassword}
+        autoCapitalize="none"
       ></Input>
       <Button name="Register" onPress={handleRegisterClick} />
       <Text style={styles.subtext}>Already have an account?</Text>

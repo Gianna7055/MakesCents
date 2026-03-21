@@ -7,5 +7,5 @@ import { BaseResponse } from "./base-response";
 import { GetBudgetDTOModel } from "./get-budget-dto-model";
 
 export interface GetBudgetResponse extends BaseResponse {
-    getBudgetDTO: GetBudgetDTOModel;
+    budget: GetBudgetDTOModel;
 }

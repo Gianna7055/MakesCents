@@ -110,12 +110,7 @@ namespace MakesCentsBackend.Controllers
             else
             {
                 // Return the OK response
-                return Ok(new
-                {
-                    status = response.HttpStatus,
-                    message = response.Message,
-                    budget = response.GetBudgetDTO
-                });
+                return Ok(response);
             }
         }
 

@@ -32,9 +32,10 @@ export default function Transactions() {
       setBudgetId(storedBudgetId || 0);
 
       try {
+        console.log("BudgetId:", storedBudgetId);
         // Load transactions from the backend
         const axiosResponse: AxiosResponse = await makesCentsAxios.get(
-          `/api/transaction/${storedBudgetId}`,
+          `/api/transactions/${storedBudgetId}`,
           {
             headers: {
               Authorization: `Bearer ${storedToken}`,
@@ -44,6 +45,7 @@ export default function Transactions() {
 
         // Get the response
         const response: GetAllTransactionsDTOResponse = axiosResponse.data;
+        console.log("Get All Transactions Response:", response);
         setTransactions(response.transactions);
       } catch (error) {
         if (axios.isAxiosError(error)) {

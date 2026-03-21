@@ -7,11 +7,10 @@ import { globalStyles, safePadding } from "../css/globalStyles";
 import BottomNavBar from "../components/bottom-nav-bar";
 import { ScrollView, Image, StyleSheet, View } from "react-native";
 import { useRouter } from "expo-router";
-import { AxiosResponse } from "axios";
+import axios, { AxiosResponse } from "axios";
 import makesCentsAxios from "../data/datasource";
 import { GetBudgetResponse } from "../types/get-budget-response";
 import { storage } from "../data/storage";
-import { store } from "expo-router/build/global-state/router-store";
 
 export default function Home() {
   // Create a router
@@ -26,20 +25,30 @@ export default function Home() {
       const year: number = now.getFullYear();
       const month: string = now.toLocaleString("default", { month: "long" });
 
-      // Get the budget id from axios
-      const axiosResponse: AxiosResponse = await makesCentsAxios.get(
-        `/api/budgets/year/${year}/month/${month}`,
-      );
+      try {
+        // Get the budget id from axios
+        const axiosResponse: AxiosResponse = await makesCentsAxios.get(
+          `/api/budgets/year/${year}/month/${month}`,
+        );
 
-      // Get the response
-      const response: GetBudgetResponse = axiosResponse.data;
-      console.log("Response:", response);
-      if (false) {
-        console.log("Local budget id:", response.getBudgetDTO.budgetId);
-
-        // Store the budget id in storage
-        storage.saveBudgetId(response.getBudgetDTO.budgetId);
-        console.log("Stored budget id:", storage.getBudgetId());
+        // Get the response
+        const response: GetBudgetResponse = axiosResponse.data;
+        // Log the response
+        //console.log("Response:", response);
+        if (response) {
+          // Store the budget id in storage
+          storage.saveBudgetId(response.budget.budgetId);
+        }
+      } catch (error: any) {
+        if (axios.isAxiosError(error)) {
+          console.log(
+            "Axios error:",
+            error.response?.status,
+            error.response?.data,
+          );
+        } else {
+          console.log("Error:", error);
+        }
       }
     };
 

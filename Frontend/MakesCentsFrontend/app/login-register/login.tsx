@@ -1,6 +1,10 @@
 import React, { useState } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { globalStyles, safePadding, screenHeight } from "../../css/globalStyles";
+import {
+  globalStyles,
+  safePadding,
+  screenHeight,
+} from "../../css/globalStyles";
 import { Button } from "../../components/buttons";
 import { useRouter } from "expo-router";
 import {
@@ -111,6 +115,7 @@ export default function Login() {
           type="text"
           value={usernameOrEmail}
           onChangeText={setUsernameOrEmail}
+          autoCapitalize="none"
         ></Input>
         <Input
           name="Password"
@@ -118,6 +123,7 @@ export default function Login() {
           type="password"
           value={password}
           onChangeText={setPassword}
+          autoCapitalize="none"
         ></Input>
       </KeyboardAvoidingView>
       <Button name="Login" onPress={handleLoginClick} />

@@ -14,7 +14,7 @@ namespace MakesCentsBackend.Controllers
     /// <summary>
     /// API controller for transactions
     /// </summary>
-    [Route("api/[controller]")]
+    [Route("api/transactions")]
     [ApiController]
     public class TransactionController : ControllerBase
     {

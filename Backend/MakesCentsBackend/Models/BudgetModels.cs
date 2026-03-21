@@ -86,8 +86,6 @@ namespace MakesCentsBackend.Models
         // Class Level Properties
         public int BudgetId { get; set; } = 0;
         public int UserId { get; set; } = 0;
-
-        [JsonPropertyName("monthId")]
         public Month Month { get; set; } = Month.Unknown;
         public int Year { get; set; } = 0;
         public string BudgetName { get; set; } = "";
@@ -128,6 +126,8 @@ namespace MakesCentsBackend.Models
     public class GetBudgetResponse : BaseResponse
     {
         // Class Level Properties
+        [JsonPropertyName("budget")]
+        [TsMemberName("budget")]
         public GetBudgetDTOModel GetBudgetDTO { get; set; } = new GetBudgetDTOModel();
 
         public GetBudgetResponse(int status, string message) : base(status, message) { }

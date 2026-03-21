@@ -15,6 +15,7 @@ type InputProps = {
   type: "text" | "password";
   value: string;
   onChangeText: (text: string) => void;
+  autoCapitalize?: "none" | "sentences" | "words" | "characters";
 };
 
 const Input = (props: InputProps) => {
@@ -34,6 +35,7 @@ const Input = (props: InputProps) => {
           secureTextEntry={isPassword}
           value={props.value}
           onChangeText={props.onChangeText}
+          autoCapitalize={props.autoCapitalize ?? "sentences"}
         />
       </KeyboardAvoidingView>
     </View>
