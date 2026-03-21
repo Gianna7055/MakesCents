@@ -134,6 +134,8 @@ namespace MakesCentsBackend.Services.DataAccessLayer
                     // Return the issue
                     return new CreatePaymentTransactionResponse(500, $"{ex.Message}");
                 }
+                // Commit the transaction
+                dbTransaction.Commit();  
             }
             // Set the status and the message
             response.HttpStatus = 201;

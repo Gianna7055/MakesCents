@@ -107,6 +107,8 @@ namespace MakesCentsBackend.Services.DataAccessLayer
                     // Return the issue
                     return new CreateInvestmentAccountResponse(500, $"{ex.Message}");
                 }
+                // Commit the transaction
+                dbTransaction.Commit();  
             }
             // Set the status and message
             response.HttpStatus = 201;
@@ -285,6 +287,8 @@ namespace MakesCentsBackend.Services.DataAccessLayer
                     // Return the issue
                     return new BaseIdResponse(500, $"{ex.Message}");
                 }
+                // Commit the transaction
+                dbTransaction.Commit();  
             }
 
             // Make sure the row was affected

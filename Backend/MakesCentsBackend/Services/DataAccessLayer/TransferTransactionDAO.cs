@@ -123,12 +123,14 @@ namespace MakesCentsBackend.Services.DataAccessLayer
                     // Return the issue
                     return new CreateTransferTransactionResponse(500, $"{ex.Message}");
                 }
-                // Set the status and the message
-                response.HttpStatus = 201;
-                response.Message = "Transfer transaction created successfully";
-                // Return the result
-                return response;
+                // Commit the transaction
+                dbTransaction.Commit(); 
             }
+            // Set the status and the message
+            response.HttpStatus = 201;
+            response.Message = "Transfer transaction created successfully";
+            // Return the result
+            return response; 
         }
 
 
