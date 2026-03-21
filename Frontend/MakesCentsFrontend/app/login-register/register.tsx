@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { globalStyles } from "../../css/styles";
+import { globalStyles, safePadding, screenHeight } from "../../css/globalStyles";
 import { Button } from "../../components/buttons";
 import { useRouter } from "expo-router";
 import {
@@ -14,8 +14,10 @@ import {
 import Input from "../../components/inputs";
 import { RegisterRequest } from "../../types/register-request";
 import { RegisterResponse } from "../../types/register-response";
-import { makesCentsUrl } from "../../data/datasource";
-import { tokenStorage } from "../../data/tokenStorage";
+import makesCentsAxios, { makesCentsUrl } from "../../data/datasource";
+
+import axios, { AxiosResponse } from "axios";
+import { storage } from "../../data/storage";
 
 export default function Register() {
   // Get the router object
@@ -31,7 +33,7 @@ export default function Register() {
       console.log("Missing username, email, or password");
       /* 
       --------------------------------------------------------------------------------------------
-        DEAL WITH MISSING USERNAME/EMAIL OR PASSWORD
+        DEAL WITH MISSING USERNAME, EMAIL, OR PASSWORD
       --------------------------------------------------------------------------------------------
       */
     } else {
@@ -41,38 +43,46 @@ export default function Register() {
       request.email = email;
       request.passwordHash = password;
 
-      // Call the API
-      const rawResponse: Response = await fetch(
-        makesCentsUrl + "/api/user/register",
-        {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(request),
-        },
-      );
+      // Set up a try-catch to ensure safe-failure
+      try {
+        // Call the API
+        const axiosResponse: AxiosResponse = await makesCentsAxios.post(
+          "/api/user/register",
+          request,
+        );
 
-      const text = await rawResponse.text();
-      console.log("Status:", rawResponse.status);
-      console.log("Raw response:", text);
+        // Get the response
+        const response: RegisterResponse = axiosResponse.data;
 
-      // Get the response from the raw response
-      const response: RegisterResponse = JSON.parse(text);
+        // Check the response code
+        if (response.httpStatus == 201) {
+          storage.saveToken(response.token);
+          console.log("ID token from response:", response.token);
 
-      // Check the response code
-      if (response.httpStatus == 201) {
-        // Save the token from the response
-        tokenStorage.saveToken(response.token);
-        console.log("ID token from response:", response.token);
+          // Redirect to the home page
+          router.replace("/home");
+        } else {
+          console.log("Login failed");
+          /* 
 
-        // Redirect to the home page
-        router.replace("/home");
-      } else {
-        console.log("Login failed");
-        /* 
+
+
+
+
+
           --------------------------------------------------------------------------------------------
             DEAL WITH REGISTER FAIL
           --------------------------------------------------------------------------------------------
-          */
+        */
+        }
+      } catch (error: any) {
+        console.log("Status:", error.response?.status);
+        console.log("Response:", error.response?.data);
+        /* 
+        --------------------------------------------------------------------------------------------
+          DEAL WITH REGISTER FAIL
+        --------------------------------------------------------------------------------------------
+        */
       }
     }
   }
@@ -83,10 +93,10 @@ export default function Register() {
 
   return (
     <SafeAreaView style={globalStyles.Screen}>
-      <View style={styles.logoContainer}>
+      <View style={globalStyles.horizLogoContainer}>
         <Image
           source={require("../../assets/images/MakesCentsHorizLogo.png")}
-          style={styles.logo}
+          style={globalStyles.horizLogo}
         />
       </View>
       <Text style={globalStyles.Title}>Login</Text>
@@ -118,20 +128,7 @@ export default function Register() {
   );
 }
 
-// Get screen width once
-const screenWidth = Dimensions.get("window").width;
-const screenHeight = Dimensions.get("window").height;
-
 const styles = StyleSheet.create({
-  logoContainer: {
-    alignItems: "center",
-    marginTop: screenHeight * 0.02,
-  },
-  logo: {
-    width: screenWidth * 0.8, // 60% of screen width
-    height: screenWidth * 0.8 * 0.5, // maintain aspect ratio ~2:1
-    resizeMode: "contain",
-  },
   subtext: {
     textAlign: "center",
     paddingTop: screenHeight * 0.02,
