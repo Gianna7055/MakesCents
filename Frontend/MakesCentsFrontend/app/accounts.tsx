@@ -3,7 +3,7 @@ import {
   SafeAreaView,
   useSafeAreaInsets,
 } from "react-native-safe-area-context";
-import { globalStyles, safePadding } from "../css/styles";
+import { globalStyles, safePadding } from "../css/globalStyles";
 import BottomNavBar from "../components/bottom-nav-bar";
 import { ScrollView, Text } from "react-native";
 
@@ -12,7 +12,7 @@ export default function Accounts() {
   return (
     <SafeAreaView style={globalStyles.Screen}>
       <ScrollView contentContainerStyle={safePadding(insets)}>
-        <Text>Accounts Screen</Text>
+        <Text style={globalStyles.Title}>Accounts</Text>
       </ScrollView>
       <BottomNavBar />
     </SafeAreaView>
