@@ -6,6 +6,7 @@
 using AutoMapper;
 using MakesCentsBackend.Models;
 using MakesCentsBackend.Services.DataAccessLayer;
+using MakesCentsBackend.Services.Mappers;
 
 namespace MakesCentsBackend.Services.BusinessLogicLayer
 {
@@ -42,11 +43,6 @@ namespace MakesCentsBackend.Services.BusinessLogicLayer
             entityResponse = await _transactionDAO.GetAllTransactionsAsync(request);
             // Map the entity response the dto response
             dtoResponse = _mapper.Map<GetAllTransactionsDTOResponse>(entityResponse);
-            // Map each entity transaction to a dto transaction
-            foreach (SummaryTransactionEntityModel entityTransaction in entityResponse.Transactions)
-            {
-                dtoResponse.Transactions.Add(_mapper.Map<SummaryTransactionDTOModel>(entityTransaction));
-            }
             // Return the DTO
             return dtoResponse;
         }

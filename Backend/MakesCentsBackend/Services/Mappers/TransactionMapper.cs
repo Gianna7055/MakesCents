@@ -19,6 +19,7 @@ namespace MakesCentsBackend.Services.Mappers
         {
             SummaryTransactionDTOModel response = new()
             {
+                TransactionId = db.TransactionId,
                 Date = db.Date,
                 Location = GetLocation(db),
                 Envelopes = GetEnvelopeDisplay(db),

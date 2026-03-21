@@ -91,12 +91,11 @@ namespace MakesCentsBackend.Models
     [ExportTsInterface]
     public class GetAllTransactionsDTOResponse : BaseResponse
     {
-        public GetAllTransactionsDTOResponse(int httpStatus, string message) : base(httpStatus, message)
-        {
-        }
-
         // Class properties
         public List<SummaryTransactionDTOModel> Transactions { get; set; } = new List<SummaryTransactionDTOModel>();
+
+        public GetAllTransactionsDTOResponse(int httpStatus, string message) : base(httpStatus, message) { }
+        public GetAllTransactionsDTOResponse() : base() { }
     }
 
 

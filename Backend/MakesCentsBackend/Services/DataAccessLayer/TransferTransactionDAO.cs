@@ -72,7 +72,7 @@ namespace MakesCentsBackend.Services.DataAccessLayer
                     // Set up the query for adding a paycheck
                     query = """
                         INSERT INTO transaction (budget_id, transaction_date, total_amount, is_reconciled, notes, transaction_type_id)
-                        VALUES (@BudgetId, @TransactionDate, @TotalAmount, false, @Notes, 2);
+                        VALUES (@BudgetId, @TransactionDate, @TotalAmount, false, @Notes, 3);
                         SELECT LAST_INSERT_ID();
                         """;
                     // Execute the query and get the transaction id
@@ -85,6 +85,13 @@ namespace MakesCentsBackend.Services.DataAccessLayer
                     // Check if the transfer transaction if is for accounts or envelopes
                     if (transferTransaction.TransferTransactionType == TransferTransactionType.Account)
                     {
+                        // Makes sure both accounts belong to the user
+                        if (!await _authService.VerifyUserOwnsAccountAsync(transferTransaction.TransferFromId, transferTransaction.UserId, dbTransaction) || !await _authService.VerifyUserOwnsAccountAsync(transferTransaction.TransferToId, transferTransaction.UserId, dbTransaction))
+                        {
+                            // Roll the transaction back
+                            dbTransaction.Rollback();
+                            return new CreateTransferTransactionResponse(403, "One or both accounts do not belong to the current user");
+                        }
                         // Set up the query for the transfer transaction
                         query = """
                             INSERT INTO transfer_transaction (transaction_id, transfer_from_account_id, transfer_to_account_id, transfer_transaction_type_id)
@@ -98,6 +105,13 @@ namespace MakesCentsBackend.Services.DataAccessLayer
                     }
                     else if (transferTransaction.TransferTransactionType == TransferTransactionType.Envelope)
                     {
+                        // Makes sure both envelope belong to the user
+                        if (!await _authService.VerifyUserOwnsEnvelopeAsync(transferTransaction.TransferFromId, transferTransaction.UserId, dbTransaction) || !await _authService.VerifyUserOwnsEnvelopeAsync(transferTransaction.TransferToId, transferTransaction.UserId, dbTransaction))
+                        {
+                            // Roll the transaction back
+                            dbTransaction.Rollback();
+                            return new CreateTransferTransactionResponse(403, "One or both envelopes do not belong to the current user");
+                        }
                         // Set up the query for the transfer transaction
                         query = """
                             INSERT INTO transfer_transaction (transaction_id, transfer_from_envelope_id, transfer_to_envelope_id, transfer_transaction_type_id)
@@ -208,6 +222,57 @@ namespace MakesCentsBackend.Services.DataAccessLayer
                     dbTransaction.Rollback();
                     return transactionResponse;
                 }
+
+                // Fetch the current transfer transaction
+                query = """
+                    SELECT 
+                        transfer_transaction.transfer_transaction_type_id AS TransferTransactionTypeId,
+                        transfer_transaction.transfer_from_account_id AS TransferFromAccountId,
+                        transfer_transaction.transfer_to_account_id AS TransferToAccountId,
+                        transfer_transaction.transfer_from_envelope_id AS TransferFromEnvelopeId,
+                        transfer_transaction.transfer_to_envelope_id AS TransferToEnvelopeId
+                    FROM transfer_transaction
+                    WHERE transfer_transaction_id = @TransferTransactionId
+                    """;
+                GetTransferTransactionEntityModel? current = await _connection.QuerySingleOrDefaultAsync<GetTransferTransactionEntityModel>(query, new { transferTransaction.TransferTransactionId }, dbTransaction);
+
+                if (current == null)
+                {
+                    dbTransaction.Rollback();
+                    return new BaseIdResponse(404, "Transfer transaction not found");
+                }
+
+                // Get the correct transfer transaction type
+                TransferTransactionType? currentType = transferTransaction.TransferTransactionType != null ? transferTransaction.TransferTransactionType : current.TransferTransactionType;
+
+                // Check the transfer transaction type
+                if (currentType == TransferTransactionType.Account)
+                {
+                    int? currentFromId = transferTransaction.TransferFromId != null ? transferTransaction.TransferFromId : current.TransferFromAccountId;
+                    int? currentToId = transferTransaction.TransferToId != null ? transferTransaction.TransferToId : current.TransferToAccountId;
+
+                    // Makes sure both accounts belong to the user
+                    if (!await _authService.VerifyUserOwnsAccountAsync(currentFromId, transferTransaction.UserId, dbTransaction) || !await _authService.VerifyUserOwnsAccountAsync(currentToId, transferTransaction.UserId, dbTransaction))
+                    {
+                        // Roll the transaction back
+                        dbTransaction.Rollback();
+                        return new BaseIdResponse(403, "One or both accounts do not belong to the current user");
+                    }
+                }
+                else // Current type is envelope
+                {
+                    int? currentFromId = transferTransaction.TransferFromId != null ? transferTransaction.TransferFromId : current.TransferFromEnvelopeId;
+                    int? currentToId = transferTransaction.TransferToId != null ? transferTransaction.TransferToId : current.TransferToEnvelopeId;
+
+                    // Makes sure both envelope belong to the user
+                    if (!await _authService.VerifyUserOwnsEnvelopeAsync(currentFromId, transferTransaction.UserId, dbTransaction) || !await _authService.VerifyUserOwnsEnvelopeAsync(currentToId, transferTransaction.UserId, dbTransaction))
+                    {
+                        // Roll the transaction back
+                        dbTransaction.Rollback();
+                        return new BaseIdResponse(403, "One or both envelopes do not belong to the current user");
+                    }
+                }
+
 
                 // Loop through each field to see if an update is necessary
                 foreach (PropertyInfo property in typeof(UpdateTransferTransactionRequest).GetProperties())

@@ -38,22 +38,21 @@ namespace MakesCentsBackend.Services.DataAccessLayer
 
             // Set up the query for reading the payment transactions
             query = """
-                SELECT 
+                SELECT
                     transaction.transaction_id AS TransactionId,
                     transaction.transaction_date AS Date,
-                    transaction.transaction_type_id AS TransactionTypeId,
+                    transaction.transaction_type_id AS TransactionType,
                     transaction.total_amount AS TotalAmount,
                     payment_transaction.merchant_source_name AS MerchantSourceName,
                     GROUP_CONCAT(DISTINCT envelope.envelope_name SEPARATOR ', ') AS EnvelopeNames
-                FROM transaction_split
-                INNER JOIN transaction ON transaction_split.transaction_id = transaction.transaction_id
+                FROM transaction
                 INNER JOIN payment_transaction ON transaction.transaction_id = payment_transaction.transaction_id
-                LEFT JOIN transaction_split AS ts2 ON transaction.transaction_id = ts2.transaction_id
-                LEFT JOIN envelope ON ts2.envelope_id = envelope.envelope_id
-                WHERE transaction_split.envelope_id = @EnvelopeId
-                AND transaction.deleted_at IS NULL
-                AND transaction.transaction_type_id = 2
-                GROUP BY 
+                LEFT JOIN transaction_split ON transaction.transaction_id = transaction_split.transaction_id
+                LEFT JOIN envelope ON transaction_split.envelope_id = envelope.envelope_id
+                WHERE transaction.budget_id = @BudgetId
+                  AND transaction.deleted_at IS NULL
+                  AND transaction.transaction_type_id = 2
+                GROUP BY
                     transaction.transaction_id,
                     transaction.transaction_date,
                     transaction.transaction_type_id,
@@ -62,28 +61,33 @@ namespace MakesCentsBackend.Services.DataAccessLayer
                 ORDER BY transaction.transaction_date DESC;
                 """;
             // Read the payment transactions
-            response.Transactions = (await _connection.QueryAsync<SummaryTransactionEntityModel>(query, new { EnvelopeId = request.EntityId })).ToList();
+            response.Transactions = (await _connection.QueryAsync<SummaryTransactionEntityModel>(query, new { BudgetId = request.EntityId })).ToList();
             // Set up the query to read the transfer transactions
-            query = """
-                SELECT 
+            query = """"
+                SELECT
                     transaction.transaction_id AS TransactionId,
                     transaction.transaction_date AS Date,
-                    transaction.transaction_type_id AS TransactionTypeId,
+                    transaction.transaction_type_id AS TransactionType,
                     transaction.total_amount AS TotalAmount,
-                    transfer_transaction.transfer_from_account_id AS TransferFromAccountId,
-                    transfer_transaction.transfer_to_account_id AS TransferToAccountId,
-                    transfer_transaction.transfer_from_envelope_id AS TransferFromEnvelopeId,
-                    transfer_transaction.transfer_to_envelope_id AS TransferToEnvelopeId
-                FROM transaction_split
-                INNER JOIN transaction ON transaction_split.transaction_id = transaction.transaction_id
+                    transfer_transaction.transfer_transaction_type_id AS TransferTransactionType,
+                    from_account.account_name AS TransferFromAccount,
+                    to_account.account_name AS TransferToAccount,
+                    from_envelope.envelope_name AS TransferFromEnvelope,
+                    to_envelope.envelope_name AS TransferToEnvelope
+                FROM transaction
                 INNER JOIN transfer_transaction ON transaction.transaction_id = transfer_transaction.transaction_id
-                WHERE transaction_split.envelope_id = @EnvelopeId
+                LEFT JOIN account AS from_account ON transfer_transaction.transfer_from_account_id = from_account.account_id
+                LEFT JOIN account AS to_account ON transfer_transaction.transfer_to_account_id = to_account.account_id
+                LEFT JOIN envelope AS from_envelope ON transfer_transaction.transfer_from_envelope_id = from_envelope.envelope_id
+                LEFT JOIN envelope AS to_envelope ON transfer_transaction.transfer_to_envelope_id = to_envelope.envelope_id
+                WHERE transaction.budget_id = @BudgetId
                   AND transaction.deleted_at IS NULL
                   AND transaction.transaction_type_id = 3
                 ORDER BY transaction.transaction_date DESC;
-                """;
+                """";
             // Read the transfer transactions
-            response.Transactions.AddRange((await _connection.QueryAsync<SummaryTransactionEntityModel>(query, new { EnvelopeId = request.EntityId })).ToList());
+            List<SummaryTransactionEntityModel> transferTransactions = (await _connection.QueryAsync<SummaryTransactionEntityModel>(query, new { BudgetId = request.EntityId })).ToList();
+            response.Transactions.AddRange(transferTransactions);
             // Set the status and message for the envelope response
             response.HttpStatus = 200;
             response.Message = "Transactions found";

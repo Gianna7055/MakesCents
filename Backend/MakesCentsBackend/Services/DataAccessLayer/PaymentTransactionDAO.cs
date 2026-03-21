@@ -108,6 +108,13 @@ namespace MakesCentsBackend.Services.DataAccessLayer
                     {
                         // Set the transaction id in the split model
                         split.TransactionId = transactionId;
+                        // Makes sure the splits envelope belongs to the user
+                        if (!await _authService.VerifyUserOwnsEnvelopeAsync(split.EnvelopeId, paymentTransaction.UserId, dbTransaction))
+                        {
+                            // Roll the transaction back
+                            dbTransaction.Rollback();
+                            return new CreatePaymentTransactionResponse(403, "Envelope for split does not belong to the current user");
+                        }
                         // Set up the query for adding a transaction split
                         query = """
                             INSERT INTO transaction_split (transaction_id, envelope_id, amount)
@@ -334,6 +341,13 @@ namespace MakesCentsBackend.Services.DataAccessLayer
                     // Loop through the splits to insert and update
                     foreach (UpdateTransactionSplitRequest split in paymentTransaction.TransactionSplits)
                     {
+                        // Makes sure the splits envelope belongs to the user
+                        if (!await _authService.VerifyUserOwnsEnvelopeAsync(split.EnvelopeId, paymentTransaction.UserId, dbTransaction))
+                        {
+                            // Roll the transaction back
+                            dbTransaction.Rollback();
+                            return new UpdatePaymentTransactionResponse(403, "Envelope for split does not belong to the current user");
+                        }
                         // Check if the transaction split id is null
                         if (split.TransactionSplitId.HasValue)
                         {
