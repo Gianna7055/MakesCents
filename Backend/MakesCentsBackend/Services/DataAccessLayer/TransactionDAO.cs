@@ -44,7 +44,7 @@ namespace MakesCentsBackend.Services.DataAccessLayer
                     transaction.transaction_type_id AS TransactionType,
                     transaction.total_amount AS TotalAmount,
                     payment_transaction.merchant_source_name AS MerchantSourceName,
-                    GROUP_CONCAT(DISTINCT envelope.envelope_name SEPARATOR ', ') AS EnvelopeNames
+                    GROUP_CONCAT(envelope.envelope_name SEPARATOR ', ') AS EnvelopeNames
                 FROM transaction
                 INNER JOIN payment_transaction ON transaction.transaction_id = payment_transaction.transaction_id
                 LEFT JOIN transaction_split ON transaction.transaction_id = transaction_split.transaction_id
