@@ -37,17 +37,17 @@ namespace MakesCentsBackend.Services.DataAccessLayer
         /// <param name="accountId"></param>
         /// <param name="amount"></param>
         /// <returns></returns>
-        public async Task<bool> UpdateAccountBalanceAsync(int? userId, int? accountId, decimal? amount, MySqlTransaction dbTransaction)
+        public async Task<bool> UpdateAccountBalanceAsync(int? userId, int? accountId, decimal? amount, MySqlTransaction dbTransaction, MySqlConnection connection)
         {
             // Declare and initialize
             query = """
                 UPDATE account
                 SET balance = balance + @Amount
-                WHERE accountId = @AccountId;
+                WHERE account_id = @AccountId;
                 """;
 
             // Make sure the account belongs to the user
-            if (!await _authService.VerifyUserOwnsAccountAsync(accountId, userId))
+            if (!await _authService.VerifyUserOwnsAccountAsync(accountId, userId, dbTransaction))
             {
                 return false;
             }
@@ -55,7 +55,7 @@ namespace MakesCentsBackend.Services.DataAccessLayer
             try
             {
                 // Execute
-                await _connection.ExecuteAsync(query, new
+                await connection.ExecuteAsync(query, new
                 {
                     Amount = amount,
                     AccountId = accountId

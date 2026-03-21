@@ -35,6 +35,7 @@ builder.Services.AddScoped<MySqlConnection>(sp =>
 SqlMapper.AddTypeHandler(new OptionalDBConverter<decimal?>());
 SqlMapper.AddTypeHandler(new OptionalDBConverter<DateOnly?>());
 SqlMapper.AddTypeHandler(new OptionalDBConverter<int?>());
+SqlMapper.AddTypeHandler(new OptionalDBConverter<string?>());
 
 // Add support for enum conversions
 builder.Services.AddControllers()
