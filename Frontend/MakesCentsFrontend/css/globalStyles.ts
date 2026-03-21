@@ -58,3 +58,9 @@ export const safePadding = (insets: EdgeInsets) => ({
   paddingBottom: insets.bottom,
   paddingHorizontal: (insets.top / 1.5)
 });
+
+export const formatDate = (date: any): string => {
+    const dateString = date as string;
+    const [year, month, day] = dateString.split('-').map(Number);
+    return `${month}/${day}`;
+  };
