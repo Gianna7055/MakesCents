@@ -3,14 +3,20 @@ import {
   SafeAreaView,
   useSafeAreaInsets,
 } from "react-native-safe-area-context";
-import { globalStyles, safePadding } from "../css/globalStyles";
-import BottomNavBar from "../components/bottom-nav-bar";
-import { ScrollView, Image, StyleSheet, View } from "react-native";
+import {
+  globalStyles,
+  safePadding,
+  screenHeight,
+  screenWidth,
+} from "@/css/globalStyles";
+import BottomNavBar from "@/components/bottom-nav-bar";
+import { ScrollView, Image, StyleSheet, View, Text } from "react-native";
 import { useRouter } from "expo-router";
 import axios, { AxiosResponse } from "axios";
-import makesCentsAxios from "../data/datasource";
-import { GetBudgetResponse } from "../types/get-budget-response";
-import { storage } from "../data/storage";
+import makesCentsAxios from "@/data/datasource";
+import { GetBudgetResponse } from "@/types/get-budget-response";
+import { storage } from "@/data/storage";
+import { Button } from "@/components/buttons";
 
 export default function Home() {
   // Create a router
@@ -56,23 +62,38 @@ export default function Home() {
     main();
   }, []);
 
-  const logout = () => {
-    // Go back to the login page
-    router.replace("/login-register/login");
-  };
+  const AddTransactionClickEH = () => {};
+
   return (
     <SafeAreaView style={globalStyles.Screen}>
       <ScrollView contentContainerStyle={safePadding(insets)}>
-        <View style={globalStyles.vertLogoContainer}>
+        <View style={styles.vertLogoContainer}>
           <Image
-            source={require("../assets/images/MakesCentsVertLogo.png")}
-            style={globalStyles.vertLogo}
+            source={require("@/assets/images/MakesCentsVertLogo.png")}
+            style={styles.vertLogo}
           />
         </View>
+        <Button
+          name="Add a Transaction"
+          onPress={AddTransactionClickEH}
+          variant="secondary"
+          textStyle={[globalStyles.Title, { fontWeight: "regular" }]}
+        />
       </ScrollView>
       <BottomNavBar />
     </SafeAreaView>
   );
 }
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  vertLogoContainer: {
+    alignItems: "center",
+    marginTop: screenHeight * 0.08,
+    marginBottom: screenHeight * 0.03,
+  },
+  vertLogo: {
+    width: screenWidth * 0.9, // 60% of screen width
+    height: screenWidth * 1.5 * 0.5, // maintain aspect ratio ~2:1
+    resizeMode: "contain",
+  },
+});

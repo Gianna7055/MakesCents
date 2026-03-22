@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { View, Text } from "react-native";
-import { SummaryTransactionDTOModel } from "../types/summary-transaction-dto-model";
-import TransactionCard from "./transaction-card";
+import { SummaryTransactionDTOModel } from "@/types/summary-transaction-dto-model";
+import TransactionCard from "@/components/transactions/transaction-card";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { storage } from "../data/storage";
+import { storage } from "@/data/storage";
 
 type TransactionListProps = {
   transactions: SummaryTransactionDTOModel[];

@@ -1,27 +1,16 @@
 import React, { useState } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
-import {
-  globalStyles,
-  safePadding,
-  screenHeight,
-} from "../../css/globalStyles";
-import { Button } from "../../components/buttons";
+import { globalStyles, screenHeight } from "@/css/globalStyles";
+import { Button } from "@/components/buttons";
 import { useRouter } from "expo-router";
-import {
-  Dimensions,
-  Image,
-  StyleSheet,
-  View,
-  Text,
-  KeyboardAvoidingView,
-} from "react-native";
-import Input from "../../components/inputs";
-import { RegisterRequest } from "../../types/register-request";
-import { RegisterResponse } from "../../types/register-response";
-import { makesCentsPublicAxios } from "../../data/datasource";
+import { Image, StyleSheet, View, Text } from "react-native";
+import Input from "@/components/inputs";
+import { RegisterRequest } from "@/types/register-request";
+import { RegisterResponse } from "@/types/register-response";
+import { makesCentsPublicAxios } from "@/data/datasource";
 
 import { AxiosResponse } from "axios";
-import { storage } from "../../data/storage";
+import { storage } from "@/data/storage";
 
 export default function Register() {
   // Get the router object
@@ -93,7 +82,7 @@ export default function Register() {
     <SafeAreaView style={globalStyles.Screen}>
       <View style={globalStyles.horizLogoContainer}>
         <Image
-          source={require("../../assets/images/MakesCentsHorizLogo.png")}
+          source={require("@/assets/images/MakesCentsHorizLogo.png")}
           style={globalStyles.horizLogo}
         />
       </View>

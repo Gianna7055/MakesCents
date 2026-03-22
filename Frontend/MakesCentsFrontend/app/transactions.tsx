@@ -3,21 +3,21 @@ import {
   SafeAreaView,
   useSafeAreaInsets,
 } from "react-native-safe-area-context";
-import BottomNavBar from "../components/bottom-nav-bar";
+import BottomNavBar from "@/components/bottom-nav-bar";
 import { ScrollView, Text } from "react-native";
-import axios, { AxiosError, AxiosResponse } from "axios";
-import makesCentsAxios from "../data/datasource";
-import { GetAllTransactionsDTOResponse } from "../types/get-all-transactions-dto-response";
-import { SummaryTransactionDTOModel } from "../types/summary-transaction-dto-model";
+import axios, { AxiosResponse } from "axios";
+import makesCentsAxios from "@/data/datasource";
+import { GetAllTransactionsDTOResponse } from "@/types/get-all-transactions-dto-response";
+import { SummaryTransactionDTOModel } from "@/types/summary-transaction-dto-model";
 import {
   globalStyles,
   safePadding,
   screenHeight,
   screenWidth,
-} from "../css/globalStyles";
-import { storage } from "../data/storage";
-import TransactionList from "../components/transaction-list";
-import { Button } from "../components/buttons";
+} from "@/css/globalStyles";
+import { storage } from "@/data/storage";
+import TransactionList from "@/components/transactions/transaction-list";
+import { Button } from "@/components/buttons";
 
 export default function Transactions() {
   const insets = useSafeAreaInsets();

@@ -1,8 +1,8 @@
 import React from "react";
 import { StyleSheet, View, Text } from "react-native";
-import { SummaryTransactionDTOModel } from "../types/summary-transaction-dto-model";
-import { formatDate, screenWidth } from "../css/globalStyles";
-import { Button } from "./buttons";
+import { SummaryTransactionDTOModel } from "@/types/summary-transaction-dto-model";
+import { formatDate, screenWidth } from "@/css/globalStyles";
+import { Button } from "@/components/buttons";
 
 type TransactionCardProps = {
   transaction: SummaryTransactionDTOModel;

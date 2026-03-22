@@ -1,11 +1,7 @@
 import React, { useState } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
-import {
-  globalStyles,
-  safePadding,
-  screenHeight,
-} from "../../css/globalStyles";
-import { Button } from "../../components/buttons";
+import { globalStyles, safePadding, screenHeight } from "@/css/globalStyles";
+import { Button } from "@/components/buttons";
 import { useRouter } from "expo-router";
 import {
   Dimensions,
@@ -15,12 +11,12 @@ import {
   Text,
   KeyboardAvoidingView,
 } from "react-native";
-import Input from "../../components/inputs";
-import { LoginRequest } from "../../types/login-request";
-import { LoginResponse } from "../../types/login-response";
-import { makesCentsPublicAxios } from "../../data/datasource";
+import Input from "@/components/inputs";
+import { LoginRequest } from "@/types/login-request";
+import { LoginResponse } from "@/types/login-response";
+import { makesCentsPublicAxios } from "@/data/datasource";
 import axios, { AxiosResponse } from "axios";
-import { storage } from "../../data/storage";
+import { storage } from "@/data/storage";
 
 export default function Login() {
   // Get the router object
@@ -103,7 +99,7 @@ export default function Login() {
     <SafeAreaView style={globalStyles.Screen}>
       <View style={globalStyles.horizLogoContainer}>
         <Image
-          source={require("../../assets/images/MakesCentsHorizLogo.png")}
+          source={require("@/assets/images/MakesCentsHorizLogo.png")}
           style={globalStyles.horizLogo}
         />
       </View>

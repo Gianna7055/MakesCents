@@ -3,11 +3,11 @@ import {
   SafeAreaView,
   useSafeAreaInsets,
 } from "react-native-safe-area-context";
-import BottomNavBar from "../components/bottom-nav-bar";
+import BottomNavBar from "@/components/bottom-nav-bar";
 import { ScrollView, Text } from "react-native";
-import { Button } from "../components/buttons";
+import { Button } from "@/components/buttons";
 import { useRouter } from "expo-router";
-import { globalStyles, safePadding } from "../css/globalStyles";
+import { globalStyles, safePadding } from "@/css/globalStyles";
 
 export default function Profile() {
   // Create a router

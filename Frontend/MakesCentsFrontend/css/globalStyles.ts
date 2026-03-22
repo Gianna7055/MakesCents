@@ -30,16 +30,6 @@ export const globalStyles = StyleSheet.create({
         height: screenWidth * 0.8 * 0.5, // maintain aspect ratio ~2:1
         resizeMode: "contain",
     },
-    vertLogoContainer: {
-        alignItems: "center",
-        marginTop: screenHeight * 0.01,
-        marginBottom: screenHeight * 0.02,
-    },
-    vertLogo: {
-        width: screenWidth * 0.8, // 60% of screen width
-        height: screenWidth * 0.8 * 0.5, // maintain aspect ratio ~2:1
-        resizeMode: "contain",
-    },
     inLineLogoContainer: {
         alignItems: "flex-start",
         marginTop: screenHeight * 0.01,
