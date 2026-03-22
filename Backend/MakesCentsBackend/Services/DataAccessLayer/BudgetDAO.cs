@@ -156,6 +156,89 @@ namespace MakesCentsBackend.Services.DataAccessLayer
         }
 
         /// <summary>
+        /// Get the summary of a budget with envelope categories and envelopes
+        /// Sources: https://chatgpt.com/c/69774450-b594-8330-963c-0342dd63eac2
+        /// </summary>
+        /// <param name="budget"></param>
+        /// <returns></returns>
+        public async Task<GetBudgetResponse> GetBudgetAsync(BaseIdRequest budget)
+        {
+            // Declare and initialize
+            GetBudgetResponse budgetResponse = new GetBudgetResponse();
+            GetBudgetDTOModel? budgetDTO;
+            List<SummaryEnvelopeCategoryResponse> envelopeCategoryResponses;
+            List<SummaryEnvelopeResponse> envelopeResponses;
+            Dictionary<int, SummaryEnvelopeCategoryResponse> envelopeCategoryLookup;
+            int budgetId = 0;
+
+            // Set up the query to get the budget
+            query = """
+                SELECT 
+                    budget.budget_id as BudgetId,
+                    budget.user_id as UserId,
+                    budget.month_id as Month,
+                    budget.year as Year,
+                    budget.budget_name as BudgetName
+                FROM budget
+                WHERE budget.user_id = @UserId
+                    AND budget.budget_id = @BudgetId;
+                """;
+            // Execute the query
+            budgetDTO = await _connection.QuerySingleOrDefaultAsync<GetBudgetDTOModel>(query, budget);
+            // Make sure the budget is not null
+            if (budgetDTO == null)
+            {
+                return new GetBudgetResponse(404, "Budget not found");
+            }
+            // Set the dto for the response
+            budgetResponse.GetBudgetDTO = budgetDTO;
+            // Set up the query to get the envelope categories
+            query = """
+                SELECT 
+                    envelope_category.envelope_category_id as EnvelopeCategoryId,
+                    envelope_category.budget_id as BudgetId,
+                    envelope_category.envelope_category_name as EnvelopeCategoryName
+                FROM envelope_category
+                WHERE envelope_category.budget_id = @BudgetId;
+                """;
+            // Read the envelope categories
+            envelopeCategoryResponses = (await _connection.QueryAsync<SummaryEnvelopeCategoryResponse>(query, new { BudgetId = budgetId })).ToList();
+            // Set up the query for reading the envelopes
+            query = """
+                SELECT 
+                    envelope.envelope_id as EnvelopeId,
+                    envelope.envelope_name as EnvelopeName,
+                    envelope.remaining_amount as RemainingAmount,
+                    envelope.envelope_category_id as EnvelopeCategoryId
+                FROM envelope
+                JOIN envelope_category 
+                    ON envelope_category.envelope_category_id = envelope.envelope_category_id
+                WHERE envelope_category.budget_id = @BudgetId;
+                """;
+            // Read the envelopes
+            envelopeResponses = (await _connection.QueryAsync<SummaryEnvelopeResponse>(query, new { BudgetId = budgetId })).ToList();
+            // Create a dictionary for the envelope categories
+            envelopeCategoryLookup = envelopeCategoryResponses.ToDictionary(category => category.EnvelopeCategoryId);
+            // Loop through the envelopes to put them in the correct categories
+            foreach (SummaryEnvelopeResponse envelope in envelopeResponses)
+            {
+                // Get the envelope category for each envelope
+                if (envelopeCategoryLookup.TryGetValue(envelope.EnvelopeCategoryId, out SummaryEnvelopeCategoryResponse? singleEnvelopeCategory))
+                {
+                    // Add the envelope to the envelope category
+                    singleEnvelopeCategory.Envelopes.Add(envelope);
+                }
+            }
+            // Set the envelope category list of the budget to the existing list
+            budgetResponse.GetBudgetDTO.EnvelopeCategories = envelopeCategoryResponses;
+            // Set the status and message for the budget response
+            budgetResponse.HttpStatus = 200;
+            budgetResponse.Message = "Budget found";
+            // Return the budget 
+            return budgetResponse;
+        }
+
+        /// <summary>
         /// DAO method to update a budget based on given fields
         /// </summary>
         /// <param name="budget"></param>

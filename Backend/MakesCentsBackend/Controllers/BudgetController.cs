@@ -115,7 +115,7 @@ namespace MakesCentsBackend.Controllers
         }
 
         /// <summary>
-        /// Get a budget based on a year, month, and user id
+        /// Get a budget based on a budget id and user id
         /// </summary>
         /// <param name="year"></param>
         /// <param name="monthId"></param>

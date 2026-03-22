@@ -91,13 +91,13 @@ namespace MakesCentsBackend.Services.BusinessLogicLayer
         /// </summary>
         /// <param name="budget"></param>
         /// <returns></returns>
-        public async Task<GetBudgetResponse> GetBudgetAsync(GetBudgetRequest budget)
+        public async Task<GetBudgetResponse> GetBudgetAsync(BaseIdRequest budget)
         {
             // Declare and initialize
             GetBudgetResponse response;
 
             // Make sure the budget has a year, month, and user id
-            if (budget.Year == 0 || budget.UserId == 0 || budget.Month == Month.Unknown)
+            if (budget.EntityId == 0 || budget.UserId == 0)
             {
                 // Return the not found status
                 return new GetBudgetResponse(404, "Missing information to get budget");
