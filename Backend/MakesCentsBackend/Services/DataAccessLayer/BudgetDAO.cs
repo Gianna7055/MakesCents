@@ -184,7 +184,7 @@ namespace MakesCentsBackend.Services.DataAccessLayer
                     AND budget.budget_id = @BudgetId;
                 """;
             // Execute the query
-            budgetDTO = await _connection.QuerySingleOrDefaultAsync<GetBudgetDTOModel>(query, budget);
+            budgetDTO = await _connection.QuerySingleOrDefaultAsync<GetBudgetDTOModel>(query, new { EnvelopeId = request.EntityId });
             // Make sure the budget is not null
             if (budgetDTO == null)
             {

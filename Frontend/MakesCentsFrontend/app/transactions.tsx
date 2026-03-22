@@ -1,8 +1,5 @@
 import React, { useEffect, useState } from "react";
-import {
-  SafeAreaView,
-  useSafeAreaInsets,
-} from "react-native-safe-area-context";
+import { SafeAreaView } from "react-native-safe-area-context";
 import BottomNavBar from "@/components/bottom-nav-bar";
 import { ScrollView, Text, View, Image } from "react-native";
 import axios, { AxiosResponse } from "axios";
@@ -15,8 +12,6 @@ import TransactionList from "@/components/transactions/transaction-list";
 import { Button } from "@/components/buttons";
 
 export default function Transactions() {
-  const insets = useSafeAreaInsets();
-  const [token, setToken] = useState<string>("");
   const [budgetId, setBudgetId] = useState<number>(0);
   const [transactions, setTransactions] = useState<
     SummaryTransactionDTOModel[]
@@ -26,22 +21,15 @@ export default function Transactions() {
   useEffect(() => {
     const main = async () => {
       // Load token and budget id from storage
-      const storedToken = await storage.getToken();
       const storedBudgetId = await storage.getBudgetId();
 
-      setToken(storedToken || "");
       setBudgetId(storedBudgetId || 0);
 
       try {
         //console.log("BudgetId:", storedBudgetId);
         // Load transactions from the backend
         const axiosResponse: AxiosResponse = await makesCentsAxios.get(
-          `/api/transactions/${storedBudgetId}`,
-          {
-            headers: {
-              Authorization: `Bearer ${storedToken}`,
-            },
-          },
+          `/api/transactions/${storedBudgetId}`
         );
 
         // Get the response
