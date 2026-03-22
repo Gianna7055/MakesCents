@@ -1,12 +1,14 @@
+import { Colors } from "@/constants/theme";
 import { Dimensions, StyleSheet } from "react-native";
 import { EdgeInsets } from "react-native-safe-area-context";
 
 export const screenWidth = Dimensions.get('window').width;
 export const screenHeight = Dimensions.get('window').height;
 
+
 export const globalStyles = StyleSheet.create({
     Screen: {
-        backgroundColor: '#DDF0E5',
+        backgroundColor: Colors.light.background,
         fontFamily: 'Inter',
         flex: 1,
         position: "absolute",
@@ -33,20 +35,26 @@ export const globalStyles = StyleSheet.create({
     inLineLogoContainer: {
         alignItems: "flex-start",
         marginTop: screenHeight * 0.01,
-        marginBottom: screenHeight * 0.02,
+        borderColor: "purple",
+        //borderWidth: 1, For Testing
+        flexDirection: "row",
+        /* For Logo
+        flexDirection: "row",
+        alignItems: "center",
+        //marginTop: screenHeight * 0.01,*/
     },
-    Logo: {
-        width: screenWidth * 0.8, // 60% of screen width
-        height: screenWidth * 0.8 * 0.5, // maintain aspect ratio ~2:1
+    inLineLogo: {
+        width: screenWidth * 0.6, // For InLine
+        //width: screenWidth * .15, // For Logo
+        height: screenWidth * 0.15,
         resizeMode: "contain",
+        borderColor: "purple",
+        marginLeft: screenWidth * 0.03, // For InLine
+        //marginLeft: screenWidth * 0.05, // For Logo
+        marginBottom: screenHeight * 0.02,
+        marginTop: screenHeight * 0.01,
+        //borderWidth:, 1 For Testing
     },
-});
-
-// Helper to get dynamic padding using insets
-export const safePadding = (insets: EdgeInsets) => ({
-  paddingTop: insets.top,
-  paddingBottom: insets.bottom,
-  paddingHorizontal: (insets.top / 1.5)
 });
 
 export const formatDate = (date: any): string => {

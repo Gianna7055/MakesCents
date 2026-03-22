@@ -4,6 +4,7 @@ import { SummaryTransactionDTOModel } from "@/types/summary-transaction-dto-mode
 import TransactionCard from "@/components/transactions/transaction-card";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { storage } from "@/data/storage";
+import { screenHeight } from "@/css/globalStyles";
 
 type TransactionListProps = {
   transactions: SummaryTransactionDTOModel[];
@@ -40,6 +41,17 @@ export default function TransactionList(props: TransactionListProps) {
       ) : (
         <>{transactionList}</>
       )}
+
+      {/* For Logo
+      <View style={{ marginVertical: -(screenHeight * 0.02) }}>
+        {budgetId === 0 ? (
+          <Text>Select a budget</Text>
+        ) : transactionList.length === 0 ? (
+          <Text>No Transactions</Text>
+        ) : (
+          <>{transactionList}</>
+        )}
+      </View>*/}
     </SafeAreaView>
   );
 }

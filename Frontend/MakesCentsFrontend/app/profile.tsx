@@ -7,7 +7,7 @@ import BottomNavBar from "@/components/bottom-nav-bar";
 import { ScrollView, Text } from "react-native";
 import { Button } from "@/components/buttons";
 import { useRouter } from "expo-router";
-import { globalStyles, safePadding } from "@/css/globalStyles";
+import { globalStyles } from "@/css/globalStyles";
 
 export default function Profile() {
   // Create a router
@@ -20,7 +20,7 @@ export default function Profile() {
   };
   return (
     <SafeAreaView style={globalStyles.Screen}>
-      <ScrollView contentContainerStyle={safePadding(insets)}>
+      <ScrollView>
         <Text>Profile Screen</Text>
         <Button name="Log Out" onPress={logout} />
       </ScrollView>

@@ -5,7 +5,6 @@ import {
 } from "react-native-safe-area-context";
 import {
   globalStyles,
-  safePadding,
   screenHeight,
   screenWidth,
 } from "@/css/globalStyles";
@@ -66,7 +65,7 @@ export default function Home() {
 
   return (
     <SafeAreaView style={globalStyles.Screen}>
-      <ScrollView contentContainerStyle={safePadding(insets)}>
+      <ScrollView>
         <View style={styles.vertLogoContainer}>
           <Image
             source={require("@/assets/images/MakesCentsVertLogo.png")}

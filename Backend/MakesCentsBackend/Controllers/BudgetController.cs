@@ -115,6 +115,50 @@ namespace MakesCentsBackend.Controllers
         }
 
         /// <summary>
+        /// Get a budget based on a year, month, and user id
+        /// </summary>
+        /// <param name="year"></param>
+        /// <param name="monthId"></param>
+        /// <returns></returns>
+        [Authorize]
+        [HttpGet("{budgetId}")]
+        public async Task<ActionResult> GetBudgetAsync(int budgetId)
+        {
+            // Declare and initialize
+            GetBudgetResponse response;
+            BaseIdRequest request = new BaseIdRequest();
+            // Get the user id from the JWT token
+            int userId = ClaimsPrincipalExtensions.GetUserId(User);
+
+            // Set the user id in the request
+            request.UserId = userId;
+            request.EntityId = budgetId;
+            // Call the logic method
+            response = await _budgetLogic.GetBudgetAsync(request);
+            // Check if the response came back as not found
+            if (response.HttpStatus == 404)
+            {
+                return NotFound(new
+                {
+                    status = response.HttpStatus,
+                    message = response.Message,
+                    userId = userId,
+                    budgetId = budgetId
+                });
+            }
+            else if (response.HttpStatus != 200)
+            {
+                // Return an issue
+                return StatusCode(response.HttpStatus, response.Message);
+            }
+            else
+            {
+                // Return the OK response
+                return Ok(response);
+            }
+        }
+
+        /// <summary>
         /// HTTP PUT method to update a budget based on given fields
         /// </summary>
         /// <param name="budgetId"></param>

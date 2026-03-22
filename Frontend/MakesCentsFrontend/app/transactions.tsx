@@ -4,17 +4,12 @@ import {
   useSafeAreaInsets,
 } from "react-native-safe-area-context";
 import BottomNavBar from "@/components/bottom-nav-bar";
-import { ScrollView, Text } from "react-native";
+import { ScrollView, Text, View, Image } from "react-native";
 import axios, { AxiosResponse } from "axios";
 import makesCentsAxios from "@/data/datasource";
 import { GetAllTransactionsDTOResponse } from "@/types/get-all-transactions-dto-response";
 import { SummaryTransactionDTOModel } from "@/types/summary-transaction-dto-model";
-import {
-  globalStyles,
-  safePadding,
-  screenHeight,
-  screenWidth,
-} from "@/css/globalStyles";
+import { globalStyles, screenHeight, screenWidth } from "@/css/globalStyles";
 import { storage } from "@/data/storage";
 import TransactionList from "@/components/transactions/transaction-list";
 import { Button } from "@/components/buttons";
@@ -51,8 +46,10 @@ export default function Transactions() {
 
         // Get the response
         const response: GetAllTransactionsDTOResponse = axiosResponse.data;
+        //const transaction2 = response.transactions.concat(response.transactions,);
         //console.log("Get All Transactions Response:", response);
         setTransactions(response.transactions);
+        //setTransactions(transaction2);
       } catch (error) {
         if (axios.isAxiosError(error)) {
           console.log(
@@ -74,8 +71,45 @@ export default function Transactions() {
 
   return (
     <SafeAreaView style={globalStyles.Screen}>
-      <ScrollView contentContainerStyle={safePadding(insets)}>
-        <Text style={globalStyles.Title}>Transactions</Text>
+      <View style={globalStyles.inLineLogoContainer}>
+        <Image
+          //source={require("@/assets/images/MakesCentsLogo.png")} // For Logo
+          // style={[globalStyles.inLineLogo, { flex: 0 }]} // For Logo
+          source={require("@/assets/images/MakesCentsInLineLogo.png")}
+          style={globalStyles.inLineLogo}
+        />
+        {/* For Logo
+        <Text
+          style={[
+            globalStyles.Title,
+            {
+              position: "absolute",
+              left: 0,
+              right: 0,
+              alignItems: "center",
+            },
+          ]}
+          style={globalStyles.Title}
+        >
+          Transactions
+        </Text>*/}
+      </View>
+      <Text
+        /* For Logo
+        style={[
+          globalStyles.Title,
+          {
+            position: "absolute",
+            left: 0,
+            right: 0,
+            alignItems: "center",
+          },
+        ]}*/
+        style={globalStyles.Title}
+      >
+        Transactions
+      </Text>
+      <ScrollView style={{ marginVertical: 0 }}>
         <TransactionList transactions={transactions} />
       </ScrollView>
       <Button
@@ -83,7 +117,7 @@ export default function Transactions() {
         onPress={handlePlusClick}
         containerStyle={{
           position: "absolute",
-          bottom: screenHeight * 0.12,
+          bottom: screenHeight * 0.115,
           right: screenWidth * 0.03,
         }}
         style={{
