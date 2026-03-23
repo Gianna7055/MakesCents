@@ -30,7 +30,7 @@ export default function Accounts() {
         //console.log("BudgetId:", storedBudgetId);
         // Load transactions from the backend
         const axiosResponse: AxiosResponse = await makesCentsAxios.get(
-          `/api/accounts/${storedBudgetId}`,
+          `/api/accounts/budget/${storedBudgetId}`,
         );
 
         // Get the response

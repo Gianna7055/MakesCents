@@ -19,7 +19,7 @@ const ProductCard = ({ account }: AccountCardProps) => {
       <Text style={styles.cardTitle}>{account.accountName}</Text>
       <Text style={styles.accountInstitution}>{account.accountType}</Text>
       <View style={styles.cardFlex}>
-        <Text style={styles.accountBalance}>${account.balance}</Text>
+        <Text style={styles.accountBalance}>Balance: ${account.balance}</Text>
         <Button name="See More ->" onPress={handleSeeMoreClick} />
       </View>
     </View>
