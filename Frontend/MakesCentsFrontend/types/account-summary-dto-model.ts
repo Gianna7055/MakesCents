@@ -5,7 +5,7 @@
 
 import { AccountType } from "./account-type";
 
-export interface AccountSummaryDTOModel {
+export interface  AccountSummaryDTOModel {
     accountId: number;
     budgetId: number;
     userId: number;

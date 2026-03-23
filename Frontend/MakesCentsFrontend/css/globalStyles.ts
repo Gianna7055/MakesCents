@@ -99,3 +99,7 @@ export const formatDate = (date: any): string => {
     const [year, month, day] = dateString.split('-').map(Number);
     return `${month}/${day}`;
   };
+
+export const formatEnum = (value: string): string => {
+return value.replace(/([A-Z])/g, ' $1').trim();
+};
