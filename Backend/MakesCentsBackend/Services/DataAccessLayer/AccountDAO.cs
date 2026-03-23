@@ -87,12 +87,12 @@ namespace MakesCentsBackend.Services.DataAccessLayer
                 SELECT 
                     account.account_id AS AccountId,
                     account.budget_id AS BudgetId,
-                    account.account_type_id AS AccountTypeId,
+                    account.account_type_id AS AccountType,
                     account.account_name AS AccountName,
                     account.balance AS Balance,
                     account.institution AS Institution,
                     bank_account.bank_account_id AS BankAccountId,
-                    bank_account.bank_account_type_id AS BankAccountTypeId
+                    bank_account.bank_account_type_id AS BankAccountType
                 FROM account
                 INNER JOIN bank_account ON account.account_id = bank_account.account_id
                 WHERE account.budget_id = @BudgetId
@@ -106,11 +106,11 @@ namespace MakesCentsBackend.Services.DataAccessLayer
                 SELECT 
                     account.account_id AS AccountId,
                     account.budget_id AS BudgetId,
-                    account.account_type_id AS AccountTypeId,
+                    account.account_type_id AS AccountType,
                     account.account_name AS AccountName,
                     account.balance AS Balance,
                     debt_account.debt_account_id AS DebtAccountId,
-                    debt_account.debt_account_type_id AS DebtAccountTypeId
+                    debt_account.debt_account_type_id AS DebtAccountType
                 FROM account
                 INNER JOIN debt_account ON account.account_id = debt_account.account_id
                 WHERE account.budget_id = @BudgetId
@@ -124,11 +124,11 @@ namespace MakesCentsBackend.Services.DataAccessLayer
                 SELECT 
                     account.account_id AS AccountId,
                     account.budget_id AS BudgetId,
-                    account.account_type_id AS AccountTypeId,
+                    account.account_type_id AS AccountType,
                     account.account_name AS AccountName,
                     account.balance AS Balance,
                     investment_account.investment_account_id AS InvestmentAccountId,
-                    investment_account.investment_account_type_id AS InvestmentAccountTypeId
+                    investment_account.investment_account_type_id AS InvestmentAccountType
                 FROM account
                 INNER JOIN investment_account ON account.account_id = investment_account.account_id
                 WHERE account.budget_id = @BudgetId
