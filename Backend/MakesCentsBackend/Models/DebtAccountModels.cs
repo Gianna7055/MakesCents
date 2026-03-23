@@ -30,7 +30,7 @@ namespace MakesCentsBackend.Models
     {
         // Class properties
         public DebtAccountType DebtAccountType { get; set; } = DebtAccountType.Unknown;
-        public Optional<int?> AccountNumber { get; set; }
+        public Optional<int?> DebtAccountNumber { get; set; }
         public Optional<DateOnly?> DateOfNextBill { get; set; }
         public Optional<decimal?> AmountOfNextBill { get; set; }
         public Optional<DebtPaymentRegularity?> DebtPaymentRegularity { get; set; }

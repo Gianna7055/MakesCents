@@ -87,8 +87,6 @@ namespace MakesCentsBackend.Services.DataAccessLayer
                     bankAccountId = await _connection.QuerySingleAsync<int>(query, bankAccount, dbTransaction);
                     // Set the bank account id in the response
                     response.BankAccountId = bankAccountId;
-                    // Commit the transaction
-                    dbTransaction.Commit();
                 }
                 catch (MySqlException ex)
                 {

@@ -29,7 +29,7 @@ namespace MakesCentsBackend.Models
     {
         // Class variables
         public InvestmentAccountType InvestmentAccountType { get; set; } = InvestmentAccountType.Unknown;
-        public Optional<int?> AccountNumber { get; set; }
+        public Optional<int?> InvestmentAccountNumber { get; set; }
         public bool IsTaxDeferred { get; set; } = false;
         public bool IsTaxExempt { get; set; } = false;
     }

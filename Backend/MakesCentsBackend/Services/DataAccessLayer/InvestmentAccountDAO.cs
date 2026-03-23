@@ -75,15 +75,12 @@ namespace MakesCentsBackend.Services.DataAccessLayer
                     // Query for insert for investment account table
                     query = """
                         INSERT INTO investment_account (account_id, investment_account_type_id, investment_account_number, is_tax_deferred, is_tax_exempt)
-                        VALUES (@BudgetId, @InvestmentAccountType, @InvestmentAccountNumber, @IsTaxDeferred, @IsTaxExempt);
+                        VALUES (@AccountId, @InvestmentAccountType, @InvestmentAccountNumber, @IsTaxDeferred, @IsTaxExempt);
                         SELECT LAST_INSERT_ID();
                         """;
                     investmentAccountId = await _connection.QuerySingleAsync<int>(query, investmentAccount, dbTransaction);
                     // Set the investment account id
                     response.InvestmentAccountId = investmentAccountId;
-
-                    // Commit the transaction
-                    dbTransaction.Commit();
                 }
                 catch (MySqlException ex)
                 {

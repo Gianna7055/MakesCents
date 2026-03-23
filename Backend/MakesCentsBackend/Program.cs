@@ -5,6 +5,7 @@
  */
 using Dapper;
 using MakesCentsBackend.Models.Converters;
+using MakesCentsBackend.Models.Enums;
 using MakesCentsBackend.Services.BusinessLogicLayer;
 using MakesCentsBackend.Services.DataAccessLayer;
 using MakesCentsBackend.Services.Mappers;
@@ -36,6 +37,7 @@ SqlMapper.AddTypeHandler(new OptionalDBConverter<decimal?>());
 SqlMapper.AddTypeHandler(new OptionalDBConverter<DateOnly?>());
 SqlMapper.AddTypeHandler(new OptionalDBConverter<int?>());
 SqlMapper.AddTypeHandler(new OptionalDBConverter<string?>());
+SqlMapper.AddTypeHandler(new OptionalDBConverter<DebtPaymentRegularity?>());
 
 // Add support for enum conversions
 builder.Services.AddControllers()

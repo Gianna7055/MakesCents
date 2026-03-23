@@ -75,15 +75,12 @@ namespace MakesCentsBackend.Services.DataAccessLayer
                     // Query for insert for debt account table
                     query = """
                         INSERT INTO debt_account (account_id, debt_account_type_id, debt_account_number, date_of_next_bill, amount_of_next_bill, debt_payment_regularity_id)
-                        VALUES (@BudgetId, @DebtAccountType, @DebtAccountNumber, @DateOfNextBill, @AmountOfNextBill, @DebtPaymentRegularity);
+                        VALUES (@AccountId, @DebtAccountType, @DebtAccountNumber, @DateOfNextBill, @AmountOfNextBill, @DebtPaymentRegularity);
                         SELECT LAST_INSERT_ID();
                         """;
                     debtAccountId = await _connection.QuerySingleAsync<int>(query, debtAccount, dbTransaction);
                     // Set the debt account id
                     response.DebtAccountId = debtAccountId;
-
-                    // Commit the transaction
-                    dbTransaction.Commit();
                 }
                 catch (MySqlException ex)
                 {
