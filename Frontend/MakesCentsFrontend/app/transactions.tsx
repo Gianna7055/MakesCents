@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { SafeAreaView } from "react-native-safe-area-context";
 import BottomNavBar from "@/components/bottom-nav-bar";
 import { ScrollView, Text, View, Image } from "react-native";
 import axios, { AxiosResponse } from "axios";
@@ -11,6 +10,7 @@ import { storage } from "@/data/storage";
 import TransactionList from "@/components/transactions/transaction-list";
 import { Button } from "@/components/buttons";
 import { router } from "expo-router";
+import ScreenWrapper from "@/components/ui/screen-wrapper";
 
 export default function Transactions() {
   const [budgetId, setBudgetId] = useState<number>(0);
@@ -61,7 +61,7 @@ export default function Transactions() {
   const handlePlusClick = () => {};
 
   return (
-    <SafeAreaView style={globalStyles.screen}>
+    <ScreenWrapper>
       <View style={globalStyles.noWordsLogoContainer}>
         <Image
           source={require("@/assets/images/MakesCentsLogo.png")}
@@ -94,6 +94,6 @@ export default function Transactions() {
         variant="tertiary"
       />
       <BottomNavBar />
-    </SafeAreaView>
+    </ScreenWrapper>
   );
 }

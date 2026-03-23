@@ -1,13 +1,7 @@
-import React from "react";
-import {
-  View,
-  Text,
-  KeyboardAvoidingView,
-  Platform,
-  TextInput,
-  StyleSheet,
-  Dimensions,
-} from "react-native";
+import { Colors } from "@/constants/theme";
+import { screenWidth } from "@/css/globalStyles";
+import React, { forwardRef } from "react";
+import { View, Text, TextInput, StyleSheet } from "react-native";
 
 type InputProps = {
   name: string;
@@ -16,9 +10,11 @@ type InputProps = {
   value: string;
   onChangeText: (text: string) => void;
   autoCapitalize?: "none" | "sentences" | "words" | "characters";
+  returnKeyType?: "next" | "done" | "go" | "search" | "send";
+  onSubmitEditing?: () => void;
 };
 
-const Input = (props: InputProps) => {
+const Input = forwardRef<TextInput, InputProps>((props, ref) => {
   /* Logic */
   // Determine if this is a password field
   const isPassword = props.type === "password";
@@ -26,30 +22,28 @@ const Input = (props: InputProps) => {
   return (
     <View style={styles.inputContainer}>
       <Text style={styles.inputHeader}>{props.name}</Text>
-      <KeyboardAvoidingView
-        behavior={Platform.OS === "ios" ? "padding" : "height"}
-      >
-        <TextInput
-          style={styles.input}
-          placeholder={props.placeholder}
-          secureTextEntry={isPassword}
-          value={props.value}
-          onChangeText={props.onChangeText}
-          autoCapitalize={props.autoCapitalize ?? "sentences"}
-        />
-      </KeyboardAvoidingView>
+      <TextInput
+        style={styles.input}
+        placeholder={props.placeholder}
+        secureTextEntry={isPassword}
+        value={props.value}
+        onChangeText={props.onChangeText}
+        autoCapitalize={props.autoCapitalize ?? "sentences"}
+        returnKeyType={props.returnKeyType ?? "done"}
+        onSubmitEditing={props.onSubmitEditing}
+        ref={ref}
+      />
     </View>
   );
-};
+});
 
 export default Input;
-
-const screenWidth = Dimensions.get("window").width;
 
 const styles = StyleSheet.create({
   inputContainer: {
     paddingHorizontal: screenWidth * 0.08,
     paddingTop: screenWidth * 0.05,
+    backgroundColor: Colors.light.background,
   },
   inputHeader: {
     fontSize: 14,

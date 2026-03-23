@@ -1,10 +1,10 @@
 import React from "react";
-import { SafeAreaView } from "react-native-safe-area-context";
 import BottomNavBar from "@/components/bottom-nav-bar";
 import { ScrollView, Text } from "react-native";
 import { Button } from "@/components/buttons";
 import { router } from "expo-router";
 import { globalStyles } from "@/css/globalStyles";
+import ScreenWrapper from "@/components/ui/screen-wrapper";
 
 export default function Profile() {
   // Create a router
@@ -14,12 +14,12 @@ export default function Profile() {
     router.replace("/login-register/login");
   };
   return (
-    <SafeAreaView style={globalStyles.screen}>
+    <ScreenWrapper>
       <ScrollView>
         <Text style={globalStyles.centeredTitle}>Profile Screen</Text>
         <Button name="Log Out" onPress={logout} />
       </ScrollView>
       <BottomNavBar />
-    </SafeAreaView>
+    </ScreenWrapper>
   );
 }

@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { SafeAreaView } from "react-native-safe-area-context";
 import { globalStyles, screenHeight, screenWidth } from "@/css/globalStyles";
 import BottomNavBar from "@/components/bottom-nav-bar";
 import { ScrollView, Text, View, Image } from "react-native";
@@ -11,6 +10,7 @@ import axios, { AxiosResponse } from "axios";
 import makesCentsAxios from "@/data/datasource";
 import { GetAllAccountsResponse } from "@/types/get-all-accounts-response";
 import { router } from "expo-router";
+import ScreenWrapper from "@/components/ui/screen-wrapper";
 
 export default function Accounts() {
   const [budgetId, setBudgetId] = useState<number>(0);
@@ -60,7 +60,7 @@ export default function Accounts() {
   const handlePlusClick = () => {};
 
   return (
-    <SafeAreaView style={globalStyles.screen}>
+    <ScreenWrapper>
       <View style={globalStyles.noWordsLogoContainer}>
         <Image
           source={require("@/assets/images/MakesCentsLogo.png")}
@@ -93,6 +93,6 @@ export default function Accounts() {
         variant="tertiary"
       />
       <BottomNavBar />
-    </SafeAreaView>
+    </ScreenWrapper>
   );
 }
