@@ -62,7 +62,6 @@ namespace MakesCentsBackend.Models
     {
         // Class properties
         public int InvestmentAccountId { get; set; } = 0;
-        public InvestmentAccountType InvestmentAccountType { get; set; } = InvestmentAccountType.Unknown;
     }
 
     /// <summary>

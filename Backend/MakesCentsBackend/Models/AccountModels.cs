@@ -83,6 +83,9 @@ namespace MakesCentsBackend.Models
         public string AccountName { get; set; } = "";
         public decimal Balance { get; set; } = 0m;
         public string Institution { get; set; } = "";
+        public BankAccountType? BankAccountType { get; set; } = null;
+        public DebtAccountType? DebtAccountType { get; set; } = null;
+        public InvestmentAccountType? InvestmentAccountType { get; set; } = null;
     }
 
     /// <summary>
