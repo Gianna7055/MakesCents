@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { globalStyles, screenHeight } from "@/css/globalStyles";
 import { Button } from "@/components/buttons";
-import { useRouter } from "expo-router";
+import { router } from "expo-router";
 import { Image, StyleSheet, View, Text } from "react-native";
 import Input from "@/components/inputs";
 import { RegisterRequest } from "@/types/register-request";
@@ -14,7 +14,6 @@ import { storage } from "@/data/storage";
 
 export default function Register() {
   // Get the router object
-  const router = useRouter();
   const [username, setUsername] = useState<string>("");
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");

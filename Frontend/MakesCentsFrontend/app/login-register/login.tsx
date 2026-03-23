@@ -2,9 +2,8 @@ import React, { useState } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { globalStyles, screenHeight } from "@/css/globalStyles";
 import { Button } from "@/components/buttons";
-import { useRouter } from "expo-router";
+import { router } from "expo-router";
 import {
-  Dimensions,
   Image,
   StyleSheet,
   View,
@@ -15,12 +14,10 @@ import Input from "@/components/inputs";
 import { LoginRequest } from "@/types/login-request";
 import { LoginResponse } from "@/types/login-response";
 import { makesCentsPublicAxios } from "@/data/datasource";
-import axios, { AxiosResponse } from "axios";
+import { AxiosResponse } from "axios";
 import { storage } from "@/data/storage";
 
 export default function Login() {
-  // Get the router object
-  const router = useRouter();
   const [usernameOrEmail, setUsernameOrEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
 

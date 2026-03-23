@@ -6,7 +6,6 @@ import {
 import { globalStyles, screenHeight, screenWidth } from "@/css/globalStyles";
 import BottomNavBar from "@/components/bottom-nav-bar";
 import { ScrollView, Image, StyleSheet, View, Text } from "react-native";
-import { useRouter } from "expo-router";
 import axios, { AxiosResponse } from "axios";
 import makesCentsAxios from "@/data/datasource";
 import { GetBudgetResponse } from "@/types/get-budget-response";
@@ -15,7 +14,6 @@ import { Button } from "@/components/buttons";
 
 export default function Home() {
   // Create a router
-  const router = useRouter();
   const insets = useSafeAreaInsets();
 
   // Home constructor
