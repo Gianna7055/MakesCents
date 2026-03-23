@@ -3,10 +3,8 @@
  * Any changes made to this file can be lost when this file is regenerated.
  */
 
-import { AccountSummaryDTOModel } from "./account-summary-dto-model";
-import { DebtAccountType } from "./debt-account-type";
+import { SummaryAccountDTOModel } from "./summary-account-dto-model";
 
-export interface DebtAccountSummaryDTOModel extends AccountSummaryDTOModel {
+export interface DebtAccountSummaryDTOModel extends SummaryAccountDTOModel {
     debtAccountId: number;
-    debtAccountType: DebtAccountType;
 }

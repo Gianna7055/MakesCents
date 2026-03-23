@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { globalStyles, screenHeight, screenWidth } from "@/css/globalStyles";
 import BottomNavBar from "@/components/bottom-nav-bar";
 import { ScrollView, Text, View, Image } from "react-native";
-import { AccountSummaryDTOModel } from "@/types/account-summary-dto-model";
 import AccountList from "@/components/accounts/account-list";
 import { Button } from "@/components/buttons";
 import { storage } from "@/data/storage";
@@ -11,10 +10,11 @@ import makesCentsAxios from "@/data/datasource";
 import { GetAllAccountsResponse } from "@/types/get-all-accounts-response";
 import { router } from "expo-router";
 import ScreenWrapper from "@/components/ui/screen-wrapper";
+import { SummaryAccountDTOModel } from "@/types/summary-account-dto-model";
 
 export default function Accounts() {
   const [budgetId, setBudgetId] = useState<number>(0);
-  const [accounts, setAccounts] = useState<AccountSummaryDTOModel[]>([]);
+  const [accounts, setAccounts] = useState<SummaryAccountDTOModel[]>([]);
 
   // Run on create (constructor)
   useEffect(() => {

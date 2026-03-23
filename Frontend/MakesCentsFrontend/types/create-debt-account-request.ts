@@ -11,7 +11,7 @@ import { DebtPaymentRegularity } from "./debt-payment-regularity";
 
 export class CreateDebtAccountRequest extends CreateAccountRequest {
     debtAccountType: DebtAccountType = 1;
-    accountNumber: Optional<number>;
+    debtAccountNumber: Optional<number>;
     dateOfNextBill: Optional<DateOnly>;
     amountOfNextBill: Optional<number>;
     debtPaymentRegularity: Optional<DebtPaymentRegularity>;

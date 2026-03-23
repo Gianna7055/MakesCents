@@ -9,7 +9,7 @@ import { Optional } from "./optional";
 
 export class CreateInvestmentAccountRequest extends CreateAccountRequest {
     investmentAccountType: InvestmentAccountType = 1;
-    accountNumber: Optional<number>;
+    investmentAccountNumber: Optional<number>;
     isTaxDeferred: boolean;
     isTaxExempt: boolean;
 }

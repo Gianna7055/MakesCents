@@ -3,10 +3,8 @@
  * Any changes made to this file can be lost when this file is regenerated.
  */
 
-import { AccountSummaryDTOModel } from "./account-summary-dto-model";
-import { InvestmentAccountType } from "./investment-account-type";
+import { SummaryAccountDTOModel } from "./summary-account-dto-model";
 
-export interface InvestmentAccountSummaryDTOModel extends AccountSummaryDTOModel {
+export interface InvestmentAccountSummaryDTOModel extends SummaryAccountDTOModel {
     investmentAccountId: number;
-    investmentAccountType: InvestmentAccountType;
 }

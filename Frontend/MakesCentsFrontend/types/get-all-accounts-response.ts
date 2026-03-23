@@ -4,8 +4,8 @@
  */
 
 import { BaseResponse } from "./base-response";
-import { AccountSummaryDTOModel } from "./account-summary-dto-model";
+import { SummaryAccountDTOModel } from "./summary-account-dto-model";
 
 export interface GetAllAccountsResponse extends BaseResponse {
-    accounts: AccountSummaryDTOModel[];
+    accounts: SummaryAccountDTOModel[];
 }
