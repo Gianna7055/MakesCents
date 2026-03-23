@@ -60,7 +60,8 @@ export default function Register() {
         // Check the response code
         if (response.httpStatus == 201) {
           storage.saveToken(response.token);
-          console.log("ID token from response:", response.token);
+          // Log the token
+          //console.log("ID token from response:", response.token);
 
           // Redirect to the home page
           router.replace("/home");

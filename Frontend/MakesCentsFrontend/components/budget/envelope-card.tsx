@@ -27,7 +27,7 @@ export default function EnvelopeCard(props: EnvelopeCardProps) {
     <View style={styles.cardContainer}>
       <View style={styles.envelopeCategoryNameContainer}>
         <View style={styles.envelopeCategoryNameGroup}>
-          <Text style={{ fontSize: 16 }}>●</Text>
+          <Text style={{ fontSize: 16 }}>○</Text>
           <Text
             style={[globalStyles.centeredTitle, styles.envelopeCategoryName]}
             numberOfLines={1}

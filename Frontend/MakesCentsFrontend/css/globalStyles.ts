@@ -34,11 +34,11 @@ export const globalStyles = StyleSheet.create({
         //borderWidth: 1, // For Testing
     },
     inLineLogo: {
-        width: screenWidth * 0.6, // For InLine
+        width: screenWidth * 0.6,
         height: screenWidth * 0.15,
         resizeMode: "contain",
         borderColor: "purple",
-        marginLeft: screenWidth * 0.01, // For InLine
+        marginLeft: screenWidth * 0.01,
         marginBottom: screenHeight * 0.01,
         marginTop: screenHeight * 0.0,
         //borderWidth: 1, // For Testing
@@ -51,13 +51,12 @@ export const globalStyles = StyleSheet.create({
         //borderWidth: 1, // For Testing
     },
     noWordsLogo: {
-        width: screenWidth * .15, // For Logo
+        width: screenWidth * .15,
         height: screenWidth * 0.15,
         resizeMode: "contain",
         borderColor: "purple",
-        marginLeft: screenWidth * 0.05, // For Logo
-        marginBottom: screenHeight * 0.02,
-        marginTop: screenHeight * 0.01,
+        marginLeft: screenWidth * 0.05,
+        marginBottom: screenHeight * 0.01,
         flex: 0
         //borderWidth: 1, // For Testing
     },

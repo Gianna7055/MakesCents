@@ -68,7 +68,8 @@ export default function Login() {
         if (response.httpStatus == 200) {
           // Save the token from the response
           storage.saveToken(response.token);
-          console.log("ID token from response:", response.token);
+          // Log the token
+          //console.log("ID token from response:", response.token);
 
           // Redirect to the home page
           router.replace("/home");

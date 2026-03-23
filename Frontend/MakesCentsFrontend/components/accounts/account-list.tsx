@@ -33,7 +33,7 @@ export default function AccountList(props: AccountListProps) {
   );
   return (
     <SafeAreaView>
-      <View style={{ marginVertical: -(screenHeight * 0.04) }}>
+      <View style={{ marginVertical: -(screenHeight * 0.02) }}>
         {accountList.length === 0 ? (
           <Text>No Accounts</Text>
         ) : (

@@ -3,6 +3,7 @@ import { View, Text, StyleSheet } from "react-native";
 import { useRouter } from "expo-router";
 import { AccountSummaryDTOModel } from "@/types/account-summary-dto-model";
 import { Button } from "../buttons";
+import { screenWidth } from "@/css/globalStyles";
 
 type AccountCardProps = {
   account: AccountSummaryDTOModel;
@@ -16,11 +17,18 @@ const ProductCard = ({ account }: AccountCardProps) => {
   const handleSeeMoreClick = () => {};
   return (
     <View style={styles.cardContainer}>
-      <Text style={styles.cardTitle}>{account.accountName}</Text>
-      <Text style={styles.accountInstitution}>{account.accountType}</Text>
+      <View style={styles.accountNameContainer}>
+        <Text style={{ fontSize: 24 }}>○ </Text>
+        <Text style={styles.cardTitle}>{account.accountName}</Text>
+      </View>
+      <Text style={styles.institutionText}>{account.accountType}</Text>
       <View style={styles.cardFlex}>
-        <Text style={styles.accountBalance}>Balance: ${account.balance}</Text>
-        <Button name="See More ->" onPress={handleSeeMoreClick} />
+        <Text style={styles.balanceText}>Balance: ${account.balance}</Text>
+        <Button
+          name="See More ->"
+          onPress={handleSeeMoreClick}
+          containerStyle={{ paddingTop: 0 }}
+        />
       </View>
     </View>
   );
@@ -30,36 +38,34 @@ export default ProductCard;
 
 const styles = StyleSheet.create({
   cardContainer: {
-    padding: 20,
-    paddingHorizontal: 15,
-    margin: 10,
-    borderWidth: 1,
-    borderColor: "#CCCCCC",
+    width: screenWidth * 0.9,
+    marginHorizontal: "auto",
     backgroundColor: "#FFF",
     borderRadius: 10,
-    //filter: 'drop-shadow(30px 1px 2px #888888)',
+    marginBottom: 15,
+    paddingHorizontal: 15,
   },
   cardTitle: {
     fontSize: 24,
-    color: "#2D3648",
-    fontWeight: "bold",
-    lineHeight: 34, // 24 * 1.4
+    fontWeight: "semibold",
   },
-  accountInstitution: {
-    fontSize: 12,
-    color: "#717D96",
-    fontWeight: "medium",
-    lineHeight: 16, // 12 * 1.33
-  },
-  accountBalance: {
+  institutionText: {
     fontSize: 16,
-    color: "#2D3648",
+    color: "#717D96",
+  },
+  balanceText: {
+    fontSize: 18,
     fontWeight: "bold",
   },
   cardFlex: {
     flexDirection: "row",
-    justifyContent: "space-between",
     alignItems: "center",
-    marginHorizontal: 10,
+    justifyContent: "space-between",
+    marginBottom: 15,
+  },
+  accountNameContainer: {
+    flexDirection: "row",
+    alignItems: "center",
+    marginTop: 15,
   },
 });
