@@ -1,23 +1,16 @@
 import React, { useEffect } from "react";
-import {
-  SafeAreaView,
-  useSafeAreaInsets,
-} from "react-native-safe-area-context";
 import { globalStyles, screenHeight, screenWidth } from "@/css/globalStyles";
 import BottomNavBar from "@/components/bottom-nav-bar";
 import { ScrollView, Image, StyleSheet, View, Text } from "react-native";
-import { useRouter } from "expo-router";
 import axios, { AxiosResponse } from "axios";
 import makesCentsAxios from "@/data/datasource";
 import { GetBudgetResponse } from "@/types/get-budget-response";
 import { storage } from "@/data/storage";
 import { Button } from "@/components/buttons";
+import { router } from "expo-router";
+import ScreenWrapper from "@/components/ui/screen-wrapper";
 
 export default function Home() {
-  // Create a router
-  const router = useRouter();
-  const insets = useSafeAreaInsets();
-
   // Home constructor
   useEffect(() => {
     const main = async () => {
@@ -47,6 +40,8 @@ export default function Home() {
             error.response?.status,
             error.response?.data,
           );
+          if (error.response?.status == 401)
+            router.replace("/login-register/login");
         } else {
           console.log("Error:", error);
         }
@@ -60,7 +55,7 @@ export default function Home() {
   const AddTransactionClickEH = () => {};
 
   return (
-    <SafeAreaView style={globalStyles.screen}>
+    <ScreenWrapper>
       <ScrollView>
         <View style={styles.vertLogoContainer}>
           <Image
@@ -76,7 +71,7 @@ export default function Home() {
         />
       </ScrollView>
       <BottomNavBar />
-    </SafeAreaView>
+    </ScreenWrapper>
   );
 }
 

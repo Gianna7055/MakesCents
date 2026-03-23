@@ -1,13 +1,7 @@
-import React from "react";
-import {
-  View,
-  Text,
-  KeyboardAvoidingView,
-  Platform,
-  TextInput,
-  StyleSheet,
-  Dimensions,
-} from "react-native";
+import { Colors } from "@/constants/theme";
+import { globalStyles, screenWidth } from "@/css/globalStyles";
+import React, { forwardRef } from "react";
+import { View, Text, TextInput, StyleSheet } from "react-native";
 
 type InputProps = {
   name: string;
@@ -16,48 +10,40 @@ type InputProps = {
   value: string;
   onChangeText: (text: string) => void;
   autoCapitalize?: "none" | "sentences" | "words" | "characters";
+  returnKeyType?: "next" | "done" | "go" | "search" | "send";
+  onSubmitEditing?: () => void;
 };
 
-const Input = (props: InputProps) => {
+const Input = forwardRef<TextInput, InputProps>((props, ref) => {
   /* Logic */
   // Determine if this is a password field
   const isPassword = props.type === "password";
 
   return (
     <View style={styles.inputContainer}>
-      <Text style={styles.inputHeader}>{props.name}</Text>
-      <KeyboardAvoidingView
-        behavior={Platform.OS === "ios" ? "padding" : "height"}
-      >
-        <TextInput
-          style={styles.input}
-          placeholder={props.placeholder}
-          secureTextEntry={isPassword}
-          value={props.value}
-          onChangeText={props.onChangeText}
-          autoCapitalize={props.autoCapitalize ?? "sentences"}
-        />
-      </KeyboardAvoidingView>
+      <Text style={globalStyles.textHeader}>{props.name}</Text>
+      <TextInput
+        style={styles.input}
+        placeholder={props.placeholder}
+        secureTextEntry={isPassword}
+        value={props.value}
+        onChangeText={props.onChangeText}
+        autoCapitalize={props.autoCapitalize ?? "sentences"}
+        returnKeyType={props.returnKeyType ?? "done"}
+        onSubmitEditing={props.onSubmitEditing}
+        ref={ref}
+      />
     </View>
   );
-};
+});
 
 export default Input;
-
-const screenWidth = Dimensions.get("window").width;
 
 const styles = StyleSheet.create({
   inputContainer: {
     paddingHorizontal: screenWidth * 0.08,
     paddingTop: screenWidth * 0.05,
-  },
-  inputHeader: {
-    fontSize: 14,
-    fontFamily: "Inter",
-    color: "#000",
-    paddingLeft: screenWidth * 0.01,
-    fontWeight: "semibold",
-    paddingBottom: 5,
+    backgroundColor: Colors.light.background,
   },
   input: {
     paddingVertical: 15,

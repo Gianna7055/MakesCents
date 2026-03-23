@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { SafeAreaView } from "react-native-safe-area-context";
 import BottomNavBar from "@/components/bottom-nav-bar";
 import {
   ScrollView,
@@ -25,6 +24,8 @@ import Animated, {
   useSharedValue,
   withTiming,
 } from "react-native-reanimated";
+import { router } from "expo-router";
+import ScreenWrapper from "@/components/ui/screen-wrapper";
 
 export default function Budget() {
   const [budgetId, setBudgetId] = useState<number>(0);
@@ -63,6 +64,8 @@ export default function Budget() {
             error.response?.status,
             error.response?.data,
           );
+          if (error.response?.status == 401)
+            router.replace("/login-register/login");
         } else {
           console.log("Error:", error);
         }
@@ -126,7 +129,7 @@ export default function Budget() {
   }));
 
   return (
-    <SafeAreaView style={globalStyles.screen}>
+    <ScreenWrapper>
       <View style={globalStyles.inLineLogoContainer}>
         <Image
           source={require("@/assets/images/MakesCentsInLineLogo.png")}
@@ -218,7 +221,7 @@ export default function Budget() {
         </TouchableOpacity>
       </Modal>
       <BottomNavBar />
-    </SafeAreaView>
+    </ScreenWrapper>
   );
 }
 
