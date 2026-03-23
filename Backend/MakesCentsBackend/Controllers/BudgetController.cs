@@ -40,6 +40,11 @@ namespace MakesCentsBackend.Controllers
         [HttpPost]
         public async Task<ActionResult> CreateBudgetAsync(CreateBudgetRequest budget)
         {
+            // Check to make sure the budget is not null
+            if (budget == null)
+            {
+                return StatusCode(StatusCodes.Status400BadRequest, "Something went wrong with the data transfer to create a new budget");
+            }
             // Declare and initialize
             BaseIdResponse response;
             // Get the user id from the JWT token
@@ -168,6 +173,11 @@ namespace MakesCentsBackend.Controllers
         [HttpPut("{budgetId}")]
         public async Task<ActionResult> UpdateBudgetAsync(int budgetId, EditBudgetRequest budget)
         {
+            // Check to make sure the budget is not null
+            if (budget == null)
+            {
+                return StatusCode(StatusCodes.Status400BadRequest, "Something went wrong with the data transfer to update a budget");
+            }
             // Declare and initialize
             BaseIdResponse response;
             // Get the user id from the JWT token

@@ -43,6 +43,11 @@ namespace MakesCentsBackend.Controllers
         [HttpPost]
         public async Task<ActionResult> CreateEnvelopeCategoryAsync(CreateEnvelopeCategoryRequest envelopeCategory)
         {
+            // Check to make sure the envelope category is not null
+            if (envelopeCategory == null)
+            {
+                return StatusCode(StatusCodes.Status400BadRequest, "Something went wrong with the data transfer to create a new envelope category");
+            }
             // Declare and initialize
             BaseIdResponse response;
             // Get the user id from the JWT token
@@ -121,6 +126,11 @@ namespace MakesCentsBackend.Controllers
         [HttpPut("{envelopeCategoryId}")]
         public async Task<ActionResult> UpdateEnvelopeCategoryAsync(int envelopeCategoryId, EditEnvelopeCategoryRequest envelopeCategory)
         {
+            // Check to make sure the envelope category is not null
+            if (envelopeCategory == null)
+            {
+                return StatusCode(StatusCodes.Status400BadRequest, "Something went wrong with the data transfer to update an envelope category");
+            }
             // Declare and initialize
             BaseIdResponse response;
             // Get the user id from the JWT token

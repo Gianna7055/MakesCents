@@ -58,7 +58,7 @@ namespace MakesCentsBackend.Models
 
 
     [ExportTsInterface]
-    public class InvestmentAccountSummaryDTOModel : AccountSummaryDTOModel
+    public class InvestmentAccountSummaryDTOModel : SummaryAccountDTOModel
     {
         // Class properties
         public int InvestmentAccountId { get; set; } = 0;

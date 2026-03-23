@@ -114,6 +114,11 @@ namespace MakesCentsBackend.Controllers
         [HttpPut("{paymentTransactionId}")]
         public async Task<ActionResult> UpdatePaymentTransactionAsync(int paymentTransactionId, UpdatePaymentTransactionRequest paymentTransaction)
         {
+            // Check to make sure the payment transaction is not null
+            if (paymentTransaction == null)
+            {
+                return StatusCode(StatusCodes.Status400BadRequest, "Something went wrong with the data transfer to update a payment transaction");
+            }
             // Declare and initialize
             UpdatePaymentTransactionResponse response;
             // Get the user id from the JWT token

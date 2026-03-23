@@ -39,6 +39,11 @@ namespace MakesCentsBackend.Controllers
         [HttpPost]
         public async Task<ActionResult> CreateBankAccountAsync(CreateBankAccountRequest bankAccount)
         {
+            // Check to make sure the bank account is not null
+            if (bankAccount == null)
+            {
+                return StatusCode(StatusCodes.Status400BadRequest, "Something went wrong with the data transfer to create a new bank account");
+            }
             // Declare and initialize
             CreateBankAccountResponse response;
             // Get the user id from the JWT token
@@ -110,6 +115,11 @@ namespace MakesCentsBackend.Controllers
         [HttpPut("{bankAccountId}")]
         public async Task<ActionResult> UpdateBankAccountAsync(int bankAccountId, UpdateBankAccountRequest bankAccount)
         {
+            // Check to make sure the bank account is not null
+            if (bankAccount == null)
+            {
+                return StatusCode(StatusCodes.Status400BadRequest, "Something went wrong with the data transfer to update a bank account");
+            }
             // Declare and initialize
             BaseIdResponse response;
             // Get the user id from the JWT token

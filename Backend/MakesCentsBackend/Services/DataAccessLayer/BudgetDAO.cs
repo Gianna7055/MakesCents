@@ -169,7 +169,6 @@ namespace MakesCentsBackend.Services.DataAccessLayer
             List<SummaryEnvelopeCategoryResponse> envelopeCategoryResponses;
             List<SummaryEnvelopeResponse> envelopeResponses;
             Dictionary<int, SummaryEnvelopeCategoryResponse> envelopeCategoryLookup;
-            int budgetId = 0;
 
             // Set up the query to get the budget
             query = """

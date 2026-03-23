@@ -43,6 +43,11 @@ namespace MakesCentsBackend.Controllers
         [HttpPost]
         public async Task<ActionResult> CreateEnvelopeAsync(CreateEnvelopeRequest envelope)
         {
+            // Check to make sure the envelope is not null
+            if (envelope == null)
+            {
+                return StatusCode(StatusCodes.Status400BadRequest, "Something went wrong with the data transfer to create a new envelope");
+            }
             // Declare and initialize
             BaseIdResponse response;
             // Get the user id from the JWT token
@@ -108,18 +113,23 @@ namespace MakesCentsBackend.Controllers
 
         [Authorize]
         [HttpPut("{envelopeId}")]
-        public async Task<ActionResult> UpdateEnvelopeAsync(int envelopeId, UpdateEnvelopeRequest request)
+        public async Task<ActionResult> UpdateEnvelopeAsync(int envelopeId, UpdateEnvelopeRequest envelope)
         {
+            // Check to make sure the envelope is not null
+            if (envelope == null)
+            {
+                return StatusCode(StatusCodes.Status400BadRequest, "Something went wrong with the data transfer to update an envelope");
+            }
             // Declare and initialize
             BaseIdResponse response;
             // Get the user id from the JWT token
             int userId = ClaimsPrincipalExtensions.GetUserId(User);
 
             // Set the envelope id and the user id in the request
-            request.UserId = userId;
-            request.EnvelopeId = envelopeId;
+            envelope.UserId = userId;
+            envelope.EnvelopeId = envelopeId;
             // Call the logic method
-            response = await _envelopeLogic.UpdateEnvelopeAsync(request);
+            response = await _envelopeLogic.UpdateEnvelopeAsync(envelope);
 
             // Check if the status came back as a success
             if (response.HttpStatus != 200)

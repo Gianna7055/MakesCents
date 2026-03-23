@@ -60,7 +60,7 @@ namespace MakesCentsBackend.Models
 
 
     [ExportTsInterface]
-    public class DebtAccountSummaryDTOModel : AccountSummaryDTOModel
+    public class DebtAccountSummaryDTOModel : SummaryAccountDTOModel
     {
         // Class properties
         public int DebtAccountId { get; set; } = 0;

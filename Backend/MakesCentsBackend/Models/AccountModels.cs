@@ -73,7 +73,7 @@ namespace MakesCentsBackend.Models
 
 
     [ExportTsInterface]
-    public class AccountSummaryDTOModel
+    public class SummaryAccountDTOModel
     {
         // Class properties
         public int AccountId { get; set; } = 0;
@@ -82,6 +82,7 @@ namespace MakesCentsBackend.Models
         public AccountType AccountType { get; set; } = AccountType.Unknown;
         public string AccountName { get; set; } = "";
         public decimal Balance { get; set; } = 0m;
+        public string Institution { get; set; } = "";
     }
 
     /// <summary>
@@ -91,7 +92,7 @@ namespace MakesCentsBackend.Models
     public class GetAllAccountsResponse : BaseResponse
     {
         // Class properties
-        public List<AccountSummaryDTOModel> Accounts { get; set; } = new List<AccountSummaryDTOModel>();
+        public List<SummaryAccountDTOModel> Accounts { get; set; } = new List<SummaryAccountDTOModel>();
 
         /// <summary>
         /// Initializes a new instance of the GetAllAccountsResponse class with the specified HTTP status code and

@@ -39,6 +39,11 @@ namespace MakesCentsBackend.Controllers
         [HttpPost]
         public async Task<ActionResult> CreatePaycheckAsync(CreatePaycheckRequest paycheck)
         {
+            // Check to make sure the paycheck is not null
+            if (paycheck == null)
+            {
+                return StatusCode(StatusCodes.Status400BadRequest, "Something went wrong with the data transfer to create a new paycheck");
+            }
             // Declare and initialize
             CreatePaycheckResponse response;
             // Get the user id from the JWT token
@@ -151,6 +156,11 @@ namespace MakesCentsBackend.Controllers
         [HttpPut("{paycheckId}")]
         public async Task<ActionResult> UpdatePaycheckAsync(int paycheckId, UpdatePaycheckRequest paycheck)
         {
+            // Check to make sure the paycheck is not null
+            if (paycheck == null)
+            {
+                return StatusCode(StatusCodes.Status400BadRequest, "Something went wrong with the data transfer to update a pacheck");
+            }
             // Declare and initialize
             UpdatePaycheckResponse response;
             // Get the user id from the JWT token

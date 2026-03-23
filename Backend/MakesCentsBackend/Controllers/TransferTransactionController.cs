@@ -36,6 +36,11 @@ namespace MakesCentsBackend.Controllers
         [HttpPost]
         public async Task<ActionResult> CreateTransferTransactionAsync(CreateTransferTransactionRequest transferTransaction)
         {
+            // Check to make sure the transfer transaction is not null
+            if (transferTransaction == null)
+            {
+                return StatusCode(StatusCodes.Status400BadRequest, "Something went wrong with the data transfer to create a new transfer transaction");
+            }
             // Declare and initialize
             CreateTransferTransactionResponse response;
             // Get the User id from the JWT token
@@ -107,6 +112,11 @@ namespace MakesCentsBackend.Controllers
         [HttpPut("{transferTransactionId}")]
         public async Task<ActionResult> UpdateTransferTransactionAsync(int transferTransactionId, UpdateTransferTransactionRequest transferTransaction)
         {
+            // Check to make sure the transfer transaction is not null
+            if (transferTransaction == null)
+            {
+                return StatusCode(StatusCodes.Status400BadRequest, "Something went wrong with the data transfer to update a transfer transaction");
+            }
             // Declare and initialize
             BaseIdResponse response;
             // Get the user id from the JWT token

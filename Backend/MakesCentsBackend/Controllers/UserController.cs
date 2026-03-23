@@ -39,6 +39,11 @@ namespace MakesCentsBackend.Controllers
         [HttpPost("register")]
         public async Task<ActionResult> RegisterUserAsync(RegisterRequest user)
         {
+            // Check to make sure the user is not null
+            if (user == null)
+            {
+                return StatusCode(StatusCodes.Status400BadRequest, "Something went wrong with the data transfer to register a new user");
+            }
             // Declare and initialize
             RegisterResponse response;
 
@@ -70,6 +75,11 @@ namespace MakesCentsBackend.Controllers
         [HttpPost("login")]
         public async Task<ActionResult> LoginUserAsync(LoginRequest user)
         {
+            // Check to make sure the budget is not null
+            if (user == null)
+            {
+                return StatusCode(StatusCodes.Status400BadRequest, "Something went wrong with the data transfer to login a user");
+            }
             // Declare and initialize
             LoginResponse response;
 
@@ -139,6 +149,11 @@ namespace MakesCentsBackend.Controllers
         [Authorize]
         public async Task<ActionResult> UpdateUserAsync(EditUserRequest user)
         {
+            // Check to make sure the user is not null
+            if (user == null)
+            {
+                return StatusCode(StatusCodes.Status400BadRequest, "Something went wrong with the data transfer to update a user");
+            }
             // Declare and initialize
             BaseIdResponse response;
             // Get the user id from the JWT token

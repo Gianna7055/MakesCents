@@ -74,7 +74,7 @@ namespace MakesCentsBackend.Services.DataAccessLayer
         {
             // Declare and initialize
             GetAllAccountsResponse response = new GetAllAccountsResponse();
-            List<AccountSummaryDTOModel> accounts = new List<AccountSummaryDTOModel>();
+            List<SummaryAccountDTOModel> accounts = new List<SummaryAccountDTOModel>();
 
             // Make sure the budget belongs to the user
             if (!await _authService.VerifyUserOwnsBudgetAsync(request.EntityId, request.UserId))
@@ -90,6 +90,7 @@ namespace MakesCentsBackend.Services.DataAccessLayer
                     account.account_type_id AS AccountTypeId,
                     account.account_name AS AccountName,
                     account.balance AS Balance,
+                    account.institution AS Institution,
                     bank_account.bank_account_id AS BankAccountId,
                     bank_account.bank_account_type_id AS BankAccountTypeId
                 FROM account

@@ -36,6 +36,11 @@ namespace MakesCentsBackend.Controllers
         [HttpPost]
         public async Task<ActionResult> CreateDebtAccountAsync(CreateDebtAccountRequest debtAccount)
         {
+            // Check to make sure the debt account is not null
+            if (debtAccount == null)
+            {
+                return StatusCode(StatusCodes.Status400BadRequest, "Something went wrong with the data transfer to create a new debt account");
+            }
             // Declare and initialize
             CreateDebtAccountResponse response;
             // Get the user id from the JWT token
@@ -111,18 +116,23 @@ namespace MakesCentsBackend.Controllers
 
         [Authorize]
         [HttpPut("{debtAccountId}")]
-        public async Task<ActionResult> UpdateDebtAccountAsync(int debtAccountId, UpdateDebtAccountRequest request)
+        public async Task<ActionResult> UpdateDebtAccountAsync(int debtAccountId, UpdateDebtAccountRequest debtAccount)
         {
+            // Check to make sure the debt account is not null
+            if (debtAccount == null)
+            {
+                return StatusCode(StatusCodes.Status400BadRequest, "Something went wrong with the data transfer to update a debt account");
+            }
             // Declare and initialize
             BaseIdResponse response;
             // Get the user id from the JWT token
             int userId = ClaimsPrincipalExtensions.GetUserId(User);
 
             // Set the envelope id and the user id in the request
-            request.UserId = userId;
-            request.DebtAccountId = debtAccountId;
+            debtAccount.UserId = userId;
+            debtAccount.DebtAccountId = debtAccountId;
             // Call the logic method
-            response = await _debtAccountLogic.UpdateDebtAccountAsync(request);
+            response = await _debtAccountLogic.UpdateDebtAccountAsync(debtAccount);
 
             // Check if the status came back as a success
             if (response.HttpStatus != 200)

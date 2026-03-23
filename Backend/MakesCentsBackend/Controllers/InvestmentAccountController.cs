@@ -36,12 +36,17 @@ namespace MakesCentsBackend.Controllers
         [HttpPost]
         public async Task<ActionResult> CreateInvestmentAccountAsync(CreateInvestmentAccountRequest investmentAccount)
         {
+            // Check to make sure the investment account is not null
+            if (investmentAccount == null)
+            {
+                return StatusCode(StatusCodes.Status400BadRequest, "Something went wrong with the data transfer to create a new investment account");
+            }
             // Declare and initialize
             CreateInvestmentAccountResponse response;
             // Get the user id from the JWT token
             int userId = ClaimsPrincipalExtensions.GetUserId(User);
 
-            // Set the user id for the budget
+            // Set the user id for the investment account
             investmentAccount.UserId = userId;
             // Call the logic method
             response = await _investmentAccountLogic.CreateInvestmentAccountAsync(investmentAccount);
@@ -107,18 +112,23 @@ namespace MakesCentsBackend.Controllers
 
         [Authorize]
         [HttpPut("{investmentAccountId}")]
-        public async Task<ActionResult> UpdateInvestmentAccountAsync(int investmentAccountId, UpdateInvestmentAccountRequest request)
+        public async Task<ActionResult> UpdateInvestmentAccountAsync(int investmentAccountId, UpdateInvestmentAccountRequest investmentAccount)
         {
+            // Check to make sure the investment account is not null
+            if (investmentAccount == null)
+            {
+                return StatusCode(StatusCodes.Status400BadRequest, "Something went wrong with the data transfer to update an investment account");
+            }
             // Declare and initialize
             BaseIdResponse response;
             // Get the user id from the JWT token
             int userId = ClaimsPrincipalExtensions.GetUserId(User);
 
             // Set the envelope id and the user id in the request
-            request.UserId = userId;
-            request.InvestmentAccountId = investmentAccountId;
+            investmentAccount.UserId = userId;
+            investmentAccount.InvestmentAccountId = investmentAccountId;
             // Call the logic method
-            response = await _investmentAccountLogic.UpdateInvestmentAccountAsync(request);
+            response = await _investmentAccountLogic.UpdateInvestmentAccountAsync(investmentAccount);
 
             // Check if the status came back as a success
             if (response.HttpStatus != 200)

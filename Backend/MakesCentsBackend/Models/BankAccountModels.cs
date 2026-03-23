@@ -57,7 +57,7 @@ namespace MakesCentsBackend.Models
     /// DTO model for getting all accounts
     /// </summary>
     [ExportTsInterface]
-    public class BankAccountSummaryDTOModel : AccountSummaryDTOModel
+    public class BankAccountSummaryDTOModel : SummaryAccountDTOModel
     {
         // Class properties
         public int BankAccountId { get; set; } = 0;
