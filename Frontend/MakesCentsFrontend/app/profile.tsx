@@ -1,6 +1,6 @@
 import React from "react";
 import BottomNavBar from "@/components/bottom-nav-bar";
-import { ScrollView, Text } from "react-native";
+import { ScrollView, Text, Image, View } from "react-native";
 import { Button } from "@/components/buttons";
 import { router } from "expo-router";
 import { globalStyles } from "@/css/globalStyles";
@@ -15,10 +15,14 @@ export default function Profile() {
   };
   return (
     <ScreenWrapper>
-      <ScrollView>
-        <Text style={globalStyles.centeredTitle}>Profile Screen</Text>
-        <Button name="Log Out" onPress={logout} />
-      </ScrollView>
+      <View style={globalStyles.noWordsLogoContainer}>
+        <Image
+          source={require("@/assets/images/MakesCentsLogo.png")}
+          style={globalStyles.noWordsLogo}
+        />
+        <Text style={globalStyles.logoTitle}>Profile</Text>
+      </View>
+      <ScrollView style={{ marginVertical: 0 }}></ScrollView>
       <BottomNavBar />
     </ScreenWrapper>
   );

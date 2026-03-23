@@ -64,23 +64,33 @@ export const globalStyles = StyleSheet.create({
         fontFamily: 'Roboto',
         fontSize: 24,
         textAlign: "center",
-              position: "absolute",
-              left: 0,
-              right: 0,
-              alignItems: "center",
+        position: "absolute",
+        left: 0,
+        right: 0,
+        alignItems: "center",
     },
     // Text styles
     negativeAmount: {
-      color: "#B5362F",
-      textAlign: "right",
+        color: "#B5362F",
+        textAlign: "right",
     },
     zeroAmount: {
-      color: "#000000",
-      textAlign: "right",
+        color: "#000000",
+        textAlign: "right",
     },
     positiveAmount: {
-      color: "#32C54B",
-      textAlign: "right",
+        color: "#32C54B",
+        textAlign: "right",
+    },
+
+    
+    textHeader: {
+      fontSize: 14,
+      fontFamily: "Inter",
+      color: "#000",
+      paddingLeft: screenWidth * 0.01,
+      fontWeight: "semibold",
+      paddingBottom: 5,
     },
 });
 

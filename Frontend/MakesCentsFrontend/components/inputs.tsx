@@ -1,5 +1,5 @@
 import { Colors } from "@/constants/theme";
-import { screenWidth } from "@/css/globalStyles";
+import { globalStyles, screenWidth } from "@/css/globalStyles";
 import React, { forwardRef } from "react";
 import { View, Text, TextInput, StyleSheet } from "react-native";
 
@@ -21,7 +21,7 @@ const Input = forwardRef<TextInput, InputProps>((props, ref) => {
 
   return (
     <View style={styles.inputContainer}>
-      <Text style={styles.inputHeader}>{props.name}</Text>
+      <Text style={globalStyles.textHeader}>{props.name}</Text>
       <TextInput
         style={styles.input}
         placeholder={props.placeholder}
@@ -44,14 +44,6 @@ const styles = StyleSheet.create({
     paddingHorizontal: screenWidth * 0.08,
     paddingTop: screenWidth * 0.05,
     backgroundColor: Colors.light.background,
-  },
-  inputHeader: {
-    fontSize: 14,
-    fontFamily: "Inter",
-    color: "#000",
-    paddingLeft: screenWidth * 0.01,
-    fontWeight: "semibold",
-    paddingBottom: 5,
   },
   input: {
     paddingVertical: 15,
