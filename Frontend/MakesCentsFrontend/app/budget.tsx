@@ -25,6 +25,7 @@ import Animated, {
   useSharedValue,
   withTiming,
 } from "react-native-reanimated";
+import { router } from "expo-router";
 
 export default function Budget() {
   const [budgetId, setBudgetId] = useState<number>(0);
@@ -63,6 +64,8 @@ export default function Budget() {
             error.response?.status,
             error.response?.data,
           );
+          if (error.response?.status == 401)
+            router.replace("/login-register/login");
         } else {
           console.log("Error:", error);
         }

@@ -11,6 +11,7 @@ import makesCentsAxios from "@/data/datasource";
 import { GetBudgetResponse } from "@/types/get-budget-response";
 import { storage } from "@/data/storage";
 import { Button } from "@/components/buttons";
+import { router } from "expo-router";
 
 export default function Home() {
   // Create a router
@@ -45,6 +46,8 @@ export default function Home() {
             error.response?.status,
             error.response?.data,
           );
+          if (error.response?.status == 401)
+            router.replace("/login-register/login");
         } else {
           console.log("Error:", error);
         }

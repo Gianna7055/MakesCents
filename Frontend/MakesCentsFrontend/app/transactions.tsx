@@ -10,6 +10,7 @@ import { globalStyles, screenHeight, screenWidth } from "@/css/globalStyles";
 import { storage } from "@/data/storage";
 import TransactionList from "@/components/transactions/transaction-list";
 import { Button } from "@/components/buttons";
+import { router } from "expo-router";
 
 export default function Transactions() {
   const [budgetId, setBudgetId] = useState<number>(0);
@@ -45,6 +46,8 @@ export default function Transactions() {
             error.response?.status,
             error.response?.data,
           );
+          if (error.response?.status == 401)
+            router.replace("/login-register/login");
         } else {
           console.log("Error:", error);
         }

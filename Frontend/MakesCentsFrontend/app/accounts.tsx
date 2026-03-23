@@ -45,7 +45,8 @@ export default function Accounts() {
             error.response?.status,
             error.response?.data,
           );
-          if (error.response?.status == 401) router.replace("/home");
+          if (error.response?.status == 401)
+            router.replace("/login-register/login");
         } else {
           console.log("Error:", error);
         }
@@ -65,7 +66,7 @@ export default function Accounts() {
           source={require("@/assets/images/MakesCentsLogo.png")}
           style={globalStyles.noWordsLogo}
         />
-        <Text style={globalStyles.logoTitle}>Transactions</Text>
+        <Text style={globalStyles.logoTitle}>Accounts</Text>
       </View>
       <ScrollView style={{ marginVertical: 0 }}>
         <AccountList accounts={accounts} />

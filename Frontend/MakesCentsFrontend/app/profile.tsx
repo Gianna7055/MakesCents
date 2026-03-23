@@ -16,7 +16,7 @@ export default function Profile() {
   return (
     <SafeAreaView style={globalStyles.screen}>
       <ScrollView>
-        <Text>Profile Screen</Text>
+        <Text style={globalStyles.centeredTitle}>Profile Screen</Text>
         <Button name="Log Out" onPress={logout} />
       </ScrollView>
       <BottomNavBar />
