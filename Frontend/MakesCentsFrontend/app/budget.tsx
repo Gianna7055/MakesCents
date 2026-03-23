@@ -1,8 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { globalStyles, screenWidth } from "@/css/globalStyles";
 import BottomNavBar from "@/components/bottom-nav-bar";
-import { ScrollView, Text, Image, View, StyleSheet } from "react-native";
+import {
+  ScrollView,
+  Text,
+  Image,
+  View,
+  StyleSheet,
+  Modal,
+  TouchableOpacity,
+} from "react-native";
 import { storage } from "@/data/storage";
 import axios, { AxiosResponse } from "axios";
 import makesCentsAxios from "@/data/datasource";
@@ -10,11 +17,21 @@ import { GetBudgetResponse } from "@/types/get-budget-response";
 import { GetBudgetDTOModel } from "@/types/get-budget-dto-model";
 import { SummaryEnvelopeCategoryResponse } from "@/types/summary-envelope-category-response";
 import EnvelopeCategoryCard from "@/components/budget/envelope-category-card";
+import { Button } from "@/components/buttons";
+import { globalStyles, screenHeight, screenWidth } from "@/css/globalStyles";
+import Animated, {
+  runOnJS,
+  useAnimatedStyle,
+  useSharedValue,
+  withTiming,
+} from "react-native-reanimated";
 
 export default function Budget() {
   const [budgetId, setBudgetId] = useState<number>(0);
   const [budget, setBudget] = useState<GetBudgetDTOModel>();
+  const [menuVisible, setMenuVisible] = useState<boolean>(false);
 
+  // Budget constructor
   useEffect(() => {
     const main = async () => {
       // Load budget id from storage
@@ -56,6 +73,7 @@ export default function Budget() {
     main();
   }, []);
 
+  // Total the budget
   const getTotalBudgetRemaining = (): number => {
     if (!budget) return 0;
     return budget.envelopeCategories.reduce((total, category) => {
@@ -63,6 +81,7 @@ export default function Budget() {
     }, 0);
   };
 
+  // Total a category
   const getCategoryTotal = (
     category: SummaryEnvelopeCategoryResponse,
   ): number => {
@@ -70,6 +89,41 @@ export default function Budget() {
       return total + envelope.remainingAmount;
     }, 0);
   };
+
+  const handleEllipsisClickEH = () => {
+    // Open or close the modal
+    if (menuVisible) closeMenu();
+    else openMenu();
+  };
+
+  const handleCreateCategoryClickEH = () => {};
+
+  const handleCreateEnvelopeClickEH = () => {};
+
+  const handleEditCategoryClickEH = () => {};
+
+  const translateY = useSharedValue(100);
+  const opacity = useSharedValue(0);
+
+  const openMenu = () => {
+    setMenuVisible(true);
+    translateY.value = withTiming(0, { duration: 200 });
+    opacity.value = withTiming(1, { duration: 200 });
+  };
+
+  const closeMenu = () => {
+    translateY.value = withTiming(100, { duration: 200 });
+    opacity.value = withTiming(0, { duration: 200 }, (finished) => {
+      if (finished) {
+        runOnJS(setMenuVisible)(false);
+      }
+    });
+  };
+
+  const animatedStyle = useAnimatedStyle(() => ({
+    transform: [{ translateY: translateY.value }],
+    opacity: opacity.value,
+  }));
 
   return (
     <SafeAreaView style={globalStyles.screen}>
@@ -114,6 +168,55 @@ export default function Budget() {
           />
         ))}
       </ScrollView>
+      <Button
+        name="..."
+        onPress={handleEllipsisClickEH}
+        containerStyle={{
+          position: "absolute",
+          right: screenWidth * 0.03,
+          bottom: screenHeight * 0.115,
+        }}
+        style={{
+          width: 60,
+          height: 60,
+          borderRadius: 30,
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+        textStyle={{
+          fontSize: 30,
+          lineHeight: 44,
+          //marginBottom: 10, // To vertically center
+          letterSpacing: 4,
+        }}
+        variant="tertiary"
+      />
+      <Modal
+        visible={menuVisible}
+        transparent={true}
+        animationType="none"
+        onRequestClose={handleEllipsisClickEH}
+      >
+        <TouchableOpacity
+          style={{ flex: 1, backgroundColor: "rgba(0,0,0,0.5)" }}
+          onPress={handleEllipsisClickEH}
+        >
+          <Animated.View style={[styles.modalView, animatedStyle]}>
+            <Button
+              name="Add new envelope category"
+              onPress={handleCreateCategoryClickEH}
+            ></Button>
+            <Button
+              name="Add new envelope"
+              onPress={handleCreateEnvelopeClickEH}
+            ></Button>
+            <Button
+              name="Edit categories"
+              onPress={handleEditCategoryClickEH}
+            ></Button>
+          </Animated.View>
+        </TouchableOpacity>
+      </Modal>
       <BottomNavBar />
     </SafeAreaView>
   );
@@ -146,5 +249,16 @@ const styles = StyleSheet.create({
   },
   budgetName: {
     width: screenWidth * 0.5,
+  },
+  modalView: {
+    position: "absolute",
+    bottom: screenHeight * 0.21, // slightly above the button
+    right: screenWidth * 0.02,
+    padding: 10,
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.25,
+    shadowRadius: 4,
+    elevation: 5,
+    alignItems: "flex-end",
   },
 });
