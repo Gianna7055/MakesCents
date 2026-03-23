@@ -3,11 +3,7 @@ import {
   SafeAreaView,
   useSafeAreaInsets,
 } from "react-native-safe-area-context";
-import {
-  globalStyles,
-  screenHeight,
-  screenWidth,
-} from "@/css/globalStyles";
+import { globalStyles, screenHeight, screenWidth } from "@/css/globalStyles";
 import BottomNavBar from "@/components/bottom-nav-bar";
 import { ScrollView, Image, StyleSheet, View, Text } from "react-native";
 import { useRouter } from "expo-router";
@@ -64,7 +60,7 @@ export default function Home() {
   const AddTransactionClickEH = () => {};
 
   return (
-    <SafeAreaView style={globalStyles.Screen}>
+    <SafeAreaView style={globalStyles.screen}>
       <ScrollView>
         <View style={styles.vertLogoContainer}>
           <Image
@@ -76,7 +72,7 @@ export default function Home() {
           name="Add a Transaction"
           onPress={AddTransactionClickEH}
           variant="secondary"
-          textStyle={[globalStyles.Title, { fontWeight: "regular" }]}
+          textStyle={[globalStyles.centeredTitle, { fontWeight: "regular" }]}
         />
       </ScrollView>
       <BottomNavBar />

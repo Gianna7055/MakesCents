@@ -1,13 +1,11 @@
 import { Colors } from "@/constants/theme";
 import { Dimensions, StyleSheet } from "react-native";
-import { EdgeInsets } from "react-native-safe-area-context";
 
 export const screenWidth = Dimensions.get('window').width;
 export const screenHeight = Dimensions.get('window').height;
 
-
 export const globalStyles = StyleSheet.create({
-    Screen: {
+    screen: {
         backgroundColor: Colors.light.background,
         fontFamily: 'Inter',
         flex: 1,
@@ -17,11 +15,12 @@ export const globalStyles = StyleSheet.create({
         right: 0,
         bottom: 0,
     },
-    Title: {
+    centeredTitle: {
         fontFamily: 'Roboto',
         fontSize: 24,
         textAlign: "center",
     },
+    // Logo styles
     horizLogoContainer: {
         alignItems: "center",
         marginTop: screenHeight * 0.01,
@@ -36,24 +35,58 @@ export const globalStyles = StyleSheet.create({
         alignItems: "flex-start",
         marginTop: screenHeight * 0.01,
         borderColor: "purple",
-        //borderWidth: 1, For Testing
         flexDirection: "row",
-        /* For Logo
-        flexDirection: "row",
-        alignItems: "center",
-        //marginTop: screenHeight * 0.01,*/
+        //borderWidth: 1, // For Testing
     },
     inLineLogo: {
         width: screenWidth * 0.6, // For InLine
-        //width: screenWidth * .15, // For Logo
         height: screenWidth * 0.15,
         resizeMode: "contain",
         borderColor: "purple",
-        marginLeft: screenWidth * 0.03, // For InLine
-        //marginLeft: screenWidth * 0.05, // For Logo
+        marginLeft: screenWidth * 0.01, // For InLine
+        marginBottom: screenHeight * 0.01,
+        marginTop: screenHeight * 0.0,
+        //borderWidth: 1, // For Testing
+    },
+    noWordsLogoContainer: {
+        flexDirection: "row",
+        alignItems: "center",
+        marginTop: screenHeight * 0.01,
+        borderColor: "purple",
+        //borderWidth: 1, // For Testing
+    },
+    noWordsLogo: {
+        width: screenWidth * .15, // For Logo
+        height: screenWidth * 0.15,
+        resizeMode: "contain",
+        borderColor: "purple",
+        marginLeft: screenWidth * 0.05, // For Logo
         marginBottom: screenHeight * 0.02,
         marginTop: screenHeight * 0.01,
-        //borderWidth:, 1 For Testing
+        flex: 0
+        //borderWidth: 1, // For Testing
+    },
+    logoTitle: {
+        fontFamily: 'Roboto',
+        fontSize: 24,
+        textAlign: "center",
+              position: "absolute",
+              left: 0,
+              right: 0,
+              alignItems: "center",
+    },
+    // Text styles
+    negativeAmount: {
+      color: "#B5362F",
+      textAlign: "right",
+    },
+    zeroAmount: {
+      color: "#000000",
+      textAlign: "right",
+    },
+    positiveAmount: {
+      color: "#32C54B",
+      textAlign: "right",
     },
 });
 

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { globalStyles, safePadding, screenHeight } from "@/css/globalStyles";
+import { globalStyles, screenHeight } from "@/css/globalStyles";
 import { Button } from "@/components/buttons";
 import { useRouter } from "expo-router";
 import {
@@ -96,14 +96,14 @@ export default function Login() {
   };
 
   return (
-    <SafeAreaView style={globalStyles.Screen}>
+    <SafeAreaView style={globalStyles.screen}>
       <View style={globalStyles.horizLogoContainer}>
         <Image
           source={require("@/assets/images/MakesCentsHorizLogo.png")}
           style={globalStyles.horizLogo}
         />
       </View>
-      <Text style={globalStyles.Title}>Login</Text>
+      <Text style={globalStyles.centeredTitle}>Login</Text>
       <KeyboardAvoidingView>
         <Input
           name="Username/Email"

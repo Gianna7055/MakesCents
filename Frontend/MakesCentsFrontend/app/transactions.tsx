@@ -29,7 +29,7 @@ export default function Transactions() {
         //console.log("BudgetId:", storedBudgetId);
         // Load transactions from the backend
         const axiosResponse: AxiosResponse = await makesCentsAxios.get(
-          `/api/transactions/${storedBudgetId}`
+          `/api/transactions/${storedBudgetId}`,
         );
 
         // Get the response
@@ -58,45 +58,14 @@ export default function Transactions() {
   const handlePlusClick = () => {};
 
   return (
-    <SafeAreaView style={globalStyles.Screen}>
-      <View style={globalStyles.inLineLogoContainer}>
+    <SafeAreaView style={globalStyles.screen}>
+      <View style={globalStyles.noWordsLogoContainer}>
         <Image
-          //source={require("@/assets/images/MakesCentsLogo.png")} // For Logo
-          // style={[globalStyles.inLineLogo, { flex: 0 }]} // For Logo
-          source={require("@/assets/images/MakesCentsInLineLogo.png")}
-          style={globalStyles.inLineLogo}
+          source={require("@/assets/images/MakesCentsLogo.png")}
+          style={globalStyles.noWordsLogo}
         />
-        {/* For Logo
-        <Text
-          style={[
-            globalStyles.Title,
-            {
-              position: "absolute",
-              left: 0,
-              right: 0,
-              alignItems: "center",
-            },
-          ]}
-          style={globalStyles.Title}
-        >
-          Transactions
-        </Text>*/}
+        <Text style={globalStyles.logoTitle}>Transactions</Text>
       </View>
-      <Text
-        /* For Logo
-        style={[
-          globalStyles.Title,
-          {
-            position: "absolute",
-            left: 0,
-            right: 0,
-            alignItems: "center",
-          },
-        ]}*/
-        style={globalStyles.Title}
-      >
-        Transactions
-      </Text>
       <ScrollView style={{ marginVertical: 0 }}>
         <TransactionList transactions={transactions} />
       </ScrollView>

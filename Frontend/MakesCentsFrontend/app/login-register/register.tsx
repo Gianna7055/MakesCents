@@ -79,14 +79,14 @@ export default function Register() {
   };
 
   return (
-    <SafeAreaView style={globalStyles.Screen}>
+    <SafeAreaView style={globalStyles.screen}>
       <View style={globalStyles.horizLogoContainer}>
         <Image
           source={require("@/assets/images/MakesCentsHorizLogo.png")}
           style={globalStyles.horizLogo}
         />
       </View>
-      <Text style={globalStyles.Title}>Login</Text>
+      <Text style={globalStyles.centeredTitle}>Login</Text>
       <Input
         name="Username"
         placeholder="Value"

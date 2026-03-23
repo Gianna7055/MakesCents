@@ -1,8 +1,7 @@
 import React from "react";
 import { StyleSheet, View, Text } from "react-native";
 import { SummaryTransactionDTOModel } from "@/types/summary-transaction-dto-model";
-import { formatDate, screenWidth } from "@/css/globalStyles";
-import { Button } from "@/components/buttons";
+import { formatDate, globalStyles, screenWidth } from "@/css/globalStyles";
 
 type TransactionCardProps = {
   transaction: SummaryTransactionDTOModel;
@@ -20,11 +19,11 @@ export default function TransactionCard(props: TransactionCardProps) {
       props.transaction.envelopes.includes("->") ||
       props.transaction.amount == 0
     ) {
-      return <Text style={styles.zeroAmount}>${abs.toFixed(2)}</Text>;
+      return <Text style={globalStyles.zeroAmount}>${abs.toFixed(2)}</Text>;
     } else if (props.transaction.amount > 0) {
-      return <Text style={styles.positiveAmount}>{formatted}</Text>;
+      return <Text style={globalStyles.positiveAmount}>{formatted}</Text>;
     } else {
-      return <Text style={styles.negativeAmount}>{formatted}</Text>;
+      return <Text style={globalStyles.negativeAmount}>{formatted}</Text>;
     }
   };
 
@@ -89,18 +88,6 @@ const styles = StyleSheet.create({
   },
 
   // Text styles
-  negativeAmount: {
-    color: "#B5362F",
-    textAlign: "right",
-  },
-  zeroAmount: {
-    color: "#000000",
-    textAlign: "right",
-  },
-  positiveAmount: {
-    color: "#32C54B",
-    textAlign: "right",
-  },
   locationText: {
     fontSize: 14,
   },

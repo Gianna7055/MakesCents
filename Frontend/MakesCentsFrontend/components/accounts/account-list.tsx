@@ -5,12 +5,14 @@ import TransactionCard from "@/components/transactions/transaction-card";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { storage } from "@/data/storage";
 import { screenHeight } from "@/css/globalStyles";
+import { AccountSummaryDTOModel } from "@/types/account-summary-dto-model";
+import AccountCard from "./account-card";
 
-type TransactionListProps = {
-  transactions: SummaryTransactionDTOModel[];
+type AccountListProps = {
+  accounts: AccountSummaryDTOModel[];
 };
 
-export default function TransactionList(props: TransactionListProps) {
+export default function AccountList(props: AccountListProps) {
   const [budgetId, setBudgetId] = useState<number>(0);
 
   useEffect(() => {
@@ -21,26 +23,21 @@ export default function TransactionList(props: TransactionListProps) {
     loadBudgetId();
   }, []);
 
-  const transactionList = (props.transactions || []).map(
-    (transaction: SummaryTransactionDTOModel) => {
+  const accountList = (props.accounts || []).map(
+    (account: AccountSummaryDTOModel) => {
       return (
         // Returns a table row
-        <TransactionCard
-          key={transaction.transactionId}
-          transaction={transaction}
-        />
+        <AccountCard key={account.accountId} account={account} />
       );
     },
   );
   return (
     <SafeAreaView>
       <View style={{ marginVertical: -(screenHeight * 0.02) }}>
-        {budgetId === 0 ? (
-          <Text>Select a budget</Text>
-        ) : transactionList.length === 0 ? (
-          <Text>No Transactions</Text>
+        {accountList.length === 0 ? (
+          <Text>No Accounts</Text>
         ) : (
-          <>{transactionList}</>
+          <>{accountList}</>
         )}
       </View>
     </SafeAreaView>

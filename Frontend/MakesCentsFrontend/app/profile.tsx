@@ -19,7 +19,7 @@ export default function Profile() {
     router.replace("/login-register/login");
   };
   return (
-    <SafeAreaView style={globalStyles.Screen}>
+    <SafeAreaView style={globalStyles.screen}>
       <ScrollView>
         <Text>Profile Screen</Text>
         <Button name="Log Out" onPress={logout} />

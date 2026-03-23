@@ -202,7 +202,7 @@ namespace MakesCentsBackend.Services.DataAccessLayer
                 WHERE envelope_category.budget_id = @BudgetId;
                 """;
             // Read the envelope categories
-            envelopeCategoryResponses = (await _connection.QueryAsync<SummaryEnvelopeCategoryResponse>(query, new { BudgetId = budgetId })).ToList();
+            envelopeCategoryResponses = (await _connection.QueryAsync<SummaryEnvelopeCategoryResponse>(query, new { BudgetId = budget.EntityId })).ToList();
             // Set up the query for reading the envelopes
             query = """
                 SELECT 
@@ -216,7 +216,7 @@ namespace MakesCentsBackend.Services.DataAccessLayer
                 WHERE envelope_category.budget_id = @BudgetId;
                 """;
             // Read the envelopes
-            envelopeResponses = (await _connection.QueryAsync<SummaryEnvelopeResponse>(query, new { BudgetId = budgetId })).ToList();
+            envelopeResponses = (await _connection.QueryAsync<SummaryEnvelopeResponse>(query, new { BudgetId = budget.EntityId })).ToList();
             // Create a dictionary for the envelope categories
             envelopeCategoryLookup = envelopeCategoryResponses.ToDictionary(category => category.EnvelopeCategoryId);
             // Loop through the envelopes to put them in the correct categories
