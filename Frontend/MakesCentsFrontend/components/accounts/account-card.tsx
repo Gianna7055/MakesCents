@@ -2,7 +2,12 @@ import React from "react";
 import { View, Text, StyleSheet } from "react-native";
 import { useRouter } from "expo-router";
 import { Button } from "../buttons/button";
-import { formatEnum, screenWidth } from "@/css/globalStyles";
+import {
+  formatCurrency,
+  formatEnum,
+  screenHeight,
+  screenWidth,
+} from "@/css/globalStyles";
 import { SummaryAccountDTOModel } from "@/types/summary-account-dto-model";
 
 type AccountCardProps = {
@@ -23,7 +28,9 @@ const ProductCard = ({ account }: AccountCardProps) => {
       </View>
       <Text style={styles.institutionText}>{account.institution}</Text>
       <View style={styles.cardFlex}>
-        <Text style={styles.balanceText}>Balance: ${account.balance}</Text>
+        <Text style={styles.balanceText}>
+          Balance: {formatCurrency(account.balance)}
+        </Text>
         <Button
           name="See More ->"
           onPress={handleSeeMoreClick}
@@ -56,6 +63,7 @@ const styles = StyleSheet.create({
   balanceText: {
     fontSize: 18,
     fontWeight: "bold",
+    maxWidth: screenWidth * 0.5,
   },
   cardFlex: {
     flexDirection: "row",

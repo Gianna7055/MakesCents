@@ -71,15 +71,15 @@ export const globalStyles = StyleSheet.create({
         alignItems: "center",
     },
     // Text styles
-    negativeAmount: {
+    redAmount: {
         color: "#B5362F",
         textAlign: "right",
     },
-    zeroAmount: {
+    blackAmount: {
         color: "#000000",
         textAlign: "right",
     },
-    positiveAmount: {
+    greenAmount: {
         color: "#32C54B",
         textAlign: "right",
     },
@@ -118,3 +118,10 @@ export const getAccountSubType = (account: SummaryAccountDTOModel): string => {
   }
   return "";
 };
+
+export const formatCurrency = (amount: number): string => {
+    return amount.toLocaleString("en-US", {
+      style: "currency",
+      currency: "USD",
+    });
+  };

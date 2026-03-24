@@ -17,7 +17,12 @@ import { GetBudgetDTOModel } from "@/types/get-budget-dto-model";
 import { SummaryEnvelopeCategoryResponse } from "@/types/summary-envelope-category-response";
 import EnvelopeCategoryCard from "@/components/budget/envelope-category-card";
 import { Button } from "@/components/buttons/button";
-import { globalStyles, screenHeight, screenWidth } from "@/css/globalStyles";
+import {
+  formatCurrency,
+  globalStyles,
+  screenHeight,
+  screenWidth,
+} from "@/css/globalStyles";
 import Animated, {
   runOnJS,
   useAnimatedStyle,
@@ -157,7 +162,7 @@ export default function Budget() {
             <Text style={globalStyles.centeredTitle}>▼</Text>
           </View>
           <Text style={globalStyles.centeredTitle}>
-            ${getTotalBudgetRemaining()}
+            {formatCurrency(getTotalBudgetRemaining())}
           </Text>
         </View>
       ) : (

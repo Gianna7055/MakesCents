@@ -33,10 +33,13 @@ export default function Accounts() {
 
         // Get the response
         const response: GetAllAccountsResponse = axiosResponse.data;
-        //const transaction2 = response.transactions.concat(response.transactions,);
-        //console.log("Get All Transactions Response:", response);
-        setAccounts(response.accounts);
-        //setTransactions(transaction2);
+
+        // Sort the accounts by the account name
+        setAccounts(
+          response.accounts.sort((a, b) =>
+            a.accountName.localeCompare(b.accountName),
+          ),
+        );
       } catch (error) {
         if (axios.isAxiosError(error)) {
           // Log the error

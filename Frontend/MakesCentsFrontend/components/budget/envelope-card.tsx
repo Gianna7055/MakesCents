@@ -1,4 +1,4 @@
-import { globalStyles, screenWidth } from "@/css/globalStyles";
+import { formatCurrency, globalStyles, screenWidth } from "@/css/globalStyles";
 import { SummaryEnvelopeResponse } from "@/types/summary-envelope-response";
 import React from "react";
 import { View, Text, StyleSheet } from "react-native";
@@ -8,21 +8,16 @@ type EnvelopeCardProps = {
 };
 
 export default function EnvelopeCard(props: EnvelopeCardProps) {
-  const formatAmount = () => {
-    const abs = Math.abs(props.envelope.remainingAmount);
-    const formatted =
+  const renderAmount = () => {
+    const formatted = formatCurrency(props.envelope.remainingAmount);
+    const style =
       props.envelope.remainingAmount < 0
-        ? `-$${abs.toFixed(2)}`
-        : `$${abs.toFixed(2)}`;
+        ? globalStyles.redAmount
+        : globalStyles.blackAmount;
 
-    if (props.envelope.remainingAmount == 0) {
-      return <Text style={globalStyles.zeroAmount}>${abs.toFixed(2)}</Text>;
-    } else if (props.envelope.remainingAmount > 0) {
-      return <Text style={globalStyles.zeroAmount}>{formatted}</Text>;
-    } else {
-      return <Text style={globalStyles.negativeAmount}>{formatted}</Text>;
-    }
+    return <Text style={[style, styles.amountText]}>{formatted}</Text>;
   };
+
   return (
     <View style={styles.cardContainer}>
       <View style={styles.envelopeCategoryNameContainer}>
@@ -36,8 +31,10 @@ export default function EnvelopeCard(props: EnvelopeCardProps) {
             {props.envelope.envelopeName}
           </Text>
         </View>
-        <Text style={[styles.amountText]}>{formatAmount()}</Text>
-        <Text style={{ fontSize: 16 }}>▶</Text>
+        <View style={styles.amountContainer}>
+          {renderAmount()}
+          <Text style={{ fontSize: 16 }}>▶</Text>
+        </View>
       </View>
     </View>
   );
@@ -75,5 +72,9 @@ const styles = StyleSheet.create({
   amountText: {
     textAlign: "right",
     fontSize: 16,
+  },
+  amountContainer: {
+    flexDirection: "row",
+    gap: 5,
   },
 });

@@ -1,4 +1,4 @@
-import { globalStyles, screenWidth } from "@/css/globalStyles";
+import { formatCurrency, globalStyles, screenWidth } from "@/css/globalStyles";
 import React, { useState } from "react";
 import { StyleSheet, View, Text, TouchableOpacity } from "react-native";
 import EnvelopeCard from "@/components/budget/envelope-card";
@@ -17,18 +17,12 @@ export default function EnvelopeCategoryCard(props: EnvelopeCategoryCardProps) {
     }, 0);
   };
 
-  const formatAmount = () => {
+  const renderAmount = () => {
     const total = getCategoryTotal();
-    const abs = Math.abs(total);
-    const formatted = total < 0 ? `-$${abs.toFixed(2)}` : `$${abs.toFixed(2)}`;
+    const formatted = formatCurrency(total);
+    const style = total < 0 ? globalStyles.redAmount : globalStyles.blackAmount;
 
-    if (total == 0) {
-      return <Text style={globalStyles.zeroAmount}>${abs.toFixed(2)}</Text>;
-    } else if (total > 0) {
-      return <Text style={globalStyles.zeroAmount}>{formatted}</Text>;
-    } else {
-      return <Text style={globalStyles.negativeAmount}>{formatted}</Text>;
-    }
+    return <Text style={[style, styles.amountText]}>{formatted}</Text>;
   };
 
   const onPress = () => {
@@ -53,7 +47,7 @@ export default function EnvelopeCategoryCard(props: EnvelopeCategoryCardProps) {
               {props.envelopeCategory.envelopeCategoryName}
             </Text>
           </View>
-          <Text style={[styles.amountText]}>{formatAmount()}</Text>
+          <Text style={[styles.amountText]}>{renderAmount()}</Text>
         </View>
       </TouchableOpacity>
       {isOpen
@@ -74,6 +68,7 @@ const styles = StyleSheet.create({
     padding: 3,
     borderRadius: 20,
     backgroundColor: "#C9DAD0",
+    marginBottom: 10,
   },
   envelopeCategoryNameContainer: {
     flexDirection: "row",
@@ -89,7 +84,7 @@ const styles = StyleSheet.create({
     gap: 5,
   },
   envelopeCategoryName: {
-    width: screenWidth * 0.5,
+    maxWidth: screenWidth * 0.5,
     flexShrink: 1,
     alignSelf: "flex-start",
     fontFamily: "Roboto",
@@ -99,5 +94,6 @@ const styles = StyleSheet.create({
   amountText: {
     textAlign: "right",
     fontSize: 20,
+    marginRight: 5,
   },
 });

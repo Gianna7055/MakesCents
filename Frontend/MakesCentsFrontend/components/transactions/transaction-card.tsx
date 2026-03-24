@@ -1,29 +1,29 @@
 import React from "react";
 import { StyleSheet, View, Text } from "react-native";
 import { SummaryTransactionDTOModel } from "@/types/summary-transaction-dto-model";
-import { formatDate, globalStyles, screenWidth } from "@/css/globalStyles";
+import {
+  formatCurrency,
+  formatDate,
+  globalStyles,
+  screenWidth,
+} from "@/css/globalStyles";
 
 type TransactionCardProps = {
   transaction: SummaryTransactionDTOModel;
 };
 
 export default function TransactionCard(props: TransactionCardProps) {
-  const formatAmount = () => {
-    const abs = Math.abs(props.transaction.amount);
-    const formatted =
-      props.transaction.amount < 0
-        ? `-$${abs.toFixed(2)}`
-        : `$${abs.toFixed(2)}`;
-
+  const renderAmount = () => {
+    const formatted = formatCurrency(props.transaction.amount);
     if (
       props.transaction.envelopes.includes("->") ||
       props.transaction.amount == 0
     ) {
-      return <Text style={globalStyles.zeroAmount}>${abs.toFixed(2)}</Text>;
+      return <Text style={globalStyles.blackAmount}>${formatted}</Text>;
     } else if (props.transaction.amount > 0) {
-      return <Text style={globalStyles.positiveAmount}>{formatted}</Text>;
+      return <Text style={globalStyles.greenAmount}>{formatted}</Text>;
     } else {
-      return <Text style={globalStyles.negativeAmount}>{formatted}</Text>;
+      return <Text style={globalStyles.redAmount}>{formatted}</Text>;
     }
   };
 
@@ -51,7 +51,7 @@ export default function TransactionCard(props: TransactionCardProps) {
         </Text>
       </View>
       <View style={styles.amountContainer}>
-        <Text>{formatAmount()}</Text>
+        <Text>{renderAmount()}</Text>
       </View>
       <View style={styles.arrowContainer}>
         <Text>▶</Text>
