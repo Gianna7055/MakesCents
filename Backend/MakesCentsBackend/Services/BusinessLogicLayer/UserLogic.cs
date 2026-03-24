@@ -193,6 +193,16 @@ namespace MakesCentsBackend.Services.BusinessLogicLayer
                 // Hash the users password
                 user.PasswordHash = PasswordHasher.HashPassword(user.PasswordHash);
             }
+            if (!string.IsNullOrEmpty(user.Username))
+            {
+                // Normalize the username
+                user.Username = user.Username.ToLower();
+            }
+            if (!string.IsNullOrEmpty(user.Email))
+            {
+                // Normalize the email
+                user.Email = user.Email.ToLower();
+            }
             // Call the Create User method in the DAO
             response = await _userDAO.UpdateUserAsync(user);
             // Return the response

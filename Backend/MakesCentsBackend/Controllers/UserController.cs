@@ -159,8 +159,11 @@ namespace MakesCentsBackend.Controllers
             // Call the method from the logic class
             response = await _userLogic.UpdateUserAsync(user);
 
+            // Return the response
+            return StatusCode(response);
+
             // Check if the status came back as a success
-            if (response.HttpStatus != 200)
+            /*if (response.HttpStatus != 200)
             {
                 // Return an issue
                 return StatusCode(response.HttpStatus, response.Message);
@@ -168,13 +171,8 @@ namespace MakesCentsBackend.Controllers
             else
             {
                 // Return Ok
-                return Ok(new
-                {
-                    status = response.HttpStatus,
-                    message = response.Message,
-                    userId = response.Id
-                });
-            }
+                return Ok(response);
+            }*/
         }
 
         /// <summary>

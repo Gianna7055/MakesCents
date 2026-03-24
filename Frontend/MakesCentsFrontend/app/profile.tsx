@@ -5,7 +5,7 @@ import { Button } from "@/components/buttons/button";
 import { router } from "expo-router";
 import { globalStyles, screenHeight, screenWidth } from "@/css/globalStyles";
 import ScreenWrapper from "@/components/ui/screen-wrapper";
-import InfoField from "@/components/text/InfoField";
+import InfoField from "@/components/text/info-field";
 import Input from "@/components/text/inputs";
 import axios, { AxiosResponse } from "axios";
 import makesCentsAxios from "@/data/datasource";
@@ -92,12 +92,15 @@ export default function Profile() {
     const request = new EditUserRequest();
     if (user!.username != savedUser!.username) {
       request.username = user!.username;
+      console.log("Going to update username");
     }
     if (user!.email != savedUser!.email) {
       request.email = user!.email;
+      console.log("Going to update email");
     }
     if (newPassword && newPassword == reEnterPassword) {
       request.passwordHash = newPassword;
+      console.log("Going to update password");
     }
 
     // Make sure the request has information (don't call for 0 updates)
@@ -115,7 +118,7 @@ export default function Profile() {
         const response: BaseIdResponse = axiosResponse.data;
 
         // Log the response
-        //console.log("Response:", response);
+        console.log("Response:", response);
 
         // Check the response code
         if (response.httpStatus == 200) {
@@ -133,6 +136,8 @@ export default function Profile() {
         console.log("Error:", error);
         console.log("Status:", error.response?.status);
         console.log("Response:", error.response?.data);
+        // Reset the user to the saved user
+        setUser(savedUser);
         /* 
       --------------------------------------------------------------------------------------------
         DEAL WITH SAVE USER FAIL
@@ -141,6 +146,8 @@ export default function Profile() {
       }
     }
     setEditMode(false);
+    setNewPassword("");
+    setReEnterPassword("");
   };
 
   return (
@@ -165,6 +172,7 @@ export default function Profile() {
                   onChangeText={(text) => {
                     setUser({ ...user!, username: text });
                   }}
+                  autoCapitalize="none"
                 />
                 <Input
                   name="Email"
@@ -174,20 +182,23 @@ export default function Profile() {
                   onChangeText={(text) => {
                     setUser({ ...user!, email: text });
                   }}
+                  autoCapitalize="none"
                 />
                 <Input
                   name="Password"
                   value={newPassword}
                   placeholder="New Password"
-                  type="text"
+                  type="password"
                   onChangeText={setNewPassword}
+                  autoCapitalize="none"
                 />
                 <Input
                   name="Re-Enter Password"
                   value={reEnterPassword}
                   placeholder="Re-Enter New Password"
-                  type="text"
+                  type="password"
                   onChangeText={setReEnterPassword}
+                  autoCapitalize="none"
                 />
               </View>
             ) : // Block if user does not exist
