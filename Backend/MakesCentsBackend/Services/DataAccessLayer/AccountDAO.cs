@@ -109,6 +109,7 @@ namespace MakesCentsBackend.Services.DataAccessLayer
                     account.account_type_id AS AccountType,
                     account.account_name AS AccountName,
                     account.balance AS Balance,
+                    account.institution AS Institution,
                     debt_account.debt_account_id AS DebtAccountId,
                     debt_account.debt_account_type_id AS DebtAccountType
                 FROM account
@@ -127,6 +128,7 @@ namespace MakesCentsBackend.Services.DataAccessLayer
                     account.account_type_id AS AccountType,
                     account.account_name AS AccountName,
                     account.balance AS Balance,
+                    account.institution AS Institution,
                     investment_account.investment_account_id AS InvestmentAccountId,
                     investment_account.investment_account_type_id AS InvestmentAccountType
                 FROM account
