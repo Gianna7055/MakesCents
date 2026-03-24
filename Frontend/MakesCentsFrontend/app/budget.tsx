@@ -16,7 +16,7 @@ import { GetBudgetResponse } from "@/types/get-budget-response";
 import { GetBudgetDTOModel } from "@/types/get-budget-dto-model";
 import { SummaryEnvelopeCategoryResponse } from "@/types/summary-envelope-category-response";
 import EnvelopeCategoryCard from "@/components/budget/envelope-category-card";
-import { Button } from "@/components/buttons";
+import { Button } from "@/components/buttons/button";
 import { globalStyles, screenHeight, screenWidth } from "@/css/globalStyles";
 import Animated, {
   runOnJS,
@@ -130,11 +130,12 @@ export default function Budget() {
 
   return (
     <ScreenWrapper>
-      <View style={globalStyles.inLineLogoContainer}>
+      <View style={globalStyles.noWordsLogoContainer}>
         <Image
-          source={require("@/assets/images/MakesCentsInLineLogo.png")}
-          style={globalStyles.inLineLogo}
+          source={require("@/assets/images/MakesCentsLogo.png")}
+          style={globalStyles.noWordsLogo}
         />
+        <Text style={globalStyles.logoTitle}>Budget</Text>
       </View>
       <View style={styles.budgetStatusContainer}>
         <Text>Your Budget Makes Cents</Text>
@@ -192,7 +193,7 @@ export default function Budget() {
           //marginBottom: 10, // To vertically center
           letterSpacing: 4,
         }}
-        variant="tertiary"
+        variant="primary"
       />
       <Modal
         visible={menuVisible}

@@ -113,7 +113,7 @@ namespace MakesCentsBackend.Services.BusinessLogicLayer
             // Check if the response status is 400
             if (findUserResponse.HttpStatus == 400)
             {
-                // Check if the error was due to an unfound user
+                // Check if the error was due to an un-found user
                 if (findUserResponse.Message == "User not found")
                 {
                     loginResponse.HttpStatus = 401;

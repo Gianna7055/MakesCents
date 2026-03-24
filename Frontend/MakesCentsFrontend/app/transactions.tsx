@@ -8,7 +8,7 @@ import { SummaryTransactionDTOModel } from "@/types/summary-transaction-dto-mode
 import { globalStyles, screenHeight, screenWidth } from "@/css/globalStyles";
 import { storage } from "@/data/storage";
 import TransactionList from "@/components/transactions/transaction-list";
-import { Button } from "@/components/buttons";
+import { Button } from "@/components/buttons/button";
 import { router } from "expo-router";
 import ScreenWrapper from "@/components/ui/screen-wrapper";
 

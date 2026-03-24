@@ -3,7 +3,7 @@ import { globalStyles, screenHeight, screenWidth } from "@/css/globalStyles";
 import BottomNavBar from "@/components/bottom-nav-bar";
 import { ScrollView, Text, View, Image } from "react-native";
 import AccountList from "@/components/accounts/account-list";
-import { Button } from "@/components/buttons";
+import { Button } from "@/components/buttons/button";
 import { storage } from "@/data/storage";
 import axios, { AxiosResponse } from "axios";
 import makesCentsAxios from "@/data/datasource";

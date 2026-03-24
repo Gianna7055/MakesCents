@@ -1,7 +1,7 @@
 import React from "react";
 import { View, Text, StyleSheet } from "react-native";
 import { useRouter } from "expo-router";
-import { Button } from "../buttons";
+import { Button } from "../buttons/button";
 import { formatEnum, screenWidth } from "@/css/globalStyles";
 import { SummaryAccountDTOModel } from "@/types/summary-account-dto-model";
 
@@ -21,7 +21,7 @@ const ProductCard = ({ account }: AccountCardProps) => {
         <Text style={{ fontSize: 24 }}>○ </Text>
         <Text style={styles.cardTitle}>{account.accountName}</Text>
       </View>
-      <Text style={styles.institutionText}>{getAccountSubType(account)}</Text>
+      <Text style={styles.institutionText}>{account.institution}</Text>
       <View style={styles.cardFlex}>
         <Text style={styles.balanceText}>Balance: ${account.balance}</Text>
         <Button
@@ -69,17 +69,3 @@ const styles = StyleSheet.create({
     marginTop: 15,
   },
 });
-
-export const getAccountSubType = (account: SummaryAccountDTOModel): string => {
-  if (account.bankAccountType)
-    return formatEnum(account.bankAccountType.toString());
-  if (account.debtAccountType)
-    return formatEnum(account.debtAccountType.toString());
-  if (account.investmentAccountType) {
-    if (account.investmentAccountType.toString() == "IRA") return "IRA";
-    if (account.investmentAccountType.toString() == "Retirement401K403B")
-      return "401K / 403B";
-    return formatEnum(account.investmentAccountType.toString());
-  }
-  return "";
-};

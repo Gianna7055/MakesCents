@@ -1,6 +1,6 @@
 import React, { useRef, useState } from "react";
 import { globalStyles, screenHeight } from "@/css/globalStyles";
-import { Button } from "@/components/buttons";
+import { Button } from "@/components/buttons/button";
 import { router } from "expo-router";
 import {
   Image,
@@ -10,7 +10,7 @@ import {
   ScrollView,
   TextInput,
 } from "react-native";
-import Input from "@/components/inputs";
+import Input from "@/components/text/inputs";
 import { RegisterRequest } from "@/types/register-request";
 import { RegisterResponse } from "@/types/register-response";
 import { makesCentsPublicAxios } from "@/data/datasource";
