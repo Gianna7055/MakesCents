@@ -130,12 +130,7 @@ namespace MakesCentsBackend.Controllers
             else
             {
                 // Return a success otherwise
-                return Ok(new
-                {
-                    status = response.HttpStatus,
-                    message = response.Message,
-                    user = response.GetUserDTO
-                });
+                return Ok(response);
             }
         }
 

@@ -13,6 +13,7 @@ export const Colors = {
     //icon: '#687076',
     tabIconDefault: '#687076',
     tabIconSelected: "#088940",
+    primary: "#088940",
   },
   /*dark: {
     text: '#ECEDEE',

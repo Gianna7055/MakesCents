@@ -1,3 +1,4 @@
+import { Colors } from "@/constants/theme";
 import React from "react";
 import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
 
@@ -23,18 +24,18 @@ const Button = ({
     variant === "primary"
       ? styles.PrimaryButtonWrapper
       : variant === "secondary"
-      ? styles.SecondaryButtonWrapper
-      : styles.TertiaryButtonWrapper,
+        ? styles.SecondaryButtonWrapper
+        : styles.TertiaryButtonWrapper,
     style,
   ];
-  
+
   const buttonTextStyle = [
     styles.ButtonText,
     variant === "primary"
       ? styles.PrimaryButtonText
       : variant === "secondary"
-      ? styles.SecondaryButtonText
-      : styles.TertiaryButtonText,
+        ? styles.SecondaryButtonText
+        : styles.TertiaryButtonText,
     textStyle,
   ];
   return (
@@ -69,7 +70,7 @@ const styles = StyleSheet.create({
   },
   // Primary button styles
   PrimaryButtonWrapper: {
-    backgroundColor: "#088940",
+    backgroundColor: Colors.light.primary,
   },
   PrimaryButtonText: {
     color: "#FFF",
@@ -83,7 +84,10 @@ const styles = StyleSheet.create({
   },
   // Tertiary button styles
   TertiaryButtonWrapper: {
-    backgroundColor: "#BBBBBB",
+    backgroundColor: "#FFF",
+    borderColor: "#B0E3BF",
+    borderWidth: 4,
+    margin: -4,
   },
   TertiaryButtonText: {
     color: "#303030",

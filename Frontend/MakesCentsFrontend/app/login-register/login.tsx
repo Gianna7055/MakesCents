@@ -1,6 +1,6 @@
 import React, { useRef, useState } from "react";
 import { globalStyles, screenHeight } from "@/css/globalStyles";
-import { Button } from "@/components/buttons";
+import { Button } from "@/components/buttons/button";
 import { router } from "expo-router";
 import {
   Image,
@@ -11,7 +11,7 @@ import {
   TextInput,
   ScrollView,
 } from "react-native";
-import Input from "@/components/inputs";
+import Input from "@/components/text/inputs";
 import { LoginRequest } from "@/types/login-request";
 import { LoginResponse } from "@/types/login-response";
 import { makesCentsPublicAxios } from "@/data/datasource";
@@ -28,7 +28,7 @@ export default function Login() {
   const passwordRef = useRef<TextInput>(null);
 
   // Functions to handle button clicks
-  async function handleLoginClick() {
+  const handleLoginClick = async () => {
     // Log the username/email and password
     //console.log("Username/Email:", usernameOrEmail);
     //console.log("Password:", password);

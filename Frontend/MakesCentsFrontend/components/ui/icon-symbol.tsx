@@ -19,6 +19,7 @@ type SFSymbolNames =
 
 const MATERIALS_MAPPING = {
   house: "home",
+  pencil: "edit"
 } as const;
 
 const FONT_AWESOME_5_MAPPING = {

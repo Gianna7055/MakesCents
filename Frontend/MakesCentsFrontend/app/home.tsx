@@ -6,7 +6,7 @@ import axios, { AxiosResponse } from "axios";
 import makesCentsAxios from "@/data/datasource";
 import { GetBudgetResponse } from "@/types/get-budget-response";
 import { storage } from "@/data/storage";
-import { Button } from "@/components/buttons";
+import { Button } from "@/components/buttons/button";
 import { router } from "expo-router";
 import ScreenWrapper from "@/components/ui/screen-wrapper";
 
