@@ -160,7 +160,7 @@ namespace MakesCentsBackend.Controllers
             response = await _userLogic.UpdateUserAsync(user);
 
             // Return the response
-            return StatusCode(response);
+            return StatusCode(response.HttpStatus, response);
 
             // Check if the status came back as a success
             /*if (response.HttpStatus != 200)
