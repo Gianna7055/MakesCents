@@ -59,6 +59,14 @@ export default function Budget() {
         //console.log("Envelope 1:", response.budget.envelopeCategories[1]);
         if (response) {
           // Store the budget id in storage
+          response.budget.envelopeCategories =
+            response.budget.envelopeCategories.sort(
+              (a, b) => a.envelopeCategoryId - b.envelopeCategoryId,
+            );
+            response.budget.envelopeCategories[1].envelopes =
+            response.budget.envelopeCategories[1].envelopes.sort(
+              (a, b) => a.envelopeId - b.envelopeId,
+            );
           setBudget(response.budget);
           //console.log("Category 1", budget!.envelopeCategories[0]);
         }
@@ -255,9 +263,10 @@ const styles = StyleSheet.create({
   budgetNameGroup: {
     flexDirection: "row",
     justifyContent: "space-between",
+    gap: 5,
   },
   budgetName: {
-    width: screenWidth * 0.5,
+    maxWidth: screenWidth * 0.5,
   },
   modalView: {
     position: "absolute",

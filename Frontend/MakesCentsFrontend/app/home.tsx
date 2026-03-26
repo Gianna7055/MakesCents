@@ -15,7 +15,7 @@ export default function Home() {
   useEffect(() => {
     const main = async () => {
       // Get the current year and month
-      const now: Date = new Date();
+      const now: Date = new Date(2026, 3, 2, 2, 2, 2, 2);
       const year: number = now.getFullYear();
       const month: string = now.toLocaleString("default", { month: "long" });
 
