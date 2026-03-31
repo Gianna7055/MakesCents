@@ -6,7 +6,7 @@ import { router } from "expo-router";
 import { globalStyles, screenHeight, screenWidth } from "@/css/globalStyles";
 import ScreenWrapper from "@/components/ui/screen-wrapper";
 import InfoField from "@/components/text/info-field";
-import Input from "@/components/text/inputs";
+import Input from "@/components/text/text-input";
 import axios, { AxiosResponse } from "axios";
 import makesCentsAxios from "@/data/datasource";
 import { GetUserResponse } from "@/types/get-user-response";
@@ -14,6 +14,7 @@ import { GetUserDTOModel } from "@/types/get-user-dto-model";
 import IconButton from "@/components/buttons/icon-button";
 import { EditUserRequest } from "@/types/edit-user-request";
 import { BaseIdResponse } from "@/types/base-id-response";
+import { handleAxiosError } from "@/utils/axiosErrorHandler";
 
 export default function Profile() {
   // Variables
@@ -133,9 +134,8 @@ export default function Profile() {
         */
         }
       } catch (error: any) {
-        console.log("Error:", error);
-        console.log("Status:", error.response?.status);
-        console.log("Response:", error.response?.data);
+        handleAxiosError(error);
+
         // Reset the user to the saved user
         setUser(savedUser);
         /* 

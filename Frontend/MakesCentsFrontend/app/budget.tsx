@@ -31,6 +31,7 @@ import Animated, {
 } from "react-native-reanimated";
 import { router } from "expo-router";
 import ScreenWrapper from "@/components/ui/screen-wrapper";
+import { handleAxiosError } from "@/utils/axiosErrorHandler";
 
 export default function Budget() {
   const [budgetId, setBudgetId] = useState<number>(0);
@@ -53,17 +54,17 @@ export default function Budget() {
         // Get the response
         const response: GetBudgetResponse = axiosResponse.data;
         // Log the response
-        //console.log("Response:", response);
-        //console.log("Budget:", response.budget);
-        //console.log("Envelope Categories:", response.budget.envelopeCategories);
-        //console.log("Envelope 1:", response.budget.envelopeCategories[1]);
+        console.log("Response:", response);
+        console.log("Budget:", response.budget);
+        console.log("Envelope Categories:", response.budget.envelopeCategories);
+        console.log("Envelope 1:", response.budget.envelopeCategories[1]);
         if (response) {
           // Store the budget id in storage
           response.budget.envelopeCategories =
             response.budget.envelopeCategories.sort(
               (a, b) => a.envelopeCategoryId - b.envelopeCategoryId,
             );
-            response.budget.envelopeCategories[1].envelopes =
+          response.budget.envelopeCategories[1].envelopes =
             response.budget.envelopeCategories[1].envelopes.sort(
               (a, b) => a.envelopeId - b.envelopeId,
             );
@@ -71,17 +72,7 @@ export default function Budget() {
           //console.log("Category 1", budget!.envelopeCategories[0]);
         }
       } catch (error: any) {
-        if (axios.isAxiosError(error)) {
-          console.log(
-            "Axios error:",
-            error.response?.status,
-            error.response?.data,
-          );
-          if (error.response?.status == 401)
-            router.replace("/login-register/login");
-        } else {
-          console.log("Error:", error);
-        }
+        handleAxiosError(error);
       }
     };
 

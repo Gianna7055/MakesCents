@@ -2,11 +2,11 @@ import React from "react";
 import { StyleSheet, View, Text } from "react-native";
 import { SummaryTransactionDTOModel } from "@/types/summary-transaction-dto-model";
 import {
-  formatCurrency,
-  formatDate,
   globalStyles,
   screenWidth,
 } from "@/css/globalStyles";
+import { formatCurrency } from "@/utils/formatCurrency";
+import { formatDate } from "@/utils/formatDate";
 
 type TransactionCardProps = {
   transaction: SummaryTransactionDTOModel;
@@ -19,7 +19,7 @@ export default function TransactionCard(props: TransactionCardProps) {
       props.transaction.envelopes.includes("->") ||
       props.transaction.amount == 0
     ) {
-      return <Text style={globalStyles.blackAmount}>${formatted}</Text>;
+      return <Text style={globalStyles.blackAmount}>{formatted}</Text>;
     } else if (props.transaction.amount > 0) {
       return <Text style={globalStyles.greenAmount}>{formatted}</Text>;
     } else {

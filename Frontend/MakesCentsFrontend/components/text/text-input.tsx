@@ -12,6 +12,7 @@ type InputProps = {
   autoCapitalize?: "none" | "sentences" | "words" | "characters";
   returnKeyType?: "next" | "done" | "go" | "search" | "send";
   onSubmitEditing?: () => void;
+  boxStyle?: any;
 };
 
 const Input = forwardRef<TextInput, InputProps>((props, ref) => {
@@ -23,7 +24,7 @@ const Input = forwardRef<TextInput, InputProps>((props, ref) => {
     <View style={styles.inputContainer}>
       <Text style={globalStyles.textHeader}>{props.name}</Text>
       <TextInput
-        style={styles.input}
+        style={[styles.input, props.boxStyle]}
         placeholder={props.placeholder}
         secureTextEntry={isPassword}
         value={props.value}

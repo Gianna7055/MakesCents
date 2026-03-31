@@ -11,6 +11,7 @@ import TransactionList from "@/components/transactions/transaction-list";
 import { Button } from "@/components/buttons/button";
 import { router } from "expo-router";
 import ScreenWrapper from "@/components/ui/screen-wrapper";
+import { handleAxiosError } from "@/utils/axiosErrorHandler";
 
 export default function Transactions() {
   const [budgetId, setBudgetId] = useState<number>(0);
@@ -39,18 +40,8 @@ export default function Transactions() {
         //console.log("Get All Transactions Response:", response);
         setTransactions(response.transactions);
         //setTransactions(transaction2);
-      } catch (error) {
-        if (axios.isAxiosError(error)) {
-          console.log(
-            "Axios error:",
-            error.response?.status,
-            error.response?.data,
-          );
-          if (error.response?.status == 401)
-            router.replace("/login-register/login");
-        } else {
-          console.log("Error:", error);
-        }
+      } catch (error: any) {
+        handleAxiosError(error);
       }
     };
 

@@ -6,7 +6,7 @@
 import { UpdateTransactionRequest } from "./update-transaction-request";
 import { TransferTransactionType } from "./transfer-transaction-type";
 
-export class UpdateTransferTransactionRequest implements UpdateTransactionRequest {
+export class UpdateTransferTransactionRequest extends UpdateTransactionRequest {
     transferTransactionId: number;
     transferFromId: number;
     transferToId: number;

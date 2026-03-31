@@ -127,7 +127,7 @@ namespace MakesCentsBackend.Models
     }
 
 
-    [ExportTsInterface]
+    [ExportTsClass]
     public class UpdateTransactionRequest
     {
         // Class properties

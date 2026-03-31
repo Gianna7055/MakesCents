@@ -11,13 +11,14 @@ import {
   TextInput,
   ScrollView,
 } from "react-native";
-import Input from "@/components/text/inputs";
+import Input from "@/components/text/text-input";
 import { LoginRequest } from "@/types/login-request";
 import { LoginResponse } from "@/types/login-response";
 import { makesCentsPublicAxios } from "@/data/datasource";
 import { AxiosResponse } from "axios";
 import { storage } from "@/data/storage";
 import ScreenWrapper from "@/components/ui/screen-wrapper";
+import { handleAxiosError } from "@/utils/axiosErrorHandler";
 
 export default function Login() {
   // UseState variables
@@ -82,17 +83,19 @@ export default function Login() {
         */
         }
       } catch (error: any) {
-        console.log("Error:", error);
-        console.log("Status:", error.response?.status);
-        console.log("Response:", error.response?.data);
-        /* 
-        --------------------------------------------------------------------------------------------
-          DEAL WITH LOGIN FAIL
-        --------------------------------------------------------------------------------------------
-        */
+        handleAxiosError(error, (err) => {
+          /* 
+          --------------------------------------------------------------------------------------------
+            DEAL WITH LOGIN FAIL
+          --------------------------------------------------------------------------------------------
+          */
+          if (err.response?.status === 404) {
+            // handle 404 specifically
+          }
+        });
       }
     }
-  }
+  };
 
   const handleRegisterClick = () => {
     // Add nav here

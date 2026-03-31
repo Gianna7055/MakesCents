@@ -11,6 +11,7 @@ import { GetAllAccountsResponse } from "@/types/get-all-accounts-response";
 import { router } from "expo-router";
 import ScreenWrapper from "@/components/ui/screen-wrapper";
 import { SummaryAccountDTOModel } from "@/types/summary-account-dto-model";
+import { handleAxiosError } from "@/utils/axiosErrorHandler";
 
 export default function Accounts() {
   const [budgetId, setBudgetId] = useState<number>(0);
@@ -40,19 +41,8 @@ export default function Accounts() {
             a.accountName.localeCompare(b.accountName),
           ),
         );
-      } catch (error) {
-        if (axios.isAxiosError(error)) {
-          // Log the error
-          console.log(
-            "Axios error:",
-            error.response?.status,
-            error.response?.data,
-          );
-          if (error.response?.status == 401)
-            router.replace("/login-register/login");
-        } else {
-          console.log("Error:", error);
-        }
+      } catch (error: any) {
+        handleAxiosError(error);
       }
     };
 

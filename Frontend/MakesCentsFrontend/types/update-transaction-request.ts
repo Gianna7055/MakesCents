@@ -6,7 +6,7 @@
 import { DateOnly } from "./date-only";
 import { Optional } from "./optional";
 
-export interface UpdateTransactionRequest {
+export class UpdateTransactionRequest {
     userId: number;
     transactionId: number;
     transactionDate: DateOnly;

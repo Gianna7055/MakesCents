@@ -10,7 +10,7 @@ import {
   ScrollView,
   TextInput,
 } from "react-native";
-import Input from "@/components/text/inputs";
+import Input from "@/components/text/text-input";
 import { RegisterRequest } from "@/types/register-request";
 import { RegisterResponse } from "@/types/register-response";
 import { makesCentsPublicAxios } from "@/data/datasource";
@@ -18,6 +18,7 @@ import { makesCentsPublicAxios } from "@/data/datasource";
 import { AxiosResponse } from "axios";
 import { storage } from "@/data/storage";
 import ScreenWrapper from "@/components/ui/screen-wrapper";
+import { handleAxiosError } from "@/utils/axiosErrorHandler";
 
 export default function Register() {
   // UseState variables
@@ -74,13 +75,16 @@ export default function Register() {
         */
         }
       } catch (error: any) {
-        console.log("Status:", error.response?.status);
-        console.log("Response:", error.response?.data);
-        /* 
-        --------------------------------------------------------------------------------------------
-          DEAL WITH REGISTER FAIL
-        --------------------------------------------------------------------------------------------
-        */
+        handleAxiosError(error, (err) => {
+          /* 
+          --------------------------------------------------------------------------------------------
+            DEAL WITH REGISTER FAIL
+          --------------------------------------------------------------------------------------------
+          */
+          if (err.response?.status === 404) {
+            // handle 404 specifically
+          }
+        });
       }
     }
   }

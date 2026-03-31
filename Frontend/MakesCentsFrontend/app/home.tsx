@@ -9,13 +9,15 @@ import { storage } from "@/data/storage";
 import { Button } from "@/components/buttons/button";
 import { router } from "expo-router";
 import ScreenWrapper from "@/components/ui/screen-wrapper";
+import { handleAxiosError } from "@/utils/axiosErrorHandler";
 
 export default function Home() {
   // Home constructor
   useEffect(() => {
     const main = async () => {
       // Get the current year and month
-      const now: Date = new Date(2026, 3, 2, 2, 2, 2, 2);
+      //const now: Date = new Date(2026, 3, 2, 2, 2, 2, 2);
+      const now: Date = new Date();
       const year: number = now.getFullYear();
       const month: string = now.toLocaleString("default", { month: "long" });
 
@@ -34,17 +36,7 @@ export default function Home() {
           storage.saveBudgetId(response.budget.budgetId);
         }
       } catch (error: any) {
-        if (axios.isAxiosError(error)) {
-          console.log(
-            "Axios error:",
-            error.response?.status,
-            error.response?.data,
-          );
-          if (error.response?.status == 401)
-            router.replace("/login-register/login");
-        } else {
-          console.log("Error:", error);
-        }
+        handleAxiosError(error);
       }
     };
 
@@ -52,7 +44,12 @@ export default function Home() {
     main();
   }, []);
 
-  const AddTransactionClickEH = () => {};
+  const AddTransactionClickEH = () => {
+    // Navigate to create a new transaction
+    router.replace(
+      `/new-edit-screens/new-edit-transaction?paramTransactionId=${6}&paramTransactionType=${2}`,
+    );
+  };
 
   return (
     <ScreenWrapper>

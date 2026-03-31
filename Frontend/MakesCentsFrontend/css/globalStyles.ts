@@ -1,5 +1,4 @@
 import { Colors } from "@/constants/theme";
-import { SummaryAccountDTOModel } from "@/types/summary-account-dto-model";
 import { Dimensions, StyleSheet } from "react-native";
 
 export const screenWidth = Dimensions.get('window').width;
@@ -83,8 +82,6 @@ export const globalStyles = StyleSheet.create({
         color: "#32C54B",
         textAlign: "right",
     },
-
-    
     textHeader: {
       fontSize: 14,
       fontFamily: "Inter",
@@ -95,33 +92,4 @@ export const globalStyles = StyleSheet.create({
     },
 });
 
-export const formatDate = (date: any): string => {
-    const dateString = date as string;
-    const [year, month, day] = dateString.split('-').map(Number);
-    return `${month}/${day}`;
-  };
 
-export const formatEnum = (value: string): string => {
-return value.replace(/([A-Z])/g, ' $1').trim();
-};
-
-export const getAccountSubType = (account: SummaryAccountDTOModel): string => {
-  if (account.bankAccountType)
-    return formatEnum(account.bankAccountType.toString());
-  if (account.debtAccountType)
-    return formatEnum(account.debtAccountType.toString());
-  if (account.investmentAccountType) {
-    if (account.investmentAccountType.toString() == "IRA") return "IRA";
-    if (account.investmentAccountType.toString() == "Retirement401K403B")
-      return "401K / 403B";
-    return formatEnum(account.investmentAccountType.toString());
-  }
-  return "";
-};
-
-export const formatCurrency = (amount: number): string => {
-    return amount.toLocaleString("en-US", {
-      style: "currency",
-      currency: "USD",
-    });
-  };

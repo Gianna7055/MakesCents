@@ -8,7 +8,7 @@ import { PaymentTransactionType } from "./payment-transaction-type";
 import { Optional } from "./optional";
 import { UpdateTransactionSplitRequest } from "./update-transaction-split-request";
 
-export class UpdatePaymentTransactionRequest implements UpdateTransactionRequest {
+export class UpdatePaymentTransactionRequest extends UpdateTransactionRequest {
     paymentTransactionId: number;
     accountId: number;
     paymentTransactionType: PaymentTransactionType;
