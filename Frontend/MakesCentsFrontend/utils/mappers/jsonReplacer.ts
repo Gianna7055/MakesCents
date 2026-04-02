@@ -55,3 +55,27 @@ export const jsonReplacer = (key: string, value: any) => {
 
   return value;
 };
+
+export const jsonReviver = (key: string, value: any) => {
+  // Handle DateOnly strings → DateOnly
+  if (value === null) {
+    return null; // just return null
+  }
+
+  if (typeof value === "string" && /^\d{4}-\d{2}-\d{2}$/.test(value)) {
+    const [year, month, day] = value.split("-").map(Number);
+    const dateOnly = new DateOnly();
+    dateOnly.year = year;
+    dateOnly.month = month;
+    dateOnly.day = day;
+    return dateOnly;
+  }
+
+  // Handle Enums (string → numeric)
+  const enumObj = enumFieldMap[key as keyof typeof enumFieldMap];
+  if (enumObj && typeof value === "string") {
+    return enumObj[value as keyof typeof enumObj];
+  }
+
+  return value;
+};

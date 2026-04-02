@@ -1,12 +1,10 @@
 import React from "react";
-import { StyleSheet, View, Text } from "react-native";
+import { StyleSheet, View, Text, TouchableOpacity } from "react-native";
 import { SummaryTransactionDTOModel } from "@/types/summary-transaction-dto-model";
-import {
-  globalStyles,
-  screenWidth,
-} from "@/css/globalStyles";
+import { globalStyles, screenWidth } from "@/css/globalStyles";
 import { formatCurrency } from "@/utils/formatCurrency";
 import { formatDate } from "@/utils/formatDate";
+import { router } from "expo-router";
 
 type TransactionCardProps = {
   transaction: SummaryTransactionDTOModel;
@@ -27,36 +25,46 @@ export default function TransactionCard(props: TransactionCardProps) {
     }
   };
 
+  const transactionClickEH = () => {
+    // Navigate to create a new transaction
+    router.push(
+      `/new-edit-screens/new-edit-transaction?paramTransactionId=${props.transaction.transactionId}&paramTransactionType=${props.transaction.envelopes.includes("->") ? 3 : 2}`,
+      //`/new-edit-screens/new-edit-transaction`,
+    );
+  };
+
   return (
-    <View style={styles.cardContainer}>
-      <View style={styles.dateContainer}>
-        <Text style={styles.dateText}>
-          {formatDate(props.transaction.date)}
-        </Text>
+    <TouchableOpacity onPress={transactionClickEH}>
+      <View style={styles.cardContainer}>
+        <View style={styles.dateContainer}>
+          <Text style={styles.dateText}>
+            {formatDate(props.transaction.date)}
+          </Text>
+        </View>
+        <View style={styles.locationContainer}>
+          <Text
+            numberOfLines={1}
+            ellipsizeMode="tail"
+            style={styles.locationText}
+          >
+            {props.transaction.location}
+          </Text>
+          <Text
+            numberOfLines={1}
+            ellipsizeMode="tail"
+            style={styles.envelopeText}
+          >
+            {props.transaction.envelopes}
+          </Text>
+        </View>
+        <View style={styles.amountContainer}>
+          <Text>{renderAmount()}</Text>
+        </View>
+        <View style={styles.arrowContainer}>
+          <Text>▶</Text>
+        </View>
       </View>
-      <View style={styles.locationContainer}>
-        <Text
-          numberOfLines={1}
-          ellipsizeMode="tail"
-          style={styles.locationText}
-        >
-          {props.transaction.location}
-        </Text>
-        <Text
-          numberOfLines={1}
-          ellipsizeMode="tail"
-          style={styles.envelopeText}
-        >
-          {props.transaction.envelopes}
-        </Text>
-      </View>
-      <View style={styles.amountContainer}>
-        <Text>{renderAmount()}</Text>
-      </View>
-      <View style={styles.arrowContainer}>
-        <Text>▶</Text>
-      </View>
-    </View>
+    </TouchableOpacity>
   );
 }
 

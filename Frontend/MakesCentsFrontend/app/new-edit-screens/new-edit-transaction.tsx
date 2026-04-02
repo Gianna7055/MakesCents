@@ -42,6 +42,7 @@ import {
 } from "@/utils/new-edit-helpers/newEditTransactionHelper";
 import IntInput from "@/components/text/int-input";
 import { PaymentTransactionType } from "@/types/payment-transaction-type";
+import { jsonReviver } from "@/utils/mappers/jsonReplacer";
 
 type NewEditTransactionProps = {
   paramTransactionId: string;
@@ -49,6 +50,7 @@ type NewEditTransactionProps = {
 };
 
 export default function NewEditTransaction() {
+  //console.log("URL Params:", useLocalSearchParams());
   // Parameter mapping
   const { paramTransactionId, paramTransactionType } =
     useLocalSearchParams<NewEditTransactionProps>();
@@ -60,6 +62,8 @@ export default function NewEditTransaction() {
   const transactionType: TransactionType = paramTransactionType
     ? (parseInt(paramTransactionType) as TransactionType)
     : TransactionType.Unknown;
+  //console.log("Transaction ID:", transactionId);
+  //console.log("Transaction Type:", TransactionType[transactionType]);
   // Check if the screen is creating a new transaction
   const isNew = transactionId === null;
 
@@ -88,9 +92,13 @@ export default function NewEditTransaction() {
   // New edit transaction constructor
   useEffect(() => {
     const main = async () => {
+      // Variables
+      let categories: SummaryEnvelopeCategoryResponse[] = [];
+
       // Load budget id from storage
       const storedBudgetId = await storage.getBudgetId();
       setBudgetId(storedBudgetId || 0);
+      //console.log("Budget ID:", storedBudgetId);
 
       // Get the list of envelope categories
       try {
@@ -104,7 +112,15 @@ export default function NewEditTransaction() {
         // Log the response
         //console.log("Envelope Categories Response:", response);
         // Set the envelope categories
-        setEnvelopeCategories(response.envelopeCategories);
+        categories = response.envelopeCategories;
+
+        setEnvelopeCategories(categories);
+
+        console.log("Envelope Categories:", response.envelopeCategories);
+        console.log(
+          "Flat Envelopes:",
+          response.envelopeCategories.flatMap((c) => c.envelopes),
+        );
       } catch (error: any) {
         console.log("Caught error:", error);
         handleAxiosError(error);
@@ -112,6 +128,7 @@ export default function NewEditTransaction() {
 
       // Get the list of accounts
       try {
+        console.log("Getting accounts for budget id:", storedBudgetId);
         // Get the accounts
         const axiosResponse: AxiosResponse = await makesCentsAxios.get(
           `api/accounts/budget/${storedBudgetId}`,
@@ -123,6 +140,7 @@ export default function NewEditTransaction() {
         //console.log("Accounts Response:", response);
         // Set the accounts
         setAccounts(response.accounts);
+        console.log("Accounts:", response.accounts);
       } catch (error: any) {
         console.log("Caught error:", error);
         handleAxiosError(error);
@@ -139,13 +157,17 @@ export default function NewEditTransaction() {
             );
 
             // Get the response
-            const response: GetPaymentTransactionResponse = axiosResponse.data;
+            const response: GetPaymentTransactionResponse = JSON.parse(
+              JSON.stringify(axiosResponse.data),
+              jsonReviver,
+            );
             // Log the response
             //console.log("Response:", response);
 
             // Get the transaction
             const paymentTransaction: GetPaymentTransactionDTOModel =
               response.paymentTransaction;
+            console.log("Payment Transaction found:", paymentTransaction);
             // Set the original transaction for comparison
             setOriginalTransaction(paymentTransaction);
             // Set the transaction for display
@@ -162,7 +184,7 @@ export default function NewEditTransaction() {
               paymentTransactionType: paymentTransaction.paymentTransactionType,
               splits: mapSplitsWithNames(
                 paymentTransaction.transactionSplits,
-                envelopeCategories,
+                categories,
               ),
               transferTransactionType: null,
               fromId: null,
@@ -174,8 +196,10 @@ export default function NewEditTransaction() {
             handleAxiosError(error);
           }
         } else if (transactionType == TransactionType.Transfer) {
-          //console.log("In transaction type is transfer");
+          console.log("In transaction type is transfer");
           // Try-catch for the axios call
+
+          console.log("Transaction ID:", transactionId);
           try {
             // Get the payment transaction to edit
             const axiosResponse: AxiosResponse = await makesCentsAxios.get(
@@ -186,10 +210,12 @@ export default function NewEditTransaction() {
             const response: GetTransferTransactionDTOResponse =
               axiosResponse.data;
             // Log the response
-            //console.log("Response:", response);
+            console.log("Response:", response);
             // Get the transaction
             const transferTransaction: GetTransferTransactionDTOModel =
               response.transferTransaction;
+
+            console.log("Transfer Transaction found:", transferTransaction);
             // Set the original transaction for comparison
             setOriginalTransaction(transferTransaction);
             // Set the transaction for display
@@ -208,6 +234,7 @@ export default function NewEditTransaction() {
               fromId: transferTransaction.transferFromId,
               toId: transferTransaction.transferToId,
             };
+            console.log("Transfer Form:", transferForm);
             setTransaction(transferForm);
           } catch (error: any) {
             console.log("Caught error:", error);

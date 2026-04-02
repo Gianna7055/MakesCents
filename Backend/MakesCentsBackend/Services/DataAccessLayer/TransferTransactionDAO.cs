@@ -76,7 +76,7 @@ namespace MakesCentsBackend.Services.DataAccessLayer
                         SELECT LAST_INSERT_ID();
                         """;
                     // Execute the query and get the transaction id
-                    transactionId = await _connection.QuerySingleAsync<int>(query, transferTransaction, dbTransaction);
+                    transactionId = await _connection.QuerySingleOrDefaultAsync<int>(query, transferTransaction, dbTransaction);
                     // Set the transaction id in the transfer transaction
                     transferTransaction.TransactionId = transactionId;
                     // Set the transaction id in the response
@@ -193,11 +193,11 @@ namespace MakesCentsBackend.Services.DataAccessLayer
                     transfer_transaction.transfer_transaction_type_id AS TransferTransactionTypeId
                 FROM transaction
                 INNER JOIN transfer_transaction ON transaction.transaction_id = transfer_transaction.transaction_id
-                WHERE transfer_transaction.transfer_transaction_id = @TransferTransactionId
+                WHERE transaction.transaction_id = @TransactionId
                   AND transaction.deleted_at IS NULL
                 """;
             // Execute the query to get the entity model
-            response.TransferTransaction = await _connection.QuerySingleAsync<GetTransferTransactionEntityModel>(query, new { TransferTransactionId = request.EntityId });
+            response.TransferTransaction = await _connection.QuerySingleAsync<GetTransferTransactionEntityModel>(query, new { TransactionId = request.EntityId });
 
             // Make sure the payment transaction was found
             if (response.TransferTransaction == null)

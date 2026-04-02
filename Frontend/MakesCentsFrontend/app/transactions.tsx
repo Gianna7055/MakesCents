@@ -49,7 +49,10 @@ export default function Transactions() {
     main();
   }, []);
 
-  const handlePlusClick = () => {};
+  const handlePlusClick = () => {
+    // Navigate to create a new transaction
+    router.push(`/new-edit-screens/new-edit-transaction`);
+  };
 
   return (
     <ScreenWrapper>

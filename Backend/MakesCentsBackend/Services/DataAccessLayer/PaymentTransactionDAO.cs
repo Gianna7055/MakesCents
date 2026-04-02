@@ -180,11 +180,11 @@ namespace MakesCentsBackend.Services.DataAccessLayer
                     payment_transaction.check_number AS CheckNumber
                 FROM transaction
                 INNER JOIN payment_transaction ON transaction.transaction_id = payment_transaction.transaction_id
-                WHERE payment_transaction.payment_transaction_id = @PaymentTransactionId
+                WHERE transaction.transaction_id = @TransactionId
                   AND transaction.deleted_at IS NULL
                 """;
             // Get the transaction
-            responseDTO = await _connection.QueryFirstAsync<GetPaymentTransactionDTOModel>(query, new { PaymentTransactionId = request.EntityId });
+            responseDTO = await _connection.QueryFirstAsync<GetPaymentTransactionDTOModel>(query, new { TransactionId = request.EntityId });
 
             // Make sure the payment transaction was found
             if (responseDTO == null)
