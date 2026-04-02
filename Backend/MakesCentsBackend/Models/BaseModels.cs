@@ -79,6 +79,7 @@ namespace MakesCentsBackend.Models
     }
 
 
+    [ExportTsClass]
     public interface IOptional
     {
         bool HasValue { get; }
@@ -89,6 +90,7 @@ namespace MakesCentsBackend.Models
     /// Optional class for creating and updating nulls
     /// </summary>
     /// <typeparam name="T"></typeparam>
+    [ExportTsClass]
     public readonly struct Optional<T> : IOptional
     {
         /// <summary>

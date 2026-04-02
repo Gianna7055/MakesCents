@@ -82,7 +82,7 @@ const styles = StyleSheet.create({
   },
   input: {
     paddingVertical: 15,
-    paddingLeft: 25, // 👈 space for $
+    paddingLeft: 25, // space for $
     backgroundColor: "#FFF",
     borderRadius: 10,
     borderColor: "#C0C0C0",

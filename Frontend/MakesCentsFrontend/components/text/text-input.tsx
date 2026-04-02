@@ -13,12 +13,14 @@ type InputProps = {
   returnKeyType?: "next" | "done" | "go" | "search" | "send";
   onSubmitEditing?: () => void;
   boxStyle?: any;
+  line?: "single" | "multi";
 };
 
 const Input = forwardRef<TextInput, InputProps>((props, ref) => {
   /* Logic */
   // Determine if this is a password field
   const isPassword = props.type === "password";
+  const isMultiLine = props.line === "multi";
 
   return (
     <View style={styles.inputContainer}>
@@ -33,6 +35,8 @@ const Input = forwardRef<TextInput, InputProps>((props, ref) => {
         returnKeyType={props.returnKeyType ?? "done"}
         onSubmitEditing={props.onSubmitEditing}
         ref={ref}
+        textAlignVertical="top"
+        multiline={isMultiLine}
       />
     </View>
   );

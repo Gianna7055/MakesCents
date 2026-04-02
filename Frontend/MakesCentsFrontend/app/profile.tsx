@@ -51,17 +51,7 @@ export default function Profile() {
           setUser(response.getUserDTO);
         }
       } catch (error: any) {
-        if (axios.isAxiosError(error)) {
-          console.log(
-            "Axios error:",
-            error.response?.status,
-            error.response?.data,
-          );
-          if (error.response?.status == 401)
-            router.replace("/login-register/login");
-        } else {
-          console.log("Error:", error);
-        }
+        handleAxiosError(error);
       }
     };
 
@@ -218,7 +208,7 @@ export default function Profile() {
         )}
       </ScrollView>
       {isEditMode ? ( // Buttons for edit user screen
-        <View style={styles.viewButtons}>
+        <View style={globalStyles.bottomButtons}>
           <Button
             name="Cancel"
             onPress={handleCancelClickEH}
@@ -234,7 +224,7 @@ export default function Profile() {
         </View>
       ) : (
         // Buttons for view user screen
-        <View style={styles.viewButtons}>
+        <View style={globalStyles.bottomButtons}>
           <Button
             name="Sign Out"
             onPress={handleLogoutClickEH}
@@ -252,12 +242,3 @@ export default function Profile() {
     </ScreenWrapper>
   );
 }
-
-const styles = StyleSheet.create({
-  viewButtons: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
-    margin: 20,
-  },
-});

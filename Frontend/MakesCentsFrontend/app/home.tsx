@@ -16,8 +16,9 @@ export default function Home() {
   useEffect(() => {
     const main = async () => {
       // Get the current year and month
-      //const now: Date = new Date(2026, 3, 2, 2, 2, 2, 2);
-      const now: Date = new Date();
+      console.log("In Home useEffect");
+      const now: Date = new Date(2026, 2, 15, 0, 0, 0, 0);
+      //const now: Date = new Date();
       const year: number = now.getFullYear();
       const month: string = now.toLocaleString("default", { month: "long" });
 
@@ -46,8 +47,9 @@ export default function Home() {
 
   const AddTransactionClickEH = () => {
     // Navigate to create a new transaction
-    router.replace(
-      `/new-edit-screens/new-edit-transaction?paramTransactionId=${6}&paramTransactionType=${2}`,
+    router.push(
+      //`/new-edit-screens/new-edit-transaction?paramTransactionId=${6}&paramTransactionType=${2}`,
+      `/new-edit-screens/new-edit-transaction`,
     );
   };
 

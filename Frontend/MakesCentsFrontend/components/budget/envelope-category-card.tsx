@@ -1,8 +1,9 @@
-import { formatCurrency, globalStyles, screenWidth } from "@/css/globalStyles";
+import { globalStyles, screenWidth } from "@/css/globalStyles";
 import React, { useState } from "react";
 import { StyleSheet, View, Text, TouchableOpacity } from "react-native";
 import EnvelopeCard from "@/components/budget/envelope-card";
 import { SummaryEnvelopeCategoryResponse } from "@/types/summary-envelope-category-response";
+import { formatCurrency } from "@/utils/formatCurrency";
 
 type EnvelopeCategoryCardProps = {
   envelopeCategory: SummaryEnvelopeCategoryResponse;

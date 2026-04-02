@@ -3,6 +3,6 @@
  * Any changes made to this file can be lost when this file is regenerated.
  */
 
-export interface IOptional {
+export class IOptional {
     hasValue: boolean;
 }

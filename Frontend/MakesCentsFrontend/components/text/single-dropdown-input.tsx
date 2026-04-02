@@ -17,9 +17,10 @@ type Props<T> = {
   items: T[];
   placeholder?: string;
 
-  // 👇 key part
   getLabel: (item: T) => string;
   getValue: (item: T) => string;
+
+  groupBy?: (item: T) => string | null;
 
   onChange: (item: T) => void;
 };
@@ -28,6 +29,18 @@ function SingleDropdownInput<T>(props: Props<T>) {
   const [visible, setVisible] = useState(false);
 
   const selectedLabel = props.value ? props.getLabel(props.value) : "";
+
+  const groupedItems = props.groupBy
+    ? props.items.reduce(
+        (acc, item) => {
+          const group = props.groupBy!(item) || "__ungrouped";
+          if (!acc[group]) acc[group] = [];
+          acc[group].push(item);
+          return acc;
+        },
+        {} as Record<string, T[]>,
+      )
+    : { __all: props.items };
 
   const handleSelect = (item: T) => {
     props.onChange(item);
@@ -59,24 +72,35 @@ function SingleDropdownInput<T>(props: Props<T>) {
             </View>
 
             <FlatList
-              data={props.items}
-              keyExtractor={(item) => props.getValue(item)}
-              renderItem={({ item }) => {
-                const isSelected =
-                  props.value &&
-                  props.getValue(props.value) === props.getValue(item);
+              data={Object.entries(groupedItems)}
+              keyExtractor={([groupName]) => groupName}
+              renderItem={({ item: [groupName, items] }) => (
+                <View>
+                  {props.groupBy && groupName !== "__ungrouped" && (
+                    <Text style={styles.categoryHeader}>{groupName}</Text>
+                  )}
 
-                return (
-                  <TouchableOpacity
-                    style={[styles.option, isSelected && styles.selectedOption]}
-                    onPress={() => handleSelect(item)}
-                  >
-                    <Text>{props.getLabel(item)}</Text>
+                  {items.map((item) => {
+                    const isSelected =
+                      props.value &&
+                      props.getValue(props.value) === props.getValue(item);
 
-                    {isSelected && <Ionicons name="checkmark" size={20} />}
-                  </TouchableOpacity>
-                );
-              }}
+                    return (
+                      <TouchableOpacity
+                        key={props.getValue(item)}
+                        style={[
+                          styles.option,
+                          isSelected && styles.selectedOption,
+                        ]}
+                        onPress={() => handleSelect(item)}
+                      >
+                        <Text>{props.getLabel(item)}</Text>
+                        {isSelected && <Ionicons name="checkmark" size={20} />}
+                      </TouchableOpacity>
+                    );
+                  })}
+                </View>
+              )}
             />
           </View>
         </View>
@@ -139,5 +163,12 @@ const styles = StyleSheet.create({
   },
   optionText: {
     fontSize: 16,
+  },
+  categoryHeader: {
+    fontWeight: "700",
+    fontSize: 16,
+    paddingVertical: 10,
+    paddingHorizontal: 15,
+    backgroundColor: "#f9f9f9",
   },
 });

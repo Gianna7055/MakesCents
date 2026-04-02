@@ -1,4 +1,3 @@
-
 import { PaymentTransactionType } from "@/types/payment-transaction-type";
 import { TransferTransactionType } from "@/types/transfer-transaction-type";
 import { CreatePaymentTransactionRequest } from "@/types/create-payment-transaction-request";
@@ -11,11 +10,12 @@ import { UpdateTransferTransactionRequest } from "@/types/update-transfer-transa
 import { CreateTransactionSplitRequest } from "@/types/create-transaction-split-request";
 import { UpdateTransactionSplitRequest } from "@/types/update-transaction-split-request";
 import { SummaryEnvelopeCategoryResponse } from "@/types/summary-envelope-category-response";
-
+import { DateOnly } from "@/types/date-only";
 
 export type TransactionForm = {
   // Determines UI + mapping
   type: TransactionType;
+  typeLabel?: string; // For UI selection, e.g. "Expense", "Income", "Transfer"
 
   // Shared fields
   amount: number | null;
@@ -44,71 +44,71 @@ export type EnvelopeSplit = {
 };
 
 export const emptyForm: TransactionForm = {
-    type: TransactionType.Payment,
-    amount: null,
-    date: null,
-    notes: undefined,
-    accountId: null,
-    merchantName: "",
-    checkNumber: undefined,
-    paymentTransactionType: 1,
-    splits: [],
-    transferTransactionType: 1,
-    fromId: null,
-    toId: null,
-  };
+  type: TransactionType.Payment,
+  typeLabel: "Expense",
+  amount: null,
+  date: new Date(),
+  notes: undefined,
+  accountId: null,
+  merchantName: "",
+  checkNumber: undefined,
+  paymentTransactionType: 1,
+  splits: [],
+  transferTransactionType: 2,
+  fromId: null,
+  toId: null,
+};
 
-  // Mapper to create a payment transaction
-  const mapToCreatePayment = (
-    form: TransactionForm,
-    base: { budgetId: number; userId: number },
-  ): CreatePaymentTransactionRequest => {
-    return {
-      ...new CreatePaymentTransactionRequest(),
+// Mapper to create a payment transaction
+const mapToCreatePayment = (
+  form: TransactionForm,
+  base: { budgetId: number; userId: number },
+): CreatePaymentTransactionRequest => {
+  return {
+    ...new CreatePaymentTransactionRequest(),
 
-      budgetId: base.budgetId,
-      userId: base.userId,
+    budgetId: base.budgetId,
+    userId: base.userId,
+    transactionId: 0,
+
+    transactionDate: toDateOnly(form.date!),
+    totalAmount: form.amount!,
+    notes: toOptional(form.notes),
+
+    accountId: form.accountId!,
+    paymentTransactionType: form.paymentTransactionType!,
+    merchantSourceName: form.merchantName!,
+    checkNumber: toOptional(form.checkNumber),
+
+    transactionSplits: form.splits!.map((s) => ({
       transactionId: 0,
-
-      transactionDate: toDateOnly(form.date!),
-      totalAmount: form.amount!,
-      notes: toOptional(form.notes),
-
-      accountId: form.accountId!,
-      paymentTransactionType: form.paymentTransactionType!,
-      merchantSourceName: form.merchantName!,
-      checkNumber: toOptional(form.checkNumber),
-
-      transactionSplits: form.splits!.map((s) => ({
-        transactionId: 0,
-        envelopeId: s.envelopeId,
-        amount: s.amount,
-      })),
-    };
+      envelopeId: s.envelopeId,
+      amount: s.amount,
+    })),
   };
+};
 
-  // Mapper to create a new transfer transaction
-  const mapToCreateTransfer = (
-    form: TransactionForm,
-    base: { budgetId: number; userId: number },
-  ): CreateTransferTransactionRequest => {
-    return {
-      ...new CreateTransferTransactionRequest(),
+// Mapper to create a new transfer transaction
+const mapToCreateTransfer = (
+  form: TransactionForm,
+  base: { budgetId: number; userId: number },
+): CreateTransferTransactionRequest => {
+  return {
+    ...new CreateTransferTransactionRequest(),
 
-      budgetId: base.budgetId,
-      userId: base.userId,
-      transactionId: 0,
+    budgetId: base.budgetId,
+    userId: base.userId,
+    transactionId: 0,
 
-      transactionDate: toDateOnly(form.date!),
-      totalAmount: form.amount!,
-      notes: toOptional(form.notes),
+    transactionDate: toDateOnly(form.date!),
+    totalAmount: form.amount!,
+    notes: toOptional(form.notes),
 
-      transferTransactionType: form.transferTransactionType!,
-      transferFromId: form.fromId!,
-      transferToId: form.toId!,
-    };
+    transferTransactionType: form.transferTransactionType!,
+    transferFromId: form.fromId!,
+    transferToId: form.toId!,
   };
-
+};
 
 /**
  * Maps a TransactionForm + original UpdatePaymentTransactionRequest
@@ -116,7 +116,7 @@ export const emptyForm: TransactionForm = {
  */
 export const mapToUpdatePayment = (
   form: TransactionForm,
-  original: UpdatePaymentTransactionRequest
+  original: UpdatePaymentTransactionRequest,
 ): UpdatePaymentTransactionRequest => {
   const update = new UpdatePaymentTransactionRequest();
 
@@ -138,23 +138,22 @@ export const mapToUpdatePayment = (
   update.checkNumber = toOptional(form.checkNumber);
 
   // Transaction splits: always include amount + envelopeId, transactionId required
-  if(form.splits)
-  {
+  if (form.splits) {
     update.transactionSplits = form.splits.map((s) => {
-        const split = new UpdateTransactionSplitRequest();
-      
-        // If editing an existing split, use its ID from originalTransaction
-        const originalSplit = original.transactionSplits.find(
-          (o) => o.envelopeId === s.envelopeId
-        );
-      
-        split.transactionSplitId = originalSplit?.transactionSplitId ?? 0; // 0 for new split
-        split.transactionId = original.transactionId;
-        split.envelopeId = s.envelopeId;
-        split.amount = s.amount;
-      
-        return split;
-      });
+      const split = new UpdateTransactionSplitRequest();
+
+      // If editing an existing split, use its ID from originalTransaction
+      const originalSplit = original.transactionSplits.find(
+        (o) => o.envelopeId === s.envelopeId,
+      );
+
+      split.transactionSplitId = originalSplit?.transactionSplitId ?? 0; // 0 for new split
+      split.transactionId = original.transactionId;
+      split.envelopeId = s.envelopeId;
+      split.amount = s.amount;
+
+      return split;
+    });
   }
 
   return update;
@@ -166,7 +165,7 @@ export const mapToUpdatePayment = (
  */
 export const mapToUpdateTransfer = (
   form: TransactionForm,
-  original: UpdateTransferTransactionRequest
+  original: UpdateTransferTransactionRequest,
 ): UpdateTransferTransactionRequest => {
   const update = new UpdateTransferTransactionRequest();
 
@@ -176,8 +175,10 @@ export const mapToUpdateTransfer = (
 
   // Optional T? fields (set if changed)
   if (form.amount !== original.totalAmount) update.totalAmount = form.amount!;
-  if (toDateOnly(form.date!) !== original.transactionDate) update.transactionDate = toDateOnly(form.date!);
-  if (form.fromId !== original.transferFromId) update.transferFromId = form.fromId!;
+  if (toDateOnly(form.date!) !== original.transactionDate)
+    update.transactionDate = toDateOnly(form.date!);
+  if (form.fromId !== original.transferFromId)
+    update.transferFromId = form.fromId!;
   if (form.toId !== original.transferToId) update.transferToId = form.toId!;
   if (form.transferTransactionType !== original.transferTransactionType)
     update.transferTransactionType = form.transferTransactionType!;
@@ -190,7 +191,7 @@ export const mapToUpdateTransfer = (
 
 export const mapSplitsWithNames = (
   splits: { envelopeId: number; amount: number }[],
-  categories: SummaryEnvelopeCategoryResponse[]
+  categories: SummaryEnvelopeCategoryResponse[],
 ): EnvelopeSplit[] => {
   return splits.map((split) => {
     // Search all categories for the matching envelope

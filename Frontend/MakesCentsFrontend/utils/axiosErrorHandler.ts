@@ -5,6 +5,7 @@ export const handleAxiosError = (
   error: any,
   onError?: (error: any) => void,
 ) => {
+  console.log("Error:", error);
   if (axios.isAxiosError(error)) {
     console.log("Axios error:", error.response?.status, error.response?.data);
     if (error.response?.status === 401) {

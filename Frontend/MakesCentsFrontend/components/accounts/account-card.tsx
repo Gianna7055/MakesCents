@@ -3,12 +3,11 @@ import { View, Text, StyleSheet } from "react-native";
 import { useRouter } from "expo-router";
 import { Button } from "../buttons/button";
 import {
-  formatCurrency,
-  formatEnum,
   screenHeight,
   screenWidth,
 } from "@/css/globalStyles";
 import { SummaryAccountDTOModel } from "@/types/summary-account-dto-model";
+import { formatCurrency } from "@/utils/formatCurrency";
 
 type AccountCardProps = {
   account: SummaryAccountDTOModel;

@@ -90,6 +90,18 @@ export const globalStyles = StyleSheet.create({
       fontWeight: "semibold",
       paddingBottom: 5,
     },
+
+    // Bottom split button style
+    bottomButtons: {
+        flexDirection: "row",
+        justifyContent: "space-between",
+        alignItems: "center",
+        position: "absolute",
+        bottom: 67,
+        left: 0,
+        right: 0,
+        padding: 20,
+      }
 });
 
 

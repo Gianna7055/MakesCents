@@ -1,5 +1,6 @@
-import { formatCurrency, globalStyles, screenWidth } from "@/css/globalStyles";
+import { globalStyles, screenWidth } from "@/css/globalStyles";
 import { SummaryEnvelopeResponse } from "@/types/summary-envelope-response";
+import { formatCurrency } from "@/utils/formatCurrency";
 import React from "react";
 import { View, Text, StyleSheet } from "react-native";
 

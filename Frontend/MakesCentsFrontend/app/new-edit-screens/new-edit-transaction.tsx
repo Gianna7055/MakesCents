@@ -10,12 +10,12 @@ import { GetTransferTransactionDTOResponse } from "@/types/get-transfer-transact
 import { TransactionType } from "@/types/transaction-type";
 import { handleAxiosError } from "@/utils/axiosErrorHandler";
 import { AxiosResponse } from "axios";
-import { useLocalSearchParams } from "expo-router";
+import { router, useLocalSearchParams } from "expo-router";
 import React, { useEffect, useState } from "react";
 import { ScrollView, View, Image, Text } from "react-native";
 import { SummaryAccountDTOModel } from "@/types/summary-account-dto-model";
 import { SummaryEnvelopeCategoryResponse } from "@/types/summary-envelope-category-response";
-import MultiCategoryEnvelopeDropdown from "@/components/text/multi-dropdown-input";
+import MultiCategoryEnvelopeDropdown from "@/components/text/envelope-dropdown-input";
 import { storage } from "@/data/storage";
 import { GetAllEnvelopeCategoriesResponse } from "@/types/get-all-envelope-categories-response";
 import { GetPaymentTransactionDTOModel } from "@/types/get-payment-transaction-dto-model";
@@ -28,6 +28,20 @@ import {
   TransactionForm,
 } from "@/utils/mappers/transactionMapper";
 import Input from "@/components/text/text-input";
+import RadioInput from "@/components/text/radio-input";
+import { TransferTransactionType } from "@/types/transfer-transaction-type";
+import TitleRadioInput, {
+  TitleRadioOption,
+} from "@/components/text/title-radio-input";
+import { Button } from "@/components/buttons/button";
+import {
+  createPaymentTransaction,
+  createTransferTransaction,
+  updatePaymentTransaction,
+  updateTransferTransaction,
+} from "@/utils/new-edit-helpers/newEditTransactionHelper";
+import IntInput from "@/components/text/int-input";
+import { PaymentTransactionType } from "@/types/payment-transaction-type";
 
 type NewEditTransactionProps = {
   paramTransactionId: string;
@@ -64,6 +78,12 @@ export default function NewEditTransaction() {
   const [envelopeCategories, setEnvelopeCategories] = useState<
     SummaryEnvelopeCategoryResponse[]
   >([]);
+
+  const titleRadioOptions: TitleRadioOption[] = [
+    { label: "Expense", value: "Expense", type: TransactionType.Payment },
+    { label: "Income", value: "Income", type: TransactionType.Payment },
+    { label: "Transfer", value: "Transfer", type: TransactionType.Transfer },
+  ];
 
   // New edit transaction constructor
   useEffect(() => {
@@ -131,6 +151,8 @@ export default function NewEditTransaction() {
             // Set the transaction for display
             const paymentForm: TransactionForm = {
               type: paymentTransaction.transactionType,
+              typeLabel:
+                paymentTransaction.totalAmount < 0 ? "Expense" : "Income", // Determine label based on amount
               amount: paymentTransaction.totalAmount,
               date: fromDateOnly(paymentTransaction.transactionDate),
               notes: paymentTransaction.notes,
@@ -210,30 +232,244 @@ export default function NewEditTransaction() {
     setTransaction((prev) => ({ ...prev, [key]: value }));
   };
 
-  return (
-    <ScreenWrapper>
-      <View style={globalStyles.noWordsLogoContainer}>
-        <Image
-          source={require("@/assets/images/MakesCentsLogo.png")}
-          style={globalStyles.noWordsLogo}
+  // Click EHs for cancel and done (cancel just goes back, done calls axios to update or create transaction and then goes back)
+  const handleCancelClickEH = () => {
+    router.back();
+  };
+
+  const handleDoneClickEH = async () => {
+    if (isNew) {
+      // Call axios to create the transaction
+      // Set up the try catch
+      try {
+        if (transaction.type === TransactionType.Payment) {
+          // Call the helper method to create the transaction
+          const response = await createPaymentTransaction(
+            transaction,
+            budgetId,
+          );
+        } else if (transaction.type === TransactionType.Transfer) {
+          // Call the helper method to create the transaction
+          const response = await createTransferTransaction(
+            transaction,
+            budgetId,
+          );
+        }
+        // Go back to the transactions list
+        router.back();
+      } catch (error: any) {
+        console.log("Caught error:", error);
+        handleAxiosError(error);
+      }
+    } else {
+      // Call axios to update the transaction
+      // Set up the try catch
+      try {
+        if (transaction.type === TransactionType.Payment) {
+          const response = await updatePaymentTransaction(
+            originalTransaction as GetPaymentTransactionDTOModel,
+            transaction,
+          );
+        } else if (transaction.type === TransactionType.Transfer) {
+          const response = await updateTransferTransaction(
+            originalTransaction as GetTransferTransactionDTOModel,
+            transaction,
+          );
+        }
+        // Go back to the transactions list
+        router.back();
+      } catch (error: any) {
+        console.log("Caught error:", error);
+        handleAxiosError(error);
+      }
+    }
+  };
+
+  // Constants for different screen layouts (expense, income, envelope transfer, account transfer)
+  const renderExpenseTransactionView = () => {
+    return (
+      <View>
+        {renderCalendarInput()}
+        {renderAmountInput("negative")}
+        {renderPaymentAccountInput()}
+        {renderPaymentTypeInput()}
+        <Input
+          name="Merchant Name"
+          placeholder="Merchant"
+          type="text"
+          value={transaction.merchantName || ""}
+          onChangeText={(text) => updateTransaction("merchantName", text)}
+          autoCapitalize="none"
         />
-        <Text style={globalStyles.logoTitle}>
-          {isNew ? "New" : "Edit"} Transaction
-        </Text>
+        {renderPaymentEnvelopeSelectInput()}
+        {renderCheckNumberInput()}
+        {renderNotesInput()}
       </View>
-      {/* Radio buttons for Expense, Income, and Transfer */}
-      <ScrollView style={{ marginVertical: 0 }}>
+    );
+  };
+
+  const renderIncomeTransactionView = () => {
+    return (
+      <View>
+        {renderCalendarInput()}
+        {renderAmountInput("positive")}
+        {renderPaymentAccountInput()}
+        {renderPaymentTypeInput()}
+        <Input
+          name="Source Name"
+          placeholder="Source"
+          type="text"
+          value={transaction.merchantName || ""}
+          onChangeText={(text) => updateTransaction("merchantName", text)}
+          autoCapitalize="none"
+        />
+        {renderPaymentEnvelopeSelectInput()}
+        {renderCheckNumberInput()}
+        {renderNotesInput()}
+      </View>
+    );
+  };
+
+  const renderEnvelopeTransferTransactionView = () => {
+    return (
+      <View>
+        {renderTransferDateTypeSelection()}
+        {renderAmountInput("neutral")}
+        <SingleDropdownInput
+          name="From Envelope"
+          value={envelopeCategories
+            .flatMap((c) => c.envelopes)
+            .find((e) => e.envelopeId === transaction.fromId)}
+          items={envelopeCategories.flatMap((c) => c.envelopes)}
+          getLabel={(env) => env!.envelopeName}
+          getValue={(env) => env!.envelopeId.toString()}
+          groupBy={(env) => {
+            const category = envelopeCategories.find((cat) =>
+              cat.envelopes.some((e) => e.envelopeId === env!.envelopeId),
+            );
+            return category?.envelopeCategoryName || null;
+          }}
+          onChange={(env) => updateTransaction("fromId", env?.envelopeId!)}
+        />
+        <SingleDropdownInput
+          name="To Envelope"
+          value={envelopeCategories
+            .flatMap((c) => c.envelopes)
+            .find((e) => e.envelopeId === transaction.toId)}
+          items={envelopeCategories.flatMap((c) => c.envelopes)}
+          getLabel={(env) => env!.envelopeName}
+          getValue={(env) => env!.envelopeId.toString()}
+          groupBy={(env) => {
+            const category = envelopeCategories.find((cat) =>
+              cat.envelopes.some((e) => e.envelopeId === env!.envelopeId),
+            );
+            return category?.envelopeCategoryName || null;
+          }}
+          onChange={(env) => updateTransaction("toId", env?.envelopeId!)}
+        />
+        {renderNotesInput()}
+      </View>
+    );
+  };
+
+  const renderAccountTransferTransactionView = () => {
+    return (
+      <View>
+        {renderTransferDateTypeSelection()}
+        {renderAmountInput("neutral")}
+        <SingleDropdownInput
+          name="From Account"
+          value={accounts.find(
+            (account) => account.accountId === transaction.fromId,
+          )}
+          items={accounts}
+          getLabel={(a) => a!.accountName}
+          getValue={(a) => a!.accountId.toString()}
+          onChange={(account) =>
+            updateTransaction("fromId", account?.accountId!)
+          }
+        />
+        <SingleDropdownInput
+          name="To Account"
+          value={accounts.find(
+            (account) => account.accountId === transaction.toId,
+          )}
+          items={accounts}
+          getLabel={(a) => a!.accountName}
+          getValue={(a) => a!.accountId.toString()}
+          onChange={(account) => updateTransaction("toId", account?.accountId!)}
+        />
+        {renderNotesInput()}
+      </View>
+    );
+  };
+
+  // Constants for shared sections of the screen (date, amount, notes)
+
+  const renderTransferDateTypeSelection = () => {
+    const options = [
+      {
+        label: "Account",
+        value: TransferTransactionType.Account.toString(),
+      },
+      {
+        label: "Envelope",
+        value: TransferTransactionType.Envelope.toString(),
+      },
+    ];
+    return (
+      <View>
+        {renderCalendarInput()}
+        <RadioInput
+          name="Type of Transfer"
+          value={
+            transaction.transferTransactionType !== null
+              ? transaction.transferTransactionType.toString()
+              : ""
+          }
+          onChange={(value) =>
+            updateTransaction(
+              "transferTransactionType",
+              Number(value) as TransferTransactionType,
+            )
+          }
+          options={options}
+        />
+      </View>
+    );
+  };
+
+  const renderCalendarInput = () => {
+    return (
+      <View>
         <CalendarInput
           name="Date"
           value={transaction.date}
           onChange={(text) => updateTransaction("date", text)}
         />
-        <MoneyInput
-          name="Amount"
-          value={transaction.amount}
-          onChangeValue={(amount) => updateTransaction("amount", amount)}
-        />
+      </View>
+    );
+  };
 
+  const renderAmountInput = (sign: "positive" | "negative" | "neutral") => {
+    const math =
+      sign === "positive"
+        ? Math.abs
+        : sign === "negative"
+          ? (x: number) => -Math.abs(x)
+          : (x: number) => x;
+    return (
+      <MoneyInput
+        name="Amount"
+        value={transaction.amount}
+        onChangeValue={(amount) => updateTransaction("amount", math(amount!))}
+      />
+    );
+  };
+
+  const renderPaymentAccountInput = () => {
+    return (
+      <View>
         <SingleDropdownInput
           name="Account"
           value={accounts.find(
@@ -246,21 +482,148 @@ export default function NewEditTransaction() {
             updateTransaction("accountId", account?.accountId!)
           }
         />
+      </View>
+    );
+  };
+
+  const renderPaymentTypeInput = () => {
+    const paymentTypeOptions = Object.values(PaymentTransactionType).filter(
+      (v) => typeof v === "number",
+    );
+    return (
+      <View>
+        <SingleDropdownInput
+          name="Payment Type"
+          value={transaction.paymentTransactionType}
+          items={paymentTypeOptions}
+          getLabel={(type) => PaymentTransactionType[type!]} // enum label
+          getValue={(type) => type!.toString()}
+          onChange={(type) =>
+            updateTransaction("paymentTransactionType", type ?? null)
+          }
+        />
+      </View>
+    );
+  };
+
+  const renderPaymentEnvelopeSelectInput = () => {
+    return (
+      <View>
         <MultiCategoryEnvelopeDropdown
           name="Select Envelopes"
           categories={envelopeCategories}
           selectedEnvelopes={transaction.splits!}
           onChange={(splits) => updateTransaction("splits", splits)}
+          totalAmount={transaction.amount!}
         />
+      </View>
+    );
+  };
+
+  const renderCheckNumberInput = () => {
+    return (
+      <IntInput
+        name="Check Number (Optional)"
+        value={transaction.checkNumber || null}
+        placeHolder="Check Number"
+        onChangeValue={(checkNumber) =>
+          updateTransaction("checkNumber", checkNumber)
+        }
+      />
+    );
+  };
+
+  const renderNotesInput = () => {
+    return (
+      <View>
         <Input
-          name="Notes (optional)"
+          name="Notes (Optional)"
           placeholder="Notes"
           type="text"
           value={transaction.notes || ""}
           onChangeText={(notes) => updateTransaction("notes", notes)}
-          boxStyle={{ height: 50 }}
+          boxStyle={{ height: 125, marginBottom: 10 }}
+          line="multi"
         />
+      </View>
+    );
+  };
+
+  const renderCancelDoneButtons = () => {
+    return (
+      <View style={globalStyles.bottomButtons}>
+        <Button
+          name="Cancel"
+          onPress={handleCancelClickEH}
+          variant="secondary"
+          containerStyle={{ paddingTop: 0 }}
+        />
+        <Button
+          name="Done"
+          onPress={handleDoneClickEH}
+          variant="primary"
+          containerStyle={{ paddingTop: 0 }}
+        />
+      </View>
+    );
+  };
+
+  return (
+    <ScreenWrapper>
+      {/* Logo and Title */}
+      <View style={globalStyles.noWordsLogoContainer}>
+        <Image
+          source={require("@/assets/images/MakesCentsLogo.png")}
+          style={globalStyles.noWordsLogo}
+        />
+        <Text style={globalStyles.logoTitle}>
+          {isNew ? "New" : "Edit"} Transaction
+        </Text>
+      </View>
+
+      {/* Radio buttons for Expense, Income, and Transfer */}
+      <ScrollView style={{ marginVertical: 0 }}>
+        <TitleRadioInput
+          value={transaction.typeLabel || ""} // string for UI selection
+          options={titleRadioOptions}
+          onChange={(selectedValue) => {
+            const selectedOption = titleRadioOptions.find(
+              (o) => o.value === selectedValue,
+            )!;
+
+            // Update type label and internal type
+            updateTransaction("typeLabel", selectedOption.value);
+            updateTransaction("type", selectedOption.type!);
+
+            // Adjust amount sign if this is a payment transaction
+            if (selectedOption.value === "Expense") {
+              updateTransaction("amount", -Math.abs(transaction.amount!));
+            } else if (
+              selectedOption.value === "Income" ||
+              selectedOption.value === "Transfer"
+            ) {
+              updateTransaction("amount", Math.abs(transaction.amount!));
+            }
+            // For "Transfer", you can leave amount as is or handle separately
+          }}
+        />
+        {/* Conditionally render the rest of the form based on the transaction type */}
+        {transaction.type === TransactionType.Payment &&
+          transaction.typeLabel === "Expense" &&
+          renderExpenseTransactionView()}
+        {transaction.type === TransactionType.Payment &&
+          transaction.typeLabel === "Income" &&
+          renderIncomeTransactionView()}
+        {transaction.type === TransactionType.Transfer &&
+          transaction.transferTransactionType ===
+            TransferTransactionType.Envelope &&
+          renderEnvelopeTransferTransactionView()}
+        {transaction.type === TransactionType.Transfer &&
+          transaction.transferTransactionType ===
+            TransferTransactionType.Account &&
+          renderAccountTransferTransactionView()}
       </ScrollView>
+      {renderCancelDoneButtons()}
       <BottomNavBar />
     </ScreenWrapper>
   );

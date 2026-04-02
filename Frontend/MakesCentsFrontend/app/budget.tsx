@@ -10,19 +10,14 @@ import {
   TouchableOpacity,
 } from "react-native";
 import { storage } from "@/data/storage";
-import axios, { AxiosResponse } from "axios";
+import { AxiosResponse } from "axios";
 import makesCentsAxios from "@/data/datasource";
 import { GetBudgetResponse } from "@/types/get-budget-response";
 import { GetBudgetDTOModel } from "@/types/get-budget-dto-model";
 import { SummaryEnvelopeCategoryResponse } from "@/types/summary-envelope-category-response";
 import EnvelopeCategoryCard from "@/components/budget/envelope-category-card";
 import { Button } from "@/components/buttons/button";
-import {
-  formatCurrency,
-  globalStyles,
-  screenHeight,
-  screenWidth,
-} from "@/css/globalStyles";
+import { globalStyles, screenHeight, screenWidth } from "@/css/globalStyles";
 import Animated, {
   runOnJS,
   useAnimatedStyle,
@@ -32,6 +27,7 @@ import Animated, {
 import { router } from "expo-router";
 import ScreenWrapper from "@/components/ui/screen-wrapper";
 import { handleAxiosError } from "@/utils/axiosErrorHandler";
+import { formatCurrency } from "@/utils/formatCurrency";
 
 export default function Budget() {
   const [budgetId, setBudgetId] = useState<number>(0);
