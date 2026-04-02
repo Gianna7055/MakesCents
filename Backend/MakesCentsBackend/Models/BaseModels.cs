@@ -101,6 +101,7 @@ namespace MakesCentsBackend.Models
         /// <summary>
         /// The value that was sent
         /// </summary>
+        [TsType("T | null")]
         public T? Value { get; }
 
         public object? GetValue() => Value;

@@ -7,5 +7,5 @@ import { IOptional } from "./i-optional";
 
 export class Optional<T> implements IOptional {
     hasValue: boolean;
-    value: T;
+    value: T | null;
 }
