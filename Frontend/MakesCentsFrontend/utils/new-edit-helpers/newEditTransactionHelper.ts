@@ -9,6 +9,7 @@ import { Optional } from "@/types/optional";
 import { toDateOnly } from "../mappers/dateOnlyMapper";
 import { CreatePaymentTransactionRequest } from "@/types/create-payment-transaction-request";
 import { jsonReplacer } from "../mappers/jsonReplacer";
+import { CreateTransferTransactionRequest } from "@/types/create-transfer-transaction-request";
 
 export function getUpdatedPaymentFields(
   originalTransaction: GetPaymentTransactionDTOModel,
@@ -113,15 +114,17 @@ export const createPaymentTransaction = async (
   request.transactionDate = toDateOnly(transaction.date!);
   request.totalAmount = transaction.amount!;
   const optionalNotes = new Optional<string>();
-  optionalNotes.hasValue = true;
-  optionalNotes.value = transaction.notes || "";
+  optionalNotes.hasValue =
+    transaction.notes !== undefined && transaction.notes !== null;
+  optionalNotes.value = transaction.notes || null;
   request.notes = optionalNotes;
   request.accountId = transaction.accountId!;
   request.paymentTransactionType = transaction.paymentTransactionType!;
   request.merchantSourceName = transaction.merchantName!;
   const optionalCheckNumber = new Optional<number>();
-  optionalCheckNumber.hasValue = true;
-  optionalCheckNumber.value = transaction.checkNumber! || null;
+  optionalCheckNumber.hasValue =
+    transaction.checkNumber !== undefined && transaction.checkNumber !== null;
+  optionalCheckNumber.value = transaction.checkNumber || null;
   request.checkNumber = optionalCheckNumber;
   request.transactionSplits = transaction.splits!.map((split) => ({
     transactionId: 0, // Placeholder, will be ignored by the API
@@ -130,19 +133,19 @@ export const createPaymentTransaction = async (
   }));
   const payload = JSON.stringify(request, jsonReplacer);
   // Log the request
-  console.log("Create Payment Transaction Request:", request);
-  console.log("Create Payment Transaction Payload:", payload);
+  //console.log("Create Payment Transaction Request:", request);
+  //console.log("Create Payment Transaction Payload:", payload);
 
   // Call the API to create a payment transaction
   const axiosResponse: AxiosResponse = await makesCentsAxios.post(
     "/api/payment-transactions",
-    request,
+    payload,
   );
 
   // Get the response
   const response = axiosResponse.data;
   // Log the response
-  console.log("Create Payment Transaction Response:", response);
+  //console.log("Create Payment Transaction Response:", response);
   return response;
 };
 
@@ -150,18 +153,28 @@ export const createTransferTransaction = async (
   transaction: TransactionForm,
   budgetId: number,
 ) => {
+  // Create the request
+  const request = new CreateTransferTransactionRequest();
+  request.budgetId = budgetId;
+  request.userId = 0; // Placeholder, will be set by the API
+  request.transactionDate = toDateOnly(transaction.date!);
+  request.totalAmount = transaction.amount!;
+  const optionalNotes = new Optional<string>();
+  optionalNotes.hasValue =
+    transaction.notes !== undefined && transaction.notes !== null;
+  optionalNotes.value = transaction.notes || null;
+  request.notes = optionalNotes;
+  request.transferFromId = transaction.fromId!;
+  request.transferToId = transaction.toId!;
+  request.transferTransactionType = transaction.transferTransactionType!;
+
+  // Get the payload
+  const payload = JSON.stringify(request, jsonReplacer);
+
   // Call the API to create a transfer transaction
   const axiosResponse: AxiosResponse = await makesCentsAxios.post(
     "/api/transfer-transactions",
-    {
-      budgetId: budgetId,
-      transactionDate: transaction.date,
-      totalAmount: transaction.amount!,
-      notes: transaction.notes,
-      transferFromId: transaction.fromId!,
-      transferToId: transaction.toId!,
-      transferTransactionType: transaction.transferTransactionType!,
-    },
+    payload,
   );
 
   // Get the response

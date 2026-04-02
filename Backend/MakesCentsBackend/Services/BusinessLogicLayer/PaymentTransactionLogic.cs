@@ -58,7 +58,7 @@ namespace MakesCentsBackend.Services.BusinessLogicLayer
             }
             // Total the splits
             sumOfSplits = paymentTransaction.TransactionSplits.Sum(s => s.Amount);
-            if (sumOfSplits == null || sumOfSplits.Value != paymentTransaction.TotalAmount)
+            if (sumOfSplits == null || sumOfSplits.Value != Math.Abs(paymentTransaction.TotalAmount))
             {
                 return new CreatePaymentTransactionResponse(400, "Split totals must equal transaction total");
 
