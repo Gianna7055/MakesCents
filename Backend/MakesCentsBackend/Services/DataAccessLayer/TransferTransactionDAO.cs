@@ -102,6 +102,14 @@ namespace MakesCentsBackend.Services.DataAccessLayer
                         transferTransactionId = await _connection.QuerySingleAsync<int>(query, transferTransaction, dbTransaction);
                         // Set the transfer transaction id in the response
                         response.TransferTransactionId = transferTransactionId;
+
+                        // Update the to and from accounts
+                        if (!await _accountDAO.UpdateAccountBalanceAsync(transferTransaction.UserId, transferTransaction.TransferFromId, -transferTransaction.TotalAmount, dbTransaction, _connection) || !await _accountDAO.UpdateAccountBalanceAsync(transferTransaction.UserId, transferTransaction.TransferToId, transferTransaction.TotalAmount, dbTransaction, _connection))
+                        {
+                            // Roll the transaction back
+                            dbTransaction.Rollback();
+                            return new CreateTransferTransactionResponse(400, "There was an issue moving the amount between accounts");
+                        }
                     }
                     else if (transferTransaction.TransferTransactionType == TransferTransactionType.Envelope)
                     {
@@ -122,6 +130,14 @@ namespace MakesCentsBackend.Services.DataAccessLayer
                         transferTransactionId = await _connection.QuerySingleAsync<int>(query, transferTransaction, dbTransaction);
                         // Set the transfer transaction id in the response
                         response.TransferTransactionId = transferTransactionId;
+
+                        // Update the to and from envelopes
+                        if (!await _envelopeDAO.UpdateEnvelopeRemainingAmountAsync(transferTransaction.UserId, transferTransaction.TransferFromId, -transferTransaction.TotalAmount, dbTransaction, _connection) || !await _envelopeDAO.UpdateEnvelopeRemainingAmountAsync(transferTransaction.UserId, transferTransaction.TransferToId, transferTransaction.TotalAmount, dbTransaction, _connection))
+                        {
+                            // Roll the transaction back
+                            dbTransaction.Rollback();
+                            return new CreateTransferTransactionResponse(400, "There was an issue moving the amount between envelopes");
+                        }
                     }
                     else
                     {
