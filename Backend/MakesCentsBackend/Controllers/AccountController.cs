@@ -64,12 +64,7 @@ namespace MakesCentsBackend.Controllers
             else
             {
                 // Return the OK response
-                return Ok(new
-                {
-                    status = response.HttpStatus,
-                    message = response.Message,
-                    accounts = response.Accounts
-                });
+                return Ok(response);
             }
         }
 
@@ -99,11 +94,7 @@ namespace MakesCentsBackend.Controllers
             else
             {
                 // Return Ok
-                return Ok(new
-                {
-                    status = response.HttpStatus,
-                    message = response.Message,
-                });
+                return Ok(response);
             }
         }
     }

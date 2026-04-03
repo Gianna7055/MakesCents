@@ -60,13 +60,7 @@ namespace MakesCentsBackend.Controllers
             else
             {
                 // Return the success
-                return Created("", new
-                {
-                    status = response.HttpStatus,
-                    message = response.Message,
-                    accountId = response.AccountId,
-                    investmentAccountId = response.InvestmentAccountId
-                });
+                return Created("", response);
             }
         }
 
@@ -101,12 +95,7 @@ namespace MakesCentsBackend.Controllers
                 return StatusCode(response.HttpStatus, response.Message);
             }
             // Return the OK response
-            return Ok(new
-            {
-                status = response.HttpStatus,
-                message = response.Message,
-                investmentAccount = response.InvestmentAccount
-            });
+            return Ok(response);
         }
 
 
@@ -139,12 +128,7 @@ namespace MakesCentsBackend.Controllers
             else
             {
                 // Return Ok
-                return Ok(new
-                {
-                    status = response.HttpStatus,
-                    message = response.Message,
-                    investmentAccountId = response.Id
-                });
+                return Ok(response);
             }
         }
     }

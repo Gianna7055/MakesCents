@@ -63,13 +63,7 @@ namespace MakesCentsBackend.Controllers
             else
             {
                 // Return the success
-                return Created("", new
-                {
-                    status = response.HttpStatus,
-                    message = response.Message,
-                    paycheckId = response.Id,
-                    paycheckSplitIds = response.PaycheckSplitIds
-                });
+                return Created("", response);
             }
         }
 
@@ -104,12 +98,7 @@ namespace MakesCentsBackend.Controllers
                 return StatusCode(response.HttpStatus, response.Message);
             }
             // Return the OK response
-            return Ok(new
-            {
-                status = response.HttpStatus,
-                message = response.Message,
-                paychecks = response.Paychecks
-            });
+            return Ok(response);
         }
 
         [Authorize]
@@ -143,12 +132,7 @@ namespace MakesCentsBackend.Controllers
                 return StatusCode(response.HttpStatus, response.Message);
             }
             // Return the OK response
-            return Ok(new
-            {
-                status = response.HttpStatus,
-                message = response.Message,
-                paycheck = response.Paycheck
-            });
+            return Ok(response);
         }
 
 
@@ -181,13 +165,7 @@ namespace MakesCentsBackend.Controllers
             else
             {
                 // Return Ok
-                return Ok(new
-                {
-                    status = response.HttpStatus,
-                    message = response.Message,
-                    paycheckId = response.Id,
-                    paycheckSplitsIds = response.PaycheckSplitIds
-                });
+                return Ok(response);
             }
         }
 
@@ -216,11 +194,7 @@ namespace MakesCentsBackend.Controllers
             else
             {
                 // Return Ok
-                return Ok(new
-                {
-                    status = response.HttpStatus,
-                    message = response.Message,
-                });
+                return Ok(response);
             }
         }
     }

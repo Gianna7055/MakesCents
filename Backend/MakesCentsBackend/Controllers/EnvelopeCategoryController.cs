@@ -64,12 +64,7 @@ namespace MakesCentsBackend.Controllers
                 return StatusCode(response.HttpStatus, response.Message);
             }
             // Return the success
-            return Created("", new
-            {
-                status = response.HttpStatus,
-                message = response.Message,
-                envelopeCategoryId = response.Id
-            });
+            return Created("", response);
         }
 
         /// <summary>
@@ -108,12 +103,7 @@ namespace MakesCentsBackend.Controllers
                 return StatusCode(response.HttpStatus, response.Message);
             }
             // Return the OK response
-            return Ok(new
-            {
-                status = response.HttpStatus,
-                message = response.Message,
-                envelopeCategories = response.EnvelopeCategories
-            });
+            return Ok(response);
         }
 
         /// <summary>
@@ -152,12 +142,7 @@ namespace MakesCentsBackend.Controllers
             else
             {
                 // Return Ok
-                return Ok(new
-                {
-                    status = response.HttpStatus,
-                    message = response.Message,
-                    envelopeCategoryId = response.Id
-                });
+                return Ok(response);
             }
         }
 
@@ -186,11 +171,7 @@ namespace MakesCentsBackend.Controllers
             else
             {
                 // Return Ok
-                return Ok(new
-                {
-                    status = response.HttpStatus,
-                    message = response.Message,
-                });
+                return Ok(response);
             }
         }
     }

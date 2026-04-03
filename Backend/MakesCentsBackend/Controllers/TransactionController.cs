@@ -61,12 +61,7 @@ namespace MakesCentsBackend.Controllers
                 return StatusCode(response.HttpStatus, response.Message);
             }
             // Return the OK response
-            return Ok(new
-                {
-                    status = response.HttpStatus,
-                    message = response.Message,
-                    transactions = response.Transactions
-                });
+            return Ok(response);
         }
 
 
@@ -94,11 +89,7 @@ namespace MakesCentsBackend.Controllers
             else
             {
                 // Return Ok
-                return Ok(new
-                {
-                    status = response.HttpStatus,
-                    message = response.Message,
-                });
+                return Ok(response);
             }
         }
     }

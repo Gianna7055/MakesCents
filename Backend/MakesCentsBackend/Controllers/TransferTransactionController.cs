@@ -59,13 +59,7 @@ namespace MakesCentsBackend.Controllers
             else // Response HttpStatus is 201
             {
                 // Return the success
-                return Created("", new
-                {
-                    status = response.HttpStatus,
-                    message = response.Message,
-                    transactionId = response.Id,
-                    transferTransactionId = response.TransferTransactionId
-                });
+                return Created("", response);
             }
         }
 
@@ -100,12 +94,7 @@ namespace MakesCentsBackend.Controllers
                 return StatusCode(response.HttpStatus, response.Message);
             }
             // Return the OK response
-            return Ok(new
-            {
-                status = response.HttpStatus,
-                message = response.Message,
-                transferTransaction = response.TransferTransaction
-            });
+            return Ok(response);
         }
 
         [Authorize]
@@ -137,12 +126,7 @@ namespace MakesCentsBackend.Controllers
             else
             {
                 // Return Ok
-                return Ok(new
-                {
-                    status = response.HttpStatus,
-                    message = response.Message,
-                    transferTransactionId = response.Id
-                });
+                return Ok(response);
             }
         }
     }
