@@ -65,6 +65,24 @@ namespace MakesCentsBackend.Services.BusinessLogicLayer
             return response;
         }
 
+
+        public async Task<GetEnvelopeCategoryResponse> GetEnvelopeCategoryAsync(BaseIdRequest request)
+        {
+            // Declare and initialize
+            GetEnvelopeCategoryResponse response;
+
+            // Make sure the required information was sent
+            if (request.EntityId == 0 || request.UserId == 0)
+            {
+                // Return the fail
+                return new GetEnvelopeCategoryResponse(400, "Missing information to get envelope category");
+            }
+            // Call the DAO method
+            response = await _envelopeCategoryDAO.GetEnvelopeCategoryAsync(request);
+            // Return the reponse
+            return response;
+        }
+
         /// <summary>
         /// Logic method to update an envelope category based on provided fields
         /// </summary>

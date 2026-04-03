@@ -106,6 +106,40 @@ namespace MakesCentsBackend.Controllers
             return Ok(response);
         }
 
+        [Authorize]
+        [HttpGet("{envelopeCategoryId}")]
+        public async Task<ActionResult> GetEnvelopeCategoryAsync(int envelopeCategoryId)
+        {
+            // Declare and initialize
+            GetEnvelopeCategoryResponse response;
+            BaseIdRequest request = new BaseIdRequest();
+            // Get the user id from the JWT token
+            int userId = ClaimsPrincipalExtensions.GetUserId(User);
+
+            // Set the user id in the request
+            request.UserId = userId;
+            request.EntityId = envelopeCategoryId;
+            // Call the logic method
+            response = await _envelopeCategoryLogic.GetEnvelopeCategoryAsync(request);
+            // Check if the response came back as not found
+            if (response.HttpStatus == 404)
+            {
+                return NotFound(new
+                {
+                    status = response.HttpStatus,
+                    message = response.Message,
+                    envelopeCategoryId = envelopeCategoryId
+                });
+            }
+            else if (response.HttpStatus != 200)
+            {
+                // Return an issue
+                return StatusCode(response.HttpStatus, response.Message);
+            }
+            // Return the OK response
+            return Ok(response);
+        }
+
         /// <summary>
         /// Update an envelope category based on the provided fields
         /// </summary>

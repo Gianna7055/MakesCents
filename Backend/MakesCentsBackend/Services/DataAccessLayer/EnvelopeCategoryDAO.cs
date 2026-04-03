@@ -138,6 +138,42 @@ namespace MakesCentsBackend.Services.DataAccessLayer
             return allEnvelopeCategoriesResponse;
         }
 
+
+        public async Task<GetEnvelopeCategoryResponse> GetEnvelopeCategoryAsync(BaseIdRequest request)
+        {
+            // Declare and initialize
+            GetEnvelopeCategoryResponse response = new GetEnvelopeCategoryResponse();
+
+            // Make sure the envelope category belongs to the user
+            if (!await _authService.VerifyUserOwnsEnvelopeCategoryAsync(request.EntityId, request.UserId))
+            {
+                // Return the false result
+                return new GetEnvelopeCategoryResponse(403, "Envelope category does not belong to the current user");
+            }
+
+            // Set up the query to get the envelope category
+            query = """
+                SELECT 
+                    envelope_category.budget_id as BudgetId,
+                    envelope_category.envelope_category_name as EnvelopeCategoryName
+                FROM envelope_category
+                WHERE envelope_category.envelope_category_id = @EnvelopeCategoryId;
+                """;
+            // Read the envelope category
+            response.EnvelopeCategory = await _connection.QuerySingleAsync<GetEnvelopeCategoryDTOModel>(query, new { EnvelopeCategoryId = request.EntityId });
+            // Make sure the envelope category was found
+            if (response.EnvelopeCategory == null)
+            {
+                // Return the issue
+                return new GetEnvelopeCategoryResponse(404, "Envelope not found");
+            }
+            // Set the status and message for the envelope response
+            response.HttpStatus = 200;
+            response.Message = "Envelope category found";
+            // Return the response
+            return response;
+        }
+
         /// <summary>
         /// DAO method to update an envelope category based on the given fields
         /// </summary>

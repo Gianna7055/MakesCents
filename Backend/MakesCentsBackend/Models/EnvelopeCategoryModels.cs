@@ -73,6 +73,22 @@ namespace MakesCentsBackend.Models
         public GetAllEnvelopeCategoriesResponse(int status, string message) : base(status, message) { }
     }
 
+    [ExportTsInterface]
+    public class GetEnvelopeCategoryResponse : BaseIdResponse
+    {
+        public GetEnvelopeCategoryDTOModel EnvelopeCategory { get; set; } = new GetEnvelopeCategoryDTOModel();
+
+        public GetEnvelopeCategoryResponse() : base() { }
+        public GetEnvelopeCategoryResponse(int httpStatus, string message) : base(httpStatus, message) { }
+    }
+
+    [ExportTsInterface]
+    public class GetEnvelopeCategoryDTOModel
+    {
+        public int BudgetId { get; set; } = 0;
+        public string EnvelopeCategoryName { get; set; } = "";
+    }
+
     /// <summary>
     /// Request model for editing an envelope category
     /// </summary>
