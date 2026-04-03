@@ -105,7 +105,7 @@ namespace MakesCentsBackend.Services.BusinessLogicLayer
                 // Return that there is not enough information
                 return new UpdatePaymentTransactionResponse(400, "Missing information for update");
             }
-            if (paymentTransaction.TransactionSplits.Count != 0 || paymentTransaction.TransactionSplits.Sum(s => s.Amount) != paymentTransaction.TotalAmount)
+            if (paymentTransaction.TransactionSplits.Count == 0 || paymentTransaction.TransactionSplits.Sum(s => s.Amount) != paymentTransaction.TotalAmount)
             {
                 return new UpdatePaymentTransactionResponse(400, "Split totals must equal paycheck total");
             }
