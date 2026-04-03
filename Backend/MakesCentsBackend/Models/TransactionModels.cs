@@ -105,7 +105,6 @@ namespace MakesCentsBackend.Models
         // Class variables
         public int TransactionId { get; set; } = 0;
         public int BudgetId { get; set; } = 0;
-        public int UserId { get; set; } = 0;
         public DateOnly TransactionDate { get; set; } = DateOnly.MinValue;
         public decimal TotalAmount { get; set; } = 0m;
         public bool IsReconciled { get; set; } = false;

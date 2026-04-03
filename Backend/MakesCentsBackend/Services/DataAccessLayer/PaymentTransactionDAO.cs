@@ -168,14 +168,14 @@ namespace MakesCentsBackend.Services.DataAccessLayer
                 SELECT 
                     transaction.transaction_id AS TransactionId,
                     transaction.budget_id AS BudgetId,
-                    transaction.transaction_date AS Date,
+                    transaction.transaction_date AS TransactionDate,
                     transaction.total_amount AS TotalAmount,
                     transaction.is_reconciled AS IsReconciled,
                     transaction.notes AS Notes,
-                    transaction.transaction_type_id AS TransactionTypeId,
+                    transaction.transaction_type_id AS TransactionType,
                     payment_transaction.payment_transaction_id AS PaymentTransactionId,
                     payment_transaction.account_id AS AccountId,
-                    payment_transaction.payment_transaction_type_id AS PaymentTransactionTypeId,
+                    payment_transaction.payment_transaction_type_id AS PaymentTransactionType,
                     payment_transaction.merchant_source_name AS MerchantSourceName,
                     payment_transaction.check_number AS CheckNumber
                 FROM transaction

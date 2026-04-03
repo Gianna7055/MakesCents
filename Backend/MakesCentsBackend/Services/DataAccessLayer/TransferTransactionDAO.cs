@@ -180,17 +180,17 @@ namespace MakesCentsBackend.Services.DataAccessLayer
                 SELECT 
                     transaction.transaction_id AS TransactionId,
                     transaction.budget_id AS BudgetId,
-                    transaction.transaction_date AS Date,
+                    transaction.transaction_date AS TransactionDate,
                     transaction.total_amount AS TotalAmount,
                     transaction.is_reconciled AS IsReconciled,
                     transaction.notes AS Notes,
-                    transaction.transaction_type_id AS TransactionTypeId,
+                    transaction.transaction_type_id AS TransactionType,
                     transfer_transaction.transfer_transaction_id AS TransferTransactionId,
                     transfer_transaction.transfer_from_account_id AS TransferFromAccountId,
                     transfer_transaction.transfer_to_account_id AS TransferToAccountId,
                     transfer_transaction.transfer_from_envelope_id AS TransferFromEnvelopeId,
                     transfer_transaction.transfer_to_envelope_id AS TransferToEnvelopeId,
-                    transfer_transaction.transfer_transaction_type_id AS TransferTransactionTypeId
+                    transfer_transaction.transfer_transaction_type_id AS TransferTransactionType
                 FROM transaction
                 INNER JOIN transfer_transaction ON transaction.transaction_id = transfer_transaction.transaction_id
                 WHERE transaction.transaction_id = @TransactionId

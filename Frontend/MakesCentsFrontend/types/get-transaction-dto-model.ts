@@ -9,7 +9,6 @@ import { TransactionType } from "./transaction-type";
 export interface GetTransactionDTOModel {
     transactionId: number;
     budgetId: number;
-    userId: number;
     transactionDate: DateOnly;
     totalAmount: number;
     isReconciled: boolean;
