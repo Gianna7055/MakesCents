@@ -3,22 +3,27 @@ import { Button } from "@/components/buttons/button";
 import Input from "@/components/text/text-input";
 import ScreenWrapper from "@/components/ui/screen-wrapper";
 import { globalStyles } from "@/css/globalStyles";
+import makesCentsAxios from "@/data/datasource";
+import { storage } from "@/data/storage";
+import { BaseIdResponse } from "@/types/base-id-response";
 import { CreateBudgetRequest } from "@/types/create-budget-request";
 import { Month } from "@/types/month";
 import { handleAxiosError } from "@/utils/axiosErrorHandler";
+import { jsonReviver } from "@/utils/mappers/jsonReplacer";
+import { AxiosResponse } from "axios";
 import { router, useLocalSearchParams } from "expo-router";
 import React, { useState } from "react";
 import { View, Image, Text, ScrollView } from "react-native";
 
 type NewEditBudgetProps = {
-  yearString: string;
-  monthString: string;
+  year: string;
+  month: string;
 };
 
 export default function NewEditBudget() {
   //console.log("URL Params:", useLocalSearchParams());
   // Parameter mapping
-  const { yearString, monthString } =
+  const { year: yearString, month: monthString } =
     useLocalSearchParams<NewEditBudgetProps>();
   const year: number = parseInt(yearString);
   const monthInt: number = parseInt(monthString);
@@ -29,17 +34,35 @@ export default function NewEditBudget() {
     router.back();
   };
 
-  const handleDoneClickEH = () => {
+  const handleDoneClickEH = async () => {
     try {
-        // Create the request
-        const request: CreateBudgetRequest = {
-            
-            budgetName,
-            month,
-            year
-        };
+      // Create the request
+      const request: CreateBudgetRequest = {
+        userId: 0, // This will be set by the backend based on the authenticated user
+        budgetName,
+        month,
+        year,
+      };
+
+      // Call the API
+      const axiosResponse: AxiosResponse = await makesCentsAxios.post(
+        "/api/budgets",
+        request,
+      );
+
+      // Get the response
+      const response: BaseIdResponse = JSON.parse(
+        JSON.stringify(axiosResponse.data),
+        jsonReviver,
+      );
+      // Log the response
+      console.log("Create Budget Response:", response);
+
+      // Set the new budget id
+      await storage.saveBudgetId(response.id);
+      router.push("/budget");
     } catch (error: any) {
-        handleAxiosError(error);
+      handleAxiosError(error);
     }
   };
 
@@ -70,7 +93,21 @@ export default function NewEditBudget() {
           source={require("@/assets/images/MakesCentsLogo.png")}
           style={globalStyles.noWordsLogo}
         />
-        <Text style={globalStyles.logoTitle}>New Budget</Text>
+        <View
+          style={{
+            position: "absolute",
+            left: 0,
+            right: 0,
+            alignItems: "center",
+          }}
+        >
+          <Text style={[globalStyles.logoTitle, { position: "relative" }]}>
+            New Budget for
+          </Text>
+          <Text style={[globalStyles.logoTitle, { position: "relative" }]}>
+            {Month[month]} {year}
+          </Text>
+        </View>
       </View>
       {/* Content */}
       <ScrollView style={{ marginVertical: 0 }}>

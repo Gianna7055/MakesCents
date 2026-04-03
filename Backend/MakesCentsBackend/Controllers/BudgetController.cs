@@ -63,12 +63,7 @@ namespace MakesCentsBackend.Controllers
             else
             {
                 // Return the success
-                return Created("", new
-                {
-                    status = response.HttpStatus,
-                    message = response.Message,
-                    budgetId = response.Id
-                });
+                return Created("", response);
             }
         }
 
