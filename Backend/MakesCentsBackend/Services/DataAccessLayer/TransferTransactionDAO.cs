@@ -296,7 +296,7 @@ namespace MakesCentsBackend.Services.DataAccessLayer
                     // Skip base table properties
                     if (typeof(UpdateTransactionRequest).GetProperty(property.Name) != null) continue;
                     // Skip the id
-                    if (property.Name == "TransferTransactionId") continue;
+                    if (property.Name == "TransferTransactionId" || property.Name == "TransferFromId" || property.Name == "TransferToId" || property.Name == "TransferTransactionType") continue;
                     object? propertyValue = property.GetValue(transferTransaction);
 
                     // Check if the property is IOptional and has a value
@@ -313,37 +313,55 @@ namespace MakesCentsBackend.Services.DataAccessLayer
                     }
                 }
 
-                // If there are no fields to update, return early
-                if (updates.Count == 0)
+                // Deal with transfer from id and transfer to id manually
+                if (transferTransaction.TransferTransactionType == TransferTransactionType.Account)
                 {
-                    return new BaseIdResponse(400, "No fields to update");
+                    updates.Add("transfer_transaction_type_id = 2");
+                    updates.Add($"transfer_from_account_id = {transferTransaction.TransferFromId}");
+                    updates.Add($"transfer_to_account_id = {transferTransaction.TransferToId}");
+                    updates.Add($"transfer_from_envelope_id = null");
+                    updates.Add($"transfer_to_envelope_id = null");
                 }
-                // Assemble the query
-                query = $"""
+                else // Type is envelope
+                {
+                    updates.Add("transfer_transaction_type_id = 3");
+                    updates.Add($"transfer_from_envelope_id = {transferTransaction.TransferFromId}");
+                    updates.Add($"transfer_to_envelope_id = {transferTransaction.TransferToId}");
+                    updates.Add($"transfer_from_account_id = null");
+                    updates.Add($"transfer_to_account_id = null");
+                }
+
+                // If there are no fields to update, return early
+                if (updates.Count != 0)
+                {
+                    // Assemble the query
+                    query = $"""
                     UPDATE transfer_transaction 
                     SET {string.Join(", ", updates)}
                     WHERE transfer_transaction_id = @TransferTransactionId
                     """;
 
-                try
-                {
-                    // Execute the query
-                    rowsAffected = await _connection.ExecuteAsync(query, transferTransaction, dbTransaction);
-                }
-                catch (Exception ex)
-                {
-                    // Roll the transaction back
-                    dbTransaction.Rollback();
-                    // Return the issue
-                    return new BaseIdResponse(500, $"{ex.Message}");
-                }
+                    try
+                    {
+                        // Execute the query
+                        rowsAffected = await _connection.ExecuteAsync(query, transferTransaction, dbTransaction);
+                    }
+                    catch (Exception ex)
+                    {
+                        // Roll the transaction back
+                        dbTransaction.Rollback();
+                        // Return the issue
+                        return new BaseIdResponse(500, $"{ex.Message}");
+                    }
 
-                if (rowsAffected == 0)
-                {
-                    // Roll the transaction back
-                    dbTransaction.Rollback();
-                    return new BaseIdResponse(404, "Payment transaction not found");
+                    if (rowsAffected == 0)
+                    {
+                        // Roll the transaction back
+                        dbTransaction.Rollback();
+                        return new BaseIdResponse(404, "Payment transaction not found");
+                    }
                 }
+                
                 // Commit the transaction
                 dbTransaction.Commit();
             }
