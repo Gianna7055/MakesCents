@@ -134,6 +134,25 @@ namespace MakesCentsBackend.Models
         public GetBudgetResponse() : base() { }
     }
 
+
+    public class GetYearBudgetsResponse : BaseIdResponse
+    {
+        // Properties
+        public List<GetYearBudgetDTOModel> Budgets { get; set; } = new List<GetYearBudgetDTOModel>();
+
+        public GetYearBudgetsResponse(int status, string message) : base(status, message) { }
+        public GetYearBudgetsResponse() : base() { }
+    }
+
+    public class GetYearBudgetDTOModel
+    {
+        public int BudgetId { get; set; } = 0;
+        public int UserId { get; set; } = 0;
+        public Month Month { get; set; } = Month.Unknown;
+        public int Year { get; set; } = 0;
+        public string BudgetName { get; set; } = "";
+    }
+
     /// <summary>
     /// Request model for updating a budget
     /// </summary>

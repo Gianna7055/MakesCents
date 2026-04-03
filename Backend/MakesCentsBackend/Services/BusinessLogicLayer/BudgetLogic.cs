@@ -108,6 +108,23 @@ namespace MakesCentsBackend.Services.BusinessLogicLayer
             return response;
         }
 
+        public async Task<GetYearBudgetsResponse> GetYearBudgetsAsync(GetBudgetRequest request)
+        {
+            // Declare and initialize
+            GetYearBudgetsResponse response;
+
+            // Make sure the budget has a year, month, and user id
+            if (request.Year == 0 || request.UserId == 0 || request.Month == Month.Unknown)
+            {
+                // Return the not found status
+                return new GetYearBudgetsResponse(404, "Missing information to get budgets");
+            }
+            // Call the DAO method
+            response = await _budgetDAO.GetYearBudgetsAsync(request);
+            // Return the response
+            return response;
+        }
+
         /// <summary>
         /// Logic method to update a budget based on provided fields
         /// </summary>

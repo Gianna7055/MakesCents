@@ -119,6 +119,48 @@ namespace MakesCentsBackend.Controllers
             }
         }
 
+
+        [Authorize]
+        [HttpGet("all/year/{year}/month/{month}")]
+        public async Task<ActionResult> GetYearBudgetsAsync(int year, Month month)
+        {
+            // Declare and initialize
+            GetYearBudgetsResponse response;
+            // Get the user id from the JWT token
+            int userId = ClaimsPrincipalExtensions.GetUserId(User);
+            // Change Month=0 to Month.Unknown
+            if (month == 0)
+            {
+                month = Month.Unknown;
+            }
+            GetBudgetRequest getYearBudgetsRequest = new GetBudgetRequest(userId, month, year);
+
+            // Call the logic method
+            response = await _budgetLogic.GetYearBudgetsAsync(getYearBudgetsRequest);
+            // Check if the response came back as not found
+            if (response.HttpStatus == 404)
+            {
+                return NotFound(new
+                {
+                    status = response.HttpStatus,
+                    message = response.Message,
+                    userId = userId,
+                    month = month,
+                    year = year
+                });
+            }
+            else if (response.HttpStatus != 200)
+            {
+                // Return an issue
+                return StatusCode(response.HttpStatus, response.Message);
+            }
+            else
+            {
+                // Return the OK response
+                return Ok(response);
+            }
+        }
+
         /// <summary>
         /// Get a budget based on a budget id and user id
         /// </summary>

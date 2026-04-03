@@ -237,6 +237,36 @@ namespace MakesCentsBackend.Services.DataAccessLayer
             return budgetResponse;
         }
 
+
+        public async Task<GetYearBudgetsResponse> GetYearBudgetsAsync(GetBudgetRequest request)
+        {
+            // Declare and initialize
+            GetYearBudgetsResponse response = new GetYearBudgetsResponse();
+
+            // Set up the query to get the budgets
+            query = """
+                SELECT 
+                    budget.budget_id as BudgetId,
+                    budget.user_id as UserId,
+                    budget.month_id as Month,
+                    budget.year as Year,
+                    budget.budget_name as BudgetName
+                FROM budget
+                WHERE budget.user_id = @UserId
+                    AND STR_TO_DATE(CONCAT(budget.year, '-', budget.month_id, '-01'), '%Y-%m-%d')
+                        BETWEEN DATE_SUB(STR_TO_DATE(CONCAT(@Year, '-', @Month, '-01'), '%Y-%m-%d'), INTERVAL 11 MONTH)
+                        AND STR_TO_DATE(CONCAT(@Year, '-', @Month, '-01'), '%Y-%m-%d')
+                ORDER BY budget.year, budget.month_id;
+                """;
+            // Execute the query
+            response.Budgets = (await _connection.QueryAsync<GetYearBudgetDTOModel>(query, request)).ToList();
+            // Set the status and message for the budget response
+            response.HttpStatus = 200;
+            response.Message = "Budgets found";
+            // Return the budget 
+            return response;
+        }
+
         /// <summary>
         /// DAO method to update a budget based on given fields
         /// </summary>
