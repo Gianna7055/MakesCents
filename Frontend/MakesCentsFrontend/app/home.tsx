@@ -16,32 +16,33 @@ export default function Home() {
   // Home constructor
   useEffect(() => {
     const main = async () => {
-      // Get the current year and month
-      //console.log("In Home useEffect");
-      const now: Date = new Date(2026, 2, 15, 0, 0, 0, 0);
-      //const now: Date = new Date();
-      const year: number = now.getFullYear();
-      const month: string = now.toLocaleString("default", { month: "long" });
+      if ((await storage.getBudgetId()) == null) {
+        // Get the current year and month
+        //console.log("In Home useEffect");]
+        const now: Date = new Date();
+        const year: number = now.getFullYear();
+        const month: string = now.toLocaleString("default", { month: "long" });
 
-      try {
-        // Get the budget id from axios
-        const axiosResponse: AxiosResponse = await makesCentsAxios.get(
-          `/api/budgets/year/${year}/month/${month}`,
-        );
+        try {
+          // Get the budget id from axios
+          const axiosResponse: AxiosResponse = await makesCentsAxios.get(
+            `/api/budgets/year/${year}/month/${month}`,
+          );
 
-        // Get the response
-        const response: GetBudgetResponse = JSON.parse(
-          JSON.stringify(axiosResponse.data),
-          jsonReviver,
-        );
-        // Log the response
-        //console.log("Response:", response);
-        if (response) {
-          // Store the budget id in storage
-          storage.saveBudgetId(response.budget.budgetId);
+          // Get the response
+          const response: GetBudgetResponse = JSON.parse(
+            JSON.stringify(axiosResponse.data),
+            jsonReviver,
+          );
+          // Log the response
+          //console.log("Response:", response);
+          if (response) {
+            // Store the budget id in storage
+            storage.saveBudgetId(response.budget.budgetId);
+          }
+        } catch (error: any) {
+          handleAxiosError(error);
         }
-      } catch (error: any) {
-        handleAxiosError(error);
       }
     };
 

@@ -671,8 +671,8 @@ export default function NewEditTransaction() {
         </Text>
       </View>
 
-      {/* Radio buttons for Expense, Income, and Transfer */}
       <ScrollView style={{ marginVertical: 0 }}>
+      {/* Radio buttons for Expense, Income, and Transfer */}
         <TitleRadioInput
           value={transaction.typeLabel || ""} // string for UI selection
           options={titleRadioOptions}
