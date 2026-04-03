@@ -8,6 +8,8 @@ import {
   StyleSheet,
   Modal,
   TouchableOpacity,
+  FlatList,
+  ActivityIndicator,
 } from "react-native";
 import { storage } from "@/data/storage";
 import { AxiosResponse } from "axios";
@@ -29,11 +31,70 @@ import ScreenWrapper from "@/components/ui/screen-wrapper";
 import { handleAxiosError } from "@/utils/axiosErrorHandler";
 import { formatCurrency } from "@/utils/formatCurrency";
 import { jsonReviver } from "@/utils/mappers/jsonReplacer";
+import { GetYearBudgetsResponse } from "@/types/get-year-budgets-response";
+import { GetYearBudgetDTOModel } from "@/types/get-year-budget-dto-model";
+import { Month } from "@/types/month";
+
+// A slot in the modal list — either a real budget or an empty month
+type BudgetSlot =
+  | { exists: true; budget: GetYearBudgetDTOModel }
+  | { exists: false; year: number; month: number };
+
+// Build 12 slots ending at (anchorYear, anchorMonth) inclusive,
+// filling in real budgets where the API returned them.
+const buildSlots = (
+  anchorYear: number,
+  anchorMonth: number,
+  apiBudgets: GetYearBudgetDTOModel[],
+): BudgetSlot[] => {
+  const slots: BudgetSlot[] = [];
+
+  for (let i = 0; i < 12; i++) {
+    // Walk backwards from the anchor
+    let month = anchorMonth - i;
+    let year = anchorYear;
+    while (month < 2) {
+      month += 12;
+      year -= 1;
+    }
+
+    const match = apiBudgets.find((b) => b.year === year && b.month === month);
+
+    slots.push(
+      match ? { exists: true, budget: match } : { exists: false, year, month },
+    );
+  }
+
+  // Reverse so oldest is at the bottom, newest at the top
+  return slots;
+};
 
 export default function Budget() {
   const [budgetId, setBudgetId] = useState<number>(0);
   const [budget, setBudget] = useState<GetBudgetDTOModel>();
   const [menuVisible, setMenuVisible] = useState<boolean>(false);
+  // Consts for choosing a budget
+  const [modalVisible, setModalVisible] = useState<boolean>(false);
+  const [slots, setSlots] = useState<BudgetSlot[]>([]);
+  const [loadingMore, setLoadingMore] = useState<boolean>(false);
+  // Tracks the oldest anchor fetched so "See More" knows where to continue from
+  const [oldestAnchor, setOldestAnchor] = useState<{
+    year: number;
+    month: number;
+  } | null>(null);
+  const [emptySlot, setEmptySlot] = useState<{
+    year: number;
+    month: number;
+  } | null>(null);
+
+  const translateY = useSharedValue(100);
+  const opacity = useSharedValue(0);
+
+  const budgetTitle = budget
+    ? budget.budgetName
+    : emptySlot
+      ? `${Month[emptySlot.month]} ${emptySlot.year}`
+      : "Budget";
 
   // Budget constructor
   useEffect(() => {
@@ -54,20 +115,25 @@ export default function Budget() {
           jsonReviver,
         );
         // Log the response
-        console.log("Response:", response);
-        console.log("Budget:", response.budget);
-        console.log("Envelope Categories:", response.budget.envelopeCategories);
-        console.log("Envelope 1:", response.budget.envelopeCategories[1]);
+        //console.log("Response:", response);
+        //console.log("Budget:", response.budget);
+        //console.log("Envelope Categories:", response.budget.envelopeCategories);
+        //console.log("Envelope 1:", response.budget.envelopeCategories[1]);
         if (response) {
           // Store the budget id in storage
           response.budget.envelopeCategories =
             response.budget.envelopeCategories.sort(
               (a, b) => a.envelopeCategoryId - b.envelopeCategoryId,
             );
-          response.budget.envelopeCategories[1].envelopes =
-            response.budget.envelopeCategories[1].envelopes.sort(
-              (a, b) => a.envelopeId - b.envelopeId,
-            );
+          response.budget.envelopeCategories =
+            response.budget.envelopeCategories
+              .sort((a, b) => a.envelopeCategoryId - b.envelopeCategoryId)
+              .map((category) => ({
+                ...category,
+                envelopes: category.envelopes.sort(
+                  (a, b) => a.envelopeId - b.envelopeId,
+                ),
+              }));
           setBudget(response.budget);
           //console.log("Category 1", budget!.envelopeCategories[0]);
         }
@@ -78,7 +144,7 @@ export default function Budget() {
 
     // Main method
     main();
-  }, []);
+  }, [budgetId]);
 
   // Total the budget
   const getTotalBudgetRemaining = (): number => {
@@ -109,9 +175,6 @@ export default function Budget() {
 
   const handleEditCategoryClickEH = () => {};
 
-  const translateY = useSharedValue(100);
-  const opacity = useSharedValue(0);
-
   const openMenu = () => {
     setMenuVisible(true);
     translateY.value = withTiming(0, { duration: 200 });
@@ -132,6 +195,106 @@ export default function Budget() {
     opacity: opacity.value,
   }));
 
+  // Fetches one page of budgets anchored at (year, month) and returns the slots
+  const fetchSlots = async (
+    year: number,
+    month: number,
+  ): Promise<BudgetSlot[]> => {
+    const axiosResponse: AxiosResponse = await makesCentsAxios.get(
+      `/api/budgets/all/year/${year}/month/${month}`,
+    );
+    const response: GetYearBudgetsResponse = JSON.parse(
+      JSON.stringify(axiosResponse.data),
+      jsonReviver,
+    );
+    return buildSlots(year, month, response.budgets);
+  };
+
+  const openBudgetModal = async () => {
+    setModalVisible(true);
+
+    if (slots.length > 0) return;
+
+    try {
+      const now = new Date();
+      const anchorYear = now.getFullYear();
+      const anchorMonth = now.getMonth() + 2;
+
+      const initialSlots = await fetchSlots(anchorYear, anchorMonth);
+      setSlots(initialSlots);
+      setOldestAnchor({ year: anchorYear, month: anchorMonth });
+    } catch (error) {
+      console.log("Error fetching budgets:", error);
+    }
+  };
+
+  const handleSeeMore = async () => {
+    if (!oldestAnchor || loadingMore) return;
+    setLoadingMore(true);
+
+    try {
+      const moreSlots = await fetchSlots(
+        oldestAnchor.year - 1,
+        oldestAnchor.month,
+      );
+      setSlots((prev) => [...prev, ...moreSlots]);
+
+      const oldest = moreSlots[moreSlots.length - 1];
+      setOldestAnchor(
+        oldest.exists
+          ? { year: oldest.budget.year, month: oldest.budget.month }
+          : { year: oldest.year, month: oldest.month },
+      );
+    } catch (error) {
+      console.log("Error fetching more budgets:", error);
+    } finally {
+      setLoadingMore(false);
+    }
+  };
+
+  const handleSelectBudget = async (item: GetYearBudgetDTOModel) => {
+    await storage.saveBudgetId(item.budgetId);
+    setBudgetId(item.budgetId);
+    //console.log("Stored budget Id:", await storage.getBudgetId());
+    //console.log("Budget Id:", budgetId);
+    setEmptySlot(null);
+    setModalVisible(false);
+  };
+
+  const handleSelectEmptySlot = (year: number, month: number) => {
+    setModalVisible(false);
+    setBudget(undefined);
+    setEmptySlot({ year, month });
+  };
+
+  const renderSlot = ({ item }: { item: BudgetSlot }) => {
+    if (item.exists) {
+      return (
+        <TouchableOpacity
+          style={styles.budgetItem}
+          onPress={() => handleSelectBudget(item.budget)}
+        >
+          <Text>
+            {Month[item.budget.month]} {item.budget.year}
+          </Text>
+          <Text>{item.budget.budgetName}</Text>
+        </TouchableOpacity>
+      );
+    }
+
+    return (
+      <TouchableOpacity
+        style={[styles.budgetItem, styles.budgetItemEmpty]}
+        onPress={() => handleSelectEmptySlot(item.year, item.month)}
+      >
+        <Text style={styles.emptyMonthText}>
+          {Month[item.month]} {item.year}
+        </Text>
+        <Text style={styles.noBudgetText}>No Budget Yet</Text>
+      </TouchableOpacity>
+    );
+  };
+
   return (
     <ScreenWrapper>
       <View style={globalStyles.noWordsLogoContainer}>
@@ -148,34 +311,46 @@ export default function Budget() {
           style={styles.logo}
         />
       </View>
-      {budget ? ( // Block if budget exists
-        <View style={styles.budgetNameContainer}>
+      <View style={styles.budgetNameContainer}>
+        <TouchableOpacity onPress={openBudgetModal}>
           <View style={styles.budgetNameGroup}>
             <Text
               style={[globalStyles.centeredTitle, styles.budgetName]}
               numberOfLines={1}
               ellipsizeMode="tail"
             >
-              {budget.budgetName}
+              {budgetTitle}
             </Text>
             <Text style={globalStyles.centeredTitle}>▼</Text>
           </View>
-          <Text style={globalStyles.centeredTitle}>
-            {formatCurrency(getTotalBudgetRemaining())}
-          </Text>
-        </View>
+        </TouchableOpacity>
+        <Text style={globalStyles.centeredTitle}>
+          {budget ? formatCurrency(getTotalBudgetRemaining()) : ""}
+        </Text>
+      </View>
+      {budget ? (
+        <ScrollView>
+          {budget.envelopeCategories.map((category) => (
+            <EnvelopeCategoryCard
+              key={category.envelopeCategoryId}
+              envelopeCategory={category}
+            />
+          ))}
+        </ScrollView>
       ) : (
-        // Block if budget does not exist
-        <Text style={globalStyles.centeredTitle}>Budget</Text>
-      )}
-      <ScrollView>
-        {budget?.envelopeCategories.map((category) => (
-          <EnvelopeCategoryCard
-            key={category.envelopeCategoryId}
-            envelopeCategory={category}
+        <View style={styles.noBudgetContainer}>
+          <Text style={styles.noBudgetScreenText}>No Budget Exists Yet</Text>
+          <Button
+            name="Create Budget"
+            onPress={() =>
+              router.push(
+                `/new-edit-screens/create-budget?year=${emptySlot?.year}&month=${emptySlot?.month}`,
+              )
+            }
+            variant="primary"
           />
-        ))}
-      </ScrollView>
+        </View>
+      )}
       <Button
         name="..."
         onPress={handleEllipsisClickEH}
@@ -225,6 +400,42 @@ export default function Budget() {
           </Animated.View>
         </TouchableOpacity>
       </Modal>
+
+      {/* Budget picker modal */}
+      <Modal visible={modalVisible} transparent animationType="slide">
+        <View style={styles.modalOverlay}>
+          <View style={styles.modalContent}>
+            <Text style={[globalStyles.centeredTitle, { marginBottom: 15 }]}>
+              Select a Budget
+            </Text>
+            <FlatList
+              data={slots}
+              keyExtractor={(item, index) =>
+                item.exists
+                  ? item.budget.budgetId.toString()
+                  : `empty-${item.year}-${item.month}-${index}`
+              }
+              renderItem={renderSlot}
+              ListFooterComponent={
+                <TouchableOpacity
+                  style={styles.seeMoreButton}
+                  onPress={handleSeeMore}
+                  disabled={loadingMore}
+                >
+                  {loadingMore ? (
+                    <ActivityIndicator size="small" />
+                  ) : (
+                    <Text style={styles.seeMoreText}>See More</Text>
+                  )}
+                </TouchableOpacity>
+              }
+            />
+            <TouchableOpacity onPress={() => setModalVisible(false)}>
+              <Text style={styles.closeText}>Close</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+      </Modal>
       <BottomNavBar />
     </ScreenWrapper>
   );
@@ -269,5 +480,59 @@ const styles = StyleSheet.create({
     shadowRadius: 4,
     elevation: 5,
     alignItems: "flex-end",
+  },
+  modalOverlay: {
+    flex: 1,
+    justifyContent: "center",
+    backgroundColor: "rgba(0,0,0,0.5)",
+  },
+  modalContent: {
+    margin: 20,
+    backgroundColor: "white",
+    borderRadius: 10,
+    padding: 20,
+    maxHeight: "70%",
+  },
+  budgetItem: {
+    padding: 15,
+    borderBottomWidth: 1,
+    borderColor: "#eee",
+    flexDirection: "row",
+    justifyContent: "space-between",
+  },
+  budgetItemEmpty: {
+    opacity: 0.5,
+  },
+  emptyMonthText: {
+    color: "#555",
+  },
+  noBudgetText: {
+    color: "#aaa",
+    fontStyle: "italic",
+  },
+  seeMoreButton: {
+    paddingVertical: 12,
+    alignItems: "center",
+    borderBottomWidth: 1,
+    borderColor: "#eee",
+    marginBottom: 4,
+  },
+  seeMoreText: {
+    color: "#007AFF",
+    fontWeight: "600",
+  },
+  closeText: {
+    textAlign: "center",
+    marginTop: 10,
+  },
+  noBudgetContainer: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    gap: 15,
+  },
+  noBudgetScreenText: {
+    fontSize: 16,
+    color: "#555",
   },
 });

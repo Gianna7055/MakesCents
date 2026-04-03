@@ -16,6 +16,7 @@ import { EditUserRequest } from "@/types/edit-user-request";
 import { BaseIdResponse } from "@/types/base-id-response";
 import { handleAxiosError } from "@/utils/axiosErrorHandler";
 import { jsonReviver } from "@/utils/mappers/jsonReplacer";
+import { storage } from "@/data/storage";
 
 export default function Profile() {
   // Variables
@@ -64,6 +65,8 @@ export default function Profile() {
   }, []);
 
   const handleLogoutClickEH = () => {
+    storage.removeBudgetId();
+    storage.removeToken();
     // Go back to the login page
     router.replace("/login-register/login");
   };

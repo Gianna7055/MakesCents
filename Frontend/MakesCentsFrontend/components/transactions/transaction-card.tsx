@@ -27,10 +27,15 @@ export default function TransactionCard(props: TransactionCardProps) {
 
   const transactionClickEH = () => {
     // Navigate to create a new transaction
-    router.push(
-      `/new-edit-screens/new-edit-transaction?paramTransactionId=${props.transaction.transactionId}&paramTransactionType=${props.transaction.envelopes.includes("->") ? 3 : 2}`,
-      //`/new-edit-screens/new-edit-transaction`,
-    );
+    router.push({
+      pathname: "/new-edit-screens/new-edit-transaction",
+      params: {
+        paramTransactionId: props.transaction.transactionId,
+        paramTransactionType: props.transaction.envelopes.includes("->")
+          ? 3
+          : 2,
+      },
+    });
   };
 
   return (
