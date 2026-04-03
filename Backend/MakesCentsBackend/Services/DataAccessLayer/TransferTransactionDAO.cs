@@ -232,7 +232,7 @@ namespace MakesCentsBackend.Services.DataAccessLayer
                 transactionResponse = await _transactionDAO.UpdateTransactionAsync(transferTransaction, dbTransaction);
 
                 // Check the transaction response
-                if (transactionResponse.HttpStatus != 200 || transactionResponse.Message != "No fields to update")
+                if (transactionResponse.HttpStatus < 200 || transactionResponse.HttpStatus >= 300)
                 {
                     // Roll the transaction back
                     dbTransaction.Rollback();

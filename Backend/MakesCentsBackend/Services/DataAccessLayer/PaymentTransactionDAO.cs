@@ -239,7 +239,7 @@ namespace MakesCentsBackend.Services.DataAccessLayer
                 transactionResponse = await _transactionDAO.UpdateTransactionAsync(paymentTransaction, dbTransaction);
 
                 // Check the transaction response
-                if (transactionResponse.HttpStatus != 200 || transactionResponse.Message != "No fields to update")
+                if (transactionResponse.HttpStatus < 200 || transactionResponse.HttpStatus >= 300)
                 {
                     // Roll the transaction back
                     dbTransaction.Rollback();
@@ -252,7 +252,7 @@ namespace MakesCentsBackend.Services.DataAccessLayer
                     // Skip base table properties
                     if (typeof(UpdateTransactionRequest).GetProperty(property.Name) != null) continue;
                     // Skip the id
-                    if (property.Name == "PaymentTransactionId") continue;
+                    if (property.Name == "PaymentTransactionId" || property.Name == "TransactionSplits") continue;
                     object? propertyValue = property.GetValue(paymentTransaction);
 
                     // Check if the property is IOptional and has a value
@@ -270,36 +270,36 @@ namespace MakesCentsBackend.Services.DataAccessLayer
                 }
 
                 // If there are no fields to update, return early
-                if (updates.Count == 0)
+                if (updates.Count != 0)
                 {
-                    return new UpdatePaymentTransactionResponse(400, "No fields to update");
-                }
-                // Assemble the query
-                query = $"""
+                    // Assemble the query
+                    query = $"""
                     UPDATE payment_transaction 
                     SET {string.Join(", ", updates)}
                     WHERE payment_transaction_id = @PaymentTransactionId
                     """;
 
-                try
-                {
-                    // Execute the query
-                    rowsAffected = await _connection.ExecuteAsync(query, paymentTransaction, dbTransaction);
-                }
-                catch (Exception ex)
-                {
-                    // Roll the transaction back
-                    dbTransaction.Rollback();
-                    // Return the issue
-                    return new UpdatePaymentTransactionResponse(500, $"{ex.Message}");
-                }
+                    try
+                    {
+                        // Execute the query
+                        rowsAffected = await _connection.ExecuteAsync(query, paymentTransaction, dbTransaction);
+                    }
+                    catch (Exception ex)
+                    {
+                        // Roll the transaction back
+                        dbTransaction.Rollback();
+                        // Return the issue
+                        return new UpdatePaymentTransactionResponse(500, $"{ex.Message}");
+                    }
 
-                if (rowsAffected == 0)
-                {
-                    // Roll the transaction back
-                    dbTransaction.Rollback();
-                    return new UpdatePaymentTransactionResponse(404, "Payment transaction not found");
+                    if (rowsAffected == 0)
+                    {
+                        // Roll the transaction back
+                        dbTransaction.Rollback();
+                        return new UpdatePaymentTransactionResponse(404, "Payment transaction not found");
+                    }
                 }
+                
 
                 // Update the transaction splits table
                 if (paymentTransaction.TransactionSplits != null)
