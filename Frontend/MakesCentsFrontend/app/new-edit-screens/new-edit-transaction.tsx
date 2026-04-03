@@ -12,7 +12,14 @@ import { handleAxiosError } from "@/utils/axiosErrorHandler";
 import { AxiosResponse } from "axios";
 import { router, useLocalSearchParams } from "expo-router";
 import React, { useEffect, useState } from "react";
-import { ScrollView, View, Image, Text } from "react-native";
+import {
+  ScrollView,
+  View,
+  Image,
+  Text,
+  Keyboard,
+  StyleSheet,
+} from "react-native";
 import { SummaryAccountDTOModel } from "@/types/summary-account-dto-model";
 import { SummaryEnvelopeCategoryResponse } from "@/types/summary-envelope-category-response";
 import MultiCategoryEnvelopeDropdown from "@/components/text/envelope-dropdown-input";
@@ -37,12 +44,17 @@ import { Button } from "@/components/buttons/button";
 import {
   createPaymentTransaction,
   createTransferTransaction,
+  deleteTransaction,
   updatePaymentTransaction,
   updateTransferTransaction,
 } from "@/utils/new-edit-helpers/newEditTransactionHelper";
 import IntInput from "@/components/text/int-input";
 import { PaymentTransactionType } from "@/types/payment-transaction-type";
 import { jsonReviver } from "@/utils/mappers/jsonReplacer";
+import { CreatePaymentTransactionResponse } from "@/types/create-payment-transaction-response";
+import { CreateTransferTransactionResponse } from "@/types/create-transfer-transaction-response";
+import { UpdatePaymentTransactionResponse } from "@/types/update-payment-transaction-response";
+import { BaseIdResponse } from "@/types/base-id-response";
 
 type NewEditTransactionProps = {
   paramTransactionId: string;
@@ -100,6 +112,9 @@ export default function NewEditTransaction() {
       setBudgetId(storedBudgetId || 0);
       //console.log("Budget ID:", storedBudgetId);
 
+      //console.log("Transaction Id:", transactionId);
+      //console.log("Transaction Type:", TransactionType[transactionType]);
+
       // Get the list of envelope categories
       try {
         // Get the envelope categories
@@ -108,7 +123,12 @@ export default function NewEditTransaction() {
         );
 
         // Get the response
-        const response: GetAllEnvelopeCategoriesResponse = axiosResponse.data;
+
+        // Get the response
+        const response: GetAllEnvelopeCategoriesResponse = JSON.parse(
+          JSON.stringify(axiosResponse.data),
+          jsonReviver,
+        );
         // Log the response
         //console.log("Envelope Categories Response:", response);
         // Set the envelope categories
@@ -116,11 +136,11 @@ export default function NewEditTransaction() {
 
         setEnvelopeCategories(categories);
 
-        console.log("Envelope Categories:", response.envelopeCategories);
-        console.log(
-          "Flat Envelopes:",
-          response.envelopeCategories.flatMap((c) => c.envelopes),
-        );
+        //console.log("Envelope Categories:", response.envelopeCategories);
+        //console.log(
+        //  "Flat Envelopes:",
+        //  response.envelopeCategories.flatMap((c) => c.envelopes),
+        //);
       } catch (error: any) {
         console.log("Caught error:", error);
         handleAxiosError(error);
@@ -128,19 +148,22 @@ export default function NewEditTransaction() {
 
       // Get the list of accounts
       try {
-        console.log("Getting accounts for budget id:", storedBudgetId);
+        //console.log("Getting accounts for budget id:", storedBudgetId);
         // Get the accounts
         const axiosResponse: AxiosResponse = await makesCentsAxios.get(
           `api/accounts/budget/${storedBudgetId}`,
         );
 
         // Get the response
-        const response: GetAllAccountsResponse = axiosResponse.data;
+        const response: GetAllAccountsResponse = JSON.parse(
+          JSON.stringify(axiosResponse.data),
+          jsonReviver,
+        );
         // Log the response
         //console.log("Accounts Response:", response);
         // Set the accounts
         setAccounts(response.accounts);
-        console.log("Accounts:", response.accounts);
+        //console.log("Accounts:", response.accounts);
       } catch (error: any) {
         console.log("Caught error:", error);
         handleAxiosError(error);
@@ -167,7 +190,7 @@ export default function NewEditTransaction() {
             // Get the transaction
             const paymentTransaction: GetPaymentTransactionDTOModel =
               response.paymentTransaction;
-            console.log("Payment Transaction found:", paymentTransaction);
+            //console.log("Payment Transaction found:", paymentTransaction);
             // Set the original transaction for comparison
             setOriginalTransaction(paymentTransaction);
             // Set the transaction for display
@@ -196,10 +219,10 @@ export default function NewEditTransaction() {
             handleAxiosError(error);
           }
         } else if (transactionType == TransactionType.Transfer) {
-          console.log("In transaction type is transfer");
+          //console.log("In transaction type is transfer");
           // Try-catch for the axios call
 
-          console.log("Transaction ID:", transactionId);
+          //console.log("Transaction ID:", transactionId);
           try {
             // Get the payment transaction to edit
             const axiosResponse: AxiosResponse = await makesCentsAxios.get(
@@ -207,20 +230,23 @@ export default function NewEditTransaction() {
             );
 
             // Get the response
-            const response: GetTransferTransactionDTOResponse =
-              axiosResponse.data;
+            const response: GetTransferTransactionDTOResponse = JSON.parse(
+              JSON.stringify(axiosResponse.data),
+              jsonReviver,
+            );
             // Log the response
-            console.log("Response:", response);
+            //console.log("Response:", response);
             // Get the transaction
             const transferTransaction: GetTransferTransactionDTOModel =
               response.transferTransaction;
 
-            console.log("Transfer Transaction found:", transferTransaction);
+            //console.log("Transfer Transaction found:", transferTransaction);
             // Set the original transaction for comparison
             setOriginalTransaction(transferTransaction);
             // Set the transaction for display
             const transferForm: TransactionForm = {
               type: transferTransaction.transactionType,
+              typeLabel: "Transfer",
               amount: transferTransaction.totalAmount,
               date: fromDateOnly(transferTransaction.transactionDate),
               notes: transferTransaction.notes,
@@ -234,7 +260,7 @@ export default function NewEditTransaction() {
               fromId: transferTransaction.transferFromId,
               toId: transferTransaction.transferToId,
             };
-            console.log("Transfer Form:", transferForm);
+            //console.log("Transfer Form:", transferForm);
             setTransaction(transferForm);
           } catch (error: any) {
             console.log("Caught error:", error);
@@ -259,6 +285,11 @@ export default function NewEditTransaction() {
     setTransaction((prev) => ({ ...prev, [key]: value }));
   };
 
+  const handleDeleteClickEH = () => {
+    deleteTransaction(originalTransaction!.transactionId);
+    router.back();
+  };
+
   // Click EHs for cancel and done (cancel just goes back, done calls axios to update or create transaction and then goes back)
   const handleCancelClickEH = () => {
     router.back();
@@ -271,19 +302,15 @@ export default function NewEditTransaction() {
       try {
         if (transaction.type === TransactionType.Payment) {
           // Call the helper method to create the transaction
-          const response = await createPaymentTransaction(
-            transaction,
-            budgetId,
-          );
+          const response: CreatePaymentTransactionResponse =
+            await createPaymentTransaction(transaction, budgetId);
         } else if (transaction.type === TransactionType.Transfer) {
           // Call the helper method to create the transaction
-          const response = await createTransferTransaction(
-            transaction,
-            budgetId,
-          );
+          const response: CreateTransferTransactionResponse =
+            await createTransferTransaction(transaction, budgetId);
         }
         // Go back to the transactions list
-        router.back();
+        router.replace("/transactions");
       } catch (error: any) {
         console.log("Caught error:", error);
         handleAxiosError(error);
@@ -293,18 +320,35 @@ export default function NewEditTransaction() {
       // Set up the try catch
       try {
         if (transaction.type === TransactionType.Payment) {
-          const response = await updatePaymentTransaction(
-            originalTransaction as GetPaymentTransactionDTOModel,
-            transaction,
-          );
+          if (originalTransaction!.transactionType !== transaction.type) {
+            deleteTransaction(originalTransaction!.transactionId);
+            const response: CreateTransferTransactionResponse =
+              await createTransferTransaction(
+                transaction,
+                originalTransaction!.budgetId,
+              );
+          }
+          const response: UpdatePaymentTransactionResponse =
+            await updatePaymentTransaction(
+              originalTransaction as GetPaymentTransactionDTOModel,
+              transaction,
+            );
         } else if (transaction.type === TransactionType.Transfer) {
-          const response = await updateTransferTransaction(
+          if (originalTransaction!.transactionType !== transaction.type) {
+            deleteTransaction(originalTransaction!.transactionId);
+            const response: CreatePaymentTransactionResponse =
+              await createPaymentTransaction(
+                transaction,
+                originalTransaction!.budgetId,
+              );
+          }
+          const response: BaseIdResponse = await updateTransferTransaction(
             originalTransaction as GetTransferTransactionDTOModel,
             transaction,
           );
         }
         // Go back to the transactions list
-        router.back();
+        router.replace("/transactions");
       } catch (error: any) {
         console.log("Caught error:", error);
         handleAxiosError(error);
@@ -315,7 +359,7 @@ export default function NewEditTransaction() {
   // Constants for different screen layouts (expense, income, envelope transfer, account transfer)
   const renderExpenseTransactionView = () => {
     return (
-      <View>
+      <View style={styles.inputsView}>
         {renderCalendarInput()}
         {renderAmountInput("negative")}
         {renderPaymentAccountInput()}
@@ -326,18 +370,19 @@ export default function NewEditTransaction() {
           type="text"
           value={transaction.merchantName || ""}
           onChangeText={(text) => updateTransaction("merchantName", text)}
-          autoCapitalize="none"
+          autoCapitalize="words"
         />
         {renderPaymentEnvelopeSelectInput()}
         {renderCheckNumberInput()}
         {renderNotesInput()}
+        {renderDeleteButton()}
       </View>
     );
   };
 
   const renderIncomeTransactionView = () => {
     return (
-      <View>
+      <View style={styles.inputsView}>
         {renderCalendarInput()}
         {renderAmountInput("positive")}
         {renderPaymentAccountInput()}
@@ -348,18 +393,19 @@ export default function NewEditTransaction() {
           type="text"
           value={transaction.merchantName || ""}
           onChangeText={(text) => updateTransaction("merchantName", text)}
-          autoCapitalize="none"
+          autoCapitalize="words"
         />
         {renderPaymentEnvelopeSelectInput()}
         {renderCheckNumberInput()}
         {renderNotesInput()}
+        {renderDeleteButton()}
       </View>
     );
   };
 
   const renderEnvelopeTransferTransactionView = () => {
     return (
-      <View>
+      <View style={styles.inputsView}>
         {renderTransferDateTypeSelection()}
         {renderAmountInput("neutral")}
         <SingleDropdownInput
@@ -395,13 +441,14 @@ export default function NewEditTransaction() {
           onChange={(env) => updateTransaction("toId", env?.envelopeId!)}
         />
         {renderNotesInput()}
+        {renderDeleteButton()}
       </View>
     );
   };
 
   const renderAccountTransferTransactionView = () => {
     return (
-      <View>
+      <View style={styles.inputsView}>
         {renderTransferDateTypeSelection()}
         {renderAmountInput("neutral")}
         <SingleDropdownInput
@@ -427,6 +474,7 @@ export default function NewEditTransaction() {
           onChange={(account) => updateTransaction("toId", account?.accountId!)}
         />
         {renderNotesInput()}
+        {renderDeleteButton()}
       </View>
     );
   };
@@ -569,8 +617,23 @@ export default function NewEditTransaction() {
           type="text"
           value={transaction.notes || ""}
           onChangeText={(notes) => updateTransaction("notes", notes)}
-          boxStyle={{ height: 125, marginBottom: 10 }}
+          boxStyle={{ height: 125 }}
           line="multi"
+          autoCapitalize="sentences"
+          onSubmitEditing={Keyboard.dismiss}
+          returnKeyType="default"
+        />
+      </View>
+    );
+  };
+
+  const renderDeleteButton = () => {
+    return (
+      <View>
+        <Button
+          name="Delete"
+          onPress={handleDeleteClickEH}
+          variant="delete"
         />
       </View>
     );
@@ -655,3 +718,9 @@ export default function NewEditTransaction() {
     </ScreenWrapper>
   );
 }
+
+const styles = StyleSheet.create({
+  inputsView: {
+    marginBottom: 10,
+  },
+});

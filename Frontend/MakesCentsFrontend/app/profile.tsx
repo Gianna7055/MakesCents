@@ -15,6 +15,7 @@ import IconButton from "@/components/buttons/icon-button";
 import { EditUserRequest } from "@/types/edit-user-request";
 import { BaseIdResponse } from "@/types/base-id-response";
 import { handleAxiosError } from "@/utils/axiosErrorHandler";
+import { jsonReviver } from "@/utils/mappers/jsonReplacer";
 
 export default function Profile() {
   // Variables
@@ -43,7 +44,10 @@ export default function Profile() {
           await makesCentsAxios.get(`/api/user`);
 
         // Get the response
-        const response: GetUserResponse = axiosResponse.data;
+        const response: GetUserResponse = JSON.parse(
+          JSON.stringify(axiosResponse.data),
+          jsonReviver,
+        );
         // Log the response
         console.log("Response:", response);
         if (response) {
@@ -106,7 +110,10 @@ export default function Profile() {
         );
 
         // Get the response
-        const response: BaseIdResponse = axiosResponse.data;
+        const response: BaseIdResponse = JSON.parse(
+          JSON.stringify(axiosResponse.data),
+          jsonReviver,
+        );
 
         // Log the response
         console.log("Response:", response);

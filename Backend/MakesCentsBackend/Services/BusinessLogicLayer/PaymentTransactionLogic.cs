@@ -50,15 +50,21 @@ namespace MakesCentsBackend.Services.BusinessLogicLayer
                 if (split == null)
                     return new CreatePaymentTransactionResponse(400, "Split cannot be null");
 
-                if (split.Amount <= 0)
-                    return new CreatePaymentTransactionResponse(400, "Split amount must be greater than 0");
+                if (paymentTransaction.TotalAmount < 0 && split.Amount >= 0)
+                    return new CreatePaymentTransactionResponse(400, "Split amount must be negative for expense transactions");
+
+                if (paymentTransaction.TotalAmount >= 0 && split.Amount <= 0)
+                    return new CreatePaymentTransactionResponse(400, "Split amount must be positive for income transactions");
+
+                if(split.Amount == 0)
+                    paymentTransaction.TransactionSplits.Remove(split);
 
                 if (split.EnvelopeId == 0)
                     return new CreatePaymentTransactionResponse(400, "Split envelope is required");
             }
             // Total the splits
             sumOfSplits = paymentTransaction.TransactionSplits.Sum(s => s.Amount);
-            if (sumOfSplits == null || sumOfSplits.Value != Math.Abs(paymentTransaction.TotalAmount))
+            if (sumOfSplits == null || sumOfSplits.Value != paymentTransaction.TotalAmount)
             {
                 return new CreatePaymentTransactionResponse(400, "Split totals must equal transaction total");
 

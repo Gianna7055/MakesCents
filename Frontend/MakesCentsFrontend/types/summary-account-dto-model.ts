@@ -11,7 +11,6 @@ import { InvestmentAccountType } from "./investment-account-type";
 export interface SummaryAccountDTOModel {
     accountId: number;
     budgetId: number;
-    userId: number;
     accountType: AccountType;
     accountName: string;
     balance: number;

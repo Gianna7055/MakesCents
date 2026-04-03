@@ -78,7 +78,6 @@ namespace MakesCentsBackend.Models
         // Class properties
         public int AccountId { get; set; } = 0;
         public int BudgetId { get; set; } = 0;
-        public int UserId { get; set; } = 0;
         public AccountType AccountType { get; set; } = AccountType.Unknown;
         public string AccountName { get; set; } = "";
         public decimal Balance { get; set; } = 0m;

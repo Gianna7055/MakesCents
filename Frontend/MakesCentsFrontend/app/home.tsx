@@ -10,6 +10,7 @@ import { Button } from "@/components/buttons/button";
 import { router } from "expo-router";
 import ScreenWrapper from "@/components/ui/screen-wrapper";
 import { handleAxiosError } from "@/utils/axiosErrorHandler";
+import { jsonReviver } from "@/utils/mappers/jsonReplacer";
 
 export default function Home() {
   // Home constructor
@@ -29,7 +30,10 @@ export default function Home() {
         );
 
         // Get the response
-        const response: GetBudgetResponse = axiosResponse.data;
+        const response: GetBudgetResponse = JSON.parse(
+          JSON.stringify(axiosResponse.data),
+          jsonReviver,
+        );
         // Log the response
         //console.log("Response:", response);
         if (response) {

@@ -28,6 +28,7 @@ import { router } from "expo-router";
 import ScreenWrapper from "@/components/ui/screen-wrapper";
 import { handleAxiosError } from "@/utils/axiosErrorHandler";
 import { formatCurrency } from "@/utils/formatCurrency";
+import { jsonReviver } from "@/utils/mappers/jsonReplacer";
 
 export default function Budget() {
   const [budgetId, setBudgetId] = useState<number>(0);
@@ -48,7 +49,10 @@ export default function Budget() {
         );
 
         // Get the response
-        const response: GetBudgetResponse = axiosResponse.data;
+        const response: GetBudgetResponse = JSON.parse(
+          JSON.stringify(axiosResponse.data),
+          jsonReviver,
+        );
         // Log the response
         console.log("Response:", response);
         console.log("Budget:", response.budget);

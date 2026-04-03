@@ -8,14 +8,21 @@ import { UpdateTransferTransactionRequest } from "@/types/update-transfer-transa
 import { Optional } from "@/types/optional";
 import { toDateOnly } from "../mappers/dateOnlyMapper";
 import { CreatePaymentTransactionRequest } from "@/types/create-payment-transaction-request";
-import { jsonReplacer } from "../mappers/jsonReplacer";
+import { jsonReplacer, jsonReviver } from "../mappers/jsonReplacer";
 import { CreateTransferTransactionRequest } from "@/types/create-transfer-transaction-request";
+import { CreatePaymentTransactionResponse } from "@/types/create-payment-transaction-response";
+import { CreateTransferTransactionResponse } from "@/types/create-transfer-transaction-response";
+import { UpdatePaymentTransactionResponse } from "@/types/update-payment-transaction-response";
+import { BaseIdResponse } from "@/types/base-id-response";
 
 export function getUpdatedPaymentFields(
   originalTransaction: GetPaymentTransactionDTOModel,
   currentTransaction: TransactionForm,
 ): Partial<UpdatePaymentTransactionRequest> {
   const updatedFields: Partial<UpdatePaymentTransactionRequest> = {};
+
+  // Add the transaction id
+  updatedFields.transactionId = originalTransaction.transactionId;
 
   // Transaction fields
   if (currentTransaction.amount !== originalTransaction.totalAmount) {
@@ -70,6 +77,9 @@ export function getUpdatedTransferFields(
   currentTransaction: TransactionForm,
 ): Partial<UpdateTransferTransactionRequest> {
   const updatedFields: Partial<UpdateTransferTransactionRequest> = {};
+
+  // Add the transaction id
+  updatedFields.transactionId = originalTransaction.transactionId;
 
   if (currentTransaction.amount !== originalTransaction.totalAmount) {
     updatedFields.totalAmount = currentTransaction.amount!;
@@ -134,7 +144,7 @@ export const createPaymentTransaction = async (
   const payload = JSON.stringify(request, jsonReplacer);
   // Log the request
   //console.log("Create Payment Transaction Request:", request);
-  //console.log("Create Payment Transaction Payload:", payload);
+  console.log("Create Payment Transaction Payload:", payload);
 
   // Call the API to create a payment transaction
   const axiosResponse: AxiosResponse = await makesCentsAxios.post(
@@ -143,7 +153,10 @@ export const createPaymentTransaction = async (
   );
 
   // Get the response
-  const response = axiosResponse.data;
+  const response: CreatePaymentTransactionResponse = JSON.parse(
+    JSON.stringify(axiosResponse.data),
+    jsonReviver,
+  );
   // Log the response
   //console.log("Create Payment Transaction Response:", response);
   return response;
@@ -171,6 +184,9 @@ export const createTransferTransaction = async (
   // Get the payload
   const payload = JSON.stringify(request, jsonReplacer);
 
+  // Log the payload
+  console.log("Create Transfer Transaction Payload:", payload);
+
   // Call the API to create a transfer transaction
   const axiosResponse: AxiosResponse = await makesCentsAxios.post(
     "/api/transfer-transactions",
@@ -178,7 +194,10 @@ export const createTransferTransaction = async (
   );
 
   // Get the response
-  const response = axiosResponse.data;
+  const response: CreateTransferTransactionResponse = JSON.parse(
+    JSON.stringify(axiosResponse.data),
+    jsonReviver,
+  );
   // Log the response
   console.log("Create Transfer Transaction Response:", response);
   return response;
@@ -188,28 +207,29 @@ export const updatePaymentTransaction = async (
   originalTransaction: GetPaymentTransactionDTOModel,
   transaction: TransactionForm,
 ) => {
-  if (originalTransaction.transactionType !== transaction.type) {
-    const axiosResponse: AxiosResponse = await makesCentsAxios.delete(
-      `/api/payment-transactions/${originalTransaction.transactionId}`,
-    );
-    console.log(
-      "Deleted Original Payment Transaction Response:",
-      axiosResponse.data,
-    );
-    return createTransferTransaction(transaction, originalTransaction.budgetId);
-  }
-
   const updatedFields: Partial<UpdatePaymentTransactionRequest> =
     getUpdatedPaymentFields(originalTransaction, transaction);
 
+  // Get the payload
+  const payload = JSON.stringify(updatedFields, jsonReplacer);
+  // Log the payload
+  console.log("Update Payment Transaction Payload:", payload);
+  console.log(
+    "Payment transaction Id:",
+    originalTransaction.paymentTransactionId,
+  );
+
   // Call the API to update a payment transaction
   const axiosResponse: AxiosResponse = await makesCentsAxios.put(
-    `/api/payment-transactions/${originalTransaction.transactionId}`,
-    updatedFields,
+    `/api/payment-transactions/${originalTransaction.paymentTransactionId}`,
+    payload,
   );
 
   // Get the response
-  const response = axiosResponse.data;
+  const response: UpdatePaymentTransactionResponse = JSON.parse(
+    JSON.stringify(axiosResponse.data),
+    jsonReviver,
+  );
   // Log the response
   console.log("Update Payment Transaction Response:", response);
   return response;
@@ -219,28 +239,37 @@ export const updateTransferTransaction = async (
   originalTransaction: GetTransferTransactionDTOModel,
   transaction: TransactionForm,
 ) => {
-  if (originalTransaction.transactionType !== transaction.type) {
-    const axiosResponse: AxiosResponse = await makesCentsAxios.delete(
-      `/api/transfer-transactions/${originalTransaction.transactionId}`,
-    );
-    console.log(
-      "Deleted Original Transfer Transaction Response:",
-      axiosResponse.data,
-    );
-    return createPaymentTransaction(transaction, originalTransaction.budgetId);
-  } else {
-    const updatedFields: Partial<UpdateTransferTransactionRequest> =
-      getUpdatedTransferFields(originalTransaction, transaction);
-    // Call the API to update a transfer transaction
-    const axiosResponse: AxiosResponse = await makesCentsAxios.put(
-      `/api/transfer-transactions/${originalTransaction.transactionId}`,
-      updatedFields,
-    );
+  const updatedFields: Partial<UpdateTransferTransactionRequest> =
+    getUpdatedTransferFields(originalTransaction, transaction);
 
-    // Get the response
-    const response = axiosResponse.data;
-    // Log the response
-    console.log("Update Transfer Transaction Response:", response);
-    return response;
-  }
+  // Get the payload
+  const payload = JSON.stringify(updatedFields, jsonReplacer);
+  // Log the payload
+  console.log("Update Transfer Transaction Payload:", payload);
+  console.log(
+    "Transfer transaction Id:",
+    originalTransaction.transferTransactionId,
+  );
+
+  // Call the API to update a transfer transaction
+  const axiosResponse: AxiosResponse = await makesCentsAxios.put(
+    `/api/transfer-transactions/${originalTransaction.transferTransactionId}`,
+    payload,
+  );
+
+  // Get the response
+  const response: BaseIdResponse = JSON.parse(
+    JSON.stringify(axiosResponse.data),
+    jsonReviver,
+  );
+  // Log the response
+  console.log("Update Transfer Transaction Response:", response);
+  return response;
+};
+
+export const deleteTransaction = async (transactionId: number) => {
+  const axiosResponse: AxiosResponse = await makesCentsAxios.delete(
+    `/api/transactions/${transactionId}`,
+  );
+  console.log("Deleted  Transaction Response:", axiosResponse.data);
 };

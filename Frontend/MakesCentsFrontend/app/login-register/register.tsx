@@ -19,6 +19,7 @@ import { AxiosResponse } from "axios";
 import { storage } from "@/data/storage";
 import ScreenWrapper from "@/components/ui/screen-wrapper";
 import { handleAxiosError } from "@/utils/axiosErrorHandler";
+import { jsonReviver } from "@/utils/mappers/jsonReplacer";
 
 export default function Register() {
   // UseState variables
@@ -56,7 +57,10 @@ export default function Register() {
         );
 
         // Get the response
-        const response: RegisterResponse = axiosResponse.data;
+        const response: RegisterResponse = JSON.parse(
+          JSON.stringify(axiosResponse.data),
+          jsonReviver,
+        );
 
         // Check the response code
         if (response.httpStatus == 201) {

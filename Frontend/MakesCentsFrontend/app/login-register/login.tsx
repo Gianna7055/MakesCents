@@ -19,6 +19,7 @@ import { AxiosResponse } from "axios";
 import { storage } from "@/data/storage";
 import ScreenWrapper from "@/components/ui/screen-wrapper";
 import { handleAxiosError } from "@/utils/axiosErrorHandler";
+import { jsonReviver } from "@/utils/mappers/jsonReplacer";
 
 export default function Login() {
   // UseState variables
@@ -60,7 +61,10 @@ export default function Login() {
         );
 
         // Get the response
-        const response: LoginResponse = axiosResponse.data;
+        const response: LoginResponse = JSON.parse(
+          JSON.stringify(axiosResponse.data),
+          jsonReviver,
+        );
 
         // Log the response
         //console.log("Response:", response);

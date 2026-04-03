@@ -52,7 +52,9 @@ const MultiCategoryEnvelopeDropdown: React.FC<Props> = ({
 
   // Sync external selectedEnvelopes → internal cents array
   useEffect(() => {
-    setCentsArray(selectedEnvelopes.map((env) => Math.round(env.amount * 100)));
+    setCentsArray(
+      selectedEnvelopes.map((env) => Math.round(Math.abs(env.amount) * 100)),
+    );
   }, [selectedEnvelopes]);
 
   useEffect(() => {
@@ -104,7 +106,8 @@ const MultiCategoryEnvelopeDropdown: React.FC<Props> = ({
     const updatedEnvelopes = [...selectedEnvelopes];
     updatedEnvelopes[index] = {
       ...updatedEnvelopes[index],
-      amount: newCents / 100,
+      amount:
+        totalAmount < 0 ? -Math.abs(newCents / 100) : Math.abs(newCents / 100),
     };
     onChange(updatedEnvelopes);
   };

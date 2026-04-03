@@ -12,6 +12,7 @@ import { router } from "expo-router";
 import ScreenWrapper from "@/components/ui/screen-wrapper";
 import { SummaryAccountDTOModel } from "@/types/summary-account-dto-model";
 import { handleAxiosError } from "@/utils/axiosErrorHandler";
+import { jsonReviver } from "@/utils/mappers/jsonReplacer";
 
 export default function Accounts() {
   const [budgetId, setBudgetId] = useState<number>(0);
@@ -31,9 +32,11 @@ export default function Accounts() {
         const axiosResponse: AxiosResponse = await makesCentsAxios.get(
           `/api/accounts/budget/${storedBudgetId}`,
         );
-
         // Get the response
-        const response: GetAllAccountsResponse = axiosResponse.data;
+        const response: GetAllAccountsResponse = JSON.parse(
+          JSON.stringify(axiosResponse.data),
+          jsonReviver,
+        );
 
         // Sort the accounts by the account name
         setAccounts(

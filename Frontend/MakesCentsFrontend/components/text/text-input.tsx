@@ -10,7 +10,7 @@ type InputProps = {
   value: string;
   onChangeText: (text: string) => void;
   autoCapitalize?: "none" | "sentences" | "words" | "characters";
-  returnKeyType?: "next" | "done" | "go" | "search" | "send";
+  returnKeyType?: "next" | "done" | "go" | "search" | "send" | "default";
   onSubmitEditing?: () => void;
   boxStyle?: any;
   line?: "single" | "multi";
