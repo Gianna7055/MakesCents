@@ -135,6 +135,7 @@ namespace MakesCentsBackend.Models
     }
 
 
+    [ExportTsInterface]
     public class GetYearBudgetsResponse : BaseIdResponse
     {
         // Properties
@@ -144,6 +145,7 @@ namespace MakesCentsBackend.Models
         public GetYearBudgetsResponse() : base() { }
     }
 
+    [ExportTsInterface]
     public class GetYearBudgetDTOModel
     {
         public int BudgetId { get; set; } = 0;
