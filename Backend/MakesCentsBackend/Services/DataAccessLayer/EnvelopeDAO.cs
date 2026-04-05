@@ -162,7 +162,7 @@ namespace MakesCentsBackend.Services.DataAccessLayer
                 SELECT
                     transaction.transaction_id AS TransactionId,
                     transaction.transaction_date AS Date,
-                    transaction.transaction_type_id AS TransactionTypeId,
+                    transaction.transaction_type_id AS TransactionType,
                     transaction.total_amount AS TotalAmount,
                     payment_transaction.merchant_source_name AS MerchantSourceName,
                     GROUP_CONCAT(DISTINCT envelope.envelope_name SEPARATOR ', ') AS EnvelopeNames
@@ -189,7 +189,7 @@ namespace MakesCentsBackend.Services.DataAccessLayer
                 SELECT 
                     transaction.transaction_id AS TransactionId,
                     transaction.transaction_date AS Date,
-                    transaction.transaction_type_id AS TransactionTypeId,
+                    transaction.transaction_type_id AS TransactionType,
                     transaction.total_amount AS TotalAmount,
                     transfer_transaction.transfer_from_account_id AS TransferFromAccountId,
                     transfer_transaction.transfer_to_account_id AS TransferToAccountId,
