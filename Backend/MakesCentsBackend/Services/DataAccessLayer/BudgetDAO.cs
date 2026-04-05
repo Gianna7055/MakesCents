@@ -253,9 +253,9 @@ namespace MakesCentsBackend.Services.DataAccessLayer
                     budget.budget_name as BudgetName
                 FROM budget
                 WHERE budget.user_id = @UserId
-                    AND STR_TO_DATE(CONCAT(budget.year, '-', budget.month_id, '-01'), '%Y-%m-%d')
-                        BETWEEN DATE_SUB(STR_TO_DATE(CONCAT(@Year, '-', @Month, '-01'), '%Y-%m-%d'), INTERVAL 11 MONTH)
-                        AND STR_TO_DATE(CONCAT(@Year, '-', @Month, '-01'), '%Y-%m-%d')
+                    AND ((budget.year * 12) + (budget.month_id - 1))
+                        BETWEEN (((@Year * 12) + (@Month - 1)) - 11)
+                        AND ((@Year * 12) + (@Month - 1))
                 ORDER BY budget.year, budget.month_id;
                 """;
             // Execute the query

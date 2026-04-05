@@ -14,7 +14,7 @@ import DateTimePickerModal from "react-native-modal-datetime-picker";
 
 type InputProps = {
   name: string;
-  value?: Date | null;
+  value: Date | null;
   onChange: (date: Date) => void;
   placeholder?: string;
   returnKeyType?: "next" | "done" | "go" | "search" | "send";

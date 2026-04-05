@@ -1,7 +1,7 @@
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useCallback, useState } from "react";
 import BottomNavBar from "@/components/bottom-nav-bar";
 import { ScrollView, Text, View, Image } from "react-native";
-import axios, { AxiosResponse } from "axios";
+import { AxiosResponse } from "axios";
 import makesCentsAxios from "@/data/datasource";
 import { GetAllTransactionsDTOResponse } from "@/types/get-all-transactions-dto-response";
 import { SummaryTransactionDTOModel } from "@/types/summary-transaction-dto-model";
@@ -67,7 +67,10 @@ export default function Transactions() {
           source={require("@/assets/images/MakesCentsLogo.png")}
           style={globalStyles.noWordsLogo}
         />
-        <Text style={globalStyles.logoTitle}>Transactions</Text>
+
+        <View style={globalStyles.logoTitleContainer}>
+          <Text style={globalStyles.logoTitle}>Transactions</Text>
+        </View>
       </View>
       <ScrollView style={{ marginVertical: 0 }}>
         <TransactionList transactions={transactions} />

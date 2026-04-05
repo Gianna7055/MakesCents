@@ -5,12 +5,12 @@
 
 import { DateOnly } from "./date-only";
 
-export class GetEnvelopeBaseModel {
+export interface GetEnvelopeBaseModel {
     envelopeId: number;
     envelopeCategoryId: number;
-    envelopeName: string = "";
-    plannedAmount: number = -1.0;
-    remainingAmount: number = -1.0;
+    envelopeName: string;
+    plannedAmount: number;
+    remainingAmount: number;
     isSinkingFund: boolean;
     goalAmount: number;
     goalEndDate: DateOnly;

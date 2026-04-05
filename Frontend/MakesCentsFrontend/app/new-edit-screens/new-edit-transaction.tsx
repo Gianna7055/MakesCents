@@ -30,7 +30,7 @@ import { GetTransferTransactionDTOModel } from "@/types/get-transfer-transaction
 import { GetAllAccountsResponse } from "@/types/get-all-accounts-response";
 import { fromDateOnly } from "@/utils/mappers/dateOnlyMapper";
 import {
-  emptyForm,
+  emptyTransactionForm,
   mapSplitsWithNames,
   TransactionForm,
 } from "@/utils/mappers/transactionMapper";
@@ -83,7 +83,8 @@ export default function NewEditTransaction() {
   const [budgetId, setBudgetId] = useState<number>(0);
 
   // Transactions
-  const [transaction, setTransaction] = useState<TransactionForm>(emptyForm);
+  const [transaction, setTransaction] =
+    useState<TransactionForm>(emptyTransactionForm);
   const [originalTransaction, setOriginalTransaction] = useState<
     GetPaymentTransactionDTOModel | GetTransferTransactionDTOModel | null
   >(null);
@@ -94,12 +95,6 @@ export default function NewEditTransaction() {
   const [envelopeCategories, setEnvelopeCategories] = useState<
     SummaryEnvelopeCategoryResponse[]
   >([]);
-
-  const titleRadioOptions: TitleRadioOption[] = [
-    { label: "Expense", value: "Expense", type: TransactionType.Payment },
-    { label: "Income", value: "Income", type: TransactionType.Payment },
-    { label: "Transfer", value: "Transfer", type: TransactionType.Transfer },
-  ];
 
   // New edit transaction constructor
   useEffect(() => {
@@ -121,8 +116,6 @@ export default function NewEditTransaction() {
         const axiosResponse: AxiosResponse = await makesCentsAxios.get(
           `api/envelope-categories/budget/${storedBudgetId}`,
         );
-
-        // Get the response
 
         // Get the response
         const response: GetAllEnvelopeCategoriesResponse = JSON.parse(
@@ -269,13 +262,19 @@ export default function NewEditTransaction() {
         }
         // Update the values for the use states
       } else {
-        setTransaction(emptyForm);
+        setTransaction(emptyTransactionForm);
       }
     };
 
     // Call to main
     main();
   }, []);
+
+  const titleRadioOptions: TitleRadioOption[] = [
+    { label: "Expense", value: "Expense", type: TransactionType.Payment },
+    { label: "Income", value: "Income", type: TransactionType.Payment },
+    { label: "Transfer", value: "Transfer", type: TransactionType.Transfer },
+  ];
 
   // Method to update single field K in transaction
   const updateTransaction = <K extends keyof TransactionForm>(
@@ -406,7 +405,7 @@ export default function NewEditTransaction() {
   const renderEnvelopeTransferTransactionView = () => {
     return (
       <View style={styles.inputsView}>
-        {renderTransferDateTypeSelection()}
+        {renderTransferTypeSelection()}
         {renderAmountInput("neutral")}
         <SingleDropdownInput
           name="From Envelope"
@@ -449,7 +448,7 @@ export default function NewEditTransaction() {
   const renderAccountTransferTransactionView = () => {
     return (
       <View style={styles.inputsView}>
-        {renderTransferDateTypeSelection()}
+        {renderTransferTypeSelection()}
         {renderAmountInput("neutral")}
         <SingleDropdownInput
           name="From Account"
@@ -481,7 +480,7 @@ export default function NewEditTransaction() {
 
   // Constants for shared sections of the screen (date, amount, notes)
 
-  const renderTransferDateTypeSelection = () => {
+  const renderTransferTypeSelection = () => {
     const options = [
       {
         label: "Account",
@@ -630,11 +629,7 @@ export default function NewEditTransaction() {
   const renderDeleteButton = () => {
     return (
       <View>
-        <Button
-          name="Delete"
-          onPress={handleDeleteClickEH}
-          variant="delete"
-        />
+        <Button name="Delete" onPress={handleDeleteClickEH} variant="delete" />
       </View>
     );
   };
@@ -666,13 +661,15 @@ export default function NewEditTransaction() {
           source={require("@/assets/images/MakesCentsLogo.png")}
           style={globalStyles.noWordsLogo}
         />
-        <Text style={globalStyles.logoTitle}>
-          {isNew ? "New" : "Edit"} Transaction
-        </Text>
+        <View style={globalStyles.logoTitleContainer}>
+          <Text style={globalStyles.logoTitle}>
+            {isNew ? "New" : "Edit"} Transaction
+          </Text>
+        </View>
       </View>
 
       <ScrollView style={{ marginVertical: 0 }}>
-      {/* Radio buttons for Expense, Income, and Transfer */}
+        {/* Radio buttons for Expense, Income, and Transfer */}
         <TitleRadioInput
           value={transaction.typeLabel || ""} // string for UI selection
           options={titleRadioOptions}

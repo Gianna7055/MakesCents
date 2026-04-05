@@ -37,9 +37,9 @@ namespace MakesCentsBackend.Services.BusinessLogicLayer
 
             // Make sure the necessary information was sent
             if (envelope.EnvelopeCategoryId == 0 ||
-                string.IsNullOrWhiteSpace(envelope.EnvelopeName) ||
+                string.IsNullOrWhiteSpace(envelope.EnvelopeName)/* ||
                 envelope.PlannedAmount == 0m ||
-                envelope.RemainingAmount == 0m)
+                envelope.RemainingAmount == 0m*/)
             {
                 return new BaseIdResponse(400, "Missing information for envelope creation");
             }

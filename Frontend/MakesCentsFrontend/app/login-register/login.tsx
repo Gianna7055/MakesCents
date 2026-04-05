@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { globalStyles, screenHeight } from "@/css/globalStyles";
 import { Button } from "@/components/buttons/button";
 import { router } from "expo-router";
@@ -25,6 +25,13 @@ export default function Login() {
   // UseState variables
   const [usernameOrEmail, setUsernameOrEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
+
+  // For testing: Remove
+  useEffect(() => {
+    setUsernameOrEmail("username");
+    setPassword("password");
+    handleLoginClick();
+  });
 
   // references for text inputs
   const passwordRef = useRef<TextInput>(null);

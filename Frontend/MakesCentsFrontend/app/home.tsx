@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { globalStyles, screenHeight, screenWidth } from "@/css/globalStyles";
 import BottomNavBar from "@/components/bottom-nav-bar";
 import { ScrollView, Image, StyleSheet, View, Text } from "react-native";
-import axios, { AxiosResponse } from "axios";
+import { AxiosResponse } from "axios";
 import makesCentsAxios from "@/data/datasource";
 import { GetBudgetResponse } from "@/types/get-budget-response";
 import { storage } from "@/data/storage";

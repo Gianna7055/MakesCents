@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
 import BottomNavBar from "@/components/bottom-nav-bar";
-import { ScrollView, Text, Image, View, StyleSheet } from "react-native";
+import { ScrollView, Text, Image, View } from "react-native";
 import { Button } from "@/components/buttons/button";
 import { router } from "expo-router";
-import { globalStyles, screenHeight, screenWidth } from "@/css/globalStyles";
+import { globalStyles } from "@/css/globalStyles";
 import ScreenWrapper from "@/components/ui/screen-wrapper";
 import InfoField from "@/components/text/info-field";
 import Input from "@/components/text/text-input";
-import axios, { AxiosResponse } from "axios";
+import { AxiosResponse } from "axios";
 import makesCentsAxios from "@/data/datasource";
 import { GetUserResponse } from "@/types/get-user-response";
 import { GetUserDTOModel } from "@/types/get-user-dto-model";
@@ -158,7 +158,10 @@ export default function Profile() {
             source={require("@/assets/images/MakesCentsLogo.png")}
             style={globalStyles.noWordsLogo}
           />
-          <Text style={globalStyles.logoTitle}>Profile</Text>
+
+          <View style={globalStyles.logoTitleContainer}>
+            <Text style={globalStyles.logoTitle}>Profile</Text>
+          </View>
         </View>
         {isEditMode ? ( // Main content for edit user screen
           <View>

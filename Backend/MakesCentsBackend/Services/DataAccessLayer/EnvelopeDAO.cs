@@ -159,7 +159,7 @@ namespace MakesCentsBackend.Services.DataAccessLayer
             }
             // Set up the query for reading the payment transactions
             query = """
-                SELECT 
+                SELECT
                     transaction.transaction_id AS TransactionId,
                     transaction.transaction_date AS Date,
                     transaction.transaction_type_id AS TransactionTypeId,
@@ -172,9 +172,14 @@ namespace MakesCentsBackend.Services.DataAccessLayer
                 LEFT JOIN transaction_split AS ts2 ON transaction.transaction_id = ts2.transaction_id
                 LEFT JOIN envelope ON ts2.envelope_id = envelope.envelope_id
                 WHERE transaction_split.envelope_id = @EnvelopeId
-                  AND transaction.deleted_at IS NULL
-                  AND transaction.transaction_type_id = 2
-                GROUP BY transaction.transaction_id
+                AND transaction.deleted_at IS NULL
+                AND transaction.transaction_type_id = 2
+                GROUP BY
+                    transaction.transaction_id,
+                    transaction.transaction_date,
+                    transaction.transaction_type_id,
+                    transaction.total_amount,
+                    payment_transaction.merchant_source_name
                 ORDER BY transaction.transaction_date DESC;
                 """;
             // Read the payment transactions

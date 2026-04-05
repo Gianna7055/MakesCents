@@ -41,14 +41,20 @@ export const jsonReplacer = (key: string, value: any) => {
   // Handle Optional<T>
   if (value instanceof Optional) {
     if (!value.hasValue) {
-      return undefined; // removes the property entirely
+      return undefined;
     }
-    return value.value; // unwrap it
+    // Handle DateOnly inside Optional
+    if (value.value instanceof DateOnly) {
+      const d = value.value;
+      return `${d.year.toString().padStart(4, "0")}-${d.month
+        .toString()
+        .padStart(2, "0")}-${d.day.toString().padStart(2, "0")}`;
+    }
+    return value.value;
   }
 
   // Handle Enums (numeric → string)
   const enumObj = enumFieldMap[key as keyof typeof enumFieldMap];
-
   if (enumObj && typeof value === "number") {
     return enumObj[value];
   }

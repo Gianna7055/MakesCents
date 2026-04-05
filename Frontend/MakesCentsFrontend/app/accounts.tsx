@@ -5,10 +5,9 @@ import { ScrollView, Text, View, Image } from "react-native";
 import AccountList from "@/components/accounts/account-list";
 import { Button } from "@/components/buttons/button";
 import { storage } from "@/data/storage";
-import axios, { AxiosResponse } from "axios";
+import { AxiosResponse } from "axios";
 import makesCentsAxios from "@/data/datasource";
 import { GetAllAccountsResponse } from "@/types/get-all-accounts-response";
-import { router } from "expo-router";
 import ScreenWrapper from "@/components/ui/screen-wrapper";
 import { SummaryAccountDTOModel } from "@/types/summary-account-dto-model";
 import { handleAxiosError } from "@/utils/axiosErrorHandler";
@@ -62,7 +61,9 @@ export default function Accounts() {
           source={require("@/assets/images/MakesCentsLogo.png")}
           style={globalStyles.noWordsLogo}
         />
-        <Text style={globalStyles.logoTitle}>Accounts</Text>
+        <View style={globalStyles.logoTitleContainer}>
+          <Text style={globalStyles.logoTitle}>Accounts</Text>
+        </View>
       </View>
       <ScrollView style={{ marginVertical: 0 }}>
         <AccountList accounts={accounts} />

@@ -65,7 +65,7 @@ namespace MakesCentsBackend.Models
         public Optional<int?> TransferEnvelopeId { get; set; }
     }
 
-    [ExportTsClass]
+    [ExportTsInterface]
     public class GetEnvelopeBaseModel
     {
         // Class properties

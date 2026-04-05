@@ -16,3 +16,4 @@ Repo for the Makes Cents Capstone Project
 - Change transaction delete logic to change to recently deleted instead of hard delete
 - Add re-ordering of envelope categories and envelopes
 - Add Favorites category
+- Paychecks

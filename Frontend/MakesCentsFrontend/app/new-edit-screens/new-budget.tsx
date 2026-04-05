@@ -15,16 +15,16 @@ import { router, useLocalSearchParams } from "expo-router";
 import React, { useState } from "react";
 import { View, Image, Text, ScrollView } from "react-native";
 
-type NewEditBudgetProps = {
+type NewBudgetProps = {
   year: string;
   month: string;
 };
 
-export default function NewEditBudget() {
+export default function NewBudget() {
   //console.log("URL Params:", useLocalSearchParams());
   // Parameter mapping
   const { year: yearString, month: monthString } =
-    useLocalSearchParams<NewEditBudgetProps>();
+    useLocalSearchParams<NewBudgetProps>();
   const year: number = parseInt(yearString);
   const monthInt: number = parseInt(monthString);
   const month: Month = monthInt as Month;
@@ -93,18 +93,9 @@ export default function NewEditBudget() {
           source={require("@/assets/images/MakesCentsLogo.png")}
           style={globalStyles.noWordsLogo}
         />
-        <View
-          style={{
-            position: "absolute",
-            left: 0,
-            right: 0,
-            alignItems: "center",
-          }}
-        >
-          <Text style={[globalStyles.logoTitle, { position: "relative" }]}>
-            New Budget for
-          </Text>
-          <Text style={[globalStyles.logoTitle, { position: "relative" }]}>
+        <View style={globalStyles.logoTitleContainer}>
+          <Text style={globalStyles.logoTitle}>New Budget for</Text>
+          <Text style={globalStyles.logoTitle}>
             {Month[month]} {year}
           </Text>
         </View>

@@ -74,7 +74,10 @@ export default function Budget() {
   const [budget, setBudget] = useState<GetBudgetDTOModel>();
   const [menuVisible, setMenuVisible] = useState<boolean>(false);
   // Consts for choosing a budget
-  const [modalVisible, setModalVisible] = useState<boolean>(false);
+  const [budgetsModalVisible, setBudgetsModalVisible] =
+    useState<boolean>(false);
+  const [envelopeCategoryModalVisible, setEnvelopeCategoryModalVisible] =
+    useState<boolean>(false);
   const [slots, setSlots] = useState<BudgetSlot[]>([]);
   const [loadingMore, setLoadingMore] = useState<boolean>(false);
   // Tracks the oldest anchor fetched so "See More" knows where to continue from
@@ -104,7 +107,7 @@ export default function Budget() {
       setBudgetId(storedBudgetId || 0);
 
       try {
-        // Get the budget id from axios
+        // Get the budget from axios
         const axiosResponse: AxiosResponse = await makesCentsAxios.get(
           `/api/budgets/${storedBudgetId}`,
         );
@@ -169,11 +172,22 @@ export default function Budget() {
     else openMenu();
   };
 
-  const handleCreateCategoryClickEH = () => {};
+  const handleCreateCategoryClickEH = () => {
+    closeMenu();
+    router.push(
+      `/new-edit-screens/new-edit-envelope-category?budgetId=${budgetId}`,
+    );
+  };
 
-  const handleCreateEnvelopeClickEH = () => {};
+  const handleCreateEnvelopeClickEH = () => {
+    closeMenu();
+    router.push(`/new-edit-screens/new-envelope`);
+  };
 
-  const handleEditCategoryClickEH = () => {};
+  const handleEditCategoryClickEH = () => {
+    closeMenu();
+    setTimeout(() => setEnvelopeCategoryModalVisible(true), 250);
+  };
 
   const openMenu = () => {
     setMenuVisible(true);
@@ -207,13 +221,12 @@ export default function Budget() {
       JSON.stringify(axiosResponse.data),
       jsonReviver,
     );
+    //console.log("Fetched budgets for", month, year, ":", response.budgets);
     return buildSlots(year, month, response.budgets);
   };
 
   const openBudgetModal = async () => {
-    setModalVisible(true);
-
-    if (slots.length > 0) return;
+    setBudgetsModalVisible(true);
 
     try {
       const now = new Date();
@@ -258,11 +271,11 @@ export default function Budget() {
     //console.log("Stored budget Id:", await storage.getBudgetId());
     //console.log("Budget Id:", budgetId);
     setEmptySlot(null);
-    setModalVisible(false);
+    setBudgetsModalVisible(false);
   };
 
   const handleSelectEmptySlot = (year: number, month: number) => {
-    setModalVisible(false);
+    setBudgetsModalVisible(false);
     setBudget(undefined);
     setEmptySlot({ year, month });
   };
@@ -302,7 +315,10 @@ export default function Budget() {
           source={require("@/assets/images/MakesCentsLogo.png")}
           style={globalStyles.noWordsLogo}
         />
-        <Text style={globalStyles.logoTitle}>Budget</Text>
+
+        <View style={globalStyles.logoTitleContainer}>
+          <Text style={globalStyles.logoTitle}>Budget</Text>
+        </View>
       </View>
       <View style={styles.budgetStatusContainer}>
         <Text>Your Budget Makes Cents</Text>
@@ -344,7 +360,7 @@ export default function Budget() {
             name="Create Budget"
             onPress={() =>
               router.push(
-                `/new-edit-screens/create-budget?year=${emptySlot?.year}&month=${emptySlot?.month}`,
+                `/new-edit-screens/new-budget?year=${emptySlot?.year}&month=${emptySlot?.month}`,
               )
             }
             variant="primary"
@@ -374,6 +390,8 @@ export default function Budget() {
         }}
         variant="primary"
       />
+
+      {/* Ellipsis menu modal */}
       <Modal
         visible={menuVisible}
         transparent={true}
@@ -384,7 +402,10 @@ export default function Budget() {
           style={{ flex: 1, backgroundColor: "rgba(0,0,0,0.5)" }}
           onPress={handleEllipsisClickEH}
         >
-          <Animated.View style={[styles.modalView, animatedStyle]}>
+          <Animated.View
+            style={[styles.modalView, animatedStyle]}
+            onStartShouldSetResponder={() => true}
+          >
             <Button
               name="Add new envelope category"
               onPress={handleCreateCategoryClickEH}
@@ -402,7 +423,7 @@ export default function Budget() {
       </Modal>
 
       {/* Budget picker modal */}
-      <Modal visible={modalVisible} transparent animationType="slide">
+      <Modal visible={budgetsModalVisible} transparent animationType="slide">
         <View style={styles.modalOverlay}>
           <View style={styles.modalContent}>
             <Text style={[globalStyles.centeredTitle, { marginBottom: 15 }]}>
@@ -430,7 +451,44 @@ export default function Budget() {
                 </TouchableOpacity>
               }
             />
-            <TouchableOpacity onPress={() => setModalVisible(false)}>
+            <TouchableOpacity onPress={() => setBudgetsModalVisible(false)}>
+              <Text style={styles.closeText}>Close</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+      </Modal>
+
+      {/* Envelope category edit picker modal */}
+      <Modal
+        visible={envelopeCategoryModalVisible}
+        transparent
+        animationType="slide"
+      >
+        <View style={styles.modalOverlay}>
+          <View style={styles.modalContent}>
+            <Text style={[globalStyles.centeredTitle, { marginBottom: 15 }]}>
+              Select an Envelope Category to Edit
+            </Text>
+            <FlatList
+              data={budget?.envelopeCategories || []}
+              keyExtractor={(item) => item.envelopeCategoryId.toString()}
+              renderItem={({ item }) => (
+                <TouchableOpacity
+                  style={styles.budgetItem}
+                  onPress={() => {
+                    setEnvelopeCategoryModalVisible(false);
+                    router.push(
+                      `/new-edit-screens/new-edit-envelope-category?budgetId=${item.budgetId}&envelopeCategoryId=${item.envelopeCategoryId}`,
+                    );
+                  }}
+                >
+                  <Text>{item.envelopeCategoryName}</Text>
+                </TouchableOpacity>
+              )}
+            />
+            <TouchableOpacity
+              onPress={() => setEnvelopeCategoryModalVisible(false)}
+            >
               <Text style={styles.closeText}>Close</Text>
             </TouchableOpacity>
           </View>

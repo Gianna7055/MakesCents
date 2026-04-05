@@ -7,10 +7,10 @@ import { CreateTransferTransactionRequest } from "@/types/create-transfer-transa
 import { TransactionType } from "@/types/transaction-type";
 import { UpdatePaymentTransactionRequest } from "@/types/update-payment-transaction-request";
 import { UpdateTransferTransactionRequest } from "@/types/update-transfer-transaction-request";
-import { CreateTransactionSplitRequest } from "@/types/create-transaction-split-request";
 import { UpdateTransactionSplitRequest } from "@/types/update-transaction-split-request";
 import { SummaryEnvelopeCategoryResponse } from "@/types/summary-envelope-category-response";
-import { DateOnly } from "@/types/date-only";
+import { GetPaymentTransactionDTOModel } from "@/types/get-payment-transaction-dto-model";
+import { GetTransferTransactionDTOModel } from "@/types/get-transfer-transaction-dto-model";
 
 export type TransactionForm = {
   // Determines UI + mapping
@@ -43,7 +43,7 @@ export type EnvelopeSplit = {
   amount: number;
 };
 
-export const emptyForm: TransactionForm = {
+export const emptyTransactionForm: TransactionForm = {
   type: TransactionType.Payment,
   typeLabel: "Expense",
   amount: null,
@@ -60,24 +60,24 @@ export const emptyForm: TransactionForm = {
 };
 
 // Mapper to create a payment transaction
-const mapToCreatePayment = (
+export const mapToCreatePayment = (
   form: TransactionForm,
-  base: { budgetId: number; userId: number },
+  budgetId: number,
 ): CreatePaymentTransactionRequest => {
   return {
     ...new CreatePaymentTransactionRequest(),
 
-    budgetId: base.budgetId,
-    userId: base.userId,
+    budgetId: budgetId,
+    userId: 0,
     transactionId: 0,
 
-    transactionDate: toDateOnly(form.date!),
-    totalAmount: form.amount!,
+    transactionDate: toDateOnly(form.date ?? new Date()),
+    totalAmount: form.amount ?? 0,
     notes: toOptional(form.notes),
 
-    accountId: form.accountId!,
-    paymentTransactionType: form.paymentTransactionType!,
-    merchantSourceName: form.merchantName!,
+    accountId: form.accountId ?? 0,
+    paymentTransactionType: form.paymentTransactionType ?? 1,
+    merchantSourceName: form.merchantName ?? "",
     checkNumber: toOptional(form.checkNumber),
 
     transactionSplits: form.splits!.map((s) => ({
@@ -89,24 +89,24 @@ const mapToCreatePayment = (
 };
 
 // Mapper to create a new transfer transaction
-const mapToCreateTransfer = (
+export const mapToCreateTransfer = (
   form: TransactionForm,
-  base: { budgetId: number; userId: number },
+  budgetId: number,
 ): CreateTransferTransactionRequest => {
   return {
     ...new CreateTransferTransactionRequest(),
 
-    budgetId: base.budgetId,
-    userId: base.userId,
+    budgetId: budgetId,
+    userId: 0,
     transactionId: 0,
 
-    transactionDate: toDateOnly(form.date!),
-    totalAmount: form.amount!,
+    transactionDate: toDateOnly(form.date ?? new Date()),
+    totalAmount: form.amount ?? 0,
     notes: toOptional(form.notes),
 
-    transferTransactionType: form.transferTransactionType!,
-    transferFromId: form.fromId!,
-    transferToId: form.toId!,
+    transferTransactionType: form.transferTransactionType ?? 1,
+    transferFromId: form.fromId ?? 0,
+    transferToId: form.toId ?? 0,
   };
 };
 
@@ -116,26 +116,39 @@ const mapToCreateTransfer = (
  */
 export const mapToUpdatePayment = (
   form: TransactionForm,
-  original: UpdatePaymentTransactionRequest,
-): UpdatePaymentTransactionRequest => {
-  const update = new UpdatePaymentTransactionRequest();
+  original: GetPaymentTransactionDTOModel,
+): Partial<UpdatePaymentTransactionRequest> => {
+  const update: Partial<UpdatePaymentTransactionRequest> = {};
 
-  // Required IDs
+  // Required ID
   update.transactionId = original.transactionId;
-  update.userId = original.userId;
 
   // Optional T? fields (set if changed)
-  if (form.amount !== original.totalAmount) update.totalAmount = form.amount!;
-  if (form.date) update.transactionDate = toDateOnly(form.date);
-  if (form.accountId !== original.accountId) update.accountId = form.accountId!;
-  if (form.paymentTransactionType !== original.paymentTransactionType)
-    update.paymentTransactionType = form.paymentTransactionType!;
-  if (form.merchantName !== original.merchantSourceName)
-    update.merchantSourceName = form.merchantName!;
+  // Transaction props
+  if (form.amount && form.amount !== original.totalAmount)
+    update.totalAmount = form.amount;
 
-  // Optional<T> fields for nullable DB columns
-  update.notes = toOptional(form.notes);
-  update.checkNumber = toOptional(form.checkNumber);
+  if (form.date && toDateOnly(form.date) !== original.transactionDate)
+    update.transactionDate = toDateOnly(form.date);
+
+  if (form.notes && form.notes !== original.notes)
+    update.notes = toOptional(form.notes);
+
+  // Payment transaction props
+  if (form.accountId && form.accountId !== original.accountId)
+    update.accountId = form.accountId;
+
+  if (
+    form.paymentTransactionType &&
+    form.paymentTransactionType !== original.paymentTransactionType
+  )
+    update.paymentTransactionType = form.paymentTransactionType;
+
+  if (form.merchantName && form.merchantName !== original.merchantSourceName)
+    update.merchantSourceName = form.merchantName;
+
+  if (form.checkNumber && form.checkNumber !== original.checkNumber)
+    update.checkNumber = toOptional(form.checkNumber);
 
   // Transaction splits: always include amount + envelopeId, transactionId required
   if (form.splits) {
@@ -165,26 +178,36 @@ export const mapToUpdatePayment = (
  */
 export const mapToUpdateTransfer = (
   form: TransactionForm,
-  original: UpdateTransferTransactionRequest,
-): UpdateTransferTransactionRequest => {
-  const update = new UpdateTransferTransactionRequest();
+  original: GetTransferTransactionDTOModel,
+): Partial<UpdateTransferTransactionRequest> => {
+  const update: Partial<UpdateTransferTransactionRequest> = {};
 
   // Required IDs
   update.transactionId = original.transactionId;
-  update.userId = original.userId;
 
   // Optional T? fields (set if changed)
-  if (form.amount !== original.totalAmount) update.totalAmount = form.amount!;
-  if (toDateOnly(form.date!) !== original.transactionDate)
-    update.transactionDate = toDateOnly(form.date!);
-  if (form.fromId !== original.transferFromId)
-    update.transferFromId = form.fromId!;
-  if (form.toId !== original.transferToId) update.transferToId = form.toId!;
-  if (form.transferTransactionType !== original.transferTransactionType)
-    update.transferTransactionType = form.transferTransactionType!;
+  // Transaction props
+  if (form.amount && form.amount !== original.totalAmount)
+    update.totalAmount = form.amount;
 
-  // Optional<T> fields for nullable DB columns
-  update.notes = toOptional(form.notes);
+  if (form.date && toDateOnly(form.date) !== original.transactionDate)
+    update.transactionDate = toDateOnly(form.date);
+
+  if (form.notes && form.notes !== original.notes)
+    update.notes = toOptional(form.notes);
+
+  // Transfer Transaction Props
+  if (
+    form.transferTransactionType &&
+    form.transferTransactionType !== original.transferTransactionType
+  )
+    update.transferTransactionType = form.transferTransactionType;
+
+  if (form.fromId && form.fromId !== original.transferFromId)
+    update.transferFromId = form.fromId;
+
+  if (form.toId && form.toId !== original.transferToId)
+    update.transferToId = form.toId;
 
   return update;
 };

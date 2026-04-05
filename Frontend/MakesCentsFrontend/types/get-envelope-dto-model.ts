@@ -6,6 +6,6 @@
 import { GetEnvelopeBaseModel } from "./get-envelope-base-model";
 import { SummaryTransactionDTOModel } from "./summary-transaction-dto-model";
 
-export interface GetEnvelopeDTOModel {
+export interface GetEnvelopeDTOModel extends GetEnvelopeBaseModel {
     transactions: SummaryTransactionDTOModel[];
 }

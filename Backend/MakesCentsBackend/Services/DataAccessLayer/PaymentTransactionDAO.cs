@@ -356,7 +356,7 @@ namespace MakesCentsBackend.Services.DataAccessLayer
                                 UPDATE transaction_split 
                                 SET envelope_id = @EnvelopeId, 
                                     amount = @Amount
-                                WHERE paycheck_split_id = @PaycheckSplitId
+                                WHERE transaction_split_id = @TransactionSplitId
                                 """;
                             try
                             {
