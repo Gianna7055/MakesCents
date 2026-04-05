@@ -74,7 +74,7 @@ export const globalStyles = StyleSheet.create({
     right: 0,
     alignItems: "center",
     position: "relative",
-    maxWidth: screenWidth * 0.6,
+    maxWidth: screenWidth * 0.58,
   },
   // Text styles
   redAmount: {
@@ -108,5 +108,20 @@ export const globalStyles = StyleSheet.create({
     left: 0,
     right: 0,
     padding: 20,
+  },
+
+  // Settings page styles
+  settingsContainer: {
+    backgroundColor: "#C9DAD0",
+    borderWidth: 1,
+    width: screenWidth * 0.9,
+    alignSelf: "center",
+    borderRadius: 20,
+    paddingBottom: 15,
+  },
+  settingsTitle: {
+    paddingTop: 10,
+    fontSize: 20,
+    textAlign: "center",
   },
 });

@@ -48,7 +48,6 @@ const styles = StyleSheet.create({
   inputContainer: {
     paddingHorizontal: screenWidth * 0.08,
     paddingTop: screenWidth * 0.05,
-    backgroundColor: Colors.light.background,
   },
   input: {
     paddingVertical: 15,

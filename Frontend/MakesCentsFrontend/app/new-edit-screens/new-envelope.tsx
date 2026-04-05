@@ -153,7 +153,7 @@ export default function NewEnvelope() {
     return (
       <View>
         <SingleDropdownInput
-          name="From Envelope"
+          name="Rollover Envelope"
           value={envelopeCategories
             .flatMap((c) => c.envelopes)
             .find((e) => e.envelopeId === envelope.transferEnvelopeId)}

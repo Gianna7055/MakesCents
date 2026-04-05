@@ -1,11 +1,24 @@
 import BottomNavBar from "@/components/bottom-nav-bar";
 import { Button } from "@/components/buttons/button";
+import CalendarInput from "@/components/text/calendar-input";
+import MoneyInput from "@/components/text/money-input";
+import RadioInput from "@/components/text/radio-input";
+import SingleDropdownInput from "@/components/text/single-dropdown-input";
+import TransactionList from "@/components/transactions/transaction-list";
 import ScreenWrapper from "@/components/ui/screen-wrapper";
 import { globalStyles } from "@/css/globalStyles";
 import makesCentsAxios from "@/data/datasource";
+import { storage } from "@/data/storage";
+import { GetAllEnvelopeCategoriesResponse } from "@/types/get-all-envelope-categories-response";
 import { GetEnvelopeDTOModel } from "@/types/get-envelope-dto-model";
 import { GetEnvelopeDTOResponse } from "@/types/get-envelope-dto-response";
+import { SummaryEnvelopeCategoryResponse } from "@/types/summary-envelope-category-response";
 import { handleAxiosError } from "@/utils/axiosErrorHandler";
+import { fromDateOnly, toDateOnly } from "@/utils/mappers/dateOnlyMapper";
+import {
+  emptyEnvelopeForm,
+  EnvelopeForm,
+} from "@/utils/mappers/envelopeMapper";
 import { jsonReviver } from "@/utils/mappers/jsonReplacer";
 import { AxiosResponse } from "axios";
 import { router, useLocalSearchParams } from "expo-router";
@@ -23,18 +36,46 @@ export default function ExpandedEnvelope() {
     useLocalSearchParams<ExpandedEnvelopeProps>();
   // Get the transaction id from the param
   const envelopeId = stringEnvelopeId ? parseInt(stringEnvelopeId) : null;
-  const [envelope, setEnvelope] = useState<GetEnvelopeDTOModel>();
+  const [originalEnvelope, setOriginalEnvelope] =
+    useState<GetEnvelopeDTOModel>();
+  const [envelope, setEnvelope] = useState<EnvelopeForm>(emptyEnvelopeForm);
+  const [envelopeCategories, setEnvelopeCategories] = useState<
+    SummaryEnvelopeCategoryResponse[]
+  >([]);
 
   useEffect(() => {
     const main = async () => {
+      // Get the budget id from axios
+      const budgetId = await storage.getBudgetId();
+
+      try {
+        // Call the API to get the envelope categories
+        const axiosResponse: AxiosResponse = await makesCentsAxios.get(
+          `/api/envelope-categories/budget/${budgetId}`,
+        );
+
+        // Get the response
+        const response: GetAllEnvelopeCategoriesResponse = JSON.parse(
+          JSON.stringify(axiosResponse.data),
+          jsonReviver,
+        );
+
+        // Make sure a response was received
+        if (response) {
+          // Set the envelope categories
+          setEnvelopeCategories(response.envelopeCategories);
+        }
+      } catch (error: any) {
+        handleAxiosError(error);
+      }
+      // Log the id
+      console.log("Envelope Id:", envelopeId);
       // Set up the try-catch
       try {
         // Get the envelope
         const axiosResponse: AxiosResponse = await makesCentsAxios.get(
           `/api/envelopes/${envelopeId}`,
         );
-        // Log the axios response
-        console.log("Axios response:", axiosResponse);
 
         // Get the response
         const response: GetEnvelopeDTOResponse = JSON.parse(
@@ -44,8 +85,27 @@ export default function ExpandedEnvelope() {
         // Log the response
         console.log("Get Envelope Response:", response);
 
+        // Get the envelope
+        let envelopeDTO = response.envelopeDTO;
+
         // Set the envelope
-        setEnvelope(response.envelopeDTO);
+        setOriginalEnvelope(envelopeDTO);
+
+        // Create a new envelope form with the envelope DTO props
+        const envelopeForm: EnvelopeForm = {
+          envelopeCategoryId: envelopeDTO.envelopeCategoryId,
+          envelopeName: envelopeDTO.envelopeName,
+          plannedAmount: envelopeDTO.plannedAmount,
+          remainingAmount: envelopeDTO.remainingAmount,
+          isSinkingFund: envelopeDTO.isSinkingFund,
+          goalAmount: envelopeDTO.goalAmount,
+          goalEndDate: envelopeDTO.goalEndDate
+            ? fromDateOnly(envelopeDTO.goalEndDate)
+            : null,
+          transferEnvelopeId: envelopeDTO.transferEnvelopeId,
+        };
+        // Set the current envelope the the form
+        setEnvelope(envelopeForm);
       } catch (error: any) {
         handleAxiosError(error);
       }
@@ -59,6 +119,86 @@ export default function ExpandedEnvelope() {
   };
 
   const handleDoneClickEH = async () => {};
+
+  // Method to update single field K in envelope
+  const updateEnvelope = <K extends keyof EnvelopeForm>(
+    key: K,
+    value: EnvelopeForm[K],
+  ) => {
+    setEnvelope((prev) => ({ ...prev, [key]: value }));
+  };
+
+  const renderEnvelopeTypeRadioButtons = () => {
+    const options = [
+      {
+        label: "Sinking Fund",
+        value: "true",
+      },
+      {
+        label: "Rollover Fund",
+        value: "false",
+      },
+    ];
+
+    return (
+      <RadioInput
+        name="Envelope Type"
+        options={options}
+        value={
+          envelope?.isSinkingFund !== null
+            ? envelope?.isSinkingFund.toString()
+            : ""
+        }
+        onChange={(value) => updateEnvelope("isSinkingFund", value === "true")}
+      />
+    );
+  };
+
+  const renderSinkingFundInputs = () => {
+    return (
+      <View>
+        <MoneyInput
+          name="Goal Amount"
+          value={envelope.goalAmount || 0}
+          onChangeValue={(value) => updateEnvelope("goalAmount", value)}
+        />
+        <CalendarInput
+          name="Goal End Date"
+          value={envelope.goalEndDate || new Date()}
+          onChange={(value) => updateEnvelope("goalEndDate", value)}
+        />
+      </View>
+    );
+  };
+
+  const renderRolloverFundInputs = () => {
+    const allEnvelopes = envelopeCategories.flatMap((c) => c.envelopes);
+
+    return (
+      <View>
+        <SingleDropdownInput
+          name="Rollover Envelope"
+          value={
+            allEnvelopes.find(
+              (e) => e.envelopeId === envelope.transferEnvelopeId,
+            ) ?? null
+          }
+          items={allEnvelopes}
+          getLabel={(env) => env!.envelopeName}
+          getValue={(env) => env!.envelopeId.toString()}
+          groupBy={(env) => {
+            const category = envelopeCategories.find((cat) =>
+              cat.envelopes.some((e) => e.envelopeId === env!.envelopeId),
+            );
+            return category?.envelopeCategoryName || null;
+          }}
+          onChange={(env) =>
+            updateEnvelope("transferEnvelopeId", env?.envelopeId!)
+          }
+        />
+      </View>
+    );
+  };
 
   const renderCancelDoneButtons = () => {
     return (
@@ -88,12 +228,28 @@ export default function ExpandedEnvelope() {
           style={globalStyles.noWordsLogo}
         />
         <View style={globalStyles.logoTitleContainer}>
-          <Text style={globalStyles.logoTitle}>
+          <Text
+            style={globalStyles.logoTitle}
+            numberOfLines={2}
+            ellipsizeMode="tail"
+          >
             {envelope ? envelope.envelopeName : "Edit Envelope"}
           </Text>
         </View>
       </View>
-      <ScrollView></ScrollView>
+      <ScrollView>
+        <View style={globalStyles.settingsContainer}>
+          <Text style={globalStyles.settingsTitle}>Settings</Text>
+          {renderEnvelopeTypeRadioButtons()}
+          {envelope.isSinkingFund !== null &&
+            (envelope.isSinkingFund
+              ? renderSinkingFundInputs()
+              : renderRolloverFundInputs())}
+        </View>
+
+        <Text style={globalStyles.settingsTitle}>Transactions</Text>
+        <TransactionList transactions={originalEnvelope?.transactions || []} />
+      </ScrollView>
       {renderCancelDoneButtons()}
       <BottomNavBar />
     </ScreenWrapper>
