@@ -21,7 +21,8 @@ namespace MakesCentsBackend.Services.Mappers
 
             // Envelope Maps
             CreateMap<GetEnvelopeEntityModel, GetEnvelopeDTOModel>();
-            CreateMap<GetEnvelopeEntityResponse, GetEnvelopeDTOResponse>();
+            CreateMap<GetEnvelopeEntityResponse, GetEnvelopeDTOResponse>()
+                .ForMember(dest => dest.EnvelopeDTO, opt => opt.MapFrom(src => src.EnvelopeEntity));
 
             // Bank Account Maps
             CreateMap<GetBankAccountEntityModel, GetBankAccountDTOModel>();

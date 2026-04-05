@@ -94,11 +94,6 @@ namespace MakesCentsBackend.Services.BusinessLogicLayer
             entityResponse = await _envelopeDAO.GetEnvelopeAsync(request);
             // Map the entity response the dto response
             dtoResponse = _mapper.Map<GetEnvelopeDTOResponse>(entityResponse);
-            // Map each entity transaction to a dto transaction
-            foreach (SummaryTransactionEntityModel entityTransaction in entityResponse.EnvelopeEntity.Transactions)
-            {
-                dtoResponse.EnvelopeDTO.Transactions.Add(_mapper.Map<SummaryTransactionDTOModel>(entityTransaction));
-            }
             // Return the DTO
             return dtoResponse;
         }
