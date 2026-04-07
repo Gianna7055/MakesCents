@@ -189,6 +189,11 @@ export default function Budget() {
     setTimeout(() => setEnvelopeCategoryModalVisible(true), 250);
   };
 
+  const handlePaychecksClickEH = () => {
+    closeMenu();
+    router.push("/paychecks");
+  };
+
   const openMenu = () => {
     setMenuVisible(true);
     translateY.value = withTiming(0, { duration: 200 });
@@ -345,7 +350,10 @@ export default function Budget() {
         </Text>
       </View>
       {budget ? (
-        <ScrollView>
+        <ScrollView
+          style={{ marginVertical: 0 }}
+          contentContainerStyle={{ paddingBottom: 75 }}
+        >
           {budget.envelopeCategories.map((category) => (
             <EnvelopeCategoryCard
               key={category.envelopeCategoryId}
@@ -411,6 +419,7 @@ export default function Budget() {
             style={[styles.modalView, animatedStyle]}
             onStartShouldSetResponder={() => true}
           >
+            <Button name="Paychecks" onPress={handlePaychecksClickEH}></Button>
             <Button
               name="Add new envelope category"
               onPress={handleCreateCategoryClickEH}

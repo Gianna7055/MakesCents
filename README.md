@@ -19,3 +19,6 @@ Repo for the Makes Cents Capstone Project
 - Paychecks
 - I don't think its currently possible for a use to remove an optional field if they entered one bc of update check logic
 - Look for repeated code to take out to separate methods (frontend and backend)
+- Automatic for paychecks is monthly with one date (for showcase)
+- Maybe move accounts to be user based?
+- If I remove a transaction from March after April's budget has been created, it wouldn't get updated
