@@ -42,8 +42,10 @@ export const mapToCreateEnvelope = (
     plannedAmount: form.plannedAmount ?? 0,
     remainingAmount: form.remainingAmount ?? 0,
     isSinkingFund: form.isSinkingFund ?? true,
-    goalAmount: toOptional(form.goalAmount) ?? 0,
-    goalEndDate: toOptional(toDateOnly(form.goalEndDate ?? new Date())),
+    goalAmount: toOptional(form.goalAmount),
+    goalEndDate: toOptional(
+      form.goalEndDate ? toDateOnly(form.goalEndDate) : null,
+    ),
     transferEnvelopeId: toOptional(form.transferEnvelopeId),
   };
 };
@@ -79,7 +81,9 @@ export const mapToUpdateEnvelope = (
     update.goalAmount = toOptional(form.goalAmount);
 
   if (form.goalEndDate && toDateOnly(form.goalEndDate) !== original.goalEndDate)
-    update.goalEndDate = toOptional(toDateOnly(form.goalEndDate));
+    update.goalEndDate = toOptional(
+      form.goalEndDate ? toDateOnly(form.goalEndDate) : null,
+    );
 
   // Rollover fund props
   if (

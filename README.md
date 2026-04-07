@@ -17,3 +17,5 @@ Repo for the Makes Cents Capstone Project
 - Add re-ordering of envelope categories and envelopes
 - Add Favorites category
 - Paychecks
+- I don't think its currently possible for a use to remove an optional field if they entered one bc of update check logic
+- Look for repeated code to take out to separate methods (frontend and backend)

@@ -5,11 +5,12 @@
 
 import { AccountType } from "./account-type";
 
-export class GetAccountBaseModel {
+export interface GetAccountBaseModel {
     accountId: number;
     budgetId: number;
     userId: number;
-    accountType: AccountType = 1;
-    accountName: string = "";
+    accountType: AccountType;
+    accountName: string;
+    institution: string;
     balance: number;
 }

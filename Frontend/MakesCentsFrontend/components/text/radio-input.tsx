@@ -13,6 +13,7 @@ type RadioInputProps = {
   options: Option[];
   value: string;
   onChange: (value: string) => void;
+  containerStyle?: any;
 };
 
 const RadioInput = (props: RadioInputProps) => {
@@ -20,7 +21,7 @@ const RadioInput = (props: RadioInputProps) => {
     <View style={styles.inputContainer}>
       <Text style={globalStyles.textHeader}>{props.name}</Text>
 
-      <View style={styles.optionsRow}>
+      <View style={[styles.optionsRow, props.containerStyle]}>
         {props.options.map((option) => {
           const isSelected = props.value === option.value;
 

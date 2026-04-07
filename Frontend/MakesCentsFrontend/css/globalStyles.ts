@@ -118,10 +118,22 @@ export const globalStyles = StyleSheet.create({
     alignSelf: "center",
     borderRadius: 20,
     paddingBottom: 15,
+    marginTop: 10,
   },
   settingsTitle: {
     paddingTop: 10,
     fontSize: 20,
     textAlign: "center",
+  },
+
+  // Empty list styles
+  emptyListContainer: {
+    flex: 1,
+    alignItems: "center",
+    gap: 15,
+  },
+  emptyListText: {
+    fontSize: 16,
+    color: "#555",
   },
 });

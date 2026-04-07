@@ -354,8 +354,13 @@ export default function Budget() {
           ))}
         </ScrollView>
       ) : (
-        <View style={styles.noBudgetContainer}>
-          <Text style={styles.noBudgetScreenText}>No Budget Exists Yet</Text>
+        <View
+          style={[
+            globalStyles.emptyListContainer,
+            { justifyContent: "center" },
+          ]}
+        >
+          <Text style={globalStyles.emptyListText}>No Budget Exists Yet</Text>
           <Button
             name="Create Budget"
             onPress={() =>
@@ -582,15 +587,5 @@ const styles = StyleSheet.create({
   closeText: {
     textAlign: "center",
     marginTop: 10,
-  },
-  noBudgetContainer: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    gap: 15,
-  },
-  noBudgetScreenText: {
-    fontSize: 16,
-    color: "#555",
   },
 });

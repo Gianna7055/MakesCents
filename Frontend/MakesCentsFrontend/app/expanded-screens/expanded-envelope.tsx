@@ -4,26 +4,30 @@ import CalendarInput from "@/components/text/calendar-input";
 import MoneyInput from "@/components/text/money-input";
 import RadioInput from "@/components/text/radio-input";
 import SingleDropdownInput from "@/components/text/single-dropdown-input";
+import Input from "@/components/text/text-input";
 import TransactionList from "@/components/transactions/transaction-list";
 import ScreenWrapper from "@/components/ui/screen-wrapper";
 import { globalStyles } from "@/css/globalStyles";
 import makesCentsAxios from "@/data/datasource";
 import { storage } from "@/data/storage";
+import { BaseIdResponse } from "@/types/base-id-response";
 import { GetAllEnvelopeCategoriesResponse } from "@/types/get-all-envelope-categories-response";
 import { GetEnvelopeDTOModel } from "@/types/get-envelope-dto-model";
 import { GetEnvelopeDTOResponse } from "@/types/get-envelope-dto-response";
 import { SummaryEnvelopeCategoryResponse } from "@/types/summary-envelope-category-response";
 import { handleAxiosError } from "@/utils/axiosErrorHandler";
-import { fromDateOnly, toDateOnly } from "@/utils/mappers/dateOnlyMapper";
+import { formatCurrency } from "@/utils/formatCurrency";
+import { fromDateOnly } from "@/utils/mappers/dateOnlyMapper";
 import {
   emptyEnvelopeForm,
   EnvelopeForm,
 } from "@/utils/mappers/envelopeMapper";
 import { jsonReviver } from "@/utils/mappers/jsonReplacer";
+import { updateEnvelope } from "@/utils/new-edit-helpers/newEditEnvelopeHelper";
 import { AxiosResponse } from "axios";
 import { router, useLocalSearchParams } from "expo-router";
 import React, { useEffect, useState } from "react";
-import { View, Image, Text, ScrollView } from "react-native";
+import { View, Image, Text, ScrollView, StyleSheet } from "react-native";
 
 type ExpandedEnvelopeProps = {
   envelopeId: string;
@@ -69,7 +73,7 @@ export default function ExpandedEnvelope() {
         handleAxiosError(error);
       }
       // Log the id
-      console.log("Envelope Id:", envelopeId);
+      //console.log("Envelope Id:", envelopeId);
       // Set up the try-catch
       try {
         // Get the envelope
@@ -83,7 +87,7 @@ export default function ExpandedEnvelope() {
           jsonReviver,
         );
         // Log the response
-        console.log("Get Envelope Response:", response);
+        //console.log("Get Envelope Response:", response);
 
         // Get the envelope
         let envelopeDTO = response.envelopeDTO;
@@ -118,10 +122,23 @@ export default function ExpandedEnvelope() {
     router.back();
   };
 
-  const handleDoneClickEH = async () => {};
+  const handleDoneClickEH = async () => {
+    // Set up the try catch
+    try {
+      // Call the helper method to create the envelope
+      const response: BaseIdResponse = await updateEnvelope(
+        envelope,
+        originalEnvelope as GetEnvelopeDTOModel,
+      );
+      // Navigate back to the budget screen
+      router.replace("/budget");
+    } catch (error: any) {
+      handleAxiosError(error);
+    }
+  };
 
   // Method to update single field K in envelope
-  const updateEnvelope = <K extends keyof EnvelopeForm>(
+  const updateEnvelopeForm = <K extends keyof EnvelopeForm>(
     key: K,
     value: EnvelopeForm[K],
   ) => {
@@ -149,7 +166,9 @@ export default function ExpandedEnvelope() {
             ? envelope?.isSinkingFund.toString()
             : ""
         }
-        onChange={(value) => updateEnvelope("isSinkingFund", value === "true")}
+        onChange={(value) =>
+          updateEnvelopeForm("isSinkingFund", value === "true")
+        }
       />
     );
   };
@@ -160,12 +179,12 @@ export default function ExpandedEnvelope() {
         <MoneyInput
           name="Goal Amount"
           value={envelope.goalAmount || 0}
-          onChangeValue={(value) => updateEnvelope("goalAmount", value)}
+          onChangeValue={(value) => updateEnvelopeForm("goalAmount", value)}
         />
         <CalendarInput
           name="Goal End Date"
           value={envelope.goalEndDate || new Date()}
-          onChange={(value) => updateEnvelope("goalEndDate", value)}
+          onChange={(value) => updateEnvelopeForm("goalEndDate", value)}
         />
       </View>
     );
@@ -173,6 +192,7 @@ export default function ExpandedEnvelope() {
 
   const renderRolloverFundInputs = () => {
     const allEnvelopes = envelopeCategories.flatMap((c) => c.envelopes);
+    //console.log("All envelopes:", allEnvelopes);
 
     return (
       <View>
@@ -193,7 +213,7 @@ export default function ExpandedEnvelope() {
             return category?.envelopeCategoryName || null;
           }}
           onChange={(env) =>
-            updateEnvelope("transferEnvelopeId", env?.envelopeId!)
+            updateEnvelopeForm("transferEnvelopeId", env?.envelopeId!)
           }
         />
       </View>
@@ -237,9 +257,34 @@ export default function ExpandedEnvelope() {
           </Text>
         </View>
       </View>
-      <ScrollView>
+      <ScrollView
+        style={{ marginVertical: 0 }}
+        contentContainerStyle={{ paddingBottom: 95 }}
+      >
         <View style={globalStyles.settingsContainer}>
           <Text style={globalStyles.settingsTitle}>Settings</Text>
+          <SingleDropdownInput
+            name="Envelope Category"
+            value={
+              envelopeCategories.find(
+                (c) => c.envelopeCategoryId === envelope.envelopeCategoryId,
+              ) ?? null
+            }
+            items={envelopeCategories}
+            getLabel={(item) => item.envelopeCategoryName} // enum label
+            getValue={(item) => item.envelopeCategoryId.toString()}
+            onChange={(item) =>
+              updateEnvelopeForm("envelopeCategoryId", item.envelopeCategoryId)
+            }
+            placeholder="Select a category"
+          />
+          <Input
+            name={"Envelope Name"}
+            placeholder="Name"
+            type="text"
+            value={envelope.envelopeName || ""}
+            onChangeText={(text) => updateEnvelopeForm("envelopeName", text)}
+          />
           {renderEnvelopeTypeRadioButtons()}
           {envelope.isSinkingFund !== null &&
             (envelope.isSinkingFund
@@ -247,7 +292,21 @@ export default function ExpandedEnvelope() {
               : renderRolloverFundInputs())}
         </View>
 
-        <Text style={globalStyles.settingsTitle}>Transactions</Text>
+        <View style={styles.amountContainer}>
+          <Text style={styles.amountLabel}>Planned Amount:</Text>
+          <Text style={styles.amountLabel}>
+            {formatCurrency(envelope.plannedAmount || 0)}
+          </Text>
+        </View>
+        <View style={styles.amountContainer}>
+          <Text style={styles.amountLabel}>Remaining Amount:</Text>
+          <Text style={styles.amountLabel}>
+            {formatCurrency(envelope.remainingAmount || 0)}
+          </Text>
+        </View>
+        <Text style={[globalStyles.settingsTitle, { marginTop: 10 }]}>
+          Transactions
+        </Text>
         <TransactionList transactions={originalEnvelope?.transactions || []} />
       </ScrollView>
       {renderCancelDoneButtons()}
@@ -255,3 +314,15 @@ export default function ExpandedEnvelope() {
     </ScreenWrapper>
   );
 }
+
+const styles = StyleSheet.create({
+  amountContainer: {
+    marginTop: 10,
+    justifyContent: "space-between",
+    flexDirection: "row",
+    marginHorizontal: 20,
+  },
+  amountLabel: {
+    fontSize: 16,
+  },
+});

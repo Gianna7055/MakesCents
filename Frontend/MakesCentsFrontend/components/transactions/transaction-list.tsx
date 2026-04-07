@@ -4,7 +4,7 @@ import { SummaryTransactionDTOModel } from "@/types/summary-transaction-dto-mode
 import TransactionCard from "@/components/transactions/transaction-card";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { storage } from "@/data/storage";
-import { screenHeight } from "@/css/globalStyles";
+import { globalStyles, screenHeight } from "@/css/globalStyles";
 
 type TransactionListProps = {
   transactions: SummaryTransactionDTOModel[];
@@ -38,7 +38,9 @@ export default function TransactionList(props: TransactionListProps) {
         {budgetId === 0 ? (
           <Text>Select a budget</Text>
         ) : transactionList.length === 0 ? (
-          <Text>No Transactions</Text>
+          <View style={globalStyles.emptyListContainer}>
+            <Text style={globalStyles.emptyListText}>No Transactions</Text>
+          </View>
         ) : (
           <>{transactionList}</>
         )}

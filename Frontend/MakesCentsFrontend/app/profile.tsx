@@ -152,7 +152,10 @@ export default function Profile() {
 
   return (
     <ScreenWrapper>
-      <ScrollView style={{ marginVertical: 0 }}>
+      <ScrollView
+        style={{ marginVertical: 0 }}
+        contentContainerStyle={{ paddingBottom: 75 }}
+      >
         <View style={[globalStyles.noWordsLogoContainer, { marginBottom: 20 }]}>
           <Image
             source={require("@/assets/images/MakesCentsLogo.png")}

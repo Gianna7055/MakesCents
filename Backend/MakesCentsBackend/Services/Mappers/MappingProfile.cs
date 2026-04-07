@@ -28,6 +28,14 @@ namespace MakesCentsBackend.Services.Mappers
             CreateMap<GetBankAccountEntityModel, GetBankAccountDTOModel>();
             CreateMap<GetBankAccountEntityResponse, GetBankAccountDTOResponse>();
 
+            // Debt Account Maps
+            CreateMap<GetDebtAccountEntityModel, GetDebtAccountDTOModel>();
+            CreateMap<GetDebtAccountEntityResponse, GetDebtAccountDTOResponse>();
+
+            // Investment Account Maps
+            CreateMap<GetInvestmentAccountEntityModel, GetInvestmentAccountDTOModel>();
+            CreateMap<GetInvestmentAccountEntityResponse, GetInvestmentAccountDTOResponse>();
+
             // Transaction Maps
             CreateMap<SummaryTransactionEntityModel, SummaryTransactionDTOModel>()
                 .ConvertUsing(src => TransactionMapper.ToSummaryResponse(src));

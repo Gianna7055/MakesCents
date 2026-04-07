@@ -12,6 +12,7 @@ import ScreenWrapper from "@/components/ui/screen-wrapper";
 import { SummaryAccountDTOModel } from "@/types/summary-account-dto-model";
 import { handleAxiosError } from "@/utils/axiosErrorHandler";
 import { jsonReviver } from "@/utils/mappers/jsonReplacer";
+import { router } from "expo-router";
 
 export default function Accounts() {
   const [budgetId, setBudgetId] = useState<number>(0);
@@ -52,7 +53,9 @@ export default function Accounts() {
     main();
   }, []);
 
-  const handlePlusClick = () => {};
+  const handlePlusClick = () => {
+    router.push("/new-edit-screens/new-account");
+  };
 
   return (
     <ScreenWrapper>
@@ -65,7 +68,10 @@ export default function Accounts() {
           <Text style={globalStyles.logoTitle}>Accounts</Text>
         </View>
       </View>
-      <ScrollView style={{ marginVertical: 0 }}>
+      <ScrollView
+        style={{ marginVertical: 0 }}
+        contentContainerStyle={{ paddingBottom: 75 }}
+      >
         <AccountList accounts={accounts} />
       </ScrollView>
       <Button

@@ -88,7 +88,7 @@ namespace MakesCentsBackend.Models
     {
         public GetBankAccountDTOModel BankAccount { get; set; } = new GetBankAccountDTOModel();
 
-        public GetBankAccountDTOResponse(int httpStatus, string message) : base(httpStatus, message) { } 
+        public GetBankAccountDTOResponse(int httpStatus, string message) : base(httpStatus, message) { }
     }
 
     /// <summary>
@@ -123,7 +123,7 @@ namespace MakesCentsBackend.Models
     }
 
 
-    [ExportTsInterface]
+    [ExportTsClass]
     public class UpdateBankAccountRequest : UpdateAccountRequest
     {
         // Class properties

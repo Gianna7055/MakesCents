@@ -1,7 +1,7 @@
 import React from "react";
 import { View, Text } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { screenHeight } from "@/css/globalStyles";
+import { globalStyles, screenHeight } from "@/css/globalStyles";
 import AccountCard from "./account-card";
 import { SummaryAccountDTOModel } from "@/types/summary-account-dto-model";
 
@@ -22,7 +22,9 @@ export default function AccountList(props: AccountListProps) {
     <SafeAreaView>
       <View style={{ marginVertical: -(screenHeight * 0.02) }}>
         {accountList.length === 0 ? (
-          <Text>No Accounts</Text>
+          <View style={globalStyles.emptyListContainer}>
+            <Text style={globalStyles.emptyListText}>No Accounts</Text>
+          </View>
         ) : (
           <>{accountList}</>
         )}

@@ -2,10 +2,7 @@ import React from "react";
 import { View, Text, StyleSheet } from "react-native";
 import { useRouter } from "expo-router";
 import { Button } from "../buttons/button";
-import {
-  screenHeight,
-  screenWidth,
-} from "@/css/globalStyles";
+import { screenHeight, screenWidth } from "@/css/globalStyles";
 import { SummaryAccountDTOModel } from "@/types/summary-account-dto-model";
 import { formatCurrency } from "@/utils/formatCurrency";
 
@@ -18,7 +15,16 @@ const ProductCard = ({ account }: AccountCardProps) => {
   const router = useRouter();
 
   // Functions to handle back and next button clicks
-  const handleSeeMoreClick = () => {};
+  const handleSeeMoreClick = () => {
+    router.push({
+      pathname: "/expanded-screens/expanded-account",
+      params: {
+        paramAccountId: account.accountId,
+        paramAccountType: account.accountType,
+      },
+    });
+  };
+
   return (
     <View style={styles.cardContainer}>
       <View style={styles.accountNameContainer}>
