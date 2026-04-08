@@ -206,7 +206,7 @@ CREATE TABLE debt_account (
     debt_account_number VARCHAR(50) NULL,
     date_of_next_bill DATE NULL,
     amount_of_next_bill DECIMAL(18,2) NULL,
-    debt_payment_regularity_id INT NOT NULL,
+    debt_payment_regularity_id INT NULL,
     FOREIGN KEY (account_id) REFERENCES account(account_id) ON DELETE CASCADE ON UPDATE CASCADE,
     FOREIGN KEY (debt_account_type_id) REFERENCES debt_account_type_enum(debt_account_type_enum_id) ON DELETE RESTRICT ON UPDATE CASCADE,
     FOREIGN KEY (debt_payment_regularity_id) REFERENCES debt_payment_regularity_enum(debt_payment_regularity_enum_id) ON DELETE RESTRICT ON UPDATE CASCADE

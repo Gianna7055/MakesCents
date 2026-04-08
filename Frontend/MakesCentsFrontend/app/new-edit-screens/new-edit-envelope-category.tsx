@@ -10,6 +10,7 @@ import { EditEnvelopeCategoryRequest } from "@/types/edit-envelope-category-requ
 import { GetEnvelopeCategoryResponse } from "@/types/get-envelope-category-response";
 import { handleAxiosError } from "@/utils/axiosErrorHandler";
 import { jsonReviver } from "@/utils/mappers/jsonReplacer";
+import { handleBlur, touchAll } from "@/utils/touched";
 import { AxiosResponse } from "axios";
 import { router, useLocalSearchParams } from "expo-router";
 import React, { useEffect, useState } from "react";
@@ -28,6 +29,10 @@ export default function NewEditEnvelopeCategory() {
   const budgetId: number = parseInt(budgetIdString);
   const [envelopeCategoryName, setEnvelopeCategoryName] = useState<string>("");
   const isNew = !envelopeCategoryId;
+
+  const [touched, setTouched] = useState<{ name: boolean }>({ name: false });
+  const [formError, setFormError] = useState<string | null>(null);
+  const [submitted, setSubmitted] = useState(false);
 
   useEffect(() => {
     const main = async () => {
@@ -65,11 +70,10 @@ export default function NewEditEnvelopeCategory() {
   };
 
   const handleDoneClickEH = async () => {
-    if (!envelopeCategoryName || envelopeCategoryName.trim() === "") {
-      handleCancelClickEH();
-      return;
-    }
     if (isNew) {
+      // Set the form as submitted
+      setSubmitted(true);
+      if (!envelopeCategoryName) return;
       try {
         // Create the request
         const request: CreateEnvelopeCategoryRequest = {
@@ -95,6 +99,7 @@ export default function NewEditEnvelopeCategory() {
         // Set the new budget id
         router.push("/budget");
       } catch (error: any) {
+        setFormError("Error with update");
         handleAxiosError(error);
       }
     } else {
@@ -123,6 +128,7 @@ export default function NewEditEnvelopeCategory() {
         // Set the new budget id
         router.push("/budget");
       } catch (error: any) {
+        setFormError("Error with creation");
         handleAxiosError(error);
       }
     }
@@ -176,7 +182,14 @@ export default function NewEditEnvelopeCategory() {
           value={envelopeCategoryName || ""}
           onChangeText={setEnvelopeCategoryName}
           autoCapitalize="words"
+          onBlur={() => handleBlur("name", setTouched)}
         />
+        {(touched.name || submitted) && !envelopeCategoryName && isNew && (
+          <Text style={globalStyles.errorText}>
+            Envelope category name is required.
+          </Text>
+        )}
+        {formError && <Text style={globalStyles.errorText}>{formError}</Text>}
       </ScrollView>
       {renderCancelDoneButtons()}
       <BottomNavBar />

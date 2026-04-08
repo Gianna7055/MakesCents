@@ -56,7 +56,7 @@ namespace MakesCentsBackend.Services.BusinessLogicLayer
                 if (paymentTransaction.TotalAmount >= 0 && split.Amount <= 0)
                     return new CreatePaymentTransactionResponse(400, "Split amount must be positive for income transactions");
 
-                if(split.Amount == 0)
+                if (split.Amount == 0)
                     paymentTransaction.TransactionSplits.Remove(split);
 
                 if (split.EnvelopeId == 0)
@@ -105,9 +105,9 @@ namespace MakesCentsBackend.Services.BusinessLogicLayer
                 // Return that there is not enough information
                 return new UpdatePaymentTransactionResponse(400, "Missing information for update");
             }
-            if (paymentTransaction.TransactionSplits.Count == 0 || paymentTransaction.TransactionSplits.Sum(s => s.Amount) != paymentTransaction.TotalAmount)
+            if (paymentTransaction.TotalAmount != null && (paymentTransaction.TransactionSplits.Count == 0 || paymentTransaction.TransactionSplits.Sum(s => s.Amount) != paymentTransaction.TotalAmount))
             {
-                return new UpdatePaymentTransactionResponse(400, "Split totals must equal paycheck total");
+                return new UpdatePaymentTransactionResponse(400, "Split totals must equal payment total");
             }
             // Call the update method in the DAO
             response = await _paymentTransactionDAO.UpdatePaymentTransactionAsync(paymentTransaction);

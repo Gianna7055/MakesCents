@@ -133,6 +133,8 @@ export const updateBankAccount = async (
 
   // Get the payload
   const payload = JSON.stringify(updatedFields, jsonReplacer);
+  // Log the payload
+  console.log("Update Bank Account Payload:", payload);
 
   // Call the API to update the bank account
   const axiosResponse: AxiosResponse = await makesCentsAxios.put(

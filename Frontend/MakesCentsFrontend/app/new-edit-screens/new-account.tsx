@@ -21,15 +21,15 @@ import { DebtAccountType } from "@/types/debt-account-type";
 import { DebtPaymentRegularity } from "@/types/debt-payment-regularity";
 import { InvestmentAccountType } from "@/types/investment-account-type";
 import { handleAxiosError } from "@/utils/axiosErrorHandler";
-import { formatCurrency } from "@/utils/formatCurrency";
 import { AccountForm, emptyAccountForm } from "@/utils/mappers/accountMapper";
 import {
   createBankAccount,
   createDebtAccount,
   createInvestmentAccount,
 } from "@/utils/new-edit-helpers/newEditAccountHelper";
+import { handleBlur } from "@/utils/touched";
 import { router } from "expo-router";
-import React, { useEffect } from "react";
+import React, { use, useEffect } from "react";
 import { useState } from "react";
 import { StyleSheet, View, Image, Text, ScrollView } from "react-native";
 
@@ -42,6 +42,12 @@ export default function NewAccount() {
     { label: "Debt", value: "Debt", type: AccountType.Debt },
     { label: "Investment", value: "Investment", type: AccountType.Investment },
   ];
+
+  const [touched, setTouched] = useState<
+    Partial<Record<keyof AccountForm, boolean>>
+  >({});
+  const [formError, setFormError] = useState<string | null>(null);
+  const [submitted, setSubmitted] = useState<boolean>(false);
 
   useEffect(() => {
     const main = async () => {
@@ -67,21 +73,42 @@ export default function NewAccount() {
   };
 
   const handleDoneClickEH = async () => {
+    // Set the form to submitted
+    setSubmitted(true);
+    // Make sure the needed general info was sent
+    if (
+      !account.accountType ||
+      !account.accountName ||
+      !account.institution ||
+      !account.balance
+    )
+      return;
     // Set up the try catch
     try {
       if (account.accountType === AccountType.Bank) {
+        // Make sure the needed bank info was sent
+        if (!account.bankAccountType) return;
         // Call the helper method ot create the bank account
         const response: CreateBankAccountResponse = await createBankAccount(
           account,
           budgetId,
         );
       } else if (account.accountType === AccountType.Debt) {
+        // Make sure the needed debt info was sent
+        if (!account.debtAccountType) return;
         // Call the helper method ot create the debt account
         const response: CreateDebtAccountResponse = await createDebtAccount(
           account,
           budgetId,
         );
       } else if (account.accountType === AccountType.Investment) {
+        // Make sure the needed investment info was sent
+        if (
+          !account.investmentAccountType ||
+          account.isTaxDeferred == null ||
+          account.isTaxExempt == null
+        )
+          return;
         // Call the helper method ot create the investment account
         const response: CreateInvestmentAccountResponse =
           await createInvestmentAccount(account, budgetId);
@@ -89,6 +116,7 @@ export default function NewAccount() {
       // Go back to the accounts page
       router.replace("/accounts");
     } catch (error: any) {
+      setFormError("Issue with creation");
       handleAxiosError(error);
     }
   };
@@ -133,37 +161,55 @@ export default function NewAccount() {
   // Constants for shared inputs
   const renderAccountNameInput = () => {
     return (
-      <Input
-        name="Account Name"
-        placeholder="Name"
-        type="text"
-        value={account.accountName || ""}
-        onChangeText={(text) => updateAccountForm("accountName", text)}
-        autoCapitalize="words"
-      />
+      <View>
+        <Input
+          name="Account Name"
+          placeholder="Name"
+          type="text"
+          value={account.accountName || ""}
+          onChangeText={(text) => updateAccountForm("accountName", text)}
+          autoCapitalize="words"
+          onBlur={() => handleBlur("accountName", setTouched)}
+        />
+        {(touched.accountName || submitted) && !account.accountName && (
+          <Text style={globalStyles.errorText}>Account name is required.</Text>
+        )}
+      </View>
     );
   };
 
   const renderInstitutionInput = () => {
     return (
-      <Input
-        name="Institution"
-        placeholder="Institution"
-        type="text"
-        value={account.institution || ""}
-        onChangeText={(text) => updateAccountForm("institution", text)}
-        autoCapitalize="words"
-      />
+      <View>
+        <Input
+          name="Institution"
+          placeholder="Institution"
+          type="text"
+          value={account.institution || ""}
+          onChangeText={(text) => updateAccountForm("institution", text)}
+          autoCapitalize="words"
+          onBlur={() => handleBlur("institution", setTouched)}
+        />
+        {(touched.institution || submitted) && !account.institution && (
+          <Text style={globalStyles.errorText}>Institution is required.</Text>
+        )}
+      </View>
     );
   };
 
   const renderBalanceInput = () => {
     return (
-      <MoneyInput
-        name="Balance"
-        value={account.balance}
-        onChangeValue={(amount) => updateAccountForm("balance", amount)}
-      />
+      <View>
+        <MoneyInput
+          name="Balance"
+          value={account.balance}
+          onChangeValue={(amount) => updateAccountForm("balance", amount)}
+          onBlur={() => handleBlur("balance", setTouched)}
+        />
+        {(touched.balance || submitted) && !account.balance && (
+          <Text style={globalStyles.errorText}>Balance is required.</Text>
+        )}
+      </View>
     );
   };
 
@@ -182,7 +228,13 @@ export default function NewAccount() {
           onChange={(type) =>
             updateAccountForm("bankAccountType", type ?? null)
           }
+          onBlur={() => handleBlur("bankAccountType", setTouched)}
         />
+        {(touched.bankAccountType || submitted) && !account.bankAccountType && (
+          <Text style={globalStyles.errorText}>
+            Bank account type is required.
+          </Text>
+        )}
       </View>
     );
   };
@@ -202,7 +254,13 @@ export default function NewAccount() {
           onChange={(type) =>
             updateAccountForm("debtAccountType", type ?? null)
           }
+          onBlur={() => handleBlur("debtAccountType", setTouched)}
         />
+        {(touched.debtAccountType || submitted) && !account.debtAccountType && (
+          <Text style={globalStyles.errorText}>
+            Debt Account Type is required.
+          </Text>
+        )}
       </View>
     );
   };
@@ -222,7 +280,14 @@ export default function NewAccount() {
           onChange={(type) =>
             updateAccountForm("investmentAccountType", type ?? null)
           }
+          onBlur={() => handleBlur("investmentAccountType", setTouched)}
         />
+        {(touched.investmentAccountType || submitted) &&
+          !account.investmentAccountType && (
+            <Text style={globalStyles.errorText}>
+              Investment account type is required.
+            </Text>
+          )}
       </View>
     );
   };
@@ -234,13 +299,14 @@ export default function NewAccount() {
         value={account.accountNumber || null}
         placeHolder="Account Number"
         onChangeValue={(number) => updateAccountForm("accountNumber", number)}
+        onBlur={() => handleBlur("accountNumber", setTouched)}
       />
     );
   };
 
   const renderNextBillInputs = () => {
     const regularityOptions = Object.values(DebtPaymentRegularity).filter(
-      (v) => typeof v === "number",
+      (v) => typeof v === "number" && v != 1,
     );
     return (
       <View>
@@ -248,6 +314,7 @@ export default function NewAccount() {
           name="Date of Next Bill (Optional)"
           value={account.dateOfNextBill || null}
           onChange={(text) => updateAccountForm("dateOfNextBill", text)}
+          onBlur={() => handleBlur("dateOfNextBill", setTouched)}
         />
         <MoneyInput
           name="Amount of Next Bill (Optional)"
@@ -255,6 +322,7 @@ export default function NewAccount() {
           onChangeValue={(amount) =>
             updateAccountForm("amountOfNextBill", amount!)
           }
+          onBlur={() => handleBlur("amountOfNextBill", setTouched)}
         />
         <SingleDropdownInput
           name="Bill Regularity (Optional)"
@@ -265,6 +333,7 @@ export default function NewAccount() {
           onChange={(type) =>
             updateAccountForm("debtPaymentRegularity", type ?? null)
           }
+          onBlur={() => handleBlur("debtPaymentRegularity", setTouched)}
         />
       </View>
     );
@@ -292,7 +361,14 @@ export default function NewAccount() {
           }
           options={options}
           containerStyle={{ gap: screenWidth * 0.2 }}
+          onBlur={() => handleBlur("isTaxDeferred", setTouched)}
         />
+        {(touched.isTaxDeferred || submitted) &&
+          account.isTaxDeferred == null && (
+            <Text style={globalStyles.errorText}>
+              Tax deferred status is required.
+            </Text>
+          )}
         <RadioInput
           name="Is Account Tax Exempt? (Optional)"
           value={
@@ -307,7 +383,13 @@ export default function NewAccount() {
           }
           options={options}
           containerStyle={{ gap: screenWidth * 0.2 }}
+          onBlur={() => handleBlur("isTaxExempt", setTouched)}
         />
+        {(touched.isTaxExempt || submitted) && account.isTaxExempt == null && (
+          <Text style={globalStyles.errorText}>
+            Tax exempt status is required.
+          </Text>
+        )}
       </View>
     );
   };
@@ -371,6 +453,7 @@ export default function NewAccount() {
         {account.accountType === AccountType.Debt && renderDebtAccountView()}
         {account.accountType === AccountType.Investment &&
           renderInvestmentAccountView()}
+        {formError && <Text style={globalStyles.errorText}>{formError}</Text>}
       </ScrollView>
       {renderCancelDoneButtons()}
       <BottomNavBar />

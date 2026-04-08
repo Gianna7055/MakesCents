@@ -21,6 +21,7 @@ type Props = {
   selectedEnvelopes: EnvelopeSplit[];
   onChange: (splits: EnvelopeSplit[]) => void;
   totalAmount: number;
+  onBlur?: () => void;
 };
 
 // Format cents to string with commas and 2 decimals
@@ -38,6 +39,7 @@ const MultiCategoryEnvelopeDropdown: React.FC<Props> = ({
   selectedEnvelopes,
   onChange,
   totalAmount,
+  onBlur,
 }) => {
   const [visible, setVisible] = useState(false);
   const [editingIndex, setEditingIndex] = useState<number | null>(null);
@@ -113,7 +115,7 @@ const MultiCategoryEnvelopeDropdown: React.FC<Props> = ({
   };
 
   return (
-    <View style={styles.inputContainer}>
+    <View style={styles.inputContainer} onBlur={onBlur}>
       {/* Label */}
       <View style={styles.headerRow}>
         <Text style={globalStyles.textHeader}>{name}</Text>

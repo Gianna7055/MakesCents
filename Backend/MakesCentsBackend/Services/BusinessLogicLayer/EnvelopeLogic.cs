@@ -43,12 +43,6 @@ namespace MakesCentsBackend.Services.BusinessLogicLayer
             {
                 return new BaseIdResponse(400, "Missing information for envelope creation");
             }
-            // If the envelope is a sinking fund, it must have a goal amount and end date
-            if (envelope.IsSinkingFund == true &&
-                (envelope.GoalAmount.Value == null || envelope.GoalEndDate.Value == null))
-            {
-                return new BaseIdResponse(400, "Sinking funds require a goal amount and goal end date");
-            }
             // If the envelope is not a sinking fun, it must have a transfer envelope id
             if (envelope.IsSinkingFund == false &&
                 envelope.TransferEnvelopeId.Value == null)
@@ -140,13 +134,6 @@ namespace MakesCentsBackend.Services.BusinessLogicLayer
             if (requestEnvelope.TransferEnvelopeId.HasValue)
             {
                 entityModel.TransferEnvelopeId = requestEnvelope.TransferEnvelopeId.Value;
-            }
-
-            // If the envelope is a sinking fund, it must have a goal amount and end date
-            if (entityModel.IsSinkingFund == true &&
-                (entityModel.GoalAmount == null || entityModel.GoalEndDate == null))
-            {
-                return new BaseIdResponse(400, "Sinking funds require a goal amount and goal end date");
             }
             // If the envelope is not a sinking fun, it must have a transfer envelope id
             if (entityModel.IsSinkingFund == false && entityModel.TransferEnvelopeId == null)

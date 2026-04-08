@@ -1,6 +1,7 @@
 import BottomNavBar from "@/components/bottom-nav-bar";
 import { Button } from "@/components/buttons/button";
 import CalendarInput from "@/components/text/calendar-input";
+import InfoField from "@/components/text/info-field";
 import IntInput from "@/components/text/int-input";
 import MoneyInput from "@/components/text/money-input";
 import RadioInput from "@/components/text/radio-input";
@@ -23,6 +24,7 @@ import { GetInvestmentAccountDTOModel } from "@/types/get-investment-account-dto
 import { GetInvestmentAccountDTOResponse } from "@/types/get-investment-account-dto-response";
 import { InvestmentAccountType } from "@/types/investment-account-type";
 import { handleAxiosError } from "@/utils/axiosErrorHandler";
+import { formatCurrency } from "@/utils/formatCurrency";
 import { AccountForm, emptyAccountForm } from "@/utils/mappers/accountMapper";
 import { fromDateOnly } from "@/utils/mappers/dateOnlyMapper";
 import { jsonReviver } from "@/utils/mappers/jsonReplacer";
@@ -44,7 +46,7 @@ type ExpandedAccountProps = {
 };
 
 export default function ExpandedAccount() {
-  console.log("URL Params:", useLocalSearchParams());
+  //console.log("URL Params:", useLocalSearchParams());
   const { paramAccountId, paramAccountType } =
     useLocalSearchParams<ExpandedAccountProps>();
   // Get the transaction id from the param
@@ -144,7 +146,9 @@ export default function ExpandedAccount() {
 
             // Debt account props
             debtAccountType: debtAccount.debtAccountType,
-            dateOfNextBill: fromDateOnly(debtAccount.dateOfNextBill),
+            dateOfNextBill: debtAccount.dateOfNextBill
+              ? fromDateOnly(debtAccount.dateOfNextBill)
+              : null,
             amountOfNextBill: debtAccount.amountOfNextBill,
             debtPaymentRegularity: debtAccount.debtPaymentRegularity,
 
@@ -268,7 +272,7 @@ export default function ExpandedAccount() {
       <View style={styles.inputsView}>
         {renderAccountNameInput()}
         {renderInstitutionInput()}
-        {renderBalanceInput()}
+        {renderBalance()}
       </View>
     );
   };
@@ -302,15 +306,17 @@ export default function ExpandedAccount() {
   // Constants for shared inputs
   const renderAccountNameInput = () => {
     return (
-      <Input
-        name="Account Name"
-        placeholder="Name"
-        type="text"
-        value={account.accountName || ""}
-        onChangeText={(text) => updateAccountForm("accountName", text)}
-        onBlur={() => handleBlur("accountName", setTouched)}
-        autoCapitalize="words"
-      />
+      <View>
+        <Input
+          name="Account Name"
+          placeholder="Name"
+          type="text"
+          value={account.accountName || ""}
+          onChangeText={(text) => updateAccountForm("accountName", text)}
+          onBlur={() => handleBlur("accountName", setTouched)}
+          autoCapitalize="words"
+        />
+      </View>
     );
   };
 
@@ -328,14 +334,9 @@ export default function ExpandedAccount() {
     );
   };
 
-  const renderBalanceInput = () => {
+  const renderBalance = () => {
     return (
-      <MoneyInput
-        name="Balance"
-        value={account.balance}
-        onChangeValue={(amount) => updateAccountForm("balance", amount)}
-        onBlur={() => handleBlur("balance", setTouched)}
-      />
+      <InfoField name="Balance" value={formatCurrency(account.balance || 0)} />
     );
   };
 

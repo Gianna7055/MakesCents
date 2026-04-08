@@ -132,16 +132,16 @@ namespace MakesCentsBackend.Services.DataAccessLayer
                 SELECT 
                     account.account_id AS AccountId,
                     account.budget_id AS BudgetId,
-                    account.account_type_id AS AccountTypeId,
+                    account.account_type_id AS AccountType,
                     account.account_name AS AccountName,
                     account.institution AS Institution,
                     account.balance AS Balance,
                     debt_account.debt_account_id AS DebtAccountId,
-                    debt_account.debt_account_type_id AS DebtAccountTypeId,
+                    debt_account.debt_account_type_id AS DebtAccountType,
                     debt_account.debt_account_number AS DebtAccountNumber,
                     debt_account.date_of_next_bill AS DateOfNextBill,
                     debt_account.amount_of_next_bill AS AmountOfNextBill,
-                    debt_account.debt_payment_regularity_id AS DebtPaymentRegularityId
+                    debt_account.debt_payment_regularity_id AS DebtPaymentRegularity
                 FROM account
                 INNER JOIN debt_account ON account.account_id = debt_account.account_id
                 WHERE account.account_id = @AccountId;
