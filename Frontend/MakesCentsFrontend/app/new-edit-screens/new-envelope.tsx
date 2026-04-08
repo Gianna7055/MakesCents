@@ -63,7 +63,7 @@ export default function NewEnvelope() {
   });
 
   // Method to update single field K in envelope
-  const updateEnvelope = <K extends keyof EnvelopeForm>(
+  const updateEnvelopeForm = <K extends keyof EnvelopeForm>(
     key: K,
     value: EnvelopeForm[K],
   ) => {
@@ -127,7 +127,9 @@ export default function NewEnvelope() {
             ? envelope.isSinkingFund.toString()
             : ""
         }
-        onChange={(value) => updateEnvelope("isSinkingFund", value === "true")}
+        onChange={(value) =>
+          updateEnvelopeForm("isSinkingFund", value === "true")
+        }
       />
     );
   };
@@ -138,12 +140,12 @@ export default function NewEnvelope() {
         <MoneyInput
           name="Goal Amount"
           value={envelope.goalAmount || 0}
-          onChangeValue={(value) => updateEnvelope("goalAmount", value)}
+          onChangeValue={(value) => updateEnvelopeForm("goalAmount", value)}
         />
         <CalendarInput
           name="Goal End Date"
           value={envelope.goalEndDate || new Date()}
-          onChange={(value) => updateEnvelope("goalEndDate", value)}
+          onChange={(value) => updateEnvelopeForm("goalEndDate", value)}
         />
       </View>
     );
@@ -167,7 +169,7 @@ export default function NewEnvelope() {
             return category?.envelopeCategoryName || null;
           }}
           onChange={(env) =>
-            updateEnvelope("transferEnvelopeId", env?.envelopeId!)
+            updateEnvelopeForm("transferEnvelopeId", env?.envelopeId!)
           }
         />
       </View>
@@ -187,7 +189,10 @@ export default function NewEnvelope() {
         </View>
       </View>
 
-      <ScrollView style={{ marginVertical: 0 }}>
+      <ScrollView
+        style={{ marginVertical: 0 }}
+        contentContainerStyle={{ paddingBottom: 75 }}
+      >
         <SingleDropdownInput
           name="Envelope Category"
           value={
@@ -199,7 +204,7 @@ export default function NewEnvelope() {
           getLabel={(item) => item.envelopeCategoryName} // enum label
           getValue={(item) => item.envelopeCategoryId.toString()}
           onChange={(item) =>
-            updateEnvelope("envelopeCategoryId", item.envelopeCategoryId)
+            updateEnvelopeForm("envelopeCategoryId", item.envelopeCategoryId)
           }
           placeholder="Select a category"
         />
@@ -208,7 +213,7 @@ export default function NewEnvelope() {
           placeholder="Name"
           type="text"
           value={envelope.envelopeName || ""}
-          onChangeText={(text) => updateEnvelope("envelopeName", text)}
+          onChangeText={(text) => updateEnvelopeForm("envelopeName", text)}
         />
         {renderEnvelopeTypeRadioButtons()}
         {envelope.isSinkingFund !== null &&

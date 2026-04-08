@@ -1,5 +1,6 @@
 import { Colors } from "@/constants/theme";
 import { screenWidth } from "@/css/globalStyles";
+import { AccountType } from "@/types/account-type";
 import { TransactionType } from "@/types/transaction-type";
 import React from "react";
 import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
@@ -7,7 +8,7 @@ import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
 export type TitleRadioOption = {
   label: string;
   value: string;
-  type: TransactionType;
+  type: TransactionType | AccountType;
 };
 
 type TitleRadioInputProps = {

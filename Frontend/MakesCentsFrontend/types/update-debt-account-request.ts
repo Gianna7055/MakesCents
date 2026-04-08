@@ -14,6 +14,6 @@ export class UpdateDebtAccountRequest extends UpdateAccountRequest {
     debtAccountType: DebtAccountType;
     accountNumber: Optional<number> = {"hasValue":true,"value":null};
     dateOfNextBill: Optional<DateOnly>;
-    amountOfNextBill: Optional<DateOnly>;
+    amountOfNextBill: Optional<number>;
     debtPaymentRegularity: Optional<DebtPaymentRegularity>;
 }

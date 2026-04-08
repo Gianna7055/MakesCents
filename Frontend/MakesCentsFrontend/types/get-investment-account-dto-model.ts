@@ -7,7 +7,7 @@ import { GetAccountBaseModel } from "./get-account-base-model";
 import { InvestmentAccountType } from "./investment-account-type";
 import { SummaryTransactionDTOModel } from "./summary-transaction-dto-model";
 
-export interface GetInvestmentAccountDTOModel {
+export interface GetInvestmentAccountDTOModel extends GetAccountBaseModel {
     investmentAccountId: number;
     investmentAccountType: InvestmentAccountType;
     accountNumber: number;

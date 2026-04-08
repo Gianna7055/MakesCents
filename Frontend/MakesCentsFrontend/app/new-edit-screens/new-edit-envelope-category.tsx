@@ -164,7 +164,10 @@ export default function NewEditEnvelopeCategory() {
         </View>
       </View>
       {/* Content */}
-      <ScrollView style={{ marginVertical: 0 }}>
+      <ScrollView
+        style={{ marginVertical: 0 }}
+        contentContainerStyle={{ paddingBottom: 75 }}
+      >
         {/* Budget creation form goes here */}
         <Input
           name="Envelope Category Name"

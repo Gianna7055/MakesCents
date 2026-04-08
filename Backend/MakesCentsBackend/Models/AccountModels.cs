@@ -113,7 +113,7 @@ namespace MakesCentsBackend.Models
     /// <summary>
     /// Base class for getting a specific account
     /// </summary>
-    [ExportTsClass]
+    [ExportTsInterface]
     public class GetAccountBaseModel
     {
         // Class properties
@@ -122,6 +122,7 @@ namespace MakesCentsBackend.Models
         public int UserId { get; set; } = 0;
         public AccountType AccountType { get; set; } = AccountType.Unknown;
         public string AccountName { get; set; } = "";
+        public string Institution { get; set; } = "";
         public decimal Balance { get; set; } = 0;
     }
 

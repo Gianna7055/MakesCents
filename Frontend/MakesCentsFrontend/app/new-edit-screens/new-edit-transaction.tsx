@@ -668,7 +668,10 @@ export default function NewEditTransaction() {
         </View>
       </View>
 
-      <ScrollView style={{ marginVertical: 0 }}>
+      <ScrollView
+        style={{ marginVertical: 0 }}
+        contentContainerStyle={{ paddingBottom: 10 }}
+      >
         {/* Radio buttons for Expense, Income, and Transfer */}
         <TitleRadioInput
           value={transaction.typeLabel || ""} // string for UI selection
@@ -680,7 +683,7 @@ export default function NewEditTransaction() {
 
             // Update type label and internal type
             updateTransaction("typeLabel", selectedOption.value);
-            updateTransaction("type", selectedOption.type!);
+            updateTransaction("type", selectedOption.type as TransactionType);
 
             // Adjust amount sign if this is a payment transaction
             if (selectedOption.value === "Expense") {
@@ -691,7 +694,7 @@ export default function NewEditTransaction() {
             ) {
               updateTransaction("amount", Math.abs(transaction.amount!));
             }
-            // For "Transfer", you can leave amount as is or handle separately
+            // For "Transfer", can leave amount
           }}
         />
         {/* Conditionally render the rest of the form based on the transaction type */}

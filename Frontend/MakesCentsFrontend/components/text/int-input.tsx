@@ -10,6 +10,7 @@ type InputProps = {
   returnKeyType?: "next" | "done" | "go" | "search" | "send";
   onSubmitEditing?: () => void;
   placeHolder?: string;
+  onBlur?: () => void;
 };
 
 const IntInput = forwardRef<TextInput, InputProps>((props, ref) => {

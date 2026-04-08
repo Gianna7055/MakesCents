@@ -1,5 +1,6 @@
 import { Colors } from "@/constants/theme";
 import { globalStyles, screenWidth } from "@/css/globalStyles";
+import { formatCurrency } from "@/utils/formatCurrency";
 import React, { forwardRef, useState, useEffect } from "react";
 import { View, Text, TextInput, StyleSheet } from "react-native";
 
@@ -9,10 +10,14 @@ type InputProps = {
   onChangeValue: (value: number | null) => void;
   returnKeyType?: "next" | "done" | "go" | "search" | "send";
   onSubmitEditing?: () => void;
+  onBlur?: () => void;
 };
 
 const formatCentsToCurrency = (cents: number) => {
-  return (cents / 100).toFixed(2);
+  return (cents / 100).toLocaleString("en-US", {
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2,
+  });
 };
 
 const MoneyInput = forwardRef<TextInput, InputProps>((props, ref) => {
@@ -55,6 +60,7 @@ const MoneyInput = forwardRef<TextInput, InputProps>((props, ref) => {
           value={displayValue}
           onChangeText={handleChange}
           keyboardType="number-pad"
+          onBlur={props.onBlur}
         />
       </View>
     </View>

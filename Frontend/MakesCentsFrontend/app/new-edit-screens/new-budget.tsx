@@ -43,7 +43,8 @@ export default function NewBudget() {
         month,
         year,
       };
-
+      // Log the request
+      console.log("New budget request:", request);
       // Call the API
       const axiosResponse: AxiosResponse = await makesCentsAxios.post(
         "/api/budgets",
@@ -101,7 +102,10 @@ export default function NewBudget() {
         </View>
       </View>
       {/* Content */}
-      <ScrollView style={{ marginVertical: 0 }}>
+      <ScrollView
+        style={{ marginVertical: 0 }}
+        contentContainerStyle={{ paddingBottom: 75 }}
+      >
         {/* Budget creation form goes here */}
         <Input
           name="Budget Name"

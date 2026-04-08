@@ -105,7 +105,7 @@ namespace MakesCentsBackend.Services.DataAccessLayer
                     return new CreateInvestmentAccountResponse(500, $"{ex.Message}");
                 }
                 // Commit the transaction
-                dbTransaction.Commit();  
+                dbTransaction.Commit();
             }
             // Set the status and message
             response.HttpStatus = 201;
@@ -142,10 +142,10 @@ namespace MakesCentsBackend.Services.DataAccessLayer
                     investment_account.is_tax_exempt AS IsTaxExempt
                 FROM account
                 INNER JOIN investment_account ON account.account_id = investment_account.account_id
-                WHERE investment_account.investment_account_id = @InvestmentAccountId;
+                WHERE account.account_id = @AccountId;
                 """;
             // Get the investment account
-            investmentAccount = await _connection.QueryFirstAsync<GetInvestmentAccountEntityModel>(query, new { InvestmentAccountId = request.EntityId });
+            investmentAccount = await _connection.QueryFirstAsync<GetInvestmentAccountEntityModel>(query, new { AccountId = request.EntityId });
             // Make sure the investment account is not null
             if (investmentAccount == null)
             {
@@ -166,9 +166,14 @@ namespace MakesCentsBackend.Services.DataAccessLayer
                 LEFT JOIN transaction_split ON transaction.transaction_id = transaction_split.transaction_id
                 LEFT JOIN envelope ON transaction_split.envelope_id = envelope.envelope_id
                 WHERE payment_transaction.account_id = @AccountId
-                  AND transaction.deleted_at IS NULL
-                  AND transaction.transaction_type_id = 2
-                GROUP BY transaction.transaction_id
+                AND transaction.deleted_at IS NULL
+                AND transaction.transaction_type_id = 2
+                GROUP BY
+                    transaction.transaction_id,
+                    transaction.transaction_date,
+                    transaction.transaction_type_id,
+                    transaction.total_amount,
+                    payment_transaction.merchant_source_name
                 ORDER BY transaction.transaction_date DESC;
                 """;
             // Read the list of payment transactions
@@ -285,7 +290,7 @@ namespace MakesCentsBackend.Services.DataAccessLayer
                     return new BaseIdResponse(500, $"{ex.Message}");
                 }
                 // Commit the transaction
-                dbTransaction.Commit();  
+                dbTransaction.Commit();
             }
 
             // Make sure the row was affected

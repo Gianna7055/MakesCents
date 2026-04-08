@@ -117,7 +117,7 @@ export const updatePaymentTransaction = async (
 export const updateTransferTransaction = async (
   originalTransaction: GetTransferTransactionDTOModel,
   transaction: TransactionForm,
-) => {
+): Promise<BaseIdResponse> => {
   const updatedFields: Partial<UpdateTransferTransactionRequest> =
     mapToUpdateTransfer(transaction, originalTransaction);
 

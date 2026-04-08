@@ -88,7 +88,7 @@ export default function Budget() {
   const [emptySlot, setEmptySlot] = useState<{
     year: number;
     month: number;
-  } | null>(null);
+  } | null>();
 
   const translateY = useSharedValue(100);
   const opacity = useSharedValue(0);
@@ -104,6 +104,13 @@ export default function Budget() {
     const main = async () => {
       // Load budget id from storage
       const storedBudgetId = await storage.getBudgetId();
+
+      if (!storedBudgetId) {
+        const now = new Date();
+        setEmptySlot({ year: now.getFullYear(), month: now.getMonth() + 1 });
+        return;
+      }
+
       setBudgetId(storedBudgetId || 0);
 
       try {
@@ -142,6 +149,8 @@ export default function Budget() {
         }
       } catch (error: any) {
         handleAxiosError(error);
+        const now = new Date();
+        setEmptySlot({ year: now.getFullYear(), month: now.getMonth() + 1 });
       }
     };
 
@@ -187,6 +196,11 @@ export default function Budget() {
   const handleEditCategoryClickEH = () => {
     closeMenu();
     setTimeout(() => setEnvelopeCategoryModalVisible(true), 250);
+  };
+
+  const handlePaychecksClickEH = () => {
+    closeMenu();
+    router.push("/paychecks");
   };
 
   const openMenu = () => {
@@ -345,7 +359,10 @@ export default function Budget() {
         </Text>
       </View>
       {budget ? (
-        <ScrollView>
+        <ScrollView
+          style={{ marginVertical: 0 }}
+          contentContainerStyle={{ paddingBottom: 75 }}
+        >
           {budget.envelopeCategories.map((category) => (
             <EnvelopeCategoryCard
               key={category.envelopeCategoryId}
@@ -354,8 +371,13 @@ export default function Budget() {
           ))}
         </ScrollView>
       ) : (
-        <View style={styles.noBudgetContainer}>
-          <Text style={styles.noBudgetScreenText}>No Budget Exists Yet</Text>
+        <View
+          style={[
+            globalStyles.emptyListContainer,
+            { justifyContent: "center" },
+          ]}
+        >
+          <Text style={globalStyles.emptyListText}>No Budget Exists Yet</Text>
           <Button
             name="Create Budget"
             onPress={() =>
@@ -406,6 +428,7 @@ export default function Budget() {
             style={[styles.modalView, animatedStyle]}
             onStartShouldSetResponder={() => true}
           >
+            {/*<Button name="Paychecks" onPress={handlePaychecksClickEH}></Button>*/}
             <Button
               name="Add new envelope category"
               onPress={handleCreateCategoryClickEH}
@@ -582,15 +605,5 @@ const styles = StyleSheet.create({
   closeText: {
     textAlign: "center",
     marginTop: 10,
-  },
-  noBudgetContainer: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    gap: 15,
-  },
-  noBudgetScreenText: {
-    fontSize: 16,
-    color: "#555",
   },
 });

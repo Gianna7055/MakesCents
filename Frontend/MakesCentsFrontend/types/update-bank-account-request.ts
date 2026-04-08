@@ -6,7 +6,7 @@
 import { UpdateAccountRequest } from "./update-account-request";
 import { BankAccountType } from "./bank-account-type";
 
-export interface UpdateBankAccountRequest {
+export class UpdateBankAccountRequest extends UpdateAccountRequest {
     bankAccountId: number;
     bankAccountType: BankAccountType;
 }

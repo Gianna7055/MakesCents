@@ -72,7 +72,10 @@ export default function Transactions() {
           <Text style={globalStyles.logoTitle}>Transactions</Text>
         </View>
       </View>
-      <ScrollView style={{ marginVertical: 0 }}>
+      <ScrollView
+        style={{ marginVertical: 0 }}
+        contentContainerStyle={{ paddingBottom: 75 }}
+      >
         <TransactionList transactions={transactions} />
       </ScrollView>
       <Button

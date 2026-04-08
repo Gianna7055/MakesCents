@@ -15,7 +15,7 @@ import { RegisterRequest } from "@/types/register-request";
 import { RegisterResponse } from "@/types/register-response";
 import { makesCentsPublicAxios } from "@/data/datasource";
 
-import { AxiosResponse } from "axios";
+import axios, { AxiosResponse } from "axios";
 import { storage } from "@/data/storage";
 import ScreenWrapper from "@/components/ui/screen-wrapper";
 import { handleAxiosError } from "@/utils/axiosErrorHandler";
@@ -26,6 +26,16 @@ export default function Register() {
   const [username, setUsername] = useState<string>("");
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
+  const [touched, setTouched] = useState<{
+    username: boolean;
+    email: boolean;
+    password: boolean;
+  }>({
+    username: false,
+    email: false,
+    password: false,
+  });
+  const [formError, setFormError] = useState<string | null>(null);
 
   // references for text inputs
   const emailRef = useRef<TextInput>(null);
@@ -72,23 +82,20 @@ export default function Register() {
           router.replace("/home");
         } else {
           console.log("Login failed");
-          /* 
-          --------------------------------------------------------------------------------------------
-            DEAL WITH REGISTER FAIL
-          --------------------------------------------------------------------------------------------
-        */
+          setFormError("There was an error with registration");
         }
       } catch (error: any) {
-        handleAxiosError(error, (err) => {
-          /* 
-          --------------------------------------------------------------------------------------------
-            DEAL WITH REGISTER FAIL
-          --------------------------------------------------------------------------------------------
-          */
-          if (err.response?.status === 404) {
-            // handle 404 specifically
-          }
-        });
+        setFormError("There was an error with registration");
+        console.log("Error:", error);
+        if (axios.isAxiosError(error)) {
+          console.log(
+            "Axios error:",
+            error.response?.status,
+            error.response?.data,
+          );
+        } else {
+          console.log("Error:", error);
+        }
       }
     }
   }

@@ -9,7 +9,7 @@ import { DateOnly } from "./date-only";
 import { DebtPaymentRegularity } from "./debt-payment-regularity";
 import { SummaryTransactionDTOModel } from "./summary-transaction-dto-model";
 
-export interface GetDebtAccountDTOModel {
+export interface GetDebtAccountDTOModel extends GetAccountBaseModel {
     debtAccountId: number;
     debtAccountType: DebtAccountType;
     accountNumber: number;

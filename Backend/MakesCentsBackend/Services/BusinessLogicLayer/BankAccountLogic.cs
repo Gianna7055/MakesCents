@@ -36,7 +36,7 @@ namespace MakesCentsBackend.Services.BusinessLogicLayer
             CreateBankAccountResponse response;
 
             // Make sure the necessary information was sent
-            if (bankAccount.BudgetId == 0 || bankAccount.UserId == 0 || string.IsNullOrEmpty(bankAccount.AccountName) || string.IsNullOrEmpty(bankAccount.Institution) || bankAccount.Balance == 0 || bankAccount.BankAccountType == Models.Enums.BankAccountType.Unknown)
+            if (bankAccount.BudgetId == 0 || bankAccount.UserId == 0 || string.IsNullOrEmpty(bankAccount.AccountName) || string.IsNullOrEmpty(bankAccount.Institution) || bankAccount.BankAccountType == Models.Enums.BankAccountType.Unknown)
             {
                 return new CreateBankAccountResponse(400, "Missing information for bank account creation");
             }

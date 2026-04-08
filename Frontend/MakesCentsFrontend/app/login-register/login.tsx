@@ -15,29 +15,40 @@ import Input from "@/components/text/text-input";
 import { LoginRequest } from "@/types/login-request";
 import { LoginResponse } from "@/types/login-response";
 import { makesCentsPublicAxios } from "@/data/datasource";
-import { AxiosResponse } from "axios";
+import axios, { AxiosResponse } from "axios";
 import { storage } from "@/data/storage";
 import ScreenWrapper from "@/components/ui/screen-wrapper";
 import { handleAxiosError } from "@/utils/axiosErrorHandler";
 import { jsonReviver } from "@/utils/mappers/jsonReplacer";
+import { handleBlur, touchAll } from "@/utils/touched";
 
 export default function Login() {
   // UseState variables
   const [usernameOrEmail, setUsernameOrEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
+  const [touched, setTouched] = useState<{
+    usernameOrEmail: boolean;
+    password: boolean;
+  }>({
+    usernameOrEmail: false,
+    password: false,
+  });
+  const [formError, setFormError] = useState<string | null>(null);
 
   // For testing: Remove
-  useEffect(() => {
+  /*useEffect(() => {
     setUsernameOrEmail("username");
     setPassword("password");
     handleLoginClick();
-  });
+  });*/
 
   // references for text inputs
   const passwordRef = useRef<TextInput>(null);
 
   // Functions to handle button clicks
   const handleLoginClick = async () => {
+    // Show that all fields have been touched
+    touchAll(setTouched);
     // Log the username/email and password
     //console.log("Username/Email:", usernameOrEmail);
     //console.log("Password:", password);
@@ -45,11 +56,7 @@ export default function Login() {
     // Check if the username/email or password is blank
     if (!usernameOrEmail || !password) {
       console.log("Missing Username/Email or Password");
-      /* 
-      --------------------------------------------------------------------------------------------
-        DEAL WITH MISSING USERNAME/EMAIL OR PASSWORD
-      --------------------------------------------------------------------------------------------
-      */
+      return;
     } else {
       // Create the login request
       const request = new LoginRequest();
@@ -87,23 +94,20 @@ export default function Login() {
           router.replace("/home");
         } else {
           console.log("Login failed");
-          /* 
-          --------------------------------------------------------------------------------------------
-            DEAL WITH LOGIN FAIL
-          --------------------------------------------------------------------------------------------
-        */
+          setFormError("Incorrect username or password.");
         }
       } catch (error: any) {
-        handleAxiosError(error, (err) => {
-          /* 
-          --------------------------------------------------------------------------------------------
-            DEAL WITH LOGIN FAIL
-          --------------------------------------------------------------------------------------------
-          */
-          if (err.response?.status === 404) {
-            // handle 404 specifically
-          }
-        });
+        setFormError("Incorrect username or password.");
+        console.log("Error:", error);
+        if (axios.isAxiosError(error)) {
+          console.log(
+            "Axios error:",
+            error.response?.status,
+            error.response?.data,
+          );
+        } else {
+          console.log("Error:", error);
+        }
       }
     }
   };
@@ -126,29 +130,38 @@ export default function Login() {
           />
         </View>
         <Text style={globalStyles.centeredTitle}>Login</Text>
-        <KeyboardAvoidingView>
-          <Input
-            name="Username/Email"
-            placeholder="Value"
-            type="text"
-            value={usernameOrEmail}
-            onChangeText={setUsernameOrEmail}
-            autoCapitalize="none"
-            returnKeyType="next"
-            onSubmitEditing={() => passwordRef.current?.focus()}
-          ></Input>
-          <Input
-            name="Password"
-            placeholder="Value"
-            type="password"
-            value={password}
-            onChangeText={setPassword}
-            autoCapitalize="none"
-            returnKeyType="done"
-            onSubmitEditing={handleLoginClick}
-            ref={passwordRef}
-          ></Input>
-        </KeyboardAvoidingView>
+        <Input
+          name="Username/Email"
+          placeholder="Value"
+          type="text"
+          value={usernameOrEmail}
+          onChangeText={setUsernameOrEmail}
+          onBlur={() => handleBlur("usernameOrEmail", setTouched)}
+          autoCapitalize="none"
+          returnKeyType="next"
+          onSubmitEditing={() => passwordRef.current?.focus()}
+        ></Input>
+        {touched.usernameOrEmail && !usernameOrEmail && (
+          <Text style={globalStyles.errorText}>
+            Username or email is required.
+          </Text>
+        )}
+        <Input
+          name="Password"
+          placeholder="Value"
+          type="password"
+          value={password}
+          onChangeText={setPassword}
+          onBlur={() => handleBlur("password", setTouched)}
+          autoCapitalize="none"
+          returnKeyType="done"
+          onSubmitEditing={handleLoginClick}
+          ref={passwordRef}
+        ></Input>
+        {touched.password && !password && (
+          <Text style={globalStyles.errorText}>Password is required.</Text>
+        )}
+        {formError && <Text style={globalStyles.errorText}>{formError}</Text>}
         <Button name="Login" onPress={handleLoginClick} />
         <Text style={styles.subtext}>Don't have an account?</Text>
         <Button

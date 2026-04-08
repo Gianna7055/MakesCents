@@ -141,7 +141,7 @@ namespace MakesCentsBackend.Models
         public DebtAccountType? DebtAccountType { get; set; } = null;
         public Optional<int?> AccountNumber { get; set; } = null;
         public Optional<DateOnly?> DateOfNextBill { get; set; }
-        public Optional<DateOnly?> AmountOfNextBill { get; set; }
+        public Optional<decimal?> AmountOfNextBill { get; set; }
         public Optional<DebtPaymentRegularity?> DebtPaymentRegularity { get; set; }
     }
 }

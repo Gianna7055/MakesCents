@@ -16,7 +16,8 @@ export default function Home() {
   // Home constructor
   useEffect(() => {
     const main = async () => {
-      if ((await storage.getBudgetId()) == null) {
+      const budgetId = await storage.getBudgetId();
+      if (budgetId == null || budgetId === 0) {
         // Get the current year and month
         //console.log("In Home useEffect");]
         const now: Date = new Date();
@@ -35,13 +36,17 @@ export default function Home() {
             jsonReviver,
           );
           // Log the response
-          //console.log("Response:", response);
+          console.log("Response:", response);
           if (response) {
             // Store the budget id in storage
             storage.saveBudgetId(response.budget.budgetId);
           }
         } catch (error: any) {
-          handleAxiosError(error);
+          handleAxiosError(error, (err) => {
+            if (err.response?.status === 404) {
+              // handle 404 specifically
+            }
+          });
         }
       }
     };

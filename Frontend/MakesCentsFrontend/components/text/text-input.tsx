@@ -14,6 +14,7 @@ type InputProps = {
   onSubmitEditing?: () => void;
   boxStyle?: any;
   line?: "single" | "multi";
+  onBlur?: () => void;
 };
 
 const Input = forwardRef<TextInput, InputProps>((props, ref) => {
@@ -31,6 +32,7 @@ const Input = forwardRef<TextInput, InputProps>((props, ref) => {
         secureTextEntry={isPassword}
         value={props.value}
         onChangeText={props.onChangeText}
+        onBlur={props.onBlur}
         autoCapitalize={props.autoCapitalize ?? "sentences"}
         returnKeyType={props.returnKeyType ?? "done"}
         onSubmitEditing={props.onSubmitEditing}

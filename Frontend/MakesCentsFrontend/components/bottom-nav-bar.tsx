@@ -30,6 +30,14 @@ const NAV_ITEMS = [
     icon: "building.columns.fill" as const,
     iconSet: "fontAwesome5" as const,
   },
+  /*
+  {
+    label: "Paychecks",
+    path: "/paychecks",
+    icon: "person.crop.circle.fill" as const,
+    iconSet: "fontAwesome5" as const,
+  },
+  */
   {
     label: "Profile",
     path: "/profile",
