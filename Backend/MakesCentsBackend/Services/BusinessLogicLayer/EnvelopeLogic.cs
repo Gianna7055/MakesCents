@@ -50,7 +50,7 @@ namespace MakesCentsBackend.Services.BusinessLogicLayer
                 return new BaseIdResponse(400, "Sinking funds require a goal amount and goal end date");
             }
             // If the envelope is not a sinking fun, it must have a transfer envelope id
-            if (!envelope.IsSinkingFund == false &&
+            if (envelope.IsSinkingFund == false &&
                 envelope.TransferEnvelopeId.Value == null)
             {
                 return new BaseIdResponse(400, "Rollover funds require a transfer envelope");

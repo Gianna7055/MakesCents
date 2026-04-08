@@ -31,6 +31,7 @@ import {
   updateDebtAccount,
   updateInvestmentAccount,
 } from "@/utils/new-edit-helpers/newEditAccountHelper";
+import { handleBlur } from "@/utils/touched";
 import { AxiosResponse } from "axios";
 import { router, useLocalSearchParams } from "expo-router";
 import React from "react";
@@ -52,7 +53,6 @@ export default function ExpandedAccount() {
   const accountType: AccountType = paramAccountType
     ? (parseInt(paramAccountType) as AccountType)
     : AccountType.Unknown;
-  console.log("Account Type:", AccountType[accountType]);
 
   const [originalAccount, setOriginalAccount] = useState<
     | GetBankAccountDTOModel
@@ -62,6 +62,11 @@ export default function ExpandedAccount() {
   >(null);
   const [account, setAccount] = useState<AccountForm>(emptyAccountForm);
   const [budgetId, setBudgetId] = useState<number>(0);
+
+  const [touched, setTouched] = useState<
+    Partial<Record<keyof AccountForm, boolean>>
+  >({});
+  const [formError, setFormError] = useState<string | null>(null);
 
   useEffect(() => {
     const main = async () => {
@@ -216,17 +221,34 @@ export default function ExpandedAccount() {
 
   const handleDoneClickEH = async () => {
     try {
+      setTouched({
+        accountType: true,
+        accountName: true,
+        institution: true,
+        balance: true,
+      });
       if (account.accountType === AccountType.Bank) {
+        setTouched({
+          bankAccountType: true,
+        });
         const response: BaseIdResponse = await updateBankAccount(
           account,
           originalAccount as GetBankAccountDTOModel,
         );
       } else if (account.accountType === AccountType.Debt) {
+        setTouched({
+          debtAccountType: true,
+        });
         const response: BaseIdResponse = await updateDebtAccount(
           account,
           originalAccount as GetDebtAccountDTOModel,
         );
       } else if (account.accountType === AccountType.Investment) {
+        setTouched({
+          investmentAccountType: true,
+          isTaxDeferred: true,
+          isTaxExempt: true,
+        });
         const response: BaseIdResponse = await updateInvestmentAccount(
           account,
           originalAccount as GetInvestmentAccountDTOModel,
@@ -236,6 +258,7 @@ export default function ExpandedAccount() {
       router.replace("/accounts");
     } catch (error: any) {
       handleAxiosError(error);
+      setFormError("There was an error");
     }
   };
 
@@ -285,6 +308,7 @@ export default function ExpandedAccount() {
         type="text"
         value={account.accountName || ""}
         onChangeText={(text) => updateAccountForm("accountName", text)}
+        onBlur={() => handleBlur("accountName", setTouched)}
         autoCapitalize="words"
       />
     );
@@ -298,6 +322,7 @@ export default function ExpandedAccount() {
         type="text"
         value={account.institution || ""}
         onChangeText={(text) => updateAccountForm("institution", text)}
+        onBlur={() => handleBlur("institution", setTouched)}
         autoCapitalize="words"
       />
     );
@@ -309,6 +334,7 @@ export default function ExpandedAccount() {
         name="Balance"
         value={account.balance}
         onChangeValue={(amount) => updateAccountForm("balance", amount)}
+        onBlur={() => handleBlur("balance", setTouched)}
       />
     );
   };
@@ -328,6 +354,7 @@ export default function ExpandedAccount() {
           onChange={(type) =>
             updateAccountForm("bankAccountType", type ?? null)
           }
+          onBlur={() => handleBlur("bankAccountType", setTouched)}
         />
       </View>
     );
@@ -348,6 +375,7 @@ export default function ExpandedAccount() {
           onChange={(type) =>
             updateAccountForm("debtAccountType", type ?? null)
           }
+          onBlur={() => handleBlur("debtAccountType", setTouched)}
         />
       </View>
     );
@@ -368,6 +396,7 @@ export default function ExpandedAccount() {
           onChange={(type) =>
             updateAccountForm("investmentAccountType", type ?? null)
           }
+          onBlur={() => handleBlur("investmentAccountType", setTouched)}
         />
       </View>
     );
@@ -380,6 +409,7 @@ export default function ExpandedAccount() {
         value={account.accountNumber || null}
         placeHolder="Account Number"
         onChangeValue={(number) => updateAccountForm("accountNumber", number)}
+        onBlur={() => handleBlur("accountNumber", setTouched)}
       />
     );
   };
@@ -394,6 +424,7 @@ export default function ExpandedAccount() {
           name="Date of Next Bill (Optional)"
           value={account.dateOfNextBill || null}
           onChange={(text) => updateAccountForm("dateOfNextBill", text)}
+          onBlur={() => handleBlur}
         />
         <MoneyInput
           name="Amount of Next Bill (Optional)"

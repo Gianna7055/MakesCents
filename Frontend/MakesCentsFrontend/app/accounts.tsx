@@ -25,6 +25,7 @@ export default function Accounts() {
       const storedBudgetId = await storage.getBudgetId();
 
       setBudgetId(storedBudgetId || 0);
+      //console.log("Accounts Page BudgetId:", storedBudgetId);
 
       try {
         //console.log("BudgetId:", storedBudgetId);

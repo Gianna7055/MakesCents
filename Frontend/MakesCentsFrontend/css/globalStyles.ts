@@ -136,4 +136,11 @@ export const globalStyles = StyleSheet.create({
     fontSize: 16,
     color: "#555",
   },
+
+  // Error text styles
+  errorText: {
+    color: "red",
+    fontSize: 14,
+    paddingLeft: screenWidth * 0.09,
+  },
 });

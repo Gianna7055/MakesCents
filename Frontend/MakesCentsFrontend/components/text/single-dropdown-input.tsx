@@ -23,6 +23,7 @@ type Props<T> = {
   groupBy?: (item: T) => string | null;
 
   onChange: (item: T) => void;
+  onBlur?: () => void;
 };
 
 function SingleDropdownInput<T>(props: Props<T>) {
@@ -101,6 +102,7 @@ function SingleDropdownInput<T>(props: Props<T>) {
                   })}
                 </View>
               )}
+              onBlur={props.onBlur}
             />
           </View>
         </View>

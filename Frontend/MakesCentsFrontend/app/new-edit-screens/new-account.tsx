@@ -15,12 +15,19 @@ import { storage } from "@/data/storage";
 import { AccountType } from "@/types/account-type";
 import { BankAccountType } from "@/types/bank-account-type";
 import { CreateBankAccountResponse } from "@/types/create-bank-account-response";
+import { CreateDebtAccountResponse } from "@/types/create-debt-account-response";
+import { CreateInvestmentAccountResponse } from "@/types/create-investment-account-response";
 import { DebtAccountType } from "@/types/debt-account-type";
 import { DebtPaymentRegularity } from "@/types/debt-payment-regularity";
 import { InvestmentAccountType } from "@/types/investment-account-type";
 import { handleAxiosError } from "@/utils/axiosErrorHandler";
+import { formatCurrency } from "@/utils/formatCurrency";
 import { AccountForm, emptyAccountForm } from "@/utils/mappers/accountMapper";
-import { createBankAccount } from "@/utils/new-edit-helpers/newEditAccountHelper";
+import {
+  createBankAccount,
+  createDebtAccount,
+  createInvestmentAccount,
+} from "@/utils/new-edit-helpers/newEditAccountHelper";
 import { router } from "expo-router";
 import React, { useEffect } from "react";
 import { useState } from "react";
@@ -44,6 +51,7 @@ export default function NewAccount() {
 
     // Call main
     main();
+    //console.log("New Account Budget Id:", budgetId);
   }, []);
 
   // Method to update single field K in an account
@@ -69,16 +77,14 @@ export default function NewAccount() {
         );
       } else if (account.accountType === AccountType.Debt) {
         // Call the helper method ot create the debt account
-        const response: CreateBankAccountResponse = await createBankAccount(
+        const response: CreateDebtAccountResponse = await createDebtAccount(
           account,
           budgetId,
         );
       } else if (account.accountType === AccountType.Investment) {
         // Call the helper method ot create the investment account
-        const response: CreateBankAccountResponse = await createBankAccount(
-          account,
-          budgetId,
-        );
+        const response: CreateInvestmentAccountResponse =
+          await createInvestmentAccount(account, budgetId);
       }
       // Go back to the accounts page
       router.replace("/accounts");

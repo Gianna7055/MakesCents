@@ -50,7 +50,7 @@ export default function Profile() {
           jsonReviver,
         );
         // Log the response
-        console.log("Response:", response);
+        //console.log("Response:", response);
         if (response) {
           // Store the budget id in storage
           setUser(response.getUserDTO);
@@ -90,15 +90,15 @@ export default function Profile() {
     const request = new EditUserRequest();
     if (user!.username != savedUser!.username) {
       request.username = user!.username;
-      console.log("Going to update username");
+      //console.log("Going to update username");
     }
     if (user!.email != savedUser!.email) {
       request.email = user!.email;
-      console.log("Going to update email");
+      //console.log("Going to update email");
     }
     if (newPassword && newPassword == reEnterPassword) {
       request.passwordHash = newPassword;
-      console.log("Going to update password");
+      //console.log("Going to update password");
     }
 
     // Make sure the request has information (don't call for 0 updates)

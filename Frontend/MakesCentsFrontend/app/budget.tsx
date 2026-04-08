@@ -88,7 +88,7 @@ export default function Budget() {
   const [emptySlot, setEmptySlot] = useState<{
     year: number;
     month: number;
-  } | null>(null);
+  } | null>();
 
   const translateY = useSharedValue(100);
   const opacity = useSharedValue(0);
@@ -104,6 +104,13 @@ export default function Budget() {
     const main = async () => {
       // Load budget id from storage
       const storedBudgetId = await storage.getBudgetId();
+
+      if (!storedBudgetId) {
+        const now = new Date();
+        setEmptySlot({ year: now.getFullYear(), month: now.getMonth() + 1 });
+        return;
+      }
+
       setBudgetId(storedBudgetId || 0);
 
       try {
@@ -142,6 +149,8 @@ export default function Budget() {
         }
       } catch (error: any) {
         handleAxiosError(error);
+        const now = new Date();
+        setEmptySlot({ year: now.getFullYear(), month: now.getMonth() + 1 });
       }
     };
 
@@ -419,7 +428,7 @@ export default function Budget() {
             style={[styles.modalView, animatedStyle]}
             onStartShouldSetResponder={() => true}
           >
-            <Button name="Paychecks" onPress={handlePaychecksClickEH}></Button>
+            {/*<Button name="Paychecks" onPress={handlePaychecksClickEH}></Button>*/}
             <Button
               name="Add new envelope category"
               onPress={handleCreateCategoryClickEH}

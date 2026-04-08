@@ -43,7 +43,8 @@ export default function NewBudget() {
         month,
         year,
       };
-
+      // Log the request
+      console.log("New budget request:", request);
       // Call the API
       const axiosResponse: AxiosResponse = await makesCentsAxios.post(
         "/api/budgets",

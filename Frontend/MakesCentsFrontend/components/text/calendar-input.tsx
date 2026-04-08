@@ -19,6 +19,7 @@ type InputProps = {
   placeholder?: string;
   returnKeyType?: "next" | "done" | "go" | "search" | "send";
   onSubmitEditing?: () => void;
+  onBlur?: () => void;
 };
 
 const CalendarInput = forwardRef<TextInput, InputProps>((props, ref) => {
@@ -56,6 +57,7 @@ const CalendarInput = forwardRef<TextInput, InputProps>((props, ref) => {
           onChangeText={handleTextChange}
           placeholder={props.placeholder || "MM/DD/YYYY"}
           keyboardType="numeric"
+          onBlur={props.onBlur}
         />
 
         <TouchableOpacity onPress={showPicker} style={styles.icon}>

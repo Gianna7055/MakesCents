@@ -37,7 +37,7 @@ namespace MakesCentsBackend.Services.BusinessLogicLayer
             CreateDebtAccountResponse response;
 
             // Make sure the necessary information was sent
-            if (debtAccount.BudgetId == 0 || debtAccount.UserId == 0 || string.IsNullOrEmpty(debtAccount.AccountName) || string.IsNullOrEmpty(debtAccount.Institution) || debtAccount.Balance == 0m || debtAccount.DebtAccountType == DebtAccountType.Unknown)
+            if (debtAccount.BudgetId == 0 || debtAccount.UserId == 0 || string.IsNullOrEmpty(debtAccount.AccountName) || string.IsNullOrEmpty(debtAccount.Institution) || debtAccount.DebtAccountType == DebtAccountType.Unknown)
             {
                 return new CreateDebtAccountResponse(400, "Missing information for debt account creation");
             }

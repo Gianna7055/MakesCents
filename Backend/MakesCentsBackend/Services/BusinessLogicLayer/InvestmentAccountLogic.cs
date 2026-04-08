@@ -37,7 +37,7 @@ namespace MakesCentsBackend.Services.BusinessLogicLayer
             CreateInvestmentAccountResponse response;
 
             // Make sure the necessary information was sent
-            if (investmentAccount.BudgetId == 0 || investmentAccount.UserId == 0 || string.IsNullOrEmpty(investmentAccount.AccountName) || string.IsNullOrEmpty(investmentAccount.Institution) || investmentAccount.Balance == 0m || investmentAccount.InvestmentAccountType == InvestmentAccountType.Unknown)
+            if (investmentAccount.BudgetId == 0 || investmentAccount.UserId == 0 || string.IsNullOrEmpty(investmentAccount.AccountName) || string.IsNullOrEmpty(investmentAccount.Institution) || investmentAccount.InvestmentAccountType == InvestmentAccountType.Unknown)
             {
                 return new CreateInvestmentAccountResponse(400, "Missing information for investment account creation");
             }

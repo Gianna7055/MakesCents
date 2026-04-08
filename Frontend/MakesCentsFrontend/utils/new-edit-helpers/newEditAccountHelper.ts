@@ -29,11 +29,15 @@ export const createBankAccount = async (
   budgetId: number,
 ): Promise<CreateBankAccountResponse> => {
   // Create the request
-  const request: CreateBankAccountRequest = mapToCreateBankAccount(account,
-    budgetId,);
+  const request: CreateBankAccountRequest = mapToCreateBankAccount(
+    account,
+    budgetId,
+  );
 
   // Map to the payload
   const payload = JSON.stringify(request, jsonReplacer);
+  // Log the payload
+  console.log("Create Bank Account Payload:", payload);
 
   // Call the API to create a bank account
   const axiosResponse: AxiosResponse = await makesCentsAxios.post(
@@ -58,11 +62,15 @@ export const createDebtAccount = async (
   budgetId: number,
 ): Promise<CreateDebtAccountResponse> => {
   // Create the request
-  const request: CreateDebtAccountRequest = mapToCreateDebtAccount(account,
-    budgetId,);
+  const request: CreateDebtAccountRequest = mapToCreateDebtAccount(
+    account,
+    budgetId,
+  );
 
   // Map to the payload
   const payload = JSON.stringify(request, jsonReplacer);
+  // Log the payload
+  console.log("Create Debt Account Payload:", payload);
 
   // Call the API to create a debt account
   const axiosResponse: AxiosResponse = await makesCentsAxios.post(
@@ -87,12 +95,15 @@ export const createInvestmentAccount = async (
   budgetId: number,
 ): Promise<CreateInvestmentAccountResponse> => {
   // Create the request
-  const request: CreateInvestmentAccountRequest =
-    mapToCreateInvestmentAccount(account,
-      budgetId,);
+  const request: CreateInvestmentAccountRequest = mapToCreateInvestmentAccount(
+    account,
+    budgetId,
+  );
 
   // Map to the payload
   const payload = JSON.stringify(request, jsonReplacer);
+  // Log the payload
+  console.log("Create Investment Account Payload:", payload);
 
   // Call the API to create an investment account
   const axiosResponse: AxiosResponse = await makesCentsAxios.post(
