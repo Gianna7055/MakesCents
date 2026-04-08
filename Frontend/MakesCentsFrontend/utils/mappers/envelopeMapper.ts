@@ -40,7 +40,7 @@ export const mapToCreateEnvelope = (
     envelopeCategoryId: form.envelopeCategoryId ?? 0,
     envelopeName: form.envelopeName ?? "",
     plannedAmount: form.plannedAmount ?? 0,
-    remainingAmount: form.remainingAmount ?? 0,
+    remainingAmount: form.plannedAmount ?? 0,
     isSinkingFund: form.isSinkingFund ?? true,
     goalAmount: toOptional(form.goalAmount),
     goalEndDate: toOptional(
