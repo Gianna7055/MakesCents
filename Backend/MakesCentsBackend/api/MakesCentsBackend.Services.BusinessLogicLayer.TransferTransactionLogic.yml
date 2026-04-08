@@ -1,0 +1,724 @@
+### YamlMime:ManagedReference
+items:
+- uid: MakesCentsBackend.Services.BusinessLogicLayer.TransferTransactionLogic
+  commentId: T:MakesCentsBackend.Services.BusinessLogicLayer.TransferTransactionLogic
+  id: TransferTransactionLogic
+  parent: MakesCentsBackend.Services.BusinessLogicLayer
+  children:
+  - MakesCentsBackend.Services.BusinessLogicLayer.TransferTransactionLogic.#ctor(MakesCentsBackend.Services.DataAccessLayer.TransferTransactionDAO,AutoMapper.IMapper)
+  - MakesCentsBackend.Services.BusinessLogicLayer.TransferTransactionLogic.CreateTransferTransactionAsync(MakesCentsBackend.Models.CreateTransferTransactionRequest)
+  - MakesCentsBackend.Services.BusinessLogicLayer.TransferTransactionLogic.GetTransferTransactionAsync(MakesCentsBackend.Models.BaseIdRequest)
+  - MakesCentsBackend.Services.BusinessLogicLayer.TransferTransactionLogic.UpdateTransferTransactionAsync(MakesCentsBackend.Models.UpdateTransferTransactionRequest)
+  langs:
+  - csharp
+  - vb
+  name: TransferTransactionLogic
+  nameWithType: TransferTransactionLogic
+  fullName: MakesCentsBackend.Services.BusinessLogicLayer.TransferTransactionLogic
+  type: Class
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Services/BusinessLogicLayer/TransferTransactionLogic.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: TransferTransactionLogic
+    path: Services/BusinessLogicLayer/TransferTransactionLogic.cs
+    startLine: 12
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Services.BusinessLogicLayer
+  syntax:
+    content: public class TransferTransactionLogic
+    content.vb: Public Class TransferTransactionLogic
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: MakesCentsBackend.Services.BusinessLogicLayer.TransferTransactionLogic.#ctor(MakesCentsBackend.Services.DataAccessLayer.TransferTransactionDAO,AutoMapper.IMapper)
+  commentId: M:MakesCentsBackend.Services.BusinessLogicLayer.TransferTransactionLogic.#ctor(MakesCentsBackend.Services.DataAccessLayer.TransferTransactionDAO,AutoMapper.IMapper)
+  id: '#ctor(MakesCentsBackend.Services.DataAccessLayer.TransferTransactionDAO,AutoMapper.IMapper)'
+  parent: MakesCentsBackend.Services.BusinessLogicLayer.TransferTransactionLogic
+  langs:
+  - csharp
+  - vb
+  name: TransferTransactionLogic(TransferTransactionDAO, IMapper)
+  nameWithType: TransferTransactionLogic.TransferTransactionLogic(TransferTransactionDAO, IMapper)
+  fullName: MakesCentsBackend.Services.BusinessLogicLayer.TransferTransactionLogic.TransferTransactionLogic(MakesCentsBackend.Services.DataAccessLayer.TransferTransactionDAO, AutoMapper.IMapper)
+  type: Constructor
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Services/BusinessLogicLayer/TransferTransactionLogic.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: .ctor
+    path: Services/BusinessLogicLayer/TransferTransactionLogic.cs
+    startLine: 22
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Services.BusinessLogicLayer
+  summary: Parameterized constructor to bring in DI variables
+  example: []
+  syntax:
+    content: public TransferTransactionLogic(TransferTransactionDAO transferTransactionDAO, IMapper mapper)
+    parameters:
+    - id: transferTransactionDAO
+      type: MakesCentsBackend.Services.DataAccessLayer.TransferTransactionDAO
+      description: ''
+    - id: mapper
+      type: AutoMapper.IMapper
+    content.vb: Public Sub New(transferTransactionDAO As TransferTransactionDAO, mapper As IMapper)
+  overload: MakesCentsBackend.Services.BusinessLogicLayer.TransferTransactionLogic.#ctor*
+  nameWithType.vb: TransferTransactionLogic.New(TransferTransactionDAO, IMapper)
+  fullName.vb: MakesCentsBackend.Services.BusinessLogicLayer.TransferTransactionLogic.New(MakesCentsBackend.Services.DataAccessLayer.TransferTransactionDAO, AutoMapper.IMapper)
+  name.vb: New(TransferTransactionDAO, IMapper)
+- uid: MakesCentsBackend.Services.BusinessLogicLayer.TransferTransactionLogic.CreateTransferTransactionAsync(MakesCentsBackend.Models.CreateTransferTransactionRequest)
+  commentId: M:MakesCentsBackend.Services.BusinessLogicLayer.TransferTransactionLogic.CreateTransferTransactionAsync(MakesCentsBackend.Models.CreateTransferTransactionRequest)
+  id: CreateTransferTransactionAsync(MakesCentsBackend.Models.CreateTransferTransactionRequest)
+  parent: MakesCentsBackend.Services.BusinessLogicLayer.TransferTransactionLogic
+  langs:
+  - csharp
+  - vb
+  name: CreateTransferTransactionAsync(CreateTransferTransactionRequest)
+  nameWithType: TransferTransactionLogic.CreateTransferTransactionAsync(CreateTransferTransactionRequest)
+  fullName: MakesCentsBackend.Services.BusinessLogicLayer.TransferTransactionLogic.CreateTransferTransactionAsync(MakesCentsBackend.Models.CreateTransferTransactionRequest)
+  type: Method
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Services/BusinessLogicLayer/TransferTransactionLogic.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: CreateTransferTransactionAsync
+    path: Services/BusinessLogicLayer/TransferTransactionLogic.cs
+    startLine: 28
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Services.BusinessLogicLayer
+  syntax:
+    content: public Task<CreateTransferTransactionResponse> CreateTransferTransactionAsync(CreateTransferTransactionRequest transferTransaction)
+    parameters:
+    - id: transferTransaction
+      type: MakesCentsBackend.Models.CreateTransferTransactionRequest
+    return:
+      type: System.Threading.Tasks.Task{MakesCentsBackend.Models.CreateTransferTransactionResponse}
+    content.vb: Public Function CreateTransferTransactionAsync(transferTransaction As CreateTransferTransactionRequest) As Task(Of CreateTransferTransactionResponse)
+  overload: MakesCentsBackend.Services.BusinessLogicLayer.TransferTransactionLogic.CreateTransferTransactionAsync*
+- uid: MakesCentsBackend.Services.BusinessLogicLayer.TransferTransactionLogic.GetTransferTransactionAsync(MakesCentsBackend.Models.BaseIdRequest)
+  commentId: M:MakesCentsBackend.Services.BusinessLogicLayer.TransferTransactionLogic.GetTransferTransactionAsync(MakesCentsBackend.Models.BaseIdRequest)
+  id: GetTransferTransactionAsync(MakesCentsBackend.Models.BaseIdRequest)
+  parent: MakesCentsBackend.Services.BusinessLogicLayer.TransferTransactionLogic
+  langs:
+  - csharp
+  - vb
+  name: GetTransferTransactionAsync(BaseIdRequest)
+  nameWithType: TransferTransactionLogic.GetTransferTransactionAsync(BaseIdRequest)
+  fullName: MakesCentsBackend.Services.BusinessLogicLayer.TransferTransactionLogic.GetTransferTransactionAsync(MakesCentsBackend.Models.BaseIdRequest)
+  type: Method
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Services/BusinessLogicLayer/TransferTransactionLogic.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: GetTransferTransactionAsync
+    path: Services/BusinessLogicLayer/TransferTransactionLogic.cs
+    startLine: 45
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Services.BusinessLogicLayer
+  syntax:
+    content: public Task<GetTransferTransactionDTOResponse> GetTransferTransactionAsync(BaseIdRequest request)
+    parameters:
+    - id: request
+      type: MakesCentsBackend.Models.BaseIdRequest
+    return:
+      type: System.Threading.Tasks.Task{MakesCentsBackend.Models.GetTransferTransactionDTOResponse}
+    content.vb: Public Function GetTransferTransactionAsync(request As BaseIdRequest) As Task(Of GetTransferTransactionDTOResponse)
+  overload: MakesCentsBackend.Services.BusinessLogicLayer.TransferTransactionLogic.GetTransferTransactionAsync*
+- uid: MakesCentsBackend.Services.BusinessLogicLayer.TransferTransactionLogic.UpdateTransferTransactionAsync(MakesCentsBackend.Models.UpdateTransferTransactionRequest)
+  commentId: M:MakesCentsBackend.Services.BusinessLogicLayer.TransferTransactionLogic.UpdateTransferTransactionAsync(MakesCentsBackend.Models.UpdateTransferTransactionRequest)
+  id: UpdateTransferTransactionAsync(MakesCentsBackend.Models.UpdateTransferTransactionRequest)
+  parent: MakesCentsBackend.Services.BusinessLogicLayer.TransferTransactionLogic
+  langs:
+  - csharp
+  - vb
+  name: UpdateTransferTransactionAsync(UpdateTransferTransactionRequest)
+  nameWithType: TransferTransactionLogic.UpdateTransferTransactionAsync(UpdateTransferTransactionRequest)
+  fullName: MakesCentsBackend.Services.BusinessLogicLayer.TransferTransactionLogic.UpdateTransferTransactionAsync(MakesCentsBackend.Models.UpdateTransferTransactionRequest)
+  type: Method
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Services/BusinessLogicLayer/TransferTransactionLogic.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: UpdateTransferTransactionAsync
+    path: Services/BusinessLogicLayer/TransferTransactionLogic.cs
+    startLine: 77
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Services.BusinessLogicLayer
+  syntax:
+    content: public Task<BaseIdResponse> UpdateTransferTransactionAsync(UpdateTransferTransactionRequest transferTransaction)
+    parameters:
+    - id: transferTransaction
+      type: MakesCentsBackend.Models.UpdateTransferTransactionRequest
+    return:
+      type: System.Threading.Tasks.Task{MakesCentsBackend.Models.BaseIdResponse}
+    content.vb: Public Function UpdateTransferTransactionAsync(transferTransaction As UpdateTransferTransactionRequest) As Task(Of BaseIdResponse)
+  overload: MakesCentsBackend.Services.BusinessLogicLayer.TransferTransactionLogic.UpdateTransferTransactionAsync*
+references:
+- uid: MakesCentsBackend.Services.BusinessLogicLayer
+  commentId: N:MakesCentsBackend.Services.BusinessLogicLayer
+  href: MakesCentsBackend.html
+  name: MakesCentsBackend.Services.BusinessLogicLayer
+  nameWithType: MakesCentsBackend.Services.BusinessLogicLayer
+  fullName: MakesCentsBackend.Services.BusinessLogicLayer
+  spec.csharp:
+  - uid: MakesCentsBackend
+    name: MakesCentsBackend
+    href: MakesCentsBackend.html
+  - name: .
+  - uid: MakesCentsBackend.Services
+    name: Services
+    href: MakesCentsBackend.Services.html
+  - name: .
+  - uid: MakesCentsBackend.Services.BusinessLogicLayer
+    name: BusinessLogicLayer
+    href: MakesCentsBackend.Services.BusinessLogicLayer.html
+  spec.vb:
+  - uid: MakesCentsBackend
+    name: MakesCentsBackend
+    href: MakesCentsBackend.html
+  - name: .
+  - uid: MakesCentsBackend.Services
+    name: Services
+    href: MakesCentsBackend.Services.html
+  - name: .
+  - uid: MakesCentsBackend.Services.BusinessLogicLayer
+    name: BusinessLogicLayer
+    href: MakesCentsBackend.Services.BusinessLogicLayer.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: MakesCentsBackend.Services.BusinessLogicLayer.TransferTransactionLogic.#ctor*
+  commentId: Overload:MakesCentsBackend.Services.BusinessLogicLayer.TransferTransactionLogic.#ctor
+  href: MakesCentsBackend.Services.BusinessLogicLayer.TransferTransactionLogic.html#MakesCentsBackend_Services_BusinessLogicLayer_TransferTransactionLogic__ctor_MakesCentsBackend_Services_DataAccessLayer_TransferTransactionDAO_AutoMapper_IMapper_
+  name: TransferTransactionLogic
+  nameWithType: TransferTransactionLogic.TransferTransactionLogic
+  fullName: MakesCentsBackend.Services.BusinessLogicLayer.TransferTransactionLogic.TransferTransactionLogic
+  nameWithType.vb: TransferTransactionLogic.New
+  fullName.vb: MakesCentsBackend.Services.BusinessLogicLayer.TransferTransactionLogic.New
+  name.vb: New
+- uid: MakesCentsBackend.Services.DataAccessLayer.TransferTransactionDAO
+  commentId: T:MakesCentsBackend.Services.DataAccessLayer.TransferTransactionDAO
+  parent: MakesCentsBackend.Services.DataAccessLayer
+  href: MakesCentsBackend.Services.DataAccessLayer.TransferTransactionDAO.html
+  name: TransferTransactionDAO
+  nameWithType: TransferTransactionDAO
+  fullName: MakesCentsBackend.Services.DataAccessLayer.TransferTransactionDAO
+- uid: AutoMapper.IMapper
+  commentId: T:AutoMapper.IMapper
+  parent: AutoMapper
+  isExternal: true
+  name: IMapper
+  nameWithType: IMapper
+  fullName: AutoMapper.IMapper
+- uid: MakesCentsBackend.Services.DataAccessLayer
+  commentId: N:MakesCentsBackend.Services.DataAccessLayer
+  href: MakesCentsBackend.html
+  name: MakesCentsBackend.Services.DataAccessLayer
+  nameWithType: MakesCentsBackend.Services.DataAccessLayer
+  fullName: MakesCentsBackend.Services.DataAccessLayer
+  spec.csharp:
+  - uid: MakesCentsBackend
+    name: MakesCentsBackend
+    href: MakesCentsBackend.html
+  - name: .
+  - uid: MakesCentsBackend.Services
+    name: Services
+    href: MakesCentsBackend.Services.html
+  - name: .
+  - uid: MakesCentsBackend.Services.DataAccessLayer
+    name: DataAccessLayer
+    href: MakesCentsBackend.Services.DataAccessLayer.html
+  spec.vb:
+  - uid: MakesCentsBackend
+    name: MakesCentsBackend
+    href: MakesCentsBackend.html
+  - name: .
+  - uid: MakesCentsBackend.Services
+    name: Services
+    href: MakesCentsBackend.Services.html
+  - name: .
+  - uid: MakesCentsBackend.Services.DataAccessLayer
+    name: DataAccessLayer
+    href: MakesCentsBackend.Services.DataAccessLayer.html
+- uid: AutoMapper
+  commentId: N:AutoMapper
+  isExternal: true
+  name: AutoMapper
+  nameWithType: AutoMapper
+  fullName: AutoMapper
+- uid: MakesCentsBackend.Services.BusinessLogicLayer.TransferTransactionLogic.CreateTransferTransactionAsync*
+  commentId: Overload:MakesCentsBackend.Services.BusinessLogicLayer.TransferTransactionLogic.CreateTransferTransactionAsync
+  href: MakesCentsBackend.Services.BusinessLogicLayer.TransferTransactionLogic.html#MakesCentsBackend_Services_BusinessLogicLayer_TransferTransactionLogic_CreateTransferTransactionAsync_MakesCentsBackend_Models_CreateTransferTransactionRequest_
+  name: CreateTransferTransactionAsync
+  nameWithType: TransferTransactionLogic.CreateTransferTransactionAsync
+  fullName: MakesCentsBackend.Services.BusinessLogicLayer.TransferTransactionLogic.CreateTransferTransactionAsync
+- uid: MakesCentsBackend.Models.CreateTransferTransactionRequest
+  commentId: T:MakesCentsBackend.Models.CreateTransferTransactionRequest
+  parent: MakesCentsBackend.Models
+  href: MakesCentsBackend.Models.CreateTransferTransactionRequest.html
+  name: CreateTransferTransactionRequest
+  nameWithType: CreateTransferTransactionRequest
+  fullName: MakesCentsBackend.Models.CreateTransferTransactionRequest
+- uid: System.Threading.Tasks.Task{MakesCentsBackend.Models.CreateTransferTransactionResponse}
+  commentId: T:System.Threading.Tasks.Task{MakesCentsBackend.Models.CreateTransferTransactionResponse}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<CreateTransferTransactionResponse>
+  nameWithType: Task<CreateTransferTransactionResponse>
+  fullName: System.Threading.Tasks.Task<MakesCentsBackend.Models.CreateTransferTransactionResponse>
+  nameWithType.vb: Task(Of CreateTransferTransactionResponse)
+  fullName.vb: System.Threading.Tasks.Task(Of MakesCentsBackend.Models.CreateTransferTransactionResponse)
+  name.vb: Task(Of CreateTransferTransactionResponse)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: MakesCentsBackend.Models.CreateTransferTransactionResponse
+    name: CreateTransferTransactionResponse
+    href: MakesCentsBackend.Models.CreateTransferTransactionResponse.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: MakesCentsBackend.Models.CreateTransferTransactionResponse
+    name: CreateTransferTransactionResponse
+    href: MakesCentsBackend.Models.CreateTransferTransactionResponse.html
+  - name: )
+- uid: MakesCentsBackend.Models
+  commentId: N:MakesCentsBackend.Models
+  href: MakesCentsBackend.html
+  name: MakesCentsBackend.Models
+  nameWithType: MakesCentsBackend.Models
+  fullName: MakesCentsBackend.Models
+  spec.csharp:
+  - uid: MakesCentsBackend
+    name: MakesCentsBackend
+    href: MakesCentsBackend.html
+  - name: .
+  - uid: MakesCentsBackend.Models
+    name: Models
+    href: MakesCentsBackend.Models.html
+  spec.vb:
+  - uid: MakesCentsBackend
+    name: MakesCentsBackend
+    href: MakesCentsBackend.html
+  - name: .
+  - uid: MakesCentsBackend.Models
+    name: Models
+    href: MakesCentsBackend.Models.html
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+- uid: MakesCentsBackend.Services.BusinessLogicLayer.TransferTransactionLogic.GetTransferTransactionAsync*
+  commentId: Overload:MakesCentsBackend.Services.BusinessLogicLayer.TransferTransactionLogic.GetTransferTransactionAsync
+  href: MakesCentsBackend.Services.BusinessLogicLayer.TransferTransactionLogic.html#MakesCentsBackend_Services_BusinessLogicLayer_TransferTransactionLogic_GetTransferTransactionAsync_MakesCentsBackend_Models_BaseIdRequest_
+  name: GetTransferTransactionAsync
+  nameWithType: TransferTransactionLogic.GetTransferTransactionAsync
+  fullName: MakesCentsBackend.Services.BusinessLogicLayer.TransferTransactionLogic.GetTransferTransactionAsync
+- uid: MakesCentsBackend.Models.BaseIdRequest
+  commentId: T:MakesCentsBackend.Models.BaseIdRequest
+  parent: MakesCentsBackend.Models
+  href: MakesCentsBackend.Models.BaseIdRequest.html
+  name: BaseIdRequest
+  nameWithType: BaseIdRequest
+  fullName: MakesCentsBackend.Models.BaseIdRequest
+- uid: System.Threading.Tasks.Task{MakesCentsBackend.Models.GetTransferTransactionDTOResponse}
+  commentId: T:System.Threading.Tasks.Task{MakesCentsBackend.Models.GetTransferTransactionDTOResponse}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<GetTransferTransactionDTOResponse>
+  nameWithType: Task<GetTransferTransactionDTOResponse>
+  fullName: System.Threading.Tasks.Task<MakesCentsBackend.Models.GetTransferTransactionDTOResponse>
+  nameWithType.vb: Task(Of GetTransferTransactionDTOResponse)
+  fullName.vb: System.Threading.Tasks.Task(Of MakesCentsBackend.Models.GetTransferTransactionDTOResponse)
+  name.vb: Task(Of GetTransferTransactionDTOResponse)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: MakesCentsBackend.Models.GetTransferTransactionDTOResponse
+    name: GetTransferTransactionDTOResponse
+    href: MakesCentsBackend.Models.GetTransferTransactionDTOResponse.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: MakesCentsBackend.Models.GetTransferTransactionDTOResponse
+    name: GetTransferTransactionDTOResponse
+    href: MakesCentsBackend.Models.GetTransferTransactionDTOResponse.html
+  - name: )
+- uid: MakesCentsBackend.Services.BusinessLogicLayer.TransferTransactionLogic.UpdateTransferTransactionAsync*
+  commentId: Overload:MakesCentsBackend.Services.BusinessLogicLayer.TransferTransactionLogic.UpdateTransferTransactionAsync
+  href: MakesCentsBackend.Services.BusinessLogicLayer.TransferTransactionLogic.html#MakesCentsBackend_Services_BusinessLogicLayer_TransferTransactionLogic_UpdateTransferTransactionAsync_MakesCentsBackend_Models_UpdateTransferTransactionRequest_
+  name: UpdateTransferTransactionAsync
+  nameWithType: TransferTransactionLogic.UpdateTransferTransactionAsync
+  fullName: MakesCentsBackend.Services.BusinessLogicLayer.TransferTransactionLogic.UpdateTransferTransactionAsync
+- uid: MakesCentsBackend.Models.UpdateTransferTransactionRequest
+  commentId: T:MakesCentsBackend.Models.UpdateTransferTransactionRequest
+  parent: MakesCentsBackend.Models
+  href: MakesCentsBackend.Models.UpdateTransferTransactionRequest.html
+  name: UpdateTransferTransactionRequest
+  nameWithType: UpdateTransferTransactionRequest
+  fullName: MakesCentsBackend.Models.UpdateTransferTransactionRequest
+- uid: System.Threading.Tasks.Task{MakesCentsBackend.Models.BaseIdResponse}
+  commentId: T:System.Threading.Tasks.Task{MakesCentsBackend.Models.BaseIdResponse}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<BaseIdResponse>
+  nameWithType: Task<BaseIdResponse>
+  fullName: System.Threading.Tasks.Task<MakesCentsBackend.Models.BaseIdResponse>
+  nameWithType.vb: Task(Of BaseIdResponse)
+  fullName.vb: System.Threading.Tasks.Task(Of MakesCentsBackend.Models.BaseIdResponse)
+  name.vb: Task(Of BaseIdResponse)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: MakesCentsBackend.Models.BaseIdResponse
+    name: BaseIdResponse
+    href: MakesCentsBackend.Models.BaseIdResponse.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: MakesCentsBackend.Models.BaseIdResponse
+    name: BaseIdResponse
+    href: MakesCentsBackend.Models.BaseIdResponse.html
+  - name: )

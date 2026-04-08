@@ -1,0 +1,539 @@
+### YamlMime:ManagedReference
+items:
+- uid: MakesCentsBackend.Models.CreateInvestmentAccountResponse
+  commentId: T:MakesCentsBackend.Models.CreateInvestmentAccountResponse
+  id: CreateInvestmentAccountResponse
+  parent: MakesCentsBackend.Models
+  children:
+  - MakesCentsBackend.Models.CreateInvestmentAccountResponse.#ctor
+  - MakesCentsBackend.Models.CreateInvestmentAccountResponse.#ctor(System.Int32,System.String)
+  - MakesCentsBackend.Models.CreateInvestmentAccountResponse.InvestmentAccountId
+  langs:
+  - csharp
+  - vb
+  name: CreateInvestmentAccountResponse
+  nameWithType: CreateInvestmentAccountResponse
+  fullName: MakesCentsBackend.Models.CreateInvestmentAccountResponse
+  type: Class
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Models/InvestmentAccountModels.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: CreateInvestmentAccountResponse
+    path: Models/InvestmentAccountModels.cs
+    startLine: 39
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Models
+  summary: Response model for creating an investment account
+  example: []
+  syntax:
+    content: >-
+      [ExportTsInterface]
+
+      public class CreateInvestmentAccountResponse : CreateAccountResponse
+    content.vb: >-
+      <ExportTsInterface>
+
+      Public Class CreateInvestmentAccountResponse Inherits CreateAccountResponse
+  inheritance:
+  - System.Object
+  - MakesCentsBackend.Models.BaseResponse
+  - MakesCentsBackend.Models.CreateAccountResponse
+  inheritedMembers:
+  - MakesCentsBackend.Models.CreateAccountResponse.AccountId
+  - MakesCentsBackend.Models.BaseResponse.HttpStatus
+  - MakesCentsBackend.Models.BaseResponse.Message
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+  attributes:
+  - type: TypeGen.Core.TypeAnnotations.ExportTsInterfaceAttribute
+    ctor: TypeGen.Core.TypeAnnotations.ExportTsInterfaceAttribute.#ctor
+    arguments: []
+- uid: MakesCentsBackend.Models.CreateInvestmentAccountResponse.InvestmentAccountId
+  commentId: P:MakesCentsBackend.Models.CreateInvestmentAccountResponse.InvestmentAccountId
+  id: InvestmentAccountId
+  parent: MakesCentsBackend.Models.CreateInvestmentAccountResponse
+  langs:
+  - csharp
+  - vb
+  name: InvestmentAccountId
+  nameWithType: CreateInvestmentAccountResponse.InvestmentAccountId
+  fullName: MakesCentsBackend.Models.CreateInvestmentAccountResponse.InvestmentAccountId
+  type: Property
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Models/InvestmentAccountModels.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: InvestmentAccountId
+    path: Models/InvestmentAccountModels.cs
+    startLine: 43
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Models
+  syntax:
+    content: public int? InvestmentAccountId { get; set; }
+    parameters: []
+    return:
+      type: System.Nullable{System.Int32}
+    content.vb: Public Property InvestmentAccountId As Integer?
+  overload: MakesCentsBackend.Models.CreateInvestmentAccountResponse.InvestmentAccountId*
+- uid: MakesCentsBackend.Models.CreateInvestmentAccountResponse.#ctor(System.Int32,System.String)
+  commentId: M:MakesCentsBackend.Models.CreateInvestmentAccountResponse.#ctor(System.Int32,System.String)
+  id: '#ctor(System.Int32,System.String)'
+  parent: MakesCentsBackend.Models.CreateInvestmentAccountResponse
+  langs:
+  - csharp
+  - vb
+  name: CreateInvestmentAccountResponse(int, string)
+  nameWithType: CreateInvestmentAccountResponse.CreateInvestmentAccountResponse(int, string)
+  fullName: MakesCentsBackend.Models.CreateInvestmentAccountResponse.CreateInvestmentAccountResponse(int, string)
+  type: Constructor
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Models/InvestmentAccountModels.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: .ctor
+    path: Models/InvestmentAccountModels.cs
+    startLine: 50
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Models
+  summary: Parameterized constructor for an investment account response
+  example: []
+  syntax:
+    content: public CreateInvestmentAccountResponse(int httpStatus, string message)
+    parameters:
+    - id: httpStatus
+      type: System.Int32
+      description: ''
+    - id: message
+      type: System.String
+      description: ''
+    content.vb: Public Sub New(httpStatus As Integer, message As String)
+  overload: MakesCentsBackend.Models.CreateInvestmentAccountResponse.#ctor*
+  nameWithType.vb: CreateInvestmentAccountResponse.New(Integer, String)
+  fullName.vb: MakesCentsBackend.Models.CreateInvestmentAccountResponse.New(Integer, String)
+  name.vb: New(Integer, String)
+- uid: MakesCentsBackend.Models.CreateInvestmentAccountResponse.#ctor
+  commentId: M:MakesCentsBackend.Models.CreateInvestmentAccountResponse.#ctor
+  id: '#ctor'
+  parent: MakesCentsBackend.Models.CreateInvestmentAccountResponse
+  langs:
+  - csharp
+  - vb
+  name: CreateInvestmentAccountResponse()
+  nameWithType: CreateInvestmentAccountResponse.CreateInvestmentAccountResponse()
+  fullName: MakesCentsBackend.Models.CreateInvestmentAccountResponse.CreateInvestmentAccountResponse()
+  type: Constructor
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Models/InvestmentAccountModels.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: .ctor
+    path: Models/InvestmentAccountModels.cs
+    startLine: 55
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Models
+  summary: Default constructor for an investment account response
+  example: []
+  syntax:
+    content: public CreateInvestmentAccountResponse()
+    content.vb: Public Sub New()
+  overload: MakesCentsBackend.Models.CreateInvestmentAccountResponse.#ctor*
+  nameWithType.vb: CreateInvestmentAccountResponse.New()
+  fullName.vb: MakesCentsBackend.Models.CreateInvestmentAccountResponse.New()
+  name.vb: New()
+references:
+- uid: MakesCentsBackend.Models
+  commentId: N:MakesCentsBackend.Models
+  href: MakesCentsBackend.html
+  name: MakesCentsBackend.Models
+  nameWithType: MakesCentsBackend.Models
+  fullName: MakesCentsBackend.Models
+  spec.csharp:
+  - uid: MakesCentsBackend
+    name: MakesCentsBackend
+    href: MakesCentsBackend.html
+  - name: .
+  - uid: MakesCentsBackend.Models
+    name: Models
+    href: MakesCentsBackend.Models.html
+  spec.vb:
+  - uid: MakesCentsBackend
+    name: MakesCentsBackend
+    href: MakesCentsBackend.html
+  - name: .
+  - uid: MakesCentsBackend.Models
+    name: Models
+    href: MakesCentsBackend.Models.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: MakesCentsBackend.Models.BaseResponse
+  commentId: T:MakesCentsBackend.Models.BaseResponse
+  parent: MakesCentsBackend.Models
+  href: MakesCentsBackend.Models.BaseResponse.html
+  name: BaseResponse
+  nameWithType: BaseResponse
+  fullName: MakesCentsBackend.Models.BaseResponse
+- uid: MakesCentsBackend.Models.CreateAccountResponse
+  commentId: T:MakesCentsBackend.Models.CreateAccountResponse
+  parent: MakesCentsBackend.Models
+  href: MakesCentsBackend.Models.CreateAccountResponse.html
+  name: CreateAccountResponse
+  nameWithType: CreateAccountResponse
+  fullName: MakesCentsBackend.Models.CreateAccountResponse
+- uid: MakesCentsBackend.Models.CreateAccountResponse.AccountId
+  commentId: P:MakesCentsBackend.Models.CreateAccountResponse.AccountId
+  parent: MakesCentsBackend.Models.CreateAccountResponse
+  href: MakesCentsBackend.Models.CreateAccountResponse.html#MakesCentsBackend_Models_CreateAccountResponse_AccountId
+  name: AccountId
+  nameWithType: CreateAccountResponse.AccountId
+  fullName: MakesCentsBackend.Models.CreateAccountResponse.AccountId
+- uid: MakesCentsBackend.Models.BaseResponse.HttpStatus
+  commentId: P:MakesCentsBackend.Models.BaseResponse.HttpStatus
+  parent: MakesCentsBackend.Models.BaseResponse
+  href: MakesCentsBackend.Models.BaseResponse.html#MakesCentsBackend_Models_BaseResponse_HttpStatus
+  name: HttpStatus
+  nameWithType: BaseResponse.HttpStatus
+  fullName: MakesCentsBackend.Models.BaseResponse.HttpStatus
+- uid: MakesCentsBackend.Models.BaseResponse.Message
+  commentId: P:MakesCentsBackend.Models.BaseResponse.Message
+  parent: MakesCentsBackend.Models.BaseResponse
+  href: MakesCentsBackend.Models.BaseResponse.html#MakesCentsBackend_Models_BaseResponse_Message
+  name: Message
+  nameWithType: BaseResponse.Message
+  fullName: MakesCentsBackend.Models.BaseResponse.Message
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: MakesCentsBackend.Models.CreateInvestmentAccountResponse.InvestmentAccountId*
+  commentId: Overload:MakesCentsBackend.Models.CreateInvestmentAccountResponse.InvestmentAccountId
+  href: MakesCentsBackend.Models.CreateInvestmentAccountResponse.html#MakesCentsBackend_Models_CreateInvestmentAccountResponse_InvestmentAccountId
+  name: InvestmentAccountId
+  nameWithType: CreateInvestmentAccountResponse.InvestmentAccountId
+  fullName: MakesCentsBackend.Models.CreateInvestmentAccountResponse.InvestmentAccountId
+- uid: System.Nullable{System.Int32}
+  commentId: T:System.Nullable{System.Int32}
+  parent: System
+  definition: System.Nullable`1
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int?
+  nameWithType: int?
+  fullName: int?
+  nameWithType.vb: Integer?
+  fullName.vb: Integer?
+  name.vb: Integer?
+  spec.csharp:
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '?'
+  spec.vb:
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '?'
+- uid: System.Nullable`1
+  commentId: T:System.Nullable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  name: Nullable<T>
+  nameWithType: Nullable<T>
+  fullName: System.Nullable<T>
+  nameWithType.vb: Nullable(Of T)
+  fullName.vb: System.Nullable(Of T)
+  name.vb: Nullable(Of T)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: MakesCentsBackend.Models.CreateInvestmentAccountResponse.#ctor*
+  commentId: Overload:MakesCentsBackend.Models.CreateInvestmentAccountResponse.#ctor
+  href: MakesCentsBackend.Models.CreateInvestmentAccountResponse.html#MakesCentsBackend_Models_CreateInvestmentAccountResponse__ctor_System_Int32_System_String_
+  name: CreateInvestmentAccountResponse
+  nameWithType: CreateInvestmentAccountResponse.CreateInvestmentAccountResponse
+  fullName: MakesCentsBackend.Models.CreateInvestmentAccountResponse.CreateInvestmentAccountResponse
+  nameWithType.vb: CreateInvestmentAccountResponse.New
+  fullName.vb: MakesCentsBackend.Models.CreateInvestmentAccountResponse.New
+  name.vb: New
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String

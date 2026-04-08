@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class BudgetDAO | MakesCents </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class BudgetDAO | MakesCents ">
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/Gianna7055/MakesCents/new/master/apiSpec/new?filename=MakesCentsBackend_Services_DataAccessLayer_BudgetDAO.md&amp;value=---%0Auid%3A%20MakesCentsBackend.Services.DataAccessLayer.BudgetDAO%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="MakesCents">
+            MakesCents
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="MakesCentsBackend.Services.DataAccessLayer.BudgetDAO">
+
+
+
+  <h1 id="MakesCentsBackend_Services_DataAccessLayer_BudgetDAO" data-uid="MakesCentsBackend.Services.DataAccessLayer.BudgetDAO" class="text-break">
+Class BudgetDAO  <a class="header-action link-secondary" title="View source" href="https://github.com/Gianna7055/MakesCents/blob/master/Backend/MakesCentsBackend/Services/DataAccessLayer/BudgetDAO.cs/#L12"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="MakesCentsBackend.html">MakesCentsBackend</a>.<a class="xref" href="MakesCentsBackend.Services.html">Services</a>.<a class="xref" href="MakesCentsBackend.Services.DataAccessLayer.html">DataAccessLayer</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>MakesCentsBackend.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"></div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class BudgetDAO</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">BudgetDAO</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="MakesCentsBackend_Services_DataAccessLayer_BudgetDAO__ctor_" data-uid="MakesCentsBackend.Services.DataAccessLayer.BudgetDAO.#ctor*"></a>
+
+  <h3 id="MakesCentsBackend_Services_DataAccessLayer_BudgetDAO__ctor_MySqlConnector_MySqlConnection_MakesCentsBackend_Services_DataAccessLayer_AuthorizationService_" data-uid="MakesCentsBackend.Services.DataAccessLayer.BudgetDAO.#ctor(MySqlConnector.MySqlConnection,MakesCentsBackend.Services.DataAccessLayer.AuthorizationService)">
+  BudgetDAO(MySqlConnection, AuthorizationService)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Gianna7055/MakesCents/blob/master/Backend/MakesCentsBackend/Services/DataAccessLayer/BudgetDAO.cs/#L23"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Parameterized constructor to bring in DI variables</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public BudgetDAO(MySqlConnection connection, AuthorizationService authService)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>connection</code> <span class="xref">MySqlConnection</span></dt>
+    <dd></dd>
+    <dt><code>authService</code> <a class="xref" href="MakesCentsBackend.Services.DataAccessLayer.AuthorizationService.html">AuthorizationService</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="MakesCentsBackend_Services_DataAccessLayer_BudgetDAO_CreateBudgetAsync_" data-uid="MakesCentsBackend.Services.DataAccessLayer.BudgetDAO.CreateBudgetAsync*"></a>
+
+  <h3 id="MakesCentsBackend_Services_DataAccessLayer_BudgetDAO_CreateBudgetAsync_MakesCentsBackend_Models_CreateBudgetRequest_" data-uid="MakesCentsBackend.Services.DataAccessLayer.BudgetDAO.CreateBudgetAsync(MakesCentsBackend.Models.CreateBudgetRequest)">
+  CreateBudgetAsync(CreateBudgetRequest)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Gianna7055/MakesCents/blob/master/Backend/MakesCentsBackend/Services/DataAccessLayer/BudgetDAO.cs/#L34"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>DAO method to create a budget</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;BaseIdResponse&gt; CreateBudgetAsync(CreateBudgetRequest budget)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>budget</code> <a class="xref" href="MakesCentsBackend.Models.CreateBudgetRequest.html">CreateBudgetRequest</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="MakesCentsBackend.Models.BaseIdResponse.html">BaseIdResponse</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="MakesCentsBackend_Services_DataAccessLayer_BudgetDAO_DeleteBudgetAsync_" data-uid="MakesCentsBackend.Services.DataAccessLayer.BudgetDAO.DeleteBudgetAsync*"></a>
+
+  <h3 id="MakesCentsBackend_Services_DataAccessLayer_BudgetDAO_DeleteBudgetAsync_MakesCentsBackend_Models_BaseIdRequest_" data-uid="MakesCentsBackend.Services.DataAccessLayer.BudgetDAO.DeleteBudgetAsync(MakesCentsBackend.Models.BaseIdRequest)">
+  DeleteBudgetAsync(BaseIdRequest)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Gianna7055/MakesCents/blob/master/Backend/MakesCentsBackend/Services/DataAccessLayer/BudgetDAO.cs/#L334"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>DAO method to delete a budget</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;BaseResponse&gt; DeleteBudgetAsync(BaseIdRequest request)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>request</code> <a class="xref" href="MakesCentsBackend.Models.BaseIdRequest.html">BaseIdRequest</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="MakesCentsBackend.Models.BaseResponse.html">BaseResponse</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="MakesCentsBackend_Services_DataAccessLayer_BudgetDAO_GetBudgetAsync_" data-uid="MakesCentsBackend.Services.DataAccessLayer.BudgetDAO.GetBudgetAsync*"></a>
+
+  <h3 id="MakesCentsBackend_Services_DataAccessLayer_BudgetDAO_GetBudgetAsync_MakesCentsBackend_Models_BaseIdRequest_" data-uid="MakesCentsBackend.Services.DataAccessLayer.BudgetDAO.GetBudgetAsync(MakesCentsBackend.Models.BaseIdRequest)">
+  GetBudgetAsync(BaseIdRequest)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Gianna7055/MakesCents/blob/master/Backend/MakesCentsBackend/Services/DataAccessLayer/BudgetDAO.cs/#L164"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Get the summary of a budget with envelope categories and envelopes
+Sources: <a href="https://chatgpt.com/c/69774450-b594-8330-963c-0342dd63eac2">https://chatgpt.com/c/69774450-b594-8330-963c-0342dd63eac2</a></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;GetBudgetResponse&gt; GetBudgetAsync(BaseIdRequest budget)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>budget</code> <a class="xref" href="MakesCentsBackend.Models.BaseIdRequest.html">BaseIdRequest</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="MakesCentsBackend.Models.GetBudgetResponse.html">GetBudgetResponse</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="MakesCentsBackend_Services_DataAccessLayer_BudgetDAO_GetBudgetAsync_" data-uid="MakesCentsBackend.Services.DataAccessLayer.BudgetDAO.GetBudgetAsync*"></a>
+
+  <h3 id="MakesCentsBackend_Services_DataAccessLayer_BudgetDAO_GetBudgetAsync_MakesCentsBackend_Models_GetBudgetRequest_" data-uid="MakesCentsBackend.Services.DataAccessLayer.BudgetDAO.GetBudgetAsync(MakesCentsBackend.Models.GetBudgetRequest)">
+  GetBudgetAsync(GetBudgetRequest)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Gianna7055/MakesCents/blob/master/Backend/MakesCentsBackend/Services/DataAccessLayer/BudgetDAO.cs/#L78"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Get the summary of a budget with envelope categories and envelopes
+Sources: <a href="https://chatgpt.com/c/69774450-b594-8330-963c-0342dd63eac2">https://chatgpt.com/c/69774450-b594-8330-963c-0342dd63eac2</a></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;GetBudgetResponse&gt; GetBudgetAsync(GetBudgetRequest budget)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>budget</code> <a class="xref" href="MakesCentsBackend.Models.GetBudgetRequest.html">GetBudgetRequest</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="MakesCentsBackend.Models.GetBudgetResponse.html">GetBudgetResponse</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="MakesCentsBackend_Services_DataAccessLayer_BudgetDAO_GetYearBudgetsAsync_" data-uid="MakesCentsBackend.Services.DataAccessLayer.BudgetDAO.GetYearBudgetsAsync*"></a>
+
+  <h3 id="MakesCentsBackend_Services_DataAccessLayer_BudgetDAO_GetYearBudgetsAsync_MakesCentsBackend_Models_GetBudgetRequest_" data-uid="MakesCentsBackend.Services.DataAccessLayer.BudgetDAO.GetYearBudgetsAsync(MakesCentsBackend.Models.GetBudgetRequest)">
+  GetYearBudgetsAsync(GetBudgetRequest)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Gianna7055/MakesCents/blob/master/Backend/MakesCentsBackend/Services/DataAccessLayer/BudgetDAO.cs/#L241"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;GetYearBudgetsResponse&gt; GetYearBudgetsAsync(GetBudgetRequest request)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>request</code> <a class="xref" href="MakesCentsBackend.Models.GetBudgetRequest.html">GetBudgetRequest</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="MakesCentsBackend.Models.GetYearBudgetsResponse.html">GetYearBudgetsResponse</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="MakesCentsBackend_Services_DataAccessLayer_BudgetDAO_UpdateBudgetAsync_" data-uid="MakesCentsBackend.Services.DataAccessLayer.BudgetDAO.UpdateBudgetAsync*"></a>
+
+  <h3 id="MakesCentsBackend_Services_DataAccessLayer_BudgetDAO_UpdateBudgetAsync_MakesCentsBackend_Models_EditBudgetRequest_" data-uid="MakesCentsBackend.Services.DataAccessLayer.BudgetDAO.UpdateBudgetAsync(MakesCentsBackend.Models.EditBudgetRequest)">
+  UpdateBudgetAsync(EditBudgetRequest)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Gianna7055/MakesCents/blob/master/Backend/MakesCentsBackend/Services/DataAccessLayer/BudgetDAO.cs/#L275"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>DAO method to update a budget based on given fields</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;BaseIdResponse&gt; UpdateBudgetAsync(EditBudgetRequest budget)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>budget</code> <a class="xref" href="MakesCentsBackend.Models.EditBudgetRequest.html">EditBudgetRequest</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="MakesCentsBackend.Models.BaseIdResponse.html">BaseIdResponse</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/Gianna7055/MakesCents/blob/master/Backend/MakesCentsBackend/Services/DataAccessLayer/BudgetDAO.cs/#L12" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

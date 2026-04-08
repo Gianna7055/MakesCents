@@ -1,0 +1,142 @@
+### YamlMime:ManagedReference
+items:
+- uid: MakesCentsBackend.Services.BusinessLogicLayer
+  commentId: N:MakesCentsBackend.Services.BusinessLogicLayer
+  id: MakesCentsBackend.Services.BusinessLogicLayer
+  children:
+  - MakesCentsBackend.Services.BusinessLogicLayer.AccountLogic
+  - MakesCentsBackend.Services.BusinessLogicLayer.BankAccountLogic
+  - MakesCentsBackend.Services.BusinessLogicLayer.BudgetLogic
+  - MakesCentsBackend.Services.BusinessLogicLayer.DebtAccountLogic
+  - MakesCentsBackend.Services.BusinessLogicLayer.EnvelopeCategoryLogic
+  - MakesCentsBackend.Services.BusinessLogicLayer.EnvelopeLogic
+  - MakesCentsBackend.Services.BusinessLogicLayer.InvestmentAccountLogic
+  - MakesCentsBackend.Services.BusinessLogicLayer.PaycheckLogic
+  - MakesCentsBackend.Services.BusinessLogicLayer.PaymentTransactionLogic
+  - MakesCentsBackend.Services.BusinessLogicLayer.TransactionLogic
+  - MakesCentsBackend.Services.BusinessLogicLayer.TransferTransactionLogic
+  - MakesCentsBackend.Services.BusinessLogicLayer.UserLogic
+  langs:
+  - csharp
+  - vb
+  name: MakesCentsBackend.Services.BusinessLogicLayer
+  nameWithType: MakesCentsBackend.Services.BusinessLogicLayer
+  fullName: MakesCentsBackend.Services.BusinessLogicLayer
+  type: Namespace
+  assemblies:
+  - MakesCentsBackend
+references:
+- uid: MakesCentsBackend.Services.BusinessLogicLayer.AccountLogic
+  commentId: T:MakesCentsBackend.Services.BusinessLogicLayer.AccountLogic
+  parent: MakesCentsBackend.Services.BusinessLogicLayer
+  href: MakesCentsBackend.Services.BusinessLogicLayer.AccountLogic.html
+  name: AccountLogic
+  nameWithType: AccountLogic
+  fullName: MakesCentsBackend.Services.BusinessLogicLayer.AccountLogic
+- uid: MakesCentsBackend.Services.BusinessLogicLayer.BankAccountLogic
+  commentId: T:MakesCentsBackend.Services.BusinessLogicLayer.BankAccountLogic
+  parent: MakesCentsBackend.Services.BusinessLogicLayer
+  href: MakesCentsBackend.Services.BusinessLogicLayer.BankAccountLogic.html
+  name: BankAccountLogic
+  nameWithType: BankAccountLogic
+  fullName: MakesCentsBackend.Services.BusinessLogicLayer.BankAccountLogic
+- uid: MakesCentsBackend.Services.BusinessLogicLayer.BudgetLogic
+  commentId: T:MakesCentsBackend.Services.BusinessLogicLayer.BudgetLogic
+  parent: MakesCentsBackend.Services.BusinessLogicLayer
+  href: MakesCentsBackend.Services.BusinessLogicLayer.BudgetLogic.html
+  name: BudgetLogic
+  nameWithType: BudgetLogic
+  fullName: MakesCentsBackend.Services.BusinessLogicLayer.BudgetLogic
+- uid: MakesCentsBackend.Services.BusinessLogicLayer.DebtAccountLogic
+  commentId: T:MakesCentsBackend.Services.BusinessLogicLayer.DebtAccountLogic
+  parent: MakesCentsBackend.Services.BusinessLogicLayer
+  href: MakesCentsBackend.Services.BusinessLogicLayer.DebtAccountLogic.html
+  name: DebtAccountLogic
+  nameWithType: DebtAccountLogic
+  fullName: MakesCentsBackend.Services.BusinessLogicLayer.DebtAccountLogic
+- uid: MakesCentsBackend.Services.BusinessLogicLayer.EnvelopeCategoryLogic
+  commentId: T:MakesCentsBackend.Services.BusinessLogicLayer.EnvelopeCategoryLogic
+  parent: MakesCentsBackend.Services.BusinessLogicLayer
+  href: MakesCentsBackend.Services.BusinessLogicLayer.EnvelopeCategoryLogic.html
+  name: EnvelopeCategoryLogic
+  nameWithType: EnvelopeCategoryLogic
+  fullName: MakesCentsBackend.Services.BusinessLogicLayer.EnvelopeCategoryLogic
+- uid: MakesCentsBackend.Services.BusinessLogicLayer.EnvelopeLogic
+  commentId: T:MakesCentsBackend.Services.BusinessLogicLayer.EnvelopeLogic
+  parent: MakesCentsBackend.Services.BusinessLogicLayer
+  href: MakesCentsBackend.Services.BusinessLogicLayer.EnvelopeLogic.html
+  name: EnvelopeLogic
+  nameWithType: EnvelopeLogic
+  fullName: MakesCentsBackend.Services.BusinessLogicLayer.EnvelopeLogic
+- uid: MakesCentsBackend.Services.BusinessLogicLayer.InvestmentAccountLogic
+  commentId: T:MakesCentsBackend.Services.BusinessLogicLayer.InvestmentAccountLogic
+  parent: MakesCentsBackend.Services.BusinessLogicLayer
+  href: MakesCentsBackend.Services.BusinessLogicLayer.InvestmentAccountLogic.html
+  name: InvestmentAccountLogic
+  nameWithType: InvestmentAccountLogic
+  fullName: MakesCentsBackend.Services.BusinessLogicLayer.InvestmentAccountLogic
+- uid: MakesCentsBackend.Services.BusinessLogicLayer.PaycheckLogic
+  commentId: T:MakesCentsBackend.Services.BusinessLogicLayer.PaycheckLogic
+  parent: MakesCentsBackend.Services.BusinessLogicLayer
+  href: MakesCentsBackend.Services.BusinessLogicLayer.PaycheckLogic.html
+  name: PaycheckLogic
+  nameWithType: PaycheckLogic
+  fullName: MakesCentsBackend.Services.BusinessLogicLayer.PaycheckLogic
+- uid: MakesCentsBackend.Services.BusinessLogicLayer.PaymentTransactionLogic
+  commentId: T:MakesCentsBackend.Services.BusinessLogicLayer.PaymentTransactionLogic
+  parent: MakesCentsBackend.Services.BusinessLogicLayer
+  href: MakesCentsBackend.Services.BusinessLogicLayer.PaymentTransactionLogic.html
+  name: PaymentTransactionLogic
+  nameWithType: PaymentTransactionLogic
+  fullName: MakesCentsBackend.Services.BusinessLogicLayer.PaymentTransactionLogic
+- uid: MakesCentsBackend.Services.BusinessLogicLayer.TransactionLogic
+  commentId: T:MakesCentsBackend.Services.BusinessLogicLayer.TransactionLogic
+  parent: MakesCentsBackend.Services.BusinessLogicLayer
+  href: MakesCentsBackend.Services.BusinessLogicLayer.TransactionLogic.html
+  name: TransactionLogic
+  nameWithType: TransactionLogic
+  fullName: MakesCentsBackend.Services.BusinessLogicLayer.TransactionLogic
+- uid: MakesCentsBackend.Services.BusinessLogicLayer.TransferTransactionLogic
+  commentId: T:MakesCentsBackend.Services.BusinessLogicLayer.TransferTransactionLogic
+  parent: MakesCentsBackend.Services.BusinessLogicLayer
+  href: MakesCentsBackend.Services.BusinessLogicLayer.TransferTransactionLogic.html
+  name: TransferTransactionLogic
+  nameWithType: TransferTransactionLogic
+  fullName: MakesCentsBackend.Services.BusinessLogicLayer.TransferTransactionLogic
+- uid: MakesCentsBackend.Services.BusinessLogicLayer.UserLogic
+  commentId: T:MakesCentsBackend.Services.BusinessLogicLayer.UserLogic
+  parent: MakesCentsBackend.Services.BusinessLogicLayer
+  href: MakesCentsBackend.Services.BusinessLogicLayer.UserLogic.html
+  name: UserLogic
+  nameWithType: UserLogic
+  fullName: MakesCentsBackend.Services.BusinessLogicLayer.UserLogic
+- uid: MakesCentsBackend.Services.BusinessLogicLayer
+  commentId: N:MakesCentsBackend.Services.BusinessLogicLayer
+  href: MakesCentsBackend.html
+  name: MakesCentsBackend.Services.BusinessLogicLayer
+  nameWithType: MakesCentsBackend.Services.BusinessLogicLayer
+  fullName: MakesCentsBackend.Services.BusinessLogicLayer
+  spec.csharp:
+  - uid: MakesCentsBackend
+    name: MakesCentsBackend
+    href: MakesCentsBackend.html
+  - name: .
+  - uid: MakesCentsBackend.Services
+    name: Services
+    href: MakesCentsBackend.Services.html
+  - name: .
+  - uid: MakesCentsBackend.Services.BusinessLogicLayer
+    name: BusinessLogicLayer
+    href: MakesCentsBackend.Services.BusinessLogicLayer.html
+  spec.vb:
+  - uid: MakesCentsBackend
+    name: MakesCentsBackend
+    href: MakesCentsBackend.html
+  - name: .
+  - uid: MakesCentsBackend.Services
+    name: Services
+    href: MakesCentsBackend.Services.html
+  - name: .
+  - uid: MakesCentsBackend.Services.BusinessLogicLayer
+    name: BusinessLogicLayer
+    href: MakesCentsBackend.Services.BusinessLogicLayer.html

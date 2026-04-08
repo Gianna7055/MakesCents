@@ -1,0 +1,419 @@
+### YamlMime:ManagedReference
+items:
+- uid: MakesCentsBackend.Models.Enums.Month
+  commentId: T:MakesCentsBackend.Models.Enums.Month
+  id: Month
+  parent: MakesCentsBackend.Models.Enums
+  children:
+  - MakesCentsBackend.Models.Enums.Month.April
+  - MakesCentsBackend.Models.Enums.Month.August
+  - MakesCentsBackend.Models.Enums.Month.December
+  - MakesCentsBackend.Models.Enums.Month.February
+  - MakesCentsBackend.Models.Enums.Month.January
+  - MakesCentsBackend.Models.Enums.Month.July
+  - MakesCentsBackend.Models.Enums.Month.June
+  - MakesCentsBackend.Models.Enums.Month.March
+  - MakesCentsBackend.Models.Enums.Month.May
+  - MakesCentsBackend.Models.Enums.Month.November
+  - MakesCentsBackend.Models.Enums.Month.October
+  - MakesCentsBackend.Models.Enums.Month.September
+  - MakesCentsBackend.Models.Enums.Month.Unknown
+  langs:
+  - csharp
+  - vb
+  name: Month
+  nameWithType: Month
+  fullName: MakesCentsBackend.Models.Enums.Month
+  type: Enum
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Models/Enums/Month.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: Month
+    path: Models/Enums/Month.cs
+    startLine: 10
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Models.Enums
+  summary: Enum for the Months for the Budget Model
+  example: []
+  syntax:
+    content: public enum Month
+    content.vb: Public Enum Month
+- uid: MakesCentsBackend.Models.Enums.Month.Unknown
+  commentId: F:MakesCentsBackend.Models.Enums.Month.Unknown
+  id: Unknown
+  parent: MakesCentsBackend.Models.Enums.Month
+  langs:
+  - csharp
+  - vb
+  name: Unknown
+  nameWithType: Month.Unknown
+  fullName: MakesCentsBackend.Models.Enums.Month.Unknown
+  type: Field
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Models/Enums/Month.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: Unknown
+    path: Models/Enums/Month.cs
+    startLine: 12
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Models.Enums
+  syntax:
+    content: Unknown = 1
+    return:
+      type: MakesCentsBackend.Models.Enums.Month
+- uid: MakesCentsBackend.Models.Enums.Month.January
+  commentId: F:MakesCentsBackend.Models.Enums.Month.January
+  id: January
+  parent: MakesCentsBackend.Models.Enums.Month
+  langs:
+  - csharp
+  - vb
+  name: January
+  nameWithType: Month.January
+  fullName: MakesCentsBackend.Models.Enums.Month.January
+  type: Field
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Models/Enums/Month.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: January
+    path: Models/Enums/Month.cs
+    startLine: 13
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Models.Enums
+  syntax:
+    content: January = 2
+    return:
+      type: MakesCentsBackend.Models.Enums.Month
+- uid: MakesCentsBackend.Models.Enums.Month.February
+  commentId: F:MakesCentsBackend.Models.Enums.Month.February
+  id: February
+  parent: MakesCentsBackend.Models.Enums.Month
+  langs:
+  - csharp
+  - vb
+  name: February
+  nameWithType: Month.February
+  fullName: MakesCentsBackend.Models.Enums.Month.February
+  type: Field
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Models/Enums/Month.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: February
+    path: Models/Enums/Month.cs
+    startLine: 14
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Models.Enums
+  syntax:
+    content: February = 3
+    return:
+      type: MakesCentsBackend.Models.Enums.Month
+- uid: MakesCentsBackend.Models.Enums.Month.March
+  commentId: F:MakesCentsBackend.Models.Enums.Month.March
+  id: March
+  parent: MakesCentsBackend.Models.Enums.Month
+  langs:
+  - csharp
+  - vb
+  name: March
+  nameWithType: Month.March
+  fullName: MakesCentsBackend.Models.Enums.Month.March
+  type: Field
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Models/Enums/Month.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: March
+    path: Models/Enums/Month.cs
+    startLine: 15
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Models.Enums
+  syntax:
+    content: March = 4
+    return:
+      type: MakesCentsBackend.Models.Enums.Month
+- uid: MakesCentsBackend.Models.Enums.Month.April
+  commentId: F:MakesCentsBackend.Models.Enums.Month.April
+  id: April
+  parent: MakesCentsBackend.Models.Enums.Month
+  langs:
+  - csharp
+  - vb
+  name: April
+  nameWithType: Month.April
+  fullName: MakesCentsBackend.Models.Enums.Month.April
+  type: Field
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Models/Enums/Month.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: April
+    path: Models/Enums/Month.cs
+    startLine: 16
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Models.Enums
+  syntax:
+    content: April = 5
+    return:
+      type: MakesCentsBackend.Models.Enums.Month
+- uid: MakesCentsBackend.Models.Enums.Month.May
+  commentId: F:MakesCentsBackend.Models.Enums.Month.May
+  id: May
+  parent: MakesCentsBackend.Models.Enums.Month
+  langs:
+  - csharp
+  - vb
+  name: May
+  nameWithType: Month.May
+  fullName: MakesCentsBackend.Models.Enums.Month.May
+  type: Field
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Models/Enums/Month.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: May
+    path: Models/Enums/Month.cs
+    startLine: 17
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Models.Enums
+  syntax:
+    content: May = 6
+    return:
+      type: MakesCentsBackend.Models.Enums.Month
+- uid: MakesCentsBackend.Models.Enums.Month.June
+  commentId: F:MakesCentsBackend.Models.Enums.Month.June
+  id: June
+  parent: MakesCentsBackend.Models.Enums.Month
+  langs:
+  - csharp
+  - vb
+  name: June
+  nameWithType: Month.June
+  fullName: MakesCentsBackend.Models.Enums.Month.June
+  type: Field
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Models/Enums/Month.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: June
+    path: Models/Enums/Month.cs
+    startLine: 18
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Models.Enums
+  syntax:
+    content: June = 7
+    return:
+      type: MakesCentsBackend.Models.Enums.Month
+- uid: MakesCentsBackend.Models.Enums.Month.July
+  commentId: F:MakesCentsBackend.Models.Enums.Month.July
+  id: July
+  parent: MakesCentsBackend.Models.Enums.Month
+  langs:
+  - csharp
+  - vb
+  name: July
+  nameWithType: Month.July
+  fullName: MakesCentsBackend.Models.Enums.Month.July
+  type: Field
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Models/Enums/Month.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: July
+    path: Models/Enums/Month.cs
+    startLine: 19
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Models.Enums
+  syntax:
+    content: July = 8
+    return:
+      type: MakesCentsBackend.Models.Enums.Month
+- uid: MakesCentsBackend.Models.Enums.Month.August
+  commentId: F:MakesCentsBackend.Models.Enums.Month.August
+  id: August
+  parent: MakesCentsBackend.Models.Enums.Month
+  langs:
+  - csharp
+  - vb
+  name: August
+  nameWithType: Month.August
+  fullName: MakesCentsBackend.Models.Enums.Month.August
+  type: Field
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Models/Enums/Month.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: August
+    path: Models/Enums/Month.cs
+    startLine: 20
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Models.Enums
+  syntax:
+    content: August = 9
+    return:
+      type: MakesCentsBackend.Models.Enums.Month
+- uid: MakesCentsBackend.Models.Enums.Month.September
+  commentId: F:MakesCentsBackend.Models.Enums.Month.September
+  id: September
+  parent: MakesCentsBackend.Models.Enums.Month
+  langs:
+  - csharp
+  - vb
+  name: September
+  nameWithType: Month.September
+  fullName: MakesCentsBackend.Models.Enums.Month.September
+  type: Field
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Models/Enums/Month.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: September
+    path: Models/Enums/Month.cs
+    startLine: 21
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Models.Enums
+  syntax:
+    content: September = 10
+    return:
+      type: MakesCentsBackend.Models.Enums.Month
+- uid: MakesCentsBackend.Models.Enums.Month.October
+  commentId: F:MakesCentsBackend.Models.Enums.Month.October
+  id: October
+  parent: MakesCentsBackend.Models.Enums.Month
+  langs:
+  - csharp
+  - vb
+  name: October
+  nameWithType: Month.October
+  fullName: MakesCentsBackend.Models.Enums.Month.October
+  type: Field
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Models/Enums/Month.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: October
+    path: Models/Enums/Month.cs
+    startLine: 22
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Models.Enums
+  syntax:
+    content: October = 11
+    return:
+      type: MakesCentsBackend.Models.Enums.Month
+- uid: MakesCentsBackend.Models.Enums.Month.November
+  commentId: F:MakesCentsBackend.Models.Enums.Month.November
+  id: November
+  parent: MakesCentsBackend.Models.Enums.Month
+  langs:
+  - csharp
+  - vb
+  name: November
+  nameWithType: Month.November
+  fullName: MakesCentsBackend.Models.Enums.Month.November
+  type: Field
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Models/Enums/Month.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: November
+    path: Models/Enums/Month.cs
+    startLine: 23
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Models.Enums
+  syntax:
+    content: November = 12
+    return:
+      type: MakesCentsBackend.Models.Enums.Month
+- uid: MakesCentsBackend.Models.Enums.Month.December
+  commentId: F:MakesCentsBackend.Models.Enums.Month.December
+  id: December
+  parent: MakesCentsBackend.Models.Enums.Month
+  langs:
+  - csharp
+  - vb
+  name: December
+  nameWithType: Month.December
+  fullName: MakesCentsBackend.Models.Enums.Month.December
+  type: Field
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Models/Enums/Month.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: December
+    path: Models/Enums/Month.cs
+    startLine: 24
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Models.Enums
+  syntax:
+    content: December = 13
+    return:
+      type: MakesCentsBackend.Models.Enums.Month
+references:
+- uid: MakesCentsBackend.Models.Enums
+  commentId: N:MakesCentsBackend.Models.Enums
+  href: MakesCentsBackend.html
+  name: MakesCentsBackend.Models.Enums
+  nameWithType: MakesCentsBackend.Models.Enums
+  fullName: MakesCentsBackend.Models.Enums
+  spec.csharp:
+  - uid: MakesCentsBackend
+    name: MakesCentsBackend
+    href: MakesCentsBackend.html
+  - name: .
+  - uid: MakesCentsBackend.Models
+    name: Models
+    href: MakesCentsBackend.Models.html
+  - name: .
+  - uid: MakesCentsBackend.Models.Enums
+    name: Enums
+    href: MakesCentsBackend.Models.Enums.html
+  spec.vb:
+  - uid: MakesCentsBackend
+    name: MakesCentsBackend
+    href: MakesCentsBackend.html
+  - name: .
+  - uid: MakesCentsBackend.Models
+    name: Models
+    href: MakesCentsBackend.Models.html
+  - name: .
+  - uid: MakesCentsBackend.Models.Enums
+    name: Enums
+    href: MakesCentsBackend.Models.Enums.html
+- uid: MakesCentsBackend.Models.Enums.Month
+  commentId: T:MakesCentsBackend.Models.Enums.Month
+  parent: MakesCentsBackend.Models.Enums
+  href: MakesCentsBackend.Models.Enums.Month.html
+  name: Month
+  nameWithType: Month
+  fullName: MakesCentsBackend.Models.Enums.Month

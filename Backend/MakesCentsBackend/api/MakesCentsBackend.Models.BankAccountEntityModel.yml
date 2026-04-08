@@ -1,0 +1,500 @@
+### YamlMime:ManagedReference
+items:
+- uid: MakesCentsBackend.Models.BankAccountEntityModel
+  commentId: T:MakesCentsBackend.Models.BankAccountEntityModel
+  id: BankAccountEntityModel
+  parent: MakesCentsBackend.Models
+  children:
+  - MakesCentsBackend.Models.BankAccountEntityModel.BankAccountId
+  - MakesCentsBackend.Models.BankAccountEntityModel.BankAccountType
+  langs:
+  - csharp
+  - vb
+  name: BankAccountEntityModel
+  nameWithType: BankAccountEntityModel
+  fullName: MakesCentsBackend.Models.BankAccountEntityModel
+  type: Class
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Models/BankAccountModels.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: BankAccountEntityModel
+    path: Models/BankAccountModels.cs
+    startLine: 15
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Models
+  summary: Model for a bank account
+  example: []
+  syntax:
+    content: 'public class BankAccountEntityModel : AccountEntityModel'
+    content.vb: Public Class BankAccountEntityModel Inherits AccountEntityModel
+  inheritance:
+  - System.Object
+  - MakesCentsBackend.Models.AccountEntityModel
+  inheritedMembers:
+  - MakesCentsBackend.Models.AccountEntityModel.AccountId
+  - MakesCentsBackend.Models.AccountEntityModel.BudgetId
+  - MakesCentsBackend.Models.AccountEntityModel.AccountType
+  - MakesCentsBackend.Models.AccountEntityModel.AccountName
+  - MakesCentsBackend.Models.AccountEntityModel.Institution
+  - MakesCentsBackend.Models.AccountEntityModel.Balance
+  - MakesCentsBackend.Models.AccountEntityModel.CreatedAt
+  - MakesCentsBackend.Models.AccountEntityModel.LastUpdatedAt
+  - MakesCentsBackend.Models.AccountEntityModel.Transactions
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: MakesCentsBackend.Models.BankAccountEntityModel.BankAccountId
+  commentId: P:MakesCentsBackend.Models.BankAccountEntityModel.BankAccountId
+  id: BankAccountId
+  parent: MakesCentsBackend.Models.BankAccountEntityModel
+  langs:
+  - csharp
+  - vb
+  name: BankAccountId
+  nameWithType: BankAccountEntityModel.BankAccountId
+  fullName: MakesCentsBackend.Models.BankAccountEntityModel.BankAccountId
+  type: Property
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Models/BankAccountModels.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: BankAccountId
+    path: Models/BankAccountModels.cs
+    startLine: 18
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Models
+  syntax:
+    content: public int BankAccountId { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property BankAccountId As Integer
+  overload: MakesCentsBackend.Models.BankAccountEntityModel.BankAccountId*
+- uid: MakesCentsBackend.Models.BankAccountEntityModel.BankAccountType
+  commentId: P:MakesCentsBackend.Models.BankAccountEntityModel.BankAccountType
+  id: BankAccountType
+  parent: MakesCentsBackend.Models.BankAccountEntityModel
+  langs:
+  - csharp
+  - vb
+  name: BankAccountType
+  nameWithType: BankAccountEntityModel.BankAccountType
+  fullName: MakesCentsBackend.Models.BankAccountEntityModel.BankAccountType
+  type: Property
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Models/BankAccountModels.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: BankAccountType
+    path: Models/BankAccountModels.cs
+    startLine: 19
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Models
+  syntax:
+    content: public BankAccountType BankAccountType { get; set; }
+    parameters: []
+    return:
+      type: MakesCentsBackend.Models.Enums.BankAccountType
+    content.vb: Public Property BankAccountType As BankAccountType
+  overload: MakesCentsBackend.Models.BankAccountEntityModel.BankAccountType*
+references:
+- uid: MakesCentsBackend.Models
+  commentId: N:MakesCentsBackend.Models
+  href: MakesCentsBackend.html
+  name: MakesCentsBackend.Models
+  nameWithType: MakesCentsBackend.Models
+  fullName: MakesCentsBackend.Models
+  spec.csharp:
+  - uid: MakesCentsBackend
+    name: MakesCentsBackend
+    href: MakesCentsBackend.html
+  - name: .
+  - uid: MakesCentsBackend.Models
+    name: Models
+    href: MakesCentsBackend.Models.html
+  spec.vb:
+  - uid: MakesCentsBackend
+    name: MakesCentsBackend
+    href: MakesCentsBackend.html
+  - name: .
+  - uid: MakesCentsBackend.Models
+    name: Models
+    href: MakesCentsBackend.Models.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: MakesCentsBackend.Models.AccountEntityModel
+  commentId: T:MakesCentsBackend.Models.AccountEntityModel
+  parent: MakesCentsBackend.Models
+  href: MakesCentsBackend.Models.AccountEntityModel.html
+  name: AccountEntityModel
+  nameWithType: AccountEntityModel
+  fullName: MakesCentsBackend.Models.AccountEntityModel
+- uid: MakesCentsBackend.Models.AccountEntityModel.AccountId
+  commentId: P:MakesCentsBackend.Models.AccountEntityModel.AccountId
+  parent: MakesCentsBackend.Models.AccountEntityModel
+  href: MakesCentsBackend.Models.AccountEntityModel.html#MakesCentsBackend_Models_AccountEntityModel_AccountId
+  name: AccountId
+  nameWithType: AccountEntityModel.AccountId
+  fullName: MakesCentsBackend.Models.AccountEntityModel.AccountId
+- uid: MakesCentsBackend.Models.AccountEntityModel.BudgetId
+  commentId: P:MakesCentsBackend.Models.AccountEntityModel.BudgetId
+  parent: MakesCentsBackend.Models.AccountEntityModel
+  href: MakesCentsBackend.Models.AccountEntityModel.html#MakesCentsBackend_Models_AccountEntityModel_BudgetId
+  name: BudgetId
+  nameWithType: AccountEntityModel.BudgetId
+  fullName: MakesCentsBackend.Models.AccountEntityModel.BudgetId
+- uid: MakesCentsBackend.Models.AccountEntityModel.AccountType
+  commentId: P:MakesCentsBackend.Models.AccountEntityModel.AccountType
+  parent: MakesCentsBackend.Models.AccountEntityModel
+  href: MakesCentsBackend.Models.AccountEntityModel.html#MakesCentsBackend_Models_AccountEntityModel_AccountType
+  name: AccountType
+  nameWithType: AccountEntityModel.AccountType
+  fullName: MakesCentsBackend.Models.AccountEntityModel.AccountType
+- uid: MakesCentsBackend.Models.AccountEntityModel.AccountName
+  commentId: P:MakesCentsBackend.Models.AccountEntityModel.AccountName
+  parent: MakesCentsBackend.Models.AccountEntityModel
+  href: MakesCentsBackend.Models.AccountEntityModel.html#MakesCentsBackend_Models_AccountEntityModel_AccountName
+  name: AccountName
+  nameWithType: AccountEntityModel.AccountName
+  fullName: MakesCentsBackend.Models.AccountEntityModel.AccountName
+- uid: MakesCentsBackend.Models.AccountEntityModel.Institution
+  commentId: P:MakesCentsBackend.Models.AccountEntityModel.Institution
+  parent: MakesCentsBackend.Models.AccountEntityModel
+  href: MakesCentsBackend.Models.AccountEntityModel.html#MakesCentsBackend_Models_AccountEntityModel_Institution
+  name: Institution
+  nameWithType: AccountEntityModel.Institution
+  fullName: MakesCentsBackend.Models.AccountEntityModel.Institution
+- uid: MakesCentsBackend.Models.AccountEntityModel.Balance
+  commentId: P:MakesCentsBackend.Models.AccountEntityModel.Balance
+  parent: MakesCentsBackend.Models.AccountEntityModel
+  href: MakesCentsBackend.Models.AccountEntityModel.html#MakesCentsBackend_Models_AccountEntityModel_Balance
+  name: Balance
+  nameWithType: AccountEntityModel.Balance
+  fullName: MakesCentsBackend.Models.AccountEntityModel.Balance
+- uid: MakesCentsBackend.Models.AccountEntityModel.CreatedAt
+  commentId: P:MakesCentsBackend.Models.AccountEntityModel.CreatedAt
+  parent: MakesCentsBackend.Models.AccountEntityModel
+  href: MakesCentsBackend.Models.AccountEntityModel.html#MakesCentsBackend_Models_AccountEntityModel_CreatedAt
+  name: CreatedAt
+  nameWithType: AccountEntityModel.CreatedAt
+  fullName: MakesCentsBackend.Models.AccountEntityModel.CreatedAt
+- uid: MakesCentsBackend.Models.AccountEntityModel.LastUpdatedAt
+  commentId: P:MakesCentsBackend.Models.AccountEntityModel.LastUpdatedAt
+  parent: MakesCentsBackend.Models.AccountEntityModel
+  href: MakesCentsBackend.Models.AccountEntityModel.html#MakesCentsBackend_Models_AccountEntityModel_LastUpdatedAt
+  name: LastUpdatedAt
+  nameWithType: AccountEntityModel.LastUpdatedAt
+  fullName: MakesCentsBackend.Models.AccountEntityModel.LastUpdatedAt
+- uid: MakesCentsBackend.Models.AccountEntityModel.Transactions
+  commentId: P:MakesCentsBackend.Models.AccountEntityModel.Transactions
+  parent: MakesCentsBackend.Models.AccountEntityModel
+  href: MakesCentsBackend.Models.AccountEntityModel.html#MakesCentsBackend_Models_AccountEntityModel_Transactions
+  name: Transactions
+  nameWithType: AccountEntityModel.Transactions
+  fullName: MakesCentsBackend.Models.AccountEntityModel.Transactions
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: MakesCentsBackend.Models.BankAccountEntityModel.BankAccountId*
+  commentId: Overload:MakesCentsBackend.Models.BankAccountEntityModel.BankAccountId
+  href: MakesCentsBackend.Models.BankAccountEntityModel.html#MakesCentsBackend_Models_BankAccountEntityModel_BankAccountId
+  name: BankAccountId
+  nameWithType: BankAccountEntityModel.BankAccountId
+  fullName: MakesCentsBackend.Models.BankAccountEntityModel.BankAccountId
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: MakesCentsBackend.Models.BankAccountEntityModel.BankAccountType*
+  commentId: Overload:MakesCentsBackend.Models.BankAccountEntityModel.BankAccountType
+  href: MakesCentsBackend.Models.BankAccountEntityModel.html#MakesCentsBackend_Models_BankAccountEntityModel_BankAccountType
+  name: BankAccountType
+  nameWithType: BankAccountEntityModel.BankAccountType
+  fullName: MakesCentsBackend.Models.BankAccountEntityModel.BankAccountType
+- uid: MakesCentsBackend.Models.Enums.BankAccountType
+  commentId: T:MakesCentsBackend.Models.Enums.BankAccountType
+  parent: MakesCentsBackend.Models.Enums
+  href: MakesCentsBackend.Models.Enums.BankAccountType.html
+  name: BankAccountType
+  nameWithType: BankAccountType
+  fullName: MakesCentsBackend.Models.Enums.BankAccountType
+- uid: MakesCentsBackend.Models.Enums
+  commentId: N:MakesCentsBackend.Models.Enums
+  href: MakesCentsBackend.html
+  name: MakesCentsBackend.Models.Enums
+  nameWithType: MakesCentsBackend.Models.Enums
+  fullName: MakesCentsBackend.Models.Enums
+  spec.csharp:
+  - uid: MakesCentsBackend
+    name: MakesCentsBackend
+    href: MakesCentsBackend.html
+  - name: .
+  - uid: MakesCentsBackend.Models
+    name: Models
+    href: MakesCentsBackend.Models.html
+  - name: .
+  - uid: MakesCentsBackend.Models.Enums
+    name: Enums
+    href: MakesCentsBackend.Models.Enums.html
+  spec.vb:
+  - uid: MakesCentsBackend
+    name: MakesCentsBackend
+    href: MakesCentsBackend.html
+  - name: .
+  - uid: MakesCentsBackend.Models
+    name: Models
+    href: MakesCentsBackend.Models.html
+  - name: .
+  - uid: MakesCentsBackend.Models.Enums
+    name: Enums
+    href: MakesCentsBackend.Models.Enums.html

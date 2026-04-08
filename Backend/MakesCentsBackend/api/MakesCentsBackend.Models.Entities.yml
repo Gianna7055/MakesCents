@@ -1,0 +1,23 @@
+### YamlMime:ManagedReference
+items:
+- uid: MakesCentsBackend.Models.Entities
+  commentId: N:MakesCentsBackend.Models.Entities
+  id: MakesCentsBackend.Models.Entities
+  children:
+  - MakesCentsBackend.Models.Entities.PlannedExpenseEntity
+  langs:
+  - csharp
+  - vb
+  name: MakesCentsBackend.Models.Entities
+  nameWithType: MakesCentsBackend.Models.Entities
+  fullName: MakesCentsBackend.Models.Entities
+  type: Namespace
+  assemblies:
+  - MakesCentsBackend
+references:
+- uid: MakesCentsBackend.Models.Entities.PlannedExpenseEntity
+  commentId: T:MakesCentsBackend.Models.Entities.PlannedExpenseEntity
+  href: MakesCentsBackend.Models.Entities.PlannedExpenseEntity.html
+  name: PlannedExpenseEntity
+  nameWithType: PlannedExpenseEntity
+  fullName: MakesCentsBackend.Models.Entities.PlannedExpenseEntity

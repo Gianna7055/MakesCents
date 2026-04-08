@@ -1,0 +1,979 @@
+### YamlMime:ManagedReference
+items:
+- uid: MakesCentsBackend.Models.EnvelopeEntityModel
+  commentId: T:MakesCentsBackend.Models.EnvelopeEntityModel
+  id: EnvelopeEntityModel
+  parent: MakesCentsBackend.Models
+  children:
+  - MakesCentsBackend.Models.EnvelopeEntityModel.CreatedAt
+  - MakesCentsBackend.Models.EnvelopeEntityModel.EnvelopeCategoryId
+  - MakesCentsBackend.Models.EnvelopeEntityModel.EnvelopeId
+  - MakesCentsBackend.Models.EnvelopeEntityModel.EnvelopeName
+  - MakesCentsBackend.Models.EnvelopeEntityModel.GoalAmount
+  - MakesCentsBackend.Models.EnvelopeEntityModel.GoalEndDate
+  - MakesCentsBackend.Models.EnvelopeEntityModel.IsSinkingFund
+  - MakesCentsBackend.Models.EnvelopeEntityModel.LastUpdatedAt
+  - MakesCentsBackend.Models.EnvelopeEntityModel.PlannedAmount
+  - MakesCentsBackend.Models.EnvelopeEntityModel.RemainingAmount
+  - MakesCentsBackend.Models.EnvelopeEntityModel.Transactions
+  - MakesCentsBackend.Models.EnvelopeEntityModel.TransferEnvelopeId
+  langs:
+  - csharp
+  - vb
+  name: EnvelopeEntityModel
+  nameWithType: EnvelopeEntityModel
+  fullName: MakesCentsBackend.Models.EnvelopeEntityModel
+  type: Class
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Models/EnvelopeModels.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: EnvelopeEntityModel
+    path: Models/EnvelopeModels.cs
+    startLine: 13
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Models
+  summary: Model for an envelope
+  example: []
+  syntax:
+    content: public class EnvelopeEntityModel
+    content.vb: Public Class EnvelopeEntityModel
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: MakesCentsBackend.Models.EnvelopeEntityModel.EnvelopeId
+  commentId: P:MakesCentsBackend.Models.EnvelopeEntityModel.EnvelopeId
+  id: EnvelopeId
+  parent: MakesCentsBackend.Models.EnvelopeEntityModel
+  langs:
+  - csharp
+  - vb
+  name: EnvelopeId
+  nameWithType: EnvelopeEntityModel.EnvelopeId
+  fullName: MakesCentsBackend.Models.EnvelopeEntityModel.EnvelopeId
+  type: Property
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Models/EnvelopeModels.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: EnvelopeId
+    path: Models/EnvelopeModels.cs
+    startLine: 16
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Models
+  syntax:
+    content: public int EnvelopeId { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property EnvelopeId As Integer
+  overload: MakesCentsBackend.Models.EnvelopeEntityModel.EnvelopeId*
+- uid: MakesCentsBackend.Models.EnvelopeEntityModel.EnvelopeCategoryId
+  commentId: P:MakesCentsBackend.Models.EnvelopeEntityModel.EnvelopeCategoryId
+  id: EnvelopeCategoryId
+  parent: MakesCentsBackend.Models.EnvelopeEntityModel
+  langs:
+  - csharp
+  - vb
+  name: EnvelopeCategoryId
+  nameWithType: EnvelopeEntityModel.EnvelopeCategoryId
+  fullName: MakesCentsBackend.Models.EnvelopeEntityModel.EnvelopeCategoryId
+  type: Property
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Models/EnvelopeModels.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: EnvelopeCategoryId
+    path: Models/EnvelopeModels.cs
+    startLine: 17
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Models
+  syntax:
+    content: public int EnvelopeCategoryId { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property EnvelopeCategoryId As Integer
+  overload: MakesCentsBackend.Models.EnvelopeEntityModel.EnvelopeCategoryId*
+- uid: MakesCentsBackend.Models.EnvelopeEntityModel.EnvelopeName
+  commentId: P:MakesCentsBackend.Models.EnvelopeEntityModel.EnvelopeName
+  id: EnvelopeName
+  parent: MakesCentsBackend.Models.EnvelopeEntityModel
+  langs:
+  - csharp
+  - vb
+  name: EnvelopeName
+  nameWithType: EnvelopeEntityModel.EnvelopeName
+  fullName: MakesCentsBackend.Models.EnvelopeEntityModel.EnvelopeName
+  type: Property
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Models/EnvelopeModels.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: EnvelopeName
+    path: Models/EnvelopeModels.cs
+    startLine: 18
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Models
+  syntax:
+    content: public string EnvelopeName { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property EnvelopeName As String
+  overload: MakesCentsBackend.Models.EnvelopeEntityModel.EnvelopeName*
+- uid: MakesCentsBackend.Models.EnvelopeEntityModel.PlannedAmount
+  commentId: P:MakesCentsBackend.Models.EnvelopeEntityModel.PlannedAmount
+  id: PlannedAmount
+  parent: MakesCentsBackend.Models.EnvelopeEntityModel
+  langs:
+  - csharp
+  - vb
+  name: PlannedAmount
+  nameWithType: EnvelopeEntityModel.PlannedAmount
+  fullName: MakesCentsBackend.Models.EnvelopeEntityModel.PlannedAmount
+  type: Property
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Models/EnvelopeModels.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: PlannedAmount
+    path: Models/EnvelopeModels.cs
+    startLine: 19
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Models
+  syntax:
+    content: public decimal PlannedAmount { get; set; }
+    parameters: []
+    return:
+      type: System.Decimal
+    content.vb: Public Property PlannedAmount As Decimal
+  overload: MakesCentsBackend.Models.EnvelopeEntityModel.PlannedAmount*
+- uid: MakesCentsBackend.Models.EnvelopeEntityModel.RemainingAmount
+  commentId: P:MakesCentsBackend.Models.EnvelopeEntityModel.RemainingAmount
+  id: RemainingAmount
+  parent: MakesCentsBackend.Models.EnvelopeEntityModel
+  langs:
+  - csharp
+  - vb
+  name: RemainingAmount
+  nameWithType: EnvelopeEntityModel.RemainingAmount
+  fullName: MakesCentsBackend.Models.EnvelopeEntityModel.RemainingAmount
+  type: Property
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Models/EnvelopeModels.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: RemainingAmount
+    path: Models/EnvelopeModels.cs
+    startLine: 20
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Models
+  syntax:
+    content: public decimal RemainingAmount { get; set; }
+    parameters: []
+    return:
+      type: System.Decimal
+    content.vb: Public Property RemainingAmount As Decimal
+  overload: MakesCentsBackend.Models.EnvelopeEntityModel.RemainingAmount*
+- uid: MakesCentsBackend.Models.EnvelopeEntityModel.IsSinkingFund
+  commentId: P:MakesCentsBackend.Models.EnvelopeEntityModel.IsSinkingFund
+  id: IsSinkingFund
+  parent: MakesCentsBackend.Models.EnvelopeEntityModel
+  langs:
+  - csharp
+  - vb
+  name: IsSinkingFund
+  nameWithType: EnvelopeEntityModel.IsSinkingFund
+  fullName: MakesCentsBackend.Models.EnvelopeEntityModel.IsSinkingFund
+  type: Property
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Models/EnvelopeModels.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: IsSinkingFund
+    path: Models/EnvelopeModels.cs
+    startLine: 21
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Models
+  syntax:
+    content: public bool IsSinkingFund { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property IsSinkingFund As Boolean
+  overload: MakesCentsBackend.Models.EnvelopeEntityModel.IsSinkingFund*
+- uid: MakesCentsBackend.Models.EnvelopeEntityModel.GoalAmount
+  commentId: P:MakesCentsBackend.Models.EnvelopeEntityModel.GoalAmount
+  id: GoalAmount
+  parent: MakesCentsBackend.Models.EnvelopeEntityModel
+  langs:
+  - csharp
+  - vb
+  name: GoalAmount
+  nameWithType: EnvelopeEntityModel.GoalAmount
+  fullName: MakesCentsBackend.Models.EnvelopeEntityModel.GoalAmount
+  type: Property
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Models/EnvelopeModels.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: GoalAmount
+    path: Models/EnvelopeModels.cs
+    startLine: 24
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Models
+  syntax:
+    content: public decimal? GoalAmount { get; set; }
+    parameters: []
+    return:
+      type: System.Nullable{System.Decimal}
+    content.vb: Public Property GoalAmount As Decimal?
+  overload: MakesCentsBackend.Models.EnvelopeEntityModel.GoalAmount*
+- uid: MakesCentsBackend.Models.EnvelopeEntityModel.GoalEndDate
+  commentId: P:MakesCentsBackend.Models.EnvelopeEntityModel.GoalEndDate
+  id: GoalEndDate
+  parent: MakesCentsBackend.Models.EnvelopeEntityModel
+  langs:
+  - csharp
+  - vb
+  name: GoalEndDate
+  nameWithType: EnvelopeEntityModel.GoalEndDate
+  fullName: MakesCentsBackend.Models.EnvelopeEntityModel.GoalEndDate
+  type: Property
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Models/EnvelopeModels.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: GoalEndDate
+    path: Models/EnvelopeModels.cs
+    startLine: 25
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Models
+  syntax:
+    content: public DateOnly? GoalEndDate { get; set; }
+    parameters: []
+    return:
+      type: System.Nullable{System.DateOnly}
+    content.vb: Public Property GoalEndDate As DateOnly?
+  overload: MakesCentsBackend.Models.EnvelopeEntityModel.GoalEndDate*
+- uid: MakesCentsBackend.Models.EnvelopeEntityModel.TransferEnvelopeId
+  commentId: P:MakesCentsBackend.Models.EnvelopeEntityModel.TransferEnvelopeId
+  id: TransferEnvelopeId
+  parent: MakesCentsBackend.Models.EnvelopeEntityModel
+  langs:
+  - csharp
+  - vb
+  name: TransferEnvelopeId
+  nameWithType: EnvelopeEntityModel.TransferEnvelopeId
+  fullName: MakesCentsBackend.Models.EnvelopeEntityModel.TransferEnvelopeId
+  type: Property
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Models/EnvelopeModels.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: TransferEnvelopeId
+    path: Models/EnvelopeModels.cs
+    startLine: 28
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Models
+  syntax:
+    content: public int? TransferEnvelopeId { get; set; }
+    parameters: []
+    return:
+      type: System.Nullable{System.Int32}
+    content.vb: Public Property TransferEnvelopeId As Integer?
+  overload: MakesCentsBackend.Models.EnvelopeEntityModel.TransferEnvelopeId*
+- uid: MakesCentsBackend.Models.EnvelopeEntityModel.CreatedAt
+  commentId: P:MakesCentsBackend.Models.EnvelopeEntityModel.CreatedAt
+  id: CreatedAt
+  parent: MakesCentsBackend.Models.EnvelopeEntityModel
+  langs:
+  - csharp
+  - vb
+  name: CreatedAt
+  nameWithType: EnvelopeEntityModel.CreatedAt
+  fullName: MakesCentsBackend.Models.EnvelopeEntityModel.CreatedAt
+  type: Property
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Models/EnvelopeModels.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: CreatedAt
+    path: Models/EnvelopeModels.cs
+    startLine: 31
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Models
+  syntax:
+    content: public DateTime CreatedAt { get; set; }
+    parameters: []
+    return:
+      type: System.DateTime
+    content.vb: Public Property CreatedAt As Date
+  overload: MakesCentsBackend.Models.EnvelopeEntityModel.CreatedAt*
+- uid: MakesCentsBackend.Models.EnvelopeEntityModel.LastUpdatedAt
+  commentId: P:MakesCentsBackend.Models.EnvelopeEntityModel.LastUpdatedAt
+  id: LastUpdatedAt
+  parent: MakesCentsBackend.Models.EnvelopeEntityModel
+  langs:
+  - csharp
+  - vb
+  name: LastUpdatedAt
+  nameWithType: EnvelopeEntityModel.LastUpdatedAt
+  fullName: MakesCentsBackend.Models.EnvelopeEntityModel.LastUpdatedAt
+  type: Property
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Models/EnvelopeModels.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: LastUpdatedAt
+    path: Models/EnvelopeModels.cs
+    startLine: 32
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Models
+  syntax:
+    content: public DateTime LastUpdatedAt { get; set; }
+    parameters: []
+    return:
+      type: System.DateTime
+    content.vb: Public Property LastUpdatedAt As Date
+  overload: MakesCentsBackend.Models.EnvelopeEntityModel.LastUpdatedAt*
+- uid: MakesCentsBackend.Models.EnvelopeEntityModel.Transactions
+  commentId: P:MakesCentsBackend.Models.EnvelopeEntityModel.Transactions
+  id: Transactions
+  parent: MakesCentsBackend.Models.EnvelopeEntityModel
+  langs:
+  - csharp
+  - vb
+  name: Transactions
+  nameWithType: EnvelopeEntityModel.Transactions
+  fullName: MakesCentsBackend.Models.EnvelopeEntityModel.Transactions
+  type: Property
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Models/EnvelopeModels.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: Transactions
+    path: Models/EnvelopeModels.cs
+    startLine: 33
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Models
+  syntax:
+    content: public List<TransactionEntityModel> Transactions { get; set; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.List{MakesCentsBackend.Models.TransactionEntityModel}
+    content.vb: Public Property Transactions As List(Of TransactionEntityModel)
+  overload: MakesCentsBackend.Models.EnvelopeEntityModel.Transactions*
+references:
+- uid: MakesCentsBackend.Models
+  commentId: N:MakesCentsBackend.Models
+  href: MakesCentsBackend.html
+  name: MakesCentsBackend.Models
+  nameWithType: MakesCentsBackend.Models
+  fullName: MakesCentsBackend.Models
+  spec.csharp:
+  - uid: MakesCentsBackend
+    name: MakesCentsBackend
+    href: MakesCentsBackend.html
+  - name: .
+  - uid: MakesCentsBackend.Models
+    name: Models
+    href: MakesCentsBackend.Models.html
+  spec.vb:
+  - uid: MakesCentsBackend
+    name: MakesCentsBackend
+    href: MakesCentsBackend.html
+  - name: .
+  - uid: MakesCentsBackend.Models
+    name: Models
+    href: MakesCentsBackend.Models.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: MakesCentsBackend.Models.EnvelopeEntityModel.EnvelopeId*
+  commentId: Overload:MakesCentsBackend.Models.EnvelopeEntityModel.EnvelopeId
+  href: MakesCentsBackend.Models.EnvelopeEntityModel.html#MakesCentsBackend_Models_EnvelopeEntityModel_EnvelopeId
+  name: EnvelopeId
+  nameWithType: EnvelopeEntityModel.EnvelopeId
+  fullName: MakesCentsBackend.Models.EnvelopeEntityModel.EnvelopeId
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: MakesCentsBackend.Models.EnvelopeEntityModel.EnvelopeCategoryId*
+  commentId: Overload:MakesCentsBackend.Models.EnvelopeEntityModel.EnvelopeCategoryId
+  href: MakesCentsBackend.Models.EnvelopeEntityModel.html#MakesCentsBackend_Models_EnvelopeEntityModel_EnvelopeCategoryId
+  name: EnvelopeCategoryId
+  nameWithType: EnvelopeEntityModel.EnvelopeCategoryId
+  fullName: MakesCentsBackend.Models.EnvelopeEntityModel.EnvelopeCategoryId
+- uid: MakesCentsBackend.Models.EnvelopeEntityModel.EnvelopeName*
+  commentId: Overload:MakesCentsBackend.Models.EnvelopeEntityModel.EnvelopeName
+  href: MakesCentsBackend.Models.EnvelopeEntityModel.html#MakesCentsBackend_Models_EnvelopeEntityModel_EnvelopeName
+  name: EnvelopeName
+  nameWithType: EnvelopeEntityModel.EnvelopeName
+  fullName: MakesCentsBackend.Models.EnvelopeEntityModel.EnvelopeName
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: MakesCentsBackend.Models.EnvelopeEntityModel.PlannedAmount*
+  commentId: Overload:MakesCentsBackend.Models.EnvelopeEntityModel.PlannedAmount
+  href: MakesCentsBackend.Models.EnvelopeEntityModel.html#MakesCentsBackend_Models_EnvelopeEntityModel_PlannedAmount
+  name: PlannedAmount
+  nameWithType: EnvelopeEntityModel.PlannedAmount
+  fullName: MakesCentsBackend.Models.EnvelopeEntityModel.PlannedAmount
+- uid: System.Decimal
+  commentId: T:System.Decimal
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.decimal
+  name: decimal
+  nameWithType: decimal
+  fullName: decimal
+  nameWithType.vb: Decimal
+  fullName.vb: Decimal
+  name.vb: Decimal
+- uid: MakesCentsBackend.Models.EnvelopeEntityModel.RemainingAmount*
+  commentId: Overload:MakesCentsBackend.Models.EnvelopeEntityModel.RemainingAmount
+  href: MakesCentsBackend.Models.EnvelopeEntityModel.html#MakesCentsBackend_Models_EnvelopeEntityModel_RemainingAmount
+  name: RemainingAmount
+  nameWithType: EnvelopeEntityModel.RemainingAmount
+  fullName: MakesCentsBackend.Models.EnvelopeEntityModel.RemainingAmount
+- uid: MakesCentsBackend.Models.EnvelopeEntityModel.IsSinkingFund*
+  commentId: Overload:MakesCentsBackend.Models.EnvelopeEntityModel.IsSinkingFund
+  href: MakesCentsBackend.Models.EnvelopeEntityModel.html#MakesCentsBackend_Models_EnvelopeEntityModel_IsSinkingFund
+  name: IsSinkingFund
+  nameWithType: EnvelopeEntityModel.IsSinkingFund
+  fullName: MakesCentsBackend.Models.EnvelopeEntityModel.IsSinkingFund
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: MakesCentsBackend.Models.EnvelopeEntityModel.GoalAmount*
+  commentId: Overload:MakesCentsBackend.Models.EnvelopeEntityModel.GoalAmount
+  href: MakesCentsBackend.Models.EnvelopeEntityModel.html#MakesCentsBackend_Models_EnvelopeEntityModel_GoalAmount
+  name: GoalAmount
+  nameWithType: EnvelopeEntityModel.GoalAmount
+  fullName: MakesCentsBackend.Models.EnvelopeEntityModel.GoalAmount
+- uid: System.Nullable{System.Decimal}
+  commentId: T:System.Nullable{System.Decimal}
+  parent: System
+  definition: System.Nullable`1
+  href: https://learn.microsoft.com/dotnet/api/system.decimal
+  name: decimal?
+  nameWithType: decimal?
+  fullName: decimal?
+  nameWithType.vb: Decimal?
+  fullName.vb: Decimal?
+  name.vb: Decimal?
+  spec.csharp:
+  - uid: System.Decimal
+    name: decimal
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.decimal
+  - name: '?'
+  spec.vb:
+  - uid: System.Decimal
+    name: Decimal
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.decimal
+  - name: '?'
+- uid: System.Nullable`1
+  commentId: T:System.Nullable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  name: Nullable<T>
+  nameWithType: Nullable<T>
+  fullName: System.Nullable<T>
+  nameWithType.vb: Nullable(Of T)
+  fullName.vb: System.Nullable(Of T)
+  name.vb: Nullable(Of T)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: MakesCentsBackend.Models.EnvelopeEntityModel.GoalEndDate*
+  commentId: Overload:MakesCentsBackend.Models.EnvelopeEntityModel.GoalEndDate
+  href: MakesCentsBackend.Models.EnvelopeEntityModel.html#MakesCentsBackend_Models_EnvelopeEntityModel_GoalEndDate
+  name: GoalEndDate
+  nameWithType: EnvelopeEntityModel.GoalEndDate
+  fullName: MakesCentsBackend.Models.EnvelopeEntityModel.GoalEndDate
+- uid: System.Nullable{System.DateOnly}
+  commentId: T:System.Nullable{System.DateOnly}
+  parent: System
+  definition: System.Nullable`1
+  href: https://learn.microsoft.com/dotnet/api/system.dateonly
+  name: DateOnly?
+  nameWithType: DateOnly?
+  fullName: System.DateOnly?
+  spec.csharp:
+  - uid: System.DateOnly
+    name: DateOnly
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.dateonly
+  - name: '?'
+  spec.vb:
+  - uid: System.DateOnly
+    name: DateOnly
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.dateonly
+  - name: '?'
+- uid: MakesCentsBackend.Models.EnvelopeEntityModel.TransferEnvelopeId*
+  commentId: Overload:MakesCentsBackend.Models.EnvelopeEntityModel.TransferEnvelopeId
+  href: MakesCentsBackend.Models.EnvelopeEntityModel.html#MakesCentsBackend_Models_EnvelopeEntityModel_TransferEnvelopeId
+  name: TransferEnvelopeId
+  nameWithType: EnvelopeEntityModel.TransferEnvelopeId
+  fullName: MakesCentsBackend.Models.EnvelopeEntityModel.TransferEnvelopeId
+- uid: System.Nullable{System.Int32}
+  commentId: T:System.Nullable{System.Int32}
+  parent: System
+  definition: System.Nullable`1
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int?
+  nameWithType: int?
+  fullName: int?
+  nameWithType.vb: Integer?
+  fullName.vb: Integer?
+  name.vb: Integer?
+  spec.csharp:
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '?'
+  spec.vb:
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '?'
+- uid: MakesCentsBackend.Models.EnvelopeEntityModel.CreatedAt*
+  commentId: Overload:MakesCentsBackend.Models.EnvelopeEntityModel.CreatedAt
+  href: MakesCentsBackend.Models.EnvelopeEntityModel.html#MakesCentsBackend_Models_EnvelopeEntityModel_CreatedAt
+  name: CreatedAt
+  nameWithType: EnvelopeEntityModel.CreatedAt
+  fullName: MakesCentsBackend.Models.EnvelopeEntityModel.CreatedAt
+- uid: System.DateTime
+  commentId: T:System.DateTime
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.datetime
+  name: DateTime
+  nameWithType: DateTime
+  fullName: System.DateTime
+  nameWithType.vb: Date
+  fullName.vb: Date
+  name.vb: Date
+- uid: MakesCentsBackend.Models.EnvelopeEntityModel.LastUpdatedAt*
+  commentId: Overload:MakesCentsBackend.Models.EnvelopeEntityModel.LastUpdatedAt
+  href: MakesCentsBackend.Models.EnvelopeEntityModel.html#MakesCentsBackend_Models_EnvelopeEntityModel_LastUpdatedAt
+  name: LastUpdatedAt
+  nameWithType: EnvelopeEntityModel.LastUpdatedAt
+  fullName: MakesCentsBackend.Models.EnvelopeEntityModel.LastUpdatedAt
+- uid: MakesCentsBackend.Models.EnvelopeEntityModel.Transactions*
+  commentId: Overload:MakesCentsBackend.Models.EnvelopeEntityModel.Transactions
+  href: MakesCentsBackend.Models.EnvelopeEntityModel.html#MakesCentsBackend_Models_EnvelopeEntityModel_Transactions
+  name: Transactions
+  nameWithType: EnvelopeEntityModel.Transactions
+  fullName: MakesCentsBackend.Models.EnvelopeEntityModel.Transactions
+- uid: System.Collections.Generic.List{MakesCentsBackend.Models.TransactionEntityModel}
+  commentId: T:System.Collections.Generic.List{MakesCentsBackend.Models.TransactionEntityModel}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<TransactionEntityModel>
+  nameWithType: List<TransactionEntityModel>
+  fullName: System.Collections.Generic.List<MakesCentsBackend.Models.TransactionEntityModel>
+  nameWithType.vb: List(Of TransactionEntityModel)
+  fullName.vb: System.Collections.Generic.List(Of MakesCentsBackend.Models.TransactionEntityModel)
+  name.vb: List(Of TransactionEntityModel)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: MakesCentsBackend.Models.TransactionEntityModel
+    name: TransactionEntityModel
+    href: MakesCentsBackend.Models.TransactionEntityModel.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: MakesCentsBackend.Models.TransactionEntityModel
+    name: TransactionEntityModel
+    href: MakesCentsBackend.Models.TransactionEntityModel.html
+  - name: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic

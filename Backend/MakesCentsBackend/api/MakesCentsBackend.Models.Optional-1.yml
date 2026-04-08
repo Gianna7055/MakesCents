@@ -1,0 +1,683 @@
+### YamlMime:ManagedReference
+items:
+- uid: MakesCentsBackend.Models.Optional`1
+  commentId: T:MakesCentsBackend.Models.Optional`1
+  id: Optional`1
+  parent: MakesCentsBackend.Models
+  children:
+  - MakesCentsBackend.Models.Optional`1.#ctor(System.Boolean)
+  - MakesCentsBackend.Models.Optional`1.#ctor(System.Boolean,`0)
+  - MakesCentsBackend.Models.Optional`1.#ctor(`0)
+  - MakesCentsBackend.Models.Optional`1.GetValue
+  - MakesCentsBackend.Models.Optional`1.HasValue
+  - MakesCentsBackend.Models.Optional`1.Value
+  - MakesCentsBackend.Models.Optional`1.op_Implicit(`0)~MakesCentsBackend.Models.Optional{`0}
+  langs:
+  - csharp
+  - vb
+  name: Optional<T>
+  nameWithType: Optional<T>
+  fullName: MakesCentsBackend.Models.Optional<T>
+  type: Struct
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Models/BaseModels.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: Optional
+    path: Models/BaseModels.cs
+    startLine: 92
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Models
+  summary: Optional class for creating and updating nulls
+  example: []
+  syntax:
+    content: >-
+      [ExportTsClass]
+
+      public readonly struct Optional<T> : IOptional
+    typeParameters:
+    - id: T
+      description: ''
+    content.vb: >-
+      <ExportTsClass>
+
+      Public Structure [Optional](Of T) Implements IOptional
+  implements:
+  - MakesCentsBackend.Models.IOptional
+  inheritedMembers:
+  - System.ValueType.Equals(System.Object)
+  - System.ValueType.GetHashCode
+  - System.ValueType.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  attributes:
+  - type: TypeGen.Core.TypeAnnotations.ExportTsClassAttribute
+    ctor: TypeGen.Core.TypeAnnotations.ExportTsClassAttribute.#ctor
+    arguments: []
+  nameWithType.vb: Optional(Of T)
+  fullName.vb: MakesCentsBackend.Models.Optional(Of T)
+  name.vb: Optional(Of T)
+- uid: MakesCentsBackend.Models.Optional`1.HasValue
+  commentId: P:MakesCentsBackend.Models.Optional`1.HasValue
+  id: HasValue
+  parent: MakesCentsBackend.Models.Optional`1
+  langs:
+  - csharp
+  - vb
+  name: HasValue
+  nameWithType: Optional<T>.HasValue
+  fullName: MakesCentsBackend.Models.Optional<T>.HasValue
+  type: Property
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Models/BaseModels.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: HasValue
+    path: Models/BaseModels.cs
+    startLine: 98
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Models
+  summary: Checks if the value was sent
+  example: []
+  syntax:
+    content: public bool HasValue { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property HasValue As Boolean
+  overload: MakesCentsBackend.Models.Optional`1.HasValue*
+  implements:
+  - MakesCentsBackend.Models.IOptional.HasValue
+  nameWithType.vb: Optional(Of T).HasValue
+  fullName.vb: MakesCentsBackend.Models.Optional(Of T).HasValue
+- uid: MakesCentsBackend.Models.Optional`1.Value
+  commentId: P:MakesCentsBackend.Models.Optional`1.Value
+  id: Value
+  parent: MakesCentsBackend.Models.Optional`1
+  langs:
+  - csharp
+  - vb
+  name: Value
+  nameWithType: Optional<T>.Value
+  fullName: MakesCentsBackend.Models.Optional<T>.Value
+  type: Property
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Models/BaseModels.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: Value
+    path: Models/BaseModels.cs
+    startLine: 103
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Models
+  summary: The value that was sent
+  example: []
+  syntax:
+    content: >-
+      [TsType("T | null", null, null, false)]
+
+      public T? Value { get; }
+    parameters: []
+    return:
+      type: '{T}'
+    content.vb: >-
+      <TsType("T | null", Nothing, Nothing, False)>
+
+      Public ReadOnly Property Value As T
+  overload: MakesCentsBackend.Models.Optional`1.Value*
+  attributes:
+  - type: TypeGen.Core.TypeAnnotations.TsTypeAttribute
+    ctor: TypeGen.Core.TypeAnnotations.TsTypeAttribute.#ctor(System.String,System.String,System.String,System.Boolean)
+    arguments:
+    - type: System.String
+      value: T | null
+    - type: System.String
+    - type: System.String
+    - type: System.Boolean
+      value: false
+  nameWithType.vb: Optional(Of T).Value
+  fullName.vb: MakesCentsBackend.Models.Optional(Of T).Value
+- uid: MakesCentsBackend.Models.Optional`1.GetValue
+  commentId: M:MakesCentsBackend.Models.Optional`1.GetValue
+  id: GetValue
+  parent: MakesCentsBackend.Models.Optional`1
+  langs:
+  - csharp
+  - vb
+  name: GetValue()
+  nameWithType: Optional<T>.GetValue()
+  fullName: MakesCentsBackend.Models.Optional<T>.GetValue()
+  type: Method
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Models/BaseModels.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: GetValue
+    path: Models/BaseModels.cs
+    startLine: 106
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Models
+  example: []
+  syntax:
+    content: public object? GetValue()
+    return:
+      type: System.Object
+    content.vb: Public Function GetValue() As Object
+  overload: MakesCentsBackend.Models.Optional`1.GetValue*
+  implements:
+  - MakesCentsBackend.Models.IOptional.GetValue
+  nameWithType.vb: Optional(Of T).GetValue()
+  fullName.vb: MakesCentsBackend.Models.Optional(Of T).GetValue()
+- uid: MakesCentsBackend.Models.Optional`1.#ctor(`0)
+  commentId: M:MakesCentsBackend.Models.Optional`1.#ctor(`0)
+  id: '#ctor(`0)'
+  parent: MakesCentsBackend.Models.Optional`1
+  langs:
+  - csharp
+  - vb
+  name: Optional(T?)
+  nameWithType: Optional<T>.Optional(T?)
+  fullName: MakesCentsBackend.Models.Optional<T>.Optional(T?)
+  type: Constructor
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Models/BaseModels.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: .ctor
+    path: Models/BaseModels.cs
+    startLine: 112
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Models
+  summary: Parameterized constructor to set Value
+  example: []
+  syntax:
+    content: public Optional(T? value)
+    parameters:
+    - id: value
+      type: '{T}'
+      description: ''
+    content.vb: Public Sub New(value As T)
+  overload: MakesCentsBackend.Models.Optional`1.#ctor*
+  nameWithType.vb: Optional(Of T).New(T)
+  fullName.vb: MakesCentsBackend.Models.Optional(Of T).New(T)
+  name.vb: New(T)
+- uid: MakesCentsBackend.Models.Optional`1.#ctor(System.Boolean)
+  commentId: M:MakesCentsBackend.Models.Optional`1.#ctor(System.Boolean)
+  id: '#ctor(System.Boolean)'
+  parent: MakesCentsBackend.Models.Optional`1
+  langs:
+  - csharp
+  - vb
+  name: Optional(bool)
+  nameWithType: Optional<T>.Optional(bool)
+  fullName: MakesCentsBackend.Models.Optional<T>.Optional(bool)
+  type: Constructor
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Models/BaseModels.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: .ctor
+    path: Models/BaseModels.cs
+    startLine: 121
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Models
+  summary: Parameterized constructor to bring in a HasValue value
+  example: []
+  syntax:
+    content: public Optional(bool hasValue)
+    parameters:
+    - id: hasValue
+      type: System.Boolean
+    content.vb: Public Sub New(hasValue As Boolean)
+  overload: MakesCentsBackend.Models.Optional`1.#ctor*
+  nameWithType.vb: Optional(Of T).New(Boolean)
+  fullName.vb: MakesCentsBackend.Models.Optional(Of T).New(Boolean)
+  name.vb: New(Boolean)
+- uid: MakesCentsBackend.Models.Optional`1.#ctor(System.Boolean,`0)
+  commentId: M:MakesCentsBackend.Models.Optional`1.#ctor(System.Boolean,`0)
+  id: '#ctor(System.Boolean,`0)'
+  parent: MakesCentsBackend.Models.Optional`1
+  langs:
+  - csharp
+  - vb
+  name: Optional(bool, T?)
+  nameWithType: Optional<T>.Optional(bool, T?)
+  fullName: MakesCentsBackend.Models.Optional<T>.Optional(bool, T?)
+  type: Constructor
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Models/BaseModels.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: .ctor
+    path: Models/BaseModels.cs
+    startLine: 129
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Models
+  summary: Parameterized constructor to bring in a HasValue and Value values
+  example: []
+  syntax:
+    content: public Optional(bool hasValue, T? value)
+    parameters:
+    - id: hasValue
+      type: System.Boolean
+    - id: value
+      type: '{T}'
+    content.vb: Public Sub New(hasValue As Boolean, value As T)
+  overload: MakesCentsBackend.Models.Optional`1.#ctor*
+  nameWithType.vb: Optional(Of T).New(Boolean, T)
+  fullName.vb: MakesCentsBackend.Models.Optional(Of T).New(Boolean, T)
+  name.vb: New(Boolean, T)
+- uid: MakesCentsBackend.Models.Optional`1.op_Implicit(`0)~MakesCentsBackend.Models.Optional{`0}
+  commentId: M:MakesCentsBackend.Models.Optional`1.op_Implicit(`0)~MakesCentsBackend.Models.Optional{`0}
+  id: op_Implicit(`0)~MakesCentsBackend.Models.Optional{`0}
+  parent: MakesCentsBackend.Models.Optional`1
+  langs:
+  - csharp
+  - vb
+  name: implicit operator Optional<T>(T?)
+  nameWithType: Optional<T>.implicit operator Optional<T>(T?)
+  fullName: MakesCentsBackend.Models.Optional<T>.implicit operator MakesCentsBackend.Models.Optional<T>(T?)
+  type: Operator
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Models/BaseModels.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: op_Implicit
+    path: Models/BaseModels.cs
+    startLine: 139
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Models
+  syntax:
+    content: public static implicit operator Optional<T>(T? value)
+    parameters:
+    - id: value
+      type: '{T}'
+    return:
+      type: MakesCentsBackend.Models.Optional`1
+    content.vb: Public Shared Widening Operator CType(value As T) As [Optional](Of T)
+  overload: MakesCentsBackend.Models.Optional`1.op_Implicit*
+  nameWithType.vb: Optional(Of T).CType(T)
+  fullName.vb: MakesCentsBackend.Models.Optional(Of T).CType(T)
+  name.vb: CType(T)
+references:
+- uid: MakesCentsBackend.Models
+  commentId: N:MakesCentsBackend.Models
+  href: MakesCentsBackend.html
+  name: MakesCentsBackend.Models
+  nameWithType: MakesCentsBackend.Models
+  fullName: MakesCentsBackend.Models
+  spec.csharp:
+  - uid: MakesCentsBackend
+    name: MakesCentsBackend
+    href: MakesCentsBackend.html
+  - name: .
+  - uid: MakesCentsBackend.Models
+    name: Models
+    href: MakesCentsBackend.Models.html
+  spec.vb:
+  - uid: MakesCentsBackend
+    name: MakesCentsBackend
+    href: MakesCentsBackend.html
+  - name: .
+  - uid: MakesCentsBackend.Models
+    name: Models
+    href: MakesCentsBackend.Models.html
+- uid: MakesCentsBackend.Models.IOptional
+  commentId: T:MakesCentsBackend.Models.IOptional
+  parent: MakesCentsBackend.Models
+  href: MakesCentsBackend.Models.IOptional.html
+  name: IOptional
+  nameWithType: IOptional
+  fullName: MakesCentsBackend.Models.IOptional
+- uid: System.ValueType.Equals(System.Object)
+  commentId: M:System.ValueType.Equals(System.Object)
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  name: Equals(object)
+  nameWithType: ValueType.Equals(object)
+  fullName: System.ValueType.Equals(object)
+  nameWithType.vb: ValueType.Equals(Object)
+  fullName.vb: System.ValueType.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType.GetHashCode
+  commentId: M:System.ValueType.GetHashCode
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  name: GetHashCode()
+  nameWithType: ValueType.GetHashCode()
+  fullName: System.ValueType.GetHashCode()
+  spec.csharp:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+- uid: System.ValueType.ToString
+  commentId: M:System.ValueType.ToString
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  name: ToString()
+  nameWithType: ValueType.ToString()
+  fullName: System.ValueType.ToString()
+  spec.csharp:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType
+  commentId: T:System.ValueType
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype
+  name: ValueType
+  nameWithType: ValueType
+  fullName: System.ValueType
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: MakesCentsBackend.Models.Optional`1.HasValue*
+  commentId: Overload:MakesCentsBackend.Models.Optional`1.HasValue
+  href: MakesCentsBackend.Models.Optional-1.html#MakesCentsBackend_Models_Optional_1_HasValue
+  name: HasValue
+  nameWithType: Optional<T>.HasValue
+  fullName: MakesCentsBackend.Models.Optional<T>.HasValue
+  nameWithType.vb: Optional(Of T).HasValue
+  fullName.vb: MakesCentsBackend.Models.Optional(Of T).HasValue
+- uid: MakesCentsBackend.Models.IOptional.HasValue
+  commentId: P:MakesCentsBackend.Models.IOptional.HasValue
+  parent: MakesCentsBackend.Models.IOptional
+  href: MakesCentsBackend.Models.IOptional.html#MakesCentsBackend_Models_IOptional_HasValue
+  name: HasValue
+  nameWithType: IOptional.HasValue
+  fullName: MakesCentsBackend.Models.IOptional.HasValue
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: MakesCentsBackend.Models.Optional`1.Value*
+  commentId: Overload:MakesCentsBackend.Models.Optional`1.Value
+  href: MakesCentsBackend.Models.Optional-1.html#MakesCentsBackend_Models_Optional_1_Value
+  name: Value
+  nameWithType: Optional<T>.Value
+  fullName: MakesCentsBackend.Models.Optional<T>.Value
+  nameWithType.vb: Optional(Of T).Value
+  fullName.vb: MakesCentsBackend.Models.Optional(Of T).Value
+- uid: '{T}'
+  commentId: '!:T'
+  definition: T
+  name: T
+  nameWithType: T
+  fullName: T
+- uid: T
+  name: T
+  nameWithType: T
+  fullName: T
+- uid: MakesCentsBackend.Models.Optional`1.GetValue*
+  commentId: Overload:MakesCentsBackend.Models.Optional`1.GetValue
+  href: MakesCentsBackend.Models.Optional-1.html#MakesCentsBackend_Models_Optional_1_GetValue
+  name: GetValue
+  nameWithType: Optional<T>.GetValue
+  fullName: MakesCentsBackend.Models.Optional<T>.GetValue
+  nameWithType.vb: Optional(Of T).GetValue
+  fullName.vb: MakesCentsBackend.Models.Optional(Of T).GetValue
+- uid: MakesCentsBackend.Models.IOptional.GetValue
+  commentId: M:MakesCentsBackend.Models.IOptional.GetValue
+  parent: MakesCentsBackend.Models.IOptional
+  href: MakesCentsBackend.Models.IOptional.html#MakesCentsBackend_Models_IOptional_GetValue
+  name: GetValue()
+  nameWithType: IOptional.GetValue()
+  fullName: MakesCentsBackend.Models.IOptional.GetValue()
+  spec.csharp:
+  - uid: MakesCentsBackend.Models.IOptional.GetValue
+    name: GetValue
+    href: MakesCentsBackend.Models.IOptional.html#MakesCentsBackend_Models_IOptional_GetValue
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: MakesCentsBackend.Models.IOptional.GetValue
+    name: GetValue
+    href: MakesCentsBackend.Models.IOptional.html#MakesCentsBackend_Models_IOptional_GetValue
+  - name: (
+  - name: )
+- uid: MakesCentsBackend.Models.Optional`1.#ctor*
+  commentId: Overload:MakesCentsBackend.Models.Optional`1.#ctor
+  href: MakesCentsBackend.Models.Optional-1.html#MakesCentsBackend_Models_Optional_1__ctor__0_
+  name: Optional
+  nameWithType: Optional<T>.Optional
+  fullName: MakesCentsBackend.Models.Optional<T>.Optional
+  nameWithType.vb: Optional(Of T).New
+  fullName.vb: MakesCentsBackend.Models.Optional(Of T).New
+  name.vb: New
+- uid: MakesCentsBackend.Models.Optional`1.op_Implicit*
+  commentId: Overload:MakesCentsBackend.Models.Optional`1.op_Implicit
+  name: implicit operator
+  nameWithType: Optional<T>.implicit operator
+  fullName: MakesCentsBackend.Models.Optional<T>.implicit operator
+  nameWithType.vb: Optional(Of T).CType
+  fullName.vb: MakesCentsBackend.Models.Optional(Of T).CType
+  name.vb: CType
+  spec.csharp:
+  - name: implicit
+  - name: " "
+  - name: operator
+- uid: MakesCentsBackend.Models.Optional`1
+  commentId: T:MakesCentsBackend.Models.Optional`1
+  parent: MakesCentsBackend.Models
+  href: MakesCentsBackend.Models.Optional-1.html
+  name: Optional<T>
+  nameWithType: Optional<T>
+  fullName: MakesCentsBackend.Models.Optional<T>
+  nameWithType.vb: Optional(Of T)
+  fullName.vb: MakesCentsBackend.Models.Optional(Of T)
+  name.vb: Optional(Of T)
+  spec.csharp:
+  - uid: MakesCentsBackend.Models.Optional`1
+    name: Optional
+    href: MakesCentsBackend.Models.Optional-1.html
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: MakesCentsBackend.Models.Optional`1
+    name: Optional
+    href: MakesCentsBackend.Models.Optional-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )

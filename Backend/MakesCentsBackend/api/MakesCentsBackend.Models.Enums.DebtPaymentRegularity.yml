@@ -1,0 +1,284 @@
+### YamlMime:ManagedReference
+items:
+- uid: MakesCentsBackend.Models.Enums.DebtPaymentRegularity
+  commentId: T:MakesCentsBackend.Models.Enums.DebtPaymentRegularity
+  id: DebtPaymentRegularity
+  parent: MakesCentsBackend.Models.Enums
+  children:
+  - MakesCentsBackend.Models.Enums.DebtPaymentRegularity.Annually
+  - MakesCentsBackend.Models.Enums.DebtPaymentRegularity.BiMonthlyEveryTwoMonths
+  - MakesCentsBackend.Models.Enums.DebtPaymentRegularity.BiWeeklyEveryTwoWeeks
+  - MakesCentsBackend.Models.Enums.DebtPaymentRegularity.Monthly
+  - MakesCentsBackend.Models.Enums.DebtPaymentRegularity.Quarterly
+  - MakesCentsBackend.Models.Enums.DebtPaymentRegularity.TwiceAnnually
+  - MakesCentsBackend.Models.Enums.DebtPaymentRegularity.Unknown
+  - MakesCentsBackend.Models.Enums.DebtPaymentRegularity.Weekly
+  langs:
+  - csharp
+  - vb
+  name: DebtPaymentRegularity
+  nameWithType: DebtPaymentRegularity
+  fullName: MakesCentsBackend.Models.Enums.DebtPaymentRegularity
+  type: Enum
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Models/Enums/DebtPaymentRegularity.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: DebtPaymentRegularity
+    path: Models/Enums/DebtPaymentRegularity.cs
+    startLine: 10
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Models.Enums
+  summary: Enum for Debt Payment Regularities for the Debt Account Model
+  example: []
+  syntax:
+    content: public enum DebtPaymentRegularity
+    content.vb: Public Enum DebtPaymentRegularity
+- uid: MakesCentsBackend.Models.Enums.DebtPaymentRegularity.Unknown
+  commentId: F:MakesCentsBackend.Models.Enums.DebtPaymentRegularity.Unknown
+  id: Unknown
+  parent: MakesCentsBackend.Models.Enums.DebtPaymentRegularity
+  langs:
+  - csharp
+  - vb
+  name: Unknown
+  nameWithType: DebtPaymentRegularity.Unknown
+  fullName: MakesCentsBackend.Models.Enums.DebtPaymentRegularity.Unknown
+  type: Field
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Models/Enums/DebtPaymentRegularity.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: Unknown
+    path: Models/Enums/DebtPaymentRegularity.cs
+    startLine: 12
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Models.Enums
+  syntax:
+    content: Unknown = 1
+    return:
+      type: MakesCentsBackend.Models.Enums.DebtPaymentRegularity
+- uid: MakesCentsBackend.Models.Enums.DebtPaymentRegularity.Weekly
+  commentId: F:MakesCentsBackend.Models.Enums.DebtPaymentRegularity.Weekly
+  id: Weekly
+  parent: MakesCentsBackend.Models.Enums.DebtPaymentRegularity
+  langs:
+  - csharp
+  - vb
+  name: Weekly
+  nameWithType: DebtPaymentRegularity.Weekly
+  fullName: MakesCentsBackend.Models.Enums.DebtPaymentRegularity.Weekly
+  type: Field
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Models/Enums/DebtPaymentRegularity.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: Weekly
+    path: Models/Enums/DebtPaymentRegularity.cs
+    startLine: 13
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Models.Enums
+  syntax:
+    content: Weekly = 2
+    return:
+      type: MakesCentsBackend.Models.Enums.DebtPaymentRegularity
+- uid: MakesCentsBackend.Models.Enums.DebtPaymentRegularity.BiWeeklyEveryTwoWeeks
+  commentId: F:MakesCentsBackend.Models.Enums.DebtPaymentRegularity.BiWeeklyEveryTwoWeeks
+  id: BiWeeklyEveryTwoWeeks
+  parent: MakesCentsBackend.Models.Enums.DebtPaymentRegularity
+  langs:
+  - csharp
+  - vb
+  name: BiWeeklyEveryTwoWeeks
+  nameWithType: DebtPaymentRegularity.BiWeeklyEveryTwoWeeks
+  fullName: MakesCentsBackend.Models.Enums.DebtPaymentRegularity.BiWeeklyEveryTwoWeeks
+  type: Field
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Models/Enums/DebtPaymentRegularity.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: BiWeeklyEveryTwoWeeks
+    path: Models/Enums/DebtPaymentRegularity.cs
+    startLine: 14
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Models.Enums
+  syntax:
+    content: BiWeeklyEveryTwoWeeks = 3
+    return:
+      type: MakesCentsBackend.Models.Enums.DebtPaymentRegularity
+- uid: MakesCentsBackend.Models.Enums.DebtPaymentRegularity.Monthly
+  commentId: F:MakesCentsBackend.Models.Enums.DebtPaymentRegularity.Monthly
+  id: Monthly
+  parent: MakesCentsBackend.Models.Enums.DebtPaymentRegularity
+  langs:
+  - csharp
+  - vb
+  name: Monthly
+  nameWithType: DebtPaymentRegularity.Monthly
+  fullName: MakesCentsBackend.Models.Enums.DebtPaymentRegularity.Monthly
+  type: Field
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Models/Enums/DebtPaymentRegularity.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: Monthly
+    path: Models/Enums/DebtPaymentRegularity.cs
+    startLine: 15
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Models.Enums
+  syntax:
+    content: Monthly = 4
+    return:
+      type: MakesCentsBackend.Models.Enums.DebtPaymentRegularity
+- uid: MakesCentsBackend.Models.Enums.DebtPaymentRegularity.BiMonthlyEveryTwoMonths
+  commentId: F:MakesCentsBackend.Models.Enums.DebtPaymentRegularity.BiMonthlyEveryTwoMonths
+  id: BiMonthlyEveryTwoMonths
+  parent: MakesCentsBackend.Models.Enums.DebtPaymentRegularity
+  langs:
+  - csharp
+  - vb
+  name: BiMonthlyEveryTwoMonths
+  nameWithType: DebtPaymentRegularity.BiMonthlyEveryTwoMonths
+  fullName: MakesCentsBackend.Models.Enums.DebtPaymentRegularity.BiMonthlyEveryTwoMonths
+  type: Field
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Models/Enums/DebtPaymentRegularity.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: BiMonthlyEveryTwoMonths
+    path: Models/Enums/DebtPaymentRegularity.cs
+    startLine: 16
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Models.Enums
+  syntax:
+    content: BiMonthlyEveryTwoMonths = 5
+    return:
+      type: MakesCentsBackend.Models.Enums.DebtPaymentRegularity
+- uid: MakesCentsBackend.Models.Enums.DebtPaymentRegularity.Quarterly
+  commentId: F:MakesCentsBackend.Models.Enums.DebtPaymentRegularity.Quarterly
+  id: Quarterly
+  parent: MakesCentsBackend.Models.Enums.DebtPaymentRegularity
+  langs:
+  - csharp
+  - vb
+  name: Quarterly
+  nameWithType: DebtPaymentRegularity.Quarterly
+  fullName: MakesCentsBackend.Models.Enums.DebtPaymentRegularity.Quarterly
+  type: Field
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Models/Enums/DebtPaymentRegularity.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: Quarterly
+    path: Models/Enums/DebtPaymentRegularity.cs
+    startLine: 17
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Models.Enums
+  syntax:
+    content: Quarterly = 6
+    return:
+      type: MakesCentsBackend.Models.Enums.DebtPaymentRegularity
+- uid: MakesCentsBackend.Models.Enums.DebtPaymentRegularity.TwiceAnnually
+  commentId: F:MakesCentsBackend.Models.Enums.DebtPaymentRegularity.TwiceAnnually
+  id: TwiceAnnually
+  parent: MakesCentsBackend.Models.Enums.DebtPaymentRegularity
+  langs:
+  - csharp
+  - vb
+  name: TwiceAnnually
+  nameWithType: DebtPaymentRegularity.TwiceAnnually
+  fullName: MakesCentsBackend.Models.Enums.DebtPaymentRegularity.TwiceAnnually
+  type: Field
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Models/Enums/DebtPaymentRegularity.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: TwiceAnnually
+    path: Models/Enums/DebtPaymentRegularity.cs
+    startLine: 18
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Models.Enums
+  syntax:
+    content: TwiceAnnually = 7
+    return:
+      type: MakesCentsBackend.Models.Enums.DebtPaymentRegularity
+- uid: MakesCentsBackend.Models.Enums.DebtPaymentRegularity.Annually
+  commentId: F:MakesCentsBackend.Models.Enums.DebtPaymentRegularity.Annually
+  id: Annually
+  parent: MakesCentsBackend.Models.Enums.DebtPaymentRegularity
+  langs:
+  - csharp
+  - vb
+  name: Annually
+  nameWithType: DebtPaymentRegularity.Annually
+  fullName: MakesCentsBackend.Models.Enums.DebtPaymentRegularity.Annually
+  type: Field
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Models/Enums/DebtPaymentRegularity.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: Annually
+    path: Models/Enums/DebtPaymentRegularity.cs
+    startLine: 19
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Models.Enums
+  syntax:
+    content: Annually = 8
+    return:
+      type: MakesCentsBackend.Models.Enums.DebtPaymentRegularity
+references:
+- uid: MakesCentsBackend.Models.Enums
+  commentId: N:MakesCentsBackend.Models.Enums
+  href: MakesCentsBackend.html
+  name: MakesCentsBackend.Models.Enums
+  nameWithType: MakesCentsBackend.Models.Enums
+  fullName: MakesCentsBackend.Models.Enums
+  spec.csharp:
+  - uid: MakesCentsBackend
+    name: MakesCentsBackend
+    href: MakesCentsBackend.html
+  - name: .
+  - uid: MakesCentsBackend.Models
+    name: Models
+    href: MakesCentsBackend.Models.html
+  - name: .
+  - uid: MakesCentsBackend.Models.Enums
+    name: Enums
+    href: MakesCentsBackend.Models.Enums.html
+  spec.vb:
+  - uid: MakesCentsBackend
+    name: MakesCentsBackend
+    href: MakesCentsBackend.html
+  - name: .
+  - uid: MakesCentsBackend.Models
+    name: Models
+    href: MakesCentsBackend.Models.html
+  - name: .
+  - uid: MakesCentsBackend.Models.Enums
+    name: Enums
+    href: MakesCentsBackend.Models.Enums.html
+- uid: MakesCentsBackend.Models.Enums.DebtPaymentRegularity
+  commentId: T:MakesCentsBackend.Models.Enums.DebtPaymentRegularity
+  parent: MakesCentsBackend.Models.Enums
+  href: MakesCentsBackend.Models.Enums.DebtPaymentRegularity.html
+  name: DebtPaymentRegularity
+  nameWithType: DebtPaymentRegularity
+  fullName: MakesCentsBackend.Models.Enums.DebtPaymentRegularity

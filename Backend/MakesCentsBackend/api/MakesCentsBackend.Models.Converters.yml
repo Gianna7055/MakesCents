@@ -1,0 +1,101 @@
+### YamlMime:ManagedReference
+items:
+- uid: MakesCentsBackend.Models.Converters
+  commentId: N:MakesCentsBackend.Models.Converters
+  id: MakesCentsBackend.Models.Converters
+  children:
+  - MakesCentsBackend.Models.Converters.OptionalDBConverter`1
+  - MakesCentsBackend.Models.Converters.OptionalJsonConverterFactory
+  - MakesCentsBackend.Models.Converters.OptionalJsonConverter`1
+  - MakesCentsBackend.Models.Converters.SafeDefaultConverter`1
+  langs:
+  - csharp
+  - vb
+  name: MakesCentsBackend.Models.Converters
+  nameWithType: MakesCentsBackend.Models.Converters
+  fullName: MakesCentsBackend.Models.Converters
+  type: Namespace
+  assemblies:
+  - MakesCentsBackend
+references:
+- uid: MakesCentsBackend.Models.Converters.OptionalDBConverter`1
+  commentId: T:MakesCentsBackend.Models.Converters.OptionalDBConverter`1
+  href: MakesCentsBackend.Models.Converters.OptionalDBConverter-1.html
+  name: OptionalDBConverter<T>
+  nameWithType: OptionalDBConverter<T>
+  fullName: MakesCentsBackend.Models.Converters.OptionalDBConverter<T>
+  nameWithType.vb: OptionalDBConverter(Of T)
+  fullName.vb: MakesCentsBackend.Models.Converters.OptionalDBConverter(Of T)
+  name.vb: OptionalDBConverter(Of T)
+  spec.csharp:
+  - uid: MakesCentsBackend.Models.Converters.OptionalDBConverter`1
+    name: OptionalDBConverter
+    href: MakesCentsBackend.Models.Converters.OptionalDBConverter-1.html
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: MakesCentsBackend.Models.Converters.OptionalDBConverter`1
+    name: OptionalDBConverter
+    href: MakesCentsBackend.Models.Converters.OptionalDBConverter-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: MakesCentsBackend.Models.Converters.OptionalJsonConverter`1
+  commentId: T:MakesCentsBackend.Models.Converters.OptionalJsonConverter`1
+  href: MakesCentsBackend.Models.Converters.OptionalJsonConverter-1.html
+  name: OptionalJsonConverter<T>
+  nameWithType: OptionalJsonConverter<T>
+  fullName: MakesCentsBackend.Models.Converters.OptionalJsonConverter<T>
+  nameWithType.vb: OptionalJsonConverter(Of T)
+  fullName.vb: MakesCentsBackend.Models.Converters.OptionalJsonConverter(Of T)
+  name.vb: OptionalJsonConverter(Of T)
+  spec.csharp:
+  - uid: MakesCentsBackend.Models.Converters.OptionalJsonConverter`1
+    name: OptionalJsonConverter
+    href: MakesCentsBackend.Models.Converters.OptionalJsonConverter-1.html
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: MakesCentsBackend.Models.Converters.OptionalJsonConverter`1
+    name: OptionalJsonConverter
+    href: MakesCentsBackend.Models.Converters.OptionalJsonConverter-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: MakesCentsBackend.Models.Converters.OptionalJsonConverterFactory
+  commentId: T:MakesCentsBackend.Models.Converters.OptionalJsonConverterFactory
+  href: MakesCentsBackend.Models.Converters.OptionalJsonConverterFactory.html
+  name: OptionalJsonConverterFactory
+  nameWithType: OptionalJsonConverterFactory
+  fullName: MakesCentsBackend.Models.Converters.OptionalJsonConverterFactory
+- uid: MakesCentsBackend.Models.Converters.SafeDefaultConverter`1
+  commentId: T:MakesCentsBackend.Models.Converters.SafeDefaultConverter`1
+  href: MakesCentsBackend.Models.Converters.SafeDefaultConverter-1.html
+  name: SafeDefaultConverter<T>
+  nameWithType: SafeDefaultConverter<T>
+  fullName: MakesCentsBackend.Models.Converters.SafeDefaultConverter<T>
+  nameWithType.vb: SafeDefaultConverter(Of T)
+  fullName.vb: MakesCentsBackend.Models.Converters.SafeDefaultConverter(Of T)
+  name.vb: SafeDefaultConverter(Of T)
+  spec.csharp:
+  - uid: MakesCentsBackend.Models.Converters.SafeDefaultConverter`1
+    name: SafeDefaultConverter
+    href: MakesCentsBackend.Models.Converters.SafeDefaultConverter-1.html
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: MakesCentsBackend.Models.Converters.SafeDefaultConverter`1
+    name: SafeDefaultConverter
+    href: MakesCentsBackend.Models.Converters.SafeDefaultConverter-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )

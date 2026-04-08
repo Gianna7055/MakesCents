@@ -12,7 +12,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace MakesCentsBackend.Controllers
 {
     /// <summary>
-    /// API controller for bank accounts
+    /// Controller for specified bank account APIs, including Create Bank Account and Update Bank Account
     /// </summary>
     [Route("api/bank-accounts")]
     [ApiController]

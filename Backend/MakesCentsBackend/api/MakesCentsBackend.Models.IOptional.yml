@@ -1,0 +1,163 @@
+### YamlMime:ManagedReference
+items:
+- uid: MakesCentsBackend.Models.IOptional
+  commentId: T:MakesCentsBackend.Models.IOptional
+  id: IOptional
+  parent: MakesCentsBackend.Models
+  children:
+  - MakesCentsBackend.Models.IOptional.GetValue
+  - MakesCentsBackend.Models.IOptional.HasValue
+  langs:
+  - csharp
+  - vb
+  name: IOptional
+  nameWithType: IOptional
+  fullName: MakesCentsBackend.Models.IOptional
+  type: Interface
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Models/BaseModels.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: IOptional
+    path: Models/BaseModels.cs
+    startLine: 81
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Models
+  syntax:
+    content: >-
+      [ExportTsClass]
+
+      public interface IOptional
+    content.vb: >-
+      <ExportTsClass>
+
+      Public Interface IOptional
+  derivedClasses:
+  - MakesCentsBackend.Models.Optional`1
+  attributes:
+  - type: TypeGen.Core.TypeAnnotations.ExportTsClassAttribute
+    ctor: TypeGen.Core.TypeAnnotations.ExportTsClassAttribute.#ctor
+    arguments: []
+- uid: MakesCentsBackend.Models.IOptional.HasValue
+  commentId: P:MakesCentsBackend.Models.IOptional.HasValue
+  id: HasValue
+  parent: MakesCentsBackend.Models.IOptional
+  langs:
+  - csharp
+  - vb
+  name: HasValue
+  nameWithType: IOptional.HasValue
+  fullName: MakesCentsBackend.Models.IOptional.HasValue
+  type: Property
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Models/BaseModels.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: HasValue
+    path: Models/BaseModels.cs
+    startLine: 84
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Models
+  syntax:
+    content: bool HasValue { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: ReadOnly Property HasValue As Boolean
+  overload: MakesCentsBackend.Models.IOptional.HasValue*
+- uid: MakesCentsBackend.Models.IOptional.GetValue
+  commentId: M:MakesCentsBackend.Models.IOptional.GetValue
+  id: GetValue
+  parent: MakesCentsBackend.Models.IOptional
+  langs:
+  - csharp
+  - vb
+  name: GetValue()
+  nameWithType: IOptional.GetValue()
+  fullName: MakesCentsBackend.Models.IOptional.GetValue()
+  type: Method
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Models/BaseModels.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: GetValue
+    path: Models/BaseModels.cs
+    startLine: 85
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Models
+  syntax:
+    content: object? GetValue()
+    return:
+      type: System.Object
+    content.vb: Function GetValue() As Object
+  overload: MakesCentsBackend.Models.IOptional.GetValue*
+references:
+- uid: MakesCentsBackend.Models
+  commentId: N:MakesCentsBackend.Models
+  href: MakesCentsBackend.html
+  name: MakesCentsBackend.Models
+  nameWithType: MakesCentsBackend.Models
+  fullName: MakesCentsBackend.Models
+  spec.csharp:
+  - uid: MakesCentsBackend
+    name: MakesCentsBackend
+    href: MakesCentsBackend.html
+  - name: .
+  - uid: MakesCentsBackend.Models
+    name: Models
+    href: MakesCentsBackend.Models.html
+  spec.vb:
+  - uid: MakesCentsBackend
+    name: MakesCentsBackend
+    href: MakesCentsBackend.html
+  - name: .
+  - uid: MakesCentsBackend.Models
+    name: Models
+    href: MakesCentsBackend.Models.html
+- uid: MakesCentsBackend.Models.IOptional.HasValue*
+  commentId: Overload:MakesCentsBackend.Models.IOptional.HasValue
+  href: MakesCentsBackend.Models.IOptional.html#MakesCentsBackend_Models_IOptional_HasValue
+  name: HasValue
+  nameWithType: IOptional.HasValue
+  fullName: MakesCentsBackend.Models.IOptional.HasValue
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: MakesCentsBackend.Models.IOptional.GetValue*
+  commentId: Overload:MakesCentsBackend.Models.IOptional.GetValue
+  href: MakesCentsBackend.Models.IOptional.html#MakesCentsBackend_Models_IOptional_GetValue
+  name: GetValue
+  nameWithType: IOptional.GetValue
+  fullName: MakesCentsBackend.Models.IOptional.GetValue
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object

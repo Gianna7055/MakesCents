@@ -1,0 +1,2673 @@
+{
+  "source_base_path": "C:/Users/giannaross/source/repos/MakesCents/Backend/MakesCentsBackend",
+  "xrefmap": "xrefmap.yml",
+  "files": [
+    {
+      "type": "Resource",
+      "output": {
+        "resource": {
+          "relative_path": "index.json"
+        }
+      }
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MakesCentsBackend.Controllers.AccountController.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MakesCentsBackend.Controllers.AccountController.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MakesCentsBackend.Controllers.AccountController",
+      "Summary": "<p sourcefile=\"api/MakesCentsBackend.Controllers.AccountController.yml\" sourcestartlinenumber=\"1\">API controller for accounts</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MakesCentsBackend.Controllers.BankAccountController.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MakesCentsBackend.Controllers.BankAccountController.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MakesCentsBackend.Controllers.BankAccountController",
+      "Summary": "<p sourcefile=\"api/MakesCentsBackend.Controllers.BankAccountController.yml\" sourcestartlinenumber=\"1\">API controller for bank accounts</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MakesCentsBackend.Controllers.BudgetController.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MakesCentsBackend.Controllers.BudgetController.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MakesCentsBackend.Controllers.BudgetController",
+      "Summary": "<p sourcefile=\"api/MakesCentsBackend.Controllers.BudgetController.yml\" sourcestartlinenumber=\"1\">API controller for budgets</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MakesCentsBackend.Controllers.DebtAccountController.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MakesCentsBackend.Controllers.DebtAccountController.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MakesCentsBackend.Controllers.DebtAccountController",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MakesCentsBackend.Controllers.EnvelopeCategoryController.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MakesCentsBackend.Controllers.EnvelopeCategoryController.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MakesCentsBackend.Controllers.EnvelopeCategoryController",
+      "Summary": "<p sourcefile=\"api/MakesCentsBackend.Controllers.EnvelopeCategoryController.yml\" sourcestartlinenumber=\"1\">API controller for envelope categories</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MakesCentsBackend.Controllers.EnvelopeController.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MakesCentsBackend.Controllers.EnvelopeController.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MakesCentsBackend.Controllers.EnvelopeController",
+      "Summary": "<p sourcefile=\"api/MakesCentsBackend.Controllers.EnvelopeController.yml\" sourcestartlinenumber=\"1\">API controller for envelopes</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MakesCentsBackend.Controllers.InvestmentAccountController.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MakesCentsBackend.Controllers.InvestmentAccountController.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MakesCentsBackend.Controllers.InvestmentAccountController",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MakesCentsBackend.Controllers.PaycheckController.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MakesCentsBackend.Controllers.PaycheckController.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MakesCentsBackend.Controllers.PaycheckController",
+      "Summary": "<p sourcefile=\"api/MakesCentsBackend.Controllers.PaycheckController.yml\" sourcestartlinenumber=\"1\">API controller for paychecks</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MakesCentsBackend.Controllers.PaymentTransactionController.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MakesCentsBackend.Controllers.PaymentTransactionController.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MakesCentsBackend.Controllers.PaymentTransactionController",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MakesCentsBackend.Controllers.PlannedExpenseController.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MakesCentsBackend.Controllers.PlannedExpenseController.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MakesCentsBackend.Controllers.PlannedExpenseController",
+      "Summary": "<p sourcefile=\"api/MakesCentsBackend.Controllers.PlannedExpenseController.yml\" sourcestartlinenumber=\"1\">API controller for planned expenses</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MakesCentsBackend.Controllers.TransactionController.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MakesCentsBackend.Controllers.TransactionController.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MakesCentsBackend.Controllers.TransactionController",
+      "Summary": "<p sourcefile=\"api/MakesCentsBackend.Controllers.TransactionController.yml\" sourcestartlinenumber=\"1\">API controller for transactions</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MakesCentsBackend.Controllers.TransferTransactionController.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MakesCentsBackend.Controllers.TransferTransactionController.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MakesCentsBackend.Controllers.TransferTransactionController",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MakesCentsBackend.Controllers.UserController.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MakesCentsBackend.Controllers.UserController.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MakesCentsBackend.Controllers.UserController",
+      "Summary": "<p sourcefile=\"api/MakesCentsBackend.Controllers.UserController.yml\" sourcestartlinenumber=\"1\">API controller for users</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MakesCentsBackend.Controllers.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MakesCentsBackend.Controllers.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MakesCentsBackend.Controllers",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MakesCentsBackend.Models.AccountEntityModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MakesCentsBackend.Models.AccountEntityModel.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MakesCentsBackend.Models.AccountEntityModel",
+      "Summary": "<p sourcefile=\"api/MakesCentsBackend.Models.AccountEntityModel.yml\" sourcestartlinenumber=\"1\">Model for an abstract account</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MakesCentsBackend.Models.BankAccountEntityModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MakesCentsBackend.Models.BankAccountEntityModel.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MakesCentsBackend.Models.BankAccountEntityModel",
+      "Summary": "<p sourcefile=\"api/MakesCentsBackend.Models.BankAccountEntityModel.yml\" sourcestartlinenumber=\"1\">Model for a bank account</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MakesCentsBackend.Models.BankAccountSummaryDTOModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MakesCentsBackend.Models.BankAccountSummaryDTOModel.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MakesCentsBackend.Models.BankAccountSummaryDTOModel",
+      "Summary": "<p sourcefile=\"api/MakesCentsBackend.Models.BankAccountSummaryDTOModel.yml\" sourcestartlinenumber=\"1\">DTO model for getting all accounts</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MakesCentsBackend.Models.BaseIdRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MakesCentsBackend.Models.BaseIdRequest.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MakesCentsBackend.Models.BaseIdRequest",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MakesCentsBackend.Models.BaseIdResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MakesCentsBackend.Models.BaseIdResponse.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MakesCentsBackend.Models.BaseIdResponse",
+      "Summary": "<p sourcefile=\"api/MakesCentsBackend.Models.BaseIdResponse.yml\" sourcestartlinenumber=\"1\">Base Response for a create or edit function</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MakesCentsBackend.Models.BaseResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MakesCentsBackend.Models.BaseResponse.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MakesCentsBackend.Models.BaseResponse",
+      "Summary": "<p sourcefile=\"api/MakesCentsBackend.Models.BaseResponse.yml\" sourcestartlinenumber=\"1\">A base response model with only a status and message</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MakesCentsBackend.Models.BudgetEntityModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MakesCentsBackend.Models.BudgetEntityModel.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MakesCentsBackend.Models.BudgetEntityModel",
+      "Summary": "<p sourcefile=\"api/MakesCentsBackend.Models.BudgetEntityModel.yml\" sourcestartlinenumber=\"1\">Entity model for a budget</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MakesCentsBackend.Models.Converters.OptionalDBConverter-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MakesCentsBackend.Models.Converters.OptionalDBConverter-1.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MakesCentsBackend.Models.Converters.OptionalDBConverter<T>",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MakesCentsBackend.Models.Converters.OptionalJsonConverter-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MakesCentsBackend.Models.Converters.OptionalJsonConverter-1.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MakesCentsBackend.Models.Converters.OptionalJsonConverter<T>",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MakesCentsBackend.Models.Converters.OptionalJsonConverterFactory.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MakesCentsBackend.Models.Converters.OptionalJsonConverterFactory.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MakesCentsBackend.Models.Converters.OptionalJsonConverterFactory",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MakesCentsBackend.Models.Converters.SafeDefaultConverter-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MakesCentsBackend.Models.Converters.SafeDefaultConverter-1.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MakesCentsBackend.Models.Converters.SafeDefaultConverter<T>",
+      "Summary": "<p sourcefile=\"api/MakesCentsBackend.Models.Converters.SafeDefaultConverter-1.yml\" sourcestartlinenumber=\"1\">A generic JSON converter that safely deserializes a property.\nReturns the default value if the input cannot be converted to the target type.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MakesCentsBackend.Models.Converters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MakesCentsBackend.Models.Converters.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MakesCentsBackend.Models.Converters",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MakesCentsBackend.Models.CreateAccountRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MakesCentsBackend.Models.CreateAccountRequest.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MakesCentsBackend.Models.CreateAccountRequest",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MakesCentsBackend.Models.CreateAccountResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MakesCentsBackend.Models.CreateAccountResponse.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MakesCentsBackend.Models.CreateAccountResponse",
+      "Summary": "<p sourcefile=\"api/MakesCentsBackend.Models.CreateAccountResponse.yml\" sourcestartlinenumber=\"1\">Response model for an account</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MakesCentsBackend.Models.CreateBankAccountRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MakesCentsBackend.Models.CreateBankAccountRequest.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MakesCentsBackend.Models.CreateBankAccountRequest",
+      "Summary": "<p sourcefile=\"api/MakesCentsBackend.Models.CreateBankAccountRequest.yml\" sourcestartlinenumber=\"1\">Request model for creating a bank account model</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MakesCentsBackend.Models.CreateBankAccountResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MakesCentsBackend.Models.CreateBankAccountResponse.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MakesCentsBackend.Models.CreateBankAccountResponse",
+      "Summary": "<p sourcefile=\"api/MakesCentsBackend.Models.CreateBankAccountResponse.yml\" sourcestartlinenumber=\"1\">Response model for creating a bank account</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MakesCentsBackend.Models.CreateBudgetRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MakesCentsBackend.Models.CreateBudgetRequest.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MakesCentsBackend.Models.CreateBudgetRequest",
+      "Summary": "<p sourcefile=\"api/MakesCentsBackend.Models.CreateBudgetRequest.yml\" sourcestartlinenumber=\"1\">Request model for creating a budget</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MakesCentsBackend.Models.CreateDebtAccountRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MakesCentsBackend.Models.CreateDebtAccountRequest.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MakesCentsBackend.Models.CreateDebtAccountRequest",
+      "Summary": "<p sourcefile=\"api/MakesCentsBackend.Models.CreateDebtAccountRequest.yml\" sourcestartlinenumber=\"1\">Request model for creating a debt account model</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MakesCentsBackend.Models.CreateDebtAccountResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MakesCentsBackend.Models.CreateDebtAccountResponse.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MakesCentsBackend.Models.CreateDebtAccountResponse",
+      "Summary": "<p sourcefile=\"api/MakesCentsBackend.Models.CreateDebtAccountResponse.yml\" sourcestartlinenumber=\"1\">Response model for creating a debt account</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MakesCentsBackend.Models.CreateEnvelopeCategoryRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MakesCentsBackend.Models.CreateEnvelopeCategoryRequest.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MakesCentsBackend.Models.CreateEnvelopeCategoryRequest",
+      "Summary": "<p sourcefile=\"api/MakesCentsBackend.Models.CreateEnvelopeCategoryRequest.yml\" sourcestartlinenumber=\"1\">Request model for creating an envelope category</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MakesCentsBackend.Models.CreateEnvelopeRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MakesCentsBackend.Models.CreateEnvelopeRequest.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MakesCentsBackend.Models.CreateEnvelopeRequest",
+      "Summary": "<p sourcefile=\"api/MakesCentsBackend.Models.CreateEnvelopeRequest.yml\" sourcestartlinenumber=\"1\">Request class for creating an envelope</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MakesCentsBackend.Models.CreateInvestmentAccountRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MakesCentsBackend.Models.CreateInvestmentAccountRequest.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MakesCentsBackend.Models.CreateInvestmentAccountRequest",
+      "Summary": "<p sourcefile=\"api/MakesCentsBackend.Models.CreateInvestmentAccountRequest.yml\" sourcestartlinenumber=\"1\">Request model to create an investment account</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MakesCentsBackend.Models.CreateInvestmentAccountResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MakesCentsBackend.Models.CreateInvestmentAccountResponse.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MakesCentsBackend.Models.CreateInvestmentAccountResponse",
+      "Summary": "<p sourcefile=\"api/MakesCentsBackend.Models.CreateInvestmentAccountResponse.yml\" sourcestartlinenumber=\"1\">Response model for creating an investment account</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MakesCentsBackend.Models.CreatePaycheckRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MakesCentsBackend.Models.CreatePaycheckRequest.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MakesCentsBackend.Models.CreatePaycheckRequest",
+      "Summary": "<p sourcefile=\"api/MakesCentsBackend.Models.CreatePaycheckRequest.yml\" sourcestartlinenumber=\"1\">Request method to create a paycheck</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MakesCentsBackend.Models.CreatePaycheckResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MakesCentsBackend.Models.CreatePaycheckResponse.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MakesCentsBackend.Models.CreatePaycheckResponse",
+      "Summary": "<p sourcefile=\"api/MakesCentsBackend.Models.CreatePaycheckResponse.yml\" sourcestartlinenumber=\"1\">Response model for a DTO paycheck</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MakesCentsBackend.Models.CreatePaycheckSplitRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MakesCentsBackend.Models.CreatePaycheckSplitRequest.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MakesCentsBackend.Models.CreatePaycheckSplitRequest",
+      "Summary": "<p sourcefile=\"api/MakesCentsBackend.Models.CreatePaycheckSplitRequest.yml\" sourcestartlinenumber=\"1\">Request model to create a paycheck split</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MakesCentsBackend.Models.CreatePaymentTransactionRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MakesCentsBackend.Models.CreatePaymentTransactionRequest.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MakesCentsBackend.Models.CreatePaymentTransactionRequest",
+      "Summary": "<p sourcefile=\"api/MakesCentsBackend.Models.CreatePaymentTransactionRequest.yml\" sourcestartlinenumber=\"1\">Request model to create a new payment transaction</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MakesCentsBackend.Models.CreatePaymentTransactionResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MakesCentsBackend.Models.CreatePaymentTransactionResponse.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MakesCentsBackend.Models.CreatePaymentTransactionResponse",
+      "Summary": "<p sourcefile=\"api/MakesCentsBackend.Models.CreatePaymentTransactionResponse.yml\" sourcestartlinenumber=\"1\">Response model for creating a payment transaction</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MakesCentsBackend.Models.CreateTransactionRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MakesCentsBackend.Models.CreateTransactionRequest.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MakesCentsBackend.Models.CreateTransactionRequest",
+      "Summary": "<p sourcefile=\"api/MakesCentsBackend.Models.CreateTransactionRequest.yml\" sourcestartlinenumber=\"1\">Request model to create a new transaction</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MakesCentsBackend.Models.CreateTransactionSplitRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MakesCentsBackend.Models.CreateTransactionSplitRequest.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MakesCentsBackend.Models.CreateTransactionSplitRequest",
+      "Summary": "<p sourcefile=\"api/MakesCentsBackend.Models.CreateTransactionSplitRequest.yml\" sourcestartlinenumber=\"1\">Request model for creating a new transaction split</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MakesCentsBackend.Models.CreateTransferTransactionRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MakesCentsBackend.Models.CreateTransferTransactionRequest.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MakesCentsBackend.Models.CreateTransferTransactionRequest",
+      "Summary": "<p sourcefile=\"api/MakesCentsBackend.Models.CreateTransferTransactionRequest.yml\" sourcestartlinenumber=\"1\">Request model to create a new transfer transaction</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MakesCentsBackend.Models.CreateTransferTransactionResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MakesCentsBackend.Models.CreateTransferTransactionResponse.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MakesCentsBackend.Models.CreateTransferTransactionResponse",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MakesCentsBackend.Models.DebtAccountEntityModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MakesCentsBackend.Models.DebtAccountEntityModel.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MakesCentsBackend.Models.DebtAccountEntityModel",
+      "Summary": "<p sourcefile=\"api/MakesCentsBackend.Models.DebtAccountEntityModel.yml\" sourcestartlinenumber=\"1\">Model for a debt account</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MakesCentsBackend.Models.DebtAccountSummaryDTOModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MakesCentsBackend.Models.DebtAccountSummaryDTOModel.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MakesCentsBackend.Models.DebtAccountSummaryDTOModel",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MakesCentsBackend.Models.EditBudgetRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MakesCentsBackend.Models.EditBudgetRequest.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MakesCentsBackend.Models.EditBudgetRequest",
+      "Summary": "<p sourcefile=\"api/MakesCentsBackend.Models.EditBudgetRequest.yml\" sourcestartlinenumber=\"1\">Request model for updating a budget</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MakesCentsBackend.Models.EditEnvelopeCategoryRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MakesCentsBackend.Models.EditEnvelopeCategoryRequest.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MakesCentsBackend.Models.EditEnvelopeCategoryRequest",
+      "Summary": "<p sourcefile=\"api/MakesCentsBackend.Models.EditEnvelopeCategoryRequest.yml\" sourcestartlinenumber=\"1\">Request model for editing an envelope category</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MakesCentsBackend.Models.EditUserRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MakesCentsBackend.Models.EditUserRequest.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MakesCentsBackend.Models.EditUserRequest",
+      "Summary": "<p sourcefile=\"api/MakesCentsBackend.Models.EditUserRequest.yml\" sourcestartlinenumber=\"1\">Request model for editing a user</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MakesCentsBackend.Models.Entities.PlannedExpenseEntity.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MakesCentsBackend.Models.Entities.PlannedExpenseEntity.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MakesCentsBackend.Models.Entities.PlannedExpenseEntity",
+      "Summary": "<p sourcefile=\"api/MakesCentsBackend.Models.Entities.PlannedExpenseEntity.yml\" sourcestartlinenumber=\"1\">Model for a planned expense</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MakesCentsBackend.Models.Entities.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MakesCentsBackend.Models.Entities.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MakesCentsBackend.Models.Entities",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MakesCentsBackend.Models.Enums.AccountType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MakesCentsBackend.Models.Enums.AccountType.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MakesCentsBackend.Models.Enums.AccountType",
+      "Summary": "<p sourcefile=\"api/MakesCentsBackend.Models.Enums.AccountType.yml\" sourcestartlinenumber=\"1\">Enum for Account Types for the Account Model</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MakesCentsBackend.Models.Enums.BankAccountType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MakesCentsBackend.Models.Enums.BankAccountType.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MakesCentsBackend.Models.Enums.BankAccountType",
+      "Summary": "<p sourcefile=\"api/MakesCentsBackend.Models.Enums.BankAccountType.yml\" sourcestartlinenumber=\"1\">Enum for Bank Account Types for the Bank Account Model</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MakesCentsBackend.Models.Enums.DebtAccountType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MakesCentsBackend.Models.Enums.DebtAccountType.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MakesCentsBackend.Models.Enums.DebtAccountType",
+      "Summary": "<p sourcefile=\"api/MakesCentsBackend.Models.Enums.DebtAccountType.yml\" sourcestartlinenumber=\"1\">Enum for Debt Account Types for the Debt Account Model</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MakesCentsBackend.Models.Enums.DebtPaymentRegularity.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MakesCentsBackend.Models.Enums.DebtPaymentRegularity.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MakesCentsBackend.Models.Enums.DebtPaymentRegularity",
+      "Summary": "<p sourcefile=\"api/MakesCentsBackend.Models.Enums.DebtPaymentRegularity.yml\" sourcestartlinenumber=\"1\">Enum for Debt Payment Regularities for the Debt Account Model</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MakesCentsBackend.Models.Enums.InvestmentAccountType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MakesCentsBackend.Models.Enums.InvestmentAccountType.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MakesCentsBackend.Models.Enums.InvestmentAccountType",
+      "Summary": "<p sourcefile=\"api/MakesCentsBackend.Models.Enums.InvestmentAccountType.yml\" sourcestartlinenumber=\"1\">Enum for Investment Account Types for Investment Account Model</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MakesCentsBackend.Models.Enums.Month.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MakesCentsBackend.Models.Enums.Month.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MakesCentsBackend.Models.Enums.Month",
+      "Summary": "<p sourcefile=\"api/MakesCentsBackend.Models.Enums.Month.yml\" sourcestartlinenumber=\"1\">Enum for the Months for the Budget Model</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MakesCentsBackend.Models.Enums.PaycheckRegularity.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MakesCentsBackend.Models.Enums.PaycheckRegularity.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MakesCentsBackend.Models.Enums.PaycheckRegularity",
+      "Summary": "<p sourcefile=\"api/MakesCentsBackend.Models.Enums.PaycheckRegularity.yml\" sourcestartlinenumber=\"1\">Enum for Paycheck Regularities for the Paycheck Model</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MakesCentsBackend.Models.Enums.PaymentTransactionType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MakesCentsBackend.Models.Enums.PaymentTransactionType.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MakesCentsBackend.Models.Enums.PaymentTransactionType",
+      "Summary": "<p sourcefile=\"api/MakesCentsBackend.Models.Enums.PaymentTransactionType.yml\" sourcestartlinenumber=\"1\">Enum for Payment Transaction Types for the Payment Transaction Model</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MakesCentsBackend.Models.Enums.PlannedExpenseOccurrence.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MakesCentsBackend.Models.Enums.PlannedExpenseOccurrence.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MakesCentsBackend.Models.Enums.PlannedExpenseOccurrence",
+      "Summary": "<p sourcefile=\"api/MakesCentsBackend.Models.Enums.PlannedExpenseOccurrence.yml\" sourcestartlinenumber=\"1\">Enum for Planned Expense Occurrences for the Planned Expense Model</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MakesCentsBackend.Models.Enums.PlannedExpenseRegularity.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MakesCentsBackend.Models.Enums.PlannedExpenseRegularity.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MakesCentsBackend.Models.Enums.PlannedExpenseRegularity",
+      "Summary": "<p sourcefile=\"api/MakesCentsBackend.Models.Enums.PlannedExpenseRegularity.yml\" sourcestartlinenumber=\"1\">Enum for Planned Expense Regularities for the Planned Expense Model</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MakesCentsBackend.Models.Enums.TransactionType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MakesCentsBackend.Models.Enums.TransactionType.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MakesCentsBackend.Models.Enums.TransactionType",
+      "Summary": "<p sourcefile=\"api/MakesCentsBackend.Models.Enums.TransactionType.yml\" sourcestartlinenumber=\"1\">Enum for Transaction Types for the Transaction Model</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MakesCentsBackend.Models.Enums.TransferTransactionType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MakesCentsBackend.Models.Enums.TransferTransactionType.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MakesCentsBackend.Models.Enums.TransferTransactionType",
+      "Summary": "<p sourcefile=\"api/MakesCentsBackend.Models.Enums.TransferTransactionType.yml\" sourcestartlinenumber=\"1\">Enum for Transfer Transaction Types for the Transfer Transaction Model</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MakesCentsBackend.Models.Enums.Weekday.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MakesCentsBackend.Models.Enums.Weekday.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MakesCentsBackend.Models.Enums.Weekday",
+      "Summary": "<p sourcefile=\"api/MakesCentsBackend.Models.Enums.Weekday.yml\" sourcestartlinenumber=\"1\">Enum for Weekdays for the Planned Expense Model</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MakesCentsBackend.Models.Enums.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MakesCentsBackend.Models.Enums.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MakesCentsBackend.Models.Enums",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MakesCentsBackend.Models.EnvelopeCategoryEntityModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MakesCentsBackend.Models.EnvelopeCategoryEntityModel.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MakesCentsBackend.Models.EnvelopeCategoryEntityModel",
+      "Summary": "<p sourcefile=\"api/MakesCentsBackend.Models.EnvelopeCategoryEntityModel.yml\" sourcestartlinenumber=\"1\">Model for an envelope category</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MakesCentsBackend.Models.EnvelopeEntityModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MakesCentsBackend.Models.EnvelopeEntityModel.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MakesCentsBackend.Models.EnvelopeEntityModel",
+      "Summary": "<p sourcefile=\"api/MakesCentsBackend.Models.EnvelopeEntityModel.yml\" sourcestartlinenumber=\"1\">Model for an envelope</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MakesCentsBackend.Models.FindUserResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MakesCentsBackend.Models.FindUserResponse.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MakesCentsBackend.Models.FindUserResponse",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MakesCentsBackend.Models.GetAccountBaseModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MakesCentsBackend.Models.GetAccountBaseModel.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MakesCentsBackend.Models.GetAccountBaseModel",
+      "Summary": "<p sourcefile=\"api/MakesCentsBackend.Models.GetAccountBaseModel.yml\" sourcestartlinenumber=\"1\">Base class for getting a specific account</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MakesCentsBackend.Models.GetAllAccountsResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MakesCentsBackend.Models.GetAllAccountsResponse.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MakesCentsBackend.Models.GetAllAccountsResponse",
+      "Summary": "<p sourcefile=\"api/MakesCentsBackend.Models.GetAllAccountsResponse.yml\" sourcestartlinenumber=\"1\">Response model for getting all accounts</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MakesCentsBackend.Models.GetAllEnvelopeCategoriesResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MakesCentsBackend.Models.GetAllEnvelopeCategoriesResponse.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MakesCentsBackend.Models.GetAllEnvelopeCategoriesResponse",
+      "Summary": "<p sourcefile=\"api/MakesCentsBackend.Models.GetAllEnvelopeCategoriesResponse.yml\" sourcestartlinenumber=\"1\">Response model for getting all envelope categories</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MakesCentsBackend.Models.GetAllPaychecksResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MakesCentsBackend.Models.GetAllPaychecksResponse.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MakesCentsBackend.Models.GetAllPaychecksResponse",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MakesCentsBackend.Models.GetAllTransactionsDTOResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MakesCentsBackend.Models.GetAllTransactionsDTOResponse.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MakesCentsBackend.Models.GetAllTransactionsDTOResponse",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MakesCentsBackend.Models.GetAllTransactionsEntityResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MakesCentsBackend.Models.GetAllTransactionsEntityResponse.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MakesCentsBackend.Models.GetAllTransactionsEntityResponse",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MakesCentsBackend.Models.GetBankAccountDTOModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MakesCentsBackend.Models.GetBankAccountDTOModel.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MakesCentsBackend.Models.GetBankAccountDTOModel",
+      "Summary": "<p sourcefile=\"api/MakesCentsBackend.Models.GetBankAccountDTOModel.yml\" sourcestartlinenumber=\"1\">DTO model to get a specific bank account</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MakesCentsBackend.Models.GetBankAccountDTOResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MakesCentsBackend.Models.GetBankAccountDTOResponse.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MakesCentsBackend.Models.GetBankAccountDTOResponse",
+      "Summary": "<p sourcefile=\"api/MakesCentsBackend.Models.GetBankAccountDTOResponse.yml\" sourcestartlinenumber=\"1\">Response model for getting a specific bank account</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MakesCentsBackend.Models.GetBankAccountEntityModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MakesCentsBackend.Models.GetBankAccountEntityModel.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MakesCentsBackend.Models.GetBankAccountEntityModel",
+      "Summary": "<p sourcefile=\"api/MakesCentsBackend.Models.GetBankAccountEntityModel.yml\" sourcestartlinenumber=\"1\">Entity model to get a specific bank account</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MakesCentsBackend.Models.GetBankAccountEntityResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MakesCentsBackend.Models.GetBankAccountEntityResponse.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MakesCentsBackend.Models.GetBankAccountEntityResponse",
+      "Summary": "<p sourcefile=\"api/MakesCentsBackend.Models.GetBankAccountEntityResponse.yml\" sourcestartlinenumber=\"1\">Response model for getting a specific bank account</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MakesCentsBackend.Models.GetBudgetDTOModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MakesCentsBackend.Models.GetBudgetDTOModel.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MakesCentsBackend.Models.GetBudgetDTOModel",
+      "Summary": "<p sourcefile=\"api/MakesCentsBackend.Models.GetBudgetDTOModel.yml\" sourcestartlinenumber=\"1\">DTO model for sending a budget to the API for getting a budget</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MakesCentsBackend.Models.GetBudgetRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MakesCentsBackend.Models.GetBudgetRequest.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MakesCentsBackend.Models.GetBudgetRequest",
+      "Summary": "<p sourcefile=\"api/MakesCentsBackend.Models.GetBudgetRequest.yml\" sourcestartlinenumber=\"1\">DTO model for getting a budget</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MakesCentsBackend.Models.GetBudgetResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MakesCentsBackend.Models.GetBudgetResponse.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MakesCentsBackend.Models.GetBudgetResponse",
+      "Summary": "<p sourcefile=\"api/MakesCentsBackend.Models.GetBudgetResponse.yml\" sourcestartlinenumber=\"1\">Response model for getting a budget</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MakesCentsBackend.Models.GetDebtAccountDTOModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MakesCentsBackend.Models.GetDebtAccountDTOModel.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MakesCentsBackend.Models.GetDebtAccountDTOModel",
+      "Summary": "<p sourcefile=\"api/MakesCentsBackend.Models.GetDebtAccountDTOModel.yml\" sourcestartlinenumber=\"1\">DTO model to get a specific debt account</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MakesCentsBackend.Models.GetDebtAccountDTOResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MakesCentsBackend.Models.GetDebtAccountDTOResponse.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MakesCentsBackend.Models.GetDebtAccountDTOResponse",
+      "Summary": "<p sourcefile=\"api/MakesCentsBackend.Models.GetDebtAccountDTOResponse.yml\" sourcestartlinenumber=\"1\">Response model for getting a specific debt account</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MakesCentsBackend.Models.GetDebtAccountEntityModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MakesCentsBackend.Models.GetDebtAccountEntityModel.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MakesCentsBackend.Models.GetDebtAccountEntityModel",
+      "Summary": "<p sourcefile=\"api/MakesCentsBackend.Models.GetDebtAccountEntityModel.yml\" sourcestartlinenumber=\"1\">Entity model to get a specific debt account</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MakesCentsBackend.Models.GetDebtAccountEntityResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MakesCentsBackend.Models.GetDebtAccountEntityResponse.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MakesCentsBackend.Models.GetDebtAccountEntityResponse",
+      "Summary": "<p sourcefile=\"api/MakesCentsBackend.Models.GetDebtAccountEntityResponse.yml\" sourcestartlinenumber=\"1\">Response model for getting a specific debt account</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MakesCentsBackend.Models.GetEnvelopeBaseModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MakesCentsBackend.Models.GetEnvelopeBaseModel.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MakesCentsBackend.Models.GetEnvelopeBaseModel",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MakesCentsBackend.Models.GetEnvelopeCategoryDTOModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MakesCentsBackend.Models.GetEnvelopeCategoryDTOModel.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MakesCentsBackend.Models.GetEnvelopeCategoryDTOModel",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MakesCentsBackend.Models.GetEnvelopeCategoryResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MakesCentsBackend.Models.GetEnvelopeCategoryResponse.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MakesCentsBackend.Models.GetEnvelopeCategoryResponse",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MakesCentsBackend.Models.GetEnvelopeDTOModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MakesCentsBackend.Models.GetEnvelopeDTOModel.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MakesCentsBackend.Models.GetEnvelopeDTOModel",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MakesCentsBackend.Models.GetEnvelopeDTOResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MakesCentsBackend.Models.GetEnvelopeDTOResponse.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MakesCentsBackend.Models.GetEnvelopeDTOResponse",
+      "Summary": "<p sourcefile=\"api/MakesCentsBackend.Models.GetEnvelopeDTOResponse.yml\" sourcestartlinenumber=\"1\">Response model for getting a specific envelope</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MakesCentsBackend.Models.GetEnvelopeEntityModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MakesCentsBackend.Models.GetEnvelopeEntityModel.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MakesCentsBackend.Models.GetEnvelopeEntityModel",
+      "Summary": "<p sourcefile=\"api/MakesCentsBackend.Models.GetEnvelopeEntityModel.yml\" sourcestartlinenumber=\"1\">Entity model for getting a specific envelope</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MakesCentsBackend.Models.GetEnvelopeEntityResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MakesCentsBackend.Models.GetEnvelopeEntityResponse.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MakesCentsBackend.Models.GetEnvelopeEntityResponse",
+      "Summary": "<p sourcefile=\"api/MakesCentsBackend.Models.GetEnvelopeEntityResponse.yml\" sourcestartlinenumber=\"1\">Entity response model for getting a specific envelope</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MakesCentsBackend.Models.GetInvestmentAccountDTOModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MakesCentsBackend.Models.GetInvestmentAccountDTOModel.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MakesCentsBackend.Models.GetInvestmentAccountDTOModel",
+      "Summary": "<p sourcefile=\"api/MakesCentsBackend.Models.GetInvestmentAccountDTOModel.yml\" sourcestartlinenumber=\"1\">DTO model to get a specific investment account</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MakesCentsBackend.Models.GetInvestmentAccountDTOResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MakesCentsBackend.Models.GetInvestmentAccountDTOResponse.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MakesCentsBackend.Models.GetInvestmentAccountDTOResponse",
+      "Summary": "<p sourcefile=\"api/MakesCentsBackend.Models.GetInvestmentAccountDTOResponse.yml\" sourcestartlinenumber=\"1\">Response model for getting a specific investment account</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MakesCentsBackend.Models.GetInvestmentAccountEntityModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MakesCentsBackend.Models.GetInvestmentAccountEntityModel.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MakesCentsBackend.Models.GetInvestmentAccountEntityModel",
+      "Summary": "<p sourcefile=\"api/MakesCentsBackend.Models.GetInvestmentAccountEntityModel.yml\" sourcestartlinenumber=\"1\">Entity model to get a specific investment account</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MakesCentsBackend.Models.GetInvestmentAccountEntityResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MakesCentsBackend.Models.GetInvestmentAccountEntityResponse.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MakesCentsBackend.Models.GetInvestmentAccountEntityResponse",
+      "Summary": "<p sourcefile=\"api/MakesCentsBackend.Models.GetInvestmentAccountEntityResponse.yml\" sourcestartlinenumber=\"1\">Response model for getting a specific investment account</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MakesCentsBackend.Models.GetPaycheckDTOModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MakesCentsBackend.Models.GetPaycheckDTOModel.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MakesCentsBackend.Models.GetPaycheckDTOModel",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MakesCentsBackend.Models.GetPaycheckResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MakesCentsBackend.Models.GetPaycheckResponse.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MakesCentsBackend.Models.GetPaycheckResponse",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MakesCentsBackend.Models.GetPaycheckSplitDTOModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MakesCentsBackend.Models.GetPaycheckSplitDTOModel.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MakesCentsBackend.Models.GetPaycheckSplitDTOModel",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MakesCentsBackend.Models.GetPaymentTransactionDTOModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MakesCentsBackend.Models.GetPaymentTransactionDTOModel.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MakesCentsBackend.Models.GetPaymentTransactionDTOModel",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MakesCentsBackend.Models.GetPaymentTransactionResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MakesCentsBackend.Models.GetPaymentTransactionResponse.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MakesCentsBackend.Models.GetPaymentTransactionResponse",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MakesCentsBackend.Models.GetTransactionDTOModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MakesCentsBackend.Models.GetTransactionDTOModel.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MakesCentsBackend.Models.GetTransactionDTOModel",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MakesCentsBackend.Models.GetTransactionEntityModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MakesCentsBackend.Models.GetTransactionEntityModel.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MakesCentsBackend.Models.GetTransactionEntityModel",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MakesCentsBackend.Models.GetTransactionSplitDTOModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MakesCentsBackend.Models.GetTransactionSplitDTOModel.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MakesCentsBackend.Models.GetTransactionSplitDTOModel",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MakesCentsBackend.Models.GetTransferTransactionDTOModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MakesCentsBackend.Models.GetTransferTransactionDTOModel.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MakesCentsBackend.Models.GetTransferTransactionDTOModel",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MakesCentsBackend.Models.GetTransferTransactionDTOResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MakesCentsBackend.Models.GetTransferTransactionDTOResponse.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MakesCentsBackend.Models.GetTransferTransactionDTOResponse",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MakesCentsBackend.Models.GetTransferTransactionEntityModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MakesCentsBackend.Models.GetTransferTransactionEntityModel.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MakesCentsBackend.Models.GetTransferTransactionEntityModel",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MakesCentsBackend.Models.GetTransferTransactionEntityResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MakesCentsBackend.Models.GetTransferTransactionEntityResponse.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MakesCentsBackend.Models.GetTransferTransactionEntityResponse",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MakesCentsBackend.Models.GetUserDTOModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MakesCentsBackend.Models.GetUserDTOModel.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MakesCentsBackend.Models.GetUserDTOModel",
+      "Summary": "<p sourcefile=\"api/MakesCentsBackend.Models.GetUserDTOModel.yml\" sourcestartlinenumber=\"1\">DTO model for getting a user</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MakesCentsBackend.Models.GetUserResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MakesCentsBackend.Models.GetUserResponse.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MakesCentsBackend.Models.GetUserResponse",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MakesCentsBackend.Models.GetYearBudgetDTOModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MakesCentsBackend.Models.GetYearBudgetDTOModel.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MakesCentsBackend.Models.GetYearBudgetDTOModel",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MakesCentsBackend.Models.GetYearBudgetsResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MakesCentsBackend.Models.GetYearBudgetsResponse.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MakesCentsBackend.Models.GetYearBudgetsResponse",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MakesCentsBackend.Models.IOptional.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MakesCentsBackend.Models.IOptional.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MakesCentsBackend.Models.IOptional",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MakesCentsBackend.Models.InvestmentAccountEntityModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MakesCentsBackend.Models.InvestmentAccountEntityModel.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MakesCentsBackend.Models.InvestmentAccountEntityModel",
+      "Summary": "<p sourcefile=\"api/MakesCentsBackend.Models.InvestmentAccountEntityModel.yml\" sourcestartlinenumber=\"1\">Model for an investment account</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MakesCentsBackend.Models.InvestmentAccountSummaryDTOModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MakesCentsBackend.Models.InvestmentAccountSummaryDTOModel.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MakesCentsBackend.Models.InvestmentAccountSummaryDTOModel",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MakesCentsBackend.Models.LoginRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MakesCentsBackend.Models.LoginRequest.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MakesCentsBackend.Models.LoginRequest",
+      "Summary": "<p sourcefile=\"api/MakesCentsBackend.Models.LoginRequest.yml\" sourcestartlinenumber=\"1\">Request model for a user</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MakesCentsBackend.Models.LoginResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MakesCentsBackend.Models.LoginResponse.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MakesCentsBackend.Models.LoginResponse",
+      "Summary": "<p sourcefile=\"api/MakesCentsBackend.Models.LoginResponse.yml\" sourcestartlinenumber=\"1\">Response model for the login process</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MakesCentsBackend.Models.Optional-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MakesCentsBackend.Models.Optional-1.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MakesCentsBackend.Models.Optional<T>",
+      "Summary": "<p sourcefile=\"api/MakesCentsBackend.Models.Optional-1.yml\" sourcestartlinenumber=\"1\">Optional class for creating and updating nulls</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MakesCentsBackend.Models.PaycheckEntityModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MakesCentsBackend.Models.PaycheckEntityModel.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MakesCentsBackend.Models.PaycheckEntityModel",
+      "Summary": "<p sourcefile=\"api/MakesCentsBackend.Models.PaycheckEntityModel.yml\" sourcestartlinenumber=\"1\">Model for a paycheck</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MakesCentsBackend.Models.PaycheckSplitEntityModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MakesCentsBackend.Models.PaycheckSplitEntityModel.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MakesCentsBackend.Models.PaycheckSplitEntityModel",
+      "Summary": "<p sourcefile=\"api/MakesCentsBackend.Models.PaycheckSplitEntityModel.yml\" sourcestartlinenumber=\"1\">Model for a paycheck split</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MakesCentsBackend.Models.PaymentTransactionEntityModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MakesCentsBackend.Models.PaymentTransactionEntityModel.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MakesCentsBackend.Models.PaymentTransactionEntityModel",
+      "Summary": "<p sourcefile=\"api/MakesCentsBackend.Models.PaymentTransactionEntityModel.yml\" sourcestartlinenumber=\"1\">Model for a payment transaction</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MakesCentsBackend.Models.RegisterRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MakesCentsBackend.Models.RegisterRequest.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MakesCentsBackend.Models.RegisterRequest",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MakesCentsBackend.Models.RegisterResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MakesCentsBackend.Models.RegisterResponse.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MakesCentsBackend.Models.RegisterResponse",
+      "Summary": "<p sourcefile=\"api/MakesCentsBackend.Models.RegisterResponse.yml\" sourcestartlinenumber=\"1\">Response model for registration</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MakesCentsBackend.Models.SummaryAccountDTOModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MakesCentsBackend.Models.SummaryAccountDTOModel.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MakesCentsBackend.Models.SummaryAccountDTOModel",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MakesCentsBackend.Models.SummaryEnvelopeCategoryResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MakesCentsBackend.Models.SummaryEnvelopeCategoryResponse.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MakesCentsBackend.Models.SummaryEnvelopeCategoryResponse",
+      "Summary": "<p sourcefile=\"api/MakesCentsBackend.Models.SummaryEnvelopeCategoryResponse.yml\" sourcestartlinenumber=\"1\">Response model for an envelope category for the Get Budget method</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MakesCentsBackend.Models.SummaryEnvelopeResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MakesCentsBackend.Models.SummaryEnvelopeResponse.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MakesCentsBackend.Models.SummaryEnvelopeResponse",
+      "Summary": "<p sourcefile=\"api/MakesCentsBackend.Models.SummaryEnvelopeResponse.yml\" sourcestartlinenumber=\"1\">Response model for an envelope for the Get Budget method</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MakesCentsBackend.Models.SummaryPaycheckResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MakesCentsBackend.Models.SummaryPaycheckResponse.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MakesCentsBackend.Models.SummaryPaycheckResponse",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MakesCentsBackend.Models.SummaryTransactionDTOModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MakesCentsBackend.Models.SummaryTransactionDTOModel.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MakesCentsBackend.Models.SummaryTransactionDTOModel",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MakesCentsBackend.Models.SummaryTransactionEntityModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MakesCentsBackend.Models.SummaryTransactionEntityModel.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MakesCentsBackend.Models.SummaryTransactionEntityModel",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MakesCentsBackend.Models.TransactionEntityModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MakesCentsBackend.Models.TransactionEntityModel.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MakesCentsBackend.Models.TransactionEntityModel",
+      "Summary": "<p sourcefile=\"api/MakesCentsBackend.Models.TransactionEntityModel.yml\" sourcestartlinenumber=\"1\">Model for an abstract transaction</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MakesCentsBackend.Models.TransactionSplitEntityModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MakesCentsBackend.Models.TransactionSplitEntityModel.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MakesCentsBackend.Models.TransactionSplitEntityModel",
+      "Summary": "<p sourcefile=\"api/MakesCentsBackend.Models.TransactionSplitEntityModel.yml\" sourcestartlinenumber=\"1\">Model for a transaction split model</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MakesCentsBackend.Models.TransferTransactionEntityModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MakesCentsBackend.Models.TransferTransactionEntityModel.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MakesCentsBackend.Models.TransferTransactionEntityModel",
+      "Summary": "<p sourcefile=\"api/MakesCentsBackend.Models.TransferTransactionEntityModel.yml\" sourcestartlinenumber=\"1\">Model for a transfer transaction</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MakesCentsBackend.Models.UpdateAccountRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MakesCentsBackend.Models.UpdateAccountRequest.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MakesCentsBackend.Models.UpdateAccountRequest",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MakesCentsBackend.Models.UpdateBankAccountRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MakesCentsBackend.Models.UpdateBankAccountRequest.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MakesCentsBackend.Models.UpdateBankAccountRequest",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MakesCentsBackend.Models.UpdateDebtAccountRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MakesCentsBackend.Models.UpdateDebtAccountRequest.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MakesCentsBackend.Models.UpdateDebtAccountRequest",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MakesCentsBackend.Models.UpdateEnvelopeRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MakesCentsBackend.Models.UpdateEnvelopeRequest.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MakesCentsBackend.Models.UpdateEnvelopeRequest",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MakesCentsBackend.Models.UpdateInvestmentAccountRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MakesCentsBackend.Models.UpdateInvestmentAccountRequest.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MakesCentsBackend.Models.UpdateInvestmentAccountRequest",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MakesCentsBackend.Models.UpdatePaycheckRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MakesCentsBackend.Models.UpdatePaycheckRequest.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MakesCentsBackend.Models.UpdatePaycheckRequest",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MakesCentsBackend.Models.UpdatePaycheckResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MakesCentsBackend.Models.UpdatePaycheckResponse.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MakesCentsBackend.Models.UpdatePaycheckResponse",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MakesCentsBackend.Models.UpdatePaycheckSplitRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MakesCentsBackend.Models.UpdatePaycheckSplitRequest.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MakesCentsBackend.Models.UpdatePaycheckSplitRequest",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MakesCentsBackend.Models.UpdatePaymentTransactionRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MakesCentsBackend.Models.UpdatePaymentTransactionRequest.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MakesCentsBackend.Models.UpdatePaymentTransactionRequest",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MakesCentsBackend.Models.UpdatePaymentTransactionResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MakesCentsBackend.Models.UpdatePaymentTransactionResponse.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MakesCentsBackend.Models.UpdatePaymentTransactionResponse",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MakesCentsBackend.Models.UpdateTransactionRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MakesCentsBackend.Models.UpdateTransactionRequest.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MakesCentsBackend.Models.UpdateTransactionRequest",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MakesCentsBackend.Models.UpdateTransactionSplitRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MakesCentsBackend.Models.UpdateTransactionSplitRequest.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MakesCentsBackend.Models.UpdateTransactionSplitRequest",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MakesCentsBackend.Models.UpdateTransferTransactionRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MakesCentsBackend.Models.UpdateTransferTransactionRequest.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MakesCentsBackend.Models.UpdateTransferTransactionRequest",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MakesCentsBackend.Models.UserDTOModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MakesCentsBackend.Models.UserDTOModel.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MakesCentsBackend.Models.UserDTOModel",
+      "Summary": "<p sourcefile=\"api/MakesCentsBackend.Models.UserDTOModel.yml\" sourcestartlinenumber=\"1\">Model for a user</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MakesCentsBackend.Models.UserDTOResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MakesCentsBackend.Models.UserDTOResponse.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MakesCentsBackend.Models.UserDTOResponse",
+      "Summary": "<p sourcefile=\"api/MakesCentsBackend.Models.UserDTOResponse.yml\" sourcestartlinenumber=\"1\">Response model for a DTO user</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MakesCentsBackend.Models.UserEntityModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MakesCentsBackend.Models.UserEntityModel.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MakesCentsBackend.Models.UserEntityModel",
+      "Summary": "<p sourcefile=\"api/MakesCentsBackend.Models.UserEntityModel.yml\" sourcestartlinenumber=\"1\">Model for a user</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MakesCentsBackend.Models.UserEntityResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MakesCentsBackend.Models.UserEntityResponse.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MakesCentsBackend.Models.UserEntityResponse",
+      "Summary": "<p sourcefile=\"api/MakesCentsBackend.Models.UserEntityResponse.yml\" sourcestartlinenumber=\"1\">Response model for an entity user</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MakesCentsBackend.Models.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MakesCentsBackend.Models.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MakesCentsBackend.Models",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MakesCentsBackend.Services.BusinessLogicLayer.AccountLogic.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MakesCentsBackend.Services.BusinessLogicLayer.AccountLogic.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MakesCentsBackend.Services.BusinessLogicLayer.AccountLogic",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MakesCentsBackend.Services.BusinessLogicLayer.BankAccountLogic.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MakesCentsBackend.Services.BusinessLogicLayer.BankAccountLogic.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MakesCentsBackend.Services.BusinessLogicLayer.BankAccountLogic",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MakesCentsBackend.Services.BusinessLogicLayer.BudgetLogic.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MakesCentsBackend.Services.BusinessLogicLayer.BudgetLogic.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MakesCentsBackend.Services.BusinessLogicLayer.BudgetLogic",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MakesCentsBackend.Services.BusinessLogicLayer.DebtAccountLogic.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MakesCentsBackend.Services.BusinessLogicLayer.DebtAccountLogic.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MakesCentsBackend.Services.BusinessLogicLayer.DebtAccountLogic",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MakesCentsBackend.Services.BusinessLogicLayer.EnvelopeCategoryLogic.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MakesCentsBackend.Services.BusinessLogicLayer.EnvelopeCategoryLogic.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MakesCentsBackend.Services.BusinessLogicLayer.EnvelopeCategoryLogic",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MakesCentsBackend.Services.BusinessLogicLayer.EnvelopeLogic.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MakesCentsBackend.Services.BusinessLogicLayer.EnvelopeLogic.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MakesCentsBackend.Services.BusinessLogicLayer.EnvelopeLogic",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MakesCentsBackend.Services.BusinessLogicLayer.InvestmentAccountLogic.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MakesCentsBackend.Services.BusinessLogicLayer.InvestmentAccountLogic.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MakesCentsBackend.Services.BusinessLogicLayer.InvestmentAccountLogic",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MakesCentsBackend.Services.BusinessLogicLayer.PaycheckLogic.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MakesCentsBackend.Services.BusinessLogicLayer.PaycheckLogic.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MakesCentsBackend.Services.BusinessLogicLayer.PaycheckLogic",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MakesCentsBackend.Services.BusinessLogicLayer.PaymentTransactionLogic.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MakesCentsBackend.Services.BusinessLogicLayer.PaymentTransactionLogic.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MakesCentsBackend.Services.BusinessLogicLayer.PaymentTransactionLogic",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MakesCentsBackend.Services.BusinessLogicLayer.TransactionLogic.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MakesCentsBackend.Services.BusinessLogicLayer.TransactionLogic.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MakesCentsBackend.Services.BusinessLogicLayer.TransactionLogic",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MakesCentsBackend.Services.BusinessLogicLayer.TransferTransactionLogic.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MakesCentsBackend.Services.BusinessLogicLayer.TransferTransactionLogic.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MakesCentsBackend.Services.BusinessLogicLayer.TransferTransactionLogic",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MakesCentsBackend.Services.BusinessLogicLayer.UserLogic.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MakesCentsBackend.Services.BusinessLogicLayer.UserLogic.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MakesCentsBackend.Services.BusinessLogicLayer.UserLogic",
+      "Summary": "<p sourcefile=\"api/MakesCentsBackend.Services.BusinessLogicLayer.UserLogic.yml\" sourcestartlinenumber=\"1\">Class for all business rules for users</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MakesCentsBackend.Services.BusinessLogicLayer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MakesCentsBackend.Services.BusinessLogicLayer.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MakesCentsBackend.Services.BusinessLogicLayer",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MakesCentsBackend.Services.DataAccessLayer.AccountDAO.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MakesCentsBackend.Services.DataAccessLayer.AccountDAO.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MakesCentsBackend.Services.DataAccessLayer.AccountDAO",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MakesCentsBackend.Services.DataAccessLayer.AuthorizationService.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MakesCentsBackend.Services.DataAccessLayer.AuthorizationService.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MakesCentsBackend.Services.DataAccessLayer.AuthorizationService",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MakesCentsBackend.Services.DataAccessLayer.BankAccountDAO.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MakesCentsBackend.Services.DataAccessLayer.BankAccountDAO.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MakesCentsBackend.Services.DataAccessLayer.BankAccountDAO",
+      "Summary": "<p sourcefile=\"api/MakesCentsBackend.Services.DataAccessLayer.BankAccountDAO.yml\" sourcestartlinenumber=\"1\">Data access object for bank accounts</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MakesCentsBackend.Services.DataAccessLayer.BudgetDAO.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MakesCentsBackend.Services.DataAccessLayer.BudgetDAO.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MakesCentsBackend.Services.DataAccessLayer.BudgetDAO",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MakesCentsBackend.Services.DataAccessLayer.DebtAccountDAO.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MakesCentsBackend.Services.DataAccessLayer.DebtAccountDAO.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MakesCentsBackend.Services.DataAccessLayer.DebtAccountDAO",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MakesCentsBackend.Services.DataAccessLayer.EnvelopeCategoryDAO.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MakesCentsBackend.Services.DataAccessLayer.EnvelopeCategoryDAO.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MakesCentsBackend.Services.DataAccessLayer.EnvelopeCategoryDAO",
+      "Summary": "<p sourcefile=\"api/MakesCentsBackend.Services.DataAccessLayer.EnvelopeCategoryDAO.yml\" sourcestartlinenumber=\"1\">Data access object for envelope categories</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MakesCentsBackend.Services.DataAccessLayer.EnvelopeDAO.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MakesCentsBackend.Services.DataAccessLayer.EnvelopeDAO.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MakesCentsBackend.Services.DataAccessLayer.EnvelopeDAO",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MakesCentsBackend.Services.DataAccessLayer.InvestmentAccountDAO.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MakesCentsBackend.Services.DataAccessLayer.InvestmentAccountDAO.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MakesCentsBackend.Services.DataAccessLayer.InvestmentAccountDAO",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MakesCentsBackend.Services.DataAccessLayer.PaycheckDAO.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MakesCentsBackend.Services.DataAccessLayer.PaycheckDAO.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MakesCentsBackend.Services.DataAccessLayer.PaycheckDAO",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MakesCentsBackend.Services.DataAccessLayer.PaymentTransactionDAO.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MakesCentsBackend.Services.DataAccessLayer.PaymentTransactionDAO.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MakesCentsBackend.Services.DataAccessLayer.PaymentTransactionDAO",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MakesCentsBackend.Services.DataAccessLayer.TransactionDAO.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MakesCentsBackend.Services.DataAccessLayer.TransactionDAO.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MakesCentsBackend.Services.DataAccessLayer.TransactionDAO",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MakesCentsBackend.Services.DataAccessLayer.TransferTransactionDAO.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MakesCentsBackend.Services.DataAccessLayer.TransferTransactionDAO.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MakesCentsBackend.Services.DataAccessLayer.TransferTransactionDAO",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MakesCentsBackend.Services.DataAccessLayer.UserDAO.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MakesCentsBackend.Services.DataAccessLayer.UserDAO.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MakesCentsBackend.Services.DataAccessLayer.UserDAO",
+      "Summary": "<p sourcefile=\"api/MakesCentsBackend.Services.DataAccessLayer.UserDAO.yml\" sourcestartlinenumber=\"1\">Data Access Object for Users</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MakesCentsBackend.Services.DataAccessLayer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MakesCentsBackend.Services.DataAccessLayer.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MakesCentsBackend.Services.DataAccessLayer",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MakesCentsBackend.Services.Mappers.MappingProfile.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MakesCentsBackend.Services.Mappers.MappingProfile.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MakesCentsBackend.Services.Mappers.MappingProfile",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MakesCentsBackend.Services.Mappers.TransactionMapper.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MakesCentsBackend.Services.Mappers.TransactionMapper.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MakesCentsBackend.Services.Mappers.TransactionMapper",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MakesCentsBackend.Services.Mappers.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MakesCentsBackend.Services.Mappers.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MakesCentsBackend.Services.Mappers",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MakesCentsBackend.Services.Utilities.ClaimsPrincipalExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MakesCentsBackend.Services.Utilities.ClaimsPrincipalExtensions.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MakesCentsBackend.Services.Utilities.ClaimsPrincipalExtensions",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MakesCentsBackend.Services.Utilities.DateOnlyHandler.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MakesCentsBackend.Services.Utilities.DateOnlyHandler.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MakesCentsBackend.Services.Utilities.DateOnlyHandler",
+      "Summary": "<p sourcefile=\"api/MakesCentsBackend.Services.Utilities.DateOnlyHandler.yml\" sourcestartlinenumber=\"1\">Class to handle date only values when dealing with the database</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MakesCentsBackend.Services.Utilities.JwtService.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MakesCentsBackend.Services.Utilities.JwtService.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MakesCentsBackend.Services.Utilities.JwtService",
+      "Summary": "<p sourcefile=\"api/MakesCentsBackend.Services.Utilities.JwtService.yml\" sourcestartlinenumber=\"1\">Service responsible for generating JWT tokens</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MakesCentsBackend.Services.Utilities.PasswordHasher.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MakesCentsBackend.Services.Utilities.PasswordHasher.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MakesCentsBackend.Services.Utilities.PasswordHasher",
+      "Summary": "<p sourcefile=\"api/MakesCentsBackend.Services.Utilities.PasswordHasher.yml\" sourcestartlinenumber=\"1\">Static class to handle password hashing</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MakesCentsBackend.Services.Utilities.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MakesCentsBackend.Services.Utilities.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MakesCentsBackend.Services.Utilities",
+      "Summary": null
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "api/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/toc.html"
+        },
+        ".json": {
+          "relative_path": "api/toc.json"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "index.md",
+      "output": {
+        ".html": {
+          "relative_path": "index.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "toc.html"
+        },
+        ".json": {
+          "relative_path": "toc.json"
+        }
+      },
+      "version": ""
+    }
+  ],
+  "groups": [
+    {
+      "xrefmap": "xrefmap.yml"
+    }
+  ]
+}

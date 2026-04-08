@@ -1,0 +1,484 @@
+### YamlMime:ManagedReference
+items:
+- uid: MakesCentsBackend.Models.UserEntityResponse
+  commentId: T:MakesCentsBackend.Models.UserEntityResponse
+  id: UserEntityResponse
+  parent: MakesCentsBackend.Models
+  children:
+  - MakesCentsBackend.Models.UserEntityResponse.#ctor(MakesCentsBackend.Models.UserEntityModel,System.Int32,System.String)
+  - MakesCentsBackend.Models.UserEntityResponse.Token
+  - MakesCentsBackend.Models.UserEntityResponse.User
+  langs:
+  - csharp
+  - vb
+  name: UserEntityResponse
+  nameWithType: UserEntityResponse
+  fullName: MakesCentsBackend.Models.UserEntityResponse
+  type: Class
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Models/UserModels.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: UserEntityResponse
+    path: Models/UserModels.cs
+    startLine: 29
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Models
+  summary: Response model for an entity user
+  example: []
+  syntax:
+    content: >-
+      [ExportTsInterface]
+
+      public class UserEntityResponse : BaseResponse
+    content.vb: >-
+      <ExportTsInterface>
+
+      Public Class UserEntityResponse Inherits BaseResponse
+  inheritance:
+  - System.Object
+  - MakesCentsBackend.Models.BaseResponse
+  inheritedMembers:
+  - MakesCentsBackend.Models.BaseResponse.HttpStatus
+  - MakesCentsBackend.Models.BaseResponse.Message
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+  attributes:
+  - type: TypeGen.Core.TypeAnnotations.ExportTsInterfaceAttribute
+    ctor: TypeGen.Core.TypeAnnotations.ExportTsInterfaceAttribute.#ctor
+    arguments: []
+- uid: MakesCentsBackend.Models.UserEntityResponse.User
+  commentId: P:MakesCentsBackend.Models.UserEntityResponse.User
+  id: User
+  parent: MakesCentsBackend.Models.UserEntityResponse
+  langs:
+  - csharp
+  - vb
+  name: User
+  nameWithType: UserEntityResponse.User
+  fullName: MakesCentsBackend.Models.UserEntityResponse.User
+  type: Property
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Models/UserModels.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: User
+    path: Models/UserModels.cs
+    startLine: 33
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Models
+  syntax:
+    content: public UserEntityModel User { get; set; }
+    parameters: []
+    return:
+      type: MakesCentsBackend.Models.UserEntityModel
+    content.vb: Public Property User As UserEntityModel
+  overload: MakesCentsBackend.Models.UserEntityResponse.User*
+- uid: MakesCentsBackend.Models.UserEntityResponse.Token
+  commentId: P:MakesCentsBackend.Models.UserEntityResponse.Token
+  id: Token
+  parent: MakesCentsBackend.Models.UserEntityResponse
+  langs:
+  - csharp
+  - vb
+  name: Token
+  nameWithType: UserEntityResponse.Token
+  fullName: MakesCentsBackend.Models.UserEntityResponse.Token
+  type: Property
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Models/UserModels.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: Token
+    path: Models/UserModels.cs
+    startLine: 34
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Models
+  syntax:
+    content: public string? Token { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Token As String
+  overload: MakesCentsBackend.Models.UserEntityResponse.Token*
+- uid: MakesCentsBackend.Models.UserEntityResponse.#ctor(MakesCentsBackend.Models.UserEntityModel,System.Int32,System.String)
+  commentId: M:MakesCentsBackend.Models.UserEntityResponse.#ctor(MakesCentsBackend.Models.UserEntityModel,System.Int32,System.String)
+  id: '#ctor(MakesCentsBackend.Models.UserEntityModel,System.Int32,System.String)'
+  parent: MakesCentsBackend.Models.UserEntityResponse
+  langs:
+  - csharp
+  - vb
+  name: UserEntityResponse(UserEntityModel, int, string)
+  nameWithType: UserEntityResponse.UserEntityResponse(UserEntityModel, int, string)
+  fullName: MakesCentsBackend.Models.UserEntityResponse.UserEntityResponse(MakesCentsBackend.Models.UserEntityModel, int, string)
+  type: Constructor
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Models/UserModels.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: .ctor
+    path: Models/UserModels.cs
+    startLine: 41
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Models
+  summary: Parameterized constructor for the register response model
+  example: []
+  syntax:
+    content: public UserEntityResponse(UserEntityModel user, int status, string message)
+    parameters:
+    - id: user
+      type: MakesCentsBackend.Models.UserEntityModel
+    - id: status
+      type: System.Int32
+    - id: message
+      type: System.String
+      description: ''
+    content.vb: Public Sub New(user As UserEntityModel, status As Integer, message As String)
+  overload: MakesCentsBackend.Models.UserEntityResponse.#ctor*
+  nameWithType.vb: UserEntityResponse.New(UserEntityModel, Integer, String)
+  fullName.vb: MakesCentsBackend.Models.UserEntityResponse.New(MakesCentsBackend.Models.UserEntityModel, Integer, String)
+  name.vb: New(UserEntityModel, Integer, String)
+references:
+- uid: MakesCentsBackend.Models
+  commentId: N:MakesCentsBackend.Models
+  href: MakesCentsBackend.html
+  name: MakesCentsBackend.Models
+  nameWithType: MakesCentsBackend.Models
+  fullName: MakesCentsBackend.Models
+  spec.csharp:
+  - uid: MakesCentsBackend
+    name: MakesCentsBackend
+    href: MakesCentsBackend.html
+  - name: .
+  - uid: MakesCentsBackend.Models
+    name: Models
+    href: MakesCentsBackend.Models.html
+  spec.vb:
+  - uid: MakesCentsBackend
+    name: MakesCentsBackend
+    href: MakesCentsBackend.html
+  - name: .
+  - uid: MakesCentsBackend.Models
+    name: Models
+    href: MakesCentsBackend.Models.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: MakesCentsBackend.Models.BaseResponse
+  commentId: T:MakesCentsBackend.Models.BaseResponse
+  parent: MakesCentsBackend.Models
+  href: MakesCentsBackend.Models.BaseResponse.html
+  name: BaseResponse
+  nameWithType: BaseResponse
+  fullName: MakesCentsBackend.Models.BaseResponse
+- uid: MakesCentsBackend.Models.BaseResponse.HttpStatus
+  commentId: P:MakesCentsBackend.Models.BaseResponse.HttpStatus
+  parent: MakesCentsBackend.Models.BaseResponse
+  href: MakesCentsBackend.Models.BaseResponse.html#MakesCentsBackend_Models_BaseResponse_HttpStatus
+  name: HttpStatus
+  nameWithType: BaseResponse.HttpStatus
+  fullName: MakesCentsBackend.Models.BaseResponse.HttpStatus
+- uid: MakesCentsBackend.Models.BaseResponse.Message
+  commentId: P:MakesCentsBackend.Models.BaseResponse.Message
+  parent: MakesCentsBackend.Models.BaseResponse
+  href: MakesCentsBackend.Models.BaseResponse.html#MakesCentsBackend_Models_BaseResponse_Message
+  name: Message
+  nameWithType: BaseResponse.Message
+  fullName: MakesCentsBackend.Models.BaseResponse.Message
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: MakesCentsBackend.Models.UserEntityResponse.User*
+  commentId: Overload:MakesCentsBackend.Models.UserEntityResponse.User
+  href: MakesCentsBackend.Models.UserEntityResponse.html#MakesCentsBackend_Models_UserEntityResponse_User
+  name: User
+  nameWithType: UserEntityResponse.User
+  fullName: MakesCentsBackend.Models.UserEntityResponse.User
+- uid: MakesCentsBackend.Models.UserEntityModel
+  commentId: T:MakesCentsBackend.Models.UserEntityModel
+  parent: MakesCentsBackend.Models
+  href: MakesCentsBackend.Models.UserEntityModel.html
+  name: UserEntityModel
+  nameWithType: UserEntityModel
+  fullName: MakesCentsBackend.Models.UserEntityModel
+- uid: MakesCentsBackend.Models.UserEntityResponse.Token*
+  commentId: Overload:MakesCentsBackend.Models.UserEntityResponse.Token
+  href: MakesCentsBackend.Models.UserEntityResponse.html#MakesCentsBackend_Models_UserEntityResponse_Token
+  name: Token
+  nameWithType: UserEntityResponse.Token
+  fullName: MakesCentsBackend.Models.UserEntityResponse.Token
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: MakesCentsBackend.Models.UserEntityResponse.#ctor*
+  commentId: Overload:MakesCentsBackend.Models.UserEntityResponse.#ctor
+  href: MakesCentsBackend.Models.UserEntityResponse.html#MakesCentsBackend_Models_UserEntityResponse__ctor_MakesCentsBackend_Models_UserEntityModel_System_Int32_System_String_
+  name: UserEntityResponse
+  nameWithType: UserEntityResponse.UserEntityResponse
+  fullName: MakesCentsBackend.Models.UserEntityResponse.UserEntityResponse
+  nameWithType.vb: UserEntityResponse.New
+  fullName.vb: MakesCentsBackend.Models.UserEntityResponse.New
+  name.vb: New
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer

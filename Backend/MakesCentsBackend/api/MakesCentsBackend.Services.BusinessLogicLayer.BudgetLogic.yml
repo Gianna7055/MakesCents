@@ -1,0 +1,877 @@
+### YamlMime:ManagedReference
+items:
+- uid: MakesCentsBackend.Services.BusinessLogicLayer.BudgetLogic
+  commentId: T:MakesCentsBackend.Services.BusinessLogicLayer.BudgetLogic
+  id: BudgetLogic
+  parent: MakesCentsBackend.Services.BusinessLogicLayer
+  children:
+  - MakesCentsBackend.Services.BusinessLogicLayer.BudgetLogic.#ctor(MakesCentsBackend.Services.DataAccessLayer.BudgetDAO)
+  - MakesCentsBackend.Services.BusinessLogicLayer.BudgetLogic.CreateBudgetAsync(MakesCentsBackend.Models.CreateBudgetRequest)
+  - MakesCentsBackend.Services.BusinessLogicLayer.BudgetLogic.DeleteBudgetAsync(MakesCentsBackend.Models.BaseIdRequest)
+  - MakesCentsBackend.Services.BusinessLogicLayer.BudgetLogic.GetBudgetAsync(MakesCentsBackend.Models.BaseIdRequest)
+  - MakesCentsBackend.Services.BusinessLogicLayer.BudgetLogic.GetBudgetAsync(MakesCentsBackend.Models.GetBudgetRequest)
+  - MakesCentsBackend.Services.BusinessLogicLayer.BudgetLogic.GetYearBudgetsAsync(MakesCentsBackend.Models.GetBudgetRequest)
+  - MakesCentsBackend.Services.BusinessLogicLayer.BudgetLogic.UpdateBudgetAsync(MakesCentsBackend.Models.EditBudgetRequest)
+  langs:
+  - csharp
+  - vb
+  name: BudgetLogic
+  nameWithType: BudgetLogic
+  fullName: MakesCentsBackend.Services.BusinessLogicLayer.BudgetLogic
+  type: Class
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Services/BusinessLogicLayer/BudgetLogic.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: BudgetLogic
+    path: Services/BusinessLogicLayer/BudgetLogic.cs
+    startLine: 12
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Services.BusinessLogicLayer
+  syntax:
+    content: public class BudgetLogic
+    content.vb: Public Class BudgetLogic
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: MakesCentsBackend.Services.BusinessLogicLayer.BudgetLogic.#ctor(MakesCentsBackend.Services.DataAccessLayer.BudgetDAO)
+  commentId: M:MakesCentsBackend.Services.BusinessLogicLayer.BudgetLogic.#ctor(MakesCentsBackend.Services.DataAccessLayer.BudgetDAO)
+  id: '#ctor(MakesCentsBackend.Services.DataAccessLayer.BudgetDAO)'
+  parent: MakesCentsBackend.Services.BusinessLogicLayer.BudgetLogic
+  langs:
+  - csharp
+  - vb
+  name: BudgetLogic(BudgetDAO)
+  nameWithType: BudgetLogic.BudgetLogic(BudgetDAO)
+  fullName: MakesCentsBackend.Services.BusinessLogicLayer.BudgetLogic.BudgetLogic(MakesCentsBackend.Services.DataAccessLayer.BudgetDAO)
+  type: Constructor
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Services/BusinessLogicLayer/BudgetLogic.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: .ctor
+    path: Services/BusinessLogicLayer/BudgetLogic.cs
+    startLine: 22
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Services.BusinessLogicLayer
+  summary: Parameterized constructor to bring in DI variables
+  example: []
+  syntax:
+    content: public BudgetLogic(BudgetDAO budgetDAO)
+    parameters:
+    - id: budgetDAO
+      type: MakesCentsBackend.Services.DataAccessLayer.BudgetDAO
+      description: ''
+    content.vb: Public Sub New(budgetDAO As BudgetDAO)
+  overload: MakesCentsBackend.Services.BusinessLogicLayer.BudgetLogic.#ctor*
+  nameWithType.vb: BudgetLogic.New(BudgetDAO)
+  fullName.vb: MakesCentsBackend.Services.BusinessLogicLayer.BudgetLogic.New(MakesCentsBackend.Services.DataAccessLayer.BudgetDAO)
+  name.vb: New(BudgetDAO)
+- uid: MakesCentsBackend.Services.BusinessLogicLayer.BudgetLogic.CreateBudgetAsync(MakesCentsBackend.Models.CreateBudgetRequest)
+  commentId: M:MakesCentsBackend.Services.BusinessLogicLayer.BudgetLogic.CreateBudgetAsync(MakesCentsBackend.Models.CreateBudgetRequest)
+  id: CreateBudgetAsync(MakesCentsBackend.Models.CreateBudgetRequest)
+  parent: MakesCentsBackend.Services.BusinessLogicLayer.BudgetLogic
+  langs:
+  - csharp
+  - vb
+  name: CreateBudgetAsync(CreateBudgetRequest)
+  nameWithType: BudgetLogic.CreateBudgetAsync(CreateBudgetRequest)
+  fullName: MakesCentsBackend.Services.BusinessLogicLayer.BudgetLogic.CreateBudgetAsync(MakesCentsBackend.Models.CreateBudgetRequest)
+  type: Method
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Services/BusinessLogicLayer/BudgetLogic.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: CreateBudgetAsync
+    path: Services/BusinessLogicLayer/BudgetLogic.cs
+    startLine: 32
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Services.BusinessLogicLayer
+  summary: Logic method to create a new budget
+  example: []
+  syntax:
+    content: public Task<BaseIdResponse> CreateBudgetAsync(CreateBudgetRequest budget)
+    parameters:
+    - id: budget
+      type: MakesCentsBackend.Models.CreateBudgetRequest
+      description: ''
+    return:
+      type: System.Threading.Tasks.Task{MakesCentsBackend.Models.BaseIdResponse}
+      description: ''
+    content.vb: Public Function CreateBudgetAsync(budget As CreateBudgetRequest) As Task(Of BaseIdResponse)
+  overload: MakesCentsBackend.Services.BusinessLogicLayer.BudgetLogic.CreateBudgetAsync*
+- uid: MakesCentsBackend.Services.BusinessLogicLayer.BudgetLogic.GetBudgetAsync(MakesCentsBackend.Models.GetBudgetRequest)
+  commentId: M:MakesCentsBackend.Services.BusinessLogicLayer.BudgetLogic.GetBudgetAsync(MakesCentsBackend.Models.GetBudgetRequest)
+  id: GetBudgetAsync(MakesCentsBackend.Models.GetBudgetRequest)
+  parent: MakesCentsBackend.Services.BusinessLogicLayer.BudgetLogic
+  langs:
+  - csharp
+  - vb
+  name: GetBudgetAsync(GetBudgetRequest)
+  nameWithType: BudgetLogic.GetBudgetAsync(GetBudgetRequest)
+  fullName: MakesCentsBackend.Services.BusinessLogicLayer.BudgetLogic.GetBudgetAsync(MakesCentsBackend.Models.GetBudgetRequest)
+  type: Method
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Services/BusinessLogicLayer/BudgetLogic.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: GetBudgetAsync
+    path: Services/BusinessLogicLayer/BudgetLogic.cs
+    startLine: 71
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Services.BusinessLogicLayer
+  summary: Logic method to get a budget based on a get budget request
+  example: []
+  syntax:
+    content: public Task<GetBudgetResponse> GetBudgetAsync(GetBudgetRequest budget)
+    parameters:
+    - id: budget
+      type: MakesCentsBackend.Models.GetBudgetRequest
+      description: ''
+    return:
+      type: System.Threading.Tasks.Task{MakesCentsBackend.Models.GetBudgetResponse}
+      description: ''
+    content.vb: Public Function GetBudgetAsync(budget As GetBudgetRequest) As Task(Of GetBudgetResponse)
+  overload: MakesCentsBackend.Services.BusinessLogicLayer.BudgetLogic.GetBudgetAsync*
+- uid: MakesCentsBackend.Services.BusinessLogicLayer.BudgetLogic.GetBudgetAsync(MakesCentsBackend.Models.BaseIdRequest)
+  commentId: M:MakesCentsBackend.Services.BusinessLogicLayer.BudgetLogic.GetBudgetAsync(MakesCentsBackend.Models.BaseIdRequest)
+  id: GetBudgetAsync(MakesCentsBackend.Models.BaseIdRequest)
+  parent: MakesCentsBackend.Services.BusinessLogicLayer.BudgetLogic
+  langs:
+  - csharp
+  - vb
+  name: GetBudgetAsync(BaseIdRequest)
+  nameWithType: BudgetLogic.GetBudgetAsync(BaseIdRequest)
+  fullName: MakesCentsBackend.Services.BusinessLogicLayer.BudgetLogic.GetBudgetAsync(MakesCentsBackend.Models.BaseIdRequest)
+  type: Method
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Services/BusinessLogicLayer/BudgetLogic.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: GetBudgetAsync
+    path: Services/BusinessLogicLayer/BudgetLogic.cs
+    startLine: 93
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Services.BusinessLogicLayer
+  summary: Logic method to get a budget based on a get budget request
+  example: []
+  syntax:
+    content: public Task<GetBudgetResponse> GetBudgetAsync(BaseIdRequest budget)
+    parameters:
+    - id: budget
+      type: MakesCentsBackend.Models.BaseIdRequest
+      description: ''
+    return:
+      type: System.Threading.Tasks.Task{MakesCentsBackend.Models.GetBudgetResponse}
+      description: ''
+    content.vb: Public Function GetBudgetAsync(budget As BaseIdRequest) As Task(Of GetBudgetResponse)
+  overload: MakesCentsBackend.Services.BusinessLogicLayer.BudgetLogic.GetBudgetAsync*
+- uid: MakesCentsBackend.Services.BusinessLogicLayer.BudgetLogic.GetYearBudgetsAsync(MakesCentsBackend.Models.GetBudgetRequest)
+  commentId: M:MakesCentsBackend.Services.BusinessLogicLayer.BudgetLogic.GetYearBudgetsAsync(MakesCentsBackend.Models.GetBudgetRequest)
+  id: GetYearBudgetsAsync(MakesCentsBackend.Models.GetBudgetRequest)
+  parent: MakesCentsBackend.Services.BusinessLogicLayer.BudgetLogic
+  langs:
+  - csharp
+  - vb
+  name: GetYearBudgetsAsync(GetBudgetRequest)
+  nameWithType: BudgetLogic.GetYearBudgetsAsync(GetBudgetRequest)
+  fullName: MakesCentsBackend.Services.BusinessLogicLayer.BudgetLogic.GetYearBudgetsAsync(MakesCentsBackend.Models.GetBudgetRequest)
+  type: Method
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Services/BusinessLogicLayer/BudgetLogic.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: GetYearBudgetsAsync
+    path: Services/BusinessLogicLayer/BudgetLogic.cs
+    startLine: 110
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Services.BusinessLogicLayer
+  syntax:
+    content: public Task<GetYearBudgetsResponse> GetYearBudgetsAsync(GetBudgetRequest request)
+    parameters:
+    - id: request
+      type: MakesCentsBackend.Models.GetBudgetRequest
+    return:
+      type: System.Threading.Tasks.Task{MakesCentsBackend.Models.GetYearBudgetsResponse}
+    content.vb: Public Function GetYearBudgetsAsync(request As GetBudgetRequest) As Task(Of GetYearBudgetsResponse)
+  overload: MakesCentsBackend.Services.BusinessLogicLayer.BudgetLogic.GetYearBudgetsAsync*
+- uid: MakesCentsBackend.Services.BusinessLogicLayer.BudgetLogic.UpdateBudgetAsync(MakesCentsBackend.Models.EditBudgetRequest)
+  commentId: M:MakesCentsBackend.Services.BusinessLogicLayer.BudgetLogic.UpdateBudgetAsync(MakesCentsBackend.Models.EditBudgetRequest)
+  id: UpdateBudgetAsync(MakesCentsBackend.Models.EditBudgetRequest)
+  parent: MakesCentsBackend.Services.BusinessLogicLayer.BudgetLogic
+  langs:
+  - csharp
+  - vb
+  name: UpdateBudgetAsync(EditBudgetRequest)
+  nameWithType: BudgetLogic.UpdateBudgetAsync(EditBudgetRequest)
+  fullName: MakesCentsBackend.Services.BusinessLogicLayer.BudgetLogic.UpdateBudgetAsync(MakesCentsBackend.Models.EditBudgetRequest)
+  type: Method
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Services/BusinessLogicLayer/BudgetLogic.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: UpdateBudgetAsync
+    path: Services/BusinessLogicLayer/BudgetLogic.cs
+    startLine: 132
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Services.BusinessLogicLayer
+  summary: Logic method to update a budget based on provided fields
+  example: []
+  syntax:
+    content: public Task<BaseIdResponse> UpdateBudgetAsync(EditBudgetRequest budget)
+    parameters:
+    - id: budget
+      type: MakesCentsBackend.Models.EditBudgetRequest
+      description: ''
+    return:
+      type: System.Threading.Tasks.Task{MakesCentsBackend.Models.BaseIdResponse}
+      description: ''
+    content.vb: Public Function UpdateBudgetAsync(budget As EditBudgetRequest) As Task(Of BaseIdResponse)
+  overload: MakesCentsBackend.Services.BusinessLogicLayer.BudgetLogic.UpdateBudgetAsync*
+- uid: MakesCentsBackend.Services.BusinessLogicLayer.BudgetLogic.DeleteBudgetAsync(MakesCentsBackend.Models.BaseIdRequest)
+  commentId: M:MakesCentsBackend.Services.BusinessLogicLayer.BudgetLogic.DeleteBudgetAsync(MakesCentsBackend.Models.BaseIdRequest)
+  id: DeleteBudgetAsync(MakesCentsBackend.Models.BaseIdRequest)
+  parent: MakesCentsBackend.Services.BusinessLogicLayer.BudgetLogic
+  langs:
+  - csharp
+  - vb
+  name: DeleteBudgetAsync(BaseIdRequest)
+  nameWithType: BudgetLogic.DeleteBudgetAsync(BaseIdRequest)
+  fullName: MakesCentsBackend.Services.BusinessLogicLayer.BudgetLogic.DeleteBudgetAsync(MakesCentsBackend.Models.BaseIdRequest)
+  type: Method
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Services/BusinessLogicLayer/BudgetLogic.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: DeleteBudgetAsync
+    path: Services/BusinessLogicLayer/BudgetLogic.cs
+    startLine: 159
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Services.BusinessLogicLayer
+  summary: Logic method to delete an budget
+  example: []
+  syntax:
+    content: public Task<BaseResponse> DeleteBudgetAsync(BaseIdRequest request)
+    parameters:
+    - id: request
+      type: MakesCentsBackend.Models.BaseIdRequest
+      description: ''
+    return:
+      type: System.Threading.Tasks.Task{MakesCentsBackend.Models.BaseResponse}
+      description: ''
+    content.vb: Public Function DeleteBudgetAsync(request As BaseIdRequest) As Task(Of BaseResponse)
+  overload: MakesCentsBackend.Services.BusinessLogicLayer.BudgetLogic.DeleteBudgetAsync*
+references:
+- uid: MakesCentsBackend.Services.BusinessLogicLayer
+  commentId: N:MakesCentsBackend.Services.BusinessLogicLayer
+  href: MakesCentsBackend.html
+  name: MakesCentsBackend.Services.BusinessLogicLayer
+  nameWithType: MakesCentsBackend.Services.BusinessLogicLayer
+  fullName: MakesCentsBackend.Services.BusinessLogicLayer
+  spec.csharp:
+  - uid: MakesCentsBackend
+    name: MakesCentsBackend
+    href: MakesCentsBackend.html
+  - name: .
+  - uid: MakesCentsBackend.Services
+    name: Services
+    href: MakesCentsBackend.Services.html
+  - name: .
+  - uid: MakesCentsBackend.Services.BusinessLogicLayer
+    name: BusinessLogicLayer
+    href: MakesCentsBackend.Services.BusinessLogicLayer.html
+  spec.vb:
+  - uid: MakesCentsBackend
+    name: MakesCentsBackend
+    href: MakesCentsBackend.html
+  - name: .
+  - uid: MakesCentsBackend.Services
+    name: Services
+    href: MakesCentsBackend.Services.html
+  - name: .
+  - uid: MakesCentsBackend.Services.BusinessLogicLayer
+    name: BusinessLogicLayer
+    href: MakesCentsBackend.Services.BusinessLogicLayer.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: MakesCentsBackend.Services.BusinessLogicLayer.BudgetLogic.#ctor*
+  commentId: Overload:MakesCentsBackend.Services.BusinessLogicLayer.BudgetLogic.#ctor
+  href: MakesCentsBackend.Services.BusinessLogicLayer.BudgetLogic.html#MakesCentsBackend_Services_BusinessLogicLayer_BudgetLogic__ctor_MakesCentsBackend_Services_DataAccessLayer_BudgetDAO_
+  name: BudgetLogic
+  nameWithType: BudgetLogic.BudgetLogic
+  fullName: MakesCentsBackend.Services.BusinessLogicLayer.BudgetLogic.BudgetLogic
+  nameWithType.vb: BudgetLogic.New
+  fullName.vb: MakesCentsBackend.Services.BusinessLogicLayer.BudgetLogic.New
+  name.vb: New
+- uid: MakesCentsBackend.Services.DataAccessLayer.BudgetDAO
+  commentId: T:MakesCentsBackend.Services.DataAccessLayer.BudgetDAO
+  parent: MakesCentsBackend.Services.DataAccessLayer
+  href: MakesCentsBackend.Services.DataAccessLayer.BudgetDAO.html
+  name: BudgetDAO
+  nameWithType: BudgetDAO
+  fullName: MakesCentsBackend.Services.DataAccessLayer.BudgetDAO
+- uid: MakesCentsBackend.Services.DataAccessLayer
+  commentId: N:MakesCentsBackend.Services.DataAccessLayer
+  href: MakesCentsBackend.html
+  name: MakesCentsBackend.Services.DataAccessLayer
+  nameWithType: MakesCentsBackend.Services.DataAccessLayer
+  fullName: MakesCentsBackend.Services.DataAccessLayer
+  spec.csharp:
+  - uid: MakesCentsBackend
+    name: MakesCentsBackend
+    href: MakesCentsBackend.html
+  - name: .
+  - uid: MakesCentsBackend.Services
+    name: Services
+    href: MakesCentsBackend.Services.html
+  - name: .
+  - uid: MakesCentsBackend.Services.DataAccessLayer
+    name: DataAccessLayer
+    href: MakesCentsBackend.Services.DataAccessLayer.html
+  spec.vb:
+  - uid: MakesCentsBackend
+    name: MakesCentsBackend
+    href: MakesCentsBackend.html
+  - name: .
+  - uid: MakesCentsBackend.Services
+    name: Services
+    href: MakesCentsBackend.Services.html
+  - name: .
+  - uid: MakesCentsBackend.Services.DataAccessLayer
+    name: DataAccessLayer
+    href: MakesCentsBackend.Services.DataAccessLayer.html
+- uid: MakesCentsBackend.Services.BusinessLogicLayer.BudgetLogic.CreateBudgetAsync*
+  commentId: Overload:MakesCentsBackend.Services.BusinessLogicLayer.BudgetLogic.CreateBudgetAsync
+  href: MakesCentsBackend.Services.BusinessLogicLayer.BudgetLogic.html#MakesCentsBackend_Services_BusinessLogicLayer_BudgetLogic_CreateBudgetAsync_MakesCentsBackend_Models_CreateBudgetRequest_
+  name: CreateBudgetAsync
+  nameWithType: BudgetLogic.CreateBudgetAsync
+  fullName: MakesCentsBackend.Services.BusinessLogicLayer.BudgetLogic.CreateBudgetAsync
+- uid: MakesCentsBackend.Models.CreateBudgetRequest
+  commentId: T:MakesCentsBackend.Models.CreateBudgetRequest
+  parent: MakesCentsBackend.Models
+  href: MakesCentsBackend.Models.CreateBudgetRequest.html
+  name: CreateBudgetRequest
+  nameWithType: CreateBudgetRequest
+  fullName: MakesCentsBackend.Models.CreateBudgetRequest
+- uid: System.Threading.Tasks.Task{MakesCentsBackend.Models.BaseIdResponse}
+  commentId: T:System.Threading.Tasks.Task{MakesCentsBackend.Models.BaseIdResponse}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<BaseIdResponse>
+  nameWithType: Task<BaseIdResponse>
+  fullName: System.Threading.Tasks.Task<MakesCentsBackend.Models.BaseIdResponse>
+  nameWithType.vb: Task(Of BaseIdResponse)
+  fullName.vb: System.Threading.Tasks.Task(Of MakesCentsBackend.Models.BaseIdResponse)
+  name.vb: Task(Of BaseIdResponse)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: MakesCentsBackend.Models.BaseIdResponse
+    name: BaseIdResponse
+    href: MakesCentsBackend.Models.BaseIdResponse.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: MakesCentsBackend.Models.BaseIdResponse
+    name: BaseIdResponse
+    href: MakesCentsBackend.Models.BaseIdResponse.html
+  - name: )
+- uid: MakesCentsBackend.Models
+  commentId: N:MakesCentsBackend.Models
+  href: MakesCentsBackend.html
+  name: MakesCentsBackend.Models
+  nameWithType: MakesCentsBackend.Models
+  fullName: MakesCentsBackend.Models
+  spec.csharp:
+  - uid: MakesCentsBackend
+    name: MakesCentsBackend
+    href: MakesCentsBackend.html
+  - name: .
+  - uid: MakesCentsBackend.Models
+    name: Models
+    href: MakesCentsBackend.Models.html
+  spec.vb:
+  - uid: MakesCentsBackend
+    name: MakesCentsBackend
+    href: MakesCentsBackend.html
+  - name: .
+  - uid: MakesCentsBackend.Models
+    name: Models
+    href: MakesCentsBackend.Models.html
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+- uid: MakesCentsBackend.Services.BusinessLogicLayer.BudgetLogic.GetBudgetAsync*
+  commentId: Overload:MakesCentsBackend.Services.BusinessLogicLayer.BudgetLogic.GetBudgetAsync
+  href: MakesCentsBackend.Services.BusinessLogicLayer.BudgetLogic.html#MakesCentsBackend_Services_BusinessLogicLayer_BudgetLogic_GetBudgetAsync_MakesCentsBackend_Models_GetBudgetRequest_
+  name: GetBudgetAsync
+  nameWithType: BudgetLogic.GetBudgetAsync
+  fullName: MakesCentsBackend.Services.BusinessLogicLayer.BudgetLogic.GetBudgetAsync
+- uid: MakesCentsBackend.Models.GetBudgetRequest
+  commentId: T:MakesCentsBackend.Models.GetBudgetRequest
+  parent: MakesCentsBackend.Models
+  href: MakesCentsBackend.Models.GetBudgetRequest.html
+  name: GetBudgetRequest
+  nameWithType: GetBudgetRequest
+  fullName: MakesCentsBackend.Models.GetBudgetRequest
+- uid: System.Threading.Tasks.Task{MakesCentsBackend.Models.GetBudgetResponse}
+  commentId: T:System.Threading.Tasks.Task{MakesCentsBackend.Models.GetBudgetResponse}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<GetBudgetResponse>
+  nameWithType: Task<GetBudgetResponse>
+  fullName: System.Threading.Tasks.Task<MakesCentsBackend.Models.GetBudgetResponse>
+  nameWithType.vb: Task(Of GetBudgetResponse)
+  fullName.vb: System.Threading.Tasks.Task(Of MakesCentsBackend.Models.GetBudgetResponse)
+  name.vb: Task(Of GetBudgetResponse)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: MakesCentsBackend.Models.GetBudgetResponse
+    name: GetBudgetResponse
+    href: MakesCentsBackend.Models.GetBudgetResponse.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: MakesCentsBackend.Models.GetBudgetResponse
+    name: GetBudgetResponse
+    href: MakesCentsBackend.Models.GetBudgetResponse.html
+  - name: )
+- uid: MakesCentsBackend.Models.BaseIdRequest
+  commentId: T:MakesCentsBackend.Models.BaseIdRequest
+  parent: MakesCentsBackend.Models
+  href: MakesCentsBackend.Models.BaseIdRequest.html
+  name: BaseIdRequest
+  nameWithType: BaseIdRequest
+  fullName: MakesCentsBackend.Models.BaseIdRequest
+- uid: MakesCentsBackend.Services.BusinessLogicLayer.BudgetLogic.GetYearBudgetsAsync*
+  commentId: Overload:MakesCentsBackend.Services.BusinessLogicLayer.BudgetLogic.GetYearBudgetsAsync
+  href: MakesCentsBackend.Services.BusinessLogicLayer.BudgetLogic.html#MakesCentsBackend_Services_BusinessLogicLayer_BudgetLogic_GetYearBudgetsAsync_MakesCentsBackend_Models_GetBudgetRequest_
+  name: GetYearBudgetsAsync
+  nameWithType: BudgetLogic.GetYearBudgetsAsync
+  fullName: MakesCentsBackend.Services.BusinessLogicLayer.BudgetLogic.GetYearBudgetsAsync
+- uid: System.Threading.Tasks.Task{MakesCentsBackend.Models.GetYearBudgetsResponse}
+  commentId: T:System.Threading.Tasks.Task{MakesCentsBackend.Models.GetYearBudgetsResponse}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<GetYearBudgetsResponse>
+  nameWithType: Task<GetYearBudgetsResponse>
+  fullName: System.Threading.Tasks.Task<MakesCentsBackend.Models.GetYearBudgetsResponse>
+  nameWithType.vb: Task(Of GetYearBudgetsResponse)
+  fullName.vb: System.Threading.Tasks.Task(Of MakesCentsBackend.Models.GetYearBudgetsResponse)
+  name.vb: Task(Of GetYearBudgetsResponse)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: MakesCentsBackend.Models.GetYearBudgetsResponse
+    name: GetYearBudgetsResponse
+    href: MakesCentsBackend.Models.GetYearBudgetsResponse.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: MakesCentsBackend.Models.GetYearBudgetsResponse
+    name: GetYearBudgetsResponse
+    href: MakesCentsBackend.Models.GetYearBudgetsResponse.html
+  - name: )
+- uid: MakesCentsBackend.Services.BusinessLogicLayer.BudgetLogic.UpdateBudgetAsync*
+  commentId: Overload:MakesCentsBackend.Services.BusinessLogicLayer.BudgetLogic.UpdateBudgetAsync
+  href: MakesCentsBackend.Services.BusinessLogicLayer.BudgetLogic.html#MakesCentsBackend_Services_BusinessLogicLayer_BudgetLogic_UpdateBudgetAsync_MakesCentsBackend_Models_EditBudgetRequest_
+  name: UpdateBudgetAsync
+  nameWithType: BudgetLogic.UpdateBudgetAsync
+  fullName: MakesCentsBackend.Services.BusinessLogicLayer.BudgetLogic.UpdateBudgetAsync
+- uid: MakesCentsBackend.Models.EditBudgetRequest
+  commentId: T:MakesCentsBackend.Models.EditBudgetRequest
+  parent: MakesCentsBackend.Models
+  href: MakesCentsBackend.Models.EditBudgetRequest.html
+  name: EditBudgetRequest
+  nameWithType: EditBudgetRequest
+  fullName: MakesCentsBackend.Models.EditBudgetRequest
+- uid: MakesCentsBackend.Services.BusinessLogicLayer.BudgetLogic.DeleteBudgetAsync*
+  commentId: Overload:MakesCentsBackend.Services.BusinessLogicLayer.BudgetLogic.DeleteBudgetAsync
+  href: MakesCentsBackend.Services.BusinessLogicLayer.BudgetLogic.html#MakesCentsBackend_Services_BusinessLogicLayer_BudgetLogic_DeleteBudgetAsync_MakesCentsBackend_Models_BaseIdRequest_
+  name: DeleteBudgetAsync
+  nameWithType: BudgetLogic.DeleteBudgetAsync
+  fullName: MakesCentsBackend.Services.BusinessLogicLayer.BudgetLogic.DeleteBudgetAsync
+- uid: System.Threading.Tasks.Task{MakesCentsBackend.Models.BaseResponse}
+  commentId: T:System.Threading.Tasks.Task{MakesCentsBackend.Models.BaseResponse}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<BaseResponse>
+  nameWithType: Task<BaseResponse>
+  fullName: System.Threading.Tasks.Task<MakesCentsBackend.Models.BaseResponse>
+  nameWithType.vb: Task(Of BaseResponse)
+  fullName.vb: System.Threading.Tasks.Task(Of MakesCentsBackend.Models.BaseResponse)
+  name.vb: Task(Of BaseResponse)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: MakesCentsBackend.Models.BaseResponse
+    name: BaseResponse
+    href: MakesCentsBackend.Models.BaseResponse.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: MakesCentsBackend.Models.BaseResponse
+    name: BaseResponse
+    href: MakesCentsBackend.Models.BaseResponse.html
+  - name: )

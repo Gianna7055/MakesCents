@@ -1,0 +1,203 @@
+### YamlMime:ManagedReference
+items:
+- uid: MakesCentsBackend.Models.Enums.DebtAccountType
+  commentId: T:MakesCentsBackend.Models.Enums.DebtAccountType
+  id: DebtAccountType
+  parent: MakesCentsBackend.Models.Enums
+  children:
+  - MakesCentsBackend.Models.Enums.DebtAccountType.CarLoan
+  - MakesCentsBackend.Models.Enums.DebtAccountType.CreditCard
+  - MakesCentsBackend.Models.Enums.DebtAccountType.LineOfCreditLoan
+  - MakesCentsBackend.Models.Enums.DebtAccountType.Mortgage
+  - MakesCentsBackend.Models.Enums.DebtAccountType.Unknown
+  langs:
+  - csharp
+  - vb
+  name: DebtAccountType
+  nameWithType: DebtAccountType
+  fullName: MakesCentsBackend.Models.Enums.DebtAccountType
+  type: Enum
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Models/Enums/DebtAccountType.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: DebtAccountType
+    path: Models/Enums/DebtAccountType.cs
+    startLine: 10
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Models.Enums
+  summary: Enum for Debt Account Types for the Debt Account Model
+  example: []
+  syntax:
+    content: public enum DebtAccountType
+    content.vb: Public Enum DebtAccountType
+- uid: MakesCentsBackend.Models.Enums.DebtAccountType.Unknown
+  commentId: F:MakesCentsBackend.Models.Enums.DebtAccountType.Unknown
+  id: Unknown
+  parent: MakesCentsBackend.Models.Enums.DebtAccountType
+  langs:
+  - csharp
+  - vb
+  name: Unknown
+  nameWithType: DebtAccountType.Unknown
+  fullName: MakesCentsBackend.Models.Enums.DebtAccountType.Unknown
+  type: Field
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Models/Enums/DebtAccountType.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: Unknown
+    path: Models/Enums/DebtAccountType.cs
+    startLine: 12
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Models.Enums
+  syntax:
+    content: Unknown = 1
+    return:
+      type: MakesCentsBackend.Models.Enums.DebtAccountType
+- uid: MakesCentsBackend.Models.Enums.DebtAccountType.CreditCard
+  commentId: F:MakesCentsBackend.Models.Enums.DebtAccountType.CreditCard
+  id: CreditCard
+  parent: MakesCentsBackend.Models.Enums.DebtAccountType
+  langs:
+  - csharp
+  - vb
+  name: CreditCard
+  nameWithType: DebtAccountType.CreditCard
+  fullName: MakesCentsBackend.Models.Enums.DebtAccountType.CreditCard
+  type: Field
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Models/Enums/DebtAccountType.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: CreditCard
+    path: Models/Enums/DebtAccountType.cs
+    startLine: 13
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Models.Enums
+  syntax:
+    content: CreditCard = 2
+    return:
+      type: MakesCentsBackend.Models.Enums.DebtAccountType
+- uid: MakesCentsBackend.Models.Enums.DebtAccountType.LineOfCreditLoan
+  commentId: F:MakesCentsBackend.Models.Enums.DebtAccountType.LineOfCreditLoan
+  id: LineOfCreditLoan
+  parent: MakesCentsBackend.Models.Enums.DebtAccountType
+  langs:
+  - csharp
+  - vb
+  name: LineOfCreditLoan
+  nameWithType: DebtAccountType.LineOfCreditLoan
+  fullName: MakesCentsBackend.Models.Enums.DebtAccountType.LineOfCreditLoan
+  type: Field
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Models/Enums/DebtAccountType.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: LineOfCreditLoan
+    path: Models/Enums/DebtAccountType.cs
+    startLine: 14
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Models.Enums
+  syntax:
+    content: LineOfCreditLoan = 3
+    return:
+      type: MakesCentsBackend.Models.Enums.DebtAccountType
+- uid: MakesCentsBackend.Models.Enums.DebtAccountType.CarLoan
+  commentId: F:MakesCentsBackend.Models.Enums.DebtAccountType.CarLoan
+  id: CarLoan
+  parent: MakesCentsBackend.Models.Enums.DebtAccountType
+  langs:
+  - csharp
+  - vb
+  name: CarLoan
+  nameWithType: DebtAccountType.CarLoan
+  fullName: MakesCentsBackend.Models.Enums.DebtAccountType.CarLoan
+  type: Field
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Models/Enums/DebtAccountType.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: CarLoan
+    path: Models/Enums/DebtAccountType.cs
+    startLine: 15
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Models.Enums
+  syntax:
+    content: CarLoan = 4
+    return:
+      type: MakesCentsBackend.Models.Enums.DebtAccountType
+- uid: MakesCentsBackend.Models.Enums.DebtAccountType.Mortgage
+  commentId: F:MakesCentsBackend.Models.Enums.DebtAccountType.Mortgage
+  id: Mortgage
+  parent: MakesCentsBackend.Models.Enums.DebtAccountType
+  langs:
+  - csharp
+  - vb
+  name: Mortgage
+  nameWithType: DebtAccountType.Mortgage
+  fullName: MakesCentsBackend.Models.Enums.DebtAccountType.Mortgage
+  type: Field
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Models/Enums/DebtAccountType.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: Mortgage
+    path: Models/Enums/DebtAccountType.cs
+    startLine: 16
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Models.Enums
+  syntax:
+    content: Mortgage = 5
+    return:
+      type: MakesCentsBackend.Models.Enums.DebtAccountType
+references:
+- uid: MakesCentsBackend.Models.Enums
+  commentId: N:MakesCentsBackend.Models.Enums
+  href: MakesCentsBackend.html
+  name: MakesCentsBackend.Models.Enums
+  nameWithType: MakesCentsBackend.Models.Enums
+  fullName: MakesCentsBackend.Models.Enums
+  spec.csharp:
+  - uid: MakesCentsBackend
+    name: MakesCentsBackend
+    href: MakesCentsBackend.html
+  - name: .
+  - uid: MakesCentsBackend.Models
+    name: Models
+    href: MakesCentsBackend.Models.html
+  - name: .
+  - uid: MakesCentsBackend.Models.Enums
+    name: Enums
+    href: MakesCentsBackend.Models.Enums.html
+  spec.vb:
+  - uid: MakesCentsBackend
+    name: MakesCentsBackend
+    href: MakesCentsBackend.html
+  - name: .
+  - uid: MakesCentsBackend.Models
+    name: Models
+    href: MakesCentsBackend.Models.html
+  - name: .
+  - uid: MakesCentsBackend.Models.Enums
+    name: Enums
+    href: MakesCentsBackend.Models.Enums.html
+- uid: MakesCentsBackend.Models.Enums.DebtAccountType
+  commentId: T:MakesCentsBackend.Models.Enums.DebtAccountType
+  parent: MakesCentsBackend.Models.Enums
+  href: MakesCentsBackend.Models.Enums.DebtAccountType.html
+  name: DebtAccountType
+  nameWithType: DebtAccountType
+  fullName: MakesCentsBackend.Models.Enums.DebtAccountType

@@ -1,0 +1,820 @@
+### YamlMime:ManagedReference
+items:
+- uid: MakesCentsBackend.Models.GetPaycheckDTOModel
+  commentId: T:MakesCentsBackend.Models.GetPaycheckDTOModel
+  id: GetPaycheckDTOModel
+  parent: MakesCentsBackend.Models
+  children:
+  - MakesCentsBackend.Models.GetPaycheckDTOModel.BudgetId
+  - MakesCentsBackend.Models.GetPaycheckDTOModel.PaycheckId
+  - MakesCentsBackend.Models.GetPaycheckDTOModel.PaycheckName
+  - MakesCentsBackend.Models.GetPaycheckDTOModel.PaycheckRegularity
+  - MakesCentsBackend.Models.GetPaycheckDTOModel.PaycheckSplits
+  - MakesCentsBackend.Models.GetPaycheckDTOModel.SecondaryDate
+  - MakesCentsBackend.Models.GetPaycheckDTOModel.StartingDate
+  - MakesCentsBackend.Models.GetPaycheckDTOModel.TotalAmount
+  langs:
+  - csharp
+  - vb
+  name: GetPaycheckDTOModel
+  nameWithType: GetPaycheckDTOModel
+  fullName: MakesCentsBackend.Models.GetPaycheckDTOModel
+  type: Class
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Models/PaycheckModels.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: GetPaycheckDTOModel
+    path: Models/PaycheckModels.cs
+    startLine: 110
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Models
+  syntax:
+    content: >-
+      [ExportTsInterface]
+
+      public class GetPaycheckDTOModel
+    content.vb: >-
+      <ExportTsInterface>
+
+      Public Class GetPaycheckDTOModel
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+  attributes:
+  - type: TypeGen.Core.TypeAnnotations.ExportTsInterfaceAttribute
+    ctor: TypeGen.Core.TypeAnnotations.ExportTsInterfaceAttribute.#ctor
+    arguments: []
+- uid: MakesCentsBackend.Models.GetPaycheckDTOModel.PaycheckId
+  commentId: P:MakesCentsBackend.Models.GetPaycheckDTOModel.PaycheckId
+  id: PaycheckId
+  parent: MakesCentsBackend.Models.GetPaycheckDTOModel
+  langs:
+  - csharp
+  - vb
+  name: PaycheckId
+  nameWithType: GetPaycheckDTOModel.PaycheckId
+  fullName: MakesCentsBackend.Models.GetPaycheckDTOModel.PaycheckId
+  type: Property
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Models/PaycheckModels.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: PaycheckId
+    path: Models/PaycheckModels.cs
+    startLine: 114
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Models
+  syntax:
+    content: public int PaycheckId { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property PaycheckId As Integer
+  overload: MakesCentsBackend.Models.GetPaycheckDTOModel.PaycheckId*
+- uid: MakesCentsBackend.Models.GetPaycheckDTOModel.BudgetId
+  commentId: P:MakesCentsBackend.Models.GetPaycheckDTOModel.BudgetId
+  id: BudgetId
+  parent: MakesCentsBackend.Models.GetPaycheckDTOModel
+  langs:
+  - csharp
+  - vb
+  name: BudgetId
+  nameWithType: GetPaycheckDTOModel.BudgetId
+  fullName: MakesCentsBackend.Models.GetPaycheckDTOModel.BudgetId
+  type: Property
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Models/PaycheckModels.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: BudgetId
+    path: Models/PaycheckModels.cs
+    startLine: 115
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Models
+  syntax:
+    content: public int BudgetId { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property BudgetId As Integer
+  overload: MakesCentsBackend.Models.GetPaycheckDTOModel.BudgetId*
+- uid: MakesCentsBackend.Models.GetPaycheckDTOModel.PaycheckName
+  commentId: P:MakesCentsBackend.Models.GetPaycheckDTOModel.PaycheckName
+  id: PaycheckName
+  parent: MakesCentsBackend.Models.GetPaycheckDTOModel
+  langs:
+  - csharp
+  - vb
+  name: PaycheckName
+  nameWithType: GetPaycheckDTOModel.PaycheckName
+  fullName: MakesCentsBackend.Models.GetPaycheckDTOModel.PaycheckName
+  type: Property
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Models/PaycheckModels.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: PaycheckName
+    path: Models/PaycheckModels.cs
+    startLine: 116
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Models
+  syntax:
+    content: public string PaycheckName { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property PaycheckName As String
+  overload: MakesCentsBackend.Models.GetPaycheckDTOModel.PaycheckName*
+- uid: MakesCentsBackend.Models.GetPaycheckDTOModel.StartingDate
+  commentId: P:MakesCentsBackend.Models.GetPaycheckDTOModel.StartingDate
+  id: StartingDate
+  parent: MakesCentsBackend.Models.GetPaycheckDTOModel
+  langs:
+  - csharp
+  - vb
+  name: StartingDate
+  nameWithType: GetPaycheckDTOModel.StartingDate
+  fullName: MakesCentsBackend.Models.GetPaycheckDTOModel.StartingDate
+  type: Property
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Models/PaycheckModels.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: StartingDate
+    path: Models/PaycheckModels.cs
+    startLine: 117
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Models
+  syntax:
+    content: public DateOnly StartingDate { get; set; }
+    parameters: []
+    return:
+      type: System.DateOnly
+    content.vb: Public Property StartingDate As DateOnly
+  overload: MakesCentsBackend.Models.GetPaycheckDTOModel.StartingDate*
+- uid: MakesCentsBackend.Models.GetPaycheckDTOModel.SecondaryDate
+  commentId: P:MakesCentsBackend.Models.GetPaycheckDTOModel.SecondaryDate
+  id: SecondaryDate
+  parent: MakesCentsBackend.Models.GetPaycheckDTOModel
+  langs:
+  - csharp
+  - vb
+  name: SecondaryDate
+  nameWithType: GetPaycheckDTOModel.SecondaryDate
+  fullName: MakesCentsBackend.Models.GetPaycheckDTOModel.SecondaryDate
+  type: Property
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Models/PaycheckModels.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: SecondaryDate
+    path: Models/PaycheckModels.cs
+    startLine: 118
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Models
+  syntax:
+    content: public DateOnly? SecondaryDate { get; set; }
+    parameters: []
+    return:
+      type: System.Nullable{System.DateOnly}
+    content.vb: Public Property SecondaryDate As DateOnly?
+  overload: MakesCentsBackend.Models.GetPaycheckDTOModel.SecondaryDate*
+- uid: MakesCentsBackend.Models.GetPaycheckDTOModel.TotalAmount
+  commentId: P:MakesCentsBackend.Models.GetPaycheckDTOModel.TotalAmount
+  id: TotalAmount
+  parent: MakesCentsBackend.Models.GetPaycheckDTOModel
+  langs:
+  - csharp
+  - vb
+  name: TotalAmount
+  nameWithType: GetPaycheckDTOModel.TotalAmount
+  fullName: MakesCentsBackend.Models.GetPaycheckDTOModel.TotalAmount
+  type: Property
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Models/PaycheckModels.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: TotalAmount
+    path: Models/PaycheckModels.cs
+    startLine: 119
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Models
+  syntax:
+    content: public decimal TotalAmount { get; set; }
+    parameters: []
+    return:
+      type: System.Decimal
+    content.vb: Public Property TotalAmount As Decimal
+  overload: MakesCentsBackend.Models.GetPaycheckDTOModel.TotalAmount*
+- uid: MakesCentsBackend.Models.GetPaycheckDTOModel.PaycheckRegularity
+  commentId: P:MakesCentsBackend.Models.GetPaycheckDTOModel.PaycheckRegularity
+  id: PaycheckRegularity
+  parent: MakesCentsBackend.Models.GetPaycheckDTOModel
+  langs:
+  - csharp
+  - vb
+  name: PaycheckRegularity
+  nameWithType: GetPaycheckDTOModel.PaycheckRegularity
+  fullName: MakesCentsBackend.Models.GetPaycheckDTOModel.PaycheckRegularity
+  type: Property
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Models/PaycheckModels.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: PaycheckRegularity
+    path: Models/PaycheckModels.cs
+    startLine: 120
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Models
+  syntax:
+    content: public PaycheckRegularity PaycheckRegularity { get; set; }
+    parameters: []
+    return:
+      type: MakesCentsBackend.Models.Enums.PaycheckRegularity
+    content.vb: Public Property PaycheckRegularity As PaycheckRegularity
+  overload: MakesCentsBackend.Models.GetPaycheckDTOModel.PaycheckRegularity*
+- uid: MakesCentsBackend.Models.GetPaycheckDTOModel.PaycheckSplits
+  commentId: P:MakesCentsBackend.Models.GetPaycheckDTOModel.PaycheckSplits
+  id: PaycheckSplits
+  parent: MakesCentsBackend.Models.GetPaycheckDTOModel
+  langs:
+  - csharp
+  - vb
+  name: PaycheckSplits
+  nameWithType: GetPaycheckDTOModel.PaycheckSplits
+  fullName: MakesCentsBackend.Models.GetPaycheckDTOModel.PaycheckSplits
+  type: Property
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Models/PaycheckModels.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: PaycheckSplits
+    path: Models/PaycheckModels.cs
+    startLine: 121
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Models
+  syntax:
+    content: public List<GetPaycheckSplitDTOModel> PaycheckSplits { get; set; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.List{MakesCentsBackend.Models.GetPaycheckSplitDTOModel}
+    content.vb: Public Property PaycheckSplits As List(Of GetPaycheckSplitDTOModel)
+  overload: MakesCentsBackend.Models.GetPaycheckDTOModel.PaycheckSplits*
+references:
+- uid: MakesCentsBackend.Models
+  commentId: N:MakesCentsBackend.Models
+  href: MakesCentsBackend.html
+  name: MakesCentsBackend.Models
+  nameWithType: MakesCentsBackend.Models
+  fullName: MakesCentsBackend.Models
+  spec.csharp:
+  - uid: MakesCentsBackend
+    name: MakesCentsBackend
+    href: MakesCentsBackend.html
+  - name: .
+  - uid: MakesCentsBackend.Models
+    name: Models
+    href: MakesCentsBackend.Models.html
+  spec.vb:
+  - uid: MakesCentsBackend
+    name: MakesCentsBackend
+    href: MakesCentsBackend.html
+  - name: .
+  - uid: MakesCentsBackend.Models
+    name: Models
+    href: MakesCentsBackend.Models.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: MakesCentsBackend.Models.GetPaycheckDTOModel.PaycheckId*
+  commentId: Overload:MakesCentsBackend.Models.GetPaycheckDTOModel.PaycheckId
+  href: MakesCentsBackend.Models.GetPaycheckDTOModel.html#MakesCentsBackend_Models_GetPaycheckDTOModel_PaycheckId
+  name: PaycheckId
+  nameWithType: GetPaycheckDTOModel.PaycheckId
+  fullName: MakesCentsBackend.Models.GetPaycheckDTOModel.PaycheckId
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: MakesCentsBackend.Models.GetPaycheckDTOModel.BudgetId*
+  commentId: Overload:MakesCentsBackend.Models.GetPaycheckDTOModel.BudgetId
+  href: MakesCentsBackend.Models.GetPaycheckDTOModel.html#MakesCentsBackend_Models_GetPaycheckDTOModel_BudgetId
+  name: BudgetId
+  nameWithType: GetPaycheckDTOModel.BudgetId
+  fullName: MakesCentsBackend.Models.GetPaycheckDTOModel.BudgetId
+- uid: MakesCentsBackend.Models.GetPaycheckDTOModel.PaycheckName*
+  commentId: Overload:MakesCentsBackend.Models.GetPaycheckDTOModel.PaycheckName
+  href: MakesCentsBackend.Models.GetPaycheckDTOModel.html#MakesCentsBackend_Models_GetPaycheckDTOModel_PaycheckName
+  name: PaycheckName
+  nameWithType: GetPaycheckDTOModel.PaycheckName
+  fullName: MakesCentsBackend.Models.GetPaycheckDTOModel.PaycheckName
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: MakesCentsBackend.Models.GetPaycheckDTOModel.StartingDate*
+  commentId: Overload:MakesCentsBackend.Models.GetPaycheckDTOModel.StartingDate
+  href: MakesCentsBackend.Models.GetPaycheckDTOModel.html#MakesCentsBackend_Models_GetPaycheckDTOModel_StartingDate
+  name: StartingDate
+  nameWithType: GetPaycheckDTOModel.StartingDate
+  fullName: MakesCentsBackend.Models.GetPaycheckDTOModel.StartingDate
+- uid: System.DateOnly
+  commentId: T:System.DateOnly
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.dateonly
+  name: DateOnly
+  nameWithType: DateOnly
+  fullName: System.DateOnly
+- uid: MakesCentsBackend.Models.GetPaycheckDTOModel.SecondaryDate*
+  commentId: Overload:MakesCentsBackend.Models.GetPaycheckDTOModel.SecondaryDate
+  href: MakesCentsBackend.Models.GetPaycheckDTOModel.html#MakesCentsBackend_Models_GetPaycheckDTOModel_SecondaryDate
+  name: SecondaryDate
+  nameWithType: GetPaycheckDTOModel.SecondaryDate
+  fullName: MakesCentsBackend.Models.GetPaycheckDTOModel.SecondaryDate
+- uid: System.Nullable{System.DateOnly}
+  commentId: T:System.Nullable{System.DateOnly}
+  parent: System
+  definition: System.Nullable`1
+  href: https://learn.microsoft.com/dotnet/api/system.dateonly
+  name: DateOnly?
+  nameWithType: DateOnly?
+  fullName: System.DateOnly?
+  spec.csharp:
+  - uid: System.DateOnly
+    name: DateOnly
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.dateonly
+  - name: '?'
+  spec.vb:
+  - uid: System.DateOnly
+    name: DateOnly
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.dateonly
+  - name: '?'
+- uid: System.Nullable`1
+  commentId: T:System.Nullable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  name: Nullable<T>
+  nameWithType: Nullable<T>
+  fullName: System.Nullable<T>
+  nameWithType.vb: Nullable(Of T)
+  fullName.vb: System.Nullable(Of T)
+  name.vb: Nullable(Of T)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: MakesCentsBackend.Models.GetPaycheckDTOModel.TotalAmount*
+  commentId: Overload:MakesCentsBackend.Models.GetPaycheckDTOModel.TotalAmount
+  href: MakesCentsBackend.Models.GetPaycheckDTOModel.html#MakesCentsBackend_Models_GetPaycheckDTOModel_TotalAmount
+  name: TotalAmount
+  nameWithType: GetPaycheckDTOModel.TotalAmount
+  fullName: MakesCentsBackend.Models.GetPaycheckDTOModel.TotalAmount
+- uid: System.Decimal
+  commentId: T:System.Decimal
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.decimal
+  name: decimal
+  nameWithType: decimal
+  fullName: decimal
+  nameWithType.vb: Decimal
+  fullName.vb: Decimal
+  name.vb: Decimal
+- uid: MakesCentsBackend.Models.GetPaycheckDTOModel.PaycheckRegularity*
+  commentId: Overload:MakesCentsBackend.Models.GetPaycheckDTOModel.PaycheckRegularity
+  href: MakesCentsBackend.Models.GetPaycheckDTOModel.html#MakesCentsBackend_Models_GetPaycheckDTOModel_PaycheckRegularity
+  name: PaycheckRegularity
+  nameWithType: GetPaycheckDTOModel.PaycheckRegularity
+  fullName: MakesCentsBackend.Models.GetPaycheckDTOModel.PaycheckRegularity
+- uid: MakesCentsBackend.Models.Enums.PaycheckRegularity
+  commentId: T:MakesCentsBackend.Models.Enums.PaycheckRegularity
+  parent: MakesCentsBackend.Models.Enums
+  href: MakesCentsBackend.Models.Enums.PaycheckRegularity.html
+  name: PaycheckRegularity
+  nameWithType: PaycheckRegularity
+  fullName: MakesCentsBackend.Models.Enums.PaycheckRegularity
+- uid: MakesCentsBackend.Models.Enums
+  commentId: N:MakesCentsBackend.Models.Enums
+  href: MakesCentsBackend.html
+  name: MakesCentsBackend.Models.Enums
+  nameWithType: MakesCentsBackend.Models.Enums
+  fullName: MakesCentsBackend.Models.Enums
+  spec.csharp:
+  - uid: MakesCentsBackend
+    name: MakesCentsBackend
+    href: MakesCentsBackend.html
+  - name: .
+  - uid: MakesCentsBackend.Models
+    name: Models
+    href: MakesCentsBackend.Models.html
+  - name: .
+  - uid: MakesCentsBackend.Models.Enums
+    name: Enums
+    href: MakesCentsBackend.Models.Enums.html
+  spec.vb:
+  - uid: MakesCentsBackend
+    name: MakesCentsBackend
+    href: MakesCentsBackend.html
+  - name: .
+  - uid: MakesCentsBackend.Models
+    name: Models
+    href: MakesCentsBackend.Models.html
+  - name: .
+  - uid: MakesCentsBackend.Models.Enums
+    name: Enums
+    href: MakesCentsBackend.Models.Enums.html
+- uid: MakesCentsBackend.Models.GetPaycheckDTOModel.PaycheckSplits*
+  commentId: Overload:MakesCentsBackend.Models.GetPaycheckDTOModel.PaycheckSplits
+  href: MakesCentsBackend.Models.GetPaycheckDTOModel.html#MakesCentsBackend_Models_GetPaycheckDTOModel_PaycheckSplits
+  name: PaycheckSplits
+  nameWithType: GetPaycheckDTOModel.PaycheckSplits
+  fullName: MakesCentsBackend.Models.GetPaycheckDTOModel.PaycheckSplits
+- uid: System.Collections.Generic.List{MakesCentsBackend.Models.GetPaycheckSplitDTOModel}
+  commentId: T:System.Collections.Generic.List{MakesCentsBackend.Models.GetPaycheckSplitDTOModel}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<GetPaycheckSplitDTOModel>
+  nameWithType: List<GetPaycheckSplitDTOModel>
+  fullName: System.Collections.Generic.List<MakesCentsBackend.Models.GetPaycheckSplitDTOModel>
+  nameWithType.vb: List(Of GetPaycheckSplitDTOModel)
+  fullName.vb: System.Collections.Generic.List(Of MakesCentsBackend.Models.GetPaycheckSplitDTOModel)
+  name.vb: List(Of GetPaycheckSplitDTOModel)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: MakesCentsBackend.Models.GetPaycheckSplitDTOModel
+    name: GetPaycheckSplitDTOModel
+    href: MakesCentsBackend.Models.GetPaycheckSplitDTOModel.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: MakesCentsBackend.Models.GetPaycheckSplitDTOModel
+    name: GetPaycheckSplitDTOModel
+    href: MakesCentsBackend.Models.GetPaycheckSplitDTOModel.html
+  - name: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic

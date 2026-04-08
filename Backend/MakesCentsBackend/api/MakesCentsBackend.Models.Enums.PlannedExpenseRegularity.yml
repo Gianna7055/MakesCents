@@ -1,0 +1,176 @@
+### YamlMime:ManagedReference
+items:
+- uid: MakesCentsBackend.Models.Enums.PlannedExpenseRegularity
+  commentId: T:MakesCentsBackend.Models.Enums.PlannedExpenseRegularity
+  id: PlannedExpenseRegularity
+  parent: MakesCentsBackend.Models.Enums
+  children:
+  - MakesCentsBackend.Models.Enums.PlannedExpenseRegularity.DayOfMonth
+  - MakesCentsBackend.Models.Enums.PlannedExpenseRegularity.LastDayOfMonth
+  - MakesCentsBackend.Models.Enums.PlannedExpenseRegularity.Unknown
+  - MakesCentsBackend.Models.Enums.PlannedExpenseRegularity.WeekdayOccurrence
+  langs:
+  - csharp
+  - vb
+  name: PlannedExpenseRegularity
+  nameWithType: PlannedExpenseRegularity
+  fullName: MakesCentsBackend.Models.Enums.PlannedExpenseRegularity
+  type: Enum
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Models/Enums/PlannedExpenseRegularity.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: PlannedExpenseRegularity
+    path: Models/Enums/PlannedExpenseRegularity.cs
+    startLine: 10
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Models.Enums
+  summary: Enum for Planned Expense Regularities for the Planned Expense Model
+  example: []
+  syntax:
+    content: public enum PlannedExpenseRegularity
+    content.vb: Public Enum PlannedExpenseRegularity
+- uid: MakesCentsBackend.Models.Enums.PlannedExpenseRegularity.Unknown
+  commentId: F:MakesCentsBackend.Models.Enums.PlannedExpenseRegularity.Unknown
+  id: Unknown
+  parent: MakesCentsBackend.Models.Enums.PlannedExpenseRegularity
+  langs:
+  - csharp
+  - vb
+  name: Unknown
+  nameWithType: PlannedExpenseRegularity.Unknown
+  fullName: MakesCentsBackend.Models.Enums.PlannedExpenseRegularity.Unknown
+  type: Field
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Models/Enums/PlannedExpenseRegularity.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: Unknown
+    path: Models/Enums/PlannedExpenseRegularity.cs
+    startLine: 12
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Models.Enums
+  syntax:
+    content: Unknown = 1
+    return:
+      type: MakesCentsBackend.Models.Enums.PlannedExpenseRegularity
+- uid: MakesCentsBackend.Models.Enums.PlannedExpenseRegularity.DayOfMonth
+  commentId: F:MakesCentsBackend.Models.Enums.PlannedExpenseRegularity.DayOfMonth
+  id: DayOfMonth
+  parent: MakesCentsBackend.Models.Enums.PlannedExpenseRegularity
+  langs:
+  - csharp
+  - vb
+  name: DayOfMonth
+  nameWithType: PlannedExpenseRegularity.DayOfMonth
+  fullName: MakesCentsBackend.Models.Enums.PlannedExpenseRegularity.DayOfMonth
+  type: Field
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Models/Enums/PlannedExpenseRegularity.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: DayOfMonth
+    path: Models/Enums/PlannedExpenseRegularity.cs
+    startLine: 13
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Models.Enums
+  syntax:
+    content: DayOfMonth = 2
+    return:
+      type: MakesCentsBackend.Models.Enums.PlannedExpenseRegularity
+- uid: MakesCentsBackend.Models.Enums.PlannedExpenseRegularity.LastDayOfMonth
+  commentId: F:MakesCentsBackend.Models.Enums.PlannedExpenseRegularity.LastDayOfMonth
+  id: LastDayOfMonth
+  parent: MakesCentsBackend.Models.Enums.PlannedExpenseRegularity
+  langs:
+  - csharp
+  - vb
+  name: LastDayOfMonth
+  nameWithType: PlannedExpenseRegularity.LastDayOfMonth
+  fullName: MakesCentsBackend.Models.Enums.PlannedExpenseRegularity.LastDayOfMonth
+  type: Field
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Models/Enums/PlannedExpenseRegularity.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: LastDayOfMonth
+    path: Models/Enums/PlannedExpenseRegularity.cs
+    startLine: 14
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Models.Enums
+  syntax:
+    content: LastDayOfMonth = 3
+    return:
+      type: MakesCentsBackend.Models.Enums.PlannedExpenseRegularity
+- uid: MakesCentsBackend.Models.Enums.PlannedExpenseRegularity.WeekdayOccurrence
+  commentId: F:MakesCentsBackend.Models.Enums.PlannedExpenseRegularity.WeekdayOccurrence
+  id: WeekdayOccurrence
+  parent: MakesCentsBackend.Models.Enums.PlannedExpenseRegularity
+  langs:
+  - csharp
+  - vb
+  name: WeekdayOccurrence
+  nameWithType: PlannedExpenseRegularity.WeekdayOccurrence
+  fullName: MakesCentsBackend.Models.Enums.PlannedExpenseRegularity.WeekdayOccurrence
+  type: Field
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Models/Enums/PlannedExpenseRegularity.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: WeekdayOccurrence
+    path: Models/Enums/PlannedExpenseRegularity.cs
+    startLine: 15
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Models.Enums
+  syntax:
+    content: WeekdayOccurrence = 4
+    return:
+      type: MakesCentsBackend.Models.Enums.PlannedExpenseRegularity
+references:
+- uid: MakesCentsBackend.Models.Enums
+  commentId: N:MakesCentsBackend.Models.Enums
+  href: MakesCentsBackend.html
+  name: MakesCentsBackend.Models.Enums
+  nameWithType: MakesCentsBackend.Models.Enums
+  fullName: MakesCentsBackend.Models.Enums
+  spec.csharp:
+  - uid: MakesCentsBackend
+    name: MakesCentsBackend
+    href: MakesCentsBackend.html
+  - name: .
+  - uid: MakesCentsBackend.Models
+    name: Models
+    href: MakesCentsBackend.Models.html
+  - name: .
+  - uid: MakesCentsBackend.Models.Enums
+    name: Enums
+    href: MakesCentsBackend.Models.Enums.html
+  spec.vb:
+  - uid: MakesCentsBackend
+    name: MakesCentsBackend
+    href: MakesCentsBackend.html
+  - name: .
+  - uid: MakesCentsBackend.Models
+    name: Models
+    href: MakesCentsBackend.Models.html
+  - name: .
+  - uid: MakesCentsBackend.Models.Enums
+    name: Enums
+    href: MakesCentsBackend.Models.Enums.html
+- uid: MakesCentsBackend.Models.Enums.PlannedExpenseRegularity
+  commentId: T:MakesCentsBackend.Models.Enums.PlannedExpenseRegularity
+  parent: MakesCentsBackend.Models.Enums
+  href: MakesCentsBackend.Models.Enums.PlannedExpenseRegularity.html
+  name: PlannedExpenseRegularity
+  nameWithType: PlannedExpenseRegularity
+  fullName: MakesCentsBackend.Models.Enums.PlannedExpenseRegularity

@@ -13,7 +13,7 @@ using System.Security.Claims;
 namespace MakesCentsBackend.Controllers
 {
     /// <summary>
-    /// API controller for accounts
+    /// Controller for generate Account APIs, including Get All Accounts and Delete Account
     /// </summary>
     [Route("api/accounts")]
     [ApiController]
@@ -23,14 +23,19 @@ namespace MakesCentsBackend.Controllers
         private readonly AccountLogic _accountLogic;
 
         /// <summary>
-        /// Parameterized constructor to bring in DI variables
+        /// Parametrized constructor to bring in Dependency Injected Account Logic
         /// </summary>
-        /// <param name="bankAccountLogic"></param>
+        /// <param name="accountLogic"></param>
         public AccountController(AccountLogic accountLogic)
         {
             _accountLogic = accountLogic;
         }
 
+        /// <summary>
+        /// Account API to get a list of summaries for all accounts in the given budget
+        /// </summary>
+        /// <param name="budgetId">The id for the budget in question</param>
+        /// <returns></returns>
         [Authorize]
         [HttpGet("budget/{budgetId}")]
         public async Task<ActionResult> GetAllAccounts(int budgetId)
@@ -68,7 +73,11 @@ namespace MakesCentsBackend.Controllers
             }
         }
 
-
+        /// <summary>
+        /// Account API to delete an account based on the given account id
+        /// </summary>
+        /// <param name="accountId">The Id of the account to delete</param>
+        /// <returns></returns>
         [Authorize]
         [HttpDelete("{accountId}")]
         public async Task<ActionResult> DeleteAccountAsync(int accountId)

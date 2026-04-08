@@ -1,0 +1,837 @@
+### YamlMime:ManagedReference
+items:
+- uid: MakesCentsBackend.Services.DataAccessLayer.PaycheckDAO
+  commentId: T:MakesCentsBackend.Services.DataAccessLayer.PaycheckDAO
+  id: PaycheckDAO
+  parent: MakesCentsBackend.Services.DataAccessLayer
+  children:
+  - MakesCentsBackend.Services.DataAccessLayer.PaycheckDAO.#ctor(MySqlConnector.MySqlConnection,MakesCentsBackend.Services.DataAccessLayer.AuthorizationService)
+  - MakesCentsBackend.Services.DataAccessLayer.PaycheckDAO.CreatePaycheckAsync(MakesCentsBackend.Models.CreatePaycheckRequest)
+  - MakesCentsBackend.Services.DataAccessLayer.PaycheckDAO.DeletePaycheckAsync(MakesCentsBackend.Models.BaseIdRequest)
+  - MakesCentsBackend.Services.DataAccessLayer.PaycheckDAO.GetAllPaychecksAsync(MakesCentsBackend.Models.BaseIdRequest)
+  - MakesCentsBackend.Services.DataAccessLayer.PaycheckDAO.GetPaycheckAsync(MakesCentsBackend.Models.BaseIdRequest)
+  - MakesCentsBackend.Services.DataAccessLayer.PaycheckDAO.UpdatePaycheckAsync(MakesCentsBackend.Models.UpdatePaycheckRequest)
+  langs:
+  - csharp
+  - vb
+  name: PaycheckDAO
+  nameWithType: PaycheckDAO
+  fullName: MakesCentsBackend.Services.DataAccessLayer.PaycheckDAO
+  type: Class
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Services/DataAccessLayer/PaycheckDAO.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: PaycheckDAO
+    path: Services/DataAccessLayer/PaycheckDAO.cs
+    startLine: 15
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Services.DataAccessLayer
+  syntax:
+    content: public class PaycheckDAO
+    content.vb: Public Class PaycheckDAO
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: MakesCentsBackend.Services.DataAccessLayer.PaycheckDAO.#ctor(MySqlConnector.MySqlConnection,MakesCentsBackend.Services.DataAccessLayer.AuthorizationService)
+  commentId: M:MakesCentsBackend.Services.DataAccessLayer.PaycheckDAO.#ctor(MySqlConnector.MySqlConnection,MakesCentsBackend.Services.DataAccessLayer.AuthorizationService)
+  id: '#ctor(MySqlConnector.MySqlConnection,MakesCentsBackend.Services.DataAccessLayer.AuthorizationService)'
+  parent: MakesCentsBackend.Services.DataAccessLayer.PaycheckDAO
+  langs:
+  - csharp
+  - vb
+  name: PaycheckDAO(MySqlConnection, AuthorizationService)
+  nameWithType: PaycheckDAO.PaycheckDAO(MySqlConnection, AuthorizationService)
+  fullName: MakesCentsBackend.Services.DataAccessLayer.PaycheckDAO.PaycheckDAO(MySqlConnector.MySqlConnection, MakesCentsBackend.Services.DataAccessLayer.AuthorizationService)
+  type: Constructor
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Services/DataAccessLayer/PaycheckDAO.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: .ctor
+    path: Services/DataAccessLayer/PaycheckDAO.cs
+    startLine: 25
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Services.DataAccessLayer
+  syntax:
+    content: public PaycheckDAO(MySqlConnection connection, AuthorizationService authService)
+    parameters:
+    - id: connection
+      type: MySqlConnector.MySqlConnection
+    - id: authService
+      type: MakesCentsBackend.Services.DataAccessLayer.AuthorizationService
+    content.vb: Public Sub New(connection As MySqlConnection, authService As AuthorizationService)
+  overload: MakesCentsBackend.Services.DataAccessLayer.PaycheckDAO.#ctor*
+  nameWithType.vb: PaycheckDAO.New(MySqlConnection, AuthorizationService)
+  fullName.vb: MakesCentsBackend.Services.DataAccessLayer.PaycheckDAO.New(MySqlConnector.MySqlConnection, MakesCentsBackend.Services.DataAccessLayer.AuthorizationService)
+  name.vb: New(MySqlConnection, AuthorizationService)
+- uid: MakesCentsBackend.Services.DataAccessLayer.PaycheckDAO.CreatePaycheckAsync(MakesCentsBackend.Models.CreatePaycheckRequest)
+  commentId: M:MakesCentsBackend.Services.DataAccessLayer.PaycheckDAO.CreatePaycheckAsync(MakesCentsBackend.Models.CreatePaycheckRequest)
+  id: CreatePaycheckAsync(MakesCentsBackend.Models.CreatePaycheckRequest)
+  parent: MakesCentsBackend.Services.DataAccessLayer.PaycheckDAO
+  langs:
+  - csharp
+  - vb
+  name: CreatePaycheckAsync(CreatePaycheckRequest)
+  nameWithType: PaycheckDAO.CreatePaycheckAsync(CreatePaycheckRequest)
+  fullName: MakesCentsBackend.Services.DataAccessLayer.PaycheckDAO.CreatePaycheckAsync(MakesCentsBackend.Models.CreatePaycheckRequest)
+  type: Method
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Services/DataAccessLayer/PaycheckDAO.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: CreatePaycheckAsync
+    path: Services/DataAccessLayer/PaycheckDAO.cs
+    startLine: 36
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Services.DataAccessLayer
+  summary: DAO method to create a new paycheck
+  example: []
+  syntax:
+    content: public Task<CreatePaycheckResponse> CreatePaycheckAsync(CreatePaycheckRequest paycheck)
+    parameters:
+    - id: paycheck
+      type: MakesCentsBackend.Models.CreatePaycheckRequest
+      description: ''
+    return:
+      type: System.Threading.Tasks.Task{MakesCentsBackend.Models.CreatePaycheckResponse}
+      description: ''
+    content.vb: Public Function CreatePaycheckAsync(paycheck As CreatePaycheckRequest) As Task(Of CreatePaycheckResponse)
+  overload: MakesCentsBackend.Services.DataAccessLayer.PaycheckDAO.CreatePaycheckAsync*
+- uid: MakesCentsBackend.Services.DataAccessLayer.PaycheckDAO.GetAllPaychecksAsync(MakesCentsBackend.Models.BaseIdRequest)
+  commentId: M:MakesCentsBackend.Services.DataAccessLayer.PaycheckDAO.GetAllPaychecksAsync(MakesCentsBackend.Models.BaseIdRequest)
+  id: GetAllPaychecksAsync(MakesCentsBackend.Models.BaseIdRequest)
+  parent: MakesCentsBackend.Services.DataAccessLayer.PaycheckDAO
+  langs:
+  - csharp
+  - vb
+  name: GetAllPaychecksAsync(BaseIdRequest)
+  nameWithType: PaycheckDAO.GetAllPaychecksAsync(BaseIdRequest)
+  fullName: MakesCentsBackend.Services.DataAccessLayer.PaycheckDAO.GetAllPaychecksAsync(MakesCentsBackend.Models.BaseIdRequest)
+  type: Method
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Services/DataAccessLayer/PaycheckDAO.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: GetAllPaychecksAsync
+    path: Services/DataAccessLayer/PaycheckDAO.cs
+    startLine: 121
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Services.DataAccessLayer
+  syntax:
+    content: public Task<GetAllPaychecksResponse> GetAllPaychecksAsync(BaseIdRequest request)
+    parameters:
+    - id: request
+      type: MakesCentsBackend.Models.BaseIdRequest
+    return:
+      type: System.Threading.Tasks.Task{MakesCentsBackend.Models.GetAllPaychecksResponse}
+    content.vb: Public Function GetAllPaychecksAsync(request As BaseIdRequest) As Task(Of GetAllPaychecksResponse)
+  overload: MakesCentsBackend.Services.DataAccessLayer.PaycheckDAO.GetAllPaychecksAsync*
+- uid: MakesCentsBackend.Services.DataAccessLayer.PaycheckDAO.GetPaycheckAsync(MakesCentsBackend.Models.BaseIdRequest)
+  commentId: M:MakesCentsBackend.Services.DataAccessLayer.PaycheckDAO.GetPaycheckAsync(MakesCentsBackend.Models.BaseIdRequest)
+  id: GetPaycheckAsync(MakesCentsBackend.Models.BaseIdRequest)
+  parent: MakesCentsBackend.Services.DataAccessLayer.PaycheckDAO
+  langs:
+  - csharp
+  - vb
+  name: GetPaycheckAsync(BaseIdRequest)
+  nameWithType: PaycheckDAO.GetPaycheckAsync(BaseIdRequest)
+  fullName: MakesCentsBackend.Services.DataAccessLayer.PaycheckDAO.GetPaycheckAsync(MakesCentsBackend.Models.BaseIdRequest)
+  type: Method
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Services/DataAccessLayer/PaycheckDAO.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: GetPaycheckAsync
+    path: Services/DataAccessLayer/PaycheckDAO.cs
+    startLine: 154
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Services.DataAccessLayer
+  syntax:
+    content: public Task<GetPaycheckResponse> GetPaycheckAsync(BaseIdRequest request)
+    parameters:
+    - id: request
+      type: MakesCentsBackend.Models.BaseIdRequest
+    return:
+      type: System.Threading.Tasks.Task{MakesCentsBackend.Models.GetPaycheckResponse}
+    content.vb: Public Function GetPaycheckAsync(request As BaseIdRequest) As Task(Of GetPaycheckResponse)
+  overload: MakesCentsBackend.Services.DataAccessLayer.PaycheckDAO.GetPaycheckAsync*
+- uid: MakesCentsBackend.Services.DataAccessLayer.PaycheckDAO.UpdatePaycheckAsync(MakesCentsBackend.Models.UpdatePaycheckRequest)
+  commentId: M:MakesCentsBackend.Services.DataAccessLayer.PaycheckDAO.UpdatePaycheckAsync(MakesCentsBackend.Models.UpdatePaycheckRequest)
+  id: UpdatePaycheckAsync(MakesCentsBackend.Models.UpdatePaycheckRequest)
+  parent: MakesCentsBackend.Services.DataAccessLayer.PaycheckDAO
+  langs:
+  - csharp
+  - vb
+  name: UpdatePaycheckAsync(UpdatePaycheckRequest)
+  nameWithType: PaycheckDAO.UpdatePaycheckAsync(UpdatePaycheckRequest)
+  fullName: MakesCentsBackend.Services.DataAccessLayer.PaycheckDAO.UpdatePaycheckAsync(MakesCentsBackend.Models.UpdatePaycheckRequest)
+  type: Method
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Services/DataAccessLayer/PaycheckDAO.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: UpdatePaycheckAsync
+    path: Services/DataAccessLayer/PaycheckDAO.cs
+    startLine: 210
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Services.DataAccessLayer
+  syntax:
+    content: public Task<UpdatePaycheckResponse> UpdatePaycheckAsync(UpdatePaycheckRequest paycheck)
+    parameters:
+    - id: paycheck
+      type: MakesCentsBackend.Models.UpdatePaycheckRequest
+    return:
+      type: System.Threading.Tasks.Task{MakesCentsBackend.Models.UpdatePaycheckResponse}
+    content.vb: Public Function UpdatePaycheckAsync(paycheck As UpdatePaycheckRequest) As Task(Of UpdatePaycheckResponse)
+  overload: MakesCentsBackend.Services.DataAccessLayer.PaycheckDAO.UpdatePaycheckAsync*
+- uid: MakesCentsBackend.Services.DataAccessLayer.PaycheckDAO.DeletePaycheckAsync(MakesCentsBackend.Models.BaseIdRequest)
+  commentId: M:MakesCentsBackend.Services.DataAccessLayer.PaycheckDAO.DeletePaycheckAsync(MakesCentsBackend.Models.BaseIdRequest)
+  id: DeletePaycheckAsync(MakesCentsBackend.Models.BaseIdRequest)
+  parent: MakesCentsBackend.Services.DataAccessLayer.PaycheckDAO
+  langs:
+  - csharp
+  - vb
+  name: DeletePaycheckAsync(BaseIdRequest)
+  nameWithType: PaycheckDAO.DeletePaycheckAsync(BaseIdRequest)
+  fullName: MakesCentsBackend.Services.DataAccessLayer.PaycheckDAO.DeletePaycheckAsync(MakesCentsBackend.Models.BaseIdRequest)
+  type: Method
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Services/DataAccessLayer/PaycheckDAO.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: DeletePaycheckAsync
+    path: Services/DataAccessLayer/PaycheckDAO.cs
+    startLine: 393
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Services.DataAccessLayer
+  syntax:
+    content: public Task<BaseResponse> DeletePaycheckAsync(BaseIdRequest request)
+    parameters:
+    - id: request
+      type: MakesCentsBackend.Models.BaseIdRequest
+    return:
+      type: System.Threading.Tasks.Task{MakesCentsBackend.Models.BaseResponse}
+    content.vb: Public Function DeletePaycheckAsync(request As BaseIdRequest) As Task(Of BaseResponse)
+  overload: MakesCentsBackend.Services.DataAccessLayer.PaycheckDAO.DeletePaycheckAsync*
+references:
+- uid: MakesCentsBackend.Services.DataAccessLayer
+  commentId: N:MakesCentsBackend.Services.DataAccessLayer
+  href: MakesCentsBackend.html
+  name: MakesCentsBackend.Services.DataAccessLayer
+  nameWithType: MakesCentsBackend.Services.DataAccessLayer
+  fullName: MakesCentsBackend.Services.DataAccessLayer
+  spec.csharp:
+  - uid: MakesCentsBackend
+    name: MakesCentsBackend
+    href: MakesCentsBackend.html
+  - name: .
+  - uid: MakesCentsBackend.Services
+    name: Services
+    href: MakesCentsBackend.Services.html
+  - name: .
+  - uid: MakesCentsBackend.Services.DataAccessLayer
+    name: DataAccessLayer
+    href: MakesCentsBackend.Services.DataAccessLayer.html
+  spec.vb:
+  - uid: MakesCentsBackend
+    name: MakesCentsBackend
+    href: MakesCentsBackend.html
+  - name: .
+  - uid: MakesCentsBackend.Services
+    name: Services
+    href: MakesCentsBackend.Services.html
+  - name: .
+  - uid: MakesCentsBackend.Services.DataAccessLayer
+    name: DataAccessLayer
+    href: MakesCentsBackend.Services.DataAccessLayer.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: MakesCentsBackend.Services.DataAccessLayer.PaycheckDAO.#ctor*
+  commentId: Overload:MakesCentsBackend.Services.DataAccessLayer.PaycheckDAO.#ctor
+  href: MakesCentsBackend.Services.DataAccessLayer.PaycheckDAO.html#MakesCentsBackend_Services_DataAccessLayer_PaycheckDAO__ctor_MySqlConnector_MySqlConnection_MakesCentsBackend_Services_DataAccessLayer_AuthorizationService_
+  name: PaycheckDAO
+  nameWithType: PaycheckDAO.PaycheckDAO
+  fullName: MakesCentsBackend.Services.DataAccessLayer.PaycheckDAO.PaycheckDAO
+  nameWithType.vb: PaycheckDAO.New
+  fullName.vb: MakesCentsBackend.Services.DataAccessLayer.PaycheckDAO.New
+  name.vb: New
+- uid: MySqlConnector.MySqlConnection
+  commentId: T:MySqlConnector.MySqlConnection
+  parent: MySqlConnector
+  isExternal: true
+  name: MySqlConnection
+  nameWithType: MySqlConnection
+  fullName: MySqlConnector.MySqlConnection
+- uid: MakesCentsBackend.Services.DataAccessLayer.AuthorizationService
+  commentId: T:MakesCentsBackend.Services.DataAccessLayer.AuthorizationService
+  parent: MakesCentsBackend.Services.DataAccessLayer
+  href: MakesCentsBackend.Services.DataAccessLayer.AuthorizationService.html
+  name: AuthorizationService
+  nameWithType: AuthorizationService
+  fullName: MakesCentsBackend.Services.DataAccessLayer.AuthorizationService
+- uid: MySqlConnector
+  commentId: N:MySqlConnector
+  isExternal: true
+  name: MySqlConnector
+  nameWithType: MySqlConnector
+  fullName: MySqlConnector
+- uid: MakesCentsBackend.Services.DataAccessLayer.PaycheckDAO.CreatePaycheckAsync*
+  commentId: Overload:MakesCentsBackend.Services.DataAccessLayer.PaycheckDAO.CreatePaycheckAsync
+  href: MakesCentsBackend.Services.DataAccessLayer.PaycheckDAO.html#MakesCentsBackend_Services_DataAccessLayer_PaycheckDAO_CreatePaycheckAsync_MakesCentsBackend_Models_CreatePaycheckRequest_
+  name: CreatePaycheckAsync
+  nameWithType: PaycheckDAO.CreatePaycheckAsync
+  fullName: MakesCentsBackend.Services.DataAccessLayer.PaycheckDAO.CreatePaycheckAsync
+- uid: MakesCentsBackend.Models.CreatePaycheckRequest
+  commentId: T:MakesCentsBackend.Models.CreatePaycheckRequest
+  parent: MakesCentsBackend.Models
+  href: MakesCentsBackend.Models.CreatePaycheckRequest.html
+  name: CreatePaycheckRequest
+  nameWithType: CreatePaycheckRequest
+  fullName: MakesCentsBackend.Models.CreatePaycheckRequest
+- uid: System.Threading.Tasks.Task{MakesCentsBackend.Models.CreatePaycheckResponse}
+  commentId: T:System.Threading.Tasks.Task{MakesCentsBackend.Models.CreatePaycheckResponse}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<CreatePaycheckResponse>
+  nameWithType: Task<CreatePaycheckResponse>
+  fullName: System.Threading.Tasks.Task<MakesCentsBackend.Models.CreatePaycheckResponse>
+  nameWithType.vb: Task(Of CreatePaycheckResponse)
+  fullName.vb: System.Threading.Tasks.Task(Of MakesCentsBackend.Models.CreatePaycheckResponse)
+  name.vb: Task(Of CreatePaycheckResponse)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: MakesCentsBackend.Models.CreatePaycheckResponse
+    name: CreatePaycheckResponse
+    href: MakesCentsBackend.Models.CreatePaycheckResponse.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: MakesCentsBackend.Models.CreatePaycheckResponse
+    name: CreatePaycheckResponse
+    href: MakesCentsBackend.Models.CreatePaycheckResponse.html
+  - name: )
+- uid: MakesCentsBackend.Models
+  commentId: N:MakesCentsBackend.Models
+  href: MakesCentsBackend.html
+  name: MakesCentsBackend.Models
+  nameWithType: MakesCentsBackend.Models
+  fullName: MakesCentsBackend.Models
+  spec.csharp:
+  - uid: MakesCentsBackend
+    name: MakesCentsBackend
+    href: MakesCentsBackend.html
+  - name: .
+  - uid: MakesCentsBackend.Models
+    name: Models
+    href: MakesCentsBackend.Models.html
+  spec.vb:
+  - uid: MakesCentsBackend
+    name: MakesCentsBackend
+    href: MakesCentsBackend.html
+  - name: .
+  - uid: MakesCentsBackend.Models
+    name: Models
+    href: MakesCentsBackend.Models.html
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+- uid: MakesCentsBackend.Services.DataAccessLayer.PaycheckDAO.GetAllPaychecksAsync*
+  commentId: Overload:MakesCentsBackend.Services.DataAccessLayer.PaycheckDAO.GetAllPaychecksAsync
+  href: MakesCentsBackend.Services.DataAccessLayer.PaycheckDAO.html#MakesCentsBackend_Services_DataAccessLayer_PaycheckDAO_GetAllPaychecksAsync_MakesCentsBackend_Models_BaseIdRequest_
+  name: GetAllPaychecksAsync
+  nameWithType: PaycheckDAO.GetAllPaychecksAsync
+  fullName: MakesCentsBackend.Services.DataAccessLayer.PaycheckDAO.GetAllPaychecksAsync
+- uid: MakesCentsBackend.Models.BaseIdRequest
+  commentId: T:MakesCentsBackend.Models.BaseIdRequest
+  parent: MakesCentsBackend.Models
+  href: MakesCentsBackend.Models.BaseIdRequest.html
+  name: BaseIdRequest
+  nameWithType: BaseIdRequest
+  fullName: MakesCentsBackend.Models.BaseIdRequest
+- uid: System.Threading.Tasks.Task{MakesCentsBackend.Models.GetAllPaychecksResponse}
+  commentId: T:System.Threading.Tasks.Task{MakesCentsBackend.Models.GetAllPaychecksResponse}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<GetAllPaychecksResponse>
+  nameWithType: Task<GetAllPaychecksResponse>
+  fullName: System.Threading.Tasks.Task<MakesCentsBackend.Models.GetAllPaychecksResponse>
+  nameWithType.vb: Task(Of GetAllPaychecksResponse)
+  fullName.vb: System.Threading.Tasks.Task(Of MakesCentsBackend.Models.GetAllPaychecksResponse)
+  name.vb: Task(Of GetAllPaychecksResponse)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: MakesCentsBackend.Models.GetAllPaychecksResponse
+    name: GetAllPaychecksResponse
+    href: MakesCentsBackend.Models.GetAllPaychecksResponse.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: MakesCentsBackend.Models.GetAllPaychecksResponse
+    name: GetAllPaychecksResponse
+    href: MakesCentsBackend.Models.GetAllPaychecksResponse.html
+  - name: )
+- uid: MakesCentsBackend.Services.DataAccessLayer.PaycheckDAO.GetPaycheckAsync*
+  commentId: Overload:MakesCentsBackend.Services.DataAccessLayer.PaycheckDAO.GetPaycheckAsync
+  href: MakesCentsBackend.Services.DataAccessLayer.PaycheckDAO.html#MakesCentsBackend_Services_DataAccessLayer_PaycheckDAO_GetPaycheckAsync_MakesCentsBackend_Models_BaseIdRequest_
+  name: GetPaycheckAsync
+  nameWithType: PaycheckDAO.GetPaycheckAsync
+  fullName: MakesCentsBackend.Services.DataAccessLayer.PaycheckDAO.GetPaycheckAsync
+- uid: System.Threading.Tasks.Task{MakesCentsBackend.Models.GetPaycheckResponse}
+  commentId: T:System.Threading.Tasks.Task{MakesCentsBackend.Models.GetPaycheckResponse}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<GetPaycheckResponse>
+  nameWithType: Task<GetPaycheckResponse>
+  fullName: System.Threading.Tasks.Task<MakesCentsBackend.Models.GetPaycheckResponse>
+  nameWithType.vb: Task(Of GetPaycheckResponse)
+  fullName.vb: System.Threading.Tasks.Task(Of MakesCentsBackend.Models.GetPaycheckResponse)
+  name.vb: Task(Of GetPaycheckResponse)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: MakesCentsBackend.Models.GetPaycheckResponse
+    name: GetPaycheckResponse
+    href: MakesCentsBackend.Models.GetPaycheckResponse.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: MakesCentsBackend.Models.GetPaycheckResponse
+    name: GetPaycheckResponse
+    href: MakesCentsBackend.Models.GetPaycheckResponse.html
+  - name: )
+- uid: MakesCentsBackend.Services.DataAccessLayer.PaycheckDAO.UpdatePaycheckAsync*
+  commentId: Overload:MakesCentsBackend.Services.DataAccessLayer.PaycheckDAO.UpdatePaycheckAsync
+  href: MakesCentsBackend.Services.DataAccessLayer.PaycheckDAO.html#MakesCentsBackend_Services_DataAccessLayer_PaycheckDAO_UpdatePaycheckAsync_MakesCentsBackend_Models_UpdatePaycheckRequest_
+  name: UpdatePaycheckAsync
+  nameWithType: PaycheckDAO.UpdatePaycheckAsync
+  fullName: MakesCentsBackend.Services.DataAccessLayer.PaycheckDAO.UpdatePaycheckAsync
+- uid: MakesCentsBackend.Models.UpdatePaycheckRequest
+  commentId: T:MakesCentsBackend.Models.UpdatePaycheckRequest
+  parent: MakesCentsBackend.Models
+  href: MakesCentsBackend.Models.UpdatePaycheckRequest.html
+  name: UpdatePaycheckRequest
+  nameWithType: UpdatePaycheckRequest
+  fullName: MakesCentsBackend.Models.UpdatePaycheckRequest
+- uid: System.Threading.Tasks.Task{MakesCentsBackend.Models.UpdatePaycheckResponse}
+  commentId: T:System.Threading.Tasks.Task{MakesCentsBackend.Models.UpdatePaycheckResponse}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<UpdatePaycheckResponse>
+  nameWithType: Task<UpdatePaycheckResponse>
+  fullName: System.Threading.Tasks.Task<MakesCentsBackend.Models.UpdatePaycheckResponse>
+  nameWithType.vb: Task(Of UpdatePaycheckResponse)
+  fullName.vb: System.Threading.Tasks.Task(Of MakesCentsBackend.Models.UpdatePaycheckResponse)
+  name.vb: Task(Of UpdatePaycheckResponse)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: MakesCentsBackend.Models.UpdatePaycheckResponse
+    name: UpdatePaycheckResponse
+    href: MakesCentsBackend.Models.UpdatePaycheckResponse.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: MakesCentsBackend.Models.UpdatePaycheckResponse
+    name: UpdatePaycheckResponse
+    href: MakesCentsBackend.Models.UpdatePaycheckResponse.html
+  - name: )
+- uid: MakesCentsBackend.Services.DataAccessLayer.PaycheckDAO.DeletePaycheckAsync*
+  commentId: Overload:MakesCentsBackend.Services.DataAccessLayer.PaycheckDAO.DeletePaycheckAsync
+  href: MakesCentsBackend.Services.DataAccessLayer.PaycheckDAO.html#MakesCentsBackend_Services_DataAccessLayer_PaycheckDAO_DeletePaycheckAsync_MakesCentsBackend_Models_BaseIdRequest_
+  name: DeletePaycheckAsync
+  nameWithType: PaycheckDAO.DeletePaycheckAsync
+  fullName: MakesCentsBackend.Services.DataAccessLayer.PaycheckDAO.DeletePaycheckAsync
+- uid: System.Threading.Tasks.Task{MakesCentsBackend.Models.BaseResponse}
+  commentId: T:System.Threading.Tasks.Task{MakesCentsBackend.Models.BaseResponse}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<BaseResponse>
+  nameWithType: Task<BaseResponse>
+  fullName: System.Threading.Tasks.Task<MakesCentsBackend.Models.BaseResponse>
+  nameWithType.vb: Task(Of BaseResponse)
+  fullName.vb: System.Threading.Tasks.Task(Of MakesCentsBackend.Models.BaseResponse)
+  name.vb: Task(Of BaseResponse)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: MakesCentsBackend.Models.BaseResponse
+    name: BaseResponse
+    href: MakesCentsBackend.Models.BaseResponse.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: MakesCentsBackend.Models.BaseResponse
+    name: BaseResponse
+    href: MakesCentsBackend.Models.BaseResponse.html
+  - name: )

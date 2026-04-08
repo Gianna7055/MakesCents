@@ -1,0 +1,822 @@
+### YamlMime:ManagedReference
+items:
+- uid: MakesCentsBackend.Models.UpdatePaymentTransactionRequest
+  commentId: T:MakesCentsBackend.Models.UpdatePaymentTransactionRequest
+  id: UpdatePaymentTransactionRequest
+  parent: MakesCentsBackend.Models
+  children:
+  - MakesCentsBackend.Models.UpdatePaymentTransactionRequest.AccountId
+  - MakesCentsBackend.Models.UpdatePaymentTransactionRequest.CheckNumber
+  - MakesCentsBackend.Models.UpdatePaymentTransactionRequest.MerchantSourceName
+  - MakesCentsBackend.Models.UpdatePaymentTransactionRequest.PaymentTransactionId
+  - MakesCentsBackend.Models.UpdatePaymentTransactionRequest.PaymentTransactionType
+  - MakesCentsBackend.Models.UpdatePaymentTransactionRequest.TransactionSplits
+  langs:
+  - csharp
+  - vb
+  name: UpdatePaymentTransactionRequest
+  nameWithType: UpdatePaymentTransactionRequest
+  fullName: MakesCentsBackend.Models.UpdatePaymentTransactionRequest
+  type: Class
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Models/PaymentTransactionModels.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: UpdatePaymentTransactionRequest
+    path: Models/PaymentTransactionModels.cs
+    startLine: 87
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Models
+  syntax:
+    content: >-
+      [ExportTsClass]
+
+      public class UpdatePaymentTransactionRequest : UpdateTransactionRequest
+    content.vb: >-
+      <ExportTsClass>
+
+      Public Class UpdatePaymentTransactionRequest Inherits UpdateTransactionRequest
+  inheritance:
+  - System.Object
+  - MakesCentsBackend.Models.UpdateTransactionRequest
+  inheritedMembers:
+  - MakesCentsBackend.Models.UpdateTransactionRequest.UserId
+  - MakesCentsBackend.Models.UpdateTransactionRequest.TransactionId
+  - MakesCentsBackend.Models.UpdateTransactionRequest.TransactionDate
+  - MakesCentsBackend.Models.UpdateTransactionRequest.TotalAmount
+  - MakesCentsBackend.Models.UpdateTransactionRequest.Notes
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+  attributes:
+  - type: TypeGen.Core.TypeAnnotations.ExportTsClassAttribute
+    ctor: TypeGen.Core.TypeAnnotations.ExportTsClassAttribute.#ctor
+    arguments: []
+- uid: MakesCentsBackend.Models.UpdatePaymentTransactionRequest.PaymentTransactionId
+  commentId: P:MakesCentsBackend.Models.UpdatePaymentTransactionRequest.PaymentTransactionId
+  id: PaymentTransactionId
+  parent: MakesCentsBackend.Models.UpdatePaymentTransactionRequest
+  langs:
+  - csharp
+  - vb
+  name: PaymentTransactionId
+  nameWithType: UpdatePaymentTransactionRequest.PaymentTransactionId
+  fullName: MakesCentsBackend.Models.UpdatePaymentTransactionRequest.PaymentTransactionId
+  type: Property
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Models/PaymentTransactionModels.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: PaymentTransactionId
+    path: Models/PaymentTransactionModels.cs
+    startLine: 91
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Models
+  syntax:
+    content: public int PaymentTransactionId { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property PaymentTransactionId As Integer
+  overload: MakesCentsBackend.Models.UpdatePaymentTransactionRequest.PaymentTransactionId*
+- uid: MakesCentsBackend.Models.UpdatePaymentTransactionRequest.AccountId
+  commentId: P:MakesCentsBackend.Models.UpdatePaymentTransactionRequest.AccountId
+  id: AccountId
+  parent: MakesCentsBackend.Models.UpdatePaymentTransactionRequest
+  langs:
+  - csharp
+  - vb
+  name: AccountId
+  nameWithType: UpdatePaymentTransactionRequest.AccountId
+  fullName: MakesCentsBackend.Models.UpdatePaymentTransactionRequest.AccountId
+  type: Property
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Models/PaymentTransactionModels.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: AccountId
+    path: Models/PaymentTransactionModels.cs
+    startLine: 92
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Models
+  syntax:
+    content: public int? AccountId { get; set; }
+    parameters: []
+    return:
+      type: System.Nullable{System.Int32}
+    content.vb: Public Property AccountId As Integer?
+  overload: MakesCentsBackend.Models.UpdatePaymentTransactionRequest.AccountId*
+- uid: MakesCentsBackend.Models.UpdatePaymentTransactionRequest.PaymentTransactionType
+  commentId: P:MakesCentsBackend.Models.UpdatePaymentTransactionRequest.PaymentTransactionType
+  id: PaymentTransactionType
+  parent: MakesCentsBackend.Models.UpdatePaymentTransactionRequest
+  langs:
+  - csharp
+  - vb
+  name: PaymentTransactionType
+  nameWithType: UpdatePaymentTransactionRequest.PaymentTransactionType
+  fullName: MakesCentsBackend.Models.UpdatePaymentTransactionRequest.PaymentTransactionType
+  type: Property
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Models/PaymentTransactionModels.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: PaymentTransactionType
+    path: Models/PaymentTransactionModels.cs
+    startLine: 93
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Models
+  syntax:
+    content: public PaymentTransactionType? PaymentTransactionType { get; set; }
+    parameters: []
+    return:
+      type: System.Nullable{MakesCentsBackend.Models.Enums.PaymentTransactionType}
+    content.vb: Public Property PaymentTransactionType As PaymentTransactionType?
+  overload: MakesCentsBackend.Models.UpdatePaymentTransactionRequest.PaymentTransactionType*
+- uid: MakesCentsBackend.Models.UpdatePaymentTransactionRequest.MerchantSourceName
+  commentId: P:MakesCentsBackend.Models.UpdatePaymentTransactionRequest.MerchantSourceName
+  id: MerchantSourceName
+  parent: MakesCentsBackend.Models.UpdatePaymentTransactionRequest
+  langs:
+  - csharp
+  - vb
+  name: MerchantSourceName
+  nameWithType: UpdatePaymentTransactionRequest.MerchantSourceName
+  fullName: MakesCentsBackend.Models.UpdatePaymentTransactionRequest.MerchantSourceName
+  type: Property
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Models/PaymentTransactionModels.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: MerchantSourceName
+    path: Models/PaymentTransactionModels.cs
+    startLine: 94
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Models
+  syntax:
+    content: public string? MerchantSourceName { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property MerchantSourceName As String
+  overload: MakesCentsBackend.Models.UpdatePaymentTransactionRequest.MerchantSourceName*
+- uid: MakesCentsBackend.Models.UpdatePaymentTransactionRequest.CheckNumber
+  commentId: P:MakesCentsBackend.Models.UpdatePaymentTransactionRequest.CheckNumber
+  id: CheckNumber
+  parent: MakesCentsBackend.Models.UpdatePaymentTransactionRequest
+  langs:
+  - csharp
+  - vb
+  name: CheckNumber
+  nameWithType: UpdatePaymentTransactionRequest.CheckNumber
+  fullName: MakesCentsBackend.Models.UpdatePaymentTransactionRequest.CheckNumber
+  type: Property
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Models/PaymentTransactionModels.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: CheckNumber
+    path: Models/PaymentTransactionModels.cs
+    startLine: 95
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Models
+  syntax:
+    content: public Optional<int?> CheckNumber { get; set; }
+    parameters: []
+    return:
+      type: MakesCentsBackend.Models.Optional{System.Nullable{System.Int32}}
+    content.vb: Public Property CheckNumber As [Optional](Of Integer?)
+  overload: MakesCentsBackend.Models.UpdatePaymentTransactionRequest.CheckNumber*
+- uid: MakesCentsBackend.Models.UpdatePaymentTransactionRequest.TransactionSplits
+  commentId: P:MakesCentsBackend.Models.UpdatePaymentTransactionRequest.TransactionSplits
+  id: TransactionSplits
+  parent: MakesCentsBackend.Models.UpdatePaymentTransactionRequest
+  langs:
+  - csharp
+  - vb
+  name: TransactionSplits
+  nameWithType: UpdatePaymentTransactionRequest.TransactionSplits
+  fullName: MakesCentsBackend.Models.UpdatePaymentTransactionRequest.TransactionSplits
+  type: Property
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Models/PaymentTransactionModels.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: TransactionSplits
+    path: Models/PaymentTransactionModels.cs
+    startLine: 96
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Models
+  syntax:
+    content: public List<UpdateTransactionSplitRequest> TransactionSplits { get; set; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.List{MakesCentsBackend.Models.UpdateTransactionSplitRequest}
+    content.vb: Public Property TransactionSplits As List(Of UpdateTransactionSplitRequest)
+  overload: MakesCentsBackend.Models.UpdatePaymentTransactionRequest.TransactionSplits*
+references:
+- uid: MakesCentsBackend.Models
+  commentId: N:MakesCentsBackend.Models
+  href: MakesCentsBackend.html
+  name: MakesCentsBackend.Models
+  nameWithType: MakesCentsBackend.Models
+  fullName: MakesCentsBackend.Models
+  spec.csharp:
+  - uid: MakesCentsBackend
+    name: MakesCentsBackend
+    href: MakesCentsBackend.html
+  - name: .
+  - uid: MakesCentsBackend.Models
+    name: Models
+    href: MakesCentsBackend.Models.html
+  spec.vb:
+  - uid: MakesCentsBackend
+    name: MakesCentsBackend
+    href: MakesCentsBackend.html
+  - name: .
+  - uid: MakesCentsBackend.Models
+    name: Models
+    href: MakesCentsBackend.Models.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: MakesCentsBackend.Models.UpdateTransactionRequest
+  commentId: T:MakesCentsBackend.Models.UpdateTransactionRequest
+  parent: MakesCentsBackend.Models
+  href: MakesCentsBackend.Models.UpdateTransactionRequest.html
+  name: UpdateTransactionRequest
+  nameWithType: UpdateTransactionRequest
+  fullName: MakesCentsBackend.Models.UpdateTransactionRequest
+- uid: MakesCentsBackend.Models.UpdateTransactionRequest.UserId
+  commentId: P:MakesCentsBackend.Models.UpdateTransactionRequest.UserId
+  parent: MakesCentsBackend.Models.UpdateTransactionRequest
+  href: MakesCentsBackend.Models.UpdateTransactionRequest.html#MakesCentsBackend_Models_UpdateTransactionRequest_UserId
+  name: UserId
+  nameWithType: UpdateTransactionRequest.UserId
+  fullName: MakesCentsBackend.Models.UpdateTransactionRequest.UserId
+- uid: MakesCentsBackend.Models.UpdateTransactionRequest.TransactionId
+  commentId: P:MakesCentsBackend.Models.UpdateTransactionRequest.TransactionId
+  parent: MakesCentsBackend.Models.UpdateTransactionRequest
+  href: MakesCentsBackend.Models.UpdateTransactionRequest.html#MakesCentsBackend_Models_UpdateTransactionRequest_TransactionId
+  name: TransactionId
+  nameWithType: UpdateTransactionRequest.TransactionId
+  fullName: MakesCentsBackend.Models.UpdateTransactionRequest.TransactionId
+- uid: MakesCentsBackend.Models.UpdateTransactionRequest.TransactionDate
+  commentId: P:MakesCentsBackend.Models.UpdateTransactionRequest.TransactionDate
+  parent: MakesCentsBackend.Models.UpdateTransactionRequest
+  href: MakesCentsBackend.Models.UpdateTransactionRequest.html#MakesCentsBackend_Models_UpdateTransactionRequest_TransactionDate
+  name: TransactionDate
+  nameWithType: UpdateTransactionRequest.TransactionDate
+  fullName: MakesCentsBackend.Models.UpdateTransactionRequest.TransactionDate
+- uid: MakesCentsBackend.Models.UpdateTransactionRequest.TotalAmount
+  commentId: P:MakesCentsBackend.Models.UpdateTransactionRequest.TotalAmount
+  parent: MakesCentsBackend.Models.UpdateTransactionRequest
+  href: MakesCentsBackend.Models.UpdateTransactionRequest.html#MakesCentsBackend_Models_UpdateTransactionRequest_TotalAmount
+  name: TotalAmount
+  nameWithType: UpdateTransactionRequest.TotalAmount
+  fullName: MakesCentsBackend.Models.UpdateTransactionRequest.TotalAmount
+- uid: MakesCentsBackend.Models.UpdateTransactionRequest.Notes
+  commentId: P:MakesCentsBackend.Models.UpdateTransactionRequest.Notes
+  parent: MakesCentsBackend.Models.UpdateTransactionRequest
+  href: MakesCentsBackend.Models.UpdateTransactionRequest.html#MakesCentsBackend_Models_UpdateTransactionRequest_Notes
+  name: Notes
+  nameWithType: UpdateTransactionRequest.Notes
+  fullName: MakesCentsBackend.Models.UpdateTransactionRequest.Notes
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: MakesCentsBackend.Models.UpdatePaymentTransactionRequest.PaymentTransactionId*
+  commentId: Overload:MakesCentsBackend.Models.UpdatePaymentTransactionRequest.PaymentTransactionId
+  href: MakesCentsBackend.Models.UpdatePaymentTransactionRequest.html#MakesCentsBackend_Models_UpdatePaymentTransactionRequest_PaymentTransactionId
+  name: PaymentTransactionId
+  nameWithType: UpdatePaymentTransactionRequest.PaymentTransactionId
+  fullName: MakesCentsBackend.Models.UpdatePaymentTransactionRequest.PaymentTransactionId
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: MakesCentsBackend.Models.UpdatePaymentTransactionRequest.AccountId*
+  commentId: Overload:MakesCentsBackend.Models.UpdatePaymentTransactionRequest.AccountId
+  href: MakesCentsBackend.Models.UpdatePaymentTransactionRequest.html#MakesCentsBackend_Models_UpdatePaymentTransactionRequest_AccountId
+  name: AccountId
+  nameWithType: UpdatePaymentTransactionRequest.AccountId
+  fullName: MakesCentsBackend.Models.UpdatePaymentTransactionRequest.AccountId
+- uid: System.Nullable{System.Int32}
+  commentId: T:System.Nullable{System.Int32}
+  parent: System
+  definition: System.Nullable`1
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int?
+  nameWithType: int?
+  fullName: int?
+  nameWithType.vb: Integer?
+  fullName.vb: Integer?
+  name.vb: Integer?
+  spec.csharp:
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '?'
+  spec.vb:
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '?'
+- uid: System.Nullable`1
+  commentId: T:System.Nullable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  name: Nullable<T>
+  nameWithType: Nullable<T>
+  fullName: System.Nullable<T>
+  nameWithType.vb: Nullable(Of T)
+  fullName.vb: System.Nullable(Of T)
+  name.vb: Nullable(Of T)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: MakesCentsBackend.Models.UpdatePaymentTransactionRequest.PaymentTransactionType*
+  commentId: Overload:MakesCentsBackend.Models.UpdatePaymentTransactionRequest.PaymentTransactionType
+  href: MakesCentsBackend.Models.UpdatePaymentTransactionRequest.html#MakesCentsBackend_Models_UpdatePaymentTransactionRequest_PaymentTransactionType
+  name: PaymentTransactionType
+  nameWithType: UpdatePaymentTransactionRequest.PaymentTransactionType
+  fullName: MakesCentsBackend.Models.UpdatePaymentTransactionRequest.PaymentTransactionType
+- uid: System.Nullable{MakesCentsBackend.Models.Enums.PaymentTransactionType}
+  commentId: T:System.Nullable{MakesCentsBackend.Models.Enums.PaymentTransactionType}
+  parent: System
+  definition: System.Nullable`1
+  href: MakesCentsBackend.Models.Enums.PaymentTransactionType.html
+  name: PaymentTransactionType?
+  nameWithType: PaymentTransactionType?
+  fullName: MakesCentsBackend.Models.Enums.PaymentTransactionType?
+  spec.csharp:
+  - uid: MakesCentsBackend.Models.Enums.PaymentTransactionType
+    name: PaymentTransactionType
+    href: MakesCentsBackend.Models.Enums.PaymentTransactionType.html
+  - name: '?'
+  spec.vb:
+  - uid: MakesCentsBackend.Models.Enums.PaymentTransactionType
+    name: PaymentTransactionType
+    href: MakesCentsBackend.Models.Enums.PaymentTransactionType.html
+  - name: '?'
+- uid: MakesCentsBackend.Models.UpdatePaymentTransactionRequest.MerchantSourceName*
+  commentId: Overload:MakesCentsBackend.Models.UpdatePaymentTransactionRequest.MerchantSourceName
+  href: MakesCentsBackend.Models.UpdatePaymentTransactionRequest.html#MakesCentsBackend_Models_UpdatePaymentTransactionRequest_MerchantSourceName
+  name: MerchantSourceName
+  nameWithType: UpdatePaymentTransactionRequest.MerchantSourceName
+  fullName: MakesCentsBackend.Models.UpdatePaymentTransactionRequest.MerchantSourceName
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: MakesCentsBackend.Models.UpdatePaymentTransactionRequest.CheckNumber*
+  commentId: Overload:MakesCentsBackend.Models.UpdatePaymentTransactionRequest.CheckNumber
+  href: MakesCentsBackend.Models.UpdatePaymentTransactionRequest.html#MakesCentsBackend_Models_UpdatePaymentTransactionRequest_CheckNumber
+  name: CheckNumber
+  nameWithType: UpdatePaymentTransactionRequest.CheckNumber
+  fullName: MakesCentsBackend.Models.UpdatePaymentTransactionRequest.CheckNumber
+- uid: MakesCentsBackend.Models.Optional{System.Nullable{System.Int32}}
+  commentId: T:MakesCentsBackend.Models.Optional{System.Nullable{System.Int32}}
+  parent: MakesCentsBackend.Models
+  definition: MakesCentsBackend.Models.Optional`1
+  href: MakesCentsBackend.Models.Optional-1.html
+  name: Optional<int?>
+  nameWithType: Optional<int?>
+  fullName: MakesCentsBackend.Models.Optional<int?>
+  nameWithType.vb: Optional(Of Integer?)
+  fullName.vb: MakesCentsBackend.Models.Optional(Of Integer?)
+  name.vb: Optional(Of Integer?)
+  spec.csharp:
+  - uid: MakesCentsBackend.Models.Optional`1
+    name: Optional
+    href: MakesCentsBackend.Models.Optional-1.html
+  - name: <
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '?'
+  - name: '>'
+  spec.vb:
+  - uid: MakesCentsBackend.Models.Optional`1
+    name: Optional
+    href: MakesCentsBackend.Models.Optional-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '?'
+  - name: )
+- uid: MakesCentsBackend.Models.Optional`1
+  commentId: T:MakesCentsBackend.Models.Optional`1
+  parent: MakesCentsBackend.Models
+  href: MakesCentsBackend.Models.Optional-1.html
+  name: Optional<T>
+  nameWithType: Optional<T>
+  fullName: MakesCentsBackend.Models.Optional<T>
+  nameWithType.vb: Optional(Of T)
+  fullName.vb: MakesCentsBackend.Models.Optional(Of T)
+  name.vb: Optional(Of T)
+  spec.csharp:
+  - uid: MakesCentsBackend.Models.Optional`1
+    name: Optional
+    href: MakesCentsBackend.Models.Optional-1.html
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: MakesCentsBackend.Models.Optional`1
+    name: Optional
+    href: MakesCentsBackend.Models.Optional-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: MakesCentsBackend.Models.UpdatePaymentTransactionRequest.TransactionSplits*
+  commentId: Overload:MakesCentsBackend.Models.UpdatePaymentTransactionRequest.TransactionSplits
+  href: MakesCentsBackend.Models.UpdatePaymentTransactionRequest.html#MakesCentsBackend_Models_UpdatePaymentTransactionRequest_TransactionSplits
+  name: TransactionSplits
+  nameWithType: UpdatePaymentTransactionRequest.TransactionSplits
+  fullName: MakesCentsBackend.Models.UpdatePaymentTransactionRequest.TransactionSplits
+- uid: System.Collections.Generic.List{MakesCentsBackend.Models.UpdateTransactionSplitRequest}
+  commentId: T:System.Collections.Generic.List{MakesCentsBackend.Models.UpdateTransactionSplitRequest}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<UpdateTransactionSplitRequest>
+  nameWithType: List<UpdateTransactionSplitRequest>
+  fullName: System.Collections.Generic.List<MakesCentsBackend.Models.UpdateTransactionSplitRequest>
+  nameWithType.vb: List(Of UpdateTransactionSplitRequest)
+  fullName.vb: System.Collections.Generic.List(Of MakesCentsBackend.Models.UpdateTransactionSplitRequest)
+  name.vb: List(Of UpdateTransactionSplitRequest)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: MakesCentsBackend.Models.UpdateTransactionSplitRequest
+    name: UpdateTransactionSplitRequest
+    href: MakesCentsBackend.Models.UpdateTransactionSplitRequest.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: MakesCentsBackend.Models.UpdateTransactionSplitRequest
+    name: UpdateTransactionSplitRequest
+    href: MakesCentsBackend.Models.UpdateTransactionSplitRequest.html
+  - name: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic

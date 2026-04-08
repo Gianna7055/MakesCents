@@ -1,0 +1,728 @@
+### YamlMime:ManagedReference
+items:
+- uid: MakesCentsBackend.Services.BusinessLogicLayer.DebtAccountLogic
+  commentId: T:MakesCentsBackend.Services.BusinessLogicLayer.DebtAccountLogic
+  id: DebtAccountLogic
+  parent: MakesCentsBackend.Services.BusinessLogicLayer
+  children:
+  - MakesCentsBackend.Services.BusinessLogicLayer.DebtAccountLogic.#ctor(MakesCentsBackend.Services.DataAccessLayer.DebtAccountDAO,AutoMapper.IMapper)
+  - MakesCentsBackend.Services.BusinessLogicLayer.DebtAccountLogic.CreateDebtAccountAsync(MakesCentsBackend.Models.CreateDebtAccountRequest)
+  - MakesCentsBackend.Services.BusinessLogicLayer.DebtAccountLogic.GetDebtAccountAsync(MakesCentsBackend.Models.BaseIdRequest)
+  - MakesCentsBackend.Services.BusinessLogicLayer.DebtAccountLogic.UpdateDebtAccountAsync(MakesCentsBackend.Models.UpdateDebtAccountRequest)
+  langs:
+  - csharp
+  - vb
+  name: DebtAccountLogic
+  nameWithType: DebtAccountLogic
+  fullName: MakesCentsBackend.Services.BusinessLogicLayer.DebtAccountLogic
+  type: Class
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Services/BusinessLogicLayer/DebtAccountLogic.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: DebtAccountLogic
+    path: Services/BusinessLogicLayer/DebtAccountLogic.cs
+    startLine: 12
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Services.BusinessLogicLayer
+  syntax:
+    content: public class DebtAccountLogic
+    content.vb: Public Class DebtAccountLogic
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: MakesCentsBackend.Services.BusinessLogicLayer.DebtAccountLogic.#ctor(MakesCentsBackend.Services.DataAccessLayer.DebtAccountDAO,AutoMapper.IMapper)
+  commentId: M:MakesCentsBackend.Services.BusinessLogicLayer.DebtAccountLogic.#ctor(MakesCentsBackend.Services.DataAccessLayer.DebtAccountDAO,AutoMapper.IMapper)
+  id: '#ctor(MakesCentsBackend.Services.DataAccessLayer.DebtAccountDAO,AutoMapper.IMapper)'
+  parent: MakesCentsBackend.Services.BusinessLogicLayer.DebtAccountLogic
+  langs:
+  - csharp
+  - vb
+  name: DebtAccountLogic(DebtAccountDAO, IMapper)
+  nameWithType: DebtAccountLogic.DebtAccountLogic(DebtAccountDAO, IMapper)
+  fullName: MakesCentsBackend.Services.BusinessLogicLayer.DebtAccountLogic.DebtAccountLogic(MakesCentsBackend.Services.DataAccessLayer.DebtAccountDAO, AutoMapper.IMapper)
+  type: Constructor
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Services/BusinessLogicLayer/DebtAccountLogic.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: .ctor
+    path: Services/BusinessLogicLayer/DebtAccountLogic.cs
+    startLine: 22
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Services.BusinessLogicLayer
+  summary: Parameterized constructor to bring in DI variables
+  example: []
+  syntax:
+    content: public DebtAccountLogic(DebtAccountDAO debtAccountDAO, IMapper mapper)
+    parameters:
+    - id: debtAccountDAO
+      type: MakesCentsBackend.Services.DataAccessLayer.DebtAccountDAO
+      description: ''
+    - id: mapper
+      type: AutoMapper.IMapper
+    content.vb: Public Sub New(debtAccountDAO As DebtAccountDAO, mapper As IMapper)
+  overload: MakesCentsBackend.Services.BusinessLogicLayer.DebtAccountLogic.#ctor*
+  nameWithType.vb: DebtAccountLogic.New(DebtAccountDAO, IMapper)
+  fullName.vb: MakesCentsBackend.Services.BusinessLogicLayer.DebtAccountLogic.New(MakesCentsBackend.Services.DataAccessLayer.DebtAccountDAO, AutoMapper.IMapper)
+  name.vb: New(DebtAccountDAO, IMapper)
+- uid: MakesCentsBackend.Services.BusinessLogicLayer.DebtAccountLogic.CreateDebtAccountAsync(MakesCentsBackend.Models.CreateDebtAccountRequest)
+  commentId: M:MakesCentsBackend.Services.BusinessLogicLayer.DebtAccountLogic.CreateDebtAccountAsync(MakesCentsBackend.Models.CreateDebtAccountRequest)
+  id: CreateDebtAccountAsync(MakesCentsBackend.Models.CreateDebtAccountRequest)
+  parent: MakesCentsBackend.Services.BusinessLogicLayer.DebtAccountLogic
+  langs:
+  - csharp
+  - vb
+  name: CreateDebtAccountAsync(CreateDebtAccountRequest)
+  nameWithType: DebtAccountLogic.CreateDebtAccountAsync(CreateDebtAccountRequest)
+  fullName: MakesCentsBackend.Services.BusinessLogicLayer.DebtAccountLogic.CreateDebtAccountAsync(MakesCentsBackend.Models.CreateDebtAccountRequest)
+  type: Method
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Services/BusinessLogicLayer/DebtAccountLogic.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: CreateDebtAccountAsync
+    path: Services/BusinessLogicLayer/DebtAccountLogic.cs
+    startLine: 33
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Services.BusinessLogicLayer
+  summary: Logic method to create a new debt account
+  example: []
+  syntax:
+    content: public Task<CreateDebtAccountResponse> CreateDebtAccountAsync(CreateDebtAccountRequest debtAccount)
+    parameters:
+    - id: debtAccount
+      type: MakesCentsBackend.Models.CreateDebtAccountRequest
+      description: ''
+    return:
+      type: System.Threading.Tasks.Task{MakesCentsBackend.Models.CreateDebtAccountResponse}
+      description: ''
+    content.vb: Public Function CreateDebtAccountAsync(debtAccount As CreateDebtAccountRequest) As Task(Of CreateDebtAccountResponse)
+  overload: MakesCentsBackend.Services.BusinessLogicLayer.DebtAccountLogic.CreateDebtAccountAsync*
+- uid: MakesCentsBackend.Services.BusinessLogicLayer.DebtAccountLogic.GetDebtAccountAsync(MakesCentsBackend.Models.BaseIdRequest)
+  commentId: M:MakesCentsBackend.Services.BusinessLogicLayer.DebtAccountLogic.GetDebtAccountAsync(MakesCentsBackend.Models.BaseIdRequest)
+  id: GetDebtAccountAsync(MakesCentsBackend.Models.BaseIdRequest)
+  parent: MakesCentsBackend.Services.BusinessLogicLayer.DebtAccountLogic
+  langs:
+  - csharp
+  - vb
+  name: GetDebtAccountAsync(BaseIdRequest)
+  nameWithType: DebtAccountLogic.GetDebtAccountAsync(BaseIdRequest)
+  fullName: MakesCentsBackend.Services.BusinessLogicLayer.DebtAccountLogic.GetDebtAccountAsync(MakesCentsBackend.Models.BaseIdRequest)
+  type: Method
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Services/BusinessLogicLayer/DebtAccountLogic.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: GetDebtAccountAsync
+    path: Services/BusinessLogicLayer/DebtAccountLogic.cs
+    startLine: 50
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Services.BusinessLogicLayer
+  syntax:
+    content: public Task<GetDebtAccountDTOResponse> GetDebtAccountAsync(BaseIdRequest request)
+    parameters:
+    - id: request
+      type: MakesCentsBackend.Models.BaseIdRequest
+    return:
+      type: System.Threading.Tasks.Task{MakesCentsBackend.Models.GetDebtAccountDTOResponse}
+    content.vb: Public Function GetDebtAccountAsync(request As BaseIdRequest) As Task(Of GetDebtAccountDTOResponse)
+  overload: MakesCentsBackend.Services.BusinessLogicLayer.DebtAccountLogic.GetDebtAccountAsync*
+- uid: MakesCentsBackend.Services.BusinessLogicLayer.DebtAccountLogic.UpdateDebtAccountAsync(MakesCentsBackend.Models.UpdateDebtAccountRequest)
+  commentId: M:MakesCentsBackend.Services.BusinessLogicLayer.DebtAccountLogic.UpdateDebtAccountAsync(MakesCentsBackend.Models.UpdateDebtAccountRequest)
+  id: UpdateDebtAccountAsync(MakesCentsBackend.Models.UpdateDebtAccountRequest)
+  parent: MakesCentsBackend.Services.BusinessLogicLayer.DebtAccountLogic
+  langs:
+  - csharp
+  - vb
+  name: UpdateDebtAccountAsync(UpdateDebtAccountRequest)
+  nameWithType: DebtAccountLogic.UpdateDebtAccountAsync(UpdateDebtAccountRequest)
+  fullName: MakesCentsBackend.Services.BusinessLogicLayer.DebtAccountLogic.UpdateDebtAccountAsync(MakesCentsBackend.Models.UpdateDebtAccountRequest)
+  type: Method
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Services/BusinessLogicLayer/DebtAccountLogic.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: UpdateDebtAccountAsync
+    path: Services/BusinessLogicLayer/DebtAccountLogic.cs
+    startLine: 76
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Services.BusinessLogicLayer
+  syntax:
+    content: public Task<BaseIdResponse> UpdateDebtAccountAsync(UpdateDebtAccountRequest debtAccount)
+    parameters:
+    - id: debtAccount
+      type: MakesCentsBackend.Models.UpdateDebtAccountRequest
+    return:
+      type: System.Threading.Tasks.Task{MakesCentsBackend.Models.BaseIdResponse}
+    content.vb: Public Function UpdateDebtAccountAsync(debtAccount As UpdateDebtAccountRequest) As Task(Of BaseIdResponse)
+  overload: MakesCentsBackend.Services.BusinessLogicLayer.DebtAccountLogic.UpdateDebtAccountAsync*
+references:
+- uid: MakesCentsBackend.Services.BusinessLogicLayer
+  commentId: N:MakesCentsBackend.Services.BusinessLogicLayer
+  href: MakesCentsBackend.html
+  name: MakesCentsBackend.Services.BusinessLogicLayer
+  nameWithType: MakesCentsBackend.Services.BusinessLogicLayer
+  fullName: MakesCentsBackend.Services.BusinessLogicLayer
+  spec.csharp:
+  - uid: MakesCentsBackend
+    name: MakesCentsBackend
+    href: MakesCentsBackend.html
+  - name: .
+  - uid: MakesCentsBackend.Services
+    name: Services
+    href: MakesCentsBackend.Services.html
+  - name: .
+  - uid: MakesCentsBackend.Services.BusinessLogicLayer
+    name: BusinessLogicLayer
+    href: MakesCentsBackend.Services.BusinessLogicLayer.html
+  spec.vb:
+  - uid: MakesCentsBackend
+    name: MakesCentsBackend
+    href: MakesCentsBackend.html
+  - name: .
+  - uid: MakesCentsBackend.Services
+    name: Services
+    href: MakesCentsBackend.Services.html
+  - name: .
+  - uid: MakesCentsBackend.Services.BusinessLogicLayer
+    name: BusinessLogicLayer
+    href: MakesCentsBackend.Services.BusinessLogicLayer.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: MakesCentsBackend.Services.BusinessLogicLayer.DebtAccountLogic.#ctor*
+  commentId: Overload:MakesCentsBackend.Services.BusinessLogicLayer.DebtAccountLogic.#ctor
+  href: MakesCentsBackend.Services.BusinessLogicLayer.DebtAccountLogic.html#MakesCentsBackend_Services_BusinessLogicLayer_DebtAccountLogic__ctor_MakesCentsBackend_Services_DataAccessLayer_DebtAccountDAO_AutoMapper_IMapper_
+  name: DebtAccountLogic
+  nameWithType: DebtAccountLogic.DebtAccountLogic
+  fullName: MakesCentsBackend.Services.BusinessLogicLayer.DebtAccountLogic.DebtAccountLogic
+  nameWithType.vb: DebtAccountLogic.New
+  fullName.vb: MakesCentsBackend.Services.BusinessLogicLayer.DebtAccountLogic.New
+  name.vb: New
+- uid: MakesCentsBackend.Services.DataAccessLayer.DebtAccountDAO
+  commentId: T:MakesCentsBackend.Services.DataAccessLayer.DebtAccountDAO
+  parent: MakesCentsBackend.Services.DataAccessLayer
+  href: MakesCentsBackend.Services.DataAccessLayer.DebtAccountDAO.html
+  name: DebtAccountDAO
+  nameWithType: DebtAccountDAO
+  fullName: MakesCentsBackend.Services.DataAccessLayer.DebtAccountDAO
+- uid: AutoMapper.IMapper
+  commentId: T:AutoMapper.IMapper
+  parent: AutoMapper
+  isExternal: true
+  name: IMapper
+  nameWithType: IMapper
+  fullName: AutoMapper.IMapper
+- uid: MakesCentsBackend.Services.DataAccessLayer
+  commentId: N:MakesCentsBackend.Services.DataAccessLayer
+  href: MakesCentsBackend.html
+  name: MakesCentsBackend.Services.DataAccessLayer
+  nameWithType: MakesCentsBackend.Services.DataAccessLayer
+  fullName: MakesCentsBackend.Services.DataAccessLayer
+  spec.csharp:
+  - uid: MakesCentsBackend
+    name: MakesCentsBackend
+    href: MakesCentsBackend.html
+  - name: .
+  - uid: MakesCentsBackend.Services
+    name: Services
+    href: MakesCentsBackend.Services.html
+  - name: .
+  - uid: MakesCentsBackend.Services.DataAccessLayer
+    name: DataAccessLayer
+    href: MakesCentsBackend.Services.DataAccessLayer.html
+  spec.vb:
+  - uid: MakesCentsBackend
+    name: MakesCentsBackend
+    href: MakesCentsBackend.html
+  - name: .
+  - uid: MakesCentsBackend.Services
+    name: Services
+    href: MakesCentsBackend.Services.html
+  - name: .
+  - uid: MakesCentsBackend.Services.DataAccessLayer
+    name: DataAccessLayer
+    href: MakesCentsBackend.Services.DataAccessLayer.html
+- uid: AutoMapper
+  commentId: N:AutoMapper
+  isExternal: true
+  name: AutoMapper
+  nameWithType: AutoMapper
+  fullName: AutoMapper
+- uid: MakesCentsBackend.Services.BusinessLogicLayer.DebtAccountLogic.CreateDebtAccountAsync*
+  commentId: Overload:MakesCentsBackend.Services.BusinessLogicLayer.DebtAccountLogic.CreateDebtAccountAsync
+  href: MakesCentsBackend.Services.BusinessLogicLayer.DebtAccountLogic.html#MakesCentsBackend_Services_BusinessLogicLayer_DebtAccountLogic_CreateDebtAccountAsync_MakesCentsBackend_Models_CreateDebtAccountRequest_
+  name: CreateDebtAccountAsync
+  nameWithType: DebtAccountLogic.CreateDebtAccountAsync
+  fullName: MakesCentsBackend.Services.BusinessLogicLayer.DebtAccountLogic.CreateDebtAccountAsync
+- uid: MakesCentsBackend.Models.CreateDebtAccountRequest
+  commentId: T:MakesCentsBackend.Models.CreateDebtAccountRequest
+  parent: MakesCentsBackend.Models
+  href: MakesCentsBackend.Models.CreateDebtAccountRequest.html
+  name: CreateDebtAccountRequest
+  nameWithType: CreateDebtAccountRequest
+  fullName: MakesCentsBackend.Models.CreateDebtAccountRequest
+- uid: System.Threading.Tasks.Task{MakesCentsBackend.Models.CreateDebtAccountResponse}
+  commentId: T:System.Threading.Tasks.Task{MakesCentsBackend.Models.CreateDebtAccountResponse}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<CreateDebtAccountResponse>
+  nameWithType: Task<CreateDebtAccountResponse>
+  fullName: System.Threading.Tasks.Task<MakesCentsBackend.Models.CreateDebtAccountResponse>
+  nameWithType.vb: Task(Of CreateDebtAccountResponse)
+  fullName.vb: System.Threading.Tasks.Task(Of MakesCentsBackend.Models.CreateDebtAccountResponse)
+  name.vb: Task(Of CreateDebtAccountResponse)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: MakesCentsBackend.Models.CreateDebtAccountResponse
+    name: CreateDebtAccountResponse
+    href: MakesCentsBackend.Models.CreateDebtAccountResponse.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: MakesCentsBackend.Models.CreateDebtAccountResponse
+    name: CreateDebtAccountResponse
+    href: MakesCentsBackend.Models.CreateDebtAccountResponse.html
+  - name: )
+- uid: MakesCentsBackend.Models
+  commentId: N:MakesCentsBackend.Models
+  href: MakesCentsBackend.html
+  name: MakesCentsBackend.Models
+  nameWithType: MakesCentsBackend.Models
+  fullName: MakesCentsBackend.Models
+  spec.csharp:
+  - uid: MakesCentsBackend
+    name: MakesCentsBackend
+    href: MakesCentsBackend.html
+  - name: .
+  - uid: MakesCentsBackend.Models
+    name: Models
+    href: MakesCentsBackend.Models.html
+  spec.vb:
+  - uid: MakesCentsBackend
+    name: MakesCentsBackend
+    href: MakesCentsBackend.html
+  - name: .
+  - uid: MakesCentsBackend.Models
+    name: Models
+    href: MakesCentsBackend.Models.html
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+- uid: MakesCentsBackend.Services.BusinessLogicLayer.DebtAccountLogic.GetDebtAccountAsync*
+  commentId: Overload:MakesCentsBackend.Services.BusinessLogicLayer.DebtAccountLogic.GetDebtAccountAsync
+  href: MakesCentsBackend.Services.BusinessLogicLayer.DebtAccountLogic.html#MakesCentsBackend_Services_BusinessLogicLayer_DebtAccountLogic_GetDebtAccountAsync_MakesCentsBackend_Models_BaseIdRequest_
+  name: GetDebtAccountAsync
+  nameWithType: DebtAccountLogic.GetDebtAccountAsync
+  fullName: MakesCentsBackend.Services.BusinessLogicLayer.DebtAccountLogic.GetDebtAccountAsync
+- uid: MakesCentsBackend.Models.BaseIdRequest
+  commentId: T:MakesCentsBackend.Models.BaseIdRequest
+  parent: MakesCentsBackend.Models
+  href: MakesCentsBackend.Models.BaseIdRequest.html
+  name: BaseIdRequest
+  nameWithType: BaseIdRequest
+  fullName: MakesCentsBackend.Models.BaseIdRequest
+- uid: System.Threading.Tasks.Task{MakesCentsBackend.Models.GetDebtAccountDTOResponse}
+  commentId: T:System.Threading.Tasks.Task{MakesCentsBackend.Models.GetDebtAccountDTOResponse}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<GetDebtAccountDTOResponse>
+  nameWithType: Task<GetDebtAccountDTOResponse>
+  fullName: System.Threading.Tasks.Task<MakesCentsBackend.Models.GetDebtAccountDTOResponse>
+  nameWithType.vb: Task(Of GetDebtAccountDTOResponse)
+  fullName.vb: System.Threading.Tasks.Task(Of MakesCentsBackend.Models.GetDebtAccountDTOResponse)
+  name.vb: Task(Of GetDebtAccountDTOResponse)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: MakesCentsBackend.Models.GetDebtAccountDTOResponse
+    name: GetDebtAccountDTOResponse
+    href: MakesCentsBackend.Models.GetDebtAccountDTOResponse.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: MakesCentsBackend.Models.GetDebtAccountDTOResponse
+    name: GetDebtAccountDTOResponse
+    href: MakesCentsBackend.Models.GetDebtAccountDTOResponse.html
+  - name: )
+- uid: MakesCentsBackend.Services.BusinessLogicLayer.DebtAccountLogic.UpdateDebtAccountAsync*
+  commentId: Overload:MakesCentsBackend.Services.BusinessLogicLayer.DebtAccountLogic.UpdateDebtAccountAsync
+  href: MakesCentsBackend.Services.BusinessLogicLayer.DebtAccountLogic.html#MakesCentsBackend_Services_BusinessLogicLayer_DebtAccountLogic_UpdateDebtAccountAsync_MakesCentsBackend_Models_UpdateDebtAccountRequest_
+  name: UpdateDebtAccountAsync
+  nameWithType: DebtAccountLogic.UpdateDebtAccountAsync
+  fullName: MakesCentsBackend.Services.BusinessLogicLayer.DebtAccountLogic.UpdateDebtAccountAsync
+- uid: MakesCentsBackend.Models.UpdateDebtAccountRequest
+  commentId: T:MakesCentsBackend.Models.UpdateDebtAccountRequest
+  parent: MakesCentsBackend.Models
+  href: MakesCentsBackend.Models.UpdateDebtAccountRequest.html
+  name: UpdateDebtAccountRequest
+  nameWithType: UpdateDebtAccountRequest
+  fullName: MakesCentsBackend.Models.UpdateDebtAccountRequest
+- uid: System.Threading.Tasks.Task{MakesCentsBackend.Models.BaseIdResponse}
+  commentId: T:System.Threading.Tasks.Task{MakesCentsBackend.Models.BaseIdResponse}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<BaseIdResponse>
+  nameWithType: Task<BaseIdResponse>
+  fullName: System.Threading.Tasks.Task<MakesCentsBackend.Models.BaseIdResponse>
+  nameWithType.vb: Task(Of BaseIdResponse)
+  fullName.vb: System.Threading.Tasks.Task(Of MakesCentsBackend.Models.BaseIdResponse)
+  name.vb: Task(Of BaseIdResponse)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: MakesCentsBackend.Models.BaseIdResponse
+    name: BaseIdResponse
+    href: MakesCentsBackend.Models.BaseIdResponse.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: MakesCentsBackend.Models.BaseIdResponse
+    name: BaseIdResponse
+    href: MakesCentsBackend.Models.BaseIdResponse.html
+  - name: )

@@ -1,0 +1,284 @@
+### YamlMime:ManagedReference
+items:
+- uid: MakesCentsBackend.Models.Enums.Weekday
+  commentId: T:MakesCentsBackend.Models.Enums.Weekday
+  id: Weekday
+  parent: MakesCentsBackend.Models.Enums
+  children:
+  - MakesCentsBackend.Models.Enums.Weekday.Friday
+  - MakesCentsBackend.Models.Enums.Weekday.Monday
+  - MakesCentsBackend.Models.Enums.Weekday.Saturday
+  - MakesCentsBackend.Models.Enums.Weekday.Sunday
+  - MakesCentsBackend.Models.Enums.Weekday.Thursday
+  - MakesCentsBackend.Models.Enums.Weekday.Tuesday
+  - MakesCentsBackend.Models.Enums.Weekday.Unknown
+  - MakesCentsBackend.Models.Enums.Weekday.Wednesday
+  langs:
+  - csharp
+  - vb
+  name: Weekday
+  nameWithType: Weekday
+  fullName: MakesCentsBackend.Models.Enums.Weekday
+  type: Enum
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Models/Enums/Weekday.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: Weekday
+    path: Models/Enums/Weekday.cs
+    startLine: 10
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Models.Enums
+  summary: Enum for Weekdays for the Planned Expense Model
+  example: []
+  syntax:
+    content: public enum Weekday
+    content.vb: Public Enum Weekday
+- uid: MakesCentsBackend.Models.Enums.Weekday.Unknown
+  commentId: F:MakesCentsBackend.Models.Enums.Weekday.Unknown
+  id: Unknown
+  parent: MakesCentsBackend.Models.Enums.Weekday
+  langs:
+  - csharp
+  - vb
+  name: Unknown
+  nameWithType: Weekday.Unknown
+  fullName: MakesCentsBackend.Models.Enums.Weekday.Unknown
+  type: Field
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Models/Enums/Weekday.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: Unknown
+    path: Models/Enums/Weekday.cs
+    startLine: 12
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Models.Enums
+  syntax:
+    content: Unknown = 1
+    return:
+      type: MakesCentsBackend.Models.Enums.Weekday
+- uid: MakesCentsBackend.Models.Enums.Weekday.Monday
+  commentId: F:MakesCentsBackend.Models.Enums.Weekday.Monday
+  id: Monday
+  parent: MakesCentsBackend.Models.Enums.Weekday
+  langs:
+  - csharp
+  - vb
+  name: Monday
+  nameWithType: Weekday.Monday
+  fullName: MakesCentsBackend.Models.Enums.Weekday.Monday
+  type: Field
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Models/Enums/Weekday.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: Monday
+    path: Models/Enums/Weekday.cs
+    startLine: 13
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Models.Enums
+  syntax:
+    content: Monday = 2
+    return:
+      type: MakesCentsBackend.Models.Enums.Weekday
+- uid: MakesCentsBackend.Models.Enums.Weekday.Tuesday
+  commentId: F:MakesCentsBackend.Models.Enums.Weekday.Tuesday
+  id: Tuesday
+  parent: MakesCentsBackend.Models.Enums.Weekday
+  langs:
+  - csharp
+  - vb
+  name: Tuesday
+  nameWithType: Weekday.Tuesday
+  fullName: MakesCentsBackend.Models.Enums.Weekday.Tuesday
+  type: Field
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Models/Enums/Weekday.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: Tuesday
+    path: Models/Enums/Weekday.cs
+    startLine: 14
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Models.Enums
+  syntax:
+    content: Tuesday = 3
+    return:
+      type: MakesCentsBackend.Models.Enums.Weekday
+- uid: MakesCentsBackend.Models.Enums.Weekday.Wednesday
+  commentId: F:MakesCentsBackend.Models.Enums.Weekday.Wednesday
+  id: Wednesday
+  parent: MakesCentsBackend.Models.Enums.Weekday
+  langs:
+  - csharp
+  - vb
+  name: Wednesday
+  nameWithType: Weekday.Wednesday
+  fullName: MakesCentsBackend.Models.Enums.Weekday.Wednesday
+  type: Field
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Models/Enums/Weekday.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: Wednesday
+    path: Models/Enums/Weekday.cs
+    startLine: 15
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Models.Enums
+  syntax:
+    content: Wednesday = 4
+    return:
+      type: MakesCentsBackend.Models.Enums.Weekday
+- uid: MakesCentsBackend.Models.Enums.Weekday.Thursday
+  commentId: F:MakesCentsBackend.Models.Enums.Weekday.Thursday
+  id: Thursday
+  parent: MakesCentsBackend.Models.Enums.Weekday
+  langs:
+  - csharp
+  - vb
+  name: Thursday
+  nameWithType: Weekday.Thursday
+  fullName: MakesCentsBackend.Models.Enums.Weekday.Thursday
+  type: Field
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Models/Enums/Weekday.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: Thursday
+    path: Models/Enums/Weekday.cs
+    startLine: 16
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Models.Enums
+  syntax:
+    content: Thursday = 5
+    return:
+      type: MakesCentsBackend.Models.Enums.Weekday
+- uid: MakesCentsBackend.Models.Enums.Weekday.Friday
+  commentId: F:MakesCentsBackend.Models.Enums.Weekday.Friday
+  id: Friday
+  parent: MakesCentsBackend.Models.Enums.Weekday
+  langs:
+  - csharp
+  - vb
+  name: Friday
+  nameWithType: Weekday.Friday
+  fullName: MakesCentsBackend.Models.Enums.Weekday.Friday
+  type: Field
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Models/Enums/Weekday.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: Friday
+    path: Models/Enums/Weekday.cs
+    startLine: 17
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Models.Enums
+  syntax:
+    content: Friday = 6
+    return:
+      type: MakesCentsBackend.Models.Enums.Weekday
+- uid: MakesCentsBackend.Models.Enums.Weekday.Saturday
+  commentId: F:MakesCentsBackend.Models.Enums.Weekday.Saturday
+  id: Saturday
+  parent: MakesCentsBackend.Models.Enums.Weekday
+  langs:
+  - csharp
+  - vb
+  name: Saturday
+  nameWithType: Weekday.Saturday
+  fullName: MakesCentsBackend.Models.Enums.Weekday.Saturday
+  type: Field
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Models/Enums/Weekday.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: Saturday
+    path: Models/Enums/Weekday.cs
+    startLine: 18
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Models.Enums
+  syntax:
+    content: Saturday = 7
+    return:
+      type: MakesCentsBackend.Models.Enums.Weekday
+- uid: MakesCentsBackend.Models.Enums.Weekday.Sunday
+  commentId: F:MakesCentsBackend.Models.Enums.Weekday.Sunday
+  id: Sunday
+  parent: MakesCentsBackend.Models.Enums.Weekday
+  langs:
+  - csharp
+  - vb
+  name: Sunday
+  nameWithType: Weekday.Sunday
+  fullName: MakesCentsBackend.Models.Enums.Weekday.Sunday
+  type: Field
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Models/Enums/Weekday.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: Sunday
+    path: Models/Enums/Weekday.cs
+    startLine: 19
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Models.Enums
+  syntax:
+    content: Sunday = 8
+    return:
+      type: MakesCentsBackend.Models.Enums.Weekday
+references:
+- uid: MakesCentsBackend.Models.Enums
+  commentId: N:MakesCentsBackend.Models.Enums
+  href: MakesCentsBackend.html
+  name: MakesCentsBackend.Models.Enums
+  nameWithType: MakesCentsBackend.Models.Enums
+  fullName: MakesCentsBackend.Models.Enums
+  spec.csharp:
+  - uid: MakesCentsBackend
+    name: MakesCentsBackend
+    href: MakesCentsBackend.html
+  - name: .
+  - uid: MakesCentsBackend.Models
+    name: Models
+    href: MakesCentsBackend.Models.html
+  - name: .
+  - uid: MakesCentsBackend.Models.Enums
+    name: Enums
+    href: MakesCentsBackend.Models.Enums.html
+  spec.vb:
+  - uid: MakesCentsBackend
+    name: MakesCentsBackend
+    href: MakesCentsBackend.html
+  - name: .
+  - uid: MakesCentsBackend.Models
+    name: Models
+    href: MakesCentsBackend.Models.html
+  - name: .
+  - uid: MakesCentsBackend.Models.Enums
+    name: Enums
+    href: MakesCentsBackend.Models.Enums.html
+- uid: MakesCentsBackend.Models.Enums.Weekday
+  commentId: T:MakesCentsBackend.Models.Enums.Weekday
+  parent: MakesCentsBackend.Models.Enums
+  href: MakesCentsBackend.Models.Enums.Weekday.html
+  name: Weekday
+  nameWithType: Weekday
+  fullName: MakesCentsBackend.Models.Enums.Weekday

@@ -1,0 +1,30 @@
+### YamlMime:ManagedReference
+items:
+- uid: MakesCentsBackend.Services.Mappers
+  commentId: N:MakesCentsBackend.Services.Mappers
+  id: MakesCentsBackend.Services.Mappers
+  children:
+  - MakesCentsBackend.Services.Mappers.MappingProfile
+  - MakesCentsBackend.Services.Mappers.TransactionMapper
+  langs:
+  - csharp
+  - vb
+  name: MakesCentsBackend.Services.Mappers
+  nameWithType: MakesCentsBackend.Services.Mappers
+  fullName: MakesCentsBackend.Services.Mappers
+  type: Namespace
+  assemblies:
+  - MakesCentsBackend
+references:
+- uid: MakesCentsBackend.Services.Mappers.MappingProfile
+  commentId: T:MakesCentsBackend.Services.Mappers.MappingProfile
+  href: MakesCentsBackend.Services.Mappers.MappingProfile.html
+  name: MappingProfile
+  nameWithType: MappingProfile
+  fullName: MakesCentsBackend.Services.Mappers.MappingProfile
+- uid: MakesCentsBackend.Services.Mappers.TransactionMapper
+  commentId: T:MakesCentsBackend.Services.Mappers.TransactionMapper
+  href: MakesCentsBackend.Services.Mappers.TransactionMapper.html
+  name: TransactionMapper
+  nameWithType: TransactionMapper
+  fullName: MakesCentsBackend.Services.Mappers.TransactionMapper

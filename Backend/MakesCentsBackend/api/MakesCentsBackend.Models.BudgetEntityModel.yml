@@ -1,0 +1,1032 @@
+### YamlMime:ManagedReference
+items:
+- uid: MakesCentsBackend.Models.BudgetEntityModel
+  commentId: T:MakesCentsBackend.Models.BudgetEntityModel
+  id: BudgetEntityModel
+  parent: MakesCentsBackend.Models
+  children:
+  - MakesCentsBackend.Models.BudgetEntityModel.Accounts
+  - MakesCentsBackend.Models.BudgetEntityModel.BudgetId
+  - MakesCentsBackend.Models.BudgetEntityModel.BudgetName
+  - MakesCentsBackend.Models.BudgetEntityModel.CreatedAt
+  - MakesCentsBackend.Models.BudgetEntityModel.EnvelopeCategories
+  - MakesCentsBackend.Models.BudgetEntityModel.LastUpdatedAt
+  - MakesCentsBackend.Models.BudgetEntityModel.Month
+  - MakesCentsBackend.Models.BudgetEntityModel.Paychecks
+  - MakesCentsBackend.Models.BudgetEntityModel.PlannedExpenses
+  - MakesCentsBackend.Models.BudgetEntityModel.Transactions
+  - MakesCentsBackend.Models.BudgetEntityModel.UserId
+  - MakesCentsBackend.Models.BudgetEntityModel.Year
+  langs:
+  - csharp
+  - vb
+  name: BudgetEntityModel
+  nameWithType: BudgetEntityModel
+  fullName: MakesCentsBackend.Models.BudgetEntityModel
+  type: Class
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Models/BudgetModels.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: BudgetEntityModel
+    path: Models/BudgetModels.cs
+    startLine: 16
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Models
+  summary: Entity model for a budget
+  example: []
+  syntax:
+    content: public class BudgetEntityModel
+    content.vb: Public Class BudgetEntityModel
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: MakesCentsBackend.Models.BudgetEntityModel.BudgetId
+  commentId: P:MakesCentsBackend.Models.BudgetEntityModel.BudgetId
+  id: BudgetId
+  parent: MakesCentsBackend.Models.BudgetEntityModel
+  langs:
+  - csharp
+  - vb
+  name: BudgetId
+  nameWithType: BudgetEntityModel.BudgetId
+  fullName: MakesCentsBackend.Models.BudgetEntityModel.BudgetId
+  type: Property
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Models/BudgetModels.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: BudgetId
+    path: Models/BudgetModels.cs
+    startLine: 19
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Models
+  syntax:
+    content: public int BudgetId { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property BudgetId As Integer
+  overload: MakesCentsBackend.Models.BudgetEntityModel.BudgetId*
+- uid: MakesCentsBackend.Models.BudgetEntityModel.UserId
+  commentId: P:MakesCentsBackend.Models.BudgetEntityModel.UserId
+  id: UserId
+  parent: MakesCentsBackend.Models.BudgetEntityModel
+  langs:
+  - csharp
+  - vb
+  name: UserId
+  nameWithType: BudgetEntityModel.UserId
+  fullName: MakesCentsBackend.Models.BudgetEntityModel.UserId
+  type: Property
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Models/BudgetModels.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: UserId
+    path: Models/BudgetModels.cs
+    startLine: 20
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Models
+  syntax:
+    content: public int UserId { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property UserId As Integer
+  overload: MakesCentsBackend.Models.BudgetEntityModel.UserId*
+- uid: MakesCentsBackend.Models.BudgetEntityModel.Month
+  commentId: P:MakesCentsBackend.Models.BudgetEntityModel.Month
+  id: Month
+  parent: MakesCentsBackend.Models.BudgetEntityModel
+  langs:
+  - csharp
+  - vb
+  name: Month
+  nameWithType: BudgetEntityModel.Month
+  fullName: MakesCentsBackend.Models.BudgetEntityModel.Month
+  type: Property
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Models/BudgetModels.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: Month
+    path: Models/BudgetModels.cs
+    startLine: 21
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Models
+  syntax:
+    content: public Month Month { get; set; }
+    parameters: []
+    return:
+      type: MakesCentsBackend.Models.Enums.Month
+    content.vb: Public Property Month As Month
+  overload: MakesCentsBackend.Models.BudgetEntityModel.Month*
+- uid: MakesCentsBackend.Models.BudgetEntityModel.Year
+  commentId: P:MakesCentsBackend.Models.BudgetEntityModel.Year
+  id: Year
+  parent: MakesCentsBackend.Models.BudgetEntityModel
+  langs:
+  - csharp
+  - vb
+  name: Year
+  nameWithType: BudgetEntityModel.Year
+  fullName: MakesCentsBackend.Models.BudgetEntityModel.Year
+  type: Property
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Models/BudgetModels.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: Year
+    path: Models/BudgetModels.cs
+    startLine: 22
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Models
+  syntax:
+    content: public int Year { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property Year As Integer
+  overload: MakesCentsBackend.Models.BudgetEntityModel.Year*
+- uid: MakesCentsBackend.Models.BudgetEntityModel.BudgetName
+  commentId: P:MakesCentsBackend.Models.BudgetEntityModel.BudgetName
+  id: BudgetName
+  parent: MakesCentsBackend.Models.BudgetEntityModel
+  langs:
+  - csharp
+  - vb
+  name: BudgetName
+  nameWithType: BudgetEntityModel.BudgetName
+  fullName: MakesCentsBackend.Models.BudgetEntityModel.BudgetName
+  type: Property
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Models/BudgetModels.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: BudgetName
+    path: Models/BudgetModels.cs
+    startLine: 23
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Models
+  syntax:
+    content: public string BudgetName { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property BudgetName As String
+  overload: MakesCentsBackend.Models.BudgetEntityModel.BudgetName*
+- uid: MakesCentsBackend.Models.BudgetEntityModel.CreatedAt
+  commentId: P:MakesCentsBackend.Models.BudgetEntityModel.CreatedAt
+  id: CreatedAt
+  parent: MakesCentsBackend.Models.BudgetEntityModel
+  langs:
+  - csharp
+  - vb
+  name: CreatedAt
+  nameWithType: BudgetEntityModel.CreatedAt
+  fullName: MakesCentsBackend.Models.BudgetEntityModel.CreatedAt
+  type: Property
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Models/BudgetModels.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: CreatedAt
+    path: Models/BudgetModels.cs
+    startLine: 24
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Models
+  syntax:
+    content: public DateTime CreatedAt { get; set; }
+    parameters: []
+    return:
+      type: System.DateTime
+    content.vb: Public Property CreatedAt As Date
+  overload: MakesCentsBackend.Models.BudgetEntityModel.CreatedAt*
+- uid: MakesCentsBackend.Models.BudgetEntityModel.LastUpdatedAt
+  commentId: P:MakesCentsBackend.Models.BudgetEntityModel.LastUpdatedAt
+  id: LastUpdatedAt
+  parent: MakesCentsBackend.Models.BudgetEntityModel
+  langs:
+  - csharp
+  - vb
+  name: LastUpdatedAt
+  nameWithType: BudgetEntityModel.LastUpdatedAt
+  fullName: MakesCentsBackend.Models.BudgetEntityModel.LastUpdatedAt
+  type: Property
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Models/BudgetModels.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: LastUpdatedAt
+    path: Models/BudgetModels.cs
+    startLine: 25
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Models
+  syntax:
+    content: public DateTime LastUpdatedAt { get; set; }
+    parameters: []
+    return:
+      type: System.DateTime
+    content.vb: Public Property LastUpdatedAt As Date
+  overload: MakesCentsBackend.Models.BudgetEntityModel.LastUpdatedAt*
+- uid: MakesCentsBackend.Models.BudgetEntityModel.EnvelopeCategories
+  commentId: P:MakesCentsBackend.Models.BudgetEntityModel.EnvelopeCategories
+  id: EnvelopeCategories
+  parent: MakesCentsBackend.Models.BudgetEntityModel
+  langs:
+  - csharp
+  - vb
+  name: EnvelopeCategories
+  nameWithType: BudgetEntityModel.EnvelopeCategories
+  fullName: MakesCentsBackend.Models.BudgetEntityModel.EnvelopeCategories
+  type: Property
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Models/BudgetModels.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: EnvelopeCategories
+    path: Models/BudgetModels.cs
+    startLine: 26
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Models
+  syntax:
+    content: public List<EnvelopeCategoryEntityModel> EnvelopeCategories { get; set; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.List{MakesCentsBackend.Models.EnvelopeCategoryEntityModel}
+    content.vb: Public Property EnvelopeCategories As List(Of EnvelopeCategoryEntityModel)
+  overload: MakesCentsBackend.Models.BudgetEntityModel.EnvelopeCategories*
+- uid: MakesCentsBackend.Models.BudgetEntityModel.Accounts
+  commentId: P:MakesCentsBackend.Models.BudgetEntityModel.Accounts
+  id: Accounts
+  parent: MakesCentsBackend.Models.BudgetEntityModel
+  langs:
+  - csharp
+  - vb
+  name: Accounts
+  nameWithType: BudgetEntityModel.Accounts
+  fullName: MakesCentsBackend.Models.BudgetEntityModel.Accounts
+  type: Property
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Models/BudgetModels.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: Accounts
+    path: Models/BudgetModels.cs
+    startLine: 27
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Models
+  syntax:
+    content: public List<AccountEntityModel> Accounts { get; set; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.List{MakesCentsBackend.Models.AccountEntityModel}
+    content.vb: Public Property Accounts As List(Of AccountEntityModel)
+  overload: MakesCentsBackend.Models.BudgetEntityModel.Accounts*
+- uid: MakesCentsBackend.Models.BudgetEntityModel.Paychecks
+  commentId: P:MakesCentsBackend.Models.BudgetEntityModel.Paychecks
+  id: Paychecks
+  parent: MakesCentsBackend.Models.BudgetEntityModel
+  langs:
+  - csharp
+  - vb
+  name: Paychecks
+  nameWithType: BudgetEntityModel.Paychecks
+  fullName: MakesCentsBackend.Models.BudgetEntityModel.Paychecks
+  type: Property
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Models/BudgetModels.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: Paychecks
+    path: Models/BudgetModels.cs
+    startLine: 28
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Models
+  syntax:
+    content: public List<PaycheckEntityModel> Paychecks { get; set; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.List{MakesCentsBackend.Models.PaycheckEntityModel}
+    content.vb: Public Property Paychecks As List(Of PaycheckEntityModel)
+  overload: MakesCentsBackend.Models.BudgetEntityModel.Paychecks*
+- uid: MakesCentsBackend.Models.BudgetEntityModel.Transactions
+  commentId: P:MakesCentsBackend.Models.BudgetEntityModel.Transactions
+  id: Transactions
+  parent: MakesCentsBackend.Models.BudgetEntityModel
+  langs:
+  - csharp
+  - vb
+  name: Transactions
+  nameWithType: BudgetEntityModel.Transactions
+  fullName: MakesCentsBackend.Models.BudgetEntityModel.Transactions
+  type: Property
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Models/BudgetModels.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: Transactions
+    path: Models/BudgetModels.cs
+    startLine: 29
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Models
+  syntax:
+    content: public List<TransactionEntityModel> Transactions { get; set; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.List{MakesCentsBackend.Models.TransactionEntityModel}
+    content.vb: Public Property Transactions As List(Of TransactionEntityModel)
+  overload: MakesCentsBackend.Models.BudgetEntityModel.Transactions*
+- uid: MakesCentsBackend.Models.BudgetEntityModel.PlannedExpenses
+  commentId: P:MakesCentsBackend.Models.BudgetEntityModel.PlannedExpenses
+  id: PlannedExpenses
+  parent: MakesCentsBackend.Models.BudgetEntityModel
+  langs:
+  - csharp
+  - vb
+  name: PlannedExpenses
+  nameWithType: BudgetEntityModel.PlannedExpenses
+  fullName: MakesCentsBackend.Models.BudgetEntityModel.PlannedExpenses
+  type: Property
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Models/BudgetModels.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: PlannedExpenses
+    path: Models/BudgetModels.cs
+    startLine: 30
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Models
+  syntax:
+    content: public List<PlannedExpenseEntity> PlannedExpenses { get; set; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.List{MakesCentsBackend.Models.Entities.PlannedExpenseEntity}
+    content.vb: Public Property PlannedExpenses As List(Of PlannedExpenseEntity)
+  overload: MakesCentsBackend.Models.BudgetEntityModel.PlannedExpenses*
+references:
+- uid: MakesCentsBackend.Models
+  commentId: N:MakesCentsBackend.Models
+  href: MakesCentsBackend.html
+  name: MakesCentsBackend.Models
+  nameWithType: MakesCentsBackend.Models
+  fullName: MakesCentsBackend.Models
+  spec.csharp:
+  - uid: MakesCentsBackend
+    name: MakesCentsBackend
+    href: MakesCentsBackend.html
+  - name: .
+  - uid: MakesCentsBackend.Models
+    name: Models
+    href: MakesCentsBackend.Models.html
+  spec.vb:
+  - uid: MakesCentsBackend
+    name: MakesCentsBackend
+    href: MakesCentsBackend.html
+  - name: .
+  - uid: MakesCentsBackend.Models
+    name: Models
+    href: MakesCentsBackend.Models.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: MakesCentsBackend.Models.BudgetEntityModel.BudgetId*
+  commentId: Overload:MakesCentsBackend.Models.BudgetEntityModel.BudgetId
+  href: MakesCentsBackend.Models.BudgetEntityModel.html#MakesCentsBackend_Models_BudgetEntityModel_BudgetId
+  name: BudgetId
+  nameWithType: BudgetEntityModel.BudgetId
+  fullName: MakesCentsBackend.Models.BudgetEntityModel.BudgetId
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: MakesCentsBackend.Models.BudgetEntityModel.UserId*
+  commentId: Overload:MakesCentsBackend.Models.BudgetEntityModel.UserId
+  href: MakesCentsBackend.Models.BudgetEntityModel.html#MakesCentsBackend_Models_BudgetEntityModel_UserId
+  name: UserId
+  nameWithType: BudgetEntityModel.UserId
+  fullName: MakesCentsBackend.Models.BudgetEntityModel.UserId
+- uid: MakesCentsBackend.Models.BudgetEntityModel.Month*
+  commentId: Overload:MakesCentsBackend.Models.BudgetEntityModel.Month
+  href: MakesCentsBackend.Models.BudgetEntityModel.html#MakesCentsBackend_Models_BudgetEntityModel_Month
+  name: Month
+  nameWithType: BudgetEntityModel.Month
+  fullName: MakesCentsBackend.Models.BudgetEntityModel.Month
+- uid: MakesCentsBackend.Models.Enums.Month
+  commentId: T:MakesCentsBackend.Models.Enums.Month
+  parent: MakesCentsBackend.Models.Enums
+  href: MakesCentsBackend.Models.Enums.Month.html
+  name: Month
+  nameWithType: Month
+  fullName: MakesCentsBackend.Models.Enums.Month
+- uid: MakesCentsBackend.Models.Enums
+  commentId: N:MakesCentsBackend.Models.Enums
+  href: MakesCentsBackend.html
+  name: MakesCentsBackend.Models.Enums
+  nameWithType: MakesCentsBackend.Models.Enums
+  fullName: MakesCentsBackend.Models.Enums
+  spec.csharp:
+  - uid: MakesCentsBackend
+    name: MakesCentsBackend
+    href: MakesCentsBackend.html
+  - name: .
+  - uid: MakesCentsBackend.Models
+    name: Models
+    href: MakesCentsBackend.Models.html
+  - name: .
+  - uid: MakesCentsBackend.Models.Enums
+    name: Enums
+    href: MakesCentsBackend.Models.Enums.html
+  spec.vb:
+  - uid: MakesCentsBackend
+    name: MakesCentsBackend
+    href: MakesCentsBackend.html
+  - name: .
+  - uid: MakesCentsBackend.Models
+    name: Models
+    href: MakesCentsBackend.Models.html
+  - name: .
+  - uid: MakesCentsBackend.Models.Enums
+    name: Enums
+    href: MakesCentsBackend.Models.Enums.html
+- uid: MakesCentsBackend.Models.BudgetEntityModel.Year*
+  commentId: Overload:MakesCentsBackend.Models.BudgetEntityModel.Year
+  href: MakesCentsBackend.Models.BudgetEntityModel.html#MakesCentsBackend_Models_BudgetEntityModel_Year
+  name: Year
+  nameWithType: BudgetEntityModel.Year
+  fullName: MakesCentsBackend.Models.BudgetEntityModel.Year
+- uid: MakesCentsBackend.Models.BudgetEntityModel.BudgetName*
+  commentId: Overload:MakesCentsBackend.Models.BudgetEntityModel.BudgetName
+  href: MakesCentsBackend.Models.BudgetEntityModel.html#MakesCentsBackend_Models_BudgetEntityModel_BudgetName
+  name: BudgetName
+  nameWithType: BudgetEntityModel.BudgetName
+  fullName: MakesCentsBackend.Models.BudgetEntityModel.BudgetName
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: MakesCentsBackend.Models.BudgetEntityModel.CreatedAt*
+  commentId: Overload:MakesCentsBackend.Models.BudgetEntityModel.CreatedAt
+  href: MakesCentsBackend.Models.BudgetEntityModel.html#MakesCentsBackend_Models_BudgetEntityModel_CreatedAt
+  name: CreatedAt
+  nameWithType: BudgetEntityModel.CreatedAt
+  fullName: MakesCentsBackend.Models.BudgetEntityModel.CreatedAt
+- uid: System.DateTime
+  commentId: T:System.DateTime
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.datetime
+  name: DateTime
+  nameWithType: DateTime
+  fullName: System.DateTime
+  nameWithType.vb: Date
+  fullName.vb: Date
+  name.vb: Date
+- uid: MakesCentsBackend.Models.BudgetEntityModel.LastUpdatedAt*
+  commentId: Overload:MakesCentsBackend.Models.BudgetEntityModel.LastUpdatedAt
+  href: MakesCentsBackend.Models.BudgetEntityModel.html#MakesCentsBackend_Models_BudgetEntityModel_LastUpdatedAt
+  name: LastUpdatedAt
+  nameWithType: BudgetEntityModel.LastUpdatedAt
+  fullName: MakesCentsBackend.Models.BudgetEntityModel.LastUpdatedAt
+- uid: MakesCentsBackend.Models.BudgetEntityModel.EnvelopeCategories*
+  commentId: Overload:MakesCentsBackend.Models.BudgetEntityModel.EnvelopeCategories
+  href: MakesCentsBackend.Models.BudgetEntityModel.html#MakesCentsBackend_Models_BudgetEntityModel_EnvelopeCategories
+  name: EnvelopeCategories
+  nameWithType: BudgetEntityModel.EnvelopeCategories
+  fullName: MakesCentsBackend.Models.BudgetEntityModel.EnvelopeCategories
+- uid: System.Collections.Generic.List{MakesCentsBackend.Models.EnvelopeCategoryEntityModel}
+  commentId: T:System.Collections.Generic.List{MakesCentsBackend.Models.EnvelopeCategoryEntityModel}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<EnvelopeCategoryEntityModel>
+  nameWithType: List<EnvelopeCategoryEntityModel>
+  fullName: System.Collections.Generic.List<MakesCentsBackend.Models.EnvelopeCategoryEntityModel>
+  nameWithType.vb: List(Of EnvelopeCategoryEntityModel)
+  fullName.vb: System.Collections.Generic.List(Of MakesCentsBackend.Models.EnvelopeCategoryEntityModel)
+  name.vb: List(Of EnvelopeCategoryEntityModel)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: MakesCentsBackend.Models.EnvelopeCategoryEntityModel
+    name: EnvelopeCategoryEntityModel
+    href: MakesCentsBackend.Models.EnvelopeCategoryEntityModel.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: MakesCentsBackend.Models.EnvelopeCategoryEntityModel
+    name: EnvelopeCategoryEntityModel
+    href: MakesCentsBackend.Models.EnvelopeCategoryEntityModel.html
+  - name: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: MakesCentsBackend.Models.BudgetEntityModel.Accounts*
+  commentId: Overload:MakesCentsBackend.Models.BudgetEntityModel.Accounts
+  href: MakesCentsBackend.Models.BudgetEntityModel.html#MakesCentsBackend_Models_BudgetEntityModel_Accounts
+  name: Accounts
+  nameWithType: BudgetEntityModel.Accounts
+  fullName: MakesCentsBackend.Models.BudgetEntityModel.Accounts
+- uid: System.Collections.Generic.List{MakesCentsBackend.Models.AccountEntityModel}
+  commentId: T:System.Collections.Generic.List{MakesCentsBackend.Models.AccountEntityModel}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<AccountEntityModel>
+  nameWithType: List<AccountEntityModel>
+  fullName: System.Collections.Generic.List<MakesCentsBackend.Models.AccountEntityModel>
+  nameWithType.vb: List(Of AccountEntityModel)
+  fullName.vb: System.Collections.Generic.List(Of MakesCentsBackend.Models.AccountEntityModel)
+  name.vb: List(Of AccountEntityModel)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: MakesCentsBackend.Models.AccountEntityModel
+    name: AccountEntityModel
+    href: MakesCentsBackend.Models.AccountEntityModel.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: MakesCentsBackend.Models.AccountEntityModel
+    name: AccountEntityModel
+    href: MakesCentsBackend.Models.AccountEntityModel.html
+  - name: )
+- uid: MakesCentsBackend.Models.BudgetEntityModel.Paychecks*
+  commentId: Overload:MakesCentsBackend.Models.BudgetEntityModel.Paychecks
+  href: MakesCentsBackend.Models.BudgetEntityModel.html#MakesCentsBackend_Models_BudgetEntityModel_Paychecks
+  name: Paychecks
+  nameWithType: BudgetEntityModel.Paychecks
+  fullName: MakesCentsBackend.Models.BudgetEntityModel.Paychecks
+- uid: System.Collections.Generic.List{MakesCentsBackend.Models.PaycheckEntityModel}
+  commentId: T:System.Collections.Generic.List{MakesCentsBackend.Models.PaycheckEntityModel}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<PaycheckEntityModel>
+  nameWithType: List<PaycheckEntityModel>
+  fullName: System.Collections.Generic.List<MakesCentsBackend.Models.PaycheckEntityModel>
+  nameWithType.vb: List(Of PaycheckEntityModel)
+  fullName.vb: System.Collections.Generic.List(Of MakesCentsBackend.Models.PaycheckEntityModel)
+  name.vb: List(Of PaycheckEntityModel)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: MakesCentsBackend.Models.PaycheckEntityModel
+    name: PaycheckEntityModel
+    href: MakesCentsBackend.Models.PaycheckEntityModel.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: MakesCentsBackend.Models.PaycheckEntityModel
+    name: PaycheckEntityModel
+    href: MakesCentsBackend.Models.PaycheckEntityModel.html
+  - name: )
+- uid: MakesCentsBackend.Models.BudgetEntityModel.Transactions*
+  commentId: Overload:MakesCentsBackend.Models.BudgetEntityModel.Transactions
+  href: MakesCentsBackend.Models.BudgetEntityModel.html#MakesCentsBackend_Models_BudgetEntityModel_Transactions
+  name: Transactions
+  nameWithType: BudgetEntityModel.Transactions
+  fullName: MakesCentsBackend.Models.BudgetEntityModel.Transactions
+- uid: System.Collections.Generic.List{MakesCentsBackend.Models.TransactionEntityModel}
+  commentId: T:System.Collections.Generic.List{MakesCentsBackend.Models.TransactionEntityModel}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<TransactionEntityModel>
+  nameWithType: List<TransactionEntityModel>
+  fullName: System.Collections.Generic.List<MakesCentsBackend.Models.TransactionEntityModel>
+  nameWithType.vb: List(Of TransactionEntityModel)
+  fullName.vb: System.Collections.Generic.List(Of MakesCentsBackend.Models.TransactionEntityModel)
+  name.vb: List(Of TransactionEntityModel)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: MakesCentsBackend.Models.TransactionEntityModel
+    name: TransactionEntityModel
+    href: MakesCentsBackend.Models.TransactionEntityModel.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: MakesCentsBackend.Models.TransactionEntityModel
+    name: TransactionEntityModel
+    href: MakesCentsBackend.Models.TransactionEntityModel.html
+  - name: )
+- uid: MakesCentsBackend.Models.BudgetEntityModel.PlannedExpenses*
+  commentId: Overload:MakesCentsBackend.Models.BudgetEntityModel.PlannedExpenses
+  href: MakesCentsBackend.Models.BudgetEntityModel.html#MakesCentsBackend_Models_BudgetEntityModel_PlannedExpenses
+  name: PlannedExpenses
+  nameWithType: BudgetEntityModel.PlannedExpenses
+  fullName: MakesCentsBackend.Models.BudgetEntityModel.PlannedExpenses
+- uid: System.Collections.Generic.List{MakesCentsBackend.Models.Entities.PlannedExpenseEntity}
+  commentId: T:System.Collections.Generic.List{MakesCentsBackend.Models.Entities.PlannedExpenseEntity}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<PlannedExpenseEntity>
+  nameWithType: List<PlannedExpenseEntity>
+  fullName: System.Collections.Generic.List<MakesCentsBackend.Models.Entities.PlannedExpenseEntity>
+  nameWithType.vb: List(Of PlannedExpenseEntity)
+  fullName.vb: System.Collections.Generic.List(Of MakesCentsBackend.Models.Entities.PlannedExpenseEntity)
+  name.vb: List(Of PlannedExpenseEntity)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: MakesCentsBackend.Models.Entities.PlannedExpenseEntity
+    name: PlannedExpenseEntity
+    href: MakesCentsBackend.Models.Entities.PlannedExpenseEntity.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: MakesCentsBackend.Models.Entities.PlannedExpenseEntity
+    name: PlannedExpenseEntity
+    href: MakesCentsBackend.Models.Entities.PlannedExpenseEntity.html
+  - name: )

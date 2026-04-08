@@ -1,0 +1,75 @@
+### YamlMime:ManagedReference
+items:
+- uid: MakesCentsBackend.Services.Utilities
+  commentId: N:MakesCentsBackend.Services.Utilities
+  id: MakesCentsBackend.Services.Utilities
+  children:
+  - MakesCentsBackend.Services.Utilities.ClaimsPrincipalExtensions
+  - MakesCentsBackend.Services.Utilities.DateOnlyHandler
+  - MakesCentsBackend.Services.Utilities.JwtService
+  - MakesCentsBackend.Services.Utilities.PasswordHasher
+  langs:
+  - csharp
+  - vb
+  name: MakesCentsBackend.Services.Utilities
+  nameWithType: MakesCentsBackend.Services.Utilities
+  fullName: MakesCentsBackend.Services.Utilities
+  type: Namespace
+  assemblies:
+  - MakesCentsBackend
+references:
+- uid: MakesCentsBackend.Services.Utilities.ClaimsPrincipalExtensions
+  commentId: T:MakesCentsBackend.Services.Utilities.ClaimsPrincipalExtensions
+  href: MakesCentsBackend.Services.Utilities.ClaimsPrincipalExtensions.html
+  name: ClaimsPrincipalExtensions
+  nameWithType: ClaimsPrincipalExtensions
+  fullName: MakesCentsBackend.Services.Utilities.ClaimsPrincipalExtensions
+- uid: MakesCentsBackend.Services.Utilities.DateOnlyHandler
+  commentId: T:MakesCentsBackend.Services.Utilities.DateOnlyHandler
+  href: MakesCentsBackend.Services.Utilities.DateOnlyHandler.html
+  name: DateOnlyHandler
+  nameWithType: DateOnlyHandler
+  fullName: MakesCentsBackend.Services.Utilities.DateOnlyHandler
+- uid: MakesCentsBackend.Services.Utilities.JwtService
+  commentId: T:MakesCentsBackend.Services.Utilities.JwtService
+  parent: MakesCentsBackend.Services.Utilities
+  href: MakesCentsBackend.Services.Utilities.JwtService.html
+  name: JwtService
+  nameWithType: JwtService
+  fullName: MakesCentsBackend.Services.Utilities.JwtService
+- uid: MakesCentsBackend.Services.Utilities.PasswordHasher
+  commentId: T:MakesCentsBackend.Services.Utilities.PasswordHasher
+  href: MakesCentsBackend.Services.Utilities.PasswordHasher.html
+  name: PasswordHasher
+  nameWithType: PasswordHasher
+  fullName: MakesCentsBackend.Services.Utilities.PasswordHasher
+- uid: MakesCentsBackend.Services.Utilities
+  commentId: N:MakesCentsBackend.Services.Utilities
+  href: MakesCentsBackend.html
+  name: MakesCentsBackend.Services.Utilities
+  nameWithType: MakesCentsBackend.Services.Utilities
+  fullName: MakesCentsBackend.Services.Utilities
+  spec.csharp:
+  - uid: MakesCentsBackend
+    name: MakesCentsBackend
+    href: MakesCentsBackend.html
+  - name: .
+  - uid: MakesCentsBackend.Services
+    name: Services
+    href: MakesCentsBackend.Services.html
+  - name: .
+  - uid: MakesCentsBackend.Services.Utilities
+    name: Utilities
+    href: MakesCentsBackend.Services.Utilities.html
+  spec.vb:
+  - uid: MakesCentsBackend
+    name: MakesCentsBackend
+    href: MakesCentsBackend.html
+  - name: .
+  - uid: MakesCentsBackend.Services
+    name: Services
+    href: MakesCentsBackend.Services.html
+  - name: .
+  - uid: MakesCentsBackend.Services.Utilities
+    name: Utilities
+    href: MakesCentsBackend.Services.Utilities.html

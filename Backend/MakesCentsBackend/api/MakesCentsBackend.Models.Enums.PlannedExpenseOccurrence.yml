@@ -1,0 +1,230 @@
+### YamlMime:ManagedReference
+items:
+- uid: MakesCentsBackend.Models.Enums.PlannedExpenseOccurrence
+  commentId: T:MakesCentsBackend.Models.Enums.PlannedExpenseOccurrence
+  id: PlannedExpenseOccurrence
+  parent: MakesCentsBackend.Models.Enums
+  children:
+  - MakesCentsBackend.Models.Enums.PlannedExpenseOccurrence.First
+  - MakesCentsBackend.Models.Enums.PlannedExpenseOccurrence.Fourth
+  - MakesCentsBackend.Models.Enums.PlannedExpenseOccurrence.Last
+  - MakesCentsBackend.Models.Enums.PlannedExpenseOccurrence.Second
+  - MakesCentsBackend.Models.Enums.PlannedExpenseOccurrence.Third
+  - MakesCentsBackend.Models.Enums.PlannedExpenseOccurrence.Unknown
+  langs:
+  - csharp
+  - vb
+  name: PlannedExpenseOccurrence
+  nameWithType: PlannedExpenseOccurrence
+  fullName: MakesCentsBackend.Models.Enums.PlannedExpenseOccurrence
+  type: Enum
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Models/Enums/PlannedExpenseOccurrence.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: PlannedExpenseOccurrence
+    path: Models/Enums/PlannedExpenseOccurrence.cs
+    startLine: 10
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Models.Enums
+  summary: Enum for Planned Expense Occurrences for the Planned Expense Model
+  example: []
+  syntax:
+    content: public enum PlannedExpenseOccurrence
+    content.vb: Public Enum PlannedExpenseOccurrence
+- uid: MakesCentsBackend.Models.Enums.PlannedExpenseOccurrence.Unknown
+  commentId: F:MakesCentsBackend.Models.Enums.PlannedExpenseOccurrence.Unknown
+  id: Unknown
+  parent: MakesCentsBackend.Models.Enums.PlannedExpenseOccurrence
+  langs:
+  - csharp
+  - vb
+  name: Unknown
+  nameWithType: PlannedExpenseOccurrence.Unknown
+  fullName: MakesCentsBackend.Models.Enums.PlannedExpenseOccurrence.Unknown
+  type: Field
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Models/Enums/PlannedExpenseOccurrence.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: Unknown
+    path: Models/Enums/PlannedExpenseOccurrence.cs
+    startLine: 12
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Models.Enums
+  syntax:
+    content: Unknown = 1
+    return:
+      type: MakesCentsBackend.Models.Enums.PlannedExpenseOccurrence
+- uid: MakesCentsBackend.Models.Enums.PlannedExpenseOccurrence.First
+  commentId: F:MakesCentsBackend.Models.Enums.PlannedExpenseOccurrence.First
+  id: First
+  parent: MakesCentsBackend.Models.Enums.PlannedExpenseOccurrence
+  langs:
+  - csharp
+  - vb
+  name: First
+  nameWithType: PlannedExpenseOccurrence.First
+  fullName: MakesCentsBackend.Models.Enums.PlannedExpenseOccurrence.First
+  type: Field
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Models/Enums/PlannedExpenseOccurrence.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: First
+    path: Models/Enums/PlannedExpenseOccurrence.cs
+    startLine: 13
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Models.Enums
+  syntax:
+    content: First = 2
+    return:
+      type: MakesCentsBackend.Models.Enums.PlannedExpenseOccurrence
+- uid: MakesCentsBackend.Models.Enums.PlannedExpenseOccurrence.Second
+  commentId: F:MakesCentsBackend.Models.Enums.PlannedExpenseOccurrence.Second
+  id: Second
+  parent: MakesCentsBackend.Models.Enums.PlannedExpenseOccurrence
+  langs:
+  - csharp
+  - vb
+  name: Second
+  nameWithType: PlannedExpenseOccurrence.Second
+  fullName: MakesCentsBackend.Models.Enums.PlannedExpenseOccurrence.Second
+  type: Field
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Models/Enums/PlannedExpenseOccurrence.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: Second
+    path: Models/Enums/PlannedExpenseOccurrence.cs
+    startLine: 14
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Models.Enums
+  syntax:
+    content: Second = 3
+    return:
+      type: MakesCentsBackend.Models.Enums.PlannedExpenseOccurrence
+- uid: MakesCentsBackend.Models.Enums.PlannedExpenseOccurrence.Third
+  commentId: F:MakesCentsBackend.Models.Enums.PlannedExpenseOccurrence.Third
+  id: Third
+  parent: MakesCentsBackend.Models.Enums.PlannedExpenseOccurrence
+  langs:
+  - csharp
+  - vb
+  name: Third
+  nameWithType: PlannedExpenseOccurrence.Third
+  fullName: MakesCentsBackend.Models.Enums.PlannedExpenseOccurrence.Third
+  type: Field
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Models/Enums/PlannedExpenseOccurrence.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: Third
+    path: Models/Enums/PlannedExpenseOccurrence.cs
+    startLine: 15
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Models.Enums
+  syntax:
+    content: Third = 4
+    return:
+      type: MakesCentsBackend.Models.Enums.PlannedExpenseOccurrence
+- uid: MakesCentsBackend.Models.Enums.PlannedExpenseOccurrence.Fourth
+  commentId: F:MakesCentsBackend.Models.Enums.PlannedExpenseOccurrence.Fourth
+  id: Fourth
+  parent: MakesCentsBackend.Models.Enums.PlannedExpenseOccurrence
+  langs:
+  - csharp
+  - vb
+  name: Fourth
+  nameWithType: PlannedExpenseOccurrence.Fourth
+  fullName: MakesCentsBackend.Models.Enums.PlannedExpenseOccurrence.Fourth
+  type: Field
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Models/Enums/PlannedExpenseOccurrence.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: Fourth
+    path: Models/Enums/PlannedExpenseOccurrence.cs
+    startLine: 16
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Models.Enums
+  syntax:
+    content: Fourth = 5
+    return:
+      type: MakesCentsBackend.Models.Enums.PlannedExpenseOccurrence
+- uid: MakesCentsBackend.Models.Enums.PlannedExpenseOccurrence.Last
+  commentId: F:MakesCentsBackend.Models.Enums.PlannedExpenseOccurrence.Last
+  id: Last
+  parent: MakesCentsBackend.Models.Enums.PlannedExpenseOccurrence
+  langs:
+  - csharp
+  - vb
+  name: Last
+  nameWithType: PlannedExpenseOccurrence.Last
+  fullName: MakesCentsBackend.Models.Enums.PlannedExpenseOccurrence.Last
+  type: Field
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Models/Enums/PlannedExpenseOccurrence.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: Last
+    path: Models/Enums/PlannedExpenseOccurrence.cs
+    startLine: 17
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Models.Enums
+  syntax:
+    content: Last = 6
+    return:
+      type: MakesCentsBackend.Models.Enums.PlannedExpenseOccurrence
+references:
+- uid: MakesCentsBackend.Models.Enums
+  commentId: N:MakesCentsBackend.Models.Enums
+  href: MakesCentsBackend.html
+  name: MakesCentsBackend.Models.Enums
+  nameWithType: MakesCentsBackend.Models.Enums
+  fullName: MakesCentsBackend.Models.Enums
+  spec.csharp:
+  - uid: MakesCentsBackend
+    name: MakesCentsBackend
+    href: MakesCentsBackend.html
+  - name: .
+  - uid: MakesCentsBackend.Models
+    name: Models
+    href: MakesCentsBackend.Models.html
+  - name: .
+  - uid: MakesCentsBackend.Models.Enums
+    name: Enums
+    href: MakesCentsBackend.Models.Enums.html
+  spec.vb:
+  - uid: MakesCentsBackend
+    name: MakesCentsBackend
+    href: MakesCentsBackend.html
+  - name: .
+  - uid: MakesCentsBackend.Models
+    name: Models
+    href: MakesCentsBackend.Models.html
+  - name: .
+  - uid: MakesCentsBackend.Models.Enums
+    name: Enums
+    href: MakesCentsBackend.Models.Enums.html
+- uid: MakesCentsBackend.Models.Enums.PlannedExpenseOccurrence
+  commentId: T:MakesCentsBackend.Models.Enums.PlannedExpenseOccurrence
+  parent: MakesCentsBackend.Models.Enums
+  href: MakesCentsBackend.Models.Enums.PlannedExpenseOccurrence.html
+  name: PlannedExpenseOccurrence
+  nameWithType: PlannedExpenseOccurrence
+  fullName: MakesCentsBackend.Models.Enums.PlannedExpenseOccurrence

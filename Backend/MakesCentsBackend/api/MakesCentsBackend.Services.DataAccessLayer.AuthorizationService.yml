@@ -1,0 +1,828 @@
+### YamlMime:ManagedReference
+items:
+- uid: MakesCentsBackend.Services.DataAccessLayer.AuthorizationService
+  commentId: T:MakesCentsBackend.Services.DataAccessLayer.AuthorizationService
+  id: AuthorizationService
+  parent: MakesCentsBackend.Services.DataAccessLayer
+  children:
+  - MakesCentsBackend.Services.DataAccessLayer.AuthorizationService.#ctor(MySqlConnector.MySqlConnection)
+  - MakesCentsBackend.Services.DataAccessLayer.AuthorizationService.VerifyUserOwnsAccountAsync(System.Nullable{System.Int32},System.Nullable{System.Int32},MySqlConnector.MySqlTransaction)
+  - MakesCentsBackend.Services.DataAccessLayer.AuthorizationService.VerifyUserOwnsBudgetAsync(System.Nullable{System.Int32},System.Nullable{System.Int32},MySqlConnector.MySqlTransaction)
+  - MakesCentsBackend.Services.DataAccessLayer.AuthorizationService.VerifyUserOwnsEnvelopeAsync(System.Nullable{System.Int32},System.Nullable{System.Int32},MySqlConnector.MySqlTransaction)
+  - MakesCentsBackend.Services.DataAccessLayer.AuthorizationService.VerifyUserOwnsEnvelopeCategoryAsync(System.Nullable{System.Int32},System.Nullable{System.Int32},MySqlConnector.MySqlTransaction)
+  - MakesCentsBackend.Services.DataAccessLayer.AuthorizationService.VerifyUserOwnsPaycheckAsync(System.Nullable{System.Int32},System.Nullable{System.Int32},MySqlConnector.MySqlTransaction)
+  - MakesCentsBackend.Services.DataAccessLayer.AuthorizationService.VerifyUserOwnsTransactionAsync(System.Nullable{System.Int32},System.Nullable{System.Int32},MySqlConnector.MySqlTransaction)
+  langs:
+  - csharp
+  - vb
+  name: AuthorizationService
+  nameWithType: AuthorizationService
+  fullName: MakesCentsBackend.Services.DataAccessLayer.AuthorizationService
+  type: Class
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Services/DataAccessLayer/AuthorizationService.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: AuthorizationService
+    path: Services/DataAccessLayer/AuthorizationService.cs
+    startLine: 10
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Services.DataAccessLayer
+  syntax:
+    content: public class AuthorizationService
+    content.vb: Public Class AuthorizationService
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: MakesCentsBackend.Services.DataAccessLayer.AuthorizationService.#ctor(MySqlConnector.MySqlConnection)
+  commentId: M:MakesCentsBackend.Services.DataAccessLayer.AuthorizationService.#ctor(MySqlConnector.MySqlConnection)
+  id: '#ctor(MySqlConnector.MySqlConnection)'
+  parent: MakesCentsBackend.Services.DataAccessLayer.AuthorizationService
+  langs:
+  - csharp
+  - vb
+  name: AuthorizationService(MySqlConnection)
+  nameWithType: AuthorizationService.AuthorizationService(MySqlConnection)
+  fullName: MakesCentsBackend.Services.DataAccessLayer.AuthorizationService.AuthorizationService(MySqlConnector.MySqlConnection)
+  type: Constructor
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Services/DataAccessLayer/AuthorizationService.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: .ctor
+    path: Services/DataAccessLayer/AuthorizationService.cs
+    startLine: 20
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Services.DataAccessLayer
+  summary: Parameterized constructor to bring in DI variables
+  example: []
+  syntax:
+    content: public AuthorizationService(MySqlConnection connection)
+    parameters:
+    - id: connection
+      type: MySqlConnector.MySqlConnection
+      description: ''
+    content.vb: Public Sub New(connection As MySqlConnection)
+  overload: MakesCentsBackend.Services.DataAccessLayer.AuthorizationService.#ctor*
+  nameWithType.vb: AuthorizationService.New(MySqlConnection)
+  fullName.vb: MakesCentsBackend.Services.DataAccessLayer.AuthorizationService.New(MySqlConnector.MySqlConnection)
+  name.vb: New(MySqlConnection)
+- uid: MakesCentsBackend.Services.DataAccessLayer.AuthorizationService.VerifyUserOwnsBudgetAsync(System.Nullable{System.Int32},System.Nullable{System.Int32},MySqlConnector.MySqlTransaction)
+  commentId: M:MakesCentsBackend.Services.DataAccessLayer.AuthorizationService.VerifyUserOwnsBudgetAsync(System.Nullable{System.Int32},System.Nullable{System.Int32},MySqlConnector.MySqlTransaction)
+  id: VerifyUserOwnsBudgetAsync(System.Nullable{System.Int32},System.Nullable{System.Int32},MySqlConnector.MySqlTransaction)
+  parent: MakesCentsBackend.Services.DataAccessLayer.AuthorizationService
+  langs:
+  - csharp
+  - vb
+  name: VerifyUserOwnsBudgetAsync(int?, int?, MySqlTransaction?)
+  nameWithType: AuthorizationService.VerifyUserOwnsBudgetAsync(int?, int?, MySqlTransaction?)
+  fullName: MakesCentsBackend.Services.DataAccessLayer.AuthorizationService.VerifyUserOwnsBudgetAsync(int?, int?, MySqlConnector.MySqlTransaction?)
+  type: Method
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Services/DataAccessLayer/AuthorizationService.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: VerifyUserOwnsBudgetAsync
+    path: Services/DataAccessLayer/AuthorizationService.cs
+    startLine: 32
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Services.DataAccessLayer
+  summary: Auth method to check if a user owns the budget specified
+  example: []
+  syntax:
+    content: public Task<bool> VerifyUserOwnsBudgetAsync(int? budgetId, int? userId, MySqlTransaction? transaction = null)
+    parameters:
+    - id: budgetId
+      type: System.Nullable{System.Int32}
+      description: ''
+    - id: userId
+      type: System.Nullable{System.Int32}
+      description: ''
+    - id: transaction
+      type: MySqlConnector.MySqlTransaction
+      description: ''
+    return:
+      type: System.Threading.Tasks.Task{System.Boolean}
+      description: ''
+    content.vb: Public Function VerifyUserOwnsBudgetAsync(budgetId As Integer?, userId As Integer?, transaction As MySqlTransaction = Nothing) As Task(Of Boolean)
+  overload: MakesCentsBackend.Services.DataAccessLayer.AuthorizationService.VerifyUserOwnsBudgetAsync*
+  nameWithType.vb: AuthorizationService.VerifyUserOwnsBudgetAsync(Integer?, Integer?, MySqlTransaction)
+  fullName.vb: MakesCentsBackend.Services.DataAccessLayer.AuthorizationService.VerifyUserOwnsBudgetAsync(Integer?, Integer?, MySqlConnector.MySqlTransaction)
+  name.vb: VerifyUserOwnsBudgetAsync(Integer?, Integer?, MySqlTransaction)
+- uid: MakesCentsBackend.Services.DataAccessLayer.AuthorizationService.VerifyUserOwnsEnvelopeCategoryAsync(System.Nullable{System.Int32},System.Nullable{System.Int32},MySqlConnector.MySqlTransaction)
+  commentId: M:MakesCentsBackend.Services.DataAccessLayer.AuthorizationService.VerifyUserOwnsEnvelopeCategoryAsync(System.Nullable{System.Int32},System.Nullable{System.Int32},MySqlConnector.MySqlTransaction)
+  id: VerifyUserOwnsEnvelopeCategoryAsync(System.Nullable{System.Int32},System.Nullable{System.Int32},MySqlConnector.MySqlTransaction)
+  parent: MakesCentsBackend.Services.DataAccessLayer.AuthorizationService
+  langs:
+  - csharp
+  - vb
+  name: VerifyUserOwnsEnvelopeCategoryAsync(int?, int?, MySqlTransaction?)
+  nameWithType: AuthorizationService.VerifyUserOwnsEnvelopeCategoryAsync(int?, int?, MySqlTransaction?)
+  fullName: MakesCentsBackend.Services.DataAccessLayer.AuthorizationService.VerifyUserOwnsEnvelopeCategoryAsync(int?, int?, MySqlConnector.MySqlTransaction?)
+  type: Method
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Services/DataAccessLayer/AuthorizationService.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: VerifyUserOwnsEnvelopeCategoryAsync
+    path: Services/DataAccessLayer/AuthorizationService.cs
+    startLine: 61
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Services.DataAccessLayer
+  summary: Auth method to check if a user owns the envelope category specified
+  example: []
+  syntax:
+    content: public Task<bool> VerifyUserOwnsEnvelopeCategoryAsync(int? envelopeCategoryId, int? userId, MySqlTransaction? transaction = null)
+    parameters:
+    - id: envelopeCategoryId
+      type: System.Nullable{System.Int32}
+      description: ''
+    - id: userId
+      type: System.Nullable{System.Int32}
+      description: ''
+    - id: transaction
+      type: MySqlConnector.MySqlTransaction
+      description: ''
+    return:
+      type: System.Threading.Tasks.Task{System.Boolean}
+      description: ''
+    content.vb: Public Function VerifyUserOwnsEnvelopeCategoryAsync(envelopeCategoryId As Integer?, userId As Integer?, transaction As MySqlTransaction = Nothing) As Task(Of Boolean)
+  overload: MakesCentsBackend.Services.DataAccessLayer.AuthorizationService.VerifyUserOwnsEnvelopeCategoryAsync*
+  nameWithType.vb: AuthorizationService.VerifyUserOwnsEnvelopeCategoryAsync(Integer?, Integer?, MySqlTransaction)
+  fullName.vb: MakesCentsBackend.Services.DataAccessLayer.AuthorizationService.VerifyUserOwnsEnvelopeCategoryAsync(Integer?, Integer?, MySqlConnector.MySqlTransaction)
+  name.vb: VerifyUserOwnsEnvelopeCategoryAsync(Integer?, Integer?, MySqlTransaction)
+- uid: MakesCentsBackend.Services.DataAccessLayer.AuthorizationService.VerifyUserOwnsEnvelopeAsync(System.Nullable{System.Int32},System.Nullable{System.Int32},MySqlConnector.MySqlTransaction)
+  commentId: M:MakesCentsBackend.Services.DataAccessLayer.AuthorizationService.VerifyUserOwnsEnvelopeAsync(System.Nullable{System.Int32},System.Nullable{System.Int32},MySqlConnector.MySqlTransaction)
+  id: VerifyUserOwnsEnvelopeAsync(System.Nullable{System.Int32},System.Nullable{System.Int32},MySqlConnector.MySqlTransaction)
+  parent: MakesCentsBackend.Services.DataAccessLayer.AuthorizationService
+  langs:
+  - csharp
+  - vb
+  name: VerifyUserOwnsEnvelopeAsync(int?, int?, MySqlTransaction?)
+  nameWithType: AuthorizationService.VerifyUserOwnsEnvelopeAsync(int?, int?, MySqlTransaction?)
+  fullName: MakesCentsBackend.Services.DataAccessLayer.AuthorizationService.VerifyUserOwnsEnvelopeAsync(int?, int?, MySqlConnector.MySqlTransaction?)
+  type: Method
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Services/DataAccessLayer/AuthorizationService.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: VerifyUserOwnsEnvelopeAsync
+    path: Services/DataAccessLayer/AuthorizationService.cs
+    startLine: 91
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Services.DataAccessLayer
+  summary: Auth method to check if a user owns the envelope specified
+  example: []
+  syntax:
+    content: public Task<bool> VerifyUserOwnsEnvelopeAsync(int? envelopeId, int? userId, MySqlTransaction? transaction = null)
+    parameters:
+    - id: envelopeId
+      type: System.Nullable{System.Int32}
+      description: ''
+    - id: userId
+      type: System.Nullable{System.Int32}
+      description: ''
+    - id: transaction
+      type: MySqlConnector.MySqlTransaction
+      description: ''
+    return:
+      type: System.Threading.Tasks.Task{System.Boolean}
+      description: ''
+    content.vb: Public Function VerifyUserOwnsEnvelopeAsync(envelopeId As Integer?, userId As Integer?, transaction As MySqlTransaction = Nothing) As Task(Of Boolean)
+  overload: MakesCentsBackend.Services.DataAccessLayer.AuthorizationService.VerifyUserOwnsEnvelopeAsync*
+  nameWithType.vb: AuthorizationService.VerifyUserOwnsEnvelopeAsync(Integer?, Integer?, MySqlTransaction)
+  fullName.vb: MakesCentsBackend.Services.DataAccessLayer.AuthorizationService.VerifyUserOwnsEnvelopeAsync(Integer?, Integer?, MySqlConnector.MySqlTransaction)
+  name.vb: VerifyUserOwnsEnvelopeAsync(Integer?, Integer?, MySqlTransaction)
+- uid: MakesCentsBackend.Services.DataAccessLayer.AuthorizationService.VerifyUserOwnsAccountAsync(System.Nullable{System.Int32},System.Nullable{System.Int32},MySqlConnector.MySqlTransaction)
+  commentId: M:MakesCentsBackend.Services.DataAccessLayer.AuthorizationService.VerifyUserOwnsAccountAsync(System.Nullable{System.Int32},System.Nullable{System.Int32},MySqlConnector.MySqlTransaction)
+  id: VerifyUserOwnsAccountAsync(System.Nullable{System.Int32},System.Nullable{System.Int32},MySqlConnector.MySqlTransaction)
+  parent: MakesCentsBackend.Services.DataAccessLayer.AuthorizationService
+  langs:
+  - csharp
+  - vb
+  name: VerifyUserOwnsAccountAsync(int?, int?, MySqlTransaction?)
+  nameWithType: AuthorizationService.VerifyUserOwnsAccountAsync(int?, int?, MySqlTransaction?)
+  fullName: MakesCentsBackend.Services.DataAccessLayer.AuthorizationService.VerifyUserOwnsAccountAsync(int?, int?, MySqlConnector.MySqlTransaction?)
+  type: Method
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Services/DataAccessLayer/AuthorizationService.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: VerifyUserOwnsAccountAsync
+    path: Services/DataAccessLayer/AuthorizationService.cs
+    startLine: 122
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Services.DataAccessLayer
+  summary: Auth method to check if a user owns the account specified
+  example: []
+  syntax:
+    content: public Task<bool> VerifyUserOwnsAccountAsync(int? accountId, int? userId, MySqlTransaction? transaction = null)
+    parameters:
+    - id: accountId
+      type: System.Nullable{System.Int32}
+      description: ''
+    - id: userId
+      type: System.Nullable{System.Int32}
+      description: ''
+    - id: transaction
+      type: MySqlConnector.MySqlTransaction
+      description: ''
+    return:
+      type: System.Threading.Tasks.Task{System.Boolean}
+      description: ''
+    content.vb: Public Function VerifyUserOwnsAccountAsync(accountId As Integer?, userId As Integer?, transaction As MySqlTransaction = Nothing) As Task(Of Boolean)
+  overload: MakesCentsBackend.Services.DataAccessLayer.AuthorizationService.VerifyUserOwnsAccountAsync*
+  nameWithType.vb: AuthorizationService.VerifyUserOwnsAccountAsync(Integer?, Integer?, MySqlTransaction)
+  fullName.vb: MakesCentsBackend.Services.DataAccessLayer.AuthorizationService.VerifyUserOwnsAccountAsync(Integer?, Integer?, MySqlConnector.MySqlTransaction)
+  name.vb: VerifyUserOwnsAccountAsync(Integer?, Integer?, MySqlTransaction)
+- uid: MakesCentsBackend.Services.DataAccessLayer.AuthorizationService.VerifyUserOwnsPaycheckAsync(System.Nullable{System.Int32},System.Nullable{System.Int32},MySqlConnector.MySqlTransaction)
+  commentId: M:MakesCentsBackend.Services.DataAccessLayer.AuthorizationService.VerifyUserOwnsPaycheckAsync(System.Nullable{System.Int32},System.Nullable{System.Int32},MySqlConnector.MySqlTransaction)
+  id: VerifyUserOwnsPaycheckAsync(System.Nullable{System.Int32},System.Nullable{System.Int32},MySqlConnector.MySqlTransaction)
+  parent: MakesCentsBackend.Services.DataAccessLayer.AuthorizationService
+  langs:
+  - csharp
+  - vb
+  name: VerifyUserOwnsPaycheckAsync(int?, int?, MySqlTransaction?)
+  nameWithType: AuthorizationService.VerifyUserOwnsPaycheckAsync(int?, int?, MySqlTransaction?)
+  fullName: MakesCentsBackend.Services.DataAccessLayer.AuthorizationService.VerifyUserOwnsPaycheckAsync(int?, int?, MySqlConnector.MySqlTransaction?)
+  type: Method
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Services/DataAccessLayer/AuthorizationService.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: VerifyUserOwnsPaycheckAsync
+    path: Services/DataAccessLayer/AuthorizationService.cs
+    startLine: 152
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Services.DataAccessLayer
+  summary: Auth method to check if a user owns the paycheck specified
+  example: []
+  syntax:
+    content: public Task<bool> VerifyUserOwnsPaycheckAsync(int? paycheckId, int? userId, MySqlTransaction? transaction = null)
+    parameters:
+    - id: paycheckId
+      type: System.Nullable{System.Int32}
+      description: ''
+    - id: userId
+      type: System.Nullable{System.Int32}
+      description: ''
+    - id: transaction
+      type: MySqlConnector.MySqlTransaction
+      description: ''
+    return:
+      type: System.Threading.Tasks.Task{System.Boolean}
+      description: ''
+    content.vb: Public Function VerifyUserOwnsPaycheckAsync(paycheckId As Integer?, userId As Integer?, transaction As MySqlTransaction = Nothing) As Task(Of Boolean)
+  overload: MakesCentsBackend.Services.DataAccessLayer.AuthorizationService.VerifyUserOwnsPaycheckAsync*
+  nameWithType.vb: AuthorizationService.VerifyUserOwnsPaycheckAsync(Integer?, Integer?, MySqlTransaction)
+  fullName.vb: MakesCentsBackend.Services.DataAccessLayer.AuthorizationService.VerifyUserOwnsPaycheckAsync(Integer?, Integer?, MySqlConnector.MySqlTransaction)
+  name.vb: VerifyUserOwnsPaycheckAsync(Integer?, Integer?, MySqlTransaction)
+- uid: MakesCentsBackend.Services.DataAccessLayer.AuthorizationService.VerifyUserOwnsTransactionAsync(System.Nullable{System.Int32},System.Nullable{System.Int32},MySqlConnector.MySqlTransaction)
+  commentId: M:MakesCentsBackend.Services.DataAccessLayer.AuthorizationService.VerifyUserOwnsTransactionAsync(System.Nullable{System.Int32},System.Nullable{System.Int32},MySqlConnector.MySqlTransaction)
+  id: VerifyUserOwnsTransactionAsync(System.Nullable{System.Int32},System.Nullable{System.Int32},MySqlConnector.MySqlTransaction)
+  parent: MakesCentsBackend.Services.DataAccessLayer.AuthorizationService
+  langs:
+  - csharp
+  - vb
+  name: VerifyUserOwnsTransactionAsync(int?, int?, MySqlTransaction?)
+  nameWithType: AuthorizationService.VerifyUserOwnsTransactionAsync(int?, int?, MySqlTransaction?)
+  fullName: MakesCentsBackend.Services.DataAccessLayer.AuthorizationService.VerifyUserOwnsTransactionAsync(int?, int?, MySqlConnector.MySqlTransaction?)
+  type: Method
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Services/DataAccessLayer/AuthorizationService.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: VerifyUserOwnsTransactionAsync
+    path: Services/DataAccessLayer/AuthorizationService.cs
+    startLine: 182
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Services.DataAccessLayer
+  summary: Auth method to check if a user owns the transaction specified
+  example: []
+  syntax:
+    content: public Task<bool> VerifyUserOwnsTransactionAsync(int? transactionId, int? userId, MySqlTransaction? transaction = null)
+    parameters:
+    - id: transactionId
+      type: System.Nullable{System.Int32}
+      description: ''
+    - id: userId
+      type: System.Nullable{System.Int32}
+      description: ''
+    - id: transaction
+      type: MySqlConnector.MySqlTransaction
+      description: ''
+    return:
+      type: System.Threading.Tasks.Task{System.Boolean}
+      description: ''
+    content.vb: Public Function VerifyUserOwnsTransactionAsync(transactionId As Integer?, userId As Integer?, transaction As MySqlTransaction = Nothing) As Task(Of Boolean)
+  overload: MakesCentsBackend.Services.DataAccessLayer.AuthorizationService.VerifyUserOwnsTransactionAsync*
+  nameWithType.vb: AuthorizationService.VerifyUserOwnsTransactionAsync(Integer?, Integer?, MySqlTransaction)
+  fullName.vb: MakesCentsBackend.Services.DataAccessLayer.AuthorizationService.VerifyUserOwnsTransactionAsync(Integer?, Integer?, MySqlConnector.MySqlTransaction)
+  name.vb: VerifyUserOwnsTransactionAsync(Integer?, Integer?, MySqlTransaction)
+references:
+- uid: MakesCentsBackend.Services.DataAccessLayer
+  commentId: N:MakesCentsBackend.Services.DataAccessLayer
+  href: MakesCentsBackend.html
+  name: MakesCentsBackend.Services.DataAccessLayer
+  nameWithType: MakesCentsBackend.Services.DataAccessLayer
+  fullName: MakesCentsBackend.Services.DataAccessLayer
+  spec.csharp:
+  - uid: MakesCentsBackend
+    name: MakesCentsBackend
+    href: MakesCentsBackend.html
+  - name: .
+  - uid: MakesCentsBackend.Services
+    name: Services
+    href: MakesCentsBackend.Services.html
+  - name: .
+  - uid: MakesCentsBackend.Services.DataAccessLayer
+    name: DataAccessLayer
+    href: MakesCentsBackend.Services.DataAccessLayer.html
+  spec.vb:
+  - uid: MakesCentsBackend
+    name: MakesCentsBackend
+    href: MakesCentsBackend.html
+  - name: .
+  - uid: MakesCentsBackend.Services
+    name: Services
+    href: MakesCentsBackend.Services.html
+  - name: .
+  - uid: MakesCentsBackend.Services.DataAccessLayer
+    name: DataAccessLayer
+    href: MakesCentsBackend.Services.DataAccessLayer.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: MakesCentsBackend.Services.DataAccessLayer.AuthorizationService.#ctor*
+  commentId: Overload:MakesCentsBackend.Services.DataAccessLayer.AuthorizationService.#ctor
+  href: MakesCentsBackend.Services.DataAccessLayer.AuthorizationService.html#MakesCentsBackend_Services_DataAccessLayer_AuthorizationService__ctor_MySqlConnector_MySqlConnection_
+  name: AuthorizationService
+  nameWithType: AuthorizationService.AuthorizationService
+  fullName: MakesCentsBackend.Services.DataAccessLayer.AuthorizationService.AuthorizationService
+  nameWithType.vb: AuthorizationService.New
+  fullName.vb: MakesCentsBackend.Services.DataAccessLayer.AuthorizationService.New
+  name.vb: New
+- uid: MySqlConnector.MySqlConnection
+  commentId: T:MySqlConnector.MySqlConnection
+  parent: MySqlConnector
+  isExternal: true
+  name: MySqlConnection
+  nameWithType: MySqlConnection
+  fullName: MySqlConnector.MySqlConnection
+- uid: MySqlConnector
+  commentId: N:MySqlConnector
+  isExternal: true
+  name: MySqlConnector
+  nameWithType: MySqlConnector
+  fullName: MySqlConnector
+- uid: MakesCentsBackend.Services.DataAccessLayer.AuthorizationService.VerifyUserOwnsBudgetAsync*
+  commentId: Overload:MakesCentsBackend.Services.DataAccessLayer.AuthorizationService.VerifyUserOwnsBudgetAsync
+  href: MakesCentsBackend.Services.DataAccessLayer.AuthorizationService.html#MakesCentsBackend_Services_DataAccessLayer_AuthorizationService_VerifyUserOwnsBudgetAsync_System_Nullable_System_Int32__System_Nullable_System_Int32__MySqlConnector_MySqlTransaction_
+  name: VerifyUserOwnsBudgetAsync
+  nameWithType: AuthorizationService.VerifyUserOwnsBudgetAsync
+  fullName: MakesCentsBackend.Services.DataAccessLayer.AuthorizationService.VerifyUserOwnsBudgetAsync
+- uid: System.Nullable{System.Int32}
+  commentId: T:System.Nullable{System.Int32}
+  parent: System
+  definition: System.Nullable`1
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int?
+  nameWithType: int?
+  fullName: int?
+  nameWithType.vb: Integer?
+  fullName.vb: Integer?
+  name.vb: Integer?
+  spec.csharp:
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '?'
+  spec.vb:
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '?'
+- uid: MySqlConnector.MySqlTransaction
+  commentId: T:MySqlConnector.MySqlTransaction
+  parent: MySqlConnector
+  isExternal: true
+  name: MySqlTransaction
+  nameWithType: MySqlTransaction
+  fullName: MySqlConnector.MySqlTransaction
+- uid: System.Threading.Tasks.Task{System.Boolean}
+  commentId: T:System.Threading.Tasks.Task{System.Boolean}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<bool>
+  nameWithType: Task<bool>
+  fullName: System.Threading.Tasks.Task<bool>
+  nameWithType.vb: Task(Of Boolean)
+  fullName.vb: System.Threading.Tasks.Task(Of Boolean)
+  name.vb: Task(Of Boolean)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+- uid: System.Nullable`1
+  commentId: T:System.Nullable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  name: Nullable<T>
+  nameWithType: Nullable<T>
+  fullName: System.Nullable<T>
+  nameWithType.vb: Nullable(Of T)
+  fullName.vb: System.Nullable(Of T)
+  name.vb: Nullable(Of T)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+- uid: MakesCentsBackend.Services.DataAccessLayer.AuthorizationService.VerifyUserOwnsEnvelopeCategoryAsync*
+  commentId: Overload:MakesCentsBackend.Services.DataAccessLayer.AuthorizationService.VerifyUserOwnsEnvelopeCategoryAsync
+  href: MakesCentsBackend.Services.DataAccessLayer.AuthorizationService.html#MakesCentsBackend_Services_DataAccessLayer_AuthorizationService_VerifyUserOwnsEnvelopeCategoryAsync_System_Nullable_System_Int32__System_Nullable_System_Int32__MySqlConnector_MySqlTransaction_
+  name: VerifyUserOwnsEnvelopeCategoryAsync
+  nameWithType: AuthorizationService.VerifyUserOwnsEnvelopeCategoryAsync
+  fullName: MakesCentsBackend.Services.DataAccessLayer.AuthorizationService.VerifyUserOwnsEnvelopeCategoryAsync
+- uid: MakesCentsBackend.Services.DataAccessLayer.AuthorizationService.VerifyUserOwnsEnvelopeAsync*
+  commentId: Overload:MakesCentsBackend.Services.DataAccessLayer.AuthorizationService.VerifyUserOwnsEnvelopeAsync
+  href: MakesCentsBackend.Services.DataAccessLayer.AuthorizationService.html#MakesCentsBackend_Services_DataAccessLayer_AuthorizationService_VerifyUserOwnsEnvelopeAsync_System_Nullable_System_Int32__System_Nullable_System_Int32__MySqlConnector_MySqlTransaction_
+  name: VerifyUserOwnsEnvelopeAsync
+  nameWithType: AuthorizationService.VerifyUserOwnsEnvelopeAsync
+  fullName: MakesCentsBackend.Services.DataAccessLayer.AuthorizationService.VerifyUserOwnsEnvelopeAsync
+- uid: MakesCentsBackend.Services.DataAccessLayer.AuthorizationService.VerifyUserOwnsAccountAsync*
+  commentId: Overload:MakesCentsBackend.Services.DataAccessLayer.AuthorizationService.VerifyUserOwnsAccountAsync
+  href: MakesCentsBackend.Services.DataAccessLayer.AuthorizationService.html#MakesCentsBackend_Services_DataAccessLayer_AuthorizationService_VerifyUserOwnsAccountAsync_System_Nullable_System_Int32__System_Nullable_System_Int32__MySqlConnector_MySqlTransaction_
+  name: VerifyUserOwnsAccountAsync
+  nameWithType: AuthorizationService.VerifyUserOwnsAccountAsync
+  fullName: MakesCentsBackend.Services.DataAccessLayer.AuthorizationService.VerifyUserOwnsAccountAsync
+- uid: MakesCentsBackend.Services.DataAccessLayer.AuthorizationService.VerifyUserOwnsPaycheckAsync*
+  commentId: Overload:MakesCentsBackend.Services.DataAccessLayer.AuthorizationService.VerifyUserOwnsPaycheckAsync
+  href: MakesCentsBackend.Services.DataAccessLayer.AuthorizationService.html#MakesCentsBackend_Services_DataAccessLayer_AuthorizationService_VerifyUserOwnsPaycheckAsync_System_Nullable_System_Int32__System_Nullable_System_Int32__MySqlConnector_MySqlTransaction_
+  name: VerifyUserOwnsPaycheckAsync
+  nameWithType: AuthorizationService.VerifyUserOwnsPaycheckAsync
+  fullName: MakesCentsBackend.Services.DataAccessLayer.AuthorizationService.VerifyUserOwnsPaycheckAsync
+- uid: MakesCentsBackend.Services.DataAccessLayer.AuthorizationService.VerifyUserOwnsTransactionAsync*
+  commentId: Overload:MakesCentsBackend.Services.DataAccessLayer.AuthorizationService.VerifyUserOwnsTransactionAsync
+  href: MakesCentsBackend.Services.DataAccessLayer.AuthorizationService.html#MakesCentsBackend_Services_DataAccessLayer_AuthorizationService_VerifyUserOwnsTransactionAsync_System_Nullable_System_Int32__System_Nullable_System_Int32__MySqlConnector_MySqlTransaction_
+  name: VerifyUserOwnsTransactionAsync
+  nameWithType: AuthorizationService.VerifyUserOwnsTransactionAsync
+  fullName: MakesCentsBackend.Services.DataAccessLayer.AuthorizationService.VerifyUserOwnsTransactionAsync

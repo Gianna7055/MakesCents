@@ -1,0 +1,311 @@
+### YamlMime:ManagedReference
+items:
+- uid: MakesCentsBackend.Models.Enums.PaymentTransactionType
+  commentId: T:MakesCentsBackend.Models.Enums.PaymentTransactionType
+  id: PaymentTransactionType
+  parent: MakesCentsBackend.Models.Enums
+  children:
+  - MakesCentsBackend.Models.Enums.PaymentTransactionType.ATM
+  - MakesCentsBackend.Models.Enums.PaymentTransactionType.Check
+  - MakesCentsBackend.Models.Enums.PaymentTransactionType.CreditCard
+  - MakesCentsBackend.Models.Enums.PaymentTransactionType.DebitCard
+  - MakesCentsBackend.Models.Enums.PaymentTransactionType.Deposit
+  - MakesCentsBackend.Models.Enums.PaymentTransactionType.LoanDeposit
+  - MakesCentsBackend.Models.Enums.PaymentTransactionType.Paycheck
+  - MakesCentsBackend.Models.Enums.PaymentTransactionType.Refund
+  - MakesCentsBackend.Models.Enums.PaymentTransactionType.Unknown
+  langs:
+  - csharp
+  - vb
+  name: PaymentTransactionType
+  nameWithType: PaymentTransactionType
+  fullName: MakesCentsBackend.Models.Enums.PaymentTransactionType
+  type: Enum
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Models/Enums/PaymentTransactionType.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: PaymentTransactionType
+    path: Models/Enums/PaymentTransactionType.cs
+    startLine: 10
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Models.Enums
+  summary: Enum for Payment Transaction Types for the Payment Transaction Model
+  example: []
+  syntax:
+    content: public enum PaymentTransactionType
+    content.vb: Public Enum PaymentTransactionType
+- uid: MakesCentsBackend.Models.Enums.PaymentTransactionType.Unknown
+  commentId: F:MakesCentsBackend.Models.Enums.PaymentTransactionType.Unknown
+  id: Unknown
+  parent: MakesCentsBackend.Models.Enums.PaymentTransactionType
+  langs:
+  - csharp
+  - vb
+  name: Unknown
+  nameWithType: PaymentTransactionType.Unknown
+  fullName: MakesCentsBackend.Models.Enums.PaymentTransactionType.Unknown
+  type: Field
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Models/Enums/PaymentTransactionType.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: Unknown
+    path: Models/Enums/PaymentTransactionType.cs
+    startLine: 12
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Models.Enums
+  syntax:
+    content: Unknown = 1
+    return:
+      type: MakesCentsBackend.Models.Enums.PaymentTransactionType
+- uid: MakesCentsBackend.Models.Enums.PaymentTransactionType.ATM
+  commentId: F:MakesCentsBackend.Models.Enums.PaymentTransactionType.ATM
+  id: ATM
+  parent: MakesCentsBackend.Models.Enums.PaymentTransactionType
+  langs:
+  - csharp
+  - vb
+  name: ATM
+  nameWithType: PaymentTransactionType.ATM
+  fullName: MakesCentsBackend.Models.Enums.PaymentTransactionType.ATM
+  type: Field
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Models/Enums/PaymentTransactionType.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: ATM
+    path: Models/Enums/PaymentTransactionType.cs
+    startLine: 13
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Models.Enums
+  syntax:
+    content: ATM = 2
+    return:
+      type: MakesCentsBackend.Models.Enums.PaymentTransactionType
+- uid: MakesCentsBackend.Models.Enums.PaymentTransactionType.Check
+  commentId: F:MakesCentsBackend.Models.Enums.PaymentTransactionType.Check
+  id: Check
+  parent: MakesCentsBackend.Models.Enums.PaymentTransactionType
+  langs:
+  - csharp
+  - vb
+  name: Check
+  nameWithType: PaymentTransactionType.Check
+  fullName: MakesCentsBackend.Models.Enums.PaymentTransactionType.Check
+  type: Field
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Models/Enums/PaymentTransactionType.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: Check
+    path: Models/Enums/PaymentTransactionType.cs
+    startLine: 14
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Models.Enums
+  syntax:
+    content: Check = 3
+    return:
+      type: MakesCentsBackend.Models.Enums.PaymentTransactionType
+- uid: MakesCentsBackend.Models.Enums.PaymentTransactionType.DebitCard
+  commentId: F:MakesCentsBackend.Models.Enums.PaymentTransactionType.DebitCard
+  id: DebitCard
+  parent: MakesCentsBackend.Models.Enums.PaymentTransactionType
+  langs:
+  - csharp
+  - vb
+  name: DebitCard
+  nameWithType: PaymentTransactionType.DebitCard
+  fullName: MakesCentsBackend.Models.Enums.PaymentTransactionType.DebitCard
+  type: Field
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Models/Enums/PaymentTransactionType.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: DebitCard
+    path: Models/Enums/PaymentTransactionType.cs
+    startLine: 15
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Models.Enums
+  syntax:
+    content: DebitCard = 4
+    return:
+      type: MakesCentsBackend.Models.Enums.PaymentTransactionType
+- uid: MakesCentsBackend.Models.Enums.PaymentTransactionType.CreditCard
+  commentId: F:MakesCentsBackend.Models.Enums.PaymentTransactionType.CreditCard
+  id: CreditCard
+  parent: MakesCentsBackend.Models.Enums.PaymentTransactionType
+  langs:
+  - csharp
+  - vb
+  name: CreditCard
+  nameWithType: PaymentTransactionType.CreditCard
+  fullName: MakesCentsBackend.Models.Enums.PaymentTransactionType.CreditCard
+  type: Field
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Models/Enums/PaymentTransactionType.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: CreditCard
+    path: Models/Enums/PaymentTransactionType.cs
+    startLine: 16
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Models.Enums
+  syntax:
+    content: CreditCard = 5
+    return:
+      type: MakesCentsBackend.Models.Enums.PaymentTransactionType
+- uid: MakesCentsBackend.Models.Enums.PaymentTransactionType.Deposit
+  commentId: F:MakesCentsBackend.Models.Enums.PaymentTransactionType.Deposit
+  id: Deposit
+  parent: MakesCentsBackend.Models.Enums.PaymentTransactionType
+  langs:
+  - csharp
+  - vb
+  name: Deposit
+  nameWithType: PaymentTransactionType.Deposit
+  fullName: MakesCentsBackend.Models.Enums.PaymentTransactionType.Deposit
+  type: Field
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Models/Enums/PaymentTransactionType.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: Deposit
+    path: Models/Enums/PaymentTransactionType.cs
+    startLine: 17
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Models.Enums
+  syntax:
+    content: Deposit = 6
+    return:
+      type: MakesCentsBackend.Models.Enums.PaymentTransactionType
+- uid: MakesCentsBackend.Models.Enums.PaymentTransactionType.Paycheck
+  commentId: F:MakesCentsBackend.Models.Enums.PaymentTransactionType.Paycheck
+  id: Paycheck
+  parent: MakesCentsBackend.Models.Enums.PaymentTransactionType
+  langs:
+  - csharp
+  - vb
+  name: Paycheck
+  nameWithType: PaymentTransactionType.Paycheck
+  fullName: MakesCentsBackend.Models.Enums.PaymentTransactionType.Paycheck
+  type: Field
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Models/Enums/PaymentTransactionType.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: Paycheck
+    path: Models/Enums/PaymentTransactionType.cs
+    startLine: 18
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Models.Enums
+  syntax:
+    content: Paycheck = 7
+    return:
+      type: MakesCentsBackend.Models.Enums.PaymentTransactionType
+- uid: MakesCentsBackend.Models.Enums.PaymentTransactionType.Refund
+  commentId: F:MakesCentsBackend.Models.Enums.PaymentTransactionType.Refund
+  id: Refund
+  parent: MakesCentsBackend.Models.Enums.PaymentTransactionType
+  langs:
+  - csharp
+  - vb
+  name: Refund
+  nameWithType: PaymentTransactionType.Refund
+  fullName: MakesCentsBackend.Models.Enums.PaymentTransactionType.Refund
+  type: Field
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Models/Enums/PaymentTransactionType.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: Refund
+    path: Models/Enums/PaymentTransactionType.cs
+    startLine: 19
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Models.Enums
+  syntax:
+    content: Refund = 8
+    return:
+      type: MakesCentsBackend.Models.Enums.PaymentTransactionType
+- uid: MakesCentsBackend.Models.Enums.PaymentTransactionType.LoanDeposit
+  commentId: F:MakesCentsBackend.Models.Enums.PaymentTransactionType.LoanDeposit
+  id: LoanDeposit
+  parent: MakesCentsBackend.Models.Enums.PaymentTransactionType
+  langs:
+  - csharp
+  - vb
+  name: LoanDeposit
+  nameWithType: PaymentTransactionType.LoanDeposit
+  fullName: MakesCentsBackend.Models.Enums.PaymentTransactionType.LoanDeposit
+  type: Field
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Models/Enums/PaymentTransactionType.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: LoanDeposit
+    path: Models/Enums/PaymentTransactionType.cs
+    startLine: 20
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Models.Enums
+  syntax:
+    content: LoanDeposit = 9
+    return:
+      type: MakesCentsBackend.Models.Enums.PaymentTransactionType
+references:
+- uid: MakesCentsBackend.Models.Enums
+  commentId: N:MakesCentsBackend.Models.Enums
+  href: MakesCentsBackend.html
+  name: MakesCentsBackend.Models.Enums
+  nameWithType: MakesCentsBackend.Models.Enums
+  fullName: MakesCentsBackend.Models.Enums
+  spec.csharp:
+  - uid: MakesCentsBackend
+    name: MakesCentsBackend
+    href: MakesCentsBackend.html
+  - name: .
+  - uid: MakesCentsBackend.Models
+    name: Models
+    href: MakesCentsBackend.Models.html
+  - name: .
+  - uid: MakesCentsBackend.Models.Enums
+    name: Enums
+    href: MakesCentsBackend.Models.Enums.html
+  spec.vb:
+  - uid: MakesCentsBackend
+    name: MakesCentsBackend
+    href: MakesCentsBackend.html
+  - name: .
+  - uid: MakesCentsBackend.Models
+    name: Models
+    href: MakesCentsBackend.Models.html
+  - name: .
+  - uid: MakesCentsBackend.Models.Enums
+    name: Enums
+    href: MakesCentsBackend.Models.Enums.html
+- uid: MakesCentsBackend.Models.Enums.PaymentTransactionType
+  commentId: T:MakesCentsBackend.Models.Enums.PaymentTransactionType
+  parent: MakesCentsBackend.Models.Enums
+  href: MakesCentsBackend.Models.Enums.PaymentTransactionType.html
+  name: PaymentTransactionType
+  nameWithType: PaymentTransactionType
+  fullName: MakesCentsBackend.Models.Enums.PaymentTransactionType

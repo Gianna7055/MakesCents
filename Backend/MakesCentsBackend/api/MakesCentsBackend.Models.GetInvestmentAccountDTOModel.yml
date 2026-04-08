@@ -1,0 +1,831 @@
+### YamlMime:ManagedReference
+items:
+- uid: MakesCentsBackend.Models.GetInvestmentAccountDTOModel
+  commentId: T:MakesCentsBackend.Models.GetInvestmentAccountDTOModel
+  id: GetInvestmentAccountDTOModel
+  parent: MakesCentsBackend.Models
+  children:
+  - MakesCentsBackend.Models.GetInvestmentAccountDTOModel.#ctor
+  - MakesCentsBackend.Models.GetInvestmentAccountDTOModel.AccountNumber
+  - MakesCentsBackend.Models.GetInvestmentAccountDTOModel.InvestmentAccountId
+  - MakesCentsBackend.Models.GetInvestmentAccountDTOModel.InvestmentAccountType
+  - MakesCentsBackend.Models.GetInvestmentAccountDTOModel.IsTaxDeferred
+  - MakesCentsBackend.Models.GetInvestmentAccountDTOModel.IsTaxExempt
+  - MakesCentsBackend.Models.GetInvestmentAccountDTOModel.Transactions
+  langs:
+  - csharp
+  - vb
+  name: GetInvestmentAccountDTOModel
+  nameWithType: GetInvestmentAccountDTOModel
+  fullName: MakesCentsBackend.Models.GetInvestmentAccountDTOModel
+  type: Class
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Models/InvestmentAccountModels.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: GetInvestmentAccountDTOModel
+    path: Models/InvestmentAccountModels.cs
+    startLine: 69
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Models
+  summary: DTO model to get a specific investment account
+  example: []
+  syntax:
+    content: >-
+      [ExportTsInterface]
+
+      public class GetInvestmentAccountDTOModel : GetAccountBaseModel
+    content.vb: >-
+      <ExportTsInterface>
+
+      Public Class GetInvestmentAccountDTOModel Inherits GetAccountBaseModel
+  inheritance:
+  - System.Object
+  - MakesCentsBackend.Models.GetAccountBaseModel
+  inheritedMembers:
+  - MakesCentsBackend.Models.GetAccountBaseModel.AccountId
+  - MakesCentsBackend.Models.GetAccountBaseModel.BudgetId
+  - MakesCentsBackend.Models.GetAccountBaseModel.UserId
+  - MakesCentsBackend.Models.GetAccountBaseModel.AccountType
+  - MakesCentsBackend.Models.GetAccountBaseModel.AccountName
+  - MakesCentsBackend.Models.GetAccountBaseModel.Balance
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+  attributes:
+  - type: TypeGen.Core.TypeAnnotations.ExportTsInterfaceAttribute
+    ctor: TypeGen.Core.TypeAnnotations.ExportTsInterfaceAttribute.#ctor
+    arguments: []
+- uid: MakesCentsBackend.Models.GetInvestmentAccountDTOModel.InvestmentAccountId
+  commentId: P:MakesCentsBackend.Models.GetInvestmentAccountDTOModel.InvestmentAccountId
+  id: InvestmentAccountId
+  parent: MakesCentsBackend.Models.GetInvestmentAccountDTOModel
+  langs:
+  - csharp
+  - vb
+  name: InvestmentAccountId
+  nameWithType: GetInvestmentAccountDTOModel.InvestmentAccountId
+  fullName: MakesCentsBackend.Models.GetInvestmentAccountDTOModel.InvestmentAccountId
+  type: Property
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Models/InvestmentAccountModels.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: InvestmentAccountId
+    path: Models/InvestmentAccountModels.cs
+    startLine: 73
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Models
+  syntax:
+    content: public int InvestmentAccountId { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property InvestmentAccountId As Integer
+  overload: MakesCentsBackend.Models.GetInvestmentAccountDTOModel.InvestmentAccountId*
+- uid: MakesCentsBackend.Models.GetInvestmentAccountDTOModel.InvestmentAccountType
+  commentId: P:MakesCentsBackend.Models.GetInvestmentAccountDTOModel.InvestmentAccountType
+  id: InvestmentAccountType
+  parent: MakesCentsBackend.Models.GetInvestmentAccountDTOModel
+  langs:
+  - csharp
+  - vb
+  name: InvestmentAccountType
+  nameWithType: GetInvestmentAccountDTOModel.InvestmentAccountType
+  fullName: MakesCentsBackend.Models.GetInvestmentAccountDTOModel.InvestmentAccountType
+  type: Property
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Models/InvestmentAccountModels.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: InvestmentAccountType
+    path: Models/InvestmentAccountModels.cs
+    startLine: 74
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Models
+  syntax:
+    content: public InvestmentAccountType InvestmentAccountType { get; set; }
+    parameters: []
+    return:
+      type: MakesCentsBackend.Models.Enums.InvestmentAccountType
+    content.vb: Public Property InvestmentAccountType As InvestmentAccountType
+  overload: MakesCentsBackend.Models.GetInvestmentAccountDTOModel.InvestmentAccountType*
+- uid: MakesCentsBackend.Models.GetInvestmentAccountDTOModel.AccountNumber
+  commentId: P:MakesCentsBackend.Models.GetInvestmentAccountDTOModel.AccountNumber
+  id: AccountNumber
+  parent: MakesCentsBackend.Models.GetInvestmentAccountDTOModel
+  langs:
+  - csharp
+  - vb
+  name: AccountNumber
+  nameWithType: GetInvestmentAccountDTOModel.AccountNumber
+  fullName: MakesCentsBackend.Models.GetInvestmentAccountDTOModel.AccountNumber
+  type: Property
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Models/InvestmentAccountModels.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: AccountNumber
+    path: Models/InvestmentAccountModels.cs
+    startLine: 75
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Models
+  syntax:
+    content: public int? AccountNumber { get; set; }
+    parameters: []
+    return:
+      type: System.Nullable{System.Int32}
+    content.vb: Public Property AccountNumber As Integer?
+  overload: MakesCentsBackend.Models.GetInvestmentAccountDTOModel.AccountNumber*
+- uid: MakesCentsBackend.Models.GetInvestmentAccountDTOModel.IsTaxDeferred
+  commentId: P:MakesCentsBackend.Models.GetInvestmentAccountDTOModel.IsTaxDeferred
+  id: IsTaxDeferred
+  parent: MakesCentsBackend.Models.GetInvestmentAccountDTOModel
+  langs:
+  - csharp
+  - vb
+  name: IsTaxDeferred
+  nameWithType: GetInvestmentAccountDTOModel.IsTaxDeferred
+  fullName: MakesCentsBackend.Models.GetInvestmentAccountDTOModel.IsTaxDeferred
+  type: Property
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Models/InvestmentAccountModels.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: IsTaxDeferred
+    path: Models/InvestmentAccountModels.cs
+    startLine: 76
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Models
+  syntax:
+    content: public bool IsTaxDeferred { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property IsTaxDeferred As Boolean
+  overload: MakesCentsBackend.Models.GetInvestmentAccountDTOModel.IsTaxDeferred*
+- uid: MakesCentsBackend.Models.GetInvestmentAccountDTOModel.IsTaxExempt
+  commentId: P:MakesCentsBackend.Models.GetInvestmentAccountDTOModel.IsTaxExempt
+  id: IsTaxExempt
+  parent: MakesCentsBackend.Models.GetInvestmentAccountDTOModel
+  langs:
+  - csharp
+  - vb
+  name: IsTaxExempt
+  nameWithType: GetInvestmentAccountDTOModel.IsTaxExempt
+  fullName: MakesCentsBackend.Models.GetInvestmentAccountDTOModel.IsTaxExempt
+  type: Property
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Models/InvestmentAccountModels.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: IsTaxExempt
+    path: Models/InvestmentAccountModels.cs
+    startLine: 77
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Models
+  syntax:
+    content: public bool IsTaxExempt { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property IsTaxExempt As Boolean
+  overload: MakesCentsBackend.Models.GetInvestmentAccountDTOModel.IsTaxExempt*
+- uid: MakesCentsBackend.Models.GetInvestmentAccountDTOModel.Transactions
+  commentId: P:MakesCentsBackend.Models.GetInvestmentAccountDTOModel.Transactions
+  id: Transactions
+  parent: MakesCentsBackend.Models.GetInvestmentAccountDTOModel
+  langs:
+  - csharp
+  - vb
+  name: Transactions
+  nameWithType: GetInvestmentAccountDTOModel.Transactions
+  fullName: MakesCentsBackend.Models.GetInvestmentAccountDTOModel.Transactions
+  type: Property
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Models/InvestmentAccountModels.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: Transactions
+    path: Models/InvestmentAccountModels.cs
+    startLine: 78
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Models
+  syntax:
+    content: public List<SummaryTransactionDTOModel> Transactions { get; set; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.List{MakesCentsBackend.Models.SummaryTransactionDTOModel}
+    content.vb: Public Property Transactions As List(Of SummaryTransactionDTOModel)
+  overload: MakesCentsBackend.Models.GetInvestmentAccountDTOModel.Transactions*
+- uid: MakesCentsBackend.Models.GetInvestmentAccountDTOModel.#ctor
+  commentId: M:MakesCentsBackend.Models.GetInvestmentAccountDTOModel.#ctor
+  id: '#ctor'
+  parent: MakesCentsBackend.Models.GetInvestmentAccountDTOModel
+  langs:
+  - csharp
+  - vb
+  name: GetInvestmentAccountDTOModel()
+  nameWithType: GetInvestmentAccountDTOModel.GetInvestmentAccountDTOModel()
+  fullName: MakesCentsBackend.Models.GetInvestmentAccountDTOModel.GetInvestmentAccountDTOModel()
+  type: Constructor
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Models/InvestmentAccountModels.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: .ctor
+    path: Models/InvestmentAccountModels.cs
+    startLine: 83
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Models
+  summary: Default constructor for the get investment account DTO
+  example: []
+  syntax:
+    content: public GetInvestmentAccountDTOModel()
+    content.vb: Public Sub New()
+  overload: MakesCentsBackend.Models.GetInvestmentAccountDTOModel.#ctor*
+  nameWithType.vb: GetInvestmentAccountDTOModel.New()
+  fullName.vb: MakesCentsBackend.Models.GetInvestmentAccountDTOModel.New()
+  name.vb: New()
+references:
+- uid: MakesCentsBackend.Models
+  commentId: N:MakesCentsBackend.Models
+  href: MakesCentsBackend.html
+  name: MakesCentsBackend.Models
+  nameWithType: MakesCentsBackend.Models
+  fullName: MakesCentsBackend.Models
+  spec.csharp:
+  - uid: MakesCentsBackend
+    name: MakesCentsBackend
+    href: MakesCentsBackend.html
+  - name: .
+  - uid: MakesCentsBackend.Models
+    name: Models
+    href: MakesCentsBackend.Models.html
+  spec.vb:
+  - uid: MakesCentsBackend
+    name: MakesCentsBackend
+    href: MakesCentsBackend.html
+  - name: .
+  - uid: MakesCentsBackend.Models
+    name: Models
+    href: MakesCentsBackend.Models.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: MakesCentsBackend.Models.GetAccountBaseModel
+  commentId: T:MakesCentsBackend.Models.GetAccountBaseModel
+  parent: MakesCentsBackend.Models
+  href: MakesCentsBackend.Models.GetAccountBaseModel.html
+  name: GetAccountBaseModel
+  nameWithType: GetAccountBaseModel
+  fullName: MakesCentsBackend.Models.GetAccountBaseModel
+- uid: MakesCentsBackend.Models.GetAccountBaseModel.AccountId
+  commentId: P:MakesCentsBackend.Models.GetAccountBaseModel.AccountId
+  parent: MakesCentsBackend.Models.GetAccountBaseModel
+  href: MakesCentsBackend.Models.GetAccountBaseModel.html#MakesCentsBackend_Models_GetAccountBaseModel_AccountId
+  name: AccountId
+  nameWithType: GetAccountBaseModel.AccountId
+  fullName: MakesCentsBackend.Models.GetAccountBaseModel.AccountId
+- uid: MakesCentsBackend.Models.GetAccountBaseModel.BudgetId
+  commentId: P:MakesCentsBackend.Models.GetAccountBaseModel.BudgetId
+  parent: MakesCentsBackend.Models.GetAccountBaseModel
+  href: MakesCentsBackend.Models.GetAccountBaseModel.html#MakesCentsBackend_Models_GetAccountBaseModel_BudgetId
+  name: BudgetId
+  nameWithType: GetAccountBaseModel.BudgetId
+  fullName: MakesCentsBackend.Models.GetAccountBaseModel.BudgetId
+- uid: MakesCentsBackend.Models.GetAccountBaseModel.UserId
+  commentId: P:MakesCentsBackend.Models.GetAccountBaseModel.UserId
+  parent: MakesCentsBackend.Models.GetAccountBaseModel
+  href: MakesCentsBackend.Models.GetAccountBaseModel.html#MakesCentsBackend_Models_GetAccountBaseModel_UserId
+  name: UserId
+  nameWithType: GetAccountBaseModel.UserId
+  fullName: MakesCentsBackend.Models.GetAccountBaseModel.UserId
+- uid: MakesCentsBackend.Models.GetAccountBaseModel.AccountType
+  commentId: P:MakesCentsBackend.Models.GetAccountBaseModel.AccountType
+  parent: MakesCentsBackend.Models.GetAccountBaseModel
+  href: MakesCentsBackend.Models.GetAccountBaseModel.html#MakesCentsBackend_Models_GetAccountBaseModel_AccountType
+  name: AccountType
+  nameWithType: GetAccountBaseModel.AccountType
+  fullName: MakesCentsBackend.Models.GetAccountBaseModel.AccountType
+- uid: MakesCentsBackend.Models.GetAccountBaseModel.AccountName
+  commentId: P:MakesCentsBackend.Models.GetAccountBaseModel.AccountName
+  parent: MakesCentsBackend.Models.GetAccountBaseModel
+  href: MakesCentsBackend.Models.GetAccountBaseModel.html#MakesCentsBackend_Models_GetAccountBaseModel_AccountName
+  name: AccountName
+  nameWithType: GetAccountBaseModel.AccountName
+  fullName: MakesCentsBackend.Models.GetAccountBaseModel.AccountName
+- uid: MakesCentsBackend.Models.GetAccountBaseModel.Balance
+  commentId: P:MakesCentsBackend.Models.GetAccountBaseModel.Balance
+  parent: MakesCentsBackend.Models.GetAccountBaseModel
+  href: MakesCentsBackend.Models.GetAccountBaseModel.html#MakesCentsBackend_Models_GetAccountBaseModel_Balance
+  name: Balance
+  nameWithType: GetAccountBaseModel.Balance
+  fullName: MakesCentsBackend.Models.GetAccountBaseModel.Balance
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: MakesCentsBackend.Models.GetInvestmentAccountDTOModel.InvestmentAccountId*
+  commentId: Overload:MakesCentsBackend.Models.GetInvestmentAccountDTOModel.InvestmentAccountId
+  href: MakesCentsBackend.Models.GetInvestmentAccountDTOModel.html#MakesCentsBackend_Models_GetInvestmentAccountDTOModel_InvestmentAccountId
+  name: InvestmentAccountId
+  nameWithType: GetInvestmentAccountDTOModel.InvestmentAccountId
+  fullName: MakesCentsBackend.Models.GetInvestmentAccountDTOModel.InvestmentAccountId
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: MakesCentsBackend.Models.GetInvestmentAccountDTOModel.InvestmentAccountType*
+  commentId: Overload:MakesCentsBackend.Models.GetInvestmentAccountDTOModel.InvestmentAccountType
+  href: MakesCentsBackend.Models.GetInvestmentAccountDTOModel.html#MakesCentsBackend_Models_GetInvestmentAccountDTOModel_InvestmentAccountType
+  name: InvestmentAccountType
+  nameWithType: GetInvestmentAccountDTOModel.InvestmentAccountType
+  fullName: MakesCentsBackend.Models.GetInvestmentAccountDTOModel.InvestmentAccountType
+- uid: MakesCentsBackend.Models.Enums.InvestmentAccountType
+  commentId: T:MakesCentsBackend.Models.Enums.InvestmentAccountType
+  parent: MakesCentsBackend.Models.Enums
+  href: MakesCentsBackend.Models.Enums.InvestmentAccountType.html
+  name: InvestmentAccountType
+  nameWithType: InvestmentAccountType
+  fullName: MakesCentsBackend.Models.Enums.InvestmentAccountType
+- uid: MakesCentsBackend.Models.Enums
+  commentId: N:MakesCentsBackend.Models.Enums
+  href: MakesCentsBackend.html
+  name: MakesCentsBackend.Models.Enums
+  nameWithType: MakesCentsBackend.Models.Enums
+  fullName: MakesCentsBackend.Models.Enums
+  spec.csharp:
+  - uid: MakesCentsBackend
+    name: MakesCentsBackend
+    href: MakesCentsBackend.html
+  - name: .
+  - uid: MakesCentsBackend.Models
+    name: Models
+    href: MakesCentsBackend.Models.html
+  - name: .
+  - uid: MakesCentsBackend.Models.Enums
+    name: Enums
+    href: MakesCentsBackend.Models.Enums.html
+  spec.vb:
+  - uid: MakesCentsBackend
+    name: MakesCentsBackend
+    href: MakesCentsBackend.html
+  - name: .
+  - uid: MakesCentsBackend.Models
+    name: Models
+    href: MakesCentsBackend.Models.html
+  - name: .
+  - uid: MakesCentsBackend.Models.Enums
+    name: Enums
+    href: MakesCentsBackend.Models.Enums.html
+- uid: MakesCentsBackend.Models.GetInvestmentAccountDTOModel.AccountNumber*
+  commentId: Overload:MakesCentsBackend.Models.GetInvestmentAccountDTOModel.AccountNumber
+  href: MakesCentsBackend.Models.GetInvestmentAccountDTOModel.html#MakesCentsBackend_Models_GetInvestmentAccountDTOModel_AccountNumber
+  name: AccountNumber
+  nameWithType: GetInvestmentAccountDTOModel.AccountNumber
+  fullName: MakesCentsBackend.Models.GetInvestmentAccountDTOModel.AccountNumber
+- uid: System.Nullable{System.Int32}
+  commentId: T:System.Nullable{System.Int32}
+  parent: System
+  definition: System.Nullable`1
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int?
+  nameWithType: int?
+  fullName: int?
+  nameWithType.vb: Integer?
+  fullName.vb: Integer?
+  name.vb: Integer?
+  spec.csharp:
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '?'
+  spec.vb:
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '?'
+- uid: System.Nullable`1
+  commentId: T:System.Nullable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  name: Nullable<T>
+  nameWithType: Nullable<T>
+  fullName: System.Nullable<T>
+  nameWithType.vb: Nullable(Of T)
+  fullName.vb: System.Nullable(Of T)
+  name.vb: Nullable(Of T)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: MakesCentsBackend.Models.GetInvestmentAccountDTOModel.IsTaxDeferred*
+  commentId: Overload:MakesCentsBackend.Models.GetInvestmentAccountDTOModel.IsTaxDeferred
+  href: MakesCentsBackend.Models.GetInvestmentAccountDTOModel.html#MakesCentsBackend_Models_GetInvestmentAccountDTOModel_IsTaxDeferred
+  name: IsTaxDeferred
+  nameWithType: GetInvestmentAccountDTOModel.IsTaxDeferred
+  fullName: MakesCentsBackend.Models.GetInvestmentAccountDTOModel.IsTaxDeferred
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: MakesCentsBackend.Models.GetInvestmentAccountDTOModel.IsTaxExempt*
+  commentId: Overload:MakesCentsBackend.Models.GetInvestmentAccountDTOModel.IsTaxExempt
+  href: MakesCentsBackend.Models.GetInvestmentAccountDTOModel.html#MakesCentsBackend_Models_GetInvestmentAccountDTOModel_IsTaxExempt
+  name: IsTaxExempt
+  nameWithType: GetInvestmentAccountDTOModel.IsTaxExempt
+  fullName: MakesCentsBackend.Models.GetInvestmentAccountDTOModel.IsTaxExempt
+- uid: MakesCentsBackend.Models.GetInvestmentAccountDTOModel.Transactions*
+  commentId: Overload:MakesCentsBackend.Models.GetInvestmentAccountDTOModel.Transactions
+  href: MakesCentsBackend.Models.GetInvestmentAccountDTOModel.html#MakesCentsBackend_Models_GetInvestmentAccountDTOModel_Transactions
+  name: Transactions
+  nameWithType: GetInvestmentAccountDTOModel.Transactions
+  fullName: MakesCentsBackend.Models.GetInvestmentAccountDTOModel.Transactions
+- uid: System.Collections.Generic.List{MakesCentsBackend.Models.SummaryTransactionDTOModel}
+  commentId: T:System.Collections.Generic.List{MakesCentsBackend.Models.SummaryTransactionDTOModel}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<SummaryTransactionDTOModel>
+  nameWithType: List<SummaryTransactionDTOModel>
+  fullName: System.Collections.Generic.List<MakesCentsBackend.Models.SummaryTransactionDTOModel>
+  nameWithType.vb: List(Of SummaryTransactionDTOModel)
+  fullName.vb: System.Collections.Generic.List(Of MakesCentsBackend.Models.SummaryTransactionDTOModel)
+  name.vb: List(Of SummaryTransactionDTOModel)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: MakesCentsBackend.Models.SummaryTransactionDTOModel
+    name: SummaryTransactionDTOModel
+    href: MakesCentsBackend.Models.SummaryTransactionDTOModel.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: MakesCentsBackend.Models.SummaryTransactionDTOModel
+    name: SummaryTransactionDTOModel
+    href: MakesCentsBackend.Models.SummaryTransactionDTOModel.html
+  - name: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: MakesCentsBackend.Models.GetInvestmentAccountDTOModel.#ctor*
+  commentId: Overload:MakesCentsBackend.Models.GetInvestmentAccountDTOModel.#ctor
+  href: MakesCentsBackend.Models.GetInvestmentAccountDTOModel.html#MakesCentsBackend_Models_GetInvestmentAccountDTOModel__ctor
+  name: GetInvestmentAccountDTOModel
+  nameWithType: GetInvestmentAccountDTOModel.GetInvestmentAccountDTOModel
+  fullName: MakesCentsBackend.Models.GetInvestmentAccountDTOModel.GetInvestmentAccountDTOModel
+  nameWithType.vb: GetInvestmentAccountDTOModel.New
+  fullName.vb: MakesCentsBackend.Models.GetInvestmentAccountDTOModel.New
+  name.vb: New

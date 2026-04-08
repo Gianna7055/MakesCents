@@ -1,0 +1,150 @@
+### YamlMime:ManagedReference
+items:
+- uid: MakesCentsBackend.Models.Enums
+  commentId: N:MakesCentsBackend.Models.Enums
+  id: MakesCentsBackend.Models.Enums
+  children:
+  - MakesCentsBackend.Models.Enums.AccountType
+  - MakesCentsBackend.Models.Enums.BankAccountType
+  - MakesCentsBackend.Models.Enums.DebtAccountType
+  - MakesCentsBackend.Models.Enums.DebtPaymentRegularity
+  - MakesCentsBackend.Models.Enums.InvestmentAccountType
+  - MakesCentsBackend.Models.Enums.Month
+  - MakesCentsBackend.Models.Enums.PaycheckRegularity
+  - MakesCentsBackend.Models.Enums.PaymentTransactionType
+  - MakesCentsBackend.Models.Enums.PlannedExpenseOccurrence
+  - MakesCentsBackend.Models.Enums.PlannedExpenseRegularity
+  - MakesCentsBackend.Models.Enums.TransactionType
+  - MakesCentsBackend.Models.Enums.TransferTransactionType
+  - MakesCentsBackend.Models.Enums.Weekday
+  langs:
+  - csharp
+  - vb
+  name: MakesCentsBackend.Models.Enums
+  nameWithType: MakesCentsBackend.Models.Enums
+  fullName: MakesCentsBackend.Models.Enums
+  type: Namespace
+  assemblies:
+  - MakesCentsBackend
+references:
+- uid: MakesCentsBackend.Models.Enums.AccountType
+  commentId: T:MakesCentsBackend.Models.Enums.AccountType
+  parent: MakesCentsBackend.Models.Enums
+  href: MakesCentsBackend.Models.Enums.AccountType.html
+  name: AccountType
+  nameWithType: AccountType
+  fullName: MakesCentsBackend.Models.Enums.AccountType
+- uid: MakesCentsBackend.Models.Enums.BankAccountType
+  commentId: T:MakesCentsBackend.Models.Enums.BankAccountType
+  parent: MakesCentsBackend.Models.Enums
+  href: MakesCentsBackend.Models.Enums.BankAccountType.html
+  name: BankAccountType
+  nameWithType: BankAccountType
+  fullName: MakesCentsBackend.Models.Enums.BankAccountType
+- uid: MakesCentsBackend.Models.Enums.DebtAccountType
+  commentId: T:MakesCentsBackend.Models.Enums.DebtAccountType
+  parent: MakesCentsBackend.Models.Enums
+  href: MakesCentsBackend.Models.Enums.DebtAccountType.html
+  name: DebtAccountType
+  nameWithType: DebtAccountType
+  fullName: MakesCentsBackend.Models.Enums.DebtAccountType
+- uid: MakesCentsBackend.Models.Enums.DebtPaymentRegularity
+  commentId: T:MakesCentsBackend.Models.Enums.DebtPaymentRegularity
+  parent: MakesCentsBackend.Models.Enums
+  href: MakesCentsBackend.Models.Enums.DebtPaymentRegularity.html
+  name: DebtPaymentRegularity
+  nameWithType: DebtPaymentRegularity
+  fullName: MakesCentsBackend.Models.Enums.DebtPaymentRegularity
+- uid: MakesCentsBackend.Models.Enums.InvestmentAccountType
+  commentId: T:MakesCentsBackend.Models.Enums.InvestmentAccountType
+  parent: MakesCentsBackend.Models.Enums
+  href: MakesCentsBackend.Models.Enums.InvestmentAccountType.html
+  name: InvestmentAccountType
+  nameWithType: InvestmentAccountType
+  fullName: MakesCentsBackend.Models.Enums.InvestmentAccountType
+- uid: MakesCentsBackend.Models.Enums.Month
+  commentId: T:MakesCentsBackend.Models.Enums.Month
+  parent: MakesCentsBackend.Models.Enums
+  href: MakesCentsBackend.Models.Enums.Month.html
+  name: Month
+  nameWithType: Month
+  fullName: MakesCentsBackend.Models.Enums.Month
+- uid: MakesCentsBackend.Models.Enums.PaycheckRegularity
+  commentId: T:MakesCentsBackend.Models.Enums.PaycheckRegularity
+  parent: MakesCentsBackend.Models.Enums
+  href: MakesCentsBackend.Models.Enums.PaycheckRegularity.html
+  name: PaycheckRegularity
+  nameWithType: PaycheckRegularity
+  fullName: MakesCentsBackend.Models.Enums.PaycheckRegularity
+- uid: MakesCentsBackend.Models.Enums.PaymentTransactionType
+  commentId: T:MakesCentsBackend.Models.Enums.PaymentTransactionType
+  parent: MakesCentsBackend.Models.Enums
+  href: MakesCentsBackend.Models.Enums.PaymentTransactionType.html
+  name: PaymentTransactionType
+  nameWithType: PaymentTransactionType
+  fullName: MakesCentsBackend.Models.Enums.PaymentTransactionType
+- uid: MakesCentsBackend.Models.Enums.PlannedExpenseOccurrence
+  commentId: T:MakesCentsBackend.Models.Enums.PlannedExpenseOccurrence
+  parent: MakesCentsBackend.Models.Enums
+  href: MakesCentsBackend.Models.Enums.PlannedExpenseOccurrence.html
+  name: PlannedExpenseOccurrence
+  nameWithType: PlannedExpenseOccurrence
+  fullName: MakesCentsBackend.Models.Enums.PlannedExpenseOccurrence
+- uid: MakesCentsBackend.Models.Enums.PlannedExpenseRegularity
+  commentId: T:MakesCentsBackend.Models.Enums.PlannedExpenseRegularity
+  parent: MakesCentsBackend.Models.Enums
+  href: MakesCentsBackend.Models.Enums.PlannedExpenseRegularity.html
+  name: PlannedExpenseRegularity
+  nameWithType: PlannedExpenseRegularity
+  fullName: MakesCentsBackend.Models.Enums.PlannedExpenseRegularity
+- uid: MakesCentsBackend.Models.Enums.TransactionType
+  commentId: T:MakesCentsBackend.Models.Enums.TransactionType
+  parent: MakesCentsBackend.Models.Enums
+  href: MakesCentsBackend.Models.Enums.TransactionType.html
+  name: TransactionType
+  nameWithType: TransactionType
+  fullName: MakesCentsBackend.Models.Enums.TransactionType
+- uid: MakesCentsBackend.Models.Enums.TransferTransactionType
+  commentId: T:MakesCentsBackend.Models.Enums.TransferTransactionType
+  parent: MakesCentsBackend.Models.Enums
+  href: MakesCentsBackend.Models.Enums.TransferTransactionType.html
+  name: TransferTransactionType
+  nameWithType: TransferTransactionType
+  fullName: MakesCentsBackend.Models.Enums.TransferTransactionType
+- uid: MakesCentsBackend.Models.Enums.Weekday
+  commentId: T:MakesCentsBackend.Models.Enums.Weekday
+  parent: MakesCentsBackend.Models.Enums
+  href: MakesCentsBackend.Models.Enums.Weekday.html
+  name: Weekday
+  nameWithType: Weekday
+  fullName: MakesCentsBackend.Models.Enums.Weekday
+- uid: MakesCentsBackend.Models.Enums
+  commentId: N:MakesCentsBackend.Models.Enums
+  href: MakesCentsBackend.html
+  name: MakesCentsBackend.Models.Enums
+  nameWithType: MakesCentsBackend.Models.Enums
+  fullName: MakesCentsBackend.Models.Enums
+  spec.csharp:
+  - uid: MakesCentsBackend
+    name: MakesCentsBackend
+    href: MakesCentsBackend.html
+  - name: .
+  - uid: MakesCentsBackend.Models
+    name: Models
+    href: MakesCentsBackend.Models.html
+  - name: .
+  - uid: MakesCentsBackend.Models.Enums
+    name: Enums
+    href: MakesCentsBackend.Models.Enums.html
+  spec.vb:
+  - uid: MakesCentsBackend
+    name: MakesCentsBackend
+    href: MakesCentsBackend.html
+  - name: .
+  - uid: MakesCentsBackend.Models
+    name: Models
+    href: MakesCentsBackend.Models.html
+  - name: .
+  - uid: MakesCentsBackend.Models.Enums
+    name: Enums
+    href: MakesCentsBackend.Models.Enums.html

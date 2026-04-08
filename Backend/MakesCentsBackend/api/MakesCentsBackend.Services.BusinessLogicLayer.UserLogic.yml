@@ -1,0 +1,947 @@
+### YamlMime:ManagedReference
+items:
+- uid: MakesCentsBackend.Services.BusinessLogicLayer.UserLogic
+  commentId: T:MakesCentsBackend.Services.BusinessLogicLayer.UserLogic
+  id: UserLogic
+  parent: MakesCentsBackend.Services.BusinessLogicLayer
+  children:
+  - MakesCentsBackend.Services.BusinessLogicLayer.UserLogic.#ctor(MakesCentsBackend.Services.DataAccessLayer.UserDAO,MakesCentsBackend.Services.Utilities.JwtService,AutoMapper.IMapper)
+  - MakesCentsBackend.Services.BusinessLogicLayer.UserLogic.DeleteUserAsync(System.Int32)
+  - MakesCentsBackend.Services.BusinessLogicLayer.UserLogic.GetUserAsync(System.Int32)
+  - MakesCentsBackend.Services.BusinessLogicLayer.UserLogic.LoginUserAsync(MakesCentsBackend.Models.LoginRequest)
+  - MakesCentsBackend.Services.BusinessLogicLayer.UserLogic.RegisterUserAsync(MakesCentsBackend.Models.RegisterRequest)
+  - MakesCentsBackend.Services.BusinessLogicLayer.UserLogic.UpdateUserAsync(MakesCentsBackend.Models.EditUserRequest)
+  langs:
+  - csharp
+  - vb
+  name: UserLogic
+  nameWithType: UserLogic
+  fullName: MakesCentsBackend.Services.BusinessLogicLayer.UserLogic
+  type: Class
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Services/BusinessLogicLayer/UserLogic.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: UserLogic
+    path: Services/BusinessLogicLayer/UserLogic.cs
+    startLine: 16
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Services.BusinessLogicLayer
+  summary: Class for all business rules for users
+  example: []
+  syntax:
+    content: public class UserLogic
+    content.vb: Public Class UserLogic
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: MakesCentsBackend.Services.BusinessLogicLayer.UserLogic.#ctor(MakesCentsBackend.Services.DataAccessLayer.UserDAO,MakesCentsBackend.Services.Utilities.JwtService,AutoMapper.IMapper)
+  commentId: M:MakesCentsBackend.Services.BusinessLogicLayer.UserLogic.#ctor(MakesCentsBackend.Services.DataAccessLayer.UserDAO,MakesCentsBackend.Services.Utilities.JwtService,AutoMapper.IMapper)
+  id: '#ctor(MakesCentsBackend.Services.DataAccessLayer.UserDAO,MakesCentsBackend.Services.Utilities.JwtService,AutoMapper.IMapper)'
+  parent: MakesCentsBackend.Services.BusinessLogicLayer.UserLogic
+  langs:
+  - csharp
+  - vb
+  name: UserLogic(UserDAO, JwtService, IMapper)
+  nameWithType: UserLogic.UserLogic(UserDAO, JwtService, IMapper)
+  fullName: MakesCentsBackend.Services.BusinessLogicLayer.UserLogic.UserLogic(MakesCentsBackend.Services.DataAccessLayer.UserDAO, MakesCentsBackend.Services.Utilities.JwtService, AutoMapper.IMapper)
+  type: Constructor
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Services/BusinessLogicLayer/UserLogic.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: .ctor
+    path: Services/BusinessLogicLayer/UserLogic.cs
+    startLine: 28
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Services.BusinessLogicLayer
+  summary: >-
+    Parameterized constructor for UserLogic 
+
+    to pull in necessary dependencies
+  example: []
+  syntax:
+    content: public UserLogic(UserDAO userDAO, JwtService jwtService, IMapper mapper)
+    parameters:
+    - id: userDAO
+      type: MakesCentsBackend.Services.DataAccessLayer.UserDAO
+      description: ''
+    - id: jwtService
+      type: MakesCentsBackend.Services.Utilities.JwtService
+    - id: mapper
+      type: AutoMapper.IMapper
+    content.vb: Public Sub New(userDAO As UserDAO, jwtService As JwtService, mapper As IMapper)
+  overload: MakesCentsBackend.Services.BusinessLogicLayer.UserLogic.#ctor*
+  nameWithType.vb: UserLogic.New(UserDAO, JwtService, IMapper)
+  fullName.vb: MakesCentsBackend.Services.BusinessLogicLayer.UserLogic.New(MakesCentsBackend.Services.DataAccessLayer.UserDAO, MakesCentsBackend.Services.Utilities.JwtService, AutoMapper.IMapper)
+  name.vb: New(UserDAO, JwtService, IMapper)
+- uid: MakesCentsBackend.Services.BusinessLogicLayer.UserLogic.RegisterUserAsync(MakesCentsBackend.Models.RegisterRequest)
+  commentId: M:MakesCentsBackend.Services.BusinessLogicLayer.UserLogic.RegisterUserAsync(MakesCentsBackend.Models.RegisterRequest)
+  id: RegisterUserAsync(MakesCentsBackend.Models.RegisterRequest)
+  parent: MakesCentsBackend.Services.BusinessLogicLayer.UserLogic
+  langs:
+  - csharp
+  - vb
+  name: RegisterUserAsync(RegisterRequest)
+  nameWithType: UserLogic.RegisterUserAsync(RegisterRequest)
+  fullName: MakesCentsBackend.Services.BusinessLogicLayer.UserLogic.RegisterUserAsync(MakesCentsBackend.Models.RegisterRequest)
+  type: Method
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Services/BusinessLogicLayer/UserLogic.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: RegisterUserAsync
+    path: Services/BusinessLogicLayer/UserLogic.cs
+    startLine: 40
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Services.BusinessLogicLayer
+  summary: Create a user from a userModel
+  example: []
+  syntax:
+    content: public Task<RegisterResponse> RegisterUserAsync(RegisterRequest user)
+    parameters:
+    - id: user
+      type: MakesCentsBackend.Models.RegisterRequest
+      description: The new user to create
+    return:
+      type: System.Threading.Tasks.Task{MakesCentsBackend.Models.RegisterResponse}
+      description: ''
+    content.vb: Public Function RegisterUserAsync(user As RegisterRequest) As Task(Of RegisterResponse)
+  overload: MakesCentsBackend.Services.BusinessLogicLayer.UserLogic.RegisterUserAsync*
+- uid: MakesCentsBackend.Services.BusinessLogicLayer.UserLogic.LoginUserAsync(MakesCentsBackend.Models.LoginRequest)
+  commentId: M:MakesCentsBackend.Services.BusinessLogicLayer.UserLogic.LoginUserAsync(MakesCentsBackend.Models.LoginRequest)
+  id: LoginUserAsync(MakesCentsBackend.Models.LoginRequest)
+  parent: MakesCentsBackend.Services.BusinessLogicLayer.UserLogic
+  langs:
+  - csharp
+  - vb
+  name: LoginUserAsync(LoginRequest)
+  nameWithType: UserLogic.LoginUserAsync(LoginRequest)
+  fullName: MakesCentsBackend.Services.BusinessLogicLayer.UserLogic.LoginUserAsync(MakesCentsBackend.Models.LoginRequest)
+  type: Method
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Services/BusinessLogicLayer/UserLogic.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: LoginUserAsync
+    path: Services/BusinessLogicLayer/UserLogic.cs
+    startLine: 93
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Services.BusinessLogicLayer
+  summary: Authenticate a user based on a username or email and a password
+  example: []
+  syntax:
+    content: public Task<LoginResponse> LoginUserAsync(LoginRequest user)
+    parameters:
+    - id: user
+      type: MakesCentsBackend.Models.LoginRequest
+      description: ''
+    return:
+      type: System.Threading.Tasks.Task{MakesCentsBackend.Models.LoginResponse}
+      description: ''
+    content.vb: Public Function LoginUserAsync(user As LoginRequest) As Task(Of LoginResponse)
+  overload: MakesCentsBackend.Services.BusinessLogicLayer.UserLogic.LoginUserAsync*
+- uid: MakesCentsBackend.Services.BusinessLogicLayer.UserLogic.GetUserAsync(System.Int32)
+  commentId: M:MakesCentsBackend.Services.BusinessLogicLayer.UserLogic.GetUserAsync(System.Int32)
+  id: GetUserAsync(System.Int32)
+  parent: MakesCentsBackend.Services.BusinessLogicLayer.UserLogic
+  langs:
+  - csharp
+  - vb
+  name: GetUserAsync(int)
+  nameWithType: UserLogic.GetUserAsync(int)
+  fullName: MakesCentsBackend.Services.BusinessLogicLayer.UserLogic.GetUserAsync(int)
+  type: Method
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Services/BusinessLogicLayer/UserLogic.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: GetUserAsync
+    path: Services/BusinessLogicLayer/UserLogic.cs
+    startLine: 153
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Services.BusinessLogicLayer
+  summary: Get a user based on a user id
+  example: []
+  syntax:
+    content: public Task<GetUserResponse> GetUserAsync(int userId)
+    parameters:
+    - id: userId
+      type: System.Int32
+      description: ''
+    return:
+      type: System.Threading.Tasks.Task{MakesCentsBackend.Models.GetUserResponse}
+      description: ''
+    content.vb: Public Function GetUserAsync(userId As Integer) As Task(Of GetUserResponse)
+  overload: MakesCentsBackend.Services.BusinessLogicLayer.UserLogic.GetUserAsync*
+  nameWithType.vb: UserLogic.GetUserAsync(Integer)
+  fullName.vb: MakesCentsBackend.Services.BusinessLogicLayer.UserLogic.GetUserAsync(Integer)
+  name.vb: GetUserAsync(Integer)
+- uid: MakesCentsBackend.Services.BusinessLogicLayer.UserLogic.UpdateUserAsync(MakesCentsBackend.Models.EditUserRequest)
+  commentId: M:MakesCentsBackend.Services.BusinessLogicLayer.UserLogic.UpdateUserAsync(MakesCentsBackend.Models.EditUserRequest)
+  id: UpdateUserAsync(MakesCentsBackend.Models.EditUserRequest)
+  parent: MakesCentsBackend.Services.BusinessLogicLayer.UserLogic
+  langs:
+  - csharp
+  - vb
+  name: UpdateUserAsync(EditUserRequest)
+  nameWithType: UserLogic.UpdateUserAsync(EditUserRequest)
+  fullName: MakesCentsBackend.Services.BusinessLogicLayer.UserLogic.UpdateUserAsync(MakesCentsBackend.Models.EditUserRequest)
+  type: Method
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Services/BusinessLogicLayer/UserLogic.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: UpdateUserAsync
+    path: Services/BusinessLogicLayer/UserLogic.cs
+    startLine: 176
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Services.BusinessLogicLayer
+  summary: Async method to update a user
+  example: []
+  syntax:
+    content: public Task<BaseIdResponse> UpdateUserAsync(EditUserRequest user)
+    parameters:
+    - id: user
+      type: MakesCentsBackend.Models.EditUserRequest
+      description: The new user to create
+    return:
+      type: System.Threading.Tasks.Task{MakesCentsBackend.Models.BaseIdResponse}
+      description: ''
+    content.vb: Public Function UpdateUserAsync(user As EditUserRequest) As Task(Of BaseIdResponse)
+  overload: MakesCentsBackend.Services.BusinessLogicLayer.UserLogic.UpdateUserAsync*
+- uid: MakesCentsBackend.Services.BusinessLogicLayer.UserLogic.DeleteUserAsync(System.Int32)
+  commentId: M:MakesCentsBackend.Services.BusinessLogicLayer.UserLogic.DeleteUserAsync(System.Int32)
+  id: DeleteUserAsync(System.Int32)
+  parent: MakesCentsBackend.Services.BusinessLogicLayer.UserLogic
+  langs:
+  - csharp
+  - vb
+  name: DeleteUserAsync(int)
+  nameWithType: UserLogic.DeleteUserAsync(int)
+  fullName: MakesCentsBackend.Services.BusinessLogicLayer.UserLogic.DeleteUserAsync(int)
+  type: Method
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Services/BusinessLogicLayer/UserLogic.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: DeleteUserAsync
+    path: Services/BusinessLogicLayer/UserLogic.cs
+    startLine: 216
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Services.BusinessLogicLayer
+  summary: Async method to delete a user based on a userId
+  example: []
+  syntax:
+    content: public Task<BaseResponse> DeleteUserAsync(int userId)
+    parameters:
+    - id: userId
+      type: System.Int32
+      description: ''
+    return:
+      type: System.Threading.Tasks.Task{MakesCentsBackend.Models.BaseResponse}
+      description: ''
+    content.vb: Public Function DeleteUserAsync(userId As Integer) As Task(Of BaseResponse)
+  overload: MakesCentsBackend.Services.BusinessLogicLayer.UserLogic.DeleteUserAsync*
+  nameWithType.vb: UserLogic.DeleteUserAsync(Integer)
+  fullName.vb: MakesCentsBackend.Services.BusinessLogicLayer.UserLogic.DeleteUserAsync(Integer)
+  name.vb: DeleteUserAsync(Integer)
+references:
+- uid: MakesCentsBackend.Services.BusinessLogicLayer
+  commentId: N:MakesCentsBackend.Services.BusinessLogicLayer
+  href: MakesCentsBackend.html
+  name: MakesCentsBackend.Services.BusinessLogicLayer
+  nameWithType: MakesCentsBackend.Services.BusinessLogicLayer
+  fullName: MakesCentsBackend.Services.BusinessLogicLayer
+  spec.csharp:
+  - uid: MakesCentsBackend
+    name: MakesCentsBackend
+    href: MakesCentsBackend.html
+  - name: .
+  - uid: MakesCentsBackend.Services
+    name: Services
+    href: MakesCentsBackend.Services.html
+  - name: .
+  - uid: MakesCentsBackend.Services.BusinessLogicLayer
+    name: BusinessLogicLayer
+    href: MakesCentsBackend.Services.BusinessLogicLayer.html
+  spec.vb:
+  - uid: MakesCentsBackend
+    name: MakesCentsBackend
+    href: MakesCentsBackend.html
+  - name: .
+  - uid: MakesCentsBackend.Services
+    name: Services
+    href: MakesCentsBackend.Services.html
+  - name: .
+  - uid: MakesCentsBackend.Services.BusinessLogicLayer
+    name: BusinessLogicLayer
+    href: MakesCentsBackend.Services.BusinessLogicLayer.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: MakesCentsBackend.Services.BusinessLogicLayer.UserLogic.#ctor*
+  commentId: Overload:MakesCentsBackend.Services.BusinessLogicLayer.UserLogic.#ctor
+  href: MakesCentsBackend.Services.BusinessLogicLayer.UserLogic.html#MakesCentsBackend_Services_BusinessLogicLayer_UserLogic__ctor_MakesCentsBackend_Services_DataAccessLayer_UserDAO_MakesCentsBackend_Services_Utilities_JwtService_AutoMapper_IMapper_
+  name: UserLogic
+  nameWithType: UserLogic.UserLogic
+  fullName: MakesCentsBackend.Services.BusinessLogicLayer.UserLogic.UserLogic
+  nameWithType.vb: UserLogic.New
+  fullName.vb: MakesCentsBackend.Services.BusinessLogicLayer.UserLogic.New
+  name.vb: New
+- uid: MakesCentsBackend.Services.DataAccessLayer.UserDAO
+  commentId: T:MakesCentsBackend.Services.DataAccessLayer.UserDAO
+  parent: MakesCentsBackend.Services.DataAccessLayer
+  href: MakesCentsBackend.Services.DataAccessLayer.UserDAO.html
+  name: UserDAO
+  nameWithType: UserDAO
+  fullName: MakesCentsBackend.Services.DataAccessLayer.UserDAO
+- uid: MakesCentsBackend.Services.Utilities.JwtService
+  commentId: T:MakesCentsBackend.Services.Utilities.JwtService
+  parent: MakesCentsBackend.Services.Utilities
+  href: MakesCentsBackend.Services.Utilities.JwtService.html
+  name: JwtService
+  nameWithType: JwtService
+  fullName: MakesCentsBackend.Services.Utilities.JwtService
+- uid: AutoMapper.IMapper
+  commentId: T:AutoMapper.IMapper
+  parent: AutoMapper
+  isExternal: true
+  name: IMapper
+  nameWithType: IMapper
+  fullName: AutoMapper.IMapper
+- uid: MakesCentsBackend.Services.DataAccessLayer
+  commentId: N:MakesCentsBackend.Services.DataAccessLayer
+  href: MakesCentsBackend.html
+  name: MakesCentsBackend.Services.DataAccessLayer
+  nameWithType: MakesCentsBackend.Services.DataAccessLayer
+  fullName: MakesCentsBackend.Services.DataAccessLayer
+  spec.csharp:
+  - uid: MakesCentsBackend
+    name: MakesCentsBackend
+    href: MakesCentsBackend.html
+  - name: .
+  - uid: MakesCentsBackend.Services
+    name: Services
+    href: MakesCentsBackend.Services.html
+  - name: .
+  - uid: MakesCentsBackend.Services.DataAccessLayer
+    name: DataAccessLayer
+    href: MakesCentsBackend.Services.DataAccessLayer.html
+  spec.vb:
+  - uid: MakesCentsBackend
+    name: MakesCentsBackend
+    href: MakesCentsBackend.html
+  - name: .
+  - uid: MakesCentsBackend.Services
+    name: Services
+    href: MakesCentsBackend.Services.html
+  - name: .
+  - uid: MakesCentsBackend.Services.DataAccessLayer
+    name: DataAccessLayer
+    href: MakesCentsBackend.Services.DataAccessLayer.html
+- uid: MakesCentsBackend.Services.Utilities
+  commentId: N:MakesCentsBackend.Services.Utilities
+  href: MakesCentsBackend.html
+  name: MakesCentsBackend.Services.Utilities
+  nameWithType: MakesCentsBackend.Services.Utilities
+  fullName: MakesCentsBackend.Services.Utilities
+  spec.csharp:
+  - uid: MakesCentsBackend
+    name: MakesCentsBackend
+    href: MakesCentsBackend.html
+  - name: .
+  - uid: MakesCentsBackend.Services
+    name: Services
+    href: MakesCentsBackend.Services.html
+  - name: .
+  - uid: MakesCentsBackend.Services.Utilities
+    name: Utilities
+    href: MakesCentsBackend.Services.Utilities.html
+  spec.vb:
+  - uid: MakesCentsBackend
+    name: MakesCentsBackend
+    href: MakesCentsBackend.html
+  - name: .
+  - uid: MakesCentsBackend.Services
+    name: Services
+    href: MakesCentsBackend.Services.html
+  - name: .
+  - uid: MakesCentsBackend.Services.Utilities
+    name: Utilities
+    href: MakesCentsBackend.Services.Utilities.html
+- uid: AutoMapper
+  commentId: N:AutoMapper
+  isExternal: true
+  name: AutoMapper
+  nameWithType: AutoMapper
+  fullName: AutoMapper
+- uid: MakesCentsBackend.Services.BusinessLogicLayer.UserLogic.RegisterUserAsync*
+  commentId: Overload:MakesCentsBackend.Services.BusinessLogicLayer.UserLogic.RegisterUserAsync
+  href: MakesCentsBackend.Services.BusinessLogicLayer.UserLogic.html#MakesCentsBackend_Services_BusinessLogicLayer_UserLogic_RegisterUserAsync_MakesCentsBackend_Models_RegisterRequest_
+  name: RegisterUserAsync
+  nameWithType: UserLogic.RegisterUserAsync
+  fullName: MakesCentsBackend.Services.BusinessLogicLayer.UserLogic.RegisterUserAsync
+- uid: MakesCentsBackend.Models.RegisterRequest
+  commentId: T:MakesCentsBackend.Models.RegisterRequest
+  parent: MakesCentsBackend.Models
+  href: MakesCentsBackend.Models.RegisterRequest.html
+  name: RegisterRequest
+  nameWithType: RegisterRequest
+  fullName: MakesCentsBackend.Models.RegisterRequest
+- uid: System.Threading.Tasks.Task{MakesCentsBackend.Models.RegisterResponse}
+  commentId: T:System.Threading.Tasks.Task{MakesCentsBackend.Models.RegisterResponse}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<RegisterResponse>
+  nameWithType: Task<RegisterResponse>
+  fullName: System.Threading.Tasks.Task<MakesCentsBackend.Models.RegisterResponse>
+  nameWithType.vb: Task(Of RegisterResponse)
+  fullName.vb: System.Threading.Tasks.Task(Of MakesCentsBackend.Models.RegisterResponse)
+  name.vb: Task(Of RegisterResponse)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: MakesCentsBackend.Models.RegisterResponse
+    name: RegisterResponse
+    href: MakesCentsBackend.Models.RegisterResponse.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: MakesCentsBackend.Models.RegisterResponse
+    name: RegisterResponse
+    href: MakesCentsBackend.Models.RegisterResponse.html
+  - name: )
+- uid: MakesCentsBackend.Models
+  commentId: N:MakesCentsBackend.Models
+  href: MakesCentsBackend.html
+  name: MakesCentsBackend.Models
+  nameWithType: MakesCentsBackend.Models
+  fullName: MakesCentsBackend.Models
+  spec.csharp:
+  - uid: MakesCentsBackend
+    name: MakesCentsBackend
+    href: MakesCentsBackend.html
+  - name: .
+  - uid: MakesCentsBackend.Models
+    name: Models
+    href: MakesCentsBackend.Models.html
+  spec.vb:
+  - uid: MakesCentsBackend
+    name: MakesCentsBackend
+    href: MakesCentsBackend.html
+  - name: .
+  - uid: MakesCentsBackend.Models
+    name: Models
+    href: MakesCentsBackend.Models.html
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+- uid: MakesCentsBackend.Services.BusinessLogicLayer.UserLogic.LoginUserAsync*
+  commentId: Overload:MakesCentsBackend.Services.BusinessLogicLayer.UserLogic.LoginUserAsync
+  href: MakesCentsBackend.Services.BusinessLogicLayer.UserLogic.html#MakesCentsBackend_Services_BusinessLogicLayer_UserLogic_LoginUserAsync_MakesCentsBackend_Models_LoginRequest_
+  name: LoginUserAsync
+  nameWithType: UserLogic.LoginUserAsync
+  fullName: MakesCentsBackend.Services.BusinessLogicLayer.UserLogic.LoginUserAsync
+- uid: MakesCentsBackend.Models.LoginRequest
+  commentId: T:MakesCentsBackend.Models.LoginRequest
+  parent: MakesCentsBackend.Models
+  href: MakesCentsBackend.Models.LoginRequest.html
+  name: LoginRequest
+  nameWithType: LoginRequest
+  fullName: MakesCentsBackend.Models.LoginRequest
+- uid: System.Threading.Tasks.Task{MakesCentsBackend.Models.LoginResponse}
+  commentId: T:System.Threading.Tasks.Task{MakesCentsBackend.Models.LoginResponse}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<LoginResponse>
+  nameWithType: Task<LoginResponse>
+  fullName: System.Threading.Tasks.Task<MakesCentsBackend.Models.LoginResponse>
+  nameWithType.vb: Task(Of LoginResponse)
+  fullName.vb: System.Threading.Tasks.Task(Of MakesCentsBackend.Models.LoginResponse)
+  name.vb: Task(Of LoginResponse)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: MakesCentsBackend.Models.LoginResponse
+    name: LoginResponse
+    href: MakesCentsBackend.Models.LoginResponse.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: MakesCentsBackend.Models.LoginResponse
+    name: LoginResponse
+    href: MakesCentsBackend.Models.LoginResponse.html
+  - name: )
+- uid: MakesCentsBackend.Services.BusinessLogicLayer.UserLogic.GetUserAsync*
+  commentId: Overload:MakesCentsBackend.Services.BusinessLogicLayer.UserLogic.GetUserAsync
+  href: MakesCentsBackend.Services.BusinessLogicLayer.UserLogic.html#MakesCentsBackend_Services_BusinessLogicLayer_UserLogic_GetUserAsync_System_Int32_
+  name: GetUserAsync
+  nameWithType: UserLogic.GetUserAsync
+  fullName: MakesCentsBackend.Services.BusinessLogicLayer.UserLogic.GetUserAsync
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: System.Threading.Tasks.Task{MakesCentsBackend.Models.GetUserResponse}
+  commentId: T:System.Threading.Tasks.Task{MakesCentsBackend.Models.GetUserResponse}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<GetUserResponse>
+  nameWithType: Task<GetUserResponse>
+  fullName: System.Threading.Tasks.Task<MakesCentsBackend.Models.GetUserResponse>
+  nameWithType.vb: Task(Of GetUserResponse)
+  fullName.vb: System.Threading.Tasks.Task(Of MakesCentsBackend.Models.GetUserResponse)
+  name.vb: Task(Of GetUserResponse)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: MakesCentsBackend.Models.GetUserResponse
+    name: GetUserResponse
+    href: MakesCentsBackend.Models.GetUserResponse.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: MakesCentsBackend.Models.GetUserResponse
+    name: GetUserResponse
+    href: MakesCentsBackend.Models.GetUserResponse.html
+  - name: )
+- uid: MakesCentsBackend.Services.BusinessLogicLayer.UserLogic.UpdateUserAsync*
+  commentId: Overload:MakesCentsBackend.Services.BusinessLogicLayer.UserLogic.UpdateUserAsync
+  href: MakesCentsBackend.Services.BusinessLogicLayer.UserLogic.html#MakesCentsBackend_Services_BusinessLogicLayer_UserLogic_UpdateUserAsync_MakesCentsBackend_Models_EditUserRequest_
+  name: UpdateUserAsync
+  nameWithType: UserLogic.UpdateUserAsync
+  fullName: MakesCentsBackend.Services.BusinessLogicLayer.UserLogic.UpdateUserAsync
+- uid: MakesCentsBackend.Models.EditUserRequest
+  commentId: T:MakesCentsBackend.Models.EditUserRequest
+  parent: MakesCentsBackend.Models
+  href: MakesCentsBackend.Models.EditUserRequest.html
+  name: EditUserRequest
+  nameWithType: EditUserRequest
+  fullName: MakesCentsBackend.Models.EditUserRequest
+- uid: System.Threading.Tasks.Task{MakesCentsBackend.Models.BaseIdResponse}
+  commentId: T:System.Threading.Tasks.Task{MakesCentsBackend.Models.BaseIdResponse}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<BaseIdResponse>
+  nameWithType: Task<BaseIdResponse>
+  fullName: System.Threading.Tasks.Task<MakesCentsBackend.Models.BaseIdResponse>
+  nameWithType.vb: Task(Of BaseIdResponse)
+  fullName.vb: System.Threading.Tasks.Task(Of MakesCentsBackend.Models.BaseIdResponse)
+  name.vb: Task(Of BaseIdResponse)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: MakesCentsBackend.Models.BaseIdResponse
+    name: BaseIdResponse
+    href: MakesCentsBackend.Models.BaseIdResponse.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: MakesCentsBackend.Models.BaseIdResponse
+    name: BaseIdResponse
+    href: MakesCentsBackend.Models.BaseIdResponse.html
+  - name: )
+- uid: MakesCentsBackend.Services.BusinessLogicLayer.UserLogic.DeleteUserAsync*
+  commentId: Overload:MakesCentsBackend.Services.BusinessLogicLayer.UserLogic.DeleteUserAsync
+  href: MakesCentsBackend.Services.BusinessLogicLayer.UserLogic.html#MakesCentsBackend_Services_BusinessLogicLayer_UserLogic_DeleteUserAsync_System_Int32_
+  name: DeleteUserAsync
+  nameWithType: UserLogic.DeleteUserAsync
+  fullName: MakesCentsBackend.Services.BusinessLogicLayer.UserLogic.DeleteUserAsync
+- uid: System.Threading.Tasks.Task{MakesCentsBackend.Models.BaseResponse}
+  commentId: T:System.Threading.Tasks.Task{MakesCentsBackend.Models.BaseResponse}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<BaseResponse>
+  nameWithType: Task<BaseResponse>
+  fullName: System.Threading.Tasks.Task<MakesCentsBackend.Models.BaseResponse>
+  nameWithType.vb: Task(Of BaseResponse)
+  fullName.vb: System.Threading.Tasks.Task(Of MakesCentsBackend.Models.BaseResponse)
+  name.vb: Task(Of BaseResponse)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: MakesCentsBackend.Models.BaseResponse
+    name: BaseResponse
+    href: MakesCentsBackend.Models.BaseResponse.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: MakesCentsBackend.Models.BaseResponse
+    name: BaseResponse
+    href: MakesCentsBackend.Models.BaseResponse.html
+  - name: )

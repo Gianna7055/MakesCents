@@ -1,0 +1,149 @@
+### YamlMime:ManagedReference
+items:
+- uid: MakesCentsBackend.Models.Enums.BankAccountType
+  commentId: T:MakesCentsBackend.Models.Enums.BankAccountType
+  id: BankAccountType
+  parent: MakesCentsBackend.Models.Enums
+  children:
+  - MakesCentsBackend.Models.Enums.BankAccountType.Checking
+  - MakesCentsBackend.Models.Enums.BankAccountType.Savings
+  - MakesCentsBackend.Models.Enums.BankAccountType.Unknown
+  langs:
+  - csharp
+  - vb
+  name: BankAccountType
+  nameWithType: BankAccountType
+  fullName: MakesCentsBackend.Models.Enums.BankAccountType
+  type: Enum
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Models/Enums/BankAccountType.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: BankAccountType
+    path: Models/Enums/BankAccountType.cs
+    startLine: 10
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Models.Enums
+  summary: Enum for Bank Account Types for the Bank Account Model
+  example: []
+  syntax:
+    content: public enum BankAccountType
+    content.vb: Public Enum BankAccountType
+- uid: MakesCentsBackend.Models.Enums.BankAccountType.Unknown
+  commentId: F:MakesCentsBackend.Models.Enums.BankAccountType.Unknown
+  id: Unknown
+  parent: MakesCentsBackend.Models.Enums.BankAccountType
+  langs:
+  - csharp
+  - vb
+  name: Unknown
+  nameWithType: BankAccountType.Unknown
+  fullName: MakesCentsBackend.Models.Enums.BankAccountType.Unknown
+  type: Field
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Models/Enums/BankAccountType.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: Unknown
+    path: Models/Enums/BankAccountType.cs
+    startLine: 12
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Models.Enums
+  syntax:
+    content: Unknown = 1
+    return:
+      type: MakesCentsBackend.Models.Enums.BankAccountType
+- uid: MakesCentsBackend.Models.Enums.BankAccountType.Savings
+  commentId: F:MakesCentsBackend.Models.Enums.BankAccountType.Savings
+  id: Savings
+  parent: MakesCentsBackend.Models.Enums.BankAccountType
+  langs:
+  - csharp
+  - vb
+  name: Savings
+  nameWithType: BankAccountType.Savings
+  fullName: MakesCentsBackend.Models.Enums.BankAccountType.Savings
+  type: Field
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Models/Enums/BankAccountType.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: Savings
+    path: Models/Enums/BankAccountType.cs
+    startLine: 13
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Models.Enums
+  syntax:
+    content: Savings = 2
+    return:
+      type: MakesCentsBackend.Models.Enums.BankAccountType
+- uid: MakesCentsBackend.Models.Enums.BankAccountType.Checking
+  commentId: F:MakesCentsBackend.Models.Enums.BankAccountType.Checking
+  id: Checking
+  parent: MakesCentsBackend.Models.Enums.BankAccountType
+  langs:
+  - csharp
+  - vb
+  name: Checking
+  nameWithType: BankAccountType.Checking
+  fullName: MakesCentsBackend.Models.Enums.BankAccountType.Checking
+  type: Field
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Models/Enums/BankAccountType.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: Checking
+    path: Models/Enums/BankAccountType.cs
+    startLine: 14
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Models.Enums
+  syntax:
+    content: Checking = 3
+    return:
+      type: MakesCentsBackend.Models.Enums.BankAccountType
+references:
+- uid: MakesCentsBackend.Models.Enums
+  commentId: N:MakesCentsBackend.Models.Enums
+  href: MakesCentsBackend.html
+  name: MakesCentsBackend.Models.Enums
+  nameWithType: MakesCentsBackend.Models.Enums
+  fullName: MakesCentsBackend.Models.Enums
+  spec.csharp:
+  - uid: MakesCentsBackend
+    name: MakesCentsBackend
+    href: MakesCentsBackend.html
+  - name: .
+  - uid: MakesCentsBackend.Models
+    name: Models
+    href: MakesCentsBackend.Models.html
+  - name: .
+  - uid: MakesCentsBackend.Models.Enums
+    name: Enums
+    href: MakesCentsBackend.Models.Enums.html
+  spec.vb:
+  - uid: MakesCentsBackend
+    name: MakesCentsBackend
+    href: MakesCentsBackend.html
+  - name: .
+  - uid: MakesCentsBackend.Models
+    name: Models
+    href: MakesCentsBackend.Models.html
+  - name: .
+  - uid: MakesCentsBackend.Models.Enums
+    name: Enums
+    href: MakesCentsBackend.Models.Enums.html
+- uid: MakesCentsBackend.Models.Enums.BankAccountType
+  commentId: T:MakesCentsBackend.Models.Enums.BankAccountType
+  parent: MakesCentsBackend.Models.Enums
+  href: MakesCentsBackend.Models.Enums.BankAccountType.html
+  name: BankAccountType
+  nameWithType: BankAccountType
+  fullName: MakesCentsBackend.Models.Enums.BankAccountType

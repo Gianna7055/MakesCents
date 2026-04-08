@@ -1,0 +1,150 @@
+### YamlMime:ManagedReference
+items:
+- uid: MakesCentsBackend.Services.DataAccessLayer
+  commentId: N:MakesCentsBackend.Services.DataAccessLayer
+  id: MakesCentsBackend.Services.DataAccessLayer
+  children:
+  - MakesCentsBackend.Services.DataAccessLayer.AccountDAO
+  - MakesCentsBackend.Services.DataAccessLayer.AuthorizationService
+  - MakesCentsBackend.Services.DataAccessLayer.BankAccountDAO
+  - MakesCentsBackend.Services.DataAccessLayer.BudgetDAO
+  - MakesCentsBackend.Services.DataAccessLayer.DebtAccountDAO
+  - MakesCentsBackend.Services.DataAccessLayer.EnvelopeCategoryDAO
+  - MakesCentsBackend.Services.DataAccessLayer.EnvelopeDAO
+  - MakesCentsBackend.Services.DataAccessLayer.InvestmentAccountDAO
+  - MakesCentsBackend.Services.DataAccessLayer.PaycheckDAO
+  - MakesCentsBackend.Services.DataAccessLayer.PaymentTransactionDAO
+  - MakesCentsBackend.Services.DataAccessLayer.TransactionDAO
+  - MakesCentsBackend.Services.DataAccessLayer.TransferTransactionDAO
+  - MakesCentsBackend.Services.DataAccessLayer.UserDAO
+  langs:
+  - csharp
+  - vb
+  name: MakesCentsBackend.Services.DataAccessLayer
+  nameWithType: MakesCentsBackend.Services.DataAccessLayer
+  fullName: MakesCentsBackend.Services.DataAccessLayer
+  type: Namespace
+  assemblies:
+  - MakesCentsBackend
+references:
+- uid: MakesCentsBackend.Services.DataAccessLayer.AccountDAO
+  commentId: T:MakesCentsBackend.Services.DataAccessLayer.AccountDAO
+  parent: MakesCentsBackend.Services.DataAccessLayer
+  href: MakesCentsBackend.Services.DataAccessLayer.AccountDAO.html
+  name: AccountDAO
+  nameWithType: AccountDAO
+  fullName: MakesCentsBackend.Services.DataAccessLayer.AccountDAO
+- uid: MakesCentsBackend.Services.DataAccessLayer.AuthorizationService
+  commentId: T:MakesCentsBackend.Services.DataAccessLayer.AuthorizationService
+  parent: MakesCentsBackend.Services.DataAccessLayer
+  href: MakesCentsBackend.Services.DataAccessLayer.AuthorizationService.html
+  name: AuthorizationService
+  nameWithType: AuthorizationService
+  fullName: MakesCentsBackend.Services.DataAccessLayer.AuthorizationService
+- uid: MakesCentsBackend.Services.DataAccessLayer.BankAccountDAO
+  commentId: T:MakesCentsBackend.Services.DataAccessLayer.BankAccountDAO
+  parent: MakesCentsBackend.Services.DataAccessLayer
+  href: MakesCentsBackend.Services.DataAccessLayer.BankAccountDAO.html
+  name: BankAccountDAO
+  nameWithType: BankAccountDAO
+  fullName: MakesCentsBackend.Services.DataAccessLayer.BankAccountDAO
+- uid: MakesCentsBackend.Services.DataAccessLayer.BudgetDAO
+  commentId: T:MakesCentsBackend.Services.DataAccessLayer.BudgetDAO
+  parent: MakesCentsBackend.Services.DataAccessLayer
+  href: MakesCentsBackend.Services.DataAccessLayer.BudgetDAO.html
+  name: BudgetDAO
+  nameWithType: BudgetDAO
+  fullName: MakesCentsBackend.Services.DataAccessLayer.BudgetDAO
+- uid: MakesCentsBackend.Services.DataAccessLayer.DebtAccountDAO
+  commentId: T:MakesCentsBackend.Services.DataAccessLayer.DebtAccountDAO
+  parent: MakesCentsBackend.Services.DataAccessLayer
+  href: MakesCentsBackend.Services.DataAccessLayer.DebtAccountDAO.html
+  name: DebtAccountDAO
+  nameWithType: DebtAccountDAO
+  fullName: MakesCentsBackend.Services.DataAccessLayer.DebtAccountDAO
+- uid: MakesCentsBackend.Services.DataAccessLayer.EnvelopeCategoryDAO
+  commentId: T:MakesCentsBackend.Services.DataAccessLayer.EnvelopeCategoryDAO
+  parent: MakesCentsBackend.Services.DataAccessLayer
+  href: MakesCentsBackend.Services.DataAccessLayer.EnvelopeCategoryDAO.html
+  name: EnvelopeCategoryDAO
+  nameWithType: EnvelopeCategoryDAO
+  fullName: MakesCentsBackend.Services.DataAccessLayer.EnvelopeCategoryDAO
+- uid: MakesCentsBackend.Services.DataAccessLayer.EnvelopeDAO
+  commentId: T:MakesCentsBackend.Services.DataAccessLayer.EnvelopeDAO
+  parent: MakesCentsBackend.Services.DataAccessLayer
+  href: MakesCentsBackend.Services.DataAccessLayer.EnvelopeDAO.html
+  name: EnvelopeDAO
+  nameWithType: EnvelopeDAO
+  fullName: MakesCentsBackend.Services.DataAccessLayer.EnvelopeDAO
+- uid: MakesCentsBackend.Services.DataAccessLayer.InvestmentAccountDAO
+  commentId: T:MakesCentsBackend.Services.DataAccessLayer.InvestmentAccountDAO
+  parent: MakesCentsBackend.Services.DataAccessLayer
+  href: MakesCentsBackend.Services.DataAccessLayer.InvestmentAccountDAO.html
+  name: InvestmentAccountDAO
+  nameWithType: InvestmentAccountDAO
+  fullName: MakesCentsBackend.Services.DataAccessLayer.InvestmentAccountDAO
+- uid: MakesCentsBackend.Services.DataAccessLayer.PaycheckDAO
+  commentId: T:MakesCentsBackend.Services.DataAccessLayer.PaycheckDAO
+  parent: MakesCentsBackend.Services.DataAccessLayer
+  href: MakesCentsBackend.Services.DataAccessLayer.PaycheckDAO.html
+  name: PaycheckDAO
+  nameWithType: PaycheckDAO
+  fullName: MakesCentsBackend.Services.DataAccessLayer.PaycheckDAO
+- uid: MakesCentsBackend.Services.DataAccessLayer.PaymentTransactionDAO
+  commentId: T:MakesCentsBackend.Services.DataAccessLayer.PaymentTransactionDAO
+  parent: MakesCentsBackend.Services.DataAccessLayer
+  href: MakesCentsBackend.Services.DataAccessLayer.PaymentTransactionDAO.html
+  name: PaymentTransactionDAO
+  nameWithType: PaymentTransactionDAO
+  fullName: MakesCentsBackend.Services.DataAccessLayer.PaymentTransactionDAO
+- uid: MakesCentsBackend.Services.DataAccessLayer.TransactionDAO
+  commentId: T:MakesCentsBackend.Services.DataAccessLayer.TransactionDAO
+  parent: MakesCentsBackend.Services.DataAccessLayer
+  href: MakesCentsBackend.Services.DataAccessLayer.TransactionDAO.html
+  name: TransactionDAO
+  nameWithType: TransactionDAO
+  fullName: MakesCentsBackend.Services.DataAccessLayer.TransactionDAO
+- uid: MakesCentsBackend.Services.DataAccessLayer.TransferTransactionDAO
+  commentId: T:MakesCentsBackend.Services.DataAccessLayer.TransferTransactionDAO
+  parent: MakesCentsBackend.Services.DataAccessLayer
+  href: MakesCentsBackend.Services.DataAccessLayer.TransferTransactionDAO.html
+  name: TransferTransactionDAO
+  nameWithType: TransferTransactionDAO
+  fullName: MakesCentsBackend.Services.DataAccessLayer.TransferTransactionDAO
+- uid: MakesCentsBackend.Services.DataAccessLayer.UserDAO
+  commentId: T:MakesCentsBackend.Services.DataAccessLayer.UserDAO
+  parent: MakesCentsBackend.Services.DataAccessLayer
+  href: MakesCentsBackend.Services.DataAccessLayer.UserDAO.html
+  name: UserDAO
+  nameWithType: UserDAO
+  fullName: MakesCentsBackend.Services.DataAccessLayer.UserDAO
+- uid: MakesCentsBackend.Services.DataAccessLayer
+  commentId: N:MakesCentsBackend.Services.DataAccessLayer
+  href: MakesCentsBackend.html
+  name: MakesCentsBackend.Services.DataAccessLayer
+  nameWithType: MakesCentsBackend.Services.DataAccessLayer
+  fullName: MakesCentsBackend.Services.DataAccessLayer
+  spec.csharp:
+  - uid: MakesCentsBackend
+    name: MakesCentsBackend
+    href: MakesCentsBackend.html
+  - name: .
+  - uid: MakesCentsBackend.Services
+    name: Services
+    href: MakesCentsBackend.Services.html
+  - name: .
+  - uid: MakesCentsBackend.Services.DataAccessLayer
+    name: DataAccessLayer
+    href: MakesCentsBackend.Services.DataAccessLayer.html
+  spec.vb:
+  - uid: MakesCentsBackend
+    name: MakesCentsBackend
+    href: MakesCentsBackend.html
+  - name: .
+  - uid: MakesCentsBackend.Services
+    name: Services
+    href: MakesCentsBackend.Services.html
+  - name: .
+  - uid: MakesCentsBackend.Services.DataAccessLayer
+    name: DataAccessLayer
+    href: MakesCentsBackend.Services.DataAccessLayer.html
