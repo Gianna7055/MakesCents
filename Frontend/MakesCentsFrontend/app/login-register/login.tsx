@@ -35,11 +35,11 @@ export default function Login() {
   const [submitted, setSubmitted] = useState(false);
 
   // For testing: Remove
-  useEffect(() => {
+  /*useEffect(() => {
     setUsernameOrEmail("username");
     setPassword("password");
     handleLoginClick();
-  });
+  });*/
 
   // references for text inputs
   const passwordRef = useRef<TextInput>(null);

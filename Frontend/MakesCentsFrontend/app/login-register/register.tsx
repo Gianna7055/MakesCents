@@ -51,6 +51,7 @@ export default function Register() {
       console.log("Missing username, email, or password");
       return;
     } else {
+      console.log("Register use");
       // Create the register request
       const request = new RegisterRequest();
       request.username = username;
@@ -70,6 +71,8 @@ export default function Register() {
           JSON.stringify(axiosResponse.data),
           jsonReviver,
         );
+        // Log the response
+        console.log("Response:", response);
 
         // Check the response code
         if (response.httpStatus == 201) {
