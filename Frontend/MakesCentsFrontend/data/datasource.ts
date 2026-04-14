@@ -3,8 +3,9 @@ import { storage } from "../data/storage";
 
 //export const makesCentsUrl: string = "http://172.24.79.93:5047"; // For Encanto LOPES
 //export const makesCentsUrl: string = 'http://172.24.215.173:5047'; // For Engineering LOPES
-export const makesCentsUrl: string = "http://172.20.10.7:5047"; // For Hot-spot
+//export const makesCentsUrl: string = "http://172.20.10.7:5047"; // For Hot-spot
 // export const makesCentsUrl: string = 'http://172.24.215.173:5047'; // For Pi
+export const makesCentsUrl: string = "http://172.24.79.93:5047"; // For Oak Creek LOPES
 
 // Unauthenticated axios for login/register
 export const makesCentsPublicAxios = axios.create({

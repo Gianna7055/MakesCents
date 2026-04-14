@@ -18,7 +18,7 @@ import axios, { AxiosResponse } from "axios";
 import { storage } from "@/data/storage";
 import ScreenWrapper from "@/components/ui/screen-wrapper";
 import { jsonReviver } from "@/utils/mappers/jsonReplacer";
-import { handleBlur, touchAll } from "@/utils/touched";
+import { handleBlur } from "@/utils/touched";
 
 export default function Login() {
   // UseState variables

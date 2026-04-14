@@ -10,7 +10,7 @@ import { EditEnvelopeCategoryRequest } from "@/types/edit-envelope-category-requ
 import { GetEnvelopeCategoryResponse } from "@/types/get-envelope-category-response";
 import { handleAxiosError } from "@/utils/axiosErrorHandler";
 import { jsonReviver } from "@/utils/mappers/jsonReplacer";
-import { handleBlur, touchAll } from "@/utils/touched";
+import { handleBlur } from "@/utils/touched";
 import { AxiosResponse } from "axios";
 import { router, useLocalSearchParams } from "expo-router";
 import React, { useEffect, useState } from "react";
