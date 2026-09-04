@@ -45,6 +45,7 @@ import {
   createPaymentTransaction,
   createTransferTransaction,
   deleteTransaction,
+  softDeleteTransaction,
   updatePaymentTransaction,
   updateTransferTransaction,
 } from "@/utils/new-edit-helpers/newEditTransactionHelper";
@@ -291,8 +292,8 @@ export default function NewEditTransaction() {
     setTransaction((prev) => ({ ...prev, [key]: value }));
   };
 
-  const handleDeleteClickEH = () => {
-    deleteTransaction(originalTransaction!.transactionId);
+  const handleSoftDeleteClickEH = () => {
+    softDeleteTransaction(originalTransaction!.transactionId);
     router.back();
   };
 
@@ -728,7 +729,11 @@ export default function NewEditTransaction() {
   const renderDeleteButton = () => {
     return (
       <View>
-        <Button name="Delete" onPress={handleDeleteClickEH} variant="delete" />
+        <Button
+          name="Delete"
+          onPress={handleSoftDeleteClickEH}
+          variant="delete"
+        />
       </View>
     );
   };
