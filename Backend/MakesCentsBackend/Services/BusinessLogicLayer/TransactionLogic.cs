@@ -48,19 +48,51 @@ namespace MakesCentsBackend.Services.BusinessLogicLayer
         }
 
         /// <summary>
-        /// Logic method to delete an transaction
+        /// Logic method to soft delete a transaction
         /// </summary>
         /// <param name="request"></param>
         /// <returns></returns>
-        public async Task<BaseResponse> DeleteTransactionAsync(BaseIdRequest request)
+        public async Task<BaseResponse> SoftDeleteTransactionAsync(BaseIdRequest request)
         {
             // Check to make sure the required information was provided
             if (request.EntityId == 0 || request.UserId == 0)
             {
-                return new BaseResponse(400, "Missing information for update");
+                return new BaseResponse(400, "Missing information for soft delete");
             }
             // Return a call the the DAO method
-            return await _transactionDAO.DeleteTransactionAsync(request);
+            return await _transactionDAO.SoftDeleteTransactionAsync(request);
+        }
+
+        /// <summary>
+        /// Logic method to restore a transaction
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        public async Task<BaseResponse> RestoreTransactionAsync(BaseIdRequest request)
+        {
+            // Check to make sure the required information was provided
+            if (request.EntityId == 0 || request.UserId == 0)
+            {
+                return new BaseResponse(400, "Missing information for restore");
+            }
+            // Return a call the the DAO method
+            return await _transactionDAO.RestoreTransactionAsync(request);
+        }
+
+        /// <summary>
+        /// Logic method to hard delete a transaction
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        public async Task<BaseResponse> HardDeleteTransactionAsync(BaseIdRequest request)
+        {
+            // Check to make sure the required information was provided
+            if (request.EntityId == 0 || request.UserId == 0)
+            {
+                return new BaseResponse(400, "Missing information for hard delete");
+            }
+            // Return a call the the DAO method
+            return await _transactionDAO.HardDeleteTransactionAsync(request);
         }
     }
 }

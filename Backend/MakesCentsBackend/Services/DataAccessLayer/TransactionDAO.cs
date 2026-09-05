@@ -174,7 +174,65 @@ namespace MakesCentsBackend.Services.DataAccessLayer
         }
 
 
-        public async Task<BaseResponse> DeleteTransactionAsync(BaseIdRequest request)
+        public async Task<BaseResponse> SoftDeleteTransactionAsync(BaseIdRequest request)
+        {
+            // Declare and initialize
+            query = $"""
+                UPDATE transaction 
+                SET deleted_at = NOW()
+                WHERE transaction_id = @TransactionId
+                """;
+            int rowsAffected;
+
+            // Make sure the transaction belongs to the user
+            if (!await _authService.VerifyUserOwnsTransactionAsync(request.EntityId, request.UserId))
+            {
+                return new BaseIdResponse(403, "Transaction does not belong to the current user");
+            }
+            // Execute the query
+            rowsAffected = await _connection.ExecuteAsync(query, new { TransactionId = request.EntityId });
+
+            // Check the number of rows found
+            if (rowsAffected == 0)
+            {
+                // Return that the user was not found
+                return new BaseResponse(404, "Transaction not found");
+            }
+            // Return the success
+            return new BaseResponse(200, "Transaction deleted successfully");
+        }
+
+
+        public async Task<BaseResponse> RestoreTransactionAsync(BaseIdRequest request)
+        {
+            // Declare and initialize
+            query = $"""
+                UPDATE transaction 
+                SET deleted_at = NULL
+                WHERE transaction_id = @TransactionId
+                """;
+            int rowsAffected;
+
+            // Make sure the transaction belongs to the user
+            if (!await _authService.VerifyUserOwnsTransactionAsync(request.EntityId, request.UserId))
+            {
+                return new BaseIdResponse(403, "Transaction does not belong to the current user");
+            }
+            // Execute the query
+            rowsAffected = await _connection.ExecuteAsync(query, new { TransactionId = request.EntityId });
+
+            // Check the number of rows found
+            if (rowsAffected == 0)
+            {
+                // Return that the user was not found
+                return new BaseResponse(404, "Transaction not found");
+            }
+            // Return the success
+            return new BaseResponse(200, "Transaction restored successfully");
+        }
+
+
+        public async Task<BaseResponse> HardDeleteTransactionAsync(BaseIdRequest request)
         {
             // Declare and initialize
             query = """
@@ -198,7 +256,7 @@ namespace MakesCentsBackend.Services.DataAccessLayer
                 return new BaseResponse(404, "Transaction not found");
             }
             // Return the success
-            return new BaseResponse(200, "Transaction deleted successfully");
+            return new BaseResponse(200, "Transaction deleted permanently");
         }
     }
 }
