@@ -142,7 +142,7 @@ namespace MakesCentsBackend.Services.BusinessLogicLayer
             }
             // Else, return the invalid login response
             loginResponse.HttpStatus = 401;
-            loginResponse.Message = "Invalid password or password";
+            loginResponse.Message = "Invalid username or password";
             return loginResponse;
         }
 

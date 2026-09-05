@@ -22,3 +22,8 @@ Repo for the Makes Cents Capstone Project
 - Automatic for paychecks is monthly with one date (for showcase)
 - Maybe move accounts to be user based?
 - If I remove a transaction from March after April's budget has been created, it wouldn't get updated
+
+# Usernames and Password
+
+capstoneguest: 1234
+username: password
