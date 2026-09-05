@@ -220,6 +220,20 @@ export default function ExpandedEnvelope() {
     );
   };
 
+  const renderPlannedAmountInput = () => {
+    return (
+      <View>
+        <MoneyInput
+          name="Planned Amount"
+          value={envelope.plannedAmount}
+          onChangeValue={(amount) =>
+            updateEnvelopeForm("plannedAmount", amount)
+          }
+        />
+      </View>
+    );
+  };
+
   const renderCancelDoneButtons = () => {
     return (
       <View style={globalStyles.bottomButtons}>
@@ -285,6 +299,7 @@ export default function ExpandedEnvelope() {
             value={envelope.envelopeName || ""}
             onChangeText={(text) => updateEnvelopeForm("envelopeName", text)}
           />
+          {renderPlannedAmountInput()}
           {renderEnvelopeTypeRadioButtons()}
           {envelope.isSinkingFund !== null &&
             (envelope.isSinkingFund

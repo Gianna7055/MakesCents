@@ -158,7 +158,7 @@ namespace MakesCentsBackend.Services.DataAccessLayer
             // Make sure the account belongs to the user
             if (!await _authService.VerifyUserOwnsAccountAsync(account.AccountId, account.UserId, dbTransaction))
             {
-                return new BaseIdResponse(403, "Account does not belong to the current user", account.AccountId);
+                return new BaseIdResponse(403, $"Account does not belong to the current user", account.AccountId);
             }
 
             // Loop through each field to see if an update is necessary

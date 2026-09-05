@@ -143,7 +143,7 @@ namespace MakesCentsBackend.Services.DataAccessLayer
                     account.institution AS Institution,
                     account.balance AS Balance,
                     bank_account.bank_account_id AS BankAccountId,
-                    bank_account.bank_account_type_id AS BankAccountTypeId
+                    bank_account.bank_account_type_id AS BankAccountType
                 FROM account
                 INNER JOIN bank_account ON account.account_id = bank_account.account_id
                 WHERE account.account_id = @AccountId;

@@ -150,5 +150,19 @@ export const deleteTransaction = async (transactionId: number) => {
   const axiosResponse: AxiosResponse = await makesCentsAxios.delete(
     `/api/transactions/${transactionId}`,
   );
-  console.log("Delete Transaction Response:", axiosResponse.data);
+  console.log("Soft Delete Transaction Response:", axiosResponse.data);
+};
+
+export const restoreTransaction = async (transactionId: number) => {
+  const axiosResponse: AxiosResponse = await makesCentsAxios.patch(
+    `/api/transactions/${transactionId}/restore`,
+  );
+  console.log("Restore Transaction Response:", axiosResponse.data);
+};
+
+export const permanentlyDeleteTransaction = async (transactionId: number) => {
+  const axiosResponse: AxiosResponse = await makesCentsAxios.delete(
+    `/api/transactions/${transactionId}/permanent`,
+  );
+  console.log("Permanently Delete Transaction Response:", axiosResponse.data);
 };

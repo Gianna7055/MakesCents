@@ -45,6 +45,7 @@ import {
   createPaymentTransaction,
   createTransferTransaction,
   deleteTransaction,
+  softDeleteTransaction,
   updatePaymentTransaction,
   updateTransferTransaction,
 } from "@/utils/new-edit-helpers/newEditTransactionHelper";
@@ -55,6 +56,7 @@ import { CreatePaymentTransactionResponse } from "@/types/create-payment-transac
 import { CreateTransferTransactionResponse } from "@/types/create-transfer-transaction-response";
 import { UpdatePaymentTransactionResponse } from "@/types/update-payment-transaction-response";
 import { BaseIdResponse } from "@/types/base-id-response";
+import { handleBlur } from "@/utils/touched";
 
 type NewEditTransactionProps = {
   paramTransactionId: string;
@@ -95,6 +97,12 @@ export default function NewEditTransaction() {
   const [envelopeCategories, setEnvelopeCategories] = useState<
     SummaryEnvelopeCategoryResponse[]
   >([]);
+
+  const [touched, setTouched] = useState<
+    Partial<Record<keyof TransactionForm, boolean>>
+  >({});
+  const [formError, setFormError] = useState<string | null>(null);
+  const [submitted, setSubmitted] = useState(false);
 
   // New edit transaction constructor
   useEffect(() => {
@@ -284,8 +292,8 @@ export default function NewEditTransaction() {
     setTransaction((prev) => ({ ...prev, [key]: value }));
   };
 
-  const handleDeleteClickEH = () => {
-    deleteTransaction(originalTransaction!.transactionId);
+  const handleSoftDeleteClickEH = () => {
+    softDeleteTransaction(originalTransaction!.transactionId);
     router.back();
   };
 
@@ -299,11 +307,35 @@ export default function NewEditTransaction() {
       // Call axios to create the transaction
       // Set up the try catch
       try {
+        setSubmitted(true);
         if (transaction.type === TransactionType.Payment) {
+          // Check for all the necessary fields
+          if (
+            !transaction.type ||
+            !transaction.amount ||
+            !transaction.date ||
+            !transaction.accountId ||
+            !transaction.merchantName ||
+            !transaction.paymentTransactionType ||
+            !transaction.splits
+          ) {
+            return;
+          }
           // Call the helper method to create the transaction
           const response: CreatePaymentTransactionResponse =
             await createPaymentTransaction(transaction, budgetId);
         } else if (transaction.type === TransactionType.Transfer) {
+          // Check for all the necessary fields
+          if (
+            !transaction.type ||
+            !transaction.amount ||
+            !transaction.date ||
+            !transaction.toId ||
+            !transaction.fromId ||
+            !transaction.transferTransactionType
+          ) {
+            return;
+          }
           // Call the helper method to create the transaction
           const response: CreateTransferTransactionResponse =
             await createTransferTransaction(transaction, budgetId);
@@ -311,8 +343,8 @@ export default function NewEditTransaction() {
         // Go back to the transactions list
         router.replace("/transactions");
       } catch (error: any) {
-        console.log("Caught error:", error);
         handleAxiosError(error);
+        setFormError("Issue with creation");
       }
     } else {
       // Call axios to update the transaction
@@ -349,7 +381,7 @@ export default function NewEditTransaction() {
         // Go back to the transactions list
         router.replace("/transactions");
       } catch (error: any) {
-        console.log("Caught error:", error);
+        setFormError("Issue with update");
         handleAxiosError(error);
       }
     }
@@ -370,11 +402,19 @@ export default function NewEditTransaction() {
           value={transaction.merchantName || ""}
           onChangeText={(text) => updateTransaction("merchantName", text)}
           autoCapitalize="words"
+          onBlur={() => handleBlur("merchantName", setTouched)}
         />
+        {(touched.merchantName || submitted) &&
+          !transaction.merchantName &&
+          isNew && (
+            <Text style={globalStyles.errorText}>
+              Merchant name is required.
+            </Text>
+          )}
         {renderPaymentEnvelopeSelectInput()}
-        {renderCheckNumberInput()}
-        {renderNotesInput()}
-        {renderDeleteButton()}
+        {transaction.paymentTransactionType === PaymentTransactionType.Check
+          ? renderCheckNumberInput()
+          : null}
       </View>
     );
   };
@@ -393,11 +433,17 @@ export default function NewEditTransaction() {
           value={transaction.merchantName || ""}
           onChangeText={(text) => updateTransaction("merchantName", text)}
           autoCapitalize="words"
+          onBlur={() => handleBlur("merchantName", setTouched)}
         />
+        {(touched.merchantName || submitted) &&
+          !transaction.merchantName &&
+          isNew && (
+            <Text style={globalStyles.errorText}>Source name is required.</Text>
+          )}
         {renderPaymentEnvelopeSelectInput()}
-        {renderCheckNumberInput()}
-        {renderNotesInput()}
-        {renderDeleteButton()}
+        {transaction.paymentTransactionType === PaymentTransactionType.Check
+          ? renderCheckNumberInput()
+          : null}
       </View>
     );
   };
@@ -422,7 +468,11 @@ export default function NewEditTransaction() {
             return category?.envelopeCategoryName || null;
           }}
           onChange={(env) => updateTransaction("fromId", env?.envelopeId!)}
+          onBlur={() => handleBlur("fromId", setTouched)}
         />
+        {(touched.fromId || submitted) && !transaction.fromId && isNew && (
+          <Text style={globalStyles.errorText}>From envelope is required.</Text>
+        )}
         <SingleDropdownInput
           name="To Envelope"
           value={envelopeCategories
@@ -438,9 +488,11 @@ export default function NewEditTransaction() {
             return category?.envelopeCategoryName || null;
           }}
           onChange={(env) => updateTransaction("toId", env?.envelopeId!)}
+          onBlur={() => handleBlur("toId", setTouched)}
         />
-        {renderNotesInput()}
-        {renderDeleteButton()}
+        {(touched.toId || submitted) && !transaction.toId && isNew && (
+          <Text style={globalStyles.errorText}>To envelope is required.</Text>
+        )}
       </View>
     );
   };
@@ -461,7 +513,11 @@ export default function NewEditTransaction() {
           onChange={(account) =>
             updateTransaction("fromId", account?.accountId!)
           }
+          onBlur={() => handleBlur("fromId", setTouched)}
         />
+        {(touched.fromId || submitted) && !transaction.fromId && isNew && (
+          <Text style={globalStyles.errorText}>From account is required.</Text>
+        )}
         <SingleDropdownInput
           name="To Account"
           value={accounts.find(
@@ -471,9 +527,11 @@ export default function NewEditTransaction() {
           getLabel={(a) => a!.accountName}
           getValue={(a) => a!.accountId.toString()}
           onChange={(account) => updateTransaction("toId", account?.accountId!)}
+          onBlur={() => handleBlur("toId", setTouched)}
         />
-        {renderNotesInput()}
-        {renderDeleteButton()}
+        {(touched.toId || submitted) && !transaction.toId && isNew && (
+          <Text style={globalStyles.errorText}>To account is required.</Text>
+        )}
       </View>
     );
   };
@@ -508,7 +566,15 @@ export default function NewEditTransaction() {
             )
           }
           options={options}
+          onBlur={() => handleBlur("transferTransactionType", setTouched)}
         />
+        {(touched.transferTransactionType || submitted) &&
+          !transaction.transferTransactionType &&
+          isNew && (
+            <Text style={globalStyles.errorText}>
+              Transfer transaction type is required.
+            </Text>
+          )}
       </View>
     );
   };
@@ -520,7 +586,11 @@ export default function NewEditTransaction() {
           name="Date"
           value={transaction.date}
           onChange={(text) => updateTransaction("date", text)}
+          onBlur={() => handleBlur("date", setTouched)}
         />
+        {(touched.date || submitted) && !transaction.date && isNew && (
+          <Text style={globalStyles.errorText}>Date is required.</Text>
+        )}
       </View>
     );
   };
@@ -533,11 +603,17 @@ export default function NewEditTransaction() {
           ? (x: number) => -Math.abs(x)
           : (x: number) => x;
     return (
-      <MoneyInput
-        name="Amount"
-        value={transaction.amount}
-        onChangeValue={(amount) => updateTransaction("amount", math(amount!))}
-      />
+      <View>
+        <MoneyInput
+          name="Amount"
+          value={transaction.amount}
+          onChangeValue={(amount) => updateTransaction("amount", math(amount!))}
+          onBlur={() => handleBlur("amount", setTouched)}
+        />
+        {(touched.amount || submitted) && isNew && !transaction.amount && (
+          <Text style={globalStyles.errorText}>Amount is required.</Text>
+        )}
+      </View>
     );
   };
 
@@ -555,7 +631,13 @@ export default function NewEditTransaction() {
           onChange={(account) =>
             updateTransaction("accountId", account?.accountId!)
           }
+          onBlur={() => handleBlur("accountId", setTouched)}
         />
+        {(touched.accountId || submitted) &&
+          !transaction.accountId &&
+          isNew && (
+            <Text style={globalStyles.errorText}>Account is required.</Text>
+          )}
       </View>
     );
   };
@@ -575,7 +657,17 @@ export default function NewEditTransaction() {
           onChange={(type) =>
             updateTransaction("paymentTransactionType", type ?? null)
           }
+          onBlur={() => handleBlur("paymentTransactionType", setTouched)}
         />
+        {(touched.paymentTransactionType || submitted) &&
+          (!transaction.paymentTransactionType ||
+            transaction.paymentTransactionType ===
+              PaymentTransactionType.Unknown) &&
+          isNew && (
+            <Text style={globalStyles.errorText}>
+              Payment transaction type is required.
+            </Text>
+          )}
       </View>
     );
   };
@@ -589,7 +681,15 @@ export default function NewEditTransaction() {
           selectedEnvelopes={transaction.splits!}
           onChange={(splits) => updateTransaction("splits", splits)}
           totalAmount={transaction.amount!}
+          onBlur={() => handleBlur("splits", setTouched)}
         />
+        {(touched.splits || submitted) &&
+          isNew &&
+          (!transaction.splits || transaction.splits.length < 1) && (
+            <Text style={globalStyles.errorText}>
+              At least one envelope is required.
+            </Text>
+          )}
       </View>
     );
   };
@@ -629,7 +729,11 @@ export default function NewEditTransaction() {
   const renderDeleteButton = () => {
     return (
       <View>
-        <Button name="Delete" onPress={handleDeleteClickEH} variant="delete" />
+        <Button
+          name="Delete"
+          onPress={handleSoftDeleteClickEH}
+          variant="delete"
+        />
       </View>
     );
   };
@@ -670,7 +774,7 @@ export default function NewEditTransaction() {
 
       <ScrollView
         style={{ marginVertical: 0 }}
-        contentContainerStyle={{ paddingBottom: 10 }}
+        contentContainerStyle={{ paddingBottom: 20 }}
       >
         {/* Radio buttons for Expense, Income, and Transfer */}
         <TitleRadioInput
@@ -688,11 +792,21 @@ export default function NewEditTransaction() {
             // Adjust amount sign if this is a payment transaction
             if (selectedOption.value === "Expense") {
               updateTransaction("amount", -Math.abs(transaction.amount!));
+              updateTransaction(
+                "paymentTransactionType",
+                PaymentTransactionType.DebitCard,
+              );
             } else if (
               selectedOption.value === "Income" ||
               selectedOption.value === "Transfer"
             ) {
               updateTransaction("amount", Math.abs(transaction.amount!));
+            }
+            if (selectedOption.value == "Income") {
+              updateTransaction(
+                "paymentTransactionType",
+                PaymentTransactionType.Deposit,
+              );
             }
             // For "Transfer", can leave amount
           }}
@@ -712,6 +826,9 @@ export default function NewEditTransaction() {
           transaction.transferTransactionType ===
             TransferTransactionType.Account &&
           renderAccountTransferTransactionView()}
+        {renderNotesInput()}
+        {formError && <Text style={globalStyles.errorText}>{formError}</Text>}
+        {renderDeleteButton()}
       </ScrollView>
       {renderCancelDoneButtons()}
       <BottomNavBar />

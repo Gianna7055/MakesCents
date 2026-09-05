@@ -14,11 +14,12 @@ type RadioInputProps = {
   value: string;
   onChange: (value: string) => void;
   containerStyle?: any;
+  onBlur?: () => void;
 };
 
 const RadioInput = (props: RadioInputProps) => {
   return (
-    <View style={styles.inputContainer}>
+    <View style={styles.inputContainer} onBlur={props.onBlur}>
       <Text style={globalStyles.textHeader}>{props.name}</Text>
 
       <View style={[styles.optionsRow, props.containerStyle]}>

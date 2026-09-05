@@ -18,8 +18,8 @@ import { makesCentsPublicAxios } from "@/data/datasource";
 import axios, { AxiosResponse } from "axios";
 import { storage } from "@/data/storage";
 import ScreenWrapper from "@/components/ui/screen-wrapper";
-import { handleAxiosError } from "@/utils/axiosErrorHandler";
 import { jsonReviver } from "@/utils/mappers/jsonReplacer";
+import { handleBlur, touchAll } from "@/utils/touched";
 
 export default function Register() {
   // UseState variables
@@ -36,6 +36,7 @@ export default function Register() {
     password: false,
   });
   const [formError, setFormError] = useState<string | null>(null);
+  const [submitted, setSubmitted] = useState(false);
 
   // references for text inputs
   const emailRef = useRef<TextInput>(null);
@@ -43,15 +44,14 @@ export default function Register() {
 
   // Functions to handle button clicks
   async function handleRegisterClick() {
+    // Set that the form has been submitted
+    setSubmitted(true);
     // Check if the username, email, or password is blank
     if (!username || !email || !password) {
       console.log("Missing username, email, or password");
-      /* 
-      --------------------------------------------------------------------------------------------
-        DEAL WITH MISSING USERNAME, EMAIL, OR PASSWORD
-      --------------------------------------------------------------------------------------------
-      */
+      return;
     } else {
+      console.log("Register use");
       // Create the register request
       const request = new RegisterRequest();
       request.username = username;
@@ -71,6 +71,8 @@ export default function Register() {
           JSON.stringify(axiosResponse.data),
           jsonReviver,
         );
+        // Log the response
+        console.log("Response:", response);
 
         // Check the response code
         if (response.httpStatus == 201) {
@@ -127,6 +129,9 @@ export default function Register() {
           returnKeyType="next"
           onSubmitEditing={() => emailRef.current?.focus()}
         ></Input>
+        {(touched.username || submitted) && !username && (
+          <Text style={globalStyles.errorText}>Username is required.</Text>
+        )}
         <Input
           name="Email"
           placeholder="Value"
@@ -138,6 +143,9 @@ export default function Register() {
           onSubmitEditing={() => passwordRef.current?.focus()}
           ref={emailRef}
         ></Input>
+        {(touched.email || submitted) && !email && (
+          <Text style={globalStyles.errorText}>Email is required.</Text>
+        )}
         <Input
           name="Password"
           placeholder="Value"
@@ -149,6 +157,10 @@ export default function Register() {
           onSubmitEditing={handleRegisterClick}
           ref={passwordRef}
         ></Input>
+        {(touched.password || submitted) && !password && (
+          <Text style={globalStyles.errorText}>Password is required.</Text>
+        )}
+        {formError && <Text style={globalStyles.errorText}>{formError}</Text>}
         <Button name="Register" onPress={handleRegisterClick} />
         <Text style={styles.subtext}>Already have an account?</Text>
         <Button name="Login" variant="secondary" onPress={handleLoginClick} />

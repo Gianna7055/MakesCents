@@ -62,7 +62,7 @@ namespace MakesCentsBackend.Services.DataAccessLayer
                     // Query for the account table
                     query = """
                         INSERT INTO account (budget_id, account_type_id, account_name, institution, balance)
-                        VALUES (@BudgetId, 3, @AccountName, @Institution, @Balance);
+                        VALUES (@BudgetId, 4, @AccountName, @Institution, @Balance);
                         SELECT LAST_INSERT_ID();
                         """;
                     // Get the new account id
@@ -131,12 +131,12 @@ namespace MakesCentsBackend.Services.DataAccessLayer
                 SELECT 
                     account.account_id AS AccountId,
                     account.budget_id AS BudgetId,
-                    account.account_type_id AS AccountTypeId,
+                    account.account_type_id AS AccountType,
                     account.account_name AS AccountName,
                     account.institution AS Institution,
                     account.balance AS Balance,
                     investment_account.investment_account_id AS InvestmentAccountId,
-                    investment_account.investment_account_type_id AS InvestmentAccountTypeId,
+                    investment_account.investment_account_type_id AS InvestmentAccountType,
                     investment_account.investment_account_number AS InvestmentAccountNumber,
                     investment_account.is_tax_deferred AS IsTaxDeferred,
                     investment_account.is_tax_exempt AS IsTaxExempt

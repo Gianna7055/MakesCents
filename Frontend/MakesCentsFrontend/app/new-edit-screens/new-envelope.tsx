@@ -20,6 +20,7 @@ import {
 } from "@/utils/mappers/envelopeMapper";
 import { jsonReviver } from "@/utils/mappers/jsonReplacer";
 import { createEnvelope } from "@/utils/new-edit-helpers/newEditEnvelopeHelper";
+import { handleBlur } from "@/utils/touched";
 import { AxiosResponse } from "axios";
 import { router } from "expo-router";
 import React, { useEffect, useState } from "react";
@@ -30,6 +31,12 @@ export default function NewEnvelope() {
   const [envelopeCategories, setEnvelopeCategories] = useState<
     SummaryEnvelopeCategoryResponse[]
   >([]);
+
+  const [touched, setTouched] = useState<
+    Partial<Record<keyof EnvelopeForm, boolean>>
+  >({});
+  const [formError, setFormError] = useState<string | null>(null);
+  const [submitted, setSubmitted] = useState<boolean>(false);
 
   useEffect(() => {
     const main = async () => {
@@ -75,6 +82,17 @@ export default function NewEnvelope() {
   };
 
   const handleDoneClickEH = async () => {
+    // Set the form to submitted
+    setSubmitted(true);
+    // Make sure the required info was provided
+    if (
+      !envelope.envelopeCategoryId ||
+      !envelope.envelopeName ||
+      !envelope.plannedAmount ||
+      !envelope.isSinkingFund == null ||
+      (envelope.isSinkingFund ? null : !envelope.transferEnvelopeId)
+    )
+      return;
     // Set up the try catch
     try {
       // Call the helper method to create the envelope
@@ -82,6 +100,7 @@ export default function NewEnvelope() {
       // Navigate back to the budget screen
       router.replace("/budget");
     } catch (error: any) {
+      setFormError("Issue with creation");
       handleAxiosError(error);
     }
   };
@@ -106,6 +125,26 @@ export default function NewEnvelope() {
     );
   };
 
+  const renderPlannedAmountInput = () => {
+    return (
+      <View>
+        <MoneyInput
+          name="Planned Amount"
+          value={envelope.plannedAmount}
+          onChangeValue={(amount) =>
+            updateEnvelopeForm("plannedAmount", amount)
+          }
+          onBlur={() => handleBlur("plannedAmount", setTouched)}
+        />
+        {(touched.plannedAmount || submitted) && !envelope.plannedAmount && (
+          <Text style={globalStyles.errorText}>
+            Planned amount is required.
+          </Text>
+        )}
+      </View>
+    );
+  };
+
   const renderEnvelopeTypeRadioButtons = () => {
     const options = [
       {
@@ -119,18 +158,27 @@ export default function NewEnvelope() {
     ];
 
     return (
-      <RadioInput
-        name="Envelope Type"
-        options={options}
-        value={
-          envelope.isSinkingFund !== null
-            ? envelope.isSinkingFund.toString()
-            : ""
-        }
-        onChange={(value) =>
-          updateEnvelopeForm("isSinkingFund", value === "true")
-        }
-      />
+      <View>
+        <RadioInput
+          name="Envelope Type"
+          options={options}
+          value={
+            envelope.isSinkingFund !== null
+              ? envelope.isSinkingFund.toString()
+              : ""
+          }
+          onChange={(value) =>
+            updateEnvelopeForm("isSinkingFund", value === "true")
+          }
+          onBlur={() => handleBlur("isSinkingFund", setTouched)}
+        />
+        {(touched.isSinkingFund || submitted) &&
+          !envelope.isSinkingFund == null && (
+            <Text style={globalStyles.errorText}>
+              Envelope type is required.
+            </Text>
+          )}
+      </View>
     );
   };
 
@@ -141,11 +189,13 @@ export default function NewEnvelope() {
           name="Goal Amount"
           value={envelope.goalAmount || 0}
           onChangeValue={(value) => updateEnvelopeForm("goalAmount", value)}
+          onBlur={() => handleBlur("goalAmount", setTouched)}
         />
         <CalendarInput
           name="Goal End Date"
           value={envelope.goalEndDate || new Date()}
           onChange={(value) => updateEnvelopeForm("goalEndDate", value)}
+          onBlur={() => handleBlur("goalEndDate", setTouched)}
         />
       </View>
     );
@@ -171,7 +221,14 @@ export default function NewEnvelope() {
           onChange={(env) =>
             updateEnvelopeForm("transferEnvelopeId", env?.envelopeId!)
           }
+          onBlur={() => handleBlur("transferEnvelopeId", setTouched)}
         />
+        {(touched.transferEnvelopeId || submitted) &&
+          !envelope.transferEnvelopeId && (
+            <Text style={globalStyles.errorText}>
+              Transfer envelope is required.
+            </Text>
+          )}
       </View>
     );
   };
@@ -207,19 +264,32 @@ export default function NewEnvelope() {
             updateEnvelopeForm("envelopeCategoryId", item.envelopeCategoryId)
           }
           placeholder="Select a category"
+          onBlur={() => handleBlur("envelopeCategoryId", setTouched)}
         />
+        {(touched.envelopeCategoryId || submitted) &&
+          !envelope.envelopeCategoryId && (
+            <Text style={globalStyles.errorText}>
+              Envelope category is required.
+            </Text>
+          )}
         <Input
           name={"Envelope Name"}
           placeholder="Name"
           type="text"
           value={envelope.envelopeName || ""}
           onChangeText={(text) => updateEnvelopeForm("envelopeName", text)}
+          onBlur={() => handleBlur("envelopeName", setTouched)}
         />
+        {(touched.envelopeName || submitted) && !envelope.envelopeName && (
+          <Text style={globalStyles.errorText}>Envelope name is required.</Text>
+        )}
+        {renderPlannedAmountInput()}
         {renderEnvelopeTypeRadioButtons()}
         {envelope.isSinkingFund !== null &&
           (envelope.isSinkingFund
             ? renderSinkingFundInputs()
             : renderRolloverFundInputs())}
+        {formError && <Text style={globalStyles.errorText}>{formError}</Text>}
       </ScrollView>
       {renderCancelDoneButtons()}
       <BottomNavBar />

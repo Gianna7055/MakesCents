@@ -21,7 +21,7 @@ export default function Accounts() {
   // Run on create (constructor)
   useEffect(() => {
     const main = async () => {
-      // Load token and budget id from storage
+      // Load budget id from storage
       const storedBudgetId = await storage.getBudgetId();
 
       setBudgetId(storedBudgetId || 0);

@@ -7,7 +7,6 @@ import {
   StyleSheet,
   View,
   Text,
-  KeyboardAvoidingView,
   TextInput,
   ScrollView,
 } from "react-native";
@@ -18,9 +17,8 @@ import { makesCentsPublicAxios } from "@/data/datasource";
 import axios, { AxiosResponse } from "axios";
 import { storage } from "@/data/storage";
 import ScreenWrapper from "@/components/ui/screen-wrapper";
-import { handleAxiosError } from "@/utils/axiosErrorHandler";
 import { jsonReviver } from "@/utils/mappers/jsonReplacer";
-import { handleBlur, touchAll } from "@/utils/touched";
+import { handleBlur } from "@/utils/touched";
 
 export default function Login() {
   // UseState variables
@@ -34,6 +32,7 @@ export default function Login() {
     password: false,
   });
   const [formError, setFormError] = useState<string | null>(null);
+  const [submitted, setSubmitted] = useState(false);
 
   // For testing: Remove
   /*useEffect(() => {
@@ -47,8 +46,8 @@ export default function Login() {
 
   // Functions to handle button clicks
   const handleLoginClick = async () => {
-    // Show that all fields have been touched
-    touchAll(setTouched);
+    // Set that the form has been submitted
+    setSubmitted(true);
     // Log the username/email and password
     //console.log("Username/Email:", usernameOrEmail);
     //console.log("Password:", password);
@@ -141,7 +140,7 @@ export default function Login() {
           returnKeyType="next"
           onSubmitEditing={() => passwordRef.current?.focus()}
         ></Input>
-        {touched.usernameOrEmail && !usernameOrEmail && (
+        {(touched.usernameOrEmail || submitted) && !usernameOrEmail && (
           <Text style={globalStyles.errorText}>
             Username or email is required.
           </Text>
@@ -158,7 +157,7 @@ export default function Login() {
           onSubmitEditing={handleLoginClick}
           ref={passwordRef}
         ></Input>
-        {touched.password && !password && (
+        {(touched.password || submitted) && !password && (
           <Text style={globalStyles.errorText}>Password is required.</Text>
         )}
         {formError && <Text style={globalStyles.errorText}>{formError}</Text>}
