@@ -67,7 +67,7 @@ namespace MakesCentsBackend.Controllers
 
         [Authorize]
         [HttpDelete("{transactionId}")]
-        public async Task<ActionResult> DeleteTransactionAsync(int transactionId)
+        public async Task<ActionResult> SoftDeleteTransactionAsync(int transactionId)
         {
             // Declare and initialize
             BaseResponse response;
@@ -79,7 +79,64 @@ namespace MakesCentsBackend.Controllers
             request.UserId = userId;
             request.EntityId = transactionId;
             // Call the logic method to delete the transaction
-            response = await _transactionLogic.DeleteTransactionAsync(request);
+            response = await _transactionLogic.SoftDeleteTransactionAsync(request);
+
+            if (response.HttpStatus != 200)
+            {
+                // Return an issue
+                return StatusCode(response.HttpStatus, response.Message);
+            }
+            else
+            {
+                // Return Ok
+                return Ok(response);
+            }
+        }
+
+        [Authorize]
+        [HttpPatch("{transactionId}/restore")]
+        public async Task<ActionResult> RestoreTransactionAsync(int transactionId)
+        {
+            // Declare and initialize
+            BaseResponse response;
+            BaseIdRequest request = new BaseIdRequest();
+
+            // Get the user id from the JWT token
+            int userId = ClaimsPrincipalExtensions.GetUserId(User);
+
+            // Set the user id and entity id in the request
+            request.UserId = userId;
+            request.EntityId = transactionId;
+
+            // Call the logic method
+            response = await _transactionLogic.RestoreTransactionAsync(request);
+
+            // Check for errors
+            if (response.HttpStatus != 200)
+            {
+                return StatusCode(response.HttpStatus, response.Message);
+            }
+
+            // Return success
+            return Ok(response);
+        }
+
+
+        [Authorize]
+        [HttpDelete("{transactionId}/permanent")]
+        public async Task<ActionResult> HardDeleteTransactionAsync(int transactionId)
+        {
+            // Declare and initialize
+            BaseResponse response;
+            BaseIdRequest request = new BaseIdRequest();
+            // Get the user id from the JWT token
+            int userId = ClaimsPrincipalExtensions.GetUserId(User);
+
+            // Set the user id and the entity id in the request
+            request.UserId = userId;
+            request.EntityId = transactionId;
+            // Call the logic method to delete the transaction
+            response = await _transactionLogic.HardDeleteTransactionAsync(request);
 
             if (response.HttpStatus != 200)
             {
