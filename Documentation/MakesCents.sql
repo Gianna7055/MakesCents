@@ -1,5 +1,3 @@
--- Makes Cents Database Script v3
-
 -- ============================================
 -- DROP & CREATE DATABASE
 -- ============================================
@@ -323,8 +321,12 @@ CREATE TABLE paycheck_split (
         (sinking_fund_envelope_id IS NULL AND rollover_envelope_month_id IS NOT NULL)
     ),
     FOREIGN KEY (paycheck_id) REFERENCES paycheck(paycheck_id) ON DELETE CASCADE ON UPDATE CASCADE,
-    FOREIGN KEY (sinking_fund_envelope_id) REFERENCES sinking_fund_envelope(sinking_fund_envelope_id) ON DELETE CASCADE ON UPDATE CASCADE,
-    FOREIGN KEY (rollover_envelope_month_id) REFERENCES rollover_envelope_month(rollover_envelope_month_id) ON DELETE CASCADE ON UPDATE CASCADE
+    -- RESTRICT (not CASCADE) on these two: MySQL error 3823 forbids CASCADE/SET NULL
+    -- on a column that's also part of a CHECK constraint. RESTRICT also means deleting
+    -- an envelope with existing paycheck splits fails loudly instead of silently
+    -- wiping history - reassign or clear splits first.
+    FOREIGN KEY (sinking_fund_envelope_id) REFERENCES sinking_fund_envelope(sinking_fund_envelope_id) ON DELETE RESTRICT ON UPDATE RESTRICT,
+    FOREIGN KEY (rollover_envelope_month_id) REFERENCES rollover_envelope_month(rollover_envelope_month_id) ON DELETE RESTRICT ON UPDATE RESTRICT
 );
 
 CREATE TABLE payment_transaction (
@@ -357,9 +359,11 @@ CREATE TABLE transfer_transaction (
         (transfer_transaction_type_id = 3 AND transfer_from_account_id IS NULL AND transfer_to_account_id IS NULL)
     ),
     FOREIGN KEY (transaction_id) REFERENCES transaction(transaction_id) ON DELETE CASCADE ON UPDATE CASCADE,
-    FOREIGN KEY (transfer_from_account_id) REFERENCES account(account_id) ON DELETE CASCADE ON UPDATE CASCADE,
-    FOREIGN KEY (transfer_to_account_id) REFERENCES account(account_id) ON DELETE CASCADE ON UPDATE CASCADE,
-    FOREIGN KEY (transfer_transaction_type_id) REFERENCES transfer_transaction_type_enum(transfer_transaction_type_enum_id) ON DELETE RESTRICT ON UPDATE CASCADE
+    -- RESTRICT everywhere below: all three columns are part of the CHECK above,
+    -- so none of them can carry CASCADE/SET NULL (MySQL error 3823).
+    FOREIGN KEY (transfer_from_account_id) REFERENCES account(account_id) ON DELETE RESTRICT ON UPDATE RESTRICT,
+    FOREIGN KEY (transfer_to_account_id) REFERENCES account(account_id) ON DELETE RESTRICT ON UPDATE RESTRICT,
+    FOREIGN KEY (transfer_transaction_type_id) REFERENCES transfer_transaction_type_enum(transfer_transaction_type_enum_id) ON DELETE RESTRICT ON UPDATE RESTRICT
 );
 
 -- Dual nullable FK, same pattern as paycheck_split. Used for normal multi-envelope
@@ -380,8 +384,8 @@ CREATE TABLE transaction_split (
         (sinking_fund_envelope_id IS NULL AND rollover_envelope_month_id IS NOT NULL)
     ),
     FOREIGN KEY (transaction_id) REFERENCES transaction(transaction_id) ON DELETE CASCADE ON UPDATE CASCADE,
-    FOREIGN KEY (sinking_fund_envelope_id) REFERENCES sinking_fund_envelope(sinking_fund_envelope_id) ON DELETE CASCADE ON UPDATE CASCADE,
-    FOREIGN KEY (rollover_envelope_month_id) REFERENCES rollover_envelope_month(rollover_envelope_month_id) ON DELETE CASCADE ON UPDATE CASCADE
+    FOREIGN KEY (sinking_fund_envelope_id) REFERENCES sinking_fund_envelope(sinking_fund_envelope_id) ON DELETE RESTRICT ON UPDATE RESTRICT,
+    FOREIGN KEY (rollover_envelope_month_id) REFERENCES rollover_envelope_month(rollover_envelope_month_id) ON DELETE RESTRICT ON UPDATE RESTRICT
 );
 
 -- Stays tied to budget (persistent) like paycheck. References the PERSISTENT
@@ -406,8 +410,8 @@ CREATE TABLE planned_expense (
         (sinking_fund_envelope_id IS NULL AND rollover_envelope_id IS NOT NULL)
     ),
     FOREIGN KEY (budget_id) REFERENCES budget(budget_id) ON DELETE CASCADE ON UPDATE CASCADE,
-    FOREIGN KEY (sinking_fund_envelope_id) REFERENCES sinking_fund_envelope(sinking_fund_envelope_id) ON DELETE CASCADE ON UPDATE CASCADE,
-    FOREIGN KEY (rollover_envelope_id) REFERENCES rollover_envelope(rollover_envelope_id) ON DELETE CASCADE ON UPDATE CASCADE,
+    FOREIGN KEY (sinking_fund_envelope_id) REFERENCES sinking_fund_envelope(sinking_fund_envelope_id) ON DELETE RESTRICT ON UPDATE RESTRICT,
+    FOREIGN KEY (rollover_envelope_id) REFERENCES rollover_envelope(rollover_envelope_id) ON DELETE RESTRICT ON UPDATE RESTRICT,
     FOREIGN KEY (planned_expense_regularity_id) REFERENCES planned_expense_regularity_enum(planned_expense_regularity_enum_id) ON DELETE RESTRICT ON UPDATE CASCADE,
     FOREIGN KEY (weekday_id) REFERENCES weekday_enum(weekday_enum_id) ON DELETE RESTRICT ON UPDATE CASCADE,
     FOREIGN KEY (occurrence_id) REFERENCES planned_expense_occurrence_enum(planned_expense_occurrence_enum_id) ON DELETE RESTRICT ON UPDATE CASCADE
