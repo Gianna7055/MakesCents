@@ -36,6 +36,25 @@ namespace MakesCentsBackend.Models
     }
 
     /// <summary>
+    /// Response model for a single envelope for the Get Budget method.
+    /// Sinking fund and rollover envelopes come from two different tables with two different
+    /// id spaces, so IsSinkingFund tells the frontend which table EnvelopeId belongs to (same
+    /// pattern SummaryAccountDTOModel uses to distinguish bank/debt/investment accounts).
+    /// RemainingAmount is nullable because a rollover envelope may not be activated for the
+    /// month being viewed.
+    /// </summary>
+    [ExportTsInterface]
+    public class SummaryEnvelopeResponse
+    {
+        // Class Level Properties
+        public int EnvelopeId { get; set; } = 0;
+        public int EnvelopeCategoryId { get; set; } = 0;
+        public string EnvelopeName { get; set; } = "";
+        public decimal? RemainingAmount { get; set; } = null;
+        public bool IsSinkingFund { get; set; } = true;
+    }
+
+    /// <summary>
     /// Request model for creating an envelope category
     /// </summary>
     [ExportTsClass]

@@ -12,36 +12,34 @@ using Microsoft.AspNetCore.Mvc;
 namespace MakesCentsBackend.Controllers
 {
     /// <summary>
-    /// API controller for envelopes
+    /// API controller for rollover envelopes. Create/Update/Delete act on the persistent
+    /// definition; Get is month-scoped, since a rollover envelope's planned/remaining amounts
+    /// are specific to one budget month.
     /// </summary>
-    /// <remarks>
-    /// Parameterized constructor to bring in DI variables
-    /// </remarks>
-    /// <param name="envelopeLogic"></param>
-    [Route("api/envelopes")]
+    [Route("api/rollover-envelopes")]
     [ApiController]
-    public class EnvelopeController : ControllerBase
+    public class RolloverEnvelopeController : ControllerBase
     {
         // Class level variables
-        private readonly EnvelopeLogic _envelopeLogic;
+        private readonly RolloverEnvelopeLogic _rolloverEnvelopeLogic;
 
         /// <summary>
         /// Parameterized constructor to bring in DI variables
         /// </summary>
-        /// <param name="envelopeLogic"></param>
-        public EnvelopeController(EnvelopeLogic envelopeLogic)
+        /// <param name="rolloverEnvelopeLogic"></param>
+        public RolloverEnvelopeController(RolloverEnvelopeLogic rolloverEnvelopeLogic)
         {
-            _envelopeLogic = envelopeLogic;
+            _rolloverEnvelopeLogic = rolloverEnvelopeLogic;
         }
 
         /// <summary>
-        /// POST method to create a new envelope
+        /// POST method to create a new rollover envelope's persistent definition
         /// </summary>
         /// <param name="envelope"></param>
         /// <returns></returns>
         [Authorize]
         [HttpPost]
-        public async Task<ActionResult> CreateEnvelopeAsync(CreateEnvelopeRequest envelope)
+        public async Task<ActionResult> CreateRolloverEnvelopeAsync(CreateRolloverEnvelopeRequest envelope)
         {
             // Check to make sure the envelope is not null
             if (envelope == null)
@@ -56,7 +54,7 @@ namespace MakesCentsBackend.Controllers
             // Set the user id for the envelope
             envelope.UserId = userId;
             // Call the logic method
-            response = await _envelopeLogic.CreateEnvelopeAsync(envelope);
+            response = await _rolloverEnvelopeLogic.CreateRolloverEnvelopeAsync(envelope);
             // Check the status
             if (response.HttpStatus != 201)
             {
@@ -67,21 +65,25 @@ namespace MakesCentsBackend.Controllers
             return Created("", response);
         }
 
+        /// <summary>
+        /// GET method to get a rollover envelope for a specific budget month, including its
+        /// transaction history for that month
+        /// </summary>
+        /// <param name="rolloverEnvelopeId"></param>
+        /// <param name="budgetMonthId"></param>
+        /// <returns></returns>
         [Authorize]
-        [HttpGet("{envelopeId}")]
-        public async Task<ActionResult> GetEnvelopeAsync(int envelopeId)
+        [HttpGet("{rolloverEnvelopeId}/budget-month/{budgetMonthId}")]
+        public async Task<ActionResult> GetRolloverEnvelopeForMonthAsync(int rolloverEnvelopeId, int budgetMonthId)
         {
             // Declare and initialize
-            GetEnvelopeDTOResponse response;
-            BaseIdRequest request = new BaseIdRequest();
+            GetRolloverEnvelopeDTOResponse response;
             // Get the user id from the JWT token
             int userId = ClaimsPrincipalExtensions.GetUserId(User);
+            GetRolloverEnvelopeMonthRequest request = new GetRolloverEnvelopeMonthRequest(userId, rolloverEnvelopeId, budgetMonthId);
 
-            // Set the user id in the request
-            request.UserId = userId;
-            request.EntityId = envelopeId;
             // Call the logic method
-            response = await _envelopeLogic.GetEnvelopeAsync(request);
+            response = await _rolloverEnvelopeLogic.GetRolloverEnvelopeForMonthAsync(request);
             // Check if the response came back as not found
             if (response.HttpStatus == 404)
             {
@@ -89,7 +91,8 @@ namespace MakesCentsBackend.Controllers
                 {
                     status = response.HttpStatus,
                     message = response.Message,
-                    envelopeId = envelopeId
+                    rolloverEnvelopeId = rolloverEnvelopeId,
+                    budgetMonthId = budgetMonthId
                 });
             }
             else if (response.HttpStatus != 200)
@@ -101,9 +104,15 @@ namespace MakesCentsBackend.Controllers
             return Ok(response);
         }
 
+        /// <summary>
+        /// PUT method to update a rollover envelope's persistent definition fields
+        /// </summary>
+        /// <param name="rolloverEnvelopeId"></param>
+        /// <param name="envelope"></param>
+        /// <returns></returns>
         [Authorize]
-        [HttpPut("{envelopeId}")]
-        public async Task<ActionResult> UpdateEnvelopeAsync(int envelopeId, UpdateEnvelopeRequest envelope)
+        [HttpPut("{rolloverEnvelopeId}")]
+        public async Task<ActionResult> UpdateRolloverEnvelopeAsync(int rolloverEnvelopeId, UpdateRolloverEnvelopeRequest envelope)
         {
             // Check to make sure the envelope is not null
             if (envelope == null)
@@ -117,9 +126,9 @@ namespace MakesCentsBackend.Controllers
 
             // Set the envelope id and the user id in the request
             envelope.UserId = userId;
-            envelope.EnvelopeId = envelopeId;
+            envelope.RolloverEnvelopeId = rolloverEnvelopeId;
             // Call the logic method
-            response = await _envelopeLogic.UpdateEnvelopeAsync(envelope);
+            response = await _rolloverEnvelopeLogic.UpdateRolloverEnvelopeAsync(envelope);
 
             // Check if the status came back as a success
             if (response.HttpStatus != 200)
@@ -134,10 +143,15 @@ namespace MakesCentsBackend.Controllers
             }
         }
 
-
+        /// <summary>
+        /// DELETE method to delete a rollover envelope's persistent definition (cascades every
+        /// month it was ever activated for)
+        /// </summary>
+        /// <param name="rolloverEnvelopeId"></param>
+        /// <returns></returns>
         [Authorize]
-        [HttpDelete("{envelopeId}")]
-        public async Task<ActionResult> DeleteEnvelopeAsync(int envelopeId)
+        [HttpDelete("{rolloverEnvelopeId}")]
+        public async Task<ActionResult> DeleteRolloverEnvelopeAsync(int rolloverEnvelopeId)
         {
             // Declare and initialize
             BaseResponse response;
@@ -147,9 +161,9 @@ namespace MakesCentsBackend.Controllers
 
             // Set the user id and the entity id in the request
             request.UserId = userId;
-            request.EntityId = envelopeId;
+            request.EntityId = rolloverEnvelopeId;
             // Call the logic method to delete the envelope
-            response = await _envelopeLogic.DeleteEnvelopeAsync(request);
+            response = await _rolloverEnvelopeLogic.DeleteRolloverEnvelopeAsync(request);
 
             if (response.HttpStatus != 200)
             {

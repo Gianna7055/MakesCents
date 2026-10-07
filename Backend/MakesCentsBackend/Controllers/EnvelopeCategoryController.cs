@@ -35,7 +35,8 @@ namespace MakesCentsBackend.Controllers
         }
 
         /// <summary>
-        /// HTTP POST method to create an envelope category
+        /// HTTP POST method to create an envelope category. Still keyed to a persistent
+        /// BudgetId - categories aren't month-scoped.
         /// </summary>
         /// <param name="envelopeCategory"></param>
         /// <returns></returns>
@@ -68,13 +69,15 @@ namespace MakesCentsBackend.Controllers
         }
 
         /// <summary>
-        /// HTTP GET method to get all envelope categories in a budget
+        /// HTTP GET method to get all envelope categories (with envelopes) for a budget month.
+        /// NOTE: the route param is now a budget_month_id, not a budget_id - the DAO derives
+        /// the persistent budget via a join, and needs the month to resolve rollover envelope amounts.
         /// </summary>
-        /// <param name="budgetId"></param>
+        /// <param name="budgetMonthId"></param>
         /// <returns></returns>
         [Authorize]
-        [HttpGet("budget/{budgetId}")]
-        public async Task<ActionResult> GetAllEnvelopeCategoriesAsync(int budgetId)
+        [HttpGet("budget-month/{budgetMonthId}")]
+        public async Task<ActionResult> GetAllEnvelopeCategoriesAsync(int budgetMonthId)
         {
             // Declare and initialize
             GetAllEnvelopeCategoriesResponse response;
@@ -84,7 +87,7 @@ namespace MakesCentsBackend.Controllers
 
             // Set the user id in the request
             request.UserId = userId;
-            request.EntityId = budgetId;
+            request.EntityId = budgetMonthId;
             // Call the logic method
             response = await _envelopeCategoryLogic.GetAllEnvelopeCategoriesAsync(request);
             // Check if the response came back as not found
@@ -94,7 +97,7 @@ namespace MakesCentsBackend.Controllers
                 {
                     status = response.HttpStatus,
                     message = response.Message,
-                    budgetId = budgetId
+                    budgetMonthId = budgetMonthId
                 });
             }
             else if (response.HttpStatus != 200)
@@ -106,6 +109,11 @@ namespace MakesCentsBackend.Controllers
             return Ok(response);
         }
 
+        /// <summary>
+        /// HTTP GET method to get a single envelope category
+        /// </summary>
+        /// <param name="envelopeCategoryId"></param>
+        /// <returns></returns>
         [Authorize]
         [HttpGet("{envelopeCategoryId}")]
         public async Task<ActionResult> GetEnvelopeCategoryAsync(int envelopeCategoryId)
@@ -180,7 +188,11 @@ namespace MakesCentsBackend.Controllers
             }
         }
 
-
+        /// <summary>
+        /// Delete an envelope category
+        /// </summary>
+        /// <param name="envelopeCategoryId"></param>
+        /// <returns></returns>
         [Authorize]
         [HttpDelete("{envelopeCategoryId}")]
         public async Task<ActionResult> DeleteEnvelopeCategoryAsync(int envelopeCategoryId)

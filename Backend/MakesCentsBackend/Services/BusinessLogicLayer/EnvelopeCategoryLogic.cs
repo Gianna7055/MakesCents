@@ -23,7 +23,8 @@ namespace MakesCentsBackend.Services.BusinessLogicLayer
         }
 
         /// <summary>
-        /// Logic method to create an envelope category
+        /// Logic method to create an envelope category. Still keyed to a persistent BudgetId -
+        /// categories aren't month-scoped.
         /// </summary>
         /// <param name="envelopeCategory"></param>
         /// <returns></returns>
@@ -44,9 +45,12 @@ namespace MakesCentsBackend.Services.BusinessLogicLayer
         }
 
         /// <summary>
-        /// Logic method to get all envelope categories
+        /// Logic method to get all envelope categories (with envelopes) for a budget month.
+        /// NOTE: request.EntityId is now a budget_month_id, not a budget_id - the DAO derives
+        /// the persistent budget_id via a join, and needs the month to resolve rollover envelope
+        /// amounts for the right month.
         /// </summary>
-        /// <param name="envelopeCategoryId"></param>
+        /// <param name="request"></param>
         /// <returns></returns>
         public async Task<GetAllEnvelopeCategoriesResponse> GetAllEnvelopeCategoriesAsync(BaseIdRequest request)
         {
@@ -65,7 +69,11 @@ namespace MakesCentsBackend.Services.BusinessLogicLayer
             return response;
         }
 
-
+        /// <summary>
+        /// Logic method to get a single envelope category
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
         public async Task<GetEnvelopeCategoryResponse> GetEnvelopeCategoryAsync(BaseIdRequest request)
         {
             // Declare and initialize
@@ -107,7 +115,7 @@ namespace MakesCentsBackend.Services.BusinessLogicLayer
         /// <summary>
         /// Logic method to delete an envelope category
         /// </summary>
-        /// <param name="envelopeCategoryId"></param>
+        /// <param name="request"></param>
         /// <returns></returns>
         public async Task<BaseResponse> DeleteEnvelopeCategoryAsync(BaseIdRequest request)
         {

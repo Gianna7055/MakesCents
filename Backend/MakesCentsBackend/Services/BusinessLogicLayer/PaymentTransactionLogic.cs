@@ -6,7 +6,6 @@
 using MakesCentsBackend.Models;
 using MakesCentsBackend.Models.Enums;
 using MakesCentsBackend.Services.DataAccessLayer;
-using Microsoft.AspNetCore.Mvc;
 
 namespace MakesCentsBackend.Services.BusinessLogicLayer
 {
@@ -36,7 +35,7 @@ namespace MakesCentsBackend.Services.BusinessLogicLayer
             decimal? sumOfSplits;
 
             // Make sure the necessary information was sent
-            if (paymentTransaction.BudgetId == 0 || paymentTransaction.UserId == 0 || paymentTransaction.TransactionDate == DateOnly.MinValue || paymentTransaction.TotalAmount == 0m || paymentTransaction.PaymentTransactionType == PaymentTransactionType.Unknown)
+            if (paymentTransaction.BudgetMonthId == 0 || paymentTransaction.UserId == 0 || paymentTransaction.TransactionDate == DateOnly.MinValue || paymentTransaction.TotalAmount == 0m || paymentTransaction.PaymentTransactionType == PaymentTransactionType.Unknown)
             {
                 return new CreatePaymentTransactionResponse(400, "Missing information for payment transaction creation");
             }
@@ -75,7 +74,11 @@ namespace MakesCentsBackend.Services.BusinessLogicLayer
             return response;
         }
 
-
+        /// <summary>
+        /// Logic method to get a payment transaction and its splits
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
         public async Task<GetPaymentTransactionResponse> GetPaymentTransactionAsync(BaseIdRequest request)
         {
             // Declare and initialize
@@ -93,7 +96,11 @@ namespace MakesCentsBackend.Services.BusinessLogicLayer
             return response;
         }
 
-
+        /// <summary>
+        /// Logic method to update a payment transaction and its splits
+        /// </summary>
+        /// <param name="paymentTransaction"></param>
+        /// <returns></returns>
         public async Task<UpdatePaymentTransactionResponse> UpdatePaymentTransactionAsync(UpdatePaymentTransactionRequest paymentTransaction)
         {
             // Declare and initialize

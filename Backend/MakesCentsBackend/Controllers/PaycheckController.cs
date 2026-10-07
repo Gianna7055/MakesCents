@@ -12,7 +12,8 @@ using Microsoft.AspNetCore.Mvc;
 namespace MakesCentsBackend.Controllers
 {
     /// <summary>
-    /// API controller for paychecks
+    /// API controller for paychecks. Paychecks are forecast-only - see EnvelopeFundingController
+    /// for how envelopes actually get funded.
     /// </summary>
     [Route("api/paychecks")]
     [ApiController]
@@ -45,7 +46,7 @@ namespace MakesCentsBackend.Controllers
                 return StatusCode(StatusCodes.Status400BadRequest, "Something went wrong with the data transfer to create a new paycheck");
             }
             // Declare and initialize
-            CreatePaycheckResponse response;
+            BaseIdResponse response;
             // Get the user id from the JWT token
             int userId = ClaimsPrincipalExtensions.GetUserId(User);
 
@@ -59,7 +60,6 @@ namespace MakesCentsBackend.Controllers
                 // Return an issue
                 return StatusCode(response.HttpStatus, response.Message);
             }
-            // Response HttpStatus is 201
             else
             {
                 // Return the success
@@ -67,6 +67,11 @@ namespace MakesCentsBackend.Controllers
             }
         }
 
+        /// <summary>
+        /// HTTP GET method to get every paycheck for a budget
+        /// </summary>
+        /// <param name="budgetId"></param>
+        /// <returns></returns>
         [Authorize]
         [HttpGet("budget/{budgetId}")]
         public async Task<ActionResult> GetAllPaychecksAsync(int budgetId)
@@ -101,9 +106,14 @@ namespace MakesCentsBackend.Controllers
             return Ok(response);
         }
 
+        /// <summary>
+        /// HTTP GET method to get a single paycheck
+        /// </summary>
+        /// <param name="paycheckId"></param>
+        /// <returns></returns>
         [Authorize]
         [HttpGet("{paycheckId}")]
-        public async Task<ActionResult> GetPaycheck(int paycheckId)
+        public async Task<ActionResult> GetPaycheckAsync(int paycheckId)
         {
             // Declare and initialize
             GetPaycheckResponse response;
@@ -135,7 +145,12 @@ namespace MakesCentsBackend.Controllers
             return Ok(response);
         }
 
-
+        /// <summary>
+        /// HTTP PUT method to update a paycheck
+        /// </summary>
+        /// <param name="paycheckId"></param>
+        /// <param name="paycheck"></param>
+        /// <returns></returns>
         [Authorize]
         [HttpPut("{paycheckId}")]
         public async Task<ActionResult> UpdatePaycheckAsync(int paycheckId, UpdatePaycheckRequest paycheck)
@@ -143,10 +158,10 @@ namespace MakesCentsBackend.Controllers
             // Check to make sure the paycheck is not null
             if (paycheck == null)
             {
-                return StatusCode(StatusCodes.Status400BadRequest, "Something went wrong with the data transfer to update a pacheck");
+                return StatusCode(StatusCodes.Status400BadRequest, "Something went wrong with the data transfer to update a paycheck");
             }
             // Declare and initialize
-            UpdatePaycheckResponse response;
+            BaseIdResponse response;
             // Get the user id from the JWT token
             int userId = ClaimsPrincipalExtensions.GetUserId(User);
 
@@ -169,7 +184,11 @@ namespace MakesCentsBackend.Controllers
             }
         }
 
-
+        /// <summary>
+        /// HTTP DELETE method to delete a paycheck
+        /// </summary>
+        /// <param name="paycheckId"></param>
+        /// <returns></returns>
         [Authorize]
         [HttpDelete("{paycheckId}")]
         public async Task<ActionResult> DeletePaycheckAsync(int paycheckId)
