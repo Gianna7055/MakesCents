@@ -92,7 +92,7 @@ builder.Services.AddScoped<PaycheckDAO>();
 builder.Services.AddScoped<PaymentTransactionDAO>();
 builder.Services.AddScoped<TransferTransactionDAO>();
 builder.Services.AddScoped<AccountDAO>();
-builder.Services.AddScoped<TransactionDAO>();\
+builder.Services.AddScoped<TransactionDAO>();
 builder.Services.AddScoped<EnvelopeFundingDAO>();
 builder.Services.AddScoped<BudgetTemplateDAO>();
 

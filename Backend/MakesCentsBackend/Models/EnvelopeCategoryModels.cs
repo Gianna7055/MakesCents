@@ -19,7 +19,7 @@ namespace MakesCentsBackend.Models
         public string EnvelopeCategoryName { get; set; } = "";
         public DateTime CreatedAt { get; set; } = DateTime.MinValue;
         public DateTime LastUpdatedAt { get; set; } = DateTime.MinValue;
-        public List<EnvelopeEntityModel> Envelopes { get; set; } = new List<EnvelopeEntityModel>();
+        public List<SummaryEnvelopeResponse> Envelopes { get; set; } = new List<SummaryEnvelopeResponse>();
     }
 
     /// <summary>
