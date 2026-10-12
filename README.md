@@ -32,6 +32,7 @@ Repo for the Makes Cents Capstone Project
 # Commands
 
 To run typegen: From the MakesCentsBackend folder: run dotnet build, then dotnet-typegen generate
+To run docFX: From the MakesCentsBackend folder: run docfx docfx.json --serve
 
 # Usernames and Password ("[Username]": "[Password]")
 
