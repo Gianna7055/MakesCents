@@ -23,6 +23,12 @@ Repo for the Makes Cents Capstone Project
 - Maybe move accounts to be user based?
 - If I remove a transaction from March after April's budget has been created, it wouldn't get updated
 
+# To Start App
+
+1 Tab: in MakesCentsBackend folder: dotnet watch run (or without watch for no hot-reload)
+2 Tab: in MakesCentsFrontend folder: npx expo run:ios --device --scheme MakesCents or npx expo start --dev-client --lan
+3 Tab: ipconfig getifaddr en0 to get the makesCentsURL IP address (in the datasource.ts file)
+
 # Usernames and Password
 
 capstoneguest: 1234
