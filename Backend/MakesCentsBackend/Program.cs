@@ -66,7 +66,8 @@ SqlMapper.AddTypeHandler(new DateOnlyHandler());
 builder.Services.AddScoped<UserLogic>();
 builder.Services.AddScoped<BudgetLogic>();
 builder.Services.AddScoped<EnvelopeCategoryLogic>();
-builder.Services.AddScoped<EnvelopeLogic>();
+builder.Services.AddScoped<SinkingFundEnvelopeLogic>();
+builder.Services.AddScoped<RolloverEnvelopeLogic>();
 builder.Services.AddScoped<BankAccountLogic>();
 builder.Services.AddScoped<DebtAccountLogic>();
 builder.Services.AddScoped<InvestmentAccountLogic>();
@@ -75,12 +76,15 @@ builder.Services.AddScoped<PaymentTransactionLogic>();
 builder.Services.AddScoped<TransferTransactionLogic>();
 builder.Services.AddScoped<AccountLogic>();
 builder.Services.AddScoped<TransactionLogic>();
+builder.Services.AddScoped<EnvelopeFundingLogic>();
+builder.Services.AddScoped<BudgetTemplateLogic>();
 
 // Add a scoped DAO classes that will persist for each request
 builder.Services.AddScoped<UserDAO>();
 builder.Services.AddScoped<BudgetDAO>();
 builder.Services.AddScoped<EnvelopeCategoryDAO>();
-builder.Services.AddScoped<EnvelopeDAO>();
+builder.Services.AddScoped<SinkingFundEnvelopeDAO>();
+builder.Services.AddScoped<RolloverEnvelopeDAO>();
 builder.Services.AddScoped<BankAccountDAO>();
 builder.Services.AddScoped<DebtAccountDAO>();
 builder.Services.AddScoped<InvestmentAccountDAO>();
@@ -88,7 +92,9 @@ builder.Services.AddScoped<PaycheckDAO>();
 builder.Services.AddScoped<PaymentTransactionDAO>();
 builder.Services.AddScoped<TransferTransactionDAO>();
 builder.Services.AddScoped<AccountDAO>();
-builder.Services.AddScoped<TransactionDAO>();
+builder.Services.AddScoped<TransactionDAO>();\
+builder.Services.AddScoped<EnvelopeFundingDAO>();
+builder.Services.AddScoped<BudgetTemplateDAO>();
 
 // Get the JWT key and issuer
 var jwtKey = builder.Configuration["Jwt:Key"];

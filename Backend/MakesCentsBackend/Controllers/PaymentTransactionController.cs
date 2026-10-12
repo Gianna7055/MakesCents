@@ -64,9 +64,14 @@ namespace MakesCentsBackend.Controllers
             }
         }
 
+        /// <summary>
+        /// HTTP GET method to get a payment transaction and its splits
+        /// </summary>
+        /// <param name="paymentTransactionId"></param>
+        /// <returns></returns>
         [Authorize]
-        [HttpGet("{paycheckTransactionId}")]
-        public async Task<ActionResult> GetPaymentTransactionAsync(int paycheckTransactionId)
+        [HttpGet("{paymentTransactionId}")]
+        public async Task<ActionResult> GetPaymentTransactionAsync(int paymentTransactionId)
         {
             // Declare and initialize
             GetPaymentTransactionResponse response;
@@ -74,9 +79,9 @@ namespace MakesCentsBackend.Controllers
             // Get the user id from the JWT token
             int userId = ClaimsPrincipalExtensions.GetUserId(User);
 
-            // Set the user and paycheck transaction ids in the request
+            // Set the user and transaction ids in the request
             request.UserId = userId;
-            request.EntityId = paycheckTransactionId;
+            request.EntityId = paymentTransactionId;
             // Call the logic method
             response = await _paymentTransactionLogic.GetPaymentTransactionAsync(request);
             // Check if the response came back as not found
@@ -86,7 +91,7 @@ namespace MakesCentsBackend.Controllers
                 {
                     status = response.HttpStatus,
                     message = response.Message,
-                    paycheckTransactionId = paycheckTransactionId
+                    paymentTransactionId = paymentTransactionId
                 });
             }
             else if (response.HttpStatus != 200)
@@ -98,6 +103,12 @@ namespace MakesCentsBackend.Controllers
             return Ok(response);
         }
 
+        /// <summary>
+        /// HTTP PUT method to update a payment transaction and its splits
+        /// </summary>
+        /// <param name="paymentTransactionId"></param>
+        /// <param name="paymentTransaction"></param>
+        /// <returns></returns>
         [Authorize]
         [HttpPut("{paymentTransactionId}")]
         public async Task<ActionResult> UpdatePaymentTransactionAsync(int paymentTransactionId, UpdatePaymentTransactionRequest paymentTransaction)

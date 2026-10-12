@@ -77,49 +77,81 @@ namespace MakesCentsBackend.Services.DataAccessLayer
             return new BaseIdResponse(201, "Envelope category created successfully", envelopeCategoryId);
         }
 
-
+        /// <summary>
+        /// DAO method to get all envelope categories (with their envelopes) for a given budget month.
+        /// Sinking fund envelopes are persistent (no month context needed); rollover envelopes are
+        /// joined to this month's instance. The budget_id is derived via a join to budget_month
+        /// rather than taken as a separate parameter, since a budget_month_id already implies it.
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
         public async Task<GetAllEnvelopeCategoriesResponse> GetAllEnvelopeCategoriesAsync(BaseIdRequest request)
         {
             // Declare and initialize
             GetAllEnvelopeCategoriesResponse allEnvelopeCategoriesResponse = new GetAllEnvelopeCategoriesResponse();
             List<SummaryEnvelopeCategoryResponse> envelopeCategoryResponses;
-            List<SummaryEnvelopeResponse> envelopeResponses;
+            List<SummaryEnvelopeResponse> sinkingFundResponses;
+            List<SummaryEnvelopeResponse> rolloverResponses;
             Dictionary<int, SummaryEnvelopeCategoryResponse> envelopeCategoryLookup;
 
-            // Make sure the budget belongs to the user
-            if (!await _authService.VerifyUserOwnsBudgetAsync(request.EntityId, request.UserId))
+            // Make sure this budget month belongs to the user
+            if (!await _authService.VerifyUserOwnsBudgetMonthAsync(request.EntityId, request.UserId))
             {
                 return new GetAllEnvelopeCategoriesResponse(403, "Budget does not belong to the current user");
             }
-            // Set up the query to get the envelope categories
+            // Set up the query to get the envelope categories - budget_id comes from the join to
+            // budget_month rather than being passed in separately
             query = """
                 SELECT 
                     envelope_category.envelope_category_id as EnvelopeCategoryId,
                     envelope_category.budget_id as BudgetId,
                     envelope_category.envelope_category_name as EnvelopeCategoryName
                 FROM envelope_category
-                WHERE envelope_category.budget_id = @BudgetId;
+                INNER JOIN budget_month ON budget_month.budget_id = envelope_category.budget_id
+                WHERE budget_month.budget_month_id = @BudgetMonthId;
                 """;
             // Read the envelope categories
-            envelopeCategoryResponses = (await _connection.QueryAsync<SummaryEnvelopeCategoryResponse>(query, new { BudgetId = request.EntityId })).ToList();
-            // Set up the query for reading the envelopes
+            envelopeCategoryResponses = (await _connection.QueryAsync<SummaryEnvelopeCategoryResponse>(query, new { BudgetMonthId = request.EntityId })).ToList();
+
+            // Set up the query for reading the sinking fund envelopes (persistent, no month context needed)
             query = """
                 SELECT 
-                    envelope.envelope_id as EnvelopeId,
-                    envelope.envelope_name as EnvelopeName,
-                    envelope.remaining_amount as RemainingAmount,
-                    envelope.envelope_category_id as EnvelopeCategoryId
-                FROM envelope
-                JOIN envelope_category 
-                    ON envelope_category.envelope_category_id = envelope.envelope_category_id
-                WHERE envelope_category.budget_id = @BudgetId;
+                    sinking_fund_envelope.sinking_fund_envelope_id AS EnvelopeId,
+                    sinking_fund_envelope.envelope_category_id AS EnvelopeCategoryId,
+                    sinking_fund_envelope.envelope_name AS EnvelopeName,
+                    sinking_fund_envelope.remaining_amount AS RemainingAmount,
+                    true AS IsSinkingFund
+                FROM sinking_fund_envelope
+                INNER JOIN envelope_category ON envelope_category.envelope_category_id = sinking_fund_envelope.envelope_category_id
+                INNER JOIN budget_month ON budget_month.budget_id = envelope_category.budget_id
+                WHERE budget_month.budget_month_id = @BudgetMonthId;
                 """;
-            // Read the envelopes
-            envelopeResponses = (await _connection.QueryAsync<SummaryEnvelopeResponse>(query, new { BudgetId = request.EntityId })).ToList();
+            // Read the sinking fund envelopes
+            sinkingFundResponses = (await _connection.QueryAsync<SummaryEnvelopeResponse>(query, new { BudgetMonthId = request.EntityId })).ToList();
+
+            // Set up the query for reading the rollover envelopes, joined to this month's instance (if activated)
+            query = """
+                SELECT 
+                    rollover_envelope.rollover_envelope_id AS EnvelopeId,
+                    rollover_envelope.envelope_category_id AS EnvelopeCategoryId,
+                    rollover_envelope.envelope_name AS EnvelopeName,
+                    rollover_envelope_month.remaining_amount AS RemainingAmount,
+                    false AS IsSinkingFund
+                FROM rollover_envelope
+                INNER JOIN envelope_category ON envelope_category.envelope_category_id = rollover_envelope.envelope_category_id
+                INNER JOIN budget_month ON budget_month.budget_id = envelope_category.budget_id
+                LEFT JOIN rollover_envelope_month 
+                    ON rollover_envelope_month.rollover_envelope_id = rollover_envelope.rollover_envelope_id
+                    AND rollover_envelope_month.budget_month_id = @BudgetMonthId
+                WHERE budget_month.budget_month_id = @BudgetMonthId;
+                """;
+            // Read the rollover envelopes
+            rolloverResponses = (await _connection.QueryAsync<SummaryEnvelopeResponse>(query, new { BudgetMonthId = request.EntityId })).ToList();
+
             // Create a dictionary for the envelope categories
             envelopeCategoryLookup = envelopeCategoryResponses.ToDictionary(category => category.EnvelopeCategoryId);
-            // Loop through the envelopes to put them in the correct categories
-            foreach (SummaryEnvelopeResponse envelope in envelopeResponses)
+            // Loop through both envelope lists together to put them in the correct categories
+            foreach (SummaryEnvelopeResponse envelope in sinkingFundResponses.Concat(rolloverResponses))
             {
                 // Get the envelope category for each envelope
                 if (envelopeCategoryLookup.TryGetValue(envelope.EnvelopeCategoryId, out SummaryEnvelopeCategoryResponse? singleEnvelopeCategory))
@@ -127,6 +159,13 @@ namespace MakesCentsBackend.Services.DataAccessLayer
                     // Add the envelope to the envelope category
                     singleEnvelopeCategory.Envelopes.Add(envelope);
                 }
+            }
+            // Sort each category's envelopes alphabetically
+            foreach (SummaryEnvelopeCategoryResponse category in envelopeCategoryResponses)
+            {
+                category.Envelopes = category.Envelopes
+                    .OrderBy(envelope => envelope.EnvelopeName, StringComparer.OrdinalIgnoreCase)
+                    .ToList();
             }
 
             // Set the envelope list of the envelope category to the existing list
@@ -246,9 +285,10 @@ namespace MakesCentsBackend.Services.DataAccessLayer
         }
 
         /// <summary>
-        /// DAO method to delete an envelope category
+        /// DAO method to delete an envelope category. Cascades to remove every sinking fund and
+        /// rollover envelope in it as well.
         /// </summary>
-        /// <param name="envelopeCategoryId"></param>
+        /// <param name="request"></param>
         /// <returns></returns>
         public async Task<BaseResponse> DeleteEnvelopeCategoryAsync(BaseIdRequest request)
         {
@@ -270,7 +310,7 @@ namespace MakesCentsBackend.Services.DataAccessLayer
             // Check the number of rows found
             if (rowsAffected == 0)
             {
-                // Return that the user was not found
+                // Return that the envelope category was not found
                 return new BaseResponse(404, "Envelope category not found");
             }
             // Return the success

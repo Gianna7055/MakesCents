@@ -15,7 +15,7 @@ namespace MakesCentsBackend.Models
     {
         // Class Level Properties
         public int TransactionId { get; set; } = 0;
-        public int BudgetId { get; set; } = 0;
+        public int BudgetMonthId { get; set; } = 0;
         public DateOnly TransactionDate { get; set; } = DateOnly.MinValue;
         public decimal TotalAmount { get; set; } = 0m;
         public bool IsReconciled { get; set; } = false;
@@ -69,7 +69,7 @@ namespace MakesCentsBackend.Models
     [ExportTsClass]
     public abstract class CreateTransactionRequest
     {
-        public int BudgetId { get; set; } = 0;
+        public int BudgetMonthId { get; set; } = 0;
         public int UserId { get; set; } = 0;
         public int TransactionId { get; set; } = 0;
         public DateOnly TransactionDate { get; set; } = DateOnly.MinValue;
@@ -104,7 +104,7 @@ namespace MakesCentsBackend.Models
     {
         // Class variables
         public int TransactionId { get; set; } = 0;
-        public int BudgetId { get; set; } = 0;
+        public int BudgetMonthId { get; set; } = 0;
         public DateOnly TransactionDate { get; set; } = DateOnly.MinValue;
         public decimal TotalAmount { get; set; } = 0m;
         public bool IsReconciled { get; set; } = false;
@@ -116,7 +116,7 @@ namespace MakesCentsBackend.Models
     {
         // Class variables
         public int TransactionId { get; set; } = 0;
-        public int BudgetId { get; set; } = 0;
+        public int BudgetMonthId { get; set; } = 0;
         public int UserId { get; set; } = 0;
         public DateOnly TransactionDate { get; set; } = DateOnly.MinValue;
         public decimal TotalAmount { get; set; } = 0m;
@@ -135,5 +135,51 @@ namespace MakesCentsBackend.Models
         public DateOnly? TransactionDate { get; set; }
         public decimal? TotalAmount { get; set; }
         public Optional<string?> Notes { get; set; }
+    }
+
+    /// <summary>
+    /// Internal helper: the current account_id/total_amount/budget_month_id for a payment
+    /// transaction, read before an update is applied so the old account-balance effect can be
+    /// reversed and the new one applied cleanly.
+    /// </summary>
+    public class PaymentTransactionSnapshotModel
+    {
+        public int AccountId { get; set; } = 0;
+        public decimal TotalAmount { get; set; } = 0m;
+        public int BudgetMonthId { get; set; } = 0;
+        // True if the transaction is soft-deleted (updates are blocked while it is)
+        public bool IsDeleted { get; set; } = false;
+    }
+
+    /// <summary>
+    /// Internal helper: the current type/accounts/total_amount/budget_month_id for a transfer
+    /// transaction, read before an update is applied so the old effect (account balances or
+    /// envelope remaining amounts, depending on type) can be reversed and the new one applied.
+    /// </summary>
+    public class TransferTransactionSnapshotModel
+    {
+        public TransactionType TransactionType { get; set; } = TransactionType.Unknown;
+        public TransferTransactionType TransferTransactionType { get; set; } = TransferTransactionType.Unknown;
+        public int? TransferFromAccountId { get; set; } = null;
+        public int? TransferToAccountId { get; set; } = null;
+        public decimal TotalAmount { get; set; } = 0m;
+        public int BudgetMonthId { get; set; } = 0;
+        // True if the transaction is soft-deleted (updates are blocked while it is)
+        public bool IsDeleted { get; set; } = false;
+    }
+
+    /// <summary>
+    /// Internal helper: what a transaction currently does to account balances, plus whether it is
+    /// soft-deleted. Used by the delete/restore methods to reverse or re-apply its effect.
+    /// </summary>
+    public class TransactionEffectSnapshotModel
+    {
+        public decimal TotalAmount { get; set; } = 0m;
+        public bool IsDeleted { get; set; } = false;
+        // Set for payment transactions
+        public int? PaymentAccountId { get; set; } = null;
+        // Set for account-to-account transfers
+        public int? TransferFromAccountId { get; set; } = null;
+        public int? TransferToAccountId { get; set; } = null;
     }
 }

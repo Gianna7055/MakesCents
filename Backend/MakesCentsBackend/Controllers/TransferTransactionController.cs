@@ -28,7 +28,7 @@ namespace MakesCentsBackend.Controllers
         }
 
         /// <summary>
-        /// HTTP POST method to create a new transfer transaction
+        /// HTTP POST method to create a new transfer transaction (account-to-account or envelope-to-envelope)
         /// </summary>
         /// <param name="transferTransaction"></param>
         /// <returns></returns>
@@ -63,9 +63,14 @@ namespace MakesCentsBackend.Controllers
             }
         }
 
+        /// <summary>
+        /// HTTP GET method to get a transfer transaction
+        /// </summary>
+        /// <param name="transactionId"></param>
+        /// <returns></returns>
         [Authorize]
-        [HttpGet("{paycheckTransactionId}")]
-        public async Task<ActionResult> GetTransferTransactionAsync(int paycheckTransactionId)
+        [HttpGet("{transactionId}")]
+        public async Task<ActionResult> GetTransferTransactionAsync(int transactionId)
         {
             // Declare and initialize
             GetTransferTransactionDTOResponse response;
@@ -73,9 +78,9 @@ namespace MakesCentsBackend.Controllers
             // Get the user id from the JWT token
             int userId = ClaimsPrincipalExtensions.GetUserId(User);
 
-            // Set the user and paycheck transaction ids in the request
+            // Set the user and transaction ids in the request
             request.UserId = userId;
-            request.EntityId = paycheckTransactionId;
+            request.EntityId = transactionId;
             // Call the logic method
             response = await _transferTransactionLogic.GetTransferTransactionAsync(request);
             // Check if the response came back as not found
@@ -85,7 +90,7 @@ namespace MakesCentsBackend.Controllers
                 {
                     status = response.HttpStatus,
                     message = response.Message,
-                    paycheckTransactionId = paycheckTransactionId
+                    transactionId = transactionId
                 });
             }
             else if (response.HttpStatus != 200)
@@ -97,6 +102,12 @@ namespace MakesCentsBackend.Controllers
             return Ok(response);
         }
 
+        /// <summary>
+        /// HTTP PUT method to update a transfer transaction
+        /// </summary>
+        /// <param name="transferTransactionId"></param>
+        /// <param name="transferTransaction"></param>
+        /// <returns></returns>
         [Authorize]
         [HttpPut("{transferTransactionId}")]
         public async Task<ActionResult> UpdateTransferTransactionAsync(int transferTransactionId, UpdateTransferTransactionRequest transferTransaction)
@@ -111,7 +122,7 @@ namespace MakesCentsBackend.Controllers
             // Get the user id from the JWT token
             int userId = ClaimsPrincipalExtensions.GetUserId(User);
 
-            // Set the payment transaction id and user id in the request
+            // Set the transfer transaction id and user id in the request
             transferTransaction.UserId = userId;
             transferTransaction.TransferTransactionId = transferTransactionId;
             // Call the logic method

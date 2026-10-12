@@ -30,9 +30,16 @@ namespace MakesCentsBackend.Controllers
             _transactionLogic = transactionLogic;
         }
 
+        /// <summary>
+        /// HTTP GET method to get every transaction for a budget month.
+        /// NOTE: the route param is now a budget_month_id, not a budget_id - transactions are
+        /// scoped to one specific month.
+        /// </summary>
+        /// <param name="budgetMonthId"></param>
+        /// <returns></returns>
         [Authorize]
-        [HttpGet("{budgetId}")]
-        public async Task<ActionResult> GetAllTransactionsAsync(int budgetId)
+        [HttpGet("budget-month/{budgetMonthId}")]
+        public async Task<ActionResult> GetAllTransactionsAsync(int budgetMonthId)
         {
             // Declare or initialize
             GetAllTransactionsDTOResponse response;
@@ -40,9 +47,9 @@ namespace MakesCentsBackend.Controllers
             // Get the user id from the JWT token
             int userId = ClaimsPrincipalExtensions.GetUserId(User);
 
-            // Set the user id and budget id in the request
+            // Set the user id and budget month id in the request
             request.UserId = userId;
-            request.EntityId = budgetId;
+            request.EntityId = budgetMonthId;
             // Call the logic method
             response = await _transactionLogic.GetAllTransactionsAsync(request);
             // Check if the response came back as not found
@@ -52,7 +59,7 @@ namespace MakesCentsBackend.Controllers
                 {
                     status = response.HttpStatus,
                     message = response.Message,
-                    budgetId = budgetId
+                    budgetMonthId = budgetMonthId
                 });
             }
             else if (response.HttpStatus != 200)
@@ -64,7 +71,11 @@ namespace MakesCentsBackend.Controllers
             return Ok(response);
         }
 
-
+        /// <summary>
+        /// HTTP DELETE method to soft delete a transaction
+        /// </summary>
+        /// <param name="transactionId"></param>
+        /// <returns></returns>
         [Authorize]
         [HttpDelete("{transactionId}")]
         public async Task<ActionResult> SoftDeleteTransactionAsync(int transactionId)
@@ -93,6 +104,11 @@ namespace MakesCentsBackend.Controllers
             }
         }
 
+        /// <summary>
+        /// HTTP PATCH method to restore a soft-deleted transaction
+        /// </summary>
+        /// <param name="transactionId"></param>
+        /// <returns></returns>
         [Authorize]
         [HttpPatch("{transactionId}/restore")]
         public async Task<ActionResult> RestoreTransactionAsync(int transactionId)
@@ -121,7 +137,11 @@ namespace MakesCentsBackend.Controllers
             return Ok(response);
         }
 
-
+        /// <summary>
+        /// HTTP DELETE method to permanently delete a transaction
+        /// </summary>
+        /// <param name="transactionId"></param>
+        /// <returns></returns>
         [Authorize]
         [HttpDelete("{transactionId}/permanent")]
         public async Task<ActionResult> HardDeleteTransactionAsync(int transactionId)

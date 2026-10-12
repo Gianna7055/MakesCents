@@ -19,10 +19,15 @@ namespace MakesCentsBackend.Services.Mappers
             CreateMap<UserEntityModel, UserDTOModel>();
             CreateMap<UserEntityResponse, UserDTOResponse>();
 
-            // Envelope Maps
-            CreateMap<GetEnvelopeEntityModel, GetEnvelopeDTOModel>();
-            CreateMap<GetEnvelopeEntityResponse, GetEnvelopeDTOResponse>()
-                .ForMember(dest => dest.EnvelopeDTO, opt => opt.MapFrom(src => src.EnvelopeEntity));
+            // Sinking Fund Envelope Maps
+            CreateMap<GetSinkingFundEnvelopeEntityModel, GetSinkingFundEnvelopeDTOModel>();
+            CreateMap<GetSinkingFundEnvelopeEntityResponse, GetSinkingFundEnvelopeDTOResponse>()
+                .ForMember(dest => dest.SinkingFundEnvelopeDTO, opt => opt.MapFrom(src => src.SinkingFundEnvelope));
+
+            // Rollover Envelope Maps
+            CreateMap<GetRolloverEnvelopeEntityModel, GetRolloverEnvelopeDTOModel>();
+            CreateMap<GetRolloverEnvelopeEntityResponse, GetRolloverEnvelopeDTOResponse>()
+                .ForMember(dest => dest.RolloverEnvelopeDTO, opt => opt.MapFrom(src => src.RolloverEnvelope));
 
             // Bank Account Maps
             CreateMap<GetBankAccountEntityModel, GetBankAccountDTOModel>();

@@ -6,7 +6,6 @@
 using AutoMapper;
 using MakesCentsBackend.Models;
 using MakesCentsBackend.Services.DataAccessLayer;
-using MakesCentsBackend.Services.Mappers;
 
 namespace MakesCentsBackend.Services.BusinessLogicLayer
 {
@@ -26,7 +25,13 @@ namespace MakesCentsBackend.Services.BusinessLogicLayer
             _mapper = mapper;
         }
 
-
+        /// <summary>
+        /// Logic method to get every transaction for a budget month.
+        /// NOTE: request.EntityId is a budget_month_id, not a budget_id - transactions are
+        /// scoped to one specific month.
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
         public async Task<GetAllTransactionsDTOResponse> GetAllTransactionsAsync(BaseIdRequest request)
         {
             // Declare and initialize

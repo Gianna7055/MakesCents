@@ -114,6 +114,11 @@ namespace MakesCentsBackend.Services.DataAccessLayer
             return response;
         }
 
+        /// <summary>
+        /// DAO method to get an investment account, including its transaction history
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
         public async Task<GetInvestmentAccountEntityResponse> GetInvestmentAccountAsync(BaseIdRequest request)
         {
             // Declare and initialize
@@ -152,7 +157,8 @@ namespace MakesCentsBackend.Services.DataAccessLayer
                 return new GetInvestmentAccountEntityResponse(404, "Investment account not found");
             }
 
-            // Set up the query to get the list of payment transactions
+            // Set up the query to get the list of payment transactions. Self-join ts2 pulls
+            // every envelope name on the transaction, checking both envelope tables.
             query = """
                 SELECT 
                     transaction.transaction_id AS TransactionId,
@@ -160,11 +166,13 @@ namespace MakesCentsBackend.Services.DataAccessLayer
                     transaction.transaction_type_id AS TransactionTypeId,
                     transaction.total_amount AS TotalAmount,
                     payment_transaction.merchant_source_name AS MerchantSourceName,
-                    GROUP_CONCAT(DISTINCT envelope.envelope_name SEPARATOR ', ') AS EnvelopeNames
+                    GROUP_CONCAT(DISTINCT COALESCE(sfe.envelope_name, re.envelope_name) SEPARATOR ', ') AS EnvelopeNames
                 FROM payment_transaction
                 INNER JOIN transaction ON payment_transaction.transaction_id = transaction.transaction_id
                 LEFT JOIN transaction_split ON transaction.transaction_id = transaction_split.transaction_id
-                LEFT JOIN envelope ON transaction_split.envelope_id = envelope.envelope_id
+                LEFT JOIN sinking_fund_envelope AS sfe ON transaction_split.sinking_fund_envelope_id = sfe.sinking_fund_envelope_id
+                LEFT JOIN rollover_envelope_month AS rem ON transaction_split.rollover_envelope_month_id = rem.rollover_envelope_month_id
+                LEFT JOIN rollover_envelope AS re ON rem.rollover_envelope_id = re.rollover_envelope_id
                 WHERE payment_transaction.account_id = @AccountId
                 AND transaction.deleted_at IS NULL
                 AND transaction.transaction_type_id = 2
@@ -187,9 +195,7 @@ namespace MakesCentsBackend.Services.DataAccessLayer
                     transaction.transaction_type_id AS TransactionTypeId,
                     transaction.total_amount AS TotalAmount,
                     transfer_transaction.transfer_from_account_id AS TransferFromAccountId,
-                    transfer_transaction.transfer_to_account_id AS TransferToAccountId,
-                    transfer_transaction.transfer_from_envelope_id AS TransferFromEnvelopeId,
-                    transfer_transaction.transfer_to_envelope_id AS TransferToEnvelopeId
+                    transfer_transaction.transfer_to_account_id AS TransferToAccountId
                 FROM transfer_transaction
                 INNER JOIN transaction ON transfer_transaction.transaction_id = transaction.transaction_id
                 WHERE (transfer_transaction.transfer_from_account_id = @AccountId 
@@ -209,7 +215,11 @@ namespace MakesCentsBackend.Services.DataAccessLayer
             return response;
         }
 
-
+        /// <summary>
+        /// DAO method to update an investment account
+        /// </summary>
+        /// <param name="investmentAccount"></param>
+        /// <returns></returns>
         public async Task<BaseIdResponse> UpdateInvestmentAccountAsync(UpdateInvestmentAccountRequest investmentAccount)
         {
             // Declare and initialize
@@ -266,17 +276,18 @@ namespace MakesCentsBackend.Services.DataAccessLayer
                     }
                 }
 
-                // If no fields to update, return early
+                // If there are no fields to update, commit and return early
                 if (updates.Count == 0)
                 {
-                    return new BaseIdResponse(400, "No fields to update");
+                    dbTransaction.Commit();
+                    return new BaseIdResponse(200, "Investment account updated successfully", investmentAccount.InvestmentAccountId);
                 }
                 // Assemble the query
                 query = $"""
-                UPDATE investment_account
-                SET {string.Join(", ", updates)}
-                WHERE investment_account_id = @InvestmentAccount
-                """;
+                    UPDATE investment_account 
+                    SET {string.Join(", ", updates)}
+                    WHERE investment_account_id = @InvestmentAccountId
+                    """;
                 try
                 {
                     // Execute the query
@@ -289,23 +300,16 @@ namespace MakesCentsBackend.Services.DataAccessLayer
                     // Return the issue
                     return new BaseIdResponse(500, $"{ex.Message}");
                 }
+                if (rowsAffected == 0)
+                {
+                    // Roll the transaction back
+                    dbTransaction.Rollback();
+                    return new BaseIdResponse(404, "Investment account not found");
+                }
                 // Commit the transaction
                 dbTransaction.Commit();
             }
-
-            // Make sure the row was affected
-            if (rowsAffected == 1)
-            {
-                return new BaseIdResponse(200, "Investment account updated successfully", investmentAccount.InvestmentAccountId);
-            }
-            else if (rowsAffected == 0)
-            {
-                return new BaseIdResponse(404, "Investment account not found");
-            }
-            else
-            {
-                return new BaseIdResponse(400, "An error occurred");
-            }
+            return new BaseIdResponse(200, "Investment account updated successfully", investmentAccount.InvestmentAccountId);
         }
     }
 }

@@ -9,24 +9,26 @@ using TypeGen.Core.TypeAnnotations;
 namespace MakesCentsBackend.Models
 {
     /// <summary>
-    /// Model for a paycheck
+    /// Model for a paycheck. Forecast-only - a paycheck no longer funds envelopes directly
+    /// (see envelope_funding for that) and isn't tied to any specific month. It exists purely
+    /// to represent expected income on a recurring schedule.
     /// </summary>
     public class PaycheckEntityModel
     {
         // Class Level Properties
         public int PaycheckId { get; set; } = 0;
         public int BudgetId { get; set; } = 0;
+        public string PaycheckName { get; set; } = "";
         public DateOnly StartingDate { get; set; } = DateOnly.MinValue;
         public DateOnly? SecondaryDate { get; set; } = null;
         public decimal TotalAmount { get; set; } = 0m;
         public PaycheckRegularity PaycheckRegularity { get; set; } = PaycheckRegularity.Unknown;
         public DateTime CreatedAt { get; set; } = DateTime.MinValue;
         public DateTime LastUpdatedAt { get; set; } = DateTime.MinValue;
-        public List<PaycheckSplitEntityModel> PaycheckSplits { get; set; } = new List<PaycheckSplitEntityModel>();
     }
 
     /// <summary>
-    /// Request method to create a paycheck
+    /// Request model to create a paycheck
     /// </summary>
     [ExportTsClass]
     public class CreatePaycheckRequest
@@ -38,29 +40,6 @@ namespace MakesCentsBackend.Models
         public Optional<DateOnly?> SecondaryDate { get; set; }
         public decimal TotalAmount { get; set; } = 0m;
         public PaycheckRegularity PaycheckRegularity { get; set; } = PaycheckRegularity.Unknown;
-        public List<CreatePaycheckSplitRequest> PaycheckSplits { get; set; } = new List<CreatePaycheckSplitRequest>();
-    }
-
-    /// <summary>
-    /// Response model for a DTO paycheck
-    /// </summary>
-    [ExportTsInterface]
-    public class CreatePaycheckResponse : BaseIdResponse
-    {
-        // Class level properties
-        public List<int> PaycheckSplitIds { get; set; } = new List<int>();
-
-        /// <summary>
-        /// Parameterized constructor for a paycheck DTO Response
-        /// </summary>
-        /// <param name="httpStatus"></param>
-        /// <param name="message"></param>
-        public CreatePaycheckResponse(int httpStatus, string message) : base(httpStatus, message) { }
-
-        /// <summary>
-        /// Default constructor for a paycheck DTO Response
-        /// </summary>
-        public CreatePaycheckResponse() : base() { }
     }
 
 
@@ -119,7 +98,6 @@ namespace MakesCentsBackend.Models
         public DateOnly? SecondaryDate { get; set; } = null;
         public decimal TotalAmount { get; set; } = 0m;
         public PaycheckRegularity PaycheckRegularity { get; set; } = PaycheckRegularity.Unknown;
-        public List<GetPaycheckSplitDTOModel> PaycheckSplits { get; set; } = new List<GetPaycheckSplitDTOModel>();
     }
 
 
@@ -133,19 +111,5 @@ namespace MakesCentsBackend.Models
         public Optional<DateOnly?> SecondaryDate { get; set; }
         public decimal? TotalAmount { get; set; }
         public PaycheckRegularity? PaycheckRegularity { get; set; }
-        public List<UpdatePaycheckSplitRequest> PaycheckSplits { get; set; } = new List<UpdatePaycheckSplitRequest>();
-    }
-
-
-    [ExportTsInterface]
-    public class UpdatePaycheckResponse : BaseIdResponse
-    {
-        // Class properties
-        public List<int> PaycheckSplitIds { get; set; } = new List<int>();
-
-        public UpdatePaycheckResponse(int httpStatus, string message) : base(httpStatus, message) { }
-        public UpdatePaycheckResponse(int httpStatus, string message, int id) : base(httpStatus, message, id) { }
-
-        public UpdatePaycheckResponse() : base() { }
     }
 }
