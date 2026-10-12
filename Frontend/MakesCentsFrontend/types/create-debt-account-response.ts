@@ -5,6 +5,9 @@
 
 import { CreateAccountResponse } from "./create-account-response";
 
+/**
+ * Response model for creating a debt account
+ */
 export interface CreateDebtAccountResponse extends CreateAccountResponse {
     debtAccountId: number;
 }

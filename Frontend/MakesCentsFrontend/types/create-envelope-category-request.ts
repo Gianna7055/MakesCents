@@ -3,6 +3,9 @@
  * Any changes made to this file can be lost when this file is regenerated.
  */
 
+/**
+ * Request model for creating an envelope category
+ */
 export class CreateEnvelopeCategoryRequest {
     budgetId: number;
     userId: number;

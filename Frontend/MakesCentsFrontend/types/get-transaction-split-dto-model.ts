@@ -7,5 +7,6 @@ export interface GetTransactionSplitDTOModel {
     transactionSplitId: number;
     transactionId: number;
     envelopeId: number;
+    isSinkingFund: boolean;
     amount: number;
 }

@@ -5,6 +5,9 @@
 
 import { CreateAccountResponse } from "./create-account-response";
 
+/**
+ * Response model for creating an investment account
+ */
 export interface CreateInvestmentAccountResponse extends CreateAccountResponse {
     investmentAccountId: number;
 }

@@ -6,8 +6,11 @@
 import { DateOnly } from "./date-only";
 import { Optional } from "./optional";
 
+/**
+ * Request model to create a new transaction
+ */
 export class CreateTransactionRequest {
-    budgetId: number;
+    budgetMonthId: number;
     userId: number;
     transactionId: number;
     transactionDate: DateOnly;

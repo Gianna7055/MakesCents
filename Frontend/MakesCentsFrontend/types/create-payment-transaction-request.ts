@@ -8,6 +8,9 @@ import { PaymentTransactionType } from "./payment-transaction-type";
 import { Optional } from "./optional";
 import { CreateTransactionSplitRequest } from "./create-transaction-split-request";
 
+/**
+ * Request model to create a new payment transaction
+ */
 export class CreatePaymentTransactionRequest extends CreateTransactionRequest {
     accountId: number;
     paymentTransactionType: PaymentTransactionType = 1;

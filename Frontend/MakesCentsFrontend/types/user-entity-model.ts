@@ -5,6 +5,9 @@
 
 import { BudgetEntityModel } from "./budget-entity-model";
 
+/**
+ * Model for a user
+ */
 export class UserEntityModel {
     userId: number;
     username: string = "";

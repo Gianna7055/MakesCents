@@ -7,6 +7,9 @@ import { CreateAccountRequest } from "./create-account-request";
 import { InvestmentAccountType } from "./investment-account-type";
 import { Optional } from "./optional";
 
+/**
+ * Request model to create an investment account
+ */
 export class CreateInvestmentAccountRequest extends CreateAccountRequest {
     investmentAccountType: InvestmentAccountType = 1;
     investmentAccountNumber: Optional<number>;

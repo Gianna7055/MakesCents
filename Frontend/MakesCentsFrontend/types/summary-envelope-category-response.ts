@@ -5,6 +5,9 @@
 
 import { SummaryEnvelopeResponse } from "./summary-envelope-response";
 
+/**
+ * Response model for an envelope category for the Get Budget method
+ */
 export interface SummaryEnvelopeCategoryResponse {
     envelopeCategoryId: number;
     budgetId: number;

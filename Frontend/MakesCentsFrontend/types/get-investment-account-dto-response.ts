@@ -6,6 +6,9 @@
 import { BaseResponse } from "./base-response";
 import { GetInvestmentAccountDTOModel } from "./get-investment-account-dto-model";
 
+/**
+ * Response model for getting a specific investment account
+ */
 export interface GetInvestmentAccountDTOResponse extends BaseResponse {
     investmentAccount: GetInvestmentAccountDTOModel;
 }

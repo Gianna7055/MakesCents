@@ -6,6 +6,9 @@
 import { BaseResponse } from "./base-response";
 import { UserEntityModel } from "./user-entity-model";
 
+/**
+ * Response model for an entity user
+ */
 export interface UserEntityResponse extends BaseResponse {
     user: UserEntityModel;
     token: string;

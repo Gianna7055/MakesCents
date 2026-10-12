@@ -6,9 +6,12 @@
 import { DateOnly } from "./date-only";
 import { TransactionType } from "./transaction-type";
 
+/**
+ * Model for an abstract transaction
+ */
 export class TransactionEntityModel {
     transactionId: number;
-    budgetId: number;
+    budgetMonthId: number;
     transactionDate: DateOnly;
     totalAmount: number;
     isReconciled: boolean;

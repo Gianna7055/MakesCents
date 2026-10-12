@@ -11,4 +11,6 @@ export class UpdateTransferTransactionRequest extends UpdateTransactionRequest {
     transferFromId: number;
     transferToId: number;
     transferTransactionType: TransferTransactionType;
+    transferFromIsSinkingFund: boolean;
+    transferToIsSinkingFund: boolean;
 }

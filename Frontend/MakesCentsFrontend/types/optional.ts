@@ -5,7 +5,18 @@
 
 import { IOptional } from "./i-optional";
 
+/**
+ * Optional class for creating and updating nulls
+ * 
+ * @typeParam T -
+ */
 export class Optional<T> implements IOptional {
+    /**
+     * Checks if the value was sent
+     */
     hasValue: boolean;
+    /**
+     * The value that was sent
+     */
     value: T | null;
 }

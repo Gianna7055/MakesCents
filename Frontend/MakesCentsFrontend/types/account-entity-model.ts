@@ -6,6 +6,9 @@
 import { AccountType } from "./account-type";
 import { TransactionEntityModel } from "./transaction-entity-model";
 
+/**
+ * Model for an abstract account
+ */
 export class AccountEntityModel {
     accountId: number;
     budgetId: number;

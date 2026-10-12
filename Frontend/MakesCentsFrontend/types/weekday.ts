@@ -3,6 +3,9 @@
  * Any changes made to this file can be lost when this file is regenerated.
  */
 
+/**
+ * Enum for Weekdays for the Planned Expense Model
+ */
 export enum Weekday {
     Unknown = 1,
     Monday = 2,

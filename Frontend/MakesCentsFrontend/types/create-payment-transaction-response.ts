@@ -5,6 +5,9 @@
 
 import { BaseIdResponse } from "./base-id-response";
 
+/**
+ * Response model for creating a payment transaction
+ */
 export interface CreatePaymentTransactionResponse extends BaseIdResponse {
     paymentTransactionId: number;
     transactionSplitIds: number[];

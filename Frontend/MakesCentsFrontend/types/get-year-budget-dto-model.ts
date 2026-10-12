@@ -7,8 +7,10 @@ import { Month } from "./month";
 
 export class GetYearBudgetDTOModel {
     budgetId: number;
+    budgetMonthId: number;
     userId: number;
     month: Month = 1;
     year: number;
     budgetName: string = "";
+    budgetTemplateId: number;
 }

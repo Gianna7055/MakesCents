@@ -5,6 +5,9 @@
 
 import { BudgetEntityModel } from "./budget-entity-model";
 
+/**
+ * Model for a user
+ */
 export interface UserDTOModel {
     userId: number;
     username: string;

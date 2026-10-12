@@ -5,6 +5,9 @@
 
 import { BaseResponse } from "./base-response";
 
+/**
+ * Response model for an account
+ */
 export interface CreateAccountResponse extends BaseResponse {
     accountId: number;
 }

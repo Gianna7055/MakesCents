@@ -6,6 +6,9 @@
 import { BaseResponse } from "./base-response";
 import { GetDebtAccountDTOModel } from "./get-debt-account-dto-model";
 
+/**
+ * Response model for getting a specific debt account
+ */
 export interface GetDebtAccountDTOResponse extends BaseResponse {
     debtAccount: GetDebtAccountDTOModel;
 }

@@ -3,6 +3,9 @@
  * Any changes made to this file can be lost when this file is regenerated.
  */
 
+/**
+ * Enum for Investment Account Types for Investment Account Model
+ */
 export enum InvestmentAccountType {
     Unknown = 1,
     IRA = 2,

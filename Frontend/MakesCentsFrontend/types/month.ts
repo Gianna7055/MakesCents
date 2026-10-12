@@ -3,6 +3,9 @@
  * Any changes made to this file can be lost when this file is regenerated.
  */
 
+/**
+ * Enum for the Months for the Budget Model
+ */
 export enum Month {
     Unknown = 1,
     January = 2,

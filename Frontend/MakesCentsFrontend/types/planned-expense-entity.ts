@@ -7,6 +7,9 @@ import { PlannedExpenseRegularity } from "./planned-expense-regularity";
 import { Weekday } from "./weekday";
 import { PlannedExpenseOccurrence } from "./planned-expense-occurrence";
 
+/**
+ * Model for a planned expense
+ */
 export class PlannedExpenseEntity {
     plannedExpenseId: number;
     budgetId: number;

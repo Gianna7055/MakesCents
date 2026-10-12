@@ -6,7 +6,6 @@
 import { DateOnly } from "./date-only";
 import { Optional } from "./optional";
 import { PaycheckRegularity } from "./paycheck-regularity";
-import { UpdatePaycheckSplitRequest } from "./update-paycheck-split-request";
 
 export class UpdatePaycheckRequest {
     paycheckId: number;
@@ -15,5 +14,4 @@ export class UpdatePaycheckRequest {
     secondaryDate: Optional<DateOnly>;
     totalAmount: number;
     paycheckRegularity: PaycheckRegularity;
-    paycheckSplits: UpdatePaycheckSplitRequest[] = [];
 }
