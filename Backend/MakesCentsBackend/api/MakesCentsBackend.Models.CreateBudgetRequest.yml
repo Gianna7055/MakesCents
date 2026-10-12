@@ -6,9 +6,7 @@ items:
   parent: MakesCentsBackend.Models
   children:
   - MakesCentsBackend.Models.CreateBudgetRequest.BudgetName
-  - MakesCentsBackend.Models.CreateBudgetRequest.Month
   - MakesCentsBackend.Models.CreateBudgetRequest.UserId
-  - MakesCentsBackend.Models.CreateBudgetRequest.Year
   langs:
   - csharp
   - vb
@@ -23,11 +21,11 @@ items:
       repo: https://github.com/Gianna7055/MakesCents.git
     id: CreateBudgetRequest
     path: Models/BudgetModels.cs
-    startLine: 36
+    startLine: 60
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Models
-  summary: Request model for creating a budget
+  summary: Request model for creating the persistent budget entity (no month yet - see CreateBudgetMonthRequest)
   example: []
   syntax:
     content: >-
@@ -70,7 +68,7 @@ items:
       repo: https://github.com/Gianna7055/MakesCents.git
     id: UserId
     path: Models/BudgetModels.cs
-    startLine: 39
+    startLine: 63
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Models
@@ -81,88 +79,6 @@ items:
       type: System.Int32
     content.vb: Public Property UserId As Integer
   overload: MakesCentsBackend.Models.CreateBudgetRequest.UserId*
-- uid: MakesCentsBackend.Models.CreateBudgetRequest.Month
-  commentId: P:MakesCentsBackend.Models.CreateBudgetRequest.Month
-  id: Month
-  parent: MakesCentsBackend.Models.CreateBudgetRequest
-  langs:
-  - csharp
-  - vb
-  name: Month
-  nameWithType: CreateBudgetRequest.Month
-  fullName: MakesCentsBackend.Models.CreateBudgetRequest.Month
-  type: Property
-  source:
-    remote:
-      path: Backend/MakesCentsBackend/Models/BudgetModels.cs
-      branch: master
-      repo: https://github.com/Gianna7055/MakesCents.git
-    id: Month
-    path: Models/BudgetModels.cs
-    startLine: 41
-  assemblies:
-  - MakesCentsBackend
-  namespace: MakesCentsBackend.Models
-  syntax:
-    content: >-
-      [JsonConverter(typeof(SafeDefaultConverter<Month>))]
-
-      public Month Month { get; set; }
-    parameters: []
-    return:
-      type: MakesCentsBackend.Models.Enums.Month
-    content.vb: >-
-      <JsonConverter(GetType(SafeDefaultConverter(Of Month)))>
-
-      Public Property Month As Month
-  overload: MakesCentsBackend.Models.CreateBudgetRequest.Month*
-  attributes:
-  - type: System.Text.Json.Serialization.JsonConverterAttribute
-    ctor: System.Text.Json.Serialization.JsonConverterAttribute.#ctor(System.Type)
-    arguments:
-    - type: System.Type
-      value: MakesCentsBackend.Models.Converters.SafeDefaultConverter{MakesCentsBackend.Models.Enums.Month}
-- uid: MakesCentsBackend.Models.CreateBudgetRequest.Year
-  commentId: P:MakesCentsBackend.Models.CreateBudgetRequest.Year
-  id: Year
-  parent: MakesCentsBackend.Models.CreateBudgetRequest
-  langs:
-  - csharp
-  - vb
-  name: Year
-  nameWithType: CreateBudgetRequest.Year
-  fullName: MakesCentsBackend.Models.CreateBudgetRequest.Year
-  type: Property
-  source:
-    remote:
-      path: Backend/MakesCentsBackend/Models/BudgetModels.cs
-      branch: master
-      repo: https://github.com/Gianna7055/MakesCents.git
-    id: Year
-    path: Models/BudgetModels.cs
-    startLine: 44
-  assemblies:
-  - MakesCentsBackend
-  namespace: MakesCentsBackend.Models
-  syntax:
-    content: >-
-      [JsonConverter(typeof(SafeDefaultConverter<int>))]
-
-      public int Year { get; set; }
-    parameters: []
-    return:
-      type: System.Int32
-    content.vb: >-
-      <JsonConverter(GetType(SafeDefaultConverter(Of Integer)))>
-
-      Public Property Year As Integer
-  overload: MakesCentsBackend.Models.CreateBudgetRequest.Year*
-  attributes:
-  - type: System.Text.Json.Serialization.JsonConverterAttribute
-    ctor: System.Text.Json.Serialization.JsonConverterAttribute.#ctor(System.Type)
-    arguments:
-    - type: System.Type
-      value: MakesCentsBackend.Models.Converters.SafeDefaultConverter{System.Int32}
 - uid: MakesCentsBackend.Models.CreateBudgetRequest.BudgetName
   commentId: P:MakesCentsBackend.Models.CreateBudgetRequest.BudgetName
   id: BudgetName
@@ -181,7 +97,7 @@ items:
       repo: https://github.com/Gianna7055/MakesCents.git
     id: BudgetName
     path: Models/BudgetModels.cs
-    startLine: 47
+    startLine: 65
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Models
@@ -481,55 +397,6 @@ references:
   nameWithType.vb: Integer
   fullName.vb: Integer
   name.vb: Integer
-- uid: MakesCentsBackend.Models.CreateBudgetRequest.Month*
-  commentId: Overload:MakesCentsBackend.Models.CreateBudgetRequest.Month
-  href: MakesCentsBackend.Models.CreateBudgetRequest.html#MakesCentsBackend_Models_CreateBudgetRequest_Month
-  name: Month
-  nameWithType: CreateBudgetRequest.Month
-  fullName: MakesCentsBackend.Models.CreateBudgetRequest.Month
-- uid: MakesCentsBackend.Models.Enums.Month
-  commentId: T:MakesCentsBackend.Models.Enums.Month
-  parent: MakesCentsBackend.Models.Enums
-  href: MakesCentsBackend.Models.Enums.Month.html
-  name: Month
-  nameWithType: Month
-  fullName: MakesCentsBackend.Models.Enums.Month
-- uid: MakesCentsBackend.Models.Enums
-  commentId: N:MakesCentsBackend.Models.Enums
-  href: MakesCentsBackend.html
-  name: MakesCentsBackend.Models.Enums
-  nameWithType: MakesCentsBackend.Models.Enums
-  fullName: MakesCentsBackend.Models.Enums
-  spec.csharp:
-  - uid: MakesCentsBackend
-    name: MakesCentsBackend
-    href: MakesCentsBackend.html
-  - name: .
-  - uid: MakesCentsBackend.Models
-    name: Models
-    href: MakesCentsBackend.Models.html
-  - name: .
-  - uid: MakesCentsBackend.Models.Enums
-    name: Enums
-    href: MakesCentsBackend.Models.Enums.html
-  spec.vb:
-  - uid: MakesCentsBackend
-    name: MakesCentsBackend
-    href: MakesCentsBackend.html
-  - name: .
-  - uid: MakesCentsBackend.Models
-    name: Models
-    href: MakesCentsBackend.Models.html
-  - name: .
-  - uid: MakesCentsBackend.Models.Enums
-    name: Enums
-    href: MakesCentsBackend.Models.Enums.html
-- uid: MakesCentsBackend.Models.CreateBudgetRequest.Year*
-  commentId: Overload:MakesCentsBackend.Models.CreateBudgetRequest.Year
-  href: MakesCentsBackend.Models.CreateBudgetRequest.html#MakesCentsBackend_Models_CreateBudgetRequest_Year
-  name: Year
-  nameWithType: CreateBudgetRequest.Year
-  fullName: MakesCentsBackend.Models.CreateBudgetRequest.Year
 - uid: MakesCentsBackend.Models.CreateBudgetRequest.BudgetName*
   commentId: Overload:MakesCentsBackend.Models.CreateBudgetRequest.BudgetName
   href: MakesCentsBackend.Models.CreateBudgetRequest.html#MakesCentsBackend_Models_CreateBudgetRequest_BudgetName

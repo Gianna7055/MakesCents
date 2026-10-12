@@ -5,7 +5,7 @@ items:
   id: PaymentTransactionDAO
   parent: MakesCentsBackend.Services.DataAccessLayer
   children:
-  - MakesCentsBackend.Services.DataAccessLayer.PaymentTransactionDAO.#ctor(MySqlConnector.MySqlConnection,MakesCentsBackend.Services.DataAccessLayer.AuthorizationService,MakesCentsBackend.Services.DataAccessLayer.AccountDAO,MakesCentsBackend.Services.DataAccessLayer.EnvelopeDAO,MakesCentsBackend.Services.DataAccessLayer.TransactionDAO)
+  - MakesCentsBackend.Services.DataAccessLayer.PaymentTransactionDAO.#ctor(MySqlConnector.MySqlConnection,MakesCentsBackend.Services.DataAccessLayer.AuthorizationService,MakesCentsBackend.Services.DataAccessLayer.AccountDAO,MakesCentsBackend.Services.DataAccessLayer.SinkingFundEnvelopeDAO,MakesCentsBackend.Services.DataAccessLayer.RolloverEnvelopeDAO,MakesCentsBackend.Services.DataAccessLayer.TransactionDAO)
   - MakesCentsBackend.Services.DataAccessLayer.PaymentTransactionDAO.CreatePaymentTransactionAsync(MakesCentsBackend.Models.CreatePaymentTransactionRequest)
   - MakesCentsBackend.Services.DataAccessLayer.PaymentTransactionDAO.GetPaymentTransactionAsync(MakesCentsBackend.Models.BaseIdRequest)
   - MakesCentsBackend.Services.DataAccessLayer.PaymentTransactionDAO.UpdatePaymentTransactionAsync(MakesCentsBackend.Models.UpdatePaymentTransactionRequest)
@@ -40,16 +40,16 @@ items:
   - System.Object.MemberwiseClone
   - System.Object.ReferenceEquals(System.Object,System.Object)
   - System.Object.ToString
-- uid: MakesCentsBackend.Services.DataAccessLayer.PaymentTransactionDAO.#ctor(MySqlConnector.MySqlConnection,MakesCentsBackend.Services.DataAccessLayer.AuthorizationService,MakesCentsBackend.Services.DataAccessLayer.AccountDAO,MakesCentsBackend.Services.DataAccessLayer.EnvelopeDAO,MakesCentsBackend.Services.DataAccessLayer.TransactionDAO)
-  commentId: M:MakesCentsBackend.Services.DataAccessLayer.PaymentTransactionDAO.#ctor(MySqlConnector.MySqlConnection,MakesCentsBackend.Services.DataAccessLayer.AuthorizationService,MakesCentsBackend.Services.DataAccessLayer.AccountDAO,MakesCentsBackend.Services.DataAccessLayer.EnvelopeDAO,MakesCentsBackend.Services.DataAccessLayer.TransactionDAO)
-  id: '#ctor(MySqlConnector.MySqlConnection,MakesCentsBackend.Services.DataAccessLayer.AuthorizationService,MakesCentsBackend.Services.DataAccessLayer.AccountDAO,MakesCentsBackend.Services.DataAccessLayer.EnvelopeDAO,MakesCentsBackend.Services.DataAccessLayer.TransactionDAO)'
+- uid: MakesCentsBackend.Services.DataAccessLayer.PaymentTransactionDAO.#ctor(MySqlConnector.MySqlConnection,MakesCentsBackend.Services.DataAccessLayer.AuthorizationService,MakesCentsBackend.Services.DataAccessLayer.AccountDAO,MakesCentsBackend.Services.DataAccessLayer.SinkingFundEnvelopeDAO,MakesCentsBackend.Services.DataAccessLayer.RolloverEnvelopeDAO,MakesCentsBackend.Services.DataAccessLayer.TransactionDAO)
+  commentId: M:MakesCentsBackend.Services.DataAccessLayer.PaymentTransactionDAO.#ctor(MySqlConnector.MySqlConnection,MakesCentsBackend.Services.DataAccessLayer.AuthorizationService,MakesCentsBackend.Services.DataAccessLayer.AccountDAO,MakesCentsBackend.Services.DataAccessLayer.SinkingFundEnvelopeDAO,MakesCentsBackend.Services.DataAccessLayer.RolloverEnvelopeDAO,MakesCentsBackend.Services.DataAccessLayer.TransactionDAO)
+  id: '#ctor(MySqlConnector.MySqlConnection,MakesCentsBackend.Services.DataAccessLayer.AuthorizationService,MakesCentsBackend.Services.DataAccessLayer.AccountDAO,MakesCentsBackend.Services.DataAccessLayer.SinkingFundEnvelopeDAO,MakesCentsBackend.Services.DataAccessLayer.RolloverEnvelopeDAO,MakesCentsBackend.Services.DataAccessLayer.TransactionDAO)'
   parent: MakesCentsBackend.Services.DataAccessLayer.PaymentTransactionDAO
   langs:
   - csharp
   - vb
-  name: PaymentTransactionDAO(MySqlConnection, AuthorizationService, AccountDAO, EnvelopeDAO, TransactionDAO)
-  nameWithType: PaymentTransactionDAO.PaymentTransactionDAO(MySqlConnection, AuthorizationService, AccountDAO, EnvelopeDAO, TransactionDAO)
-  fullName: MakesCentsBackend.Services.DataAccessLayer.PaymentTransactionDAO.PaymentTransactionDAO(MySqlConnector.MySqlConnection, MakesCentsBackend.Services.DataAccessLayer.AuthorizationService, MakesCentsBackend.Services.DataAccessLayer.AccountDAO, MakesCentsBackend.Services.DataAccessLayer.EnvelopeDAO, MakesCentsBackend.Services.DataAccessLayer.TransactionDAO)
+  name: PaymentTransactionDAO(MySqlConnection, AuthorizationService, AccountDAO, SinkingFundEnvelopeDAO, RolloverEnvelopeDAO, TransactionDAO)
+  nameWithType: PaymentTransactionDAO.PaymentTransactionDAO(MySqlConnection, AuthorizationService, AccountDAO, SinkingFundEnvelopeDAO, RolloverEnvelopeDAO, TransactionDAO)
+  fullName: MakesCentsBackend.Services.DataAccessLayer.PaymentTransactionDAO.PaymentTransactionDAO(MySqlConnector.MySqlConnection, MakesCentsBackend.Services.DataAccessLayer.AuthorizationService, MakesCentsBackend.Services.DataAccessLayer.AccountDAO, MakesCentsBackend.Services.DataAccessLayer.SinkingFundEnvelopeDAO, MakesCentsBackend.Services.DataAccessLayer.RolloverEnvelopeDAO, MakesCentsBackend.Services.DataAccessLayer.TransactionDAO)
   type: Constructor
   source:
     remote:
@@ -58,14 +58,14 @@ items:
       repo: https://github.com/Gianna7055/MakesCents.git
     id: .ctor
     path: Services/DataAccessLayer/PaymentTransactionDAO.cs
-    startLine: 29
+    startLine: 30
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Services.DataAccessLayer
   summary: Parameterized constructor to bring in DI variables
   example: []
   syntax:
-    content: public PaymentTransactionDAO(MySqlConnection connection, AuthorizationService authService, AccountDAO accountDAO, EnvelopeDAO envelopeDAO, TransactionDAO transactionDAO)
+    content: public PaymentTransactionDAO(MySqlConnection connection, AuthorizationService authService, AccountDAO accountDAO, SinkingFundEnvelopeDAO sinkingFundEnvelopeDAO, RolloverEnvelopeDAO rolloverEnvelopeDAO, TransactionDAO transactionDAO)
     parameters:
     - id: connection
       type: MySqlConnector.MySqlConnection
@@ -75,15 +75,17 @@ items:
       description: ''
     - id: accountDAO
       type: MakesCentsBackend.Services.DataAccessLayer.AccountDAO
-    - id: envelopeDAO
-      type: MakesCentsBackend.Services.DataAccessLayer.EnvelopeDAO
+    - id: sinkingFundEnvelopeDAO
+      type: MakesCentsBackend.Services.DataAccessLayer.SinkingFundEnvelopeDAO
+    - id: rolloverEnvelopeDAO
+      type: MakesCentsBackend.Services.DataAccessLayer.RolloverEnvelopeDAO
     - id: transactionDAO
       type: MakesCentsBackend.Services.DataAccessLayer.TransactionDAO
-    content.vb: Public Sub New(connection As MySqlConnection, authService As AuthorizationService, accountDAO As AccountDAO, envelopeDAO As EnvelopeDAO, transactionDAO As TransactionDAO)
+    content.vb: Public Sub New(connection As MySqlConnection, authService As AuthorizationService, accountDAO As AccountDAO, sinkingFundEnvelopeDAO As SinkingFundEnvelopeDAO, rolloverEnvelopeDAO As RolloverEnvelopeDAO, transactionDAO As TransactionDAO)
   overload: MakesCentsBackend.Services.DataAccessLayer.PaymentTransactionDAO.#ctor*
-  nameWithType.vb: PaymentTransactionDAO.New(MySqlConnection, AuthorizationService, AccountDAO, EnvelopeDAO, TransactionDAO)
-  fullName.vb: MakesCentsBackend.Services.DataAccessLayer.PaymentTransactionDAO.New(MySqlConnector.MySqlConnection, MakesCentsBackend.Services.DataAccessLayer.AuthorizationService, MakesCentsBackend.Services.DataAccessLayer.AccountDAO, MakesCentsBackend.Services.DataAccessLayer.EnvelopeDAO, MakesCentsBackend.Services.DataAccessLayer.TransactionDAO)
-  name.vb: New(MySqlConnection, AuthorizationService, AccountDAO, EnvelopeDAO, TransactionDAO)
+  nameWithType.vb: PaymentTransactionDAO.New(MySqlConnection, AuthorizationService, AccountDAO, SinkingFundEnvelopeDAO, RolloverEnvelopeDAO, TransactionDAO)
+  fullName.vb: MakesCentsBackend.Services.DataAccessLayer.PaymentTransactionDAO.New(MySqlConnector.MySqlConnection, MakesCentsBackend.Services.DataAccessLayer.AuthorizationService, MakesCentsBackend.Services.DataAccessLayer.AccountDAO, MakesCentsBackend.Services.DataAccessLayer.SinkingFundEnvelopeDAO, MakesCentsBackend.Services.DataAccessLayer.RolloverEnvelopeDAO, MakesCentsBackend.Services.DataAccessLayer.TransactionDAO)
+  name.vb: New(MySqlConnection, AuthorizationService, AccountDAO, SinkingFundEnvelopeDAO, RolloverEnvelopeDAO, TransactionDAO)
 - uid: MakesCentsBackend.Services.DataAccessLayer.PaymentTransactionDAO.CreatePaymentTransactionAsync(MakesCentsBackend.Models.CreatePaymentTransactionRequest)
   commentId: M:MakesCentsBackend.Services.DataAccessLayer.PaymentTransactionDAO.CreatePaymentTransactionAsync(MakesCentsBackend.Models.CreatePaymentTransactionRequest)
   id: CreatePaymentTransactionAsync(MakesCentsBackend.Models.CreatePaymentTransactionRequest)
@@ -102,7 +104,7 @@ items:
       repo: https://github.com/Gianna7055/MakesCents.git
     id: CreatePaymentTransactionAsync
     path: Services/DataAccessLayer/PaymentTransactionDAO.cs
-    startLine: 43
+    startLine: 45
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Services.DataAccessLayer
@@ -137,17 +139,21 @@ items:
       repo: https://github.com/Gianna7055/MakesCents.git
     id: GetPaymentTransactionAsync
     path: Services/DataAccessLayer/PaymentTransactionDAO.cs
-    startLine: 153
+    startLine: 206
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Services.DataAccessLayer
+  summary: DAO method to get a payment transaction and its splits
+  example: []
   syntax:
     content: public Task<GetPaymentTransactionResponse> GetPaymentTransactionAsync(BaseIdRequest request)
     parameters:
     - id: request
       type: MakesCentsBackend.Models.BaseIdRequest
+      description: ''
     return:
       type: System.Threading.Tasks.Task{MakesCentsBackend.Models.GetPaymentTransactionResponse}
+      description: ''
     content.vb: Public Function GetPaymentTransactionAsync(request As BaseIdRequest) As Task(Of GetPaymentTransactionResponse)
   overload: MakesCentsBackend.Services.DataAccessLayer.PaymentTransactionDAO.GetPaymentTransactionAsync*
 - uid: MakesCentsBackend.Services.DataAccessLayer.PaymentTransactionDAO.UpdatePaymentTransactionAsync(MakesCentsBackend.Models.UpdatePaymentTransactionRequest)
@@ -168,17 +174,28 @@ items:
       repo: https://github.com/Gianna7055/MakesCents.git
     id: UpdatePaymentTransactionAsync
     path: Services/DataAccessLayer/PaymentTransactionDAO.cs
-    startLine: 218
+    startLine: 282
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Services.DataAccessLayer
+  summary: >-
+    DAO method to update a payment transaction and its splits.
+
+    Reverses every old effect (the old account balance change, and each old split's effect
+
+    on its envelope's remaining amount) before applying the new ones, so edited amounts and
+
+    re-assigned envelopes/accounts don't leave balances double-counted or stale.
+  example: []
   syntax:
     content: public Task<UpdatePaymentTransactionResponse> UpdatePaymentTransactionAsync(UpdatePaymentTransactionRequest paymentTransaction)
     parameters:
     - id: paymentTransaction
       type: MakesCentsBackend.Models.UpdatePaymentTransactionRequest
+      description: ''
     return:
       type: System.Threading.Tasks.Task{MakesCentsBackend.Models.UpdatePaymentTransactionResponse}
+      description: ''
     content.vb: Public Function UpdatePaymentTransactionAsync(paymentTransaction As UpdatePaymentTransactionRequest) As Task(Of UpdatePaymentTransactionResponse)
   overload: MakesCentsBackend.Services.DataAccessLayer.PaymentTransactionDAO.UpdatePaymentTransactionAsync*
 references:
@@ -451,7 +468,7 @@ references:
   fullName: System
 - uid: MakesCentsBackend.Services.DataAccessLayer.PaymentTransactionDAO.#ctor*
   commentId: Overload:MakesCentsBackend.Services.DataAccessLayer.PaymentTransactionDAO.#ctor
-  href: MakesCentsBackend.Services.DataAccessLayer.PaymentTransactionDAO.html#MakesCentsBackend_Services_DataAccessLayer_PaymentTransactionDAO__ctor_MySqlConnector_MySqlConnection_MakesCentsBackend_Services_DataAccessLayer_AuthorizationService_MakesCentsBackend_Services_DataAccessLayer_AccountDAO_MakesCentsBackend_Services_DataAccessLayer_EnvelopeDAO_MakesCentsBackend_Services_DataAccessLayer_TransactionDAO_
+  href: MakesCentsBackend.Services.DataAccessLayer.PaymentTransactionDAO.html#MakesCentsBackend_Services_DataAccessLayer_PaymentTransactionDAO__ctor_MySqlConnector_MySqlConnection_MakesCentsBackend_Services_DataAccessLayer_AuthorizationService_MakesCentsBackend_Services_DataAccessLayer_AccountDAO_MakesCentsBackend_Services_DataAccessLayer_SinkingFundEnvelopeDAO_MakesCentsBackend_Services_DataAccessLayer_RolloverEnvelopeDAO_MakesCentsBackend_Services_DataAccessLayer_TransactionDAO_
   name: PaymentTransactionDAO
   nameWithType: PaymentTransactionDAO.PaymentTransactionDAO
   fullName: MakesCentsBackend.Services.DataAccessLayer.PaymentTransactionDAO.PaymentTransactionDAO
@@ -479,13 +496,20 @@ references:
   name: AccountDAO
   nameWithType: AccountDAO
   fullName: MakesCentsBackend.Services.DataAccessLayer.AccountDAO
-- uid: MakesCentsBackend.Services.DataAccessLayer.EnvelopeDAO
-  commentId: T:MakesCentsBackend.Services.DataAccessLayer.EnvelopeDAO
+- uid: MakesCentsBackend.Services.DataAccessLayer.SinkingFundEnvelopeDAO
+  commentId: T:MakesCentsBackend.Services.DataAccessLayer.SinkingFundEnvelopeDAO
   parent: MakesCentsBackend.Services.DataAccessLayer
-  href: MakesCentsBackend.Services.DataAccessLayer.EnvelopeDAO.html
-  name: EnvelopeDAO
-  nameWithType: EnvelopeDAO
-  fullName: MakesCentsBackend.Services.DataAccessLayer.EnvelopeDAO
+  href: MakesCentsBackend.Services.DataAccessLayer.SinkingFundEnvelopeDAO.html
+  name: SinkingFundEnvelopeDAO
+  nameWithType: SinkingFundEnvelopeDAO
+  fullName: MakesCentsBackend.Services.DataAccessLayer.SinkingFundEnvelopeDAO
+- uid: MakesCentsBackend.Services.DataAccessLayer.RolloverEnvelopeDAO
+  commentId: T:MakesCentsBackend.Services.DataAccessLayer.RolloverEnvelopeDAO
+  parent: MakesCentsBackend.Services.DataAccessLayer
+  href: MakesCentsBackend.Services.DataAccessLayer.RolloverEnvelopeDAO.html
+  name: RolloverEnvelopeDAO
+  nameWithType: RolloverEnvelopeDAO
+  fullName: MakesCentsBackend.Services.DataAccessLayer.RolloverEnvelopeDAO
 - uid: MakesCentsBackend.Services.DataAccessLayer.TransactionDAO
   commentId: T:MakesCentsBackend.Services.DataAccessLayer.TransactionDAO
   parent: MakesCentsBackend.Services.DataAccessLayer

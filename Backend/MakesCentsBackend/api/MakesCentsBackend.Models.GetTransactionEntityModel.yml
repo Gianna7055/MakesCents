@@ -5,7 +5,7 @@ items:
   id: GetTransactionEntityModel
   parent: MakesCentsBackend.Models
   children:
-  - MakesCentsBackend.Models.GetTransactionEntityModel.BudgetId
+  - MakesCentsBackend.Models.GetTransactionEntityModel.BudgetMonthId
   - MakesCentsBackend.Models.GetTransactionEntityModel.IsReconciled
   - MakesCentsBackend.Models.GetTransactionEntityModel.Notes
   - MakesCentsBackend.Models.GetTransactionEntityModel.TotalAmount
@@ -75,35 +75,35 @@ items:
       type: System.Int32
     content.vb: Public Property TransactionId As Integer
   overload: MakesCentsBackend.Models.GetTransactionEntityModel.TransactionId*
-- uid: MakesCentsBackend.Models.GetTransactionEntityModel.BudgetId
-  commentId: P:MakesCentsBackend.Models.GetTransactionEntityModel.BudgetId
-  id: BudgetId
+- uid: MakesCentsBackend.Models.GetTransactionEntityModel.BudgetMonthId
+  commentId: P:MakesCentsBackend.Models.GetTransactionEntityModel.BudgetMonthId
+  id: BudgetMonthId
   parent: MakesCentsBackend.Models.GetTransactionEntityModel
   langs:
   - csharp
   - vb
-  name: BudgetId
-  nameWithType: GetTransactionEntityModel.BudgetId
-  fullName: MakesCentsBackend.Models.GetTransactionEntityModel.BudgetId
+  name: BudgetMonthId
+  nameWithType: GetTransactionEntityModel.BudgetMonthId
+  fullName: MakesCentsBackend.Models.GetTransactionEntityModel.BudgetMonthId
   type: Property
   source:
     remote:
       path: Backend/MakesCentsBackend/Models/TransactionModels.cs
       branch: master
       repo: https://github.com/Gianna7055/MakesCents.git
-    id: BudgetId
+    id: BudgetMonthId
     path: Models/TransactionModels.cs
     startLine: 118
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Models
   syntax:
-    content: public int BudgetId { get; set; }
+    content: public int BudgetMonthId { get; set; }
     parameters: []
     return:
       type: System.Int32
-    content.vb: Public Property BudgetId As Integer
-  overload: MakesCentsBackend.Models.GetTransactionEntityModel.BudgetId*
+    content.vb: Public Property BudgetMonthId As Integer
+  overload: MakesCentsBackend.Models.GetTransactionEntityModel.BudgetMonthId*
 - uid: MakesCentsBackend.Models.GetTransactionEntityModel.UserId
   commentId: P:MakesCentsBackend.Models.GetTransactionEntityModel.UserId
   id: UserId
@@ -555,12 +555,12 @@ references:
   nameWithType.vb: Integer
   fullName.vb: Integer
   name.vb: Integer
-- uid: MakesCentsBackend.Models.GetTransactionEntityModel.BudgetId*
-  commentId: Overload:MakesCentsBackend.Models.GetTransactionEntityModel.BudgetId
-  href: MakesCentsBackend.Models.GetTransactionEntityModel.html#MakesCentsBackend_Models_GetTransactionEntityModel_BudgetId
-  name: BudgetId
-  nameWithType: GetTransactionEntityModel.BudgetId
-  fullName: MakesCentsBackend.Models.GetTransactionEntityModel.BudgetId
+- uid: MakesCentsBackend.Models.GetTransactionEntityModel.BudgetMonthId*
+  commentId: Overload:MakesCentsBackend.Models.GetTransactionEntityModel.BudgetMonthId
+  href: MakesCentsBackend.Models.GetTransactionEntityModel.html#MakesCentsBackend_Models_GetTransactionEntityModel_BudgetMonthId
+  name: BudgetMonthId
+  nameWithType: GetTransactionEntityModel.BudgetMonthId
+  fullName: MakesCentsBackend.Models.GetTransactionEntityModel.BudgetMonthId
 - uid: MakesCentsBackend.Models.GetTransactionEntityModel.UserId*
   commentId: Overload:MakesCentsBackend.Models.GetTransactionEntityModel.UserId
   href: MakesCentsBackend.Models.GetTransactionEntityModel.html#MakesCentsBackend_Models_GetTransactionEntityModel_UserId

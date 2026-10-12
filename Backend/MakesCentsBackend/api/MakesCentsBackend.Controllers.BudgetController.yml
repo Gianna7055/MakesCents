@@ -7,11 +7,15 @@ items:
   children:
   - MakesCentsBackend.Controllers.BudgetController.#ctor(MakesCentsBackend.Services.BusinessLogicLayer.BudgetLogic)
   - MakesCentsBackend.Controllers.BudgetController.CreateBudgetAsync(MakesCentsBackend.Models.CreateBudgetRequest)
+  - MakesCentsBackend.Controllers.BudgetController.CreateBudgetMonthAsync(System.Int32,MakesCentsBackend.Models.CreateBudgetMonthRequest)
   - MakesCentsBackend.Controllers.BudgetController.DeleteBudgetAsync(System.Int32)
-  - MakesCentsBackend.Controllers.BudgetController.GetBudgetAsync(System.Int32)
-  - MakesCentsBackend.Controllers.BudgetController.GetBudgetAsync(System.Int32,MakesCentsBackend.Models.Enums.Month)
-  - MakesCentsBackend.Controllers.BudgetController.GetYearBudgetsAsync(System.Int32,MakesCentsBackend.Models.Enums.Month)
+  - MakesCentsBackend.Controllers.BudgetController.DeleteBudgetMonthAsync(System.Int32)
+  - MakesCentsBackend.Controllers.BudgetController.GetBudgetMonthAsync(System.Int32)
+  - MakesCentsBackend.Controllers.BudgetController.GetBudgetMonthAsync(System.Int32,System.Int32,MakesCentsBackend.Models.Enums.Month)
+  - MakesCentsBackend.Controllers.BudgetController.GetUserBudgetsAsync
+  - MakesCentsBackend.Controllers.BudgetController.GetYearBudgetsAsync(System.Int32,System.Int32,MakesCentsBackend.Models.Enums.Month)
   - MakesCentsBackend.Controllers.BudgetController.UpdateBudgetAsync(System.Int32,MakesCentsBackend.Models.EditBudgetRequest)
+  - MakesCentsBackend.Controllers.BudgetController.UpdateBudgetMonthAsync(System.Int32,MakesCentsBackend.Models.EditBudgetMonthRequest)
   langs:
   - csharp
   - vb
@@ -26,11 +30,16 @@ items:
       repo: https://github.com/Gianna7055/MakesCents.git
     id: BudgetController
     path: Controllers/BudgetController.cs
-    startLine: 17
+    startLine: 19
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Controllers
-  summary: API controller for budgets
+  summary: >-
+    API controller for budgets. Persistent budget routes live directly under /api/budgets;
+
+    month-specific routes live under /api/budgets/months, since a persistent budget spans
+
+    many months and needs its own id space separate from any one month's.
   example: []
   syntax:
     content: >-
@@ -256,7 +265,7 @@ items:
       repo: https://github.com/Gianna7055/MakesCents.git
     id: .ctor
     path: Controllers/BudgetController.cs
-    startLine: 28
+    startLine: 30
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Controllers
@@ -291,11 +300,11 @@ items:
       repo: https://github.com/Gianna7055/MakesCents.git
     id: CreateBudgetAsync
     path: Controllers/BudgetController.cs
-    startLine: 38
+    startLine: 44
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Controllers
-  summary: POST method to create a new budget
+  summary: POST method to create a new persistent budget (no month yet)
   example: []
   syntax:
     content: >-
@@ -325,176 +334,6 @@ items:
   - type: Microsoft.AspNetCore.Mvc.HttpPostAttribute
     ctor: Microsoft.AspNetCore.Mvc.HttpPostAttribute.#ctor
     arguments: []
-- uid: MakesCentsBackend.Controllers.BudgetController.GetBudgetAsync(System.Int32,MakesCentsBackend.Models.Enums.Month)
-  commentId: M:MakesCentsBackend.Controllers.BudgetController.GetBudgetAsync(System.Int32,MakesCentsBackend.Models.Enums.Month)
-  id: GetBudgetAsync(System.Int32,MakesCentsBackend.Models.Enums.Month)
-  parent: MakesCentsBackend.Controllers.BudgetController
-  langs:
-  - csharp
-  - vb
-  name: GetBudgetAsync(int, Month)
-  nameWithType: BudgetController.GetBudgetAsync(int, Month)
-  fullName: MakesCentsBackend.Controllers.BudgetController.GetBudgetAsync(int, MakesCentsBackend.Models.Enums.Month)
-  type: Method
-  source:
-    remote:
-      path: Backend/MakesCentsBackend/Controllers/BudgetController.cs
-      branch: master
-      repo: https://github.com/Gianna7055/MakesCents.git
-    id: GetBudgetAsync
-    path: Controllers/BudgetController.cs
-    startLine: 75
-  assemblies:
-  - MakesCentsBackend
-  namespace: MakesCentsBackend.Controllers
-  summary: Get a budget based on a year, month, and user id
-  example: []
-  syntax:
-    content: >-
-      [Authorize]
-
-      [HttpGet("year/{year}/month/{month}")]
-
-      public Task<ActionResult> GetBudgetAsync(int year, Month month)
-    parameters:
-    - id: year
-      type: System.Int32
-      description: ''
-    - id: month
-      type: MakesCentsBackend.Models.Enums.Month
-    return:
-      type: System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.ActionResult}
-      description: ''
-    content.vb: >-
-      <Authorize>
-
-      <HttpGet("year/{year}/month/{month}")>
-
-      Public Function GetBudgetAsync(year As Integer, month As Month) As Task(Of ActionResult)
-  overload: MakesCentsBackend.Controllers.BudgetController.GetBudgetAsync*
-  attributes:
-  - type: Microsoft.AspNetCore.Authorization.AuthorizeAttribute
-    ctor: Microsoft.AspNetCore.Authorization.AuthorizeAttribute.#ctor
-    arguments: []
-  - type: Microsoft.AspNetCore.Mvc.HttpGetAttribute
-    ctor: Microsoft.AspNetCore.Mvc.HttpGetAttribute.#ctor(System.String)
-    arguments:
-    - type: System.String
-      value: year/{year}/month/{month}
-  nameWithType.vb: BudgetController.GetBudgetAsync(Integer, Month)
-  fullName.vb: MakesCentsBackend.Controllers.BudgetController.GetBudgetAsync(Integer, MakesCentsBackend.Models.Enums.Month)
-  name.vb: GetBudgetAsync(Integer, Month)
-- uid: MakesCentsBackend.Controllers.BudgetController.GetYearBudgetsAsync(System.Int32,MakesCentsBackend.Models.Enums.Month)
-  commentId: M:MakesCentsBackend.Controllers.BudgetController.GetYearBudgetsAsync(System.Int32,MakesCentsBackend.Models.Enums.Month)
-  id: GetYearBudgetsAsync(System.Int32,MakesCentsBackend.Models.Enums.Month)
-  parent: MakesCentsBackend.Controllers.BudgetController
-  langs:
-  - csharp
-  - vb
-  name: GetYearBudgetsAsync(int, Month)
-  nameWithType: BudgetController.GetYearBudgetsAsync(int, Month)
-  fullName: MakesCentsBackend.Controllers.BudgetController.GetYearBudgetsAsync(int, MakesCentsBackend.Models.Enums.Month)
-  type: Method
-  source:
-    remote:
-      path: Backend/MakesCentsBackend/Controllers/BudgetController.cs
-      branch: master
-      repo: https://github.com/Gianna7055/MakesCents.git
-    id: GetYearBudgetsAsync
-    path: Controllers/BudgetController.cs
-    startLine: 117
-  assemblies:
-  - MakesCentsBackend
-  namespace: MakesCentsBackend.Controllers
-  syntax:
-    content: >-
-      [Authorize]
-
-      [HttpGet("all/year/{year}/month/{month}")]
-
-      public Task<ActionResult> GetYearBudgetsAsync(int year, Month month)
-    parameters:
-    - id: year
-      type: System.Int32
-    - id: month
-      type: MakesCentsBackend.Models.Enums.Month
-    return:
-      type: System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.ActionResult}
-    content.vb: >-
-      <Authorize>
-
-      <HttpGet("all/year/{year}/month/{month}")>
-
-      Public Function GetYearBudgetsAsync(year As Integer, month As Month) As Task(Of ActionResult)
-  overload: MakesCentsBackend.Controllers.BudgetController.GetYearBudgetsAsync*
-  attributes:
-  - type: Microsoft.AspNetCore.Authorization.AuthorizeAttribute
-    ctor: Microsoft.AspNetCore.Authorization.AuthorizeAttribute.#ctor
-    arguments: []
-  - type: Microsoft.AspNetCore.Mvc.HttpGetAttribute
-    ctor: Microsoft.AspNetCore.Mvc.HttpGetAttribute.#ctor(System.String)
-    arguments:
-    - type: System.String
-      value: all/year/{year}/month/{month}
-  nameWithType.vb: BudgetController.GetYearBudgetsAsync(Integer, Month)
-  fullName.vb: MakesCentsBackend.Controllers.BudgetController.GetYearBudgetsAsync(Integer, MakesCentsBackend.Models.Enums.Month)
-  name.vb: GetYearBudgetsAsync(Integer, Month)
-- uid: MakesCentsBackend.Controllers.BudgetController.GetBudgetAsync(System.Int32)
-  commentId: M:MakesCentsBackend.Controllers.BudgetController.GetBudgetAsync(System.Int32)
-  id: GetBudgetAsync(System.Int32)
-  parent: MakesCentsBackend.Controllers.BudgetController
-  langs:
-  - csharp
-  - vb
-  name: GetBudgetAsync(int)
-  nameWithType: BudgetController.GetBudgetAsync(int)
-  fullName: MakesCentsBackend.Controllers.BudgetController.GetBudgetAsync(int)
-  type: Method
-  source:
-    remote:
-      path: Backend/MakesCentsBackend/Controllers/BudgetController.cs
-      branch: master
-      repo: https://github.com/Gianna7055/MakesCents.git
-    id: GetBudgetAsync
-    path: Controllers/BudgetController.cs
-    startLine: 164
-  assemblies:
-  - MakesCentsBackend
-  namespace: MakesCentsBackend.Controllers
-  summary: Get a budget based on a budget id and user id
-  example: []
-  syntax:
-    content: >-
-      [Authorize]
-
-      [HttpGet("{budgetId}")]
-
-      public Task<ActionResult> GetBudgetAsync(int budgetId)
-    parameters:
-    - id: budgetId
-      type: System.Int32
-    return:
-      type: System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.ActionResult}
-      description: ''
-    content.vb: >-
-      <Authorize>
-
-      <HttpGet("{budgetId}")>
-
-      Public Function GetBudgetAsync(budgetId As Integer) As Task(Of ActionResult)
-  overload: MakesCentsBackend.Controllers.BudgetController.GetBudgetAsync*
-  attributes:
-  - type: Microsoft.AspNetCore.Authorization.AuthorizeAttribute
-    ctor: Microsoft.AspNetCore.Authorization.AuthorizeAttribute.#ctor
-    arguments: []
-  - type: Microsoft.AspNetCore.Mvc.HttpGetAttribute
-    ctor: Microsoft.AspNetCore.Mvc.HttpGetAttribute.#ctor(System.String)
-    arguments:
-    - type: System.String
-      value: '{budgetId}'
-  nameWithType.vb: BudgetController.GetBudgetAsync(Integer)
-  fullName.vb: MakesCentsBackend.Controllers.BudgetController.GetBudgetAsync(Integer)
-  name.vb: GetBudgetAsync(Integer)
 - uid: MakesCentsBackend.Controllers.BudgetController.UpdateBudgetAsync(System.Int32,MakesCentsBackend.Models.EditBudgetRequest)
   commentId: M:MakesCentsBackend.Controllers.BudgetController.UpdateBudgetAsync(System.Int32,MakesCentsBackend.Models.EditBudgetRequest)
   id: UpdateBudgetAsync(System.Int32,MakesCentsBackend.Models.EditBudgetRequest)
@@ -513,11 +352,11 @@ items:
       repo: https://github.com/Gianna7055/MakesCents.git
     id: UpdateBudgetAsync
     path: Controllers/BudgetController.cs
-    startLine: 208
+    startLine: 81
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Controllers
-  summary: HTTP PUT method to update a budget based on given fields
+  summary: HTTP PUT method to update a budget's persistent fields (currently just the name)
   example: []
   syntax:
     content: >-
@@ -573,10 +412,15 @@ items:
       repo: https://github.com/Gianna7055/MakesCents.git
     id: DeleteBudgetAsync
     path: Controllers/BudgetController.cs
-    startLine: 247
+    startLine: 121
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Controllers
+  summary: >-
+    HTTP DELETE method to delete a persistent budget entirely - cascades every month,
+
+    account, envelope category, paycheck, and planned expense it has
+  example: []
   syntax:
     content: >-
       [Authorize]
@@ -587,8 +431,10 @@ items:
     parameters:
     - id: budgetId
       type: System.Int32
+      description: ''
     return:
       type: System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.ActionResult}
+      description: ''
     content.vb: >-
       <Authorize>
 
@@ -608,6 +454,420 @@ items:
   nameWithType.vb: BudgetController.DeleteBudgetAsync(Integer)
   fullName.vb: MakesCentsBackend.Controllers.BudgetController.DeleteBudgetAsync(Integer)
   name.vb: DeleteBudgetAsync(Integer)
+- uid: MakesCentsBackend.Controllers.BudgetController.GetUserBudgetsAsync
+  commentId: M:MakesCentsBackend.Controllers.BudgetController.GetUserBudgetsAsync
+  id: GetUserBudgetsAsync
+  parent: MakesCentsBackend.Controllers.BudgetController
+  langs:
+  - csharp
+  - vb
+  name: GetUserBudgetsAsync()
+  nameWithType: BudgetController.GetUserBudgetsAsync()
+  fullName: MakesCentsBackend.Controllers.BudgetController.GetUserBudgetsAsync()
+  type: Method
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Controllers/BudgetController.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: GetUserBudgetsAsync
+    path: Controllers/BudgetController.cs
+    startLine: 154
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Controllers
+  summary: >-
+    HTTP GET method to get every budget the logged-in user has access to (id and name
+
+    only) - meant for use right after login, before any month or budget id is known.
+  example: []
+  syntax:
+    content: >-
+      [Authorize]
+
+      [HttpGet]
+
+      public Task<ActionResult> GetUserBudgetsAsync()
+    return:
+      type: System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.ActionResult}
+      description: ''
+    content.vb: >-
+      <Authorize>
+
+      <HttpGet>
+
+      Public Function GetUserBudgetsAsync() As Task(Of ActionResult)
+  overload: MakesCentsBackend.Controllers.BudgetController.GetUserBudgetsAsync*
+  attributes:
+  - type: Microsoft.AspNetCore.Authorization.AuthorizeAttribute
+    ctor: Microsoft.AspNetCore.Authorization.AuthorizeAttribute.#ctor
+    arguments: []
+  - type: Microsoft.AspNetCore.Mvc.HttpGetAttribute
+    ctor: Microsoft.AspNetCore.Mvc.HttpGetAttribute.#ctor
+    arguments: []
+- uid: MakesCentsBackend.Controllers.BudgetController.CreateBudgetMonthAsync(System.Int32,MakesCentsBackend.Models.CreateBudgetMonthRequest)
+  commentId: M:MakesCentsBackend.Controllers.BudgetController.CreateBudgetMonthAsync(System.Int32,MakesCentsBackend.Models.CreateBudgetMonthRequest)
+  id: CreateBudgetMonthAsync(System.Int32,MakesCentsBackend.Models.CreateBudgetMonthRequest)
+  parent: MakesCentsBackend.Controllers.BudgetController
+  langs:
+  - csharp
+  - vb
+  name: CreateBudgetMonthAsync(int, CreateBudgetMonthRequest)
+  nameWithType: BudgetController.CreateBudgetMonthAsync(int, CreateBudgetMonthRequest)
+  fullName: MakesCentsBackend.Controllers.BudgetController.CreateBudgetMonthAsync(int, MakesCentsBackend.Models.CreateBudgetMonthRequest)
+  type: Method
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Controllers/BudgetController.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: CreateBudgetMonthAsync
+    path: Controllers/BudgetController.cs
+    startLine: 188
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Controllers
+  summary: POST method to create a new month under an existing persistent budget
+  example: []
+  syntax:
+    content: >-
+      [Authorize]
+
+      [HttpPost("{budgetId}/months")]
+
+      public Task<ActionResult> CreateBudgetMonthAsync(int budgetId, CreateBudgetMonthRequest budgetMonth)
+    parameters:
+    - id: budgetId
+      type: System.Int32
+      description: ''
+    - id: budgetMonth
+      type: MakesCentsBackend.Models.CreateBudgetMonthRequest
+      description: ''
+    return:
+      type: System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.ActionResult}
+      description: ''
+    content.vb: >-
+      <Authorize>
+
+      <HttpPost("{budgetId}/months")>
+
+      Public Function CreateBudgetMonthAsync(budgetId As Integer, budgetMonth As CreateBudgetMonthRequest) As Task(Of ActionResult)
+  overload: MakesCentsBackend.Controllers.BudgetController.CreateBudgetMonthAsync*
+  attributes:
+  - type: Microsoft.AspNetCore.Authorization.AuthorizeAttribute
+    ctor: Microsoft.AspNetCore.Authorization.AuthorizeAttribute.#ctor
+    arguments: []
+  - type: Microsoft.AspNetCore.Mvc.HttpPostAttribute
+    ctor: Microsoft.AspNetCore.Mvc.HttpPostAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: '{budgetId}/months'
+  nameWithType.vb: BudgetController.CreateBudgetMonthAsync(Integer, CreateBudgetMonthRequest)
+  fullName.vb: MakesCentsBackend.Controllers.BudgetController.CreateBudgetMonthAsync(Integer, MakesCentsBackend.Models.CreateBudgetMonthRequest)
+  name.vb: CreateBudgetMonthAsync(Integer, CreateBudgetMonthRequest)
+- uid: MakesCentsBackend.Controllers.BudgetController.GetBudgetMonthAsync(System.Int32,System.Int32,MakesCentsBackend.Models.Enums.Month)
+  commentId: M:MakesCentsBackend.Controllers.BudgetController.GetBudgetMonthAsync(System.Int32,System.Int32,MakesCentsBackend.Models.Enums.Month)
+  id: GetBudgetMonthAsync(System.Int32,System.Int32,MakesCentsBackend.Models.Enums.Month)
+  parent: MakesCentsBackend.Controllers.BudgetController
+  langs:
+  - csharp
+  - vb
+  name: GetBudgetMonthAsync(int, int, Month)
+  nameWithType: BudgetController.GetBudgetMonthAsync(int, int, Month)
+  fullName: MakesCentsBackend.Controllers.BudgetController.GetBudgetMonthAsync(int, int, MakesCentsBackend.Models.Enums.Month)
+  type: Method
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Controllers/BudgetController.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: GetBudgetMonthAsync
+    path: Controllers/BudgetController.cs
+    startLine: 227
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Controllers
+  summary: Get a budget month based on a budget id, year, month, and user id
+  example: []
+  syntax:
+    content: >-
+      [Authorize]
+
+      [HttpGet("{budgetId}/months/year/{year}/month/{month}")]
+
+      public Task<ActionResult> GetBudgetMonthAsync(int budgetId, int year, Month month)
+    parameters:
+    - id: budgetId
+      type: System.Int32
+      description: ''
+    - id: year
+      type: System.Int32
+      description: ''
+    - id: month
+      type: MakesCentsBackend.Models.Enums.Month
+      description: ''
+    return:
+      type: System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.ActionResult}
+      description: ''
+    content.vb: >-
+      <Authorize>
+
+      <HttpGet("{budgetId}/months/year/{year}/month/{month}")>
+
+      Public Function GetBudgetMonthAsync(budgetId As Integer, year As Integer, month As Month) As Task(Of ActionResult)
+  overload: MakesCentsBackend.Controllers.BudgetController.GetBudgetMonthAsync*
+  attributes:
+  - type: Microsoft.AspNetCore.Authorization.AuthorizeAttribute
+    ctor: Microsoft.AspNetCore.Authorization.AuthorizeAttribute.#ctor
+    arguments: []
+  - type: Microsoft.AspNetCore.Mvc.HttpGetAttribute
+    ctor: Microsoft.AspNetCore.Mvc.HttpGetAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: '{budgetId}/months/year/{year}/month/{month}'
+  nameWithType.vb: BudgetController.GetBudgetMonthAsync(Integer, Integer, Month)
+  fullName.vb: MakesCentsBackend.Controllers.BudgetController.GetBudgetMonthAsync(Integer, Integer, MakesCentsBackend.Models.Enums.Month)
+  name.vb: GetBudgetMonthAsync(Integer, Integer, Month)
+- uid: MakesCentsBackend.Controllers.BudgetController.GetYearBudgetsAsync(System.Int32,System.Int32,MakesCentsBackend.Models.Enums.Month)
+  commentId: M:MakesCentsBackend.Controllers.BudgetController.GetYearBudgetsAsync(System.Int32,System.Int32,MakesCentsBackend.Models.Enums.Month)
+  id: GetYearBudgetsAsync(System.Int32,System.Int32,MakesCentsBackend.Models.Enums.Month)
+  parent: MakesCentsBackend.Controllers.BudgetController
+  langs:
+  - csharp
+  - vb
+  name: GetYearBudgetsAsync(int, int, Month)
+  nameWithType: BudgetController.GetYearBudgetsAsync(int, int, Month)
+  fullName: MakesCentsBackend.Controllers.BudgetController.GetYearBudgetsAsync(int, int, MakesCentsBackend.Models.Enums.Month)
+  type: Method
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Controllers/BudgetController.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: GetYearBudgetsAsync
+    path: Controllers/BudgetController.cs
+    startLine: 276
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Controllers
+  summary: Get up to a year's worth of a budget's past months, anchored at a year/month
+  example: []
+  syntax:
+    content: >-
+      [Authorize]
+
+      [HttpGet("{budgetId}/all/year/{year}/month/{month}")]
+
+      public Task<ActionResult> GetYearBudgetsAsync(int budgetId, int year, Month month)
+    parameters:
+    - id: budgetId
+      type: System.Int32
+      description: ''
+    - id: year
+      type: System.Int32
+      description: ''
+    - id: month
+      type: MakesCentsBackend.Models.Enums.Month
+      description: ''
+    return:
+      type: System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.ActionResult}
+      description: ''
+    content.vb: >-
+      <Authorize>
+
+      <HttpGet("{budgetId}/all/year/{year}/month/{month}")>
+
+      Public Function GetYearBudgetsAsync(budgetId As Integer, year As Integer, month As Month) As Task(Of ActionResult)
+  overload: MakesCentsBackend.Controllers.BudgetController.GetYearBudgetsAsync*
+  attributes:
+  - type: Microsoft.AspNetCore.Authorization.AuthorizeAttribute
+    ctor: Microsoft.AspNetCore.Authorization.AuthorizeAttribute.#ctor
+    arguments: []
+  - type: Microsoft.AspNetCore.Mvc.HttpGetAttribute
+    ctor: Microsoft.AspNetCore.Mvc.HttpGetAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: '{budgetId}/all/year/{year}/month/{month}'
+  nameWithType.vb: BudgetController.GetYearBudgetsAsync(Integer, Integer, Month)
+  fullName.vb: MakesCentsBackend.Controllers.BudgetController.GetYearBudgetsAsync(Integer, Integer, MakesCentsBackend.Models.Enums.Month)
+  name.vb: GetYearBudgetsAsync(Integer, Integer, Month)
+- uid: MakesCentsBackend.Controllers.BudgetController.GetBudgetMonthAsync(System.Int32)
+  commentId: M:MakesCentsBackend.Controllers.BudgetController.GetBudgetMonthAsync(System.Int32)
+  id: GetBudgetMonthAsync(System.Int32)
+  parent: MakesCentsBackend.Controllers.BudgetController
+  langs:
+  - csharp
+  - vb
+  name: GetBudgetMonthAsync(int)
+  nameWithType: BudgetController.GetBudgetMonthAsync(int)
+  fullName: MakesCentsBackend.Controllers.BudgetController.GetBudgetMonthAsync(int)
+  type: Method
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Controllers/BudgetController.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: GetBudgetMonthAsync
+    path: Controllers/BudgetController.cs
+    startLine: 323
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Controllers
+  summary: Get a budget month based on its budget_month_id
+  example: []
+  syntax:
+    content: >-
+      [Authorize]
+
+      [HttpGet("months/{budgetMonthId}")]
+
+      public Task<ActionResult> GetBudgetMonthAsync(int budgetMonthId)
+    parameters:
+    - id: budgetMonthId
+      type: System.Int32
+      description: ''
+    return:
+      type: System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.ActionResult}
+      description: ''
+    content.vb: >-
+      <Authorize>
+
+      <HttpGet("months/{budgetMonthId}")>
+
+      Public Function GetBudgetMonthAsync(budgetMonthId As Integer) As Task(Of ActionResult)
+  overload: MakesCentsBackend.Controllers.BudgetController.GetBudgetMonthAsync*
+  attributes:
+  - type: Microsoft.AspNetCore.Authorization.AuthorizeAttribute
+    ctor: Microsoft.AspNetCore.Authorization.AuthorizeAttribute.#ctor
+    arguments: []
+  - type: Microsoft.AspNetCore.Mvc.HttpGetAttribute
+    ctor: Microsoft.AspNetCore.Mvc.HttpGetAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: months/{budgetMonthId}
+  nameWithType.vb: BudgetController.GetBudgetMonthAsync(Integer)
+  fullName.vb: MakesCentsBackend.Controllers.BudgetController.GetBudgetMonthAsync(Integer)
+  name.vb: GetBudgetMonthAsync(Integer)
+- uid: MakesCentsBackend.Controllers.BudgetController.UpdateBudgetMonthAsync(System.Int32,MakesCentsBackend.Models.EditBudgetMonthRequest)
+  commentId: M:MakesCentsBackend.Controllers.BudgetController.UpdateBudgetMonthAsync(System.Int32,MakesCentsBackend.Models.EditBudgetMonthRequest)
+  id: UpdateBudgetMonthAsync(System.Int32,MakesCentsBackend.Models.EditBudgetMonthRequest)
+  parent: MakesCentsBackend.Controllers.BudgetController
+  langs:
+  - csharp
+  - vb
+  name: UpdateBudgetMonthAsync(int, EditBudgetMonthRequest)
+  nameWithType: BudgetController.UpdateBudgetMonthAsync(int, EditBudgetMonthRequest)
+  fullName: MakesCentsBackend.Controllers.BudgetController.UpdateBudgetMonthAsync(int, MakesCentsBackend.Models.EditBudgetMonthRequest)
+  type: Method
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Controllers/BudgetController.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: UpdateBudgetMonthAsync
+    path: Controllers/BudgetController.cs
+    startLine: 367
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Controllers
+  summary: HTTP PUT method to update a specific budget month's month/year (e.g. fixing a mistake)
+  example: []
+  syntax:
+    content: >-
+      [Authorize]
+
+      [HttpPut("months/{budgetMonthId}")]
+
+      public Task<ActionResult> UpdateBudgetMonthAsync(int budgetMonthId, EditBudgetMonthRequest budgetMonth)
+    parameters:
+    - id: budgetMonthId
+      type: System.Int32
+      description: ''
+    - id: budgetMonth
+      type: MakesCentsBackend.Models.EditBudgetMonthRequest
+      description: ''
+    return:
+      type: System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.ActionResult}
+      description: ''
+    content.vb: >-
+      <Authorize>
+
+      <HttpPut("months/{budgetMonthId}")>
+
+      Public Function UpdateBudgetMonthAsync(budgetMonthId As Integer, budgetMonth As EditBudgetMonthRequest) As Task(Of ActionResult)
+  overload: MakesCentsBackend.Controllers.BudgetController.UpdateBudgetMonthAsync*
+  attributes:
+  - type: Microsoft.AspNetCore.Authorization.AuthorizeAttribute
+    ctor: Microsoft.AspNetCore.Authorization.AuthorizeAttribute.#ctor
+    arguments: []
+  - type: Microsoft.AspNetCore.Mvc.HttpPutAttribute
+    ctor: Microsoft.AspNetCore.Mvc.HttpPutAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: months/{budgetMonthId}
+  nameWithType.vb: BudgetController.UpdateBudgetMonthAsync(Integer, EditBudgetMonthRequest)
+  fullName.vb: MakesCentsBackend.Controllers.BudgetController.UpdateBudgetMonthAsync(Integer, MakesCentsBackend.Models.EditBudgetMonthRequest)
+  name.vb: UpdateBudgetMonthAsync(Integer, EditBudgetMonthRequest)
+- uid: MakesCentsBackend.Controllers.BudgetController.DeleteBudgetMonthAsync(System.Int32)
+  commentId: M:MakesCentsBackend.Controllers.BudgetController.DeleteBudgetMonthAsync(System.Int32)
+  id: DeleteBudgetMonthAsync(System.Int32)
+  parent: MakesCentsBackend.Controllers.BudgetController
+  langs:
+  - csharp
+  - vb
+  name: DeleteBudgetMonthAsync(int)
+  nameWithType: BudgetController.DeleteBudgetMonthAsync(int)
+  fullName: MakesCentsBackend.Controllers.BudgetController.DeleteBudgetMonthAsync(int)
+  type: Method
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Controllers/BudgetController.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: DeleteBudgetMonthAsync
+    path: Controllers/BudgetController.cs
+    startLine: 406
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Controllers
+  summary: >-
+    HTTP DELETE method to delete a single month's budget. Only that month's transactions
+
+    go with it - accounts, envelope categories, and paychecks are unaffected.
+  example: []
+  syntax:
+    content: >-
+      [Authorize]
+
+      [HttpDelete("months/{budgetMonthId}")]
+
+      public Task<ActionResult> DeleteBudgetMonthAsync(int budgetMonthId)
+    parameters:
+    - id: budgetMonthId
+      type: System.Int32
+      description: ''
+    return:
+      type: System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.ActionResult}
+      description: ''
+    content.vb: >-
+      <Authorize>
+
+      <HttpDelete("months/{budgetMonthId}")>
+
+      Public Function DeleteBudgetMonthAsync(budgetMonthId As Integer) As Task(Of ActionResult)
+  overload: MakesCentsBackend.Controllers.BudgetController.DeleteBudgetMonthAsync*
+  attributes:
+  - type: Microsoft.AspNetCore.Authorization.AuthorizeAttribute
+    ctor: Microsoft.AspNetCore.Authorization.AuthorizeAttribute.#ctor
+    arguments: []
+  - type: Microsoft.AspNetCore.Mvc.HttpDeleteAttribute
+    ctor: Microsoft.AspNetCore.Mvc.HttpDeleteAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: months/{budgetMonthId}
+  nameWithType.vb: BudgetController.DeleteBudgetMonthAsync(Integer)
+  fullName.vb: MakesCentsBackend.Controllers.BudgetController.DeleteBudgetMonthAsync(Integer)
+  name.vb: DeleteBudgetMonthAsync(Integer)
 references:
 - uid: MakesCentsBackend.Controllers
   commentId: N:MakesCentsBackend.Controllers
@@ -9777,12 +10037,12 @@ references:
     name: Tasks
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
-- uid: MakesCentsBackend.Controllers.BudgetController.GetBudgetAsync*
-  commentId: Overload:MakesCentsBackend.Controllers.BudgetController.GetBudgetAsync
-  href: MakesCentsBackend.Controllers.BudgetController.html#MakesCentsBackend_Controllers_BudgetController_GetBudgetAsync_System_Int32_MakesCentsBackend_Models_Enums_Month_
-  name: GetBudgetAsync
-  nameWithType: BudgetController.GetBudgetAsync
-  fullName: MakesCentsBackend.Controllers.BudgetController.GetBudgetAsync
+- uid: MakesCentsBackend.Controllers.BudgetController.UpdateBudgetAsync*
+  commentId: Overload:MakesCentsBackend.Controllers.BudgetController.UpdateBudgetAsync
+  href: MakesCentsBackend.Controllers.BudgetController.html#MakesCentsBackend_Controllers_BudgetController_UpdateBudgetAsync_System_Int32_MakesCentsBackend_Models_EditBudgetRequest_
+  name: UpdateBudgetAsync
+  nameWithType: BudgetController.UpdateBudgetAsync
+  fullName: MakesCentsBackend.Controllers.BudgetController.UpdateBudgetAsync
 - uid: System.Int32
   commentId: T:System.Int32
   parent: System
@@ -9794,6 +10054,44 @@ references:
   nameWithType.vb: Integer
   fullName.vb: Integer
   name.vb: Integer
+- uid: MakesCentsBackend.Models.EditBudgetRequest
+  commentId: T:MakesCentsBackend.Models.EditBudgetRequest
+  parent: MakesCentsBackend.Models
+  href: MakesCentsBackend.Models.EditBudgetRequest.html
+  name: EditBudgetRequest
+  nameWithType: EditBudgetRequest
+  fullName: MakesCentsBackend.Models.EditBudgetRequest
+- uid: MakesCentsBackend.Controllers.BudgetController.DeleteBudgetAsync*
+  commentId: Overload:MakesCentsBackend.Controllers.BudgetController.DeleteBudgetAsync
+  href: MakesCentsBackend.Controllers.BudgetController.html#MakesCentsBackend_Controllers_BudgetController_DeleteBudgetAsync_System_Int32_
+  name: DeleteBudgetAsync
+  nameWithType: BudgetController.DeleteBudgetAsync
+  fullName: MakesCentsBackend.Controllers.BudgetController.DeleteBudgetAsync
+- uid: MakesCentsBackend.Controllers.BudgetController.GetUserBudgetsAsync*
+  commentId: Overload:MakesCentsBackend.Controllers.BudgetController.GetUserBudgetsAsync
+  href: MakesCentsBackend.Controllers.BudgetController.html#MakesCentsBackend_Controllers_BudgetController_GetUserBudgetsAsync
+  name: GetUserBudgetsAsync
+  nameWithType: BudgetController.GetUserBudgetsAsync
+  fullName: MakesCentsBackend.Controllers.BudgetController.GetUserBudgetsAsync
+- uid: MakesCentsBackend.Controllers.BudgetController.CreateBudgetMonthAsync*
+  commentId: Overload:MakesCentsBackend.Controllers.BudgetController.CreateBudgetMonthAsync
+  href: MakesCentsBackend.Controllers.BudgetController.html#MakesCentsBackend_Controllers_BudgetController_CreateBudgetMonthAsync_System_Int32_MakesCentsBackend_Models_CreateBudgetMonthRequest_
+  name: CreateBudgetMonthAsync
+  nameWithType: BudgetController.CreateBudgetMonthAsync
+  fullName: MakesCentsBackend.Controllers.BudgetController.CreateBudgetMonthAsync
+- uid: MakesCentsBackend.Models.CreateBudgetMonthRequest
+  commentId: T:MakesCentsBackend.Models.CreateBudgetMonthRequest
+  parent: MakesCentsBackend.Models
+  href: MakesCentsBackend.Models.CreateBudgetMonthRequest.html
+  name: CreateBudgetMonthRequest
+  nameWithType: CreateBudgetMonthRequest
+  fullName: MakesCentsBackend.Models.CreateBudgetMonthRequest
+- uid: MakesCentsBackend.Controllers.BudgetController.GetBudgetMonthAsync*
+  commentId: Overload:MakesCentsBackend.Controllers.BudgetController.GetBudgetMonthAsync
+  href: MakesCentsBackend.Controllers.BudgetController.html#MakesCentsBackend_Controllers_BudgetController_GetBudgetMonthAsync_System_Int32_System_Int32_MakesCentsBackend_Models_Enums_Month_
+  name: GetBudgetMonthAsync
+  nameWithType: BudgetController.GetBudgetMonthAsync
+  fullName: MakesCentsBackend.Controllers.BudgetController.GetBudgetMonthAsync
 - uid: MakesCentsBackend.Models.Enums.Month
   commentId: T:MakesCentsBackend.Models.Enums.Month
   parent: MakesCentsBackend.Models.Enums
@@ -9833,26 +10131,26 @@ references:
     href: MakesCentsBackend.Models.Enums.html
 - uid: MakesCentsBackend.Controllers.BudgetController.GetYearBudgetsAsync*
   commentId: Overload:MakesCentsBackend.Controllers.BudgetController.GetYearBudgetsAsync
-  href: MakesCentsBackend.Controllers.BudgetController.html#MakesCentsBackend_Controllers_BudgetController_GetYearBudgetsAsync_System_Int32_MakesCentsBackend_Models_Enums_Month_
+  href: MakesCentsBackend.Controllers.BudgetController.html#MakesCentsBackend_Controllers_BudgetController_GetYearBudgetsAsync_System_Int32_System_Int32_MakesCentsBackend_Models_Enums_Month_
   name: GetYearBudgetsAsync
   nameWithType: BudgetController.GetYearBudgetsAsync
   fullName: MakesCentsBackend.Controllers.BudgetController.GetYearBudgetsAsync
-- uid: MakesCentsBackend.Controllers.BudgetController.UpdateBudgetAsync*
-  commentId: Overload:MakesCentsBackend.Controllers.BudgetController.UpdateBudgetAsync
-  href: MakesCentsBackend.Controllers.BudgetController.html#MakesCentsBackend_Controllers_BudgetController_UpdateBudgetAsync_System_Int32_MakesCentsBackend_Models_EditBudgetRequest_
-  name: UpdateBudgetAsync
-  nameWithType: BudgetController.UpdateBudgetAsync
-  fullName: MakesCentsBackend.Controllers.BudgetController.UpdateBudgetAsync
-- uid: MakesCentsBackend.Models.EditBudgetRequest
-  commentId: T:MakesCentsBackend.Models.EditBudgetRequest
+- uid: MakesCentsBackend.Controllers.BudgetController.UpdateBudgetMonthAsync*
+  commentId: Overload:MakesCentsBackend.Controllers.BudgetController.UpdateBudgetMonthAsync
+  href: MakesCentsBackend.Controllers.BudgetController.html#MakesCentsBackend_Controllers_BudgetController_UpdateBudgetMonthAsync_System_Int32_MakesCentsBackend_Models_EditBudgetMonthRequest_
+  name: UpdateBudgetMonthAsync
+  nameWithType: BudgetController.UpdateBudgetMonthAsync
+  fullName: MakesCentsBackend.Controllers.BudgetController.UpdateBudgetMonthAsync
+- uid: MakesCentsBackend.Models.EditBudgetMonthRequest
+  commentId: T:MakesCentsBackend.Models.EditBudgetMonthRequest
   parent: MakesCentsBackend.Models
-  href: MakesCentsBackend.Models.EditBudgetRequest.html
-  name: EditBudgetRequest
-  nameWithType: EditBudgetRequest
-  fullName: MakesCentsBackend.Models.EditBudgetRequest
-- uid: MakesCentsBackend.Controllers.BudgetController.DeleteBudgetAsync*
-  commentId: Overload:MakesCentsBackend.Controllers.BudgetController.DeleteBudgetAsync
-  href: MakesCentsBackend.Controllers.BudgetController.html#MakesCentsBackend_Controllers_BudgetController_DeleteBudgetAsync_System_Int32_
-  name: DeleteBudgetAsync
-  nameWithType: BudgetController.DeleteBudgetAsync
-  fullName: MakesCentsBackend.Controllers.BudgetController.DeleteBudgetAsync
+  href: MakesCentsBackend.Models.EditBudgetMonthRequest.html
+  name: EditBudgetMonthRequest
+  nameWithType: EditBudgetMonthRequest
+  fullName: MakesCentsBackend.Models.EditBudgetMonthRequest
+- uid: MakesCentsBackend.Controllers.BudgetController.DeleteBudgetMonthAsync*
+  commentId: Overload:MakesCentsBackend.Controllers.BudgetController.DeleteBudgetMonthAsync
+  href: MakesCentsBackend.Controllers.BudgetController.html#MakesCentsBackend_Controllers_BudgetController_DeleteBudgetMonthAsync_System_Int32_
+  name: DeleteBudgetMonthAsync
+  nameWithType: BudgetController.DeleteBudgetMonthAsync
+  fullName: MakesCentsBackend.Controllers.BudgetController.DeleteBudgetMonthAsync

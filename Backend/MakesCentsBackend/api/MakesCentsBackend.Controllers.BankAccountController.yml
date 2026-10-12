@@ -27,7 +27,7 @@ items:
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Controllers
-  summary: API controller for bank accounts
+  summary: Controller for specified bank account APIs, including Create Bank Account and Update Bank Account
   example: []
   syntax:
     content: >-

@@ -5,9 +5,11 @@ items:
   id: TransactionDAO
   parent: MakesCentsBackend.Services.DataAccessLayer
   children:
-  - MakesCentsBackend.Services.DataAccessLayer.TransactionDAO.#ctor(MySqlConnector.MySqlConnection,MakesCentsBackend.Services.DataAccessLayer.AuthorizationService)
-  - MakesCentsBackend.Services.DataAccessLayer.TransactionDAO.DeleteTransactionAsync(MakesCentsBackend.Models.BaseIdRequest)
+  - MakesCentsBackend.Services.DataAccessLayer.TransactionDAO.#ctor(MySqlConnector.MySqlConnection,MakesCentsBackend.Services.DataAccessLayer.AuthorizationService,MakesCentsBackend.Services.DataAccessLayer.AccountDAO,MakesCentsBackend.Services.DataAccessLayer.SinkingFundEnvelopeDAO,MakesCentsBackend.Services.DataAccessLayer.RolloverEnvelopeDAO)
   - MakesCentsBackend.Services.DataAccessLayer.TransactionDAO.GetAllTransactionsAsync(MakesCentsBackend.Models.BaseIdRequest)
+  - MakesCentsBackend.Services.DataAccessLayer.TransactionDAO.HardDeleteTransactionAsync(MakesCentsBackend.Models.BaseIdRequest)
+  - MakesCentsBackend.Services.DataAccessLayer.TransactionDAO.RestoreTransactionAsync(MakesCentsBackend.Models.BaseIdRequest)
+  - MakesCentsBackend.Services.DataAccessLayer.TransactionDAO.SoftDeleteTransactionAsync(MakesCentsBackend.Models.BaseIdRequest)
   - MakesCentsBackend.Services.DataAccessLayer.TransactionDAO.UpdateTransactionAsync(MakesCentsBackend.Models.UpdateTransactionRequest,MySqlConnector.MySqlTransaction)
   langs:
   - csharp
@@ -40,16 +42,16 @@ items:
   - System.Object.MemberwiseClone
   - System.Object.ReferenceEquals(System.Object,System.Object)
   - System.Object.ToString
-- uid: MakesCentsBackend.Services.DataAccessLayer.TransactionDAO.#ctor(MySqlConnector.MySqlConnection,MakesCentsBackend.Services.DataAccessLayer.AuthorizationService)
-  commentId: M:MakesCentsBackend.Services.DataAccessLayer.TransactionDAO.#ctor(MySqlConnector.MySqlConnection,MakesCentsBackend.Services.DataAccessLayer.AuthorizationService)
-  id: '#ctor(MySqlConnector.MySqlConnection,MakesCentsBackend.Services.DataAccessLayer.AuthorizationService)'
+- uid: MakesCentsBackend.Services.DataAccessLayer.TransactionDAO.#ctor(MySqlConnector.MySqlConnection,MakesCentsBackend.Services.DataAccessLayer.AuthorizationService,MakesCentsBackend.Services.DataAccessLayer.AccountDAO,MakesCentsBackend.Services.DataAccessLayer.SinkingFundEnvelopeDAO,MakesCentsBackend.Services.DataAccessLayer.RolloverEnvelopeDAO)
+  commentId: M:MakesCentsBackend.Services.DataAccessLayer.TransactionDAO.#ctor(MySqlConnector.MySqlConnection,MakesCentsBackend.Services.DataAccessLayer.AuthorizationService,MakesCentsBackend.Services.DataAccessLayer.AccountDAO,MakesCentsBackend.Services.DataAccessLayer.SinkingFundEnvelopeDAO,MakesCentsBackend.Services.DataAccessLayer.RolloverEnvelopeDAO)
+  id: '#ctor(MySqlConnector.MySqlConnection,MakesCentsBackend.Services.DataAccessLayer.AuthorizationService,MakesCentsBackend.Services.DataAccessLayer.AccountDAO,MakesCentsBackend.Services.DataAccessLayer.SinkingFundEnvelopeDAO,MakesCentsBackend.Services.DataAccessLayer.RolloverEnvelopeDAO)'
   parent: MakesCentsBackend.Services.DataAccessLayer.TransactionDAO
   langs:
   - csharp
   - vb
-  name: TransactionDAO(MySqlConnection, AuthorizationService)
-  nameWithType: TransactionDAO.TransactionDAO(MySqlConnection, AuthorizationService)
-  fullName: MakesCentsBackend.Services.DataAccessLayer.TransactionDAO.TransactionDAO(MySqlConnector.MySqlConnection, MakesCentsBackend.Services.DataAccessLayer.AuthorizationService)
+  name: TransactionDAO(MySqlConnection, AuthorizationService, AccountDAO, SinkingFundEnvelopeDAO, RolloverEnvelopeDAO)
+  nameWithType: TransactionDAO.TransactionDAO(MySqlConnection, AuthorizationService, AccountDAO, SinkingFundEnvelopeDAO, RolloverEnvelopeDAO)
+  fullName: MakesCentsBackend.Services.DataAccessLayer.TransactionDAO.TransactionDAO(MySqlConnector.MySqlConnection, MakesCentsBackend.Services.DataAccessLayer.AuthorizationService, MakesCentsBackend.Services.DataAccessLayer.AccountDAO, MakesCentsBackend.Services.DataAccessLayer.SinkingFundEnvelopeDAO, MakesCentsBackend.Services.DataAccessLayer.RolloverEnvelopeDAO)
   type: Constructor
   source:
     remote:
@@ -58,25 +60,33 @@ items:
       repo: https://github.com/Gianna7055/MakesCents.git
     id: .ctor
     path: Services/DataAccessLayer/TransactionDAO.cs
-    startLine: 26
+    startLine: 28
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Services.DataAccessLayer
-  summary: Parameterized constructor to bring in DI variables
+  summary: >-
+    Parameterized constructor to bring in DI variables. The account and envelope DAOs are
+
+    needed so delete/restore can reverse or re-apply a transaction's balance effects.
   example: []
   syntax:
-    content: public TransactionDAO(MySqlConnection connection, AuthorizationService authService)
+    content: public TransactionDAO(MySqlConnection connection, AuthorizationService authService, AccountDAO accountDAO, SinkingFundEnvelopeDAO sinkingFundEnvelopeDAO, RolloverEnvelopeDAO rolloverEnvelopeDAO)
     parameters:
     - id: connection
       type: MySqlConnector.MySqlConnection
-      description: ''
     - id: authService
       type: MakesCentsBackend.Services.DataAccessLayer.AuthorizationService
-    content.vb: Public Sub New(connection As MySqlConnection, authService As AuthorizationService)
+    - id: accountDAO
+      type: MakesCentsBackend.Services.DataAccessLayer.AccountDAO
+    - id: sinkingFundEnvelopeDAO
+      type: MakesCentsBackend.Services.DataAccessLayer.SinkingFundEnvelopeDAO
+    - id: rolloverEnvelopeDAO
+      type: MakesCentsBackend.Services.DataAccessLayer.RolloverEnvelopeDAO
+    content.vb: Public Sub New(connection As MySqlConnection, authService As AuthorizationService, accountDAO As AccountDAO, sinkingFundEnvelopeDAO As SinkingFundEnvelopeDAO, rolloverEnvelopeDAO As RolloverEnvelopeDAO)
   overload: MakesCentsBackend.Services.DataAccessLayer.TransactionDAO.#ctor*
-  nameWithType.vb: TransactionDAO.New(MySqlConnection, AuthorizationService)
-  fullName.vb: MakesCentsBackend.Services.DataAccessLayer.TransactionDAO.New(MySqlConnector.MySqlConnection, MakesCentsBackend.Services.DataAccessLayer.AuthorizationService)
-  name.vb: New(MySqlConnection, AuthorizationService)
+  nameWithType.vb: TransactionDAO.New(MySqlConnection, AuthorizationService, AccountDAO, SinkingFundEnvelopeDAO, RolloverEnvelopeDAO)
+  fullName.vb: MakesCentsBackend.Services.DataAccessLayer.TransactionDAO.New(MySqlConnector.MySqlConnection, MakesCentsBackend.Services.DataAccessLayer.AuthorizationService, MakesCentsBackend.Services.DataAccessLayer.AccountDAO, MakesCentsBackend.Services.DataAccessLayer.SinkingFundEnvelopeDAO, MakesCentsBackend.Services.DataAccessLayer.RolloverEnvelopeDAO)
+  name.vb: New(MySqlConnection, AuthorizationService, AccountDAO, SinkingFundEnvelopeDAO, RolloverEnvelopeDAO)
 - uid: MakesCentsBackend.Services.DataAccessLayer.TransactionDAO.GetAllTransactionsAsync(MakesCentsBackend.Models.BaseIdRequest)
   commentId: M:MakesCentsBackend.Services.DataAccessLayer.TransactionDAO.GetAllTransactionsAsync(MakesCentsBackend.Models.BaseIdRequest)
   id: GetAllTransactionsAsync(MakesCentsBackend.Models.BaseIdRequest)
@@ -95,17 +105,24 @@ items:
       repo: https://github.com/Gianna7055/MakesCents.git
     id: GetAllTransactionsAsync
     path: Services/DataAccessLayer/TransactionDAO.cs
-    startLine: 33
+    startLine: 43
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Services.DataAccessLayer
+  summary: >-
+    DAO method to get every transaction (payment, account transfer, and envelope transfer)
+
+    for a single budget month.
+  example: []
   syntax:
     content: public Task<GetAllTransactionsEntityResponse> GetAllTransactionsAsync(BaseIdRequest request)
     parameters:
     - id: request
       type: MakesCentsBackend.Models.BaseIdRequest
+      description: ''
     return:
       type: System.Threading.Tasks.Task{MakesCentsBackend.Models.GetAllTransactionsEntityResponse}
+      description: ''
     content.vb: Public Function GetAllTransactionsAsync(request As BaseIdRequest) As Task(Of GetAllTransactionsEntityResponse)
   overload: MakesCentsBackend.Services.DataAccessLayer.TransactionDAO.GetAllTransactionsAsync*
 - uid: MakesCentsBackend.Services.DataAccessLayer.TransactionDAO.UpdateTransactionAsync(MakesCentsBackend.Models.UpdateTransactionRequest,MySqlConnector.MySqlTransaction)
@@ -126,52 +143,147 @@ items:
       repo: https://github.com/Gianna7055/MakesCents.git
     id: UpdateTransactionAsync
     path: Services/DataAccessLayer/TransactionDAO.cs
-    startLine: 98
+    startLine: 158
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Services.DataAccessLayer
+  summary: >-
+    Shared method (called by PaymentTransactionDAO/TransferTransactionDAO) to update the
+
+    base transaction fields common to every transaction type. Unaffected by the schema split -
+
+    transaction_date, total_amount, and notes are all still plain columns on transaction.
+  example: []
   syntax:
     content: public Task<BaseIdResponse> UpdateTransactionAsync(UpdateTransactionRequest transaction, MySqlTransaction dbTransaction)
     parameters:
     - id: transaction
       type: MakesCentsBackend.Models.UpdateTransactionRequest
+      description: ''
     - id: dbTransaction
       type: MySqlConnector.MySqlTransaction
+      description: ''
     return:
       type: System.Threading.Tasks.Task{MakesCentsBackend.Models.BaseIdResponse}
+      description: ''
     content.vb: Public Function UpdateTransactionAsync(transaction As UpdateTransactionRequest, dbTransaction As MySqlTransaction) As Task(Of BaseIdResponse)
   overload: MakesCentsBackend.Services.DataAccessLayer.TransactionDAO.UpdateTransactionAsync*
-- uid: MakesCentsBackend.Services.DataAccessLayer.TransactionDAO.DeleteTransactionAsync(MakesCentsBackend.Models.BaseIdRequest)
-  commentId: M:MakesCentsBackend.Services.DataAccessLayer.TransactionDAO.DeleteTransactionAsync(MakesCentsBackend.Models.BaseIdRequest)
-  id: DeleteTransactionAsync(MakesCentsBackend.Models.BaseIdRequest)
+- uid: MakesCentsBackend.Services.DataAccessLayer.TransactionDAO.SoftDeleteTransactionAsync(MakesCentsBackend.Models.BaseIdRequest)
+  commentId: M:MakesCentsBackend.Services.DataAccessLayer.TransactionDAO.SoftDeleteTransactionAsync(MakesCentsBackend.Models.BaseIdRequest)
+  id: SoftDeleteTransactionAsync(MakesCentsBackend.Models.BaseIdRequest)
   parent: MakesCentsBackend.Services.DataAccessLayer.TransactionDAO
   langs:
   - csharp
   - vb
-  name: DeleteTransactionAsync(BaseIdRequest)
-  nameWithType: TransactionDAO.DeleteTransactionAsync(BaseIdRequest)
-  fullName: MakesCentsBackend.Services.DataAccessLayer.TransactionDAO.DeleteTransactionAsync(MakesCentsBackend.Models.BaseIdRequest)
+  name: SoftDeleteTransactionAsync(BaseIdRequest)
+  nameWithType: TransactionDAO.SoftDeleteTransactionAsync(BaseIdRequest)
+  fullName: MakesCentsBackend.Services.DataAccessLayer.TransactionDAO.SoftDeleteTransactionAsync(MakesCentsBackend.Models.BaseIdRequest)
   type: Method
   source:
     remote:
       path: Backend/MakesCentsBackend/Services/DataAccessLayer/TransactionDAO.cs
       branch: master
       repo: https://github.com/Gianna7055/MakesCents.git
-    id: DeleteTransactionAsync
+    id: SoftDeleteTransactionAsync
     path: Services/DataAccessLayer/TransactionDAO.cs
-    startLine: 176
+    startLine: 328
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Services.DataAccessLayer
+  summary: >-
+    DAO method to soft delete a transaction. The row is kept (so it can be restored), but its
+
+    effect on envelopes and account balances is reversed so deleted transactions don't count.
+  example: []
   syntax:
-    content: public Task<BaseResponse> DeleteTransactionAsync(BaseIdRequest request)
+    content: public Task<BaseResponse> SoftDeleteTransactionAsync(BaseIdRequest request)
     parameters:
     - id: request
       type: MakesCentsBackend.Models.BaseIdRequest
+      description: ''
     return:
       type: System.Threading.Tasks.Task{MakesCentsBackend.Models.BaseResponse}
-    content.vb: Public Function DeleteTransactionAsync(request As BaseIdRequest) As Task(Of BaseResponse)
-  overload: MakesCentsBackend.Services.DataAccessLayer.TransactionDAO.DeleteTransactionAsync*
+      description: ''
+    content.vb: Public Function SoftDeleteTransactionAsync(request As BaseIdRequest) As Task(Of BaseResponse)
+  overload: MakesCentsBackend.Services.DataAccessLayer.TransactionDAO.SoftDeleteTransactionAsync*
+- uid: MakesCentsBackend.Services.DataAccessLayer.TransactionDAO.RestoreTransactionAsync(MakesCentsBackend.Models.BaseIdRequest)
+  commentId: M:MakesCentsBackend.Services.DataAccessLayer.TransactionDAO.RestoreTransactionAsync(MakesCentsBackend.Models.BaseIdRequest)
+  id: RestoreTransactionAsync(MakesCentsBackend.Models.BaseIdRequest)
+  parent: MakesCentsBackend.Services.DataAccessLayer.TransactionDAO
+  langs:
+  - csharp
+  - vb
+  name: RestoreTransactionAsync(BaseIdRequest)
+  nameWithType: TransactionDAO.RestoreTransactionAsync(BaseIdRequest)
+  fullName: MakesCentsBackend.Services.DataAccessLayer.TransactionDAO.RestoreTransactionAsync(MakesCentsBackend.Models.BaseIdRequest)
+  type: Method
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Services/DataAccessLayer/TransactionDAO.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: RestoreTransactionAsync
+    path: Services/DataAccessLayer/TransactionDAO.cs
+    startLine: 388
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Services.DataAccessLayer
+  summary: >-
+    DAO method to restore a soft-deleted transaction. Re-applies the effect on envelopes and
+
+    account balances that the soft delete removed.
+  example: []
+  syntax:
+    content: public Task<BaseResponse> RestoreTransactionAsync(BaseIdRequest request)
+    parameters:
+    - id: request
+      type: MakesCentsBackend.Models.BaseIdRequest
+      description: ''
+    return:
+      type: System.Threading.Tasks.Task{MakesCentsBackend.Models.BaseResponse}
+      description: ''
+    content.vb: Public Function RestoreTransactionAsync(request As BaseIdRequest) As Task(Of BaseResponse)
+  overload: MakesCentsBackend.Services.DataAccessLayer.TransactionDAO.RestoreTransactionAsync*
+- uid: MakesCentsBackend.Services.DataAccessLayer.TransactionDAO.HardDeleteTransactionAsync(MakesCentsBackend.Models.BaseIdRequest)
+  commentId: M:MakesCentsBackend.Services.DataAccessLayer.TransactionDAO.HardDeleteTransactionAsync(MakesCentsBackend.Models.BaseIdRequest)
+  id: HardDeleteTransactionAsync(MakesCentsBackend.Models.BaseIdRequest)
+  parent: MakesCentsBackend.Services.DataAccessLayer.TransactionDAO
+  langs:
+  - csharp
+  - vb
+  name: HardDeleteTransactionAsync(BaseIdRequest)
+  nameWithType: TransactionDAO.HardDeleteTransactionAsync(BaseIdRequest)
+  fullName: MakesCentsBackend.Services.DataAccessLayer.TransactionDAO.HardDeleteTransactionAsync(MakesCentsBackend.Models.BaseIdRequest)
+  type: Method
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Services/DataAccessLayer/TransactionDAO.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: HardDeleteTransactionAsync
+    path: Services/DataAccessLayer/TransactionDAO.cs
+    startLine: 449
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Services.DataAccessLayer
+  summary: >-
+    DAO method to permanently delete a transaction. If the transaction is still live, its
+
+    effect is reversed first; if it was already soft-deleted, the effect was already reversed
+
+    so only the row is removed.
+  example: []
+  syntax:
+    content: public Task<BaseResponse> HardDeleteTransactionAsync(BaseIdRequest request)
+    parameters:
+    - id: request
+      type: MakesCentsBackend.Models.BaseIdRequest
+      description: ''
+    return:
+      type: System.Threading.Tasks.Task{MakesCentsBackend.Models.BaseResponse}
+      description: ''
+    content.vb: Public Function HardDeleteTransactionAsync(request As BaseIdRequest) As Task(Of BaseResponse)
+  overload: MakesCentsBackend.Services.DataAccessLayer.TransactionDAO.HardDeleteTransactionAsync*
 references:
 - uid: MakesCentsBackend.Services.DataAccessLayer
   commentId: N:MakesCentsBackend.Services.DataAccessLayer
@@ -442,7 +554,7 @@ references:
   fullName: System
 - uid: MakesCentsBackend.Services.DataAccessLayer.TransactionDAO.#ctor*
   commentId: Overload:MakesCentsBackend.Services.DataAccessLayer.TransactionDAO.#ctor
-  href: MakesCentsBackend.Services.DataAccessLayer.TransactionDAO.html#MakesCentsBackend_Services_DataAccessLayer_TransactionDAO__ctor_MySqlConnector_MySqlConnection_MakesCentsBackend_Services_DataAccessLayer_AuthorizationService_
+  href: MakesCentsBackend.Services.DataAccessLayer.TransactionDAO.html#MakesCentsBackend_Services_DataAccessLayer_TransactionDAO__ctor_MySqlConnector_MySqlConnection_MakesCentsBackend_Services_DataAccessLayer_AuthorizationService_MakesCentsBackend_Services_DataAccessLayer_AccountDAO_MakesCentsBackend_Services_DataAccessLayer_SinkingFundEnvelopeDAO_MakesCentsBackend_Services_DataAccessLayer_RolloverEnvelopeDAO_
   name: TransactionDAO
   nameWithType: TransactionDAO.TransactionDAO
   fullName: MakesCentsBackend.Services.DataAccessLayer.TransactionDAO.TransactionDAO
@@ -463,6 +575,27 @@ references:
   name: AuthorizationService
   nameWithType: AuthorizationService
   fullName: MakesCentsBackend.Services.DataAccessLayer.AuthorizationService
+- uid: MakesCentsBackend.Services.DataAccessLayer.AccountDAO
+  commentId: T:MakesCentsBackend.Services.DataAccessLayer.AccountDAO
+  parent: MakesCentsBackend.Services.DataAccessLayer
+  href: MakesCentsBackend.Services.DataAccessLayer.AccountDAO.html
+  name: AccountDAO
+  nameWithType: AccountDAO
+  fullName: MakesCentsBackend.Services.DataAccessLayer.AccountDAO
+- uid: MakesCentsBackend.Services.DataAccessLayer.SinkingFundEnvelopeDAO
+  commentId: T:MakesCentsBackend.Services.DataAccessLayer.SinkingFundEnvelopeDAO
+  parent: MakesCentsBackend.Services.DataAccessLayer
+  href: MakesCentsBackend.Services.DataAccessLayer.SinkingFundEnvelopeDAO.html
+  name: SinkingFundEnvelopeDAO
+  nameWithType: SinkingFundEnvelopeDAO
+  fullName: MakesCentsBackend.Services.DataAccessLayer.SinkingFundEnvelopeDAO
+- uid: MakesCentsBackend.Services.DataAccessLayer.RolloverEnvelopeDAO
+  commentId: T:MakesCentsBackend.Services.DataAccessLayer.RolloverEnvelopeDAO
+  parent: MakesCentsBackend.Services.DataAccessLayer
+  href: MakesCentsBackend.Services.DataAccessLayer.RolloverEnvelopeDAO.html
+  name: RolloverEnvelopeDAO
+  nameWithType: RolloverEnvelopeDAO
+  fullName: MakesCentsBackend.Services.DataAccessLayer.RolloverEnvelopeDAO
 - uid: MySqlConnector
   commentId: N:MySqlConnector
   isExternal: true
@@ -655,12 +788,12 @@ references:
     name: BaseIdResponse
     href: MakesCentsBackend.Models.BaseIdResponse.html
   - name: )
-- uid: MakesCentsBackend.Services.DataAccessLayer.TransactionDAO.DeleteTransactionAsync*
-  commentId: Overload:MakesCentsBackend.Services.DataAccessLayer.TransactionDAO.DeleteTransactionAsync
-  href: MakesCentsBackend.Services.DataAccessLayer.TransactionDAO.html#MakesCentsBackend_Services_DataAccessLayer_TransactionDAO_DeleteTransactionAsync_MakesCentsBackend_Models_BaseIdRequest_
-  name: DeleteTransactionAsync
-  nameWithType: TransactionDAO.DeleteTransactionAsync
-  fullName: MakesCentsBackend.Services.DataAccessLayer.TransactionDAO.DeleteTransactionAsync
+- uid: MakesCentsBackend.Services.DataAccessLayer.TransactionDAO.SoftDeleteTransactionAsync*
+  commentId: Overload:MakesCentsBackend.Services.DataAccessLayer.TransactionDAO.SoftDeleteTransactionAsync
+  href: MakesCentsBackend.Services.DataAccessLayer.TransactionDAO.html#MakesCentsBackend_Services_DataAccessLayer_TransactionDAO_SoftDeleteTransactionAsync_MakesCentsBackend_Models_BaseIdRequest_
+  name: SoftDeleteTransactionAsync
+  nameWithType: TransactionDAO.SoftDeleteTransactionAsync
+  fullName: MakesCentsBackend.Services.DataAccessLayer.TransactionDAO.SoftDeleteTransactionAsync
 - uid: System.Threading.Tasks.Task{MakesCentsBackend.Models.BaseResponse}
   commentId: T:System.Threading.Tasks.Task{MakesCentsBackend.Models.BaseResponse}
   parent: System.Threading.Tasks
@@ -694,3 +827,15 @@ references:
     name: BaseResponse
     href: MakesCentsBackend.Models.BaseResponse.html
   - name: )
+- uid: MakesCentsBackend.Services.DataAccessLayer.TransactionDAO.RestoreTransactionAsync*
+  commentId: Overload:MakesCentsBackend.Services.DataAccessLayer.TransactionDAO.RestoreTransactionAsync
+  href: MakesCentsBackend.Services.DataAccessLayer.TransactionDAO.html#MakesCentsBackend_Services_DataAccessLayer_TransactionDAO_RestoreTransactionAsync_MakesCentsBackend_Models_BaseIdRequest_
+  name: RestoreTransactionAsync
+  nameWithType: TransactionDAO.RestoreTransactionAsync
+  fullName: MakesCentsBackend.Services.DataAccessLayer.TransactionDAO.RestoreTransactionAsync
+- uid: MakesCentsBackend.Services.DataAccessLayer.TransactionDAO.HardDeleteTransactionAsync*
+  commentId: Overload:MakesCentsBackend.Services.DataAccessLayer.TransactionDAO.HardDeleteTransactionAsync
+  href: MakesCentsBackend.Services.DataAccessLayer.TransactionDAO.html#MakesCentsBackend_Services_DataAccessLayer_TransactionDAO_HardDeleteTransactionAsync_MakesCentsBackend_Models_BaseIdRequest_
+  name: HardDeleteTransactionAsync
+  nameWithType: TransactionDAO.HardDeleteTransactionAsync
+  fullName: MakesCentsBackend.Services.DataAccessLayer.TransactionDAO.HardDeleteTransactionAsync

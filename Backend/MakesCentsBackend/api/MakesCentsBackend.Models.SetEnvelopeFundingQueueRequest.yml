@@ -1,0 +1,530 @@
+### YamlMime:ManagedReference
+items:
+- uid: MakesCentsBackend.Models.SetEnvelopeFundingQueueRequest
+  commentId: T:MakesCentsBackend.Models.SetEnvelopeFundingQueueRequest
+  id: SetEnvelopeFundingQueueRequest
+  parent: MakesCentsBackend.Models
+  children:
+  - MakesCentsBackend.Models.SetEnvelopeFundingQueueRequest.BudgetMonthId
+  - MakesCentsBackend.Models.SetEnvelopeFundingQueueRequest.FundingQueue
+  - MakesCentsBackend.Models.SetEnvelopeFundingQueueRequest.UserId
+  langs:
+  - csharp
+  - vb
+  name: SetEnvelopeFundingQueueRequest
+  nameWithType: SetEnvelopeFundingQueueRequest
+  fullName: MakesCentsBackend.Models.SetEnvelopeFundingQueueRequest
+  type: Class
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Models/EnvelopeFundingModels.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: SetEnvelopeFundingQueueRequest
+    path: Models/EnvelopeFundingModels.cs
+    startLine: 48
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Models
+  summary: >-
+    Request model to set (create/reorder/update/remove all at once) the funding queue for a
+
+    budget month. The list's order is the funding priority - item 0 is funded first.
+  example: []
+  syntax:
+    content: >-
+      [ExportTsClass]
+
+      public class SetEnvelopeFundingQueueRequest
+    content.vb: >-
+      <ExportTsClass>
+
+      Public Class SetEnvelopeFundingQueueRequest
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+  attributes:
+  - type: TypeGen.Core.TypeAnnotations.ExportTsClassAttribute
+    ctor: TypeGen.Core.TypeAnnotations.ExportTsClassAttribute.#ctor
+    arguments: []
+- uid: MakesCentsBackend.Models.SetEnvelopeFundingQueueRequest.BudgetMonthId
+  commentId: P:MakesCentsBackend.Models.SetEnvelopeFundingQueueRequest.BudgetMonthId
+  id: BudgetMonthId
+  parent: MakesCentsBackend.Models.SetEnvelopeFundingQueueRequest
+  langs:
+  - csharp
+  - vb
+  name: BudgetMonthId
+  nameWithType: SetEnvelopeFundingQueueRequest.BudgetMonthId
+  fullName: MakesCentsBackend.Models.SetEnvelopeFundingQueueRequest.BudgetMonthId
+  type: Property
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Models/EnvelopeFundingModels.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: BudgetMonthId
+    path: Models/EnvelopeFundingModels.cs
+    startLine: 52
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Models
+  syntax:
+    content: public int BudgetMonthId { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property BudgetMonthId As Integer
+  overload: MakesCentsBackend.Models.SetEnvelopeFundingQueueRequest.BudgetMonthId*
+- uid: MakesCentsBackend.Models.SetEnvelopeFundingQueueRequest.UserId
+  commentId: P:MakesCentsBackend.Models.SetEnvelopeFundingQueueRequest.UserId
+  id: UserId
+  parent: MakesCentsBackend.Models.SetEnvelopeFundingQueueRequest
+  langs:
+  - csharp
+  - vb
+  name: UserId
+  nameWithType: SetEnvelopeFundingQueueRequest.UserId
+  fullName: MakesCentsBackend.Models.SetEnvelopeFundingQueueRequest.UserId
+  type: Property
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Models/EnvelopeFundingModels.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: UserId
+    path: Models/EnvelopeFundingModels.cs
+    startLine: 53
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Models
+  syntax:
+    content: public int UserId { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property UserId As Integer
+  overload: MakesCentsBackend.Models.SetEnvelopeFundingQueueRequest.UserId*
+- uid: MakesCentsBackend.Models.SetEnvelopeFundingQueueRequest.FundingQueue
+  commentId: P:MakesCentsBackend.Models.SetEnvelopeFundingQueueRequest.FundingQueue
+  id: FundingQueue
+  parent: MakesCentsBackend.Models.SetEnvelopeFundingQueueRequest
+  langs:
+  - csharp
+  - vb
+  name: FundingQueue
+  nameWithType: SetEnvelopeFundingQueueRequest.FundingQueue
+  fullName: MakesCentsBackend.Models.SetEnvelopeFundingQueueRequest.FundingQueue
+  type: Property
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Models/EnvelopeFundingModels.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: FundingQueue
+    path: Models/EnvelopeFundingModels.cs
+    startLine: 54
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Models
+  syntax:
+    content: public List<SetEnvelopeFundingItemRequest> FundingQueue { get; set; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.List{MakesCentsBackend.Models.SetEnvelopeFundingItemRequest}
+    content.vb: Public Property FundingQueue As List(Of SetEnvelopeFundingItemRequest)
+  overload: MakesCentsBackend.Models.SetEnvelopeFundingQueueRequest.FundingQueue*
+references:
+- uid: MakesCentsBackend.Models
+  commentId: N:MakesCentsBackend.Models
+  href: MakesCentsBackend.html
+  name: MakesCentsBackend.Models
+  nameWithType: MakesCentsBackend.Models
+  fullName: MakesCentsBackend.Models
+  spec.csharp:
+  - uid: MakesCentsBackend
+    name: MakesCentsBackend
+    href: MakesCentsBackend.html
+  - name: .
+  - uid: MakesCentsBackend.Models
+    name: Models
+    href: MakesCentsBackend.Models.html
+  spec.vb:
+  - uid: MakesCentsBackend
+    name: MakesCentsBackend
+    href: MakesCentsBackend.html
+  - name: .
+  - uid: MakesCentsBackend.Models
+    name: Models
+    href: MakesCentsBackend.Models.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: MakesCentsBackend.Models.SetEnvelopeFundingQueueRequest.BudgetMonthId*
+  commentId: Overload:MakesCentsBackend.Models.SetEnvelopeFundingQueueRequest.BudgetMonthId
+  href: MakesCentsBackend.Models.SetEnvelopeFundingQueueRequest.html#MakesCentsBackend_Models_SetEnvelopeFundingQueueRequest_BudgetMonthId
+  name: BudgetMonthId
+  nameWithType: SetEnvelopeFundingQueueRequest.BudgetMonthId
+  fullName: MakesCentsBackend.Models.SetEnvelopeFundingQueueRequest.BudgetMonthId
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: MakesCentsBackend.Models.SetEnvelopeFundingQueueRequest.UserId*
+  commentId: Overload:MakesCentsBackend.Models.SetEnvelopeFundingQueueRequest.UserId
+  href: MakesCentsBackend.Models.SetEnvelopeFundingQueueRequest.html#MakesCentsBackend_Models_SetEnvelopeFundingQueueRequest_UserId
+  name: UserId
+  nameWithType: SetEnvelopeFundingQueueRequest.UserId
+  fullName: MakesCentsBackend.Models.SetEnvelopeFundingQueueRequest.UserId
+- uid: MakesCentsBackend.Models.SetEnvelopeFundingQueueRequest.FundingQueue*
+  commentId: Overload:MakesCentsBackend.Models.SetEnvelopeFundingQueueRequest.FundingQueue
+  href: MakesCentsBackend.Models.SetEnvelopeFundingQueueRequest.html#MakesCentsBackend_Models_SetEnvelopeFundingQueueRequest_FundingQueue
+  name: FundingQueue
+  nameWithType: SetEnvelopeFundingQueueRequest.FundingQueue
+  fullName: MakesCentsBackend.Models.SetEnvelopeFundingQueueRequest.FundingQueue
+- uid: System.Collections.Generic.List{MakesCentsBackend.Models.SetEnvelopeFundingItemRequest}
+  commentId: T:System.Collections.Generic.List{MakesCentsBackend.Models.SetEnvelopeFundingItemRequest}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<SetEnvelopeFundingItemRequest>
+  nameWithType: List<SetEnvelopeFundingItemRequest>
+  fullName: System.Collections.Generic.List<MakesCentsBackend.Models.SetEnvelopeFundingItemRequest>
+  nameWithType.vb: List(Of SetEnvelopeFundingItemRequest)
+  fullName.vb: System.Collections.Generic.List(Of MakesCentsBackend.Models.SetEnvelopeFundingItemRequest)
+  name.vb: List(Of SetEnvelopeFundingItemRequest)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: MakesCentsBackend.Models.SetEnvelopeFundingItemRequest
+    name: SetEnvelopeFundingItemRequest
+    href: MakesCentsBackend.Models.SetEnvelopeFundingItemRequest.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: MakesCentsBackend.Models.SetEnvelopeFundingItemRequest
+    name: SetEnvelopeFundingItemRequest
+    href: MakesCentsBackend.Models.SetEnvelopeFundingItemRequest.html
+  - name: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic

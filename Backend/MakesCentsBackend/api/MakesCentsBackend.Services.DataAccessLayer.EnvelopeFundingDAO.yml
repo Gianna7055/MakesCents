@@ -1,0 +1,705 @@
+### YamlMime:ManagedReference
+items:
+- uid: MakesCentsBackend.Services.DataAccessLayer.EnvelopeFundingDAO
+  commentId: T:MakesCentsBackend.Services.DataAccessLayer.EnvelopeFundingDAO
+  id: EnvelopeFundingDAO
+  parent: MakesCentsBackend.Services.DataAccessLayer
+  children:
+  - MakesCentsBackend.Services.DataAccessLayer.EnvelopeFundingDAO.#ctor(MySqlConnector.MySqlConnection,MakesCentsBackend.Services.DataAccessLayer.AuthorizationService,MakesCentsBackend.Services.DataAccessLayer.RolloverEnvelopeDAO)
+  - MakesCentsBackend.Services.DataAccessLayer.EnvelopeFundingDAO.DeleteEnvelopeFundingAsync(MakesCentsBackend.Models.BaseIdRequest)
+  - MakesCentsBackend.Services.DataAccessLayer.EnvelopeFundingDAO.GetEnvelopeFundingQueueAsync(MakesCentsBackend.Models.BaseIdRequest)
+  - MakesCentsBackend.Services.DataAccessLayer.EnvelopeFundingDAO.SetEnvelopeFundingQueueAsync(MakesCentsBackend.Models.SetEnvelopeFundingQueueRequest)
+  langs:
+  - csharp
+  - vb
+  name: EnvelopeFundingDAO
+  nameWithType: EnvelopeFundingDAO
+  fullName: MakesCentsBackend.Services.DataAccessLayer.EnvelopeFundingDAO
+  type: Class
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Services/DataAccessLayer/EnvelopeFundingDAO.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: EnvelopeFundingDAO
+    path: Services/DataAccessLayer/EnvelopeFundingDAO.cs
+    startLine: 17
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Services.DataAccessLayer
+  summary: >-
+    Data access object for the envelope funding queue - a budget month's plan for how much
+
+    to put into each envelope and in what priority order. This is a plan only; it doesn't
+
+    move money on its own the way a transaction does.
+  example: []
+  syntax:
+    content: public class EnvelopeFundingDAO
+    content.vb: Public Class EnvelopeFundingDAO
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: MakesCentsBackend.Services.DataAccessLayer.EnvelopeFundingDAO.#ctor(MySqlConnector.MySqlConnection,MakesCentsBackend.Services.DataAccessLayer.AuthorizationService,MakesCentsBackend.Services.DataAccessLayer.RolloverEnvelopeDAO)
+  commentId: M:MakesCentsBackend.Services.DataAccessLayer.EnvelopeFundingDAO.#ctor(MySqlConnector.MySqlConnection,MakesCentsBackend.Services.DataAccessLayer.AuthorizationService,MakesCentsBackend.Services.DataAccessLayer.RolloverEnvelopeDAO)
+  id: '#ctor(MySqlConnector.MySqlConnection,MakesCentsBackend.Services.DataAccessLayer.AuthorizationService,MakesCentsBackend.Services.DataAccessLayer.RolloverEnvelopeDAO)'
+  parent: MakesCentsBackend.Services.DataAccessLayer.EnvelopeFundingDAO
+  langs:
+  - csharp
+  - vb
+  name: EnvelopeFundingDAO(MySqlConnection, AuthorizationService, RolloverEnvelopeDAO)
+  nameWithType: EnvelopeFundingDAO.EnvelopeFundingDAO(MySqlConnection, AuthorizationService, RolloverEnvelopeDAO)
+  fullName: MakesCentsBackend.Services.DataAccessLayer.EnvelopeFundingDAO.EnvelopeFundingDAO(MySqlConnector.MySqlConnection, MakesCentsBackend.Services.DataAccessLayer.AuthorizationService, MakesCentsBackend.Services.DataAccessLayer.RolloverEnvelopeDAO)
+  type: Constructor
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Services/DataAccessLayer/EnvelopeFundingDAO.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: .ctor
+    path: Services/DataAccessLayer/EnvelopeFundingDAO.cs
+    startLine: 31
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Services.DataAccessLayer
+  summary: Parameterized constructor to bring in DI variables
+  example: []
+  syntax:
+    content: public EnvelopeFundingDAO(MySqlConnection connection, AuthorizationService authService, RolloverEnvelopeDAO rolloverEnvelopeDAO)
+    parameters:
+    - id: connection
+      type: MySqlConnector.MySqlConnection
+      description: ''
+    - id: authService
+      type: MakesCentsBackend.Services.DataAccessLayer.AuthorizationService
+      description: ''
+    - id: rolloverEnvelopeDAO
+      type: MakesCentsBackend.Services.DataAccessLayer.RolloverEnvelopeDAO
+      description: ''
+    content.vb: Public Sub New(connection As MySqlConnection, authService As AuthorizationService, rolloverEnvelopeDAO As RolloverEnvelopeDAO)
+  overload: MakesCentsBackend.Services.DataAccessLayer.EnvelopeFundingDAO.#ctor*
+  nameWithType.vb: EnvelopeFundingDAO.New(MySqlConnection, AuthorizationService, RolloverEnvelopeDAO)
+  fullName.vb: MakesCentsBackend.Services.DataAccessLayer.EnvelopeFundingDAO.New(MySqlConnector.MySqlConnection, MakesCentsBackend.Services.DataAccessLayer.AuthorizationService, MakesCentsBackend.Services.DataAccessLayer.RolloverEnvelopeDAO)
+  name.vb: New(MySqlConnection, AuthorizationService, RolloverEnvelopeDAO)
+- uid: MakesCentsBackend.Services.DataAccessLayer.EnvelopeFundingDAO.SetEnvelopeFundingQueueAsync(MakesCentsBackend.Models.SetEnvelopeFundingQueueRequest)
+  commentId: M:MakesCentsBackend.Services.DataAccessLayer.EnvelopeFundingDAO.SetEnvelopeFundingQueueAsync(MakesCentsBackend.Models.SetEnvelopeFundingQueueRequest)
+  id: SetEnvelopeFundingQueueAsync(MakesCentsBackend.Models.SetEnvelopeFundingQueueRequest)
+  parent: MakesCentsBackend.Services.DataAccessLayer.EnvelopeFundingDAO
+  langs:
+  - csharp
+  - vb
+  name: SetEnvelopeFundingQueueAsync(SetEnvelopeFundingQueueRequest)
+  nameWithType: EnvelopeFundingDAO.SetEnvelopeFundingQueueAsync(SetEnvelopeFundingQueueRequest)
+  fullName: MakesCentsBackend.Services.DataAccessLayer.EnvelopeFundingDAO.SetEnvelopeFundingQueueAsync(MakesCentsBackend.Models.SetEnvelopeFundingQueueRequest)
+  type: Method
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Services/DataAccessLayer/EnvelopeFundingDAO.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: SetEnvelopeFundingQueueAsync
+    path: Services/DataAccessLayer/EnvelopeFundingDAO.cs
+    startLine: 53
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Services.DataAccessLayer
+  summary: >-
+    DAO method to set (create/reorder/update/remove all at once) the funding queue for a
+
+    budget month. 
+
+    Existing rows not present in the incoming list are deleted.
+
+    Rows with an EnvelopeFundingId are updated in place.
+
+    Rows without one are inserted new. 
+
+    order_index is reassigned by each item's position in the incoming list - kept rows are first bumped
+
+    into a high temporary range before being written back to their final low value, since
+
+    unique_envelope_funding_order is checked immediately (not deferred) and a straight
+
+    reorder could otherwise collide with another row's still-current value.
+
+    Also enforces that the same envelope can't have two funding rows in the same month
+
+    (unique_envelope_funding_sinking / unique_envelope_funding_rollover).
+  example: []
+  syntax:
+    content: public Task<GetEnvelopeFundingQueueResponse> SetEnvelopeFundingQueueAsync(SetEnvelopeFundingQueueRequest fundingQueue)
+    parameters:
+    - id: fundingQueue
+      type: MakesCentsBackend.Models.SetEnvelopeFundingQueueRequest
+      description: ''
+    return:
+      type: System.Threading.Tasks.Task{MakesCentsBackend.Models.GetEnvelopeFundingQueueResponse}
+      description: ''
+    content.vb: Public Function SetEnvelopeFundingQueueAsync(fundingQueue As SetEnvelopeFundingQueueRequest) As Task(Of GetEnvelopeFundingQueueResponse)
+  overload: MakesCentsBackend.Services.DataAccessLayer.EnvelopeFundingDAO.SetEnvelopeFundingQueueAsync*
+- uid: MakesCentsBackend.Services.DataAccessLayer.EnvelopeFundingDAO.GetEnvelopeFundingQueueAsync(MakesCentsBackend.Models.BaseIdRequest)
+  commentId: M:MakesCentsBackend.Services.DataAccessLayer.EnvelopeFundingDAO.GetEnvelopeFundingQueueAsync(MakesCentsBackend.Models.BaseIdRequest)
+  id: GetEnvelopeFundingQueueAsync(MakesCentsBackend.Models.BaseIdRequest)
+  parent: MakesCentsBackend.Services.DataAccessLayer.EnvelopeFundingDAO
+  langs:
+  - csharp
+  - vb
+  name: GetEnvelopeFundingQueueAsync(BaseIdRequest)
+  nameWithType: EnvelopeFundingDAO.GetEnvelopeFundingQueueAsync(BaseIdRequest)
+  fullName: MakesCentsBackend.Services.DataAccessLayer.EnvelopeFundingDAO.GetEnvelopeFundingQueueAsync(MakesCentsBackend.Models.BaseIdRequest)
+  type: Method
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Services/DataAccessLayer/EnvelopeFundingDAO.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: GetEnvelopeFundingQueueAsync
+    path: Services/DataAccessLayer/EnvelopeFundingDAO.cs
+    startLine: 285
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Services.DataAccessLayer
+  summary: DAO method to get the funding queue for a budget month, in priority order
+  example: []
+  syntax:
+    content: public Task<GetEnvelopeFundingQueueResponse> GetEnvelopeFundingQueueAsync(BaseIdRequest request)
+    parameters:
+    - id: request
+      type: MakesCentsBackend.Models.BaseIdRequest
+      description: ''
+    return:
+      type: System.Threading.Tasks.Task{MakesCentsBackend.Models.GetEnvelopeFundingQueueResponse}
+      description: ''
+    content.vb: Public Function GetEnvelopeFundingQueueAsync(request As BaseIdRequest) As Task(Of GetEnvelopeFundingQueueResponse)
+  overload: MakesCentsBackend.Services.DataAccessLayer.EnvelopeFundingDAO.GetEnvelopeFundingQueueAsync*
+- uid: MakesCentsBackend.Services.DataAccessLayer.EnvelopeFundingDAO.DeleteEnvelopeFundingAsync(MakesCentsBackend.Models.BaseIdRequest)
+  commentId: M:MakesCentsBackend.Services.DataAccessLayer.EnvelopeFundingDAO.DeleteEnvelopeFundingAsync(MakesCentsBackend.Models.BaseIdRequest)
+  id: DeleteEnvelopeFundingAsync(MakesCentsBackend.Models.BaseIdRequest)
+  parent: MakesCentsBackend.Services.DataAccessLayer.EnvelopeFundingDAO
+  langs:
+  - csharp
+  - vb
+  name: DeleteEnvelopeFundingAsync(BaseIdRequest)
+  nameWithType: EnvelopeFundingDAO.DeleteEnvelopeFundingAsync(BaseIdRequest)
+  fullName: MakesCentsBackend.Services.DataAccessLayer.EnvelopeFundingDAO.DeleteEnvelopeFundingAsync(MakesCentsBackend.Models.BaseIdRequest)
+  type: Method
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Services/DataAccessLayer/EnvelopeFundingDAO.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: DeleteEnvelopeFundingAsync
+    path: Services/DataAccessLayer/EnvelopeFundingDAO.cs
+    startLine: 327
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Services.DataAccessLayer
+  summary: DAO method to delete a single envelope funding row, without touching the rest of the queue
+  example: []
+  syntax:
+    content: public Task<BaseResponse> DeleteEnvelopeFundingAsync(BaseIdRequest request)
+    parameters:
+    - id: request
+      type: MakesCentsBackend.Models.BaseIdRequest
+      description: ''
+    return:
+      type: System.Threading.Tasks.Task{MakesCentsBackend.Models.BaseResponse}
+      description: ''
+    content.vb: Public Function DeleteEnvelopeFundingAsync(request As BaseIdRequest) As Task(Of BaseResponse)
+  overload: MakesCentsBackend.Services.DataAccessLayer.EnvelopeFundingDAO.DeleteEnvelopeFundingAsync*
+references:
+- uid: MakesCentsBackend.Services.DataAccessLayer
+  commentId: N:MakesCentsBackend.Services.DataAccessLayer
+  href: MakesCentsBackend.html
+  name: MakesCentsBackend.Services.DataAccessLayer
+  nameWithType: MakesCentsBackend.Services.DataAccessLayer
+  fullName: MakesCentsBackend.Services.DataAccessLayer
+  spec.csharp:
+  - uid: MakesCentsBackend
+    name: MakesCentsBackend
+    href: MakesCentsBackend.html
+  - name: .
+  - uid: MakesCentsBackend.Services
+    name: Services
+    href: MakesCentsBackend.Services.html
+  - name: .
+  - uid: MakesCentsBackend.Services.DataAccessLayer
+    name: DataAccessLayer
+    href: MakesCentsBackend.Services.DataAccessLayer.html
+  spec.vb:
+  - uid: MakesCentsBackend
+    name: MakesCentsBackend
+    href: MakesCentsBackend.html
+  - name: .
+  - uid: MakesCentsBackend.Services
+    name: Services
+    href: MakesCentsBackend.Services.html
+  - name: .
+  - uid: MakesCentsBackend.Services.DataAccessLayer
+    name: DataAccessLayer
+    href: MakesCentsBackend.Services.DataAccessLayer.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: MakesCentsBackend.Services.DataAccessLayer.EnvelopeFundingDAO.#ctor*
+  commentId: Overload:MakesCentsBackend.Services.DataAccessLayer.EnvelopeFundingDAO.#ctor
+  href: MakesCentsBackend.Services.DataAccessLayer.EnvelopeFundingDAO.html#MakesCentsBackend_Services_DataAccessLayer_EnvelopeFundingDAO__ctor_MySqlConnector_MySqlConnection_MakesCentsBackend_Services_DataAccessLayer_AuthorizationService_MakesCentsBackend_Services_DataAccessLayer_RolloverEnvelopeDAO_
+  name: EnvelopeFundingDAO
+  nameWithType: EnvelopeFundingDAO.EnvelopeFundingDAO
+  fullName: MakesCentsBackend.Services.DataAccessLayer.EnvelopeFundingDAO.EnvelopeFundingDAO
+  nameWithType.vb: EnvelopeFundingDAO.New
+  fullName.vb: MakesCentsBackend.Services.DataAccessLayer.EnvelopeFundingDAO.New
+  name.vb: New
+- uid: MySqlConnector.MySqlConnection
+  commentId: T:MySqlConnector.MySqlConnection
+  parent: MySqlConnector
+  isExternal: true
+  name: MySqlConnection
+  nameWithType: MySqlConnection
+  fullName: MySqlConnector.MySqlConnection
+- uid: MakesCentsBackend.Services.DataAccessLayer.AuthorizationService
+  commentId: T:MakesCentsBackend.Services.DataAccessLayer.AuthorizationService
+  parent: MakesCentsBackend.Services.DataAccessLayer
+  href: MakesCentsBackend.Services.DataAccessLayer.AuthorizationService.html
+  name: AuthorizationService
+  nameWithType: AuthorizationService
+  fullName: MakesCentsBackend.Services.DataAccessLayer.AuthorizationService
+- uid: MakesCentsBackend.Services.DataAccessLayer.RolloverEnvelopeDAO
+  commentId: T:MakesCentsBackend.Services.DataAccessLayer.RolloverEnvelopeDAO
+  parent: MakesCentsBackend.Services.DataAccessLayer
+  href: MakesCentsBackend.Services.DataAccessLayer.RolloverEnvelopeDAO.html
+  name: RolloverEnvelopeDAO
+  nameWithType: RolloverEnvelopeDAO
+  fullName: MakesCentsBackend.Services.DataAccessLayer.RolloverEnvelopeDAO
+- uid: MySqlConnector
+  commentId: N:MySqlConnector
+  isExternal: true
+  name: MySqlConnector
+  nameWithType: MySqlConnector
+  fullName: MySqlConnector
+- uid: MakesCentsBackend.Services.DataAccessLayer.EnvelopeFundingDAO.SetEnvelopeFundingQueueAsync*
+  commentId: Overload:MakesCentsBackend.Services.DataAccessLayer.EnvelopeFundingDAO.SetEnvelopeFundingQueueAsync
+  href: MakesCentsBackend.Services.DataAccessLayer.EnvelopeFundingDAO.html#MakesCentsBackend_Services_DataAccessLayer_EnvelopeFundingDAO_SetEnvelopeFundingQueueAsync_MakesCentsBackend_Models_SetEnvelopeFundingQueueRequest_
+  name: SetEnvelopeFundingQueueAsync
+  nameWithType: EnvelopeFundingDAO.SetEnvelopeFundingQueueAsync
+  fullName: MakesCentsBackend.Services.DataAccessLayer.EnvelopeFundingDAO.SetEnvelopeFundingQueueAsync
+- uid: MakesCentsBackend.Models.SetEnvelopeFundingQueueRequest
+  commentId: T:MakesCentsBackend.Models.SetEnvelopeFundingQueueRequest
+  parent: MakesCentsBackend.Models
+  href: MakesCentsBackend.Models.SetEnvelopeFundingQueueRequest.html
+  name: SetEnvelopeFundingQueueRequest
+  nameWithType: SetEnvelopeFundingQueueRequest
+  fullName: MakesCentsBackend.Models.SetEnvelopeFundingQueueRequest
+- uid: System.Threading.Tasks.Task{MakesCentsBackend.Models.GetEnvelopeFundingQueueResponse}
+  commentId: T:System.Threading.Tasks.Task{MakesCentsBackend.Models.GetEnvelopeFundingQueueResponse}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<GetEnvelopeFundingQueueResponse>
+  nameWithType: Task<GetEnvelopeFundingQueueResponse>
+  fullName: System.Threading.Tasks.Task<MakesCentsBackend.Models.GetEnvelopeFundingQueueResponse>
+  nameWithType.vb: Task(Of GetEnvelopeFundingQueueResponse)
+  fullName.vb: System.Threading.Tasks.Task(Of MakesCentsBackend.Models.GetEnvelopeFundingQueueResponse)
+  name.vb: Task(Of GetEnvelopeFundingQueueResponse)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: MakesCentsBackend.Models.GetEnvelopeFundingQueueResponse
+    name: GetEnvelopeFundingQueueResponse
+    href: MakesCentsBackend.Models.GetEnvelopeFundingQueueResponse.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: MakesCentsBackend.Models.GetEnvelopeFundingQueueResponse
+    name: GetEnvelopeFundingQueueResponse
+    href: MakesCentsBackend.Models.GetEnvelopeFundingQueueResponse.html
+  - name: )
+- uid: MakesCentsBackend.Models
+  commentId: N:MakesCentsBackend.Models
+  href: MakesCentsBackend.html
+  name: MakesCentsBackend.Models
+  nameWithType: MakesCentsBackend.Models
+  fullName: MakesCentsBackend.Models
+  spec.csharp:
+  - uid: MakesCentsBackend
+    name: MakesCentsBackend
+    href: MakesCentsBackend.html
+  - name: .
+  - uid: MakesCentsBackend.Models
+    name: Models
+    href: MakesCentsBackend.Models.html
+  spec.vb:
+  - uid: MakesCentsBackend
+    name: MakesCentsBackend
+    href: MakesCentsBackend.html
+  - name: .
+  - uid: MakesCentsBackend.Models
+    name: Models
+    href: MakesCentsBackend.Models.html
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+- uid: MakesCentsBackend.Services.DataAccessLayer.EnvelopeFundingDAO.GetEnvelopeFundingQueueAsync*
+  commentId: Overload:MakesCentsBackend.Services.DataAccessLayer.EnvelopeFundingDAO.GetEnvelopeFundingQueueAsync
+  href: MakesCentsBackend.Services.DataAccessLayer.EnvelopeFundingDAO.html#MakesCentsBackend_Services_DataAccessLayer_EnvelopeFundingDAO_GetEnvelopeFundingQueueAsync_MakesCentsBackend_Models_BaseIdRequest_
+  name: GetEnvelopeFundingQueueAsync
+  nameWithType: EnvelopeFundingDAO.GetEnvelopeFundingQueueAsync
+  fullName: MakesCentsBackend.Services.DataAccessLayer.EnvelopeFundingDAO.GetEnvelopeFundingQueueAsync
+- uid: MakesCentsBackend.Models.BaseIdRequest
+  commentId: T:MakesCentsBackend.Models.BaseIdRequest
+  parent: MakesCentsBackend.Models
+  href: MakesCentsBackend.Models.BaseIdRequest.html
+  name: BaseIdRequest
+  nameWithType: BaseIdRequest
+  fullName: MakesCentsBackend.Models.BaseIdRequest
+- uid: MakesCentsBackend.Services.DataAccessLayer.EnvelopeFundingDAO.DeleteEnvelopeFundingAsync*
+  commentId: Overload:MakesCentsBackend.Services.DataAccessLayer.EnvelopeFundingDAO.DeleteEnvelopeFundingAsync
+  href: MakesCentsBackend.Services.DataAccessLayer.EnvelopeFundingDAO.html#MakesCentsBackend_Services_DataAccessLayer_EnvelopeFundingDAO_DeleteEnvelopeFundingAsync_MakesCentsBackend_Models_BaseIdRequest_
+  name: DeleteEnvelopeFundingAsync
+  nameWithType: EnvelopeFundingDAO.DeleteEnvelopeFundingAsync
+  fullName: MakesCentsBackend.Services.DataAccessLayer.EnvelopeFundingDAO.DeleteEnvelopeFundingAsync
+- uid: System.Threading.Tasks.Task{MakesCentsBackend.Models.BaseResponse}
+  commentId: T:System.Threading.Tasks.Task{MakesCentsBackend.Models.BaseResponse}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<BaseResponse>
+  nameWithType: Task<BaseResponse>
+  fullName: System.Threading.Tasks.Task<MakesCentsBackend.Models.BaseResponse>
+  nameWithType.vb: Task(Of BaseResponse)
+  fullName.vb: System.Threading.Tasks.Task(Of MakesCentsBackend.Models.BaseResponse)
+  name.vb: Task(Of BaseResponse)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: MakesCentsBackend.Models.BaseResponse
+    name: BaseResponse
+    href: MakesCentsBackend.Models.BaseResponse.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: MakesCentsBackend.Models.BaseResponse
+    name: BaseResponse
+    href: MakesCentsBackend.Models.BaseResponse.html
+  - name: )

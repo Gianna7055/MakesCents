@@ -43,7 +43,7 @@ items:
   - MakesCentsBackend.Models.GetTransactionDTOModel
   inheritedMembers:
   - MakesCentsBackend.Models.GetTransactionDTOModel.TransactionId
-  - MakesCentsBackend.Models.GetTransactionDTOModel.BudgetId
+  - MakesCentsBackend.Models.GetTransactionDTOModel.BudgetMonthId
   - MakesCentsBackend.Models.GetTransactionDTOModel.TransactionDate
   - MakesCentsBackend.Models.GetTransactionDTOModel.TotalAmount
   - MakesCentsBackend.Models.GetTransactionDTOModel.IsReconciled
@@ -282,13 +282,13 @@ references:
   name: TransactionId
   nameWithType: GetTransactionDTOModel.TransactionId
   fullName: MakesCentsBackend.Models.GetTransactionDTOModel.TransactionId
-- uid: MakesCentsBackend.Models.GetTransactionDTOModel.BudgetId
-  commentId: P:MakesCentsBackend.Models.GetTransactionDTOModel.BudgetId
+- uid: MakesCentsBackend.Models.GetTransactionDTOModel.BudgetMonthId
+  commentId: P:MakesCentsBackend.Models.GetTransactionDTOModel.BudgetMonthId
   parent: MakesCentsBackend.Models.GetTransactionDTOModel
-  href: MakesCentsBackend.Models.GetTransactionDTOModel.html#MakesCentsBackend_Models_GetTransactionDTOModel_BudgetId
-  name: BudgetId
-  nameWithType: GetTransactionDTOModel.BudgetId
-  fullName: MakesCentsBackend.Models.GetTransactionDTOModel.BudgetId
+  href: MakesCentsBackend.Models.GetTransactionDTOModel.html#MakesCentsBackend_Models_GetTransactionDTOModel_BudgetMonthId
+  name: BudgetMonthId
+  nameWithType: GetTransactionDTOModel.BudgetMonthId
+  fullName: MakesCentsBackend.Models.GetTransactionDTOModel.BudgetMonthId
 - uid: MakesCentsBackend.Models.GetTransactionDTOModel.TransactionDate
   commentId: P:MakesCentsBackend.Models.GetTransactionDTOModel.TransactionDate
   parent: MakesCentsBackend.Models.GetTransactionDTOModel

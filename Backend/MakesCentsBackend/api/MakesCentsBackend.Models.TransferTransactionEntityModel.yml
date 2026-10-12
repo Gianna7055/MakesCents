@@ -6,9 +6,7 @@ items:
   parent: MakesCentsBackend.Models
   children:
   - MakesCentsBackend.Models.TransferTransactionEntityModel.TransferFromAccountId
-  - MakesCentsBackend.Models.TransferTransactionEntityModel.TransferFromEnvelopeId
   - MakesCentsBackend.Models.TransferTransactionEntityModel.TransferToAccountId
-  - MakesCentsBackend.Models.TransferTransactionEntityModel.TransferToEnvelopeId
   - MakesCentsBackend.Models.TransferTransactionEntityModel.TransferTransactionId
   - MakesCentsBackend.Models.TransferTransactionEntityModel.TransferTransactionType
   langs:
@@ -25,11 +23,18 @@ items:
       repo: https://github.com/Gianna7055/MakesCents.git
     id: TransferTransactionEntityModel
     path: Models/TransferTransactionModels.cs
-    startLine: 13
+    startLine: 16
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Models
-  summary: Model for a transfer transaction
+  summary: >-
+    Model for a transfer transaction.
+
+    v3's transfer_transaction table only carries account columns - an envelope-to-envelope
+
+    transfer is a transfer_transaction row of type Envelope with null account columns, paired
+
+    with two opposite-signed transaction_split rows that carry the actual envelope references.
   example: []
   syntax:
     content: 'public class TransferTransactionEntityModel : TransactionEntityModel'
@@ -39,7 +44,7 @@ items:
   - MakesCentsBackend.Models.TransactionEntityModel
   inheritedMembers:
   - MakesCentsBackend.Models.TransactionEntityModel.TransactionId
-  - MakesCentsBackend.Models.TransactionEntityModel.BudgetId
+  - MakesCentsBackend.Models.TransactionEntityModel.BudgetMonthId
   - MakesCentsBackend.Models.TransactionEntityModel.TransactionDate
   - MakesCentsBackend.Models.TransactionEntityModel.TotalAmount
   - MakesCentsBackend.Models.TransactionEntityModel.IsReconciled
@@ -73,7 +78,7 @@ items:
       repo: https://github.com/Gianna7055/MakesCents.git
     id: TransferTransactionId
     path: Models/TransferTransactionModels.cs
-    startLine: 16
+    startLine: 19
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Models
@@ -102,7 +107,7 @@ items:
       repo: https://github.com/Gianna7055/MakesCents.git
     id: TransferFromAccountId
     path: Models/TransferTransactionModels.cs
-    startLine: 17
+    startLine: 20
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Models
@@ -131,7 +136,7 @@ items:
       repo: https://github.com/Gianna7055/MakesCents.git
     id: TransferToAccountId
     path: Models/TransferTransactionModels.cs
-    startLine: 18
+    startLine: 21
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Models
@@ -142,64 +147,6 @@ items:
       type: System.Nullable{System.Int32}
     content.vb: Public Property TransferToAccountId As Integer?
   overload: MakesCentsBackend.Models.TransferTransactionEntityModel.TransferToAccountId*
-- uid: MakesCentsBackend.Models.TransferTransactionEntityModel.TransferFromEnvelopeId
-  commentId: P:MakesCentsBackend.Models.TransferTransactionEntityModel.TransferFromEnvelopeId
-  id: TransferFromEnvelopeId
-  parent: MakesCentsBackend.Models.TransferTransactionEntityModel
-  langs:
-  - csharp
-  - vb
-  name: TransferFromEnvelopeId
-  nameWithType: TransferTransactionEntityModel.TransferFromEnvelopeId
-  fullName: MakesCentsBackend.Models.TransferTransactionEntityModel.TransferFromEnvelopeId
-  type: Property
-  source:
-    remote:
-      path: Backend/MakesCentsBackend/Models/TransferTransactionModels.cs
-      branch: master
-      repo: https://github.com/Gianna7055/MakesCents.git
-    id: TransferFromEnvelopeId
-    path: Models/TransferTransactionModels.cs
-    startLine: 19
-  assemblies:
-  - MakesCentsBackend
-  namespace: MakesCentsBackend.Models
-  syntax:
-    content: public int? TransferFromEnvelopeId { get; set; }
-    parameters: []
-    return:
-      type: System.Nullable{System.Int32}
-    content.vb: Public Property TransferFromEnvelopeId As Integer?
-  overload: MakesCentsBackend.Models.TransferTransactionEntityModel.TransferFromEnvelopeId*
-- uid: MakesCentsBackend.Models.TransferTransactionEntityModel.TransferToEnvelopeId
-  commentId: P:MakesCentsBackend.Models.TransferTransactionEntityModel.TransferToEnvelopeId
-  id: TransferToEnvelopeId
-  parent: MakesCentsBackend.Models.TransferTransactionEntityModel
-  langs:
-  - csharp
-  - vb
-  name: TransferToEnvelopeId
-  nameWithType: TransferTransactionEntityModel.TransferToEnvelopeId
-  fullName: MakesCentsBackend.Models.TransferTransactionEntityModel.TransferToEnvelopeId
-  type: Property
-  source:
-    remote:
-      path: Backend/MakesCentsBackend/Models/TransferTransactionModels.cs
-      branch: master
-      repo: https://github.com/Gianna7055/MakesCents.git
-    id: TransferToEnvelopeId
-    path: Models/TransferTransactionModels.cs
-    startLine: 20
-  assemblies:
-  - MakesCentsBackend
-  namespace: MakesCentsBackend.Models
-  syntax:
-    content: public int? TransferToEnvelopeId { get; set; }
-    parameters: []
-    return:
-      type: System.Nullable{System.Int32}
-    content.vb: Public Property TransferToEnvelopeId As Integer?
-  overload: MakesCentsBackend.Models.TransferTransactionEntityModel.TransferToEnvelopeId*
 - uid: MakesCentsBackend.Models.TransferTransactionEntityModel.TransferTransactionType
   commentId: P:MakesCentsBackend.Models.TransferTransactionEntityModel.TransferTransactionType
   id: TransferTransactionType
@@ -218,7 +165,7 @@ items:
       repo: https://github.com/Gianna7055/MakesCents.git
     id: TransferTransactionType
     path: Models/TransferTransactionModels.cs
-    startLine: 21
+    startLine: 22
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Models
@@ -277,13 +224,13 @@ references:
   name: TransactionId
   nameWithType: TransactionEntityModel.TransactionId
   fullName: MakesCentsBackend.Models.TransactionEntityModel.TransactionId
-- uid: MakesCentsBackend.Models.TransactionEntityModel.BudgetId
-  commentId: P:MakesCentsBackend.Models.TransactionEntityModel.BudgetId
+- uid: MakesCentsBackend.Models.TransactionEntityModel.BudgetMonthId
+  commentId: P:MakesCentsBackend.Models.TransactionEntityModel.BudgetMonthId
   parent: MakesCentsBackend.Models.TransactionEntityModel
-  href: MakesCentsBackend.Models.TransactionEntityModel.html#MakesCentsBackend_Models_TransactionEntityModel_BudgetId
-  name: BudgetId
-  nameWithType: TransactionEntityModel.BudgetId
-  fullName: MakesCentsBackend.Models.TransactionEntityModel.BudgetId
+  href: MakesCentsBackend.Models.TransactionEntityModel.html#MakesCentsBackend_Models_TransactionEntityModel_BudgetMonthId
+  name: BudgetMonthId
+  nameWithType: TransactionEntityModel.BudgetMonthId
+  fullName: MakesCentsBackend.Models.TransactionEntityModel.BudgetMonthId
 - uid: MakesCentsBackend.Models.TransactionEntityModel.TransactionDate
   commentId: P:MakesCentsBackend.Models.TransactionEntityModel.TransactionDate
   parent: MakesCentsBackend.Models.TransactionEntityModel
@@ -646,18 +593,6 @@ references:
   name: TransferToAccountId
   nameWithType: TransferTransactionEntityModel.TransferToAccountId
   fullName: MakesCentsBackend.Models.TransferTransactionEntityModel.TransferToAccountId
-- uid: MakesCentsBackend.Models.TransferTransactionEntityModel.TransferFromEnvelopeId*
-  commentId: Overload:MakesCentsBackend.Models.TransferTransactionEntityModel.TransferFromEnvelopeId
-  href: MakesCentsBackend.Models.TransferTransactionEntityModel.html#MakesCentsBackend_Models_TransferTransactionEntityModel_TransferFromEnvelopeId
-  name: TransferFromEnvelopeId
-  nameWithType: TransferTransactionEntityModel.TransferFromEnvelopeId
-  fullName: MakesCentsBackend.Models.TransferTransactionEntityModel.TransferFromEnvelopeId
-- uid: MakesCentsBackend.Models.TransferTransactionEntityModel.TransferToEnvelopeId*
-  commentId: Overload:MakesCentsBackend.Models.TransferTransactionEntityModel.TransferToEnvelopeId
-  href: MakesCentsBackend.Models.TransferTransactionEntityModel.html#MakesCentsBackend_Models_TransferTransactionEntityModel_TransferToEnvelopeId
-  name: TransferToEnvelopeId
-  nameWithType: TransferTransactionEntityModel.TransferToEnvelopeId
-  fullName: MakesCentsBackend.Models.TransferTransactionEntityModel.TransferToEnvelopeId
 - uid: MakesCentsBackend.Models.TransferTransactionEntityModel.TransferTransactionType*
   commentId: Overload:MakesCentsBackend.Models.TransferTransactionEntityModel.TransferTransactionType
   href: MakesCentsBackend.Models.TransferTransactionEntityModel.html#MakesCentsBackend_Models_TransferTransactionEntityModel_TransferTransactionType

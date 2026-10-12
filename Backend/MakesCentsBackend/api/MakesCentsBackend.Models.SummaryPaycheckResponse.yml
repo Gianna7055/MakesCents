@@ -24,7 +24,7 @@ items:
       repo: https://github.com/Gianna7055/MakesCents.git
     id: SummaryPaycheckResponse
     path: Models/PaycheckModels.cs
-    startLine: 66
+    startLine: 45
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Models
@@ -69,7 +69,7 @@ items:
       repo: https://github.com/Gianna7055/MakesCents.git
     id: PaycheckId
     path: Models/PaycheckModels.cs
-    startLine: 70
+    startLine: 49
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Models
@@ -98,7 +98,7 @@ items:
       repo: https://github.com/Gianna7055/MakesCents.git
     id: StartingDate
     path: Models/PaycheckModels.cs
-    startLine: 71
+    startLine: 50
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Models
@@ -127,7 +127,7 @@ items:
       repo: https://github.com/Gianna7055/MakesCents.git
     id: SecondaryDate
     path: Models/PaycheckModels.cs
-    startLine: 72
+    startLine: 51
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Models
@@ -156,7 +156,7 @@ items:
       repo: https://github.com/Gianna7055/MakesCents.git
     id: TotalAmount
     path: Models/PaycheckModels.cs
-    startLine: 73
+    startLine: 52
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Models
@@ -185,7 +185,7 @@ items:
       repo: https://github.com/Gianna7055/MakesCents.git
     id: PaycheckRegularity
     path: Models/PaycheckModels.cs
-    startLine: 74
+    startLine: 53
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Models

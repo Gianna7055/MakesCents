@@ -9,7 +9,7 @@ items:
   - MakesCentsBackend.Controllers.PaycheckController.CreatePaycheckAsync(MakesCentsBackend.Models.CreatePaycheckRequest)
   - MakesCentsBackend.Controllers.PaycheckController.DeletePaycheckAsync(System.Int32)
   - MakesCentsBackend.Controllers.PaycheckController.GetAllPaychecksAsync(System.Int32)
-  - MakesCentsBackend.Controllers.PaycheckController.GetPaycheck(System.Int32)
+  - MakesCentsBackend.Controllers.PaycheckController.GetPaycheckAsync(System.Int32)
   - MakesCentsBackend.Controllers.PaycheckController.UpdatePaycheckAsync(System.Int32,MakesCentsBackend.Models.UpdatePaycheckRequest)
   langs:
   - csharp
@@ -25,11 +25,14 @@ items:
       repo: https://github.com/Gianna7055/MakesCents.git
     id: PaycheckController
     path: Controllers/PaycheckController.cs
-    startLine: 16
+    startLine: 17
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Controllers
-  summary: API controller for paychecks
+  summary: >-
+    API controller for paychecks. Paychecks are forecast-only - see EnvelopeFundingController
+
+    for how envelopes actually get funded.
   example: []
   syntax:
     content: >-
@@ -255,7 +258,7 @@ items:
       repo: https://github.com/Gianna7055/MakesCents.git
     id: .ctor
     path: Controllers/PaycheckController.cs
-    startLine: 27
+    startLine: 28
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Controllers
@@ -290,7 +293,7 @@ items:
       repo: https://github.com/Gianna7055/MakesCents.git
     id: CreatePaycheckAsync
     path: Controllers/PaycheckController.cs
-    startLine: 37
+    startLine: 38
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Controllers
@@ -342,10 +345,12 @@ items:
       repo: https://github.com/Gianna7055/MakesCents.git
     id: GetAllPaychecksAsync
     path: Controllers/PaycheckController.cs
-    startLine: 69
+    startLine: 74
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Controllers
+  summary: HTTP GET method to get every paycheck for a budget
+  example: []
   syntax:
     content: >-
       [Authorize]
@@ -356,8 +361,10 @@ items:
     parameters:
     - id: budgetId
       type: System.Int32
+      description: ''
     return:
       type: System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.ActionResult}
+      description: ''
     content.vb: >-
       <Authorize>
 
@@ -377,47 +384,51 @@ items:
   nameWithType.vb: PaycheckController.GetAllPaychecksAsync(Integer)
   fullName.vb: MakesCentsBackend.Controllers.PaycheckController.GetAllPaychecksAsync(Integer)
   name.vb: GetAllPaychecksAsync(Integer)
-- uid: MakesCentsBackend.Controllers.PaycheckController.GetPaycheck(System.Int32)
-  commentId: M:MakesCentsBackend.Controllers.PaycheckController.GetPaycheck(System.Int32)
-  id: GetPaycheck(System.Int32)
+- uid: MakesCentsBackend.Controllers.PaycheckController.GetPaycheckAsync(System.Int32)
+  commentId: M:MakesCentsBackend.Controllers.PaycheckController.GetPaycheckAsync(System.Int32)
+  id: GetPaycheckAsync(System.Int32)
   parent: MakesCentsBackend.Controllers.PaycheckController
   langs:
   - csharp
   - vb
-  name: GetPaycheck(int)
-  nameWithType: PaycheckController.GetPaycheck(int)
-  fullName: MakesCentsBackend.Controllers.PaycheckController.GetPaycheck(int)
+  name: GetPaycheckAsync(int)
+  nameWithType: PaycheckController.GetPaycheckAsync(int)
+  fullName: MakesCentsBackend.Controllers.PaycheckController.GetPaycheckAsync(int)
   type: Method
   source:
     remote:
       path: Backend/MakesCentsBackend/Controllers/PaycheckController.cs
       branch: master
       repo: https://github.com/Gianna7055/MakesCents.git
-    id: GetPaycheck
+    id: GetPaycheckAsync
     path: Controllers/PaycheckController.cs
-    startLine: 103
+    startLine: 113
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Controllers
+  summary: HTTP GET method to get a single paycheck
+  example: []
   syntax:
     content: >-
       [Authorize]
 
       [HttpGet("{paycheckId}")]
 
-      public Task<ActionResult> GetPaycheck(int paycheckId)
+      public Task<ActionResult> GetPaycheckAsync(int paycheckId)
     parameters:
     - id: paycheckId
       type: System.Int32
+      description: ''
     return:
       type: System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.ActionResult}
+      description: ''
     content.vb: >-
       <Authorize>
 
       <HttpGet("{paycheckId}")>
 
-      Public Function GetPaycheck(paycheckId As Integer) As Task(Of ActionResult)
-  overload: MakesCentsBackend.Controllers.PaycheckController.GetPaycheck*
+      Public Function GetPaycheckAsync(paycheckId As Integer) As Task(Of ActionResult)
+  overload: MakesCentsBackend.Controllers.PaycheckController.GetPaycheckAsync*
   attributes:
   - type: Microsoft.AspNetCore.Authorization.AuthorizeAttribute
     ctor: Microsoft.AspNetCore.Authorization.AuthorizeAttribute.#ctor
@@ -427,9 +438,9 @@ items:
     arguments:
     - type: System.String
       value: '{paycheckId}'
-  nameWithType.vb: PaycheckController.GetPaycheck(Integer)
-  fullName.vb: MakesCentsBackend.Controllers.PaycheckController.GetPaycheck(Integer)
-  name.vb: GetPaycheck(Integer)
+  nameWithType.vb: PaycheckController.GetPaycheckAsync(Integer)
+  fullName.vb: MakesCentsBackend.Controllers.PaycheckController.GetPaycheckAsync(Integer)
+  name.vb: GetPaycheckAsync(Integer)
 - uid: MakesCentsBackend.Controllers.PaycheckController.UpdatePaycheckAsync(System.Int32,MakesCentsBackend.Models.UpdatePaycheckRequest)
   commentId: M:MakesCentsBackend.Controllers.PaycheckController.UpdatePaycheckAsync(System.Int32,MakesCentsBackend.Models.UpdatePaycheckRequest)
   id: UpdatePaycheckAsync(System.Int32,MakesCentsBackend.Models.UpdatePaycheckRequest)
@@ -448,10 +459,12 @@ items:
       repo: https://github.com/Gianna7055/MakesCents.git
     id: UpdatePaycheckAsync
     path: Controllers/PaycheckController.cs
-    startLine: 138
+    startLine: 153
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Controllers
+  summary: HTTP PUT method to update a paycheck
+  example: []
   syntax:
     content: >-
       [Authorize]
@@ -462,10 +475,13 @@ items:
     parameters:
     - id: paycheckId
       type: System.Int32
+      description: ''
     - id: paycheck
       type: MakesCentsBackend.Models.UpdatePaycheckRequest
+      description: ''
     return:
       type: System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.ActionResult}
+      description: ''
     content.vb: >-
       <Authorize>
 
@@ -503,10 +519,12 @@ items:
       repo: https://github.com/Gianna7055/MakesCents.git
     id: DeletePaycheckAsync
     path: Controllers/PaycheckController.cs
-    startLine: 172
+    startLine: 191
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Controllers
+  summary: HTTP DELETE method to delete a paycheck
+  example: []
   syntax:
     content: >-
       [Authorize]
@@ -517,8 +535,10 @@ items:
     parameters:
     - id: paycheckId
       type: System.Int32
+      description: ''
     return:
       type: System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.ActionResult}
+      description: ''
     content.vb: >-
       <Authorize>
 
@@ -9724,12 +9744,12 @@ references:
   nameWithType.vb: Integer
   fullName.vb: Integer
   name.vb: Integer
-- uid: MakesCentsBackend.Controllers.PaycheckController.GetPaycheck*
-  commentId: Overload:MakesCentsBackend.Controllers.PaycheckController.GetPaycheck
-  href: MakesCentsBackend.Controllers.PaycheckController.html#MakesCentsBackend_Controllers_PaycheckController_GetPaycheck_System_Int32_
-  name: GetPaycheck
-  nameWithType: PaycheckController.GetPaycheck
-  fullName: MakesCentsBackend.Controllers.PaycheckController.GetPaycheck
+- uid: MakesCentsBackend.Controllers.PaycheckController.GetPaycheckAsync*
+  commentId: Overload:MakesCentsBackend.Controllers.PaycheckController.GetPaycheckAsync
+  href: MakesCentsBackend.Controllers.PaycheckController.html#MakesCentsBackend_Controllers_PaycheckController_GetPaycheckAsync_System_Int32_
+  name: GetPaycheckAsync
+  nameWithType: PaycheckController.GetPaycheckAsync
+  fullName: MakesCentsBackend.Controllers.PaycheckController.GetPaycheckAsync
 - uid: MakesCentsBackend.Controllers.PaycheckController.UpdatePaycheckAsync*
   commentId: Overload:MakesCentsBackend.Controllers.PaycheckController.UpdatePaycheckAsync
   href: MakesCentsBackend.Controllers.PaycheckController.html#MakesCentsBackend_Controllers_PaycheckController_UpdatePaycheckAsync_System_Int32_MakesCentsBackend_Models_UpdatePaycheckRequest_

@@ -7,8 +7,10 @@ items:
   children:
   - MakesCentsBackend.Models.GetTransferTransactionEntityModel.TransferFromAccountId
   - MakesCentsBackend.Models.GetTransferTransactionEntityModel.TransferFromEnvelopeId
+  - MakesCentsBackend.Models.GetTransferTransactionEntityModel.TransferFromIsSinkingFund
   - MakesCentsBackend.Models.GetTransferTransactionEntityModel.TransferToAccountId
   - MakesCentsBackend.Models.GetTransferTransactionEntityModel.TransferToEnvelopeId
+  - MakesCentsBackend.Models.GetTransferTransactionEntityModel.TransferToIsSinkingFund
   - MakesCentsBackend.Models.GetTransferTransactionEntityModel.TransferTransactionId
   - MakesCentsBackend.Models.GetTransferTransactionEntityModel.TransferTransactionType
   langs:
@@ -25,10 +27,17 @@ items:
       repo: https://github.com/Gianna7055/MakesCents.git
     id: GetTransferTransactionEntityModel
     path: Models/TransferTransactionModels.cs
-    startLine: 57
+    startLine: 68
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Models
+  summary: >-
+    Entity model for a specific transfer transaction. TransferFromEnvelopeId/ToEnvelopeId and
+
+    their IsSinkingFund flags are only populated (via a follow-up transaction_split lookup) when
+
+    TransferTransactionType is Envelope - they aren't columns on transfer_transaction itself.
+  example: []
   syntax:
     content: 'public class GetTransferTransactionEntityModel : GetTransactionEntityModel'
     content.vb: Public Class GetTransferTransactionEntityModel Inherits GetTransactionEntityModel
@@ -37,7 +46,7 @@ items:
   - MakesCentsBackend.Models.GetTransactionEntityModel
   inheritedMembers:
   - MakesCentsBackend.Models.GetTransactionEntityModel.TransactionId
-  - MakesCentsBackend.Models.GetTransactionEntityModel.BudgetId
+  - MakesCentsBackend.Models.GetTransactionEntityModel.BudgetMonthId
   - MakesCentsBackend.Models.GetTransactionEntityModel.UserId
   - MakesCentsBackend.Models.GetTransactionEntityModel.TransactionDate
   - MakesCentsBackend.Models.GetTransactionEntityModel.TotalAmount
@@ -69,7 +78,7 @@ items:
       repo: https://github.com/Gianna7055/MakesCents.git
     id: TransferTransactionId
     path: Models/TransferTransactionModels.cs
-    startLine: 60
+    startLine: 71
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Models
@@ -98,7 +107,7 @@ items:
       repo: https://github.com/Gianna7055/MakesCents.git
     id: TransferFromAccountId
     path: Models/TransferTransactionModels.cs
-    startLine: 61
+    startLine: 72
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Models
@@ -127,7 +136,7 @@ items:
       repo: https://github.com/Gianna7055/MakesCents.git
     id: TransferToAccountId
     path: Models/TransferTransactionModels.cs
-    startLine: 62
+    startLine: 73
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Models
@@ -138,6 +147,35 @@ items:
       type: System.Nullable{System.Int32}
     content.vb: Public Property TransferToAccountId As Integer?
   overload: MakesCentsBackend.Models.GetTransferTransactionEntityModel.TransferToAccountId*
+- uid: MakesCentsBackend.Models.GetTransferTransactionEntityModel.TransferTransactionType
+  commentId: P:MakesCentsBackend.Models.GetTransferTransactionEntityModel.TransferTransactionType
+  id: TransferTransactionType
+  parent: MakesCentsBackend.Models.GetTransferTransactionEntityModel
+  langs:
+  - csharp
+  - vb
+  name: TransferTransactionType
+  nameWithType: GetTransferTransactionEntityModel.TransferTransactionType
+  fullName: MakesCentsBackend.Models.GetTransferTransactionEntityModel.TransferTransactionType
+  type: Property
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Models/TransferTransactionModels.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: TransferTransactionType
+    path: Models/TransferTransactionModels.cs
+    startLine: 74
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Models
+  syntax:
+    content: public TransferTransactionType TransferTransactionType { get; set; }
+    parameters: []
+    return:
+      type: MakesCentsBackend.Models.Enums.TransferTransactionType
+    content.vb: Public Property TransferTransactionType As TransferTransactionType
+  overload: MakesCentsBackend.Models.GetTransferTransactionEntityModel.TransferTransactionType*
 - uid: MakesCentsBackend.Models.GetTransferTransactionEntityModel.TransferFromEnvelopeId
   commentId: P:MakesCentsBackend.Models.GetTransferTransactionEntityModel.TransferFromEnvelopeId
   id: TransferFromEnvelopeId
@@ -156,7 +194,7 @@ items:
       repo: https://github.com/Gianna7055/MakesCents.git
     id: TransferFromEnvelopeId
     path: Models/TransferTransactionModels.cs
-    startLine: 63
+    startLine: 75
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Models
@@ -185,7 +223,7 @@ items:
       repo: https://github.com/Gianna7055/MakesCents.git
     id: TransferToEnvelopeId
     path: Models/TransferTransactionModels.cs
-    startLine: 64
+    startLine: 76
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Models
@@ -196,35 +234,64 @@ items:
       type: System.Nullable{System.Int32}
     content.vb: Public Property TransferToEnvelopeId As Integer?
   overload: MakesCentsBackend.Models.GetTransferTransactionEntityModel.TransferToEnvelopeId*
-- uid: MakesCentsBackend.Models.GetTransferTransactionEntityModel.TransferTransactionType
-  commentId: P:MakesCentsBackend.Models.GetTransferTransactionEntityModel.TransferTransactionType
-  id: TransferTransactionType
+- uid: MakesCentsBackend.Models.GetTransferTransactionEntityModel.TransferFromIsSinkingFund
+  commentId: P:MakesCentsBackend.Models.GetTransferTransactionEntityModel.TransferFromIsSinkingFund
+  id: TransferFromIsSinkingFund
   parent: MakesCentsBackend.Models.GetTransferTransactionEntityModel
   langs:
   - csharp
   - vb
-  name: TransferTransactionType
-  nameWithType: GetTransferTransactionEntityModel.TransferTransactionType
-  fullName: MakesCentsBackend.Models.GetTransferTransactionEntityModel.TransferTransactionType
+  name: TransferFromIsSinkingFund
+  nameWithType: GetTransferTransactionEntityModel.TransferFromIsSinkingFund
+  fullName: MakesCentsBackend.Models.GetTransferTransactionEntityModel.TransferFromIsSinkingFund
   type: Property
   source:
     remote:
       path: Backend/MakesCentsBackend/Models/TransferTransactionModels.cs
       branch: master
       repo: https://github.com/Gianna7055/MakesCents.git
-    id: TransferTransactionType
+    id: TransferFromIsSinkingFund
     path: Models/TransferTransactionModels.cs
-    startLine: 65
+    startLine: 77
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Models
   syntax:
-    content: public TransferTransactionType TransferTransactionType { get; set; }
+    content: public bool? TransferFromIsSinkingFund { get; set; }
     parameters: []
     return:
-      type: MakesCentsBackend.Models.Enums.TransferTransactionType
-    content.vb: Public Property TransferTransactionType As TransferTransactionType
-  overload: MakesCentsBackend.Models.GetTransferTransactionEntityModel.TransferTransactionType*
+      type: System.Nullable{System.Boolean}
+    content.vb: Public Property TransferFromIsSinkingFund As Boolean?
+  overload: MakesCentsBackend.Models.GetTransferTransactionEntityModel.TransferFromIsSinkingFund*
+- uid: MakesCentsBackend.Models.GetTransferTransactionEntityModel.TransferToIsSinkingFund
+  commentId: P:MakesCentsBackend.Models.GetTransferTransactionEntityModel.TransferToIsSinkingFund
+  id: TransferToIsSinkingFund
+  parent: MakesCentsBackend.Models.GetTransferTransactionEntityModel
+  langs:
+  - csharp
+  - vb
+  name: TransferToIsSinkingFund
+  nameWithType: GetTransferTransactionEntityModel.TransferToIsSinkingFund
+  fullName: MakesCentsBackend.Models.GetTransferTransactionEntityModel.TransferToIsSinkingFund
+  type: Property
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Models/TransferTransactionModels.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: TransferToIsSinkingFund
+    path: Models/TransferTransactionModels.cs
+    startLine: 78
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Models
+  syntax:
+    content: public bool? TransferToIsSinkingFund { get; set; }
+    parameters: []
+    return:
+      type: System.Nullable{System.Boolean}
+    content.vb: Public Property TransferToIsSinkingFund As Boolean?
+  overload: MakesCentsBackend.Models.GetTransferTransactionEntityModel.TransferToIsSinkingFund*
 references:
 - uid: MakesCentsBackend.Models
   commentId: N:MakesCentsBackend.Models
@@ -273,13 +340,13 @@ references:
   name: TransactionId
   nameWithType: GetTransactionEntityModel.TransactionId
   fullName: MakesCentsBackend.Models.GetTransactionEntityModel.TransactionId
-- uid: MakesCentsBackend.Models.GetTransactionEntityModel.BudgetId
-  commentId: P:MakesCentsBackend.Models.GetTransactionEntityModel.BudgetId
+- uid: MakesCentsBackend.Models.GetTransactionEntityModel.BudgetMonthId
+  commentId: P:MakesCentsBackend.Models.GetTransactionEntityModel.BudgetMonthId
   parent: MakesCentsBackend.Models.GetTransactionEntityModel
-  href: MakesCentsBackend.Models.GetTransactionEntityModel.html#MakesCentsBackend_Models_GetTransactionEntityModel_BudgetId
-  name: BudgetId
-  nameWithType: GetTransactionEntityModel.BudgetId
-  fullName: MakesCentsBackend.Models.GetTransactionEntityModel.BudgetId
+  href: MakesCentsBackend.Models.GetTransactionEntityModel.html#MakesCentsBackend_Models_GetTransactionEntityModel_BudgetMonthId
+  name: BudgetMonthId
+  nameWithType: GetTransactionEntityModel.BudgetMonthId
+  fullName: MakesCentsBackend.Models.GetTransactionEntityModel.BudgetMonthId
 - uid: MakesCentsBackend.Models.GetTransactionEntityModel.UserId
   commentId: P:MakesCentsBackend.Models.GetTransactionEntityModel.UserId
   parent: MakesCentsBackend.Models.GetTransactionEntityModel
@@ -628,18 +695,6 @@ references:
   name: TransferToAccountId
   nameWithType: GetTransferTransactionEntityModel.TransferToAccountId
   fullName: MakesCentsBackend.Models.GetTransferTransactionEntityModel.TransferToAccountId
-- uid: MakesCentsBackend.Models.GetTransferTransactionEntityModel.TransferFromEnvelopeId*
-  commentId: Overload:MakesCentsBackend.Models.GetTransferTransactionEntityModel.TransferFromEnvelopeId
-  href: MakesCentsBackend.Models.GetTransferTransactionEntityModel.html#MakesCentsBackend_Models_GetTransferTransactionEntityModel_TransferFromEnvelopeId
-  name: TransferFromEnvelopeId
-  nameWithType: GetTransferTransactionEntityModel.TransferFromEnvelopeId
-  fullName: MakesCentsBackend.Models.GetTransferTransactionEntityModel.TransferFromEnvelopeId
-- uid: MakesCentsBackend.Models.GetTransferTransactionEntityModel.TransferToEnvelopeId*
-  commentId: Overload:MakesCentsBackend.Models.GetTransferTransactionEntityModel.TransferToEnvelopeId
-  href: MakesCentsBackend.Models.GetTransferTransactionEntityModel.html#MakesCentsBackend_Models_GetTransferTransactionEntityModel_TransferToEnvelopeId
-  name: TransferToEnvelopeId
-  nameWithType: GetTransferTransactionEntityModel.TransferToEnvelopeId
-  fullName: MakesCentsBackend.Models.GetTransferTransactionEntityModel.TransferToEnvelopeId
 - uid: MakesCentsBackend.Models.GetTransferTransactionEntityModel.TransferTransactionType*
   commentId: Overload:MakesCentsBackend.Models.GetTransferTransactionEntityModel.TransferTransactionType
   href: MakesCentsBackend.Models.GetTransferTransactionEntityModel.html#MakesCentsBackend_Models_GetTransferTransactionEntityModel_TransferTransactionType
@@ -683,3 +738,50 @@ references:
   - uid: MakesCentsBackend.Models.Enums
     name: Enums
     href: MakesCentsBackend.Models.Enums.html
+- uid: MakesCentsBackend.Models.GetTransferTransactionEntityModel.TransferFromEnvelopeId*
+  commentId: Overload:MakesCentsBackend.Models.GetTransferTransactionEntityModel.TransferFromEnvelopeId
+  href: MakesCentsBackend.Models.GetTransferTransactionEntityModel.html#MakesCentsBackend_Models_GetTransferTransactionEntityModel_TransferFromEnvelopeId
+  name: TransferFromEnvelopeId
+  nameWithType: GetTransferTransactionEntityModel.TransferFromEnvelopeId
+  fullName: MakesCentsBackend.Models.GetTransferTransactionEntityModel.TransferFromEnvelopeId
+- uid: MakesCentsBackend.Models.GetTransferTransactionEntityModel.TransferToEnvelopeId*
+  commentId: Overload:MakesCentsBackend.Models.GetTransferTransactionEntityModel.TransferToEnvelopeId
+  href: MakesCentsBackend.Models.GetTransferTransactionEntityModel.html#MakesCentsBackend_Models_GetTransferTransactionEntityModel_TransferToEnvelopeId
+  name: TransferToEnvelopeId
+  nameWithType: GetTransferTransactionEntityModel.TransferToEnvelopeId
+  fullName: MakesCentsBackend.Models.GetTransferTransactionEntityModel.TransferToEnvelopeId
+- uid: MakesCentsBackend.Models.GetTransferTransactionEntityModel.TransferFromIsSinkingFund*
+  commentId: Overload:MakesCentsBackend.Models.GetTransferTransactionEntityModel.TransferFromIsSinkingFund
+  href: MakesCentsBackend.Models.GetTransferTransactionEntityModel.html#MakesCentsBackend_Models_GetTransferTransactionEntityModel_TransferFromIsSinkingFund
+  name: TransferFromIsSinkingFund
+  nameWithType: GetTransferTransactionEntityModel.TransferFromIsSinkingFund
+  fullName: MakesCentsBackend.Models.GetTransferTransactionEntityModel.TransferFromIsSinkingFund
+- uid: System.Nullable{System.Boolean}
+  commentId: T:System.Nullable{System.Boolean}
+  parent: System
+  definition: System.Nullable`1
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool?
+  nameWithType: bool?
+  fullName: bool?
+  nameWithType.vb: Boolean?
+  fullName.vb: Boolean?
+  name.vb: Boolean?
+  spec.csharp:
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: '?'
+  spec.vb:
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: '?'
+- uid: MakesCentsBackend.Models.GetTransferTransactionEntityModel.TransferToIsSinkingFund*
+  commentId: Overload:MakesCentsBackend.Models.GetTransferTransactionEntityModel.TransferToIsSinkingFund
+  href: MakesCentsBackend.Models.GetTransferTransactionEntityModel.html#MakesCentsBackend_Models_GetTransferTransactionEntityModel_TransferToIsSinkingFund
+  name: TransferToIsSinkingFund
+  nameWithType: GetTransferTransactionEntityModel.TransferToIsSinkingFund
+  fullName: MakesCentsBackend.Models.GetTransferTransactionEntityModel.TransferToIsSinkingFund

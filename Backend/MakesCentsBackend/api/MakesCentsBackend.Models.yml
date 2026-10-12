@@ -5,42 +5,49 @@ items:
   id: MakesCentsBackend.Models
   children:
   - MakesCentsBackend.Models.AccountEntityModel
+  - MakesCentsBackend.Models.ApplyBudgetTemplateRequest
   - MakesCentsBackend.Models.BankAccountEntityModel
   - MakesCentsBackend.Models.BankAccountSummaryDTOModel
   - MakesCentsBackend.Models.BaseIdRequest
   - MakesCentsBackend.Models.BaseIdResponse
   - MakesCentsBackend.Models.BaseResponse
   - MakesCentsBackend.Models.BudgetEntityModel
+  - MakesCentsBackend.Models.BudgetTemplateEntityModel
+  - MakesCentsBackend.Models.BudgetTemplateEnvelopeLookupModel
   - MakesCentsBackend.Models.CreateAccountRequest
   - MakesCentsBackend.Models.CreateAccountResponse
   - MakesCentsBackend.Models.CreateBankAccountRequest
   - MakesCentsBackend.Models.CreateBankAccountResponse
+  - MakesCentsBackend.Models.CreateBudgetMonthRequest
   - MakesCentsBackend.Models.CreateBudgetRequest
+  - MakesCentsBackend.Models.CreateBudgetTemplateRequest
   - MakesCentsBackend.Models.CreateDebtAccountRequest
   - MakesCentsBackend.Models.CreateDebtAccountResponse
   - MakesCentsBackend.Models.CreateEnvelopeCategoryRequest
-  - MakesCentsBackend.Models.CreateEnvelopeRequest
   - MakesCentsBackend.Models.CreateInvestmentAccountRequest
   - MakesCentsBackend.Models.CreateInvestmentAccountResponse
   - MakesCentsBackend.Models.CreatePaycheckRequest
-  - MakesCentsBackend.Models.CreatePaycheckResponse
-  - MakesCentsBackend.Models.CreatePaycheckSplitRequest
   - MakesCentsBackend.Models.CreatePaymentTransactionRequest
   - MakesCentsBackend.Models.CreatePaymentTransactionResponse
+  - MakesCentsBackend.Models.CreateRolloverEnvelopeRequest
+  - MakesCentsBackend.Models.CreateSinkingFundEnvelopeRequest
   - MakesCentsBackend.Models.CreateTransactionRequest
   - MakesCentsBackend.Models.CreateTransactionSplitRequest
   - MakesCentsBackend.Models.CreateTransferTransactionRequest
   - MakesCentsBackend.Models.CreateTransferTransactionResponse
   - MakesCentsBackend.Models.DebtAccountEntityModel
   - MakesCentsBackend.Models.DebtAccountSummaryDTOModel
+  - MakesCentsBackend.Models.EditBudgetMonthRequest
   - MakesCentsBackend.Models.EditBudgetRequest
+  - MakesCentsBackend.Models.EditBudgetTemplateRequest
   - MakesCentsBackend.Models.EditEnvelopeCategoryRequest
   - MakesCentsBackend.Models.EditUserRequest
   - MakesCentsBackend.Models.EnvelopeCategoryEntityModel
-  - MakesCentsBackend.Models.EnvelopeEntityModel
+  - MakesCentsBackend.Models.EnvelopeFundingEntityModel
   - MakesCentsBackend.Models.FindUserResponse
   - MakesCentsBackend.Models.GetAccountBaseModel
   - MakesCentsBackend.Models.GetAllAccountsResponse
+  - MakesCentsBackend.Models.GetAllBudgetTemplatesResponse
   - MakesCentsBackend.Models.GetAllEnvelopeCategoriesResponse
   - MakesCentsBackend.Models.GetAllPaychecksResponse
   - MakesCentsBackend.Models.GetAllTransactionsDTOResponse
@@ -49,29 +56,40 @@ items:
   - MakesCentsBackend.Models.GetBankAccountDTOResponse
   - MakesCentsBackend.Models.GetBankAccountEntityModel
   - MakesCentsBackend.Models.GetBankAccountEntityResponse
-  - MakesCentsBackend.Models.GetBudgetDTOModel
+  - MakesCentsBackend.Models.GetBudgetMonthDTOModel
+  - MakesCentsBackend.Models.GetBudgetMonthResponse
   - MakesCentsBackend.Models.GetBudgetRequest
-  - MakesCentsBackend.Models.GetBudgetResponse
+  - MakesCentsBackend.Models.GetBudgetTemplateDTOModel
+  - MakesCentsBackend.Models.GetBudgetTemplateEnvelopeDTOModel
+  - MakesCentsBackend.Models.GetBudgetTemplateResponse
   - MakesCentsBackend.Models.GetDebtAccountDTOModel
   - MakesCentsBackend.Models.GetDebtAccountDTOResponse
   - MakesCentsBackend.Models.GetDebtAccountEntityModel
   - MakesCentsBackend.Models.GetDebtAccountEntityResponse
-  - MakesCentsBackend.Models.GetEnvelopeBaseModel
   - MakesCentsBackend.Models.GetEnvelopeCategoryDTOModel
   - MakesCentsBackend.Models.GetEnvelopeCategoryResponse
-  - MakesCentsBackend.Models.GetEnvelopeDTOModel
-  - MakesCentsBackend.Models.GetEnvelopeDTOResponse
-  - MakesCentsBackend.Models.GetEnvelopeEntityModel
-  - MakesCentsBackend.Models.GetEnvelopeEntityResponse
+  - MakesCentsBackend.Models.GetEnvelopeFundingDTOModel
+  - MakesCentsBackend.Models.GetEnvelopeFundingQueueResponse
   - MakesCentsBackend.Models.GetInvestmentAccountDTOModel
   - MakesCentsBackend.Models.GetInvestmentAccountDTOResponse
   - MakesCentsBackend.Models.GetInvestmentAccountEntityModel
   - MakesCentsBackend.Models.GetInvestmentAccountEntityResponse
   - MakesCentsBackend.Models.GetPaycheckDTOModel
   - MakesCentsBackend.Models.GetPaycheckResponse
-  - MakesCentsBackend.Models.GetPaycheckSplitDTOModel
   - MakesCentsBackend.Models.GetPaymentTransactionDTOModel
   - MakesCentsBackend.Models.GetPaymentTransactionResponse
+  - MakesCentsBackend.Models.GetRolloverEnvelopeBaseModel
+  - MakesCentsBackend.Models.GetRolloverEnvelopeDTOModel
+  - MakesCentsBackend.Models.GetRolloverEnvelopeDTOResponse
+  - MakesCentsBackend.Models.GetRolloverEnvelopeEntityModel
+  - MakesCentsBackend.Models.GetRolloverEnvelopeEntityResponse
+  - MakesCentsBackend.Models.GetRolloverEnvelopeMonthRequest
+  - MakesCentsBackend.Models.GetSinkingFundDependentsResponse
+  - MakesCentsBackend.Models.GetSinkingFundEnvelopeBaseModel
+  - MakesCentsBackend.Models.GetSinkingFundEnvelopeDTOModel
+  - MakesCentsBackend.Models.GetSinkingFundEnvelopeDTOResponse
+  - MakesCentsBackend.Models.GetSinkingFundEnvelopeEntityModel
+  - MakesCentsBackend.Models.GetSinkingFundEnvelopeEntityResponse
   - MakesCentsBackend.Models.GetTransactionDTOModel
   - MakesCentsBackend.Models.GetTransactionEntityModel
   - MakesCentsBackend.Models.GetTransactionSplitDTOModel
@@ -79,6 +97,7 @@ items:
   - MakesCentsBackend.Models.GetTransferTransactionDTOResponse
   - MakesCentsBackend.Models.GetTransferTransactionEntityModel
   - MakesCentsBackend.Models.GetTransferTransactionEntityResponse
+  - MakesCentsBackend.Models.GetUserBudgetsResponse
   - MakesCentsBackend.Models.GetUserDTOModel
   - MakesCentsBackend.Models.GetUserResponse
   - MakesCentsBackend.Models.GetYearBudgetDTOModel
@@ -90,29 +109,42 @@ items:
   - MakesCentsBackend.Models.LoginResponse
   - MakesCentsBackend.Models.Optional`1
   - MakesCentsBackend.Models.PaycheckEntityModel
-  - MakesCentsBackend.Models.PaycheckSplitEntityModel
   - MakesCentsBackend.Models.PaymentTransactionEntityModel
+  - MakesCentsBackend.Models.PaymentTransactionSnapshotModel
   - MakesCentsBackend.Models.RegisterRequest
   - MakesCentsBackend.Models.RegisterResponse
+  - MakesCentsBackend.Models.RolloverEnvelopeDependentModel
+  - MakesCentsBackend.Models.RolloverEnvelopeEntityModel
+  - MakesCentsBackend.Models.RolloverEnvelopeMonthEntityModel
+  - MakesCentsBackend.Models.SetBudgetTemplateEnvelopeItemRequest
+  - MakesCentsBackend.Models.SetBudgetTemplateEnvelopesRequest
+  - MakesCentsBackend.Models.SetEnvelopeFundingItemRequest
+  - MakesCentsBackend.Models.SetEnvelopeFundingQueueRequest
+  - MakesCentsBackend.Models.SinkingFundEnvelopeEntityModel
   - MakesCentsBackend.Models.SummaryAccountDTOModel
+  - MakesCentsBackend.Models.SummaryBudgetResponse
+  - MakesCentsBackend.Models.SummaryBudgetTemplateResponse
   - MakesCentsBackend.Models.SummaryEnvelopeCategoryResponse
   - MakesCentsBackend.Models.SummaryEnvelopeResponse
   - MakesCentsBackend.Models.SummaryPaycheckResponse
   - MakesCentsBackend.Models.SummaryTransactionDTOModel
   - MakesCentsBackend.Models.SummaryTransactionEntityModel
+  - MakesCentsBackend.Models.TransactionEffectSnapshotModel
   - MakesCentsBackend.Models.TransactionEntityModel
   - MakesCentsBackend.Models.TransactionSplitEntityModel
+  - MakesCentsBackend.Models.TransactionSplitSnapshotModel
+  - MakesCentsBackend.Models.TransactionSplitTransferSideModel
   - MakesCentsBackend.Models.TransferTransactionEntityModel
+  - MakesCentsBackend.Models.TransferTransactionSnapshotModel
   - MakesCentsBackend.Models.UpdateAccountRequest
   - MakesCentsBackend.Models.UpdateBankAccountRequest
   - MakesCentsBackend.Models.UpdateDebtAccountRequest
-  - MakesCentsBackend.Models.UpdateEnvelopeRequest
   - MakesCentsBackend.Models.UpdateInvestmentAccountRequest
   - MakesCentsBackend.Models.UpdatePaycheckRequest
-  - MakesCentsBackend.Models.UpdatePaycheckResponse
-  - MakesCentsBackend.Models.UpdatePaycheckSplitRequest
   - MakesCentsBackend.Models.UpdatePaymentTransactionRequest
   - MakesCentsBackend.Models.UpdatePaymentTransactionResponse
+  - MakesCentsBackend.Models.UpdateRolloverEnvelopeRequest
+  - MakesCentsBackend.Models.UpdateSinkingFundEnvelopeRequest
   - MakesCentsBackend.Models.UpdateTransactionRequest
   - MakesCentsBackend.Models.UpdateTransactionSplitRequest
   - MakesCentsBackend.Models.UpdateTransferTransactionRequest
@@ -297,6 +329,18 @@ references:
   name: BudgetEntityModel
   nameWithType: BudgetEntityModel
   fullName: MakesCentsBackend.Models.BudgetEntityModel
+- uid: MakesCentsBackend.Models.SummaryBudgetResponse
+  commentId: T:MakesCentsBackend.Models.SummaryBudgetResponse
+  href: MakesCentsBackend.Models.SummaryBudgetResponse.html
+  name: SummaryBudgetResponse
+  nameWithType: SummaryBudgetResponse
+  fullName: MakesCentsBackend.Models.SummaryBudgetResponse
+- uid: MakesCentsBackend.Models.GetUserBudgetsResponse
+  commentId: T:MakesCentsBackend.Models.GetUserBudgetsResponse
+  href: MakesCentsBackend.Models.GetUserBudgetsResponse.html
+  name: GetUserBudgetsResponse
+  nameWithType: GetUserBudgetsResponse
+  fullName: MakesCentsBackend.Models.GetUserBudgetsResponse
 - uid: MakesCentsBackend.Models.CreateBudgetRequest
   commentId: T:MakesCentsBackend.Models.CreateBudgetRequest
   parent: MakesCentsBackend.Models
@@ -304,6 +348,13 @@ references:
   name: CreateBudgetRequest
   nameWithType: CreateBudgetRequest
   fullName: MakesCentsBackend.Models.CreateBudgetRequest
+- uid: MakesCentsBackend.Models.CreateBudgetMonthRequest
+  commentId: T:MakesCentsBackend.Models.CreateBudgetMonthRequest
+  parent: MakesCentsBackend.Models
+  href: MakesCentsBackend.Models.CreateBudgetMonthRequest.html
+  name: CreateBudgetMonthRequest
+  nameWithType: CreateBudgetMonthRequest
+  fullName: MakesCentsBackend.Models.CreateBudgetMonthRequest
 - uid: MakesCentsBackend.Models.GetBudgetRequest
   commentId: T:MakesCentsBackend.Models.GetBudgetRequest
   parent: MakesCentsBackend.Models
@@ -311,19 +362,19 @@ references:
   name: GetBudgetRequest
   nameWithType: GetBudgetRequest
   fullName: MakesCentsBackend.Models.GetBudgetRequest
-- uid: MakesCentsBackend.Models.GetBudgetDTOModel
-  commentId: T:MakesCentsBackend.Models.GetBudgetDTOModel
+- uid: MakesCentsBackend.Models.GetBudgetMonthDTOModel
+  commentId: T:MakesCentsBackend.Models.GetBudgetMonthDTOModel
   parent: MakesCentsBackend.Models
-  href: MakesCentsBackend.Models.GetBudgetDTOModel.html
-  name: GetBudgetDTOModel
-  nameWithType: GetBudgetDTOModel
-  fullName: MakesCentsBackend.Models.GetBudgetDTOModel
-- uid: MakesCentsBackend.Models.GetBudgetResponse
-  commentId: T:MakesCentsBackend.Models.GetBudgetResponse
-  href: MakesCentsBackend.Models.GetBudgetResponse.html
-  name: GetBudgetResponse
-  nameWithType: GetBudgetResponse
-  fullName: MakesCentsBackend.Models.GetBudgetResponse
+  href: MakesCentsBackend.Models.GetBudgetMonthDTOModel.html
+  name: GetBudgetMonthDTOModel
+  nameWithType: GetBudgetMonthDTOModel
+  fullName: MakesCentsBackend.Models.GetBudgetMonthDTOModel
+- uid: MakesCentsBackend.Models.GetBudgetMonthResponse
+  commentId: T:MakesCentsBackend.Models.GetBudgetMonthResponse
+  href: MakesCentsBackend.Models.GetBudgetMonthResponse.html
+  name: GetBudgetMonthResponse
+  nameWithType: GetBudgetMonthResponse
+  fullName: MakesCentsBackend.Models.GetBudgetMonthResponse
 - uid: MakesCentsBackend.Models.GetYearBudgetsResponse
   commentId: T:MakesCentsBackend.Models.GetYearBudgetsResponse
   href: MakesCentsBackend.Models.GetYearBudgetsResponse.html
@@ -343,6 +394,90 @@ references:
   name: EditBudgetRequest
   nameWithType: EditBudgetRequest
   fullName: MakesCentsBackend.Models.EditBudgetRequest
+- uid: MakesCentsBackend.Models.EditBudgetMonthRequest
+  commentId: T:MakesCentsBackend.Models.EditBudgetMonthRequest
+  parent: MakesCentsBackend.Models
+  href: MakesCentsBackend.Models.EditBudgetMonthRequest.html
+  name: EditBudgetMonthRequest
+  nameWithType: EditBudgetMonthRequest
+  fullName: MakesCentsBackend.Models.EditBudgetMonthRequest
+- uid: MakesCentsBackend.Models.BudgetTemplateEntityModel
+  commentId: T:MakesCentsBackend.Models.BudgetTemplateEntityModel
+  href: MakesCentsBackend.Models.BudgetTemplateEntityModel.html
+  name: BudgetTemplateEntityModel
+  nameWithType: BudgetTemplateEntityModel
+  fullName: MakesCentsBackend.Models.BudgetTemplateEntityModel
+- uid: MakesCentsBackend.Models.CreateBudgetTemplateRequest
+  commentId: T:MakesCentsBackend.Models.CreateBudgetTemplateRequest
+  parent: MakesCentsBackend.Models
+  href: MakesCentsBackend.Models.CreateBudgetTemplateRequest.html
+  name: CreateBudgetTemplateRequest
+  nameWithType: CreateBudgetTemplateRequest
+  fullName: MakesCentsBackend.Models.CreateBudgetTemplateRequest
+- uid: MakesCentsBackend.Models.SummaryBudgetTemplateResponse
+  commentId: T:MakesCentsBackend.Models.SummaryBudgetTemplateResponse
+  href: MakesCentsBackend.Models.SummaryBudgetTemplateResponse.html
+  name: SummaryBudgetTemplateResponse
+  nameWithType: SummaryBudgetTemplateResponse
+  fullName: MakesCentsBackend.Models.SummaryBudgetTemplateResponse
+- uid: MakesCentsBackend.Models.GetAllBudgetTemplatesResponse
+  commentId: T:MakesCentsBackend.Models.GetAllBudgetTemplatesResponse
+  href: MakesCentsBackend.Models.GetAllBudgetTemplatesResponse.html
+  name: GetAllBudgetTemplatesResponse
+  nameWithType: GetAllBudgetTemplatesResponse
+  fullName: MakesCentsBackend.Models.GetAllBudgetTemplatesResponse
+- uid: MakesCentsBackend.Models.GetBudgetTemplateEnvelopeDTOModel
+  commentId: T:MakesCentsBackend.Models.GetBudgetTemplateEnvelopeDTOModel
+  href: MakesCentsBackend.Models.GetBudgetTemplateEnvelopeDTOModel.html
+  name: GetBudgetTemplateEnvelopeDTOModel
+  nameWithType: GetBudgetTemplateEnvelopeDTOModel
+  fullName: MakesCentsBackend.Models.GetBudgetTemplateEnvelopeDTOModel
+- uid: MakesCentsBackend.Models.GetBudgetTemplateDTOModel
+  commentId: T:MakesCentsBackend.Models.GetBudgetTemplateDTOModel
+  parent: MakesCentsBackend.Models
+  href: MakesCentsBackend.Models.GetBudgetTemplateDTOModel.html
+  name: GetBudgetTemplateDTOModel
+  nameWithType: GetBudgetTemplateDTOModel
+  fullName: MakesCentsBackend.Models.GetBudgetTemplateDTOModel
+- uid: MakesCentsBackend.Models.GetBudgetTemplateResponse
+  commentId: T:MakesCentsBackend.Models.GetBudgetTemplateResponse
+  href: MakesCentsBackend.Models.GetBudgetTemplateResponse.html
+  name: GetBudgetTemplateResponse
+  nameWithType: GetBudgetTemplateResponse
+  fullName: MakesCentsBackend.Models.GetBudgetTemplateResponse
+- uid: MakesCentsBackend.Models.EditBudgetTemplateRequest
+  commentId: T:MakesCentsBackend.Models.EditBudgetTemplateRequest
+  parent: MakesCentsBackend.Models
+  href: MakesCentsBackend.Models.EditBudgetTemplateRequest.html
+  name: EditBudgetTemplateRequest
+  nameWithType: EditBudgetTemplateRequest
+  fullName: MakesCentsBackend.Models.EditBudgetTemplateRequest
+- uid: MakesCentsBackend.Models.SetBudgetTemplateEnvelopeItemRequest
+  commentId: T:MakesCentsBackend.Models.SetBudgetTemplateEnvelopeItemRequest
+  href: MakesCentsBackend.Models.SetBudgetTemplateEnvelopeItemRequest.html
+  name: SetBudgetTemplateEnvelopeItemRequest
+  nameWithType: SetBudgetTemplateEnvelopeItemRequest
+  fullName: MakesCentsBackend.Models.SetBudgetTemplateEnvelopeItemRequest
+- uid: MakesCentsBackend.Models.SetBudgetTemplateEnvelopesRequest
+  commentId: T:MakesCentsBackend.Models.SetBudgetTemplateEnvelopesRequest
+  parent: MakesCentsBackend.Models
+  href: MakesCentsBackend.Models.SetBudgetTemplateEnvelopesRequest.html
+  name: SetBudgetTemplateEnvelopesRequest
+  nameWithType: SetBudgetTemplateEnvelopesRequest
+  fullName: MakesCentsBackend.Models.SetBudgetTemplateEnvelopesRequest
+- uid: MakesCentsBackend.Models.ApplyBudgetTemplateRequest
+  commentId: T:MakesCentsBackend.Models.ApplyBudgetTemplateRequest
+  parent: MakesCentsBackend.Models
+  href: MakesCentsBackend.Models.ApplyBudgetTemplateRequest.html
+  name: ApplyBudgetTemplateRequest
+  nameWithType: ApplyBudgetTemplateRequest
+  fullName: MakesCentsBackend.Models.ApplyBudgetTemplateRequest
+- uid: MakesCentsBackend.Models.BudgetTemplateEnvelopeLookupModel
+  commentId: T:MakesCentsBackend.Models.BudgetTemplateEnvelopeLookupModel
+  href: MakesCentsBackend.Models.BudgetTemplateEnvelopeLookupModel.html
+  name: BudgetTemplateEnvelopeLookupModel
+  nameWithType: BudgetTemplateEnvelopeLookupModel
+  fullName: MakesCentsBackend.Models.BudgetTemplateEnvelopeLookupModel
 - uid: MakesCentsBackend.Models.DebtAccountEntityModel
   commentId: T:MakesCentsBackend.Models.DebtAccountEntityModel
   href: MakesCentsBackend.Models.DebtAccountEntityModel.html
@@ -413,6 +548,12 @@ references:
   name: SummaryEnvelopeCategoryResponse
   nameWithType: SummaryEnvelopeCategoryResponse
   fullName: MakesCentsBackend.Models.SummaryEnvelopeCategoryResponse
+- uid: MakesCentsBackend.Models.SummaryEnvelopeResponse
+  commentId: T:MakesCentsBackend.Models.SummaryEnvelopeResponse
+  href: MakesCentsBackend.Models.SummaryEnvelopeResponse.html
+  name: SummaryEnvelopeResponse
+  nameWithType: SummaryEnvelopeResponse
+  fullName: MakesCentsBackend.Models.SummaryEnvelopeResponse
 - uid: MakesCentsBackend.Models.CreateEnvelopeCategoryRequest
   commentId: T:MakesCentsBackend.Models.CreateEnvelopeCategoryRequest
   parent: MakesCentsBackend.Models
@@ -446,65 +587,37 @@ references:
   name: EditEnvelopeCategoryRequest
   nameWithType: EditEnvelopeCategoryRequest
   fullName: MakesCentsBackend.Models.EditEnvelopeCategoryRequest
-- uid: MakesCentsBackend.Models.EnvelopeEntityModel
-  commentId: T:MakesCentsBackend.Models.EnvelopeEntityModel
-  href: MakesCentsBackend.Models.EnvelopeEntityModel.html
-  name: EnvelopeEntityModel
-  nameWithType: EnvelopeEntityModel
-  fullName: MakesCentsBackend.Models.EnvelopeEntityModel
-- uid: MakesCentsBackend.Models.SummaryEnvelopeResponse
-  commentId: T:MakesCentsBackend.Models.SummaryEnvelopeResponse
-  href: MakesCentsBackend.Models.SummaryEnvelopeResponse.html
-  name: SummaryEnvelopeResponse
-  nameWithType: SummaryEnvelopeResponse
-  fullName: MakesCentsBackend.Models.SummaryEnvelopeResponse
-- uid: MakesCentsBackend.Models.CreateEnvelopeRequest
-  commentId: T:MakesCentsBackend.Models.CreateEnvelopeRequest
+- uid: MakesCentsBackend.Models.EnvelopeFundingEntityModel
+  commentId: T:MakesCentsBackend.Models.EnvelopeFundingEntityModel
+  href: MakesCentsBackend.Models.EnvelopeFundingEntityModel.html
+  name: EnvelopeFundingEntityModel
+  nameWithType: EnvelopeFundingEntityModel
+  fullName: MakesCentsBackend.Models.EnvelopeFundingEntityModel
+- uid: MakesCentsBackend.Models.SetEnvelopeFundingItemRequest
+  commentId: T:MakesCentsBackend.Models.SetEnvelopeFundingItemRequest
+  href: MakesCentsBackend.Models.SetEnvelopeFundingItemRequest.html
+  name: SetEnvelopeFundingItemRequest
+  nameWithType: SetEnvelopeFundingItemRequest
+  fullName: MakesCentsBackend.Models.SetEnvelopeFundingItemRequest
+- uid: MakesCentsBackend.Models.SetEnvelopeFundingQueueRequest
+  commentId: T:MakesCentsBackend.Models.SetEnvelopeFundingQueueRequest
   parent: MakesCentsBackend.Models
-  href: MakesCentsBackend.Models.CreateEnvelopeRequest.html
-  name: CreateEnvelopeRequest
-  nameWithType: CreateEnvelopeRequest
-  fullName: MakesCentsBackend.Models.CreateEnvelopeRequest
-- uid: MakesCentsBackend.Models.GetEnvelopeBaseModel
-  commentId: T:MakesCentsBackend.Models.GetEnvelopeBaseModel
-  parent: MakesCentsBackend.Models
-  href: MakesCentsBackend.Models.GetEnvelopeBaseModel.html
-  name: GetEnvelopeBaseModel
-  nameWithType: GetEnvelopeBaseModel
-  fullName: MakesCentsBackend.Models.GetEnvelopeBaseModel
-- uid: MakesCentsBackend.Models.GetEnvelopeDTOModel
-  commentId: T:MakesCentsBackend.Models.GetEnvelopeDTOModel
-  parent: MakesCentsBackend.Models
-  href: MakesCentsBackend.Models.GetEnvelopeDTOModel.html
-  name: GetEnvelopeDTOModel
-  nameWithType: GetEnvelopeDTOModel
-  fullName: MakesCentsBackend.Models.GetEnvelopeDTOModel
-- uid: MakesCentsBackend.Models.GetEnvelopeDTOResponse
-  commentId: T:MakesCentsBackend.Models.GetEnvelopeDTOResponse
-  href: MakesCentsBackend.Models.GetEnvelopeDTOResponse.html
-  name: GetEnvelopeDTOResponse
-  nameWithType: GetEnvelopeDTOResponse
-  fullName: MakesCentsBackend.Models.GetEnvelopeDTOResponse
-- uid: MakesCentsBackend.Models.GetEnvelopeEntityModel
-  commentId: T:MakesCentsBackend.Models.GetEnvelopeEntityModel
-  parent: MakesCentsBackend.Models
-  href: MakesCentsBackend.Models.GetEnvelopeEntityModel.html
-  name: GetEnvelopeEntityModel
-  nameWithType: GetEnvelopeEntityModel
-  fullName: MakesCentsBackend.Models.GetEnvelopeEntityModel
-- uid: MakesCentsBackend.Models.GetEnvelopeEntityResponse
-  commentId: T:MakesCentsBackend.Models.GetEnvelopeEntityResponse
-  href: MakesCentsBackend.Models.GetEnvelopeEntityResponse.html
-  name: GetEnvelopeEntityResponse
-  nameWithType: GetEnvelopeEntityResponse
-  fullName: MakesCentsBackend.Models.GetEnvelopeEntityResponse
-- uid: MakesCentsBackend.Models.UpdateEnvelopeRequest
-  commentId: T:MakesCentsBackend.Models.UpdateEnvelopeRequest
-  parent: MakesCentsBackend.Models
-  href: MakesCentsBackend.Models.UpdateEnvelopeRequest.html
-  name: UpdateEnvelopeRequest
-  nameWithType: UpdateEnvelopeRequest
-  fullName: MakesCentsBackend.Models.UpdateEnvelopeRequest
+  href: MakesCentsBackend.Models.SetEnvelopeFundingQueueRequest.html
+  name: SetEnvelopeFundingQueueRequest
+  nameWithType: SetEnvelopeFundingQueueRequest
+  fullName: MakesCentsBackend.Models.SetEnvelopeFundingQueueRequest
+- uid: MakesCentsBackend.Models.GetEnvelopeFundingDTOModel
+  commentId: T:MakesCentsBackend.Models.GetEnvelopeFundingDTOModel
+  href: MakesCentsBackend.Models.GetEnvelopeFundingDTOModel.html
+  name: GetEnvelopeFundingDTOModel
+  nameWithType: GetEnvelopeFundingDTOModel
+  fullName: MakesCentsBackend.Models.GetEnvelopeFundingDTOModel
+- uid: MakesCentsBackend.Models.GetEnvelopeFundingQueueResponse
+  commentId: T:MakesCentsBackend.Models.GetEnvelopeFundingQueueResponse
+  href: MakesCentsBackend.Models.GetEnvelopeFundingQueueResponse.html
+  name: GetEnvelopeFundingQueueResponse
+  nameWithType: GetEnvelopeFundingQueueResponse
+  fullName: MakesCentsBackend.Models.GetEnvelopeFundingQueueResponse
 - uid: MakesCentsBackend.Models.InvestmentAccountEntityModel
   commentId: T:MakesCentsBackend.Models.InvestmentAccountEntityModel
   href: MakesCentsBackend.Models.InvestmentAccountEntityModel.html
@@ -576,12 +689,6 @@ references:
   name: CreatePaycheckRequest
   nameWithType: CreatePaycheckRequest
   fullName: MakesCentsBackend.Models.CreatePaycheckRequest
-- uid: MakesCentsBackend.Models.CreatePaycheckResponse
-  commentId: T:MakesCentsBackend.Models.CreatePaycheckResponse
-  href: MakesCentsBackend.Models.CreatePaycheckResponse.html
-  name: CreatePaycheckResponse
-  nameWithType: CreatePaycheckResponse
-  fullName: MakesCentsBackend.Models.CreatePaycheckResponse
 - uid: MakesCentsBackend.Models.SummaryPaycheckResponse
   commentId: T:MakesCentsBackend.Models.SummaryPaycheckResponse
   href: MakesCentsBackend.Models.SummaryPaycheckResponse.html
@@ -614,36 +721,6 @@ references:
   name: UpdatePaycheckRequest
   nameWithType: UpdatePaycheckRequest
   fullName: MakesCentsBackend.Models.UpdatePaycheckRequest
-- uid: MakesCentsBackend.Models.UpdatePaycheckResponse
-  commentId: T:MakesCentsBackend.Models.UpdatePaycheckResponse
-  href: MakesCentsBackend.Models.UpdatePaycheckResponse.html
-  name: UpdatePaycheckResponse
-  nameWithType: UpdatePaycheckResponse
-  fullName: MakesCentsBackend.Models.UpdatePaycheckResponse
-- uid: MakesCentsBackend.Models.PaycheckSplitEntityModel
-  commentId: T:MakesCentsBackend.Models.PaycheckSplitEntityModel
-  href: MakesCentsBackend.Models.PaycheckSplitEntityModel.html
-  name: PaycheckSplitEntityModel
-  nameWithType: PaycheckSplitEntityModel
-  fullName: MakesCentsBackend.Models.PaycheckSplitEntityModel
-- uid: MakesCentsBackend.Models.CreatePaycheckSplitRequest
-  commentId: T:MakesCentsBackend.Models.CreatePaycheckSplitRequest
-  href: MakesCentsBackend.Models.CreatePaycheckSplitRequest.html
-  name: CreatePaycheckSplitRequest
-  nameWithType: CreatePaycheckSplitRequest
-  fullName: MakesCentsBackend.Models.CreatePaycheckSplitRequest
-- uid: MakesCentsBackend.Models.GetPaycheckSplitDTOModel
-  commentId: T:MakesCentsBackend.Models.GetPaycheckSplitDTOModel
-  href: MakesCentsBackend.Models.GetPaycheckSplitDTOModel.html
-  name: GetPaycheckSplitDTOModel
-  nameWithType: GetPaycheckSplitDTOModel
-  fullName: MakesCentsBackend.Models.GetPaycheckSplitDTOModel
-- uid: MakesCentsBackend.Models.UpdatePaycheckSplitRequest
-  commentId: T:MakesCentsBackend.Models.UpdatePaycheckSplitRequest
-  href: MakesCentsBackend.Models.UpdatePaycheckSplitRequest.html
-  name: UpdatePaycheckSplitRequest
-  nameWithType: UpdatePaycheckSplitRequest
-  fullName: MakesCentsBackend.Models.UpdatePaycheckSplitRequest
 - uid: MakesCentsBackend.Models.PaymentTransactionEntityModel
   commentId: T:MakesCentsBackend.Models.PaymentTransactionEntityModel
   href: MakesCentsBackend.Models.PaymentTransactionEntityModel.html
@@ -689,6 +766,137 @@ references:
   name: UpdatePaymentTransactionResponse
   nameWithType: UpdatePaymentTransactionResponse
   fullName: MakesCentsBackend.Models.UpdatePaymentTransactionResponse
+- uid: MakesCentsBackend.Models.RolloverEnvelopeEntityModel
+  commentId: T:MakesCentsBackend.Models.RolloverEnvelopeEntityModel
+  href: MakesCentsBackend.Models.RolloverEnvelopeEntityModel.html
+  name: RolloverEnvelopeEntityModel
+  nameWithType: RolloverEnvelopeEntityModel
+  fullName: MakesCentsBackend.Models.RolloverEnvelopeEntityModel
+- uid: MakesCentsBackend.Models.RolloverEnvelopeMonthEntityModel
+  commentId: T:MakesCentsBackend.Models.RolloverEnvelopeMonthEntityModel
+  href: MakesCentsBackend.Models.RolloverEnvelopeMonthEntityModel.html
+  name: RolloverEnvelopeMonthEntityModel
+  nameWithType: RolloverEnvelopeMonthEntityModel
+  fullName: MakesCentsBackend.Models.RolloverEnvelopeMonthEntityModel
+- uid: MakesCentsBackend.Models.CreateRolloverEnvelopeRequest
+  commentId: T:MakesCentsBackend.Models.CreateRolloverEnvelopeRequest
+  parent: MakesCentsBackend.Models
+  href: MakesCentsBackend.Models.CreateRolloverEnvelopeRequest.html
+  name: CreateRolloverEnvelopeRequest
+  nameWithType: CreateRolloverEnvelopeRequest
+  fullName: MakesCentsBackend.Models.CreateRolloverEnvelopeRequest
+- uid: MakesCentsBackend.Models.GetRolloverEnvelopeMonthRequest
+  commentId: T:MakesCentsBackend.Models.GetRolloverEnvelopeMonthRequest
+  parent: MakesCentsBackend.Models
+  href: MakesCentsBackend.Models.GetRolloverEnvelopeMonthRequest.html
+  name: GetRolloverEnvelopeMonthRequest
+  nameWithType: GetRolloverEnvelopeMonthRequest
+  fullName: MakesCentsBackend.Models.GetRolloverEnvelopeMonthRequest
+- uid: MakesCentsBackend.Models.GetRolloverEnvelopeBaseModel
+  commentId: T:MakesCentsBackend.Models.GetRolloverEnvelopeBaseModel
+  parent: MakesCentsBackend.Models
+  href: MakesCentsBackend.Models.GetRolloverEnvelopeBaseModel.html
+  name: GetRolloverEnvelopeBaseModel
+  nameWithType: GetRolloverEnvelopeBaseModel
+  fullName: MakesCentsBackend.Models.GetRolloverEnvelopeBaseModel
+- uid: MakesCentsBackend.Models.GetRolloverEnvelopeDTOModel
+  commentId: T:MakesCentsBackend.Models.GetRolloverEnvelopeDTOModel
+  parent: MakesCentsBackend.Models
+  href: MakesCentsBackend.Models.GetRolloverEnvelopeDTOModel.html
+  name: GetRolloverEnvelopeDTOModel
+  nameWithType: GetRolloverEnvelopeDTOModel
+  fullName: MakesCentsBackend.Models.GetRolloverEnvelopeDTOModel
+- uid: MakesCentsBackend.Models.GetRolloverEnvelopeDTOResponse
+  commentId: T:MakesCentsBackend.Models.GetRolloverEnvelopeDTOResponse
+  href: MakesCentsBackend.Models.GetRolloverEnvelopeDTOResponse.html
+  name: GetRolloverEnvelopeDTOResponse
+  nameWithType: GetRolloverEnvelopeDTOResponse
+  fullName: MakesCentsBackend.Models.GetRolloverEnvelopeDTOResponse
+- uid: MakesCentsBackend.Models.GetRolloverEnvelopeEntityModel
+  commentId: T:MakesCentsBackend.Models.GetRolloverEnvelopeEntityModel
+  parent: MakesCentsBackend.Models
+  href: MakesCentsBackend.Models.GetRolloverEnvelopeEntityModel.html
+  name: GetRolloverEnvelopeEntityModel
+  nameWithType: GetRolloverEnvelopeEntityModel
+  fullName: MakesCentsBackend.Models.GetRolloverEnvelopeEntityModel
+- uid: MakesCentsBackend.Models.GetRolloverEnvelopeEntityResponse
+  commentId: T:MakesCentsBackend.Models.GetRolloverEnvelopeEntityResponse
+  href: MakesCentsBackend.Models.GetRolloverEnvelopeEntityResponse.html
+  name: GetRolloverEnvelopeEntityResponse
+  nameWithType: GetRolloverEnvelopeEntityResponse
+  fullName: MakesCentsBackend.Models.GetRolloverEnvelopeEntityResponse
+- uid: MakesCentsBackend.Models.UpdateRolloverEnvelopeRequest
+  commentId: T:MakesCentsBackend.Models.UpdateRolloverEnvelopeRequest
+  parent: MakesCentsBackend.Models
+  href: MakesCentsBackend.Models.UpdateRolloverEnvelopeRequest.html
+  name: UpdateRolloverEnvelopeRequest
+  nameWithType: UpdateRolloverEnvelopeRequest
+  fullName: MakesCentsBackend.Models.UpdateRolloverEnvelopeRequest
+- uid: MakesCentsBackend.Models.SinkingFundEnvelopeEntityModel
+  commentId: T:MakesCentsBackend.Models.SinkingFundEnvelopeEntityModel
+  href: MakesCentsBackend.Models.SinkingFundEnvelopeEntityModel.html
+  name: SinkingFundEnvelopeEntityModel
+  nameWithType: SinkingFundEnvelopeEntityModel
+  fullName: MakesCentsBackend.Models.SinkingFundEnvelopeEntityModel
+- uid: MakesCentsBackend.Models.CreateSinkingFundEnvelopeRequest
+  commentId: T:MakesCentsBackend.Models.CreateSinkingFundEnvelopeRequest
+  parent: MakesCentsBackend.Models
+  href: MakesCentsBackend.Models.CreateSinkingFundEnvelopeRequest.html
+  name: CreateSinkingFundEnvelopeRequest
+  nameWithType: CreateSinkingFundEnvelopeRequest
+  fullName: MakesCentsBackend.Models.CreateSinkingFundEnvelopeRequest
+- uid: MakesCentsBackend.Models.GetSinkingFundEnvelopeBaseModel
+  commentId: T:MakesCentsBackend.Models.GetSinkingFundEnvelopeBaseModel
+  parent: MakesCentsBackend.Models
+  href: MakesCentsBackend.Models.GetSinkingFundEnvelopeBaseModel.html
+  name: GetSinkingFundEnvelopeBaseModel
+  nameWithType: GetSinkingFundEnvelopeBaseModel
+  fullName: MakesCentsBackend.Models.GetSinkingFundEnvelopeBaseModel
+- uid: MakesCentsBackend.Models.GetSinkingFundEnvelopeDTOModel
+  commentId: T:MakesCentsBackend.Models.GetSinkingFundEnvelopeDTOModel
+  parent: MakesCentsBackend.Models
+  href: MakesCentsBackend.Models.GetSinkingFundEnvelopeDTOModel.html
+  name: GetSinkingFundEnvelopeDTOModel
+  nameWithType: GetSinkingFundEnvelopeDTOModel
+  fullName: MakesCentsBackend.Models.GetSinkingFundEnvelopeDTOModel
+- uid: MakesCentsBackend.Models.GetSinkingFundEnvelopeDTOResponse
+  commentId: T:MakesCentsBackend.Models.GetSinkingFundEnvelopeDTOResponse
+  href: MakesCentsBackend.Models.GetSinkingFundEnvelopeDTOResponse.html
+  name: GetSinkingFundEnvelopeDTOResponse
+  nameWithType: GetSinkingFundEnvelopeDTOResponse
+  fullName: MakesCentsBackend.Models.GetSinkingFundEnvelopeDTOResponse
+- uid: MakesCentsBackend.Models.GetSinkingFundEnvelopeEntityModel
+  commentId: T:MakesCentsBackend.Models.GetSinkingFundEnvelopeEntityModel
+  parent: MakesCentsBackend.Models
+  href: MakesCentsBackend.Models.GetSinkingFundEnvelopeEntityModel.html
+  name: GetSinkingFundEnvelopeEntityModel
+  nameWithType: GetSinkingFundEnvelopeEntityModel
+  fullName: MakesCentsBackend.Models.GetSinkingFundEnvelopeEntityModel
+- uid: MakesCentsBackend.Models.GetSinkingFundEnvelopeEntityResponse
+  commentId: T:MakesCentsBackend.Models.GetSinkingFundEnvelopeEntityResponse
+  href: MakesCentsBackend.Models.GetSinkingFundEnvelopeEntityResponse.html
+  name: GetSinkingFundEnvelopeEntityResponse
+  nameWithType: GetSinkingFundEnvelopeEntityResponse
+  fullName: MakesCentsBackend.Models.GetSinkingFundEnvelopeEntityResponse
+- uid: MakesCentsBackend.Models.UpdateSinkingFundEnvelopeRequest
+  commentId: T:MakesCentsBackend.Models.UpdateSinkingFundEnvelopeRequest
+  parent: MakesCentsBackend.Models
+  href: MakesCentsBackend.Models.UpdateSinkingFundEnvelopeRequest.html
+  name: UpdateSinkingFundEnvelopeRequest
+  nameWithType: UpdateSinkingFundEnvelopeRequest
+  fullName: MakesCentsBackend.Models.UpdateSinkingFundEnvelopeRequest
+- uid: MakesCentsBackend.Models.RolloverEnvelopeDependentModel
+  commentId: T:MakesCentsBackend.Models.RolloverEnvelopeDependentModel
+  href: MakesCentsBackend.Models.RolloverEnvelopeDependentModel.html
+  name: RolloverEnvelopeDependentModel
+  nameWithType: RolloverEnvelopeDependentModel
+  fullName: MakesCentsBackend.Models.RolloverEnvelopeDependentModel
+- uid: MakesCentsBackend.Models.GetSinkingFundDependentsResponse
+  commentId: T:MakesCentsBackend.Models.GetSinkingFundDependentsResponse
+  href: MakesCentsBackend.Models.GetSinkingFundDependentsResponse.html
+  name: GetSinkingFundDependentsResponse
+  nameWithType: GetSinkingFundDependentsResponse
+  fullName: MakesCentsBackend.Models.GetSinkingFundDependentsResponse
 - uid: MakesCentsBackend.Models.TransactionEntityModel
   commentId: T:MakesCentsBackend.Models.TransactionEntityModel
   parent: MakesCentsBackend.Models
@@ -750,6 +958,24 @@ references:
   name: UpdateTransactionRequest
   nameWithType: UpdateTransactionRequest
   fullName: MakesCentsBackend.Models.UpdateTransactionRequest
+- uid: MakesCentsBackend.Models.PaymentTransactionSnapshotModel
+  commentId: T:MakesCentsBackend.Models.PaymentTransactionSnapshotModel
+  href: MakesCentsBackend.Models.PaymentTransactionSnapshotModel.html
+  name: PaymentTransactionSnapshotModel
+  nameWithType: PaymentTransactionSnapshotModel
+  fullName: MakesCentsBackend.Models.PaymentTransactionSnapshotModel
+- uid: MakesCentsBackend.Models.TransferTransactionSnapshotModel
+  commentId: T:MakesCentsBackend.Models.TransferTransactionSnapshotModel
+  href: MakesCentsBackend.Models.TransferTransactionSnapshotModel.html
+  name: TransferTransactionSnapshotModel
+  nameWithType: TransferTransactionSnapshotModel
+  fullName: MakesCentsBackend.Models.TransferTransactionSnapshotModel
+- uid: MakesCentsBackend.Models.TransactionEffectSnapshotModel
+  commentId: T:MakesCentsBackend.Models.TransactionEffectSnapshotModel
+  href: MakesCentsBackend.Models.TransactionEffectSnapshotModel.html
+  name: TransactionEffectSnapshotModel
+  nameWithType: TransactionEffectSnapshotModel
+  fullName: MakesCentsBackend.Models.TransactionEffectSnapshotModel
 - uid: MakesCentsBackend.Models.TransactionSplitEntityModel
   commentId: T:MakesCentsBackend.Models.TransactionSplitEntityModel
   href: MakesCentsBackend.Models.TransactionSplitEntityModel.html
@@ -774,6 +1000,18 @@ references:
   name: UpdateTransactionSplitRequest
   nameWithType: UpdateTransactionSplitRequest
   fullName: MakesCentsBackend.Models.UpdateTransactionSplitRequest
+- uid: MakesCentsBackend.Models.TransactionSplitTransferSideModel
+  commentId: T:MakesCentsBackend.Models.TransactionSplitTransferSideModel
+  href: MakesCentsBackend.Models.TransactionSplitTransferSideModel.html
+  name: TransactionSplitTransferSideModel
+  nameWithType: TransactionSplitTransferSideModel
+  fullName: MakesCentsBackend.Models.TransactionSplitTransferSideModel
+- uid: MakesCentsBackend.Models.TransactionSplitSnapshotModel
+  commentId: T:MakesCentsBackend.Models.TransactionSplitSnapshotModel
+  href: MakesCentsBackend.Models.TransactionSplitSnapshotModel.html
+  name: TransactionSplitSnapshotModel
+  nameWithType: TransactionSplitSnapshotModel
+  fullName: MakesCentsBackend.Models.TransactionSplitSnapshotModel
 - uid: MakesCentsBackend.Models.TransferTransactionEntityModel
   commentId: T:MakesCentsBackend.Models.TransferTransactionEntityModel
   href: MakesCentsBackend.Models.TransferTransactionEntityModel.html

@@ -133,17 +133,21 @@ items:
       repo: https://github.com/Gianna7055/MakesCents.git
     id: GetInvestmentAccountAsync
     path: Services/DataAccessLayer/InvestmentAccountDAO.cs
-    startLine: 116
+    startLine: 121
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Services.DataAccessLayer
+  summary: DAO method to get an investment account, including its transaction history
+  example: []
   syntax:
     content: public Task<GetInvestmentAccountEntityResponse> GetInvestmentAccountAsync(BaseIdRequest request)
     parameters:
     - id: request
       type: MakesCentsBackend.Models.BaseIdRequest
+      description: ''
     return:
       type: System.Threading.Tasks.Task{MakesCentsBackend.Models.GetInvestmentAccountEntityResponse}
+      description: ''
     content.vb: Public Function GetInvestmentAccountAsync(request As BaseIdRequest) As Task(Of GetInvestmentAccountEntityResponse)
   overload: MakesCentsBackend.Services.DataAccessLayer.InvestmentAccountDAO.GetInvestmentAccountAsync*
 - uid: MakesCentsBackend.Services.DataAccessLayer.InvestmentAccountDAO.UpdateInvestmentAccountAsync(MakesCentsBackend.Models.UpdateInvestmentAccountRequest)
@@ -164,17 +168,21 @@ items:
       repo: https://github.com/Gianna7055/MakesCents.git
     id: UpdateInvestmentAccountAsync
     path: Services/DataAccessLayer/InvestmentAccountDAO.cs
-    startLine: 207
+    startLine: 222
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Services.DataAccessLayer
+  summary: DAO method to update an investment account
+  example: []
   syntax:
     content: public Task<BaseIdResponse> UpdateInvestmentAccountAsync(UpdateInvestmentAccountRequest investmentAccount)
     parameters:
     - id: investmentAccount
       type: MakesCentsBackend.Models.UpdateInvestmentAccountRequest
+      description: ''
     return:
       type: System.Threading.Tasks.Task{MakesCentsBackend.Models.BaseIdResponse}
+      description: ''
     content.vb: Public Function UpdateInvestmentAccountAsync(investmentAccount As UpdateInvestmentAccountRequest) As Task(Of BaseIdResponse)
   overload: MakesCentsBackend.Services.DataAccessLayer.InvestmentAccountDAO.UpdateInvestmentAccountAsync*
 references:

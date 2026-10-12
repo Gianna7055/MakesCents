@@ -7,12 +7,15 @@ items:
   - MakesCentsBackend.Services.BusinessLogicLayer.AccountLogic
   - MakesCentsBackend.Services.BusinessLogicLayer.BankAccountLogic
   - MakesCentsBackend.Services.BusinessLogicLayer.BudgetLogic
+  - MakesCentsBackend.Services.BusinessLogicLayer.BudgetTemplateLogic
   - MakesCentsBackend.Services.BusinessLogicLayer.DebtAccountLogic
   - MakesCentsBackend.Services.BusinessLogicLayer.EnvelopeCategoryLogic
-  - MakesCentsBackend.Services.BusinessLogicLayer.EnvelopeLogic
+  - MakesCentsBackend.Services.BusinessLogicLayer.EnvelopeFundingLogic
   - MakesCentsBackend.Services.BusinessLogicLayer.InvestmentAccountLogic
   - MakesCentsBackend.Services.BusinessLogicLayer.PaycheckLogic
   - MakesCentsBackend.Services.BusinessLogicLayer.PaymentTransactionLogic
+  - MakesCentsBackend.Services.BusinessLogicLayer.RolloverEnvelopeLogic
+  - MakesCentsBackend.Services.BusinessLogicLayer.SinkingFundEnvelopeLogic
   - MakesCentsBackend.Services.BusinessLogicLayer.TransactionLogic
   - MakesCentsBackend.Services.BusinessLogicLayer.TransferTransactionLogic
   - MakesCentsBackend.Services.BusinessLogicLayer.UserLogic
@@ -47,6 +50,13 @@ references:
   name: BudgetLogic
   nameWithType: BudgetLogic
   fullName: MakesCentsBackend.Services.BusinessLogicLayer.BudgetLogic
+- uid: MakesCentsBackend.Services.BusinessLogicLayer.BudgetTemplateLogic
+  commentId: T:MakesCentsBackend.Services.BusinessLogicLayer.BudgetTemplateLogic
+  parent: MakesCentsBackend.Services.BusinessLogicLayer
+  href: MakesCentsBackend.Services.BusinessLogicLayer.BudgetTemplateLogic.html
+  name: BudgetTemplateLogic
+  nameWithType: BudgetTemplateLogic
+  fullName: MakesCentsBackend.Services.BusinessLogicLayer.BudgetTemplateLogic
 - uid: MakesCentsBackend.Services.BusinessLogicLayer.DebtAccountLogic
   commentId: T:MakesCentsBackend.Services.BusinessLogicLayer.DebtAccountLogic
   parent: MakesCentsBackend.Services.BusinessLogicLayer
@@ -61,13 +71,13 @@ references:
   name: EnvelopeCategoryLogic
   nameWithType: EnvelopeCategoryLogic
   fullName: MakesCentsBackend.Services.BusinessLogicLayer.EnvelopeCategoryLogic
-- uid: MakesCentsBackend.Services.BusinessLogicLayer.EnvelopeLogic
-  commentId: T:MakesCentsBackend.Services.BusinessLogicLayer.EnvelopeLogic
+- uid: MakesCentsBackend.Services.BusinessLogicLayer.EnvelopeFundingLogic
+  commentId: T:MakesCentsBackend.Services.BusinessLogicLayer.EnvelopeFundingLogic
   parent: MakesCentsBackend.Services.BusinessLogicLayer
-  href: MakesCentsBackend.Services.BusinessLogicLayer.EnvelopeLogic.html
-  name: EnvelopeLogic
-  nameWithType: EnvelopeLogic
-  fullName: MakesCentsBackend.Services.BusinessLogicLayer.EnvelopeLogic
+  href: MakesCentsBackend.Services.BusinessLogicLayer.EnvelopeFundingLogic.html
+  name: EnvelopeFundingLogic
+  nameWithType: EnvelopeFundingLogic
+  fullName: MakesCentsBackend.Services.BusinessLogicLayer.EnvelopeFundingLogic
 - uid: MakesCentsBackend.Services.BusinessLogicLayer.InvestmentAccountLogic
   commentId: T:MakesCentsBackend.Services.BusinessLogicLayer.InvestmentAccountLogic
   parent: MakesCentsBackend.Services.BusinessLogicLayer
@@ -89,6 +99,20 @@ references:
   name: PaymentTransactionLogic
   nameWithType: PaymentTransactionLogic
   fullName: MakesCentsBackend.Services.BusinessLogicLayer.PaymentTransactionLogic
+- uid: MakesCentsBackend.Services.BusinessLogicLayer.RolloverEnvelopeLogic
+  commentId: T:MakesCentsBackend.Services.BusinessLogicLayer.RolloverEnvelopeLogic
+  parent: MakesCentsBackend.Services.BusinessLogicLayer
+  href: MakesCentsBackend.Services.BusinessLogicLayer.RolloverEnvelopeLogic.html
+  name: RolloverEnvelopeLogic
+  nameWithType: RolloverEnvelopeLogic
+  fullName: MakesCentsBackend.Services.BusinessLogicLayer.RolloverEnvelopeLogic
+- uid: MakesCentsBackend.Services.BusinessLogicLayer.SinkingFundEnvelopeLogic
+  commentId: T:MakesCentsBackend.Services.BusinessLogicLayer.SinkingFundEnvelopeLogic
+  parent: MakesCentsBackend.Services.BusinessLogicLayer
+  href: MakesCentsBackend.Services.BusinessLogicLayer.SinkingFundEnvelopeLogic.html
+  name: SinkingFundEnvelopeLogic
+  nameWithType: SinkingFundEnvelopeLogic
+  fullName: MakesCentsBackend.Services.BusinessLogicLayer.SinkingFundEnvelopeLogic
 - uid: MakesCentsBackend.Services.BusinessLogicLayer.TransactionLogic
   commentId: T:MakesCentsBackend.Services.BusinessLogicLayer.TransactionLogic
   parent: MakesCentsBackend.Services.BusinessLogicLayer

@@ -338,28 +338,32 @@ items:
       repo: https://github.com/Gianna7055/MakesCents.git
     id: GetPaymentTransactionAsync
     path: Controllers/PaymentTransactionController.cs
-    startLine: 66
+    startLine: 71
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Controllers
+  summary: HTTP GET method to get a payment transaction and its splits
+  example: []
   syntax:
     content: >-
       [Authorize]
 
-      [HttpGet("{paycheckTransactionId}")]
+      [HttpGet("{paymentTransactionId}")]
 
-      public Task<ActionResult> GetPaymentTransactionAsync(int paycheckTransactionId)
+      public Task<ActionResult> GetPaymentTransactionAsync(int paymentTransactionId)
     parameters:
-    - id: paycheckTransactionId
+    - id: paymentTransactionId
       type: System.Int32
+      description: ''
     return:
       type: System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.ActionResult}
+      description: ''
     content.vb: >-
       <Authorize>
 
-      <HttpGet("{paycheckTransactionId}")>
+      <HttpGet("{paymentTransactionId}")>
 
-      Public Function GetPaymentTransactionAsync(paycheckTransactionId As Integer) As Task(Of ActionResult)
+      Public Function GetPaymentTransactionAsync(paymentTransactionId As Integer) As Task(Of ActionResult)
   overload: MakesCentsBackend.Controllers.PaymentTransactionController.GetPaymentTransactionAsync*
   attributes:
   - type: Microsoft.AspNetCore.Authorization.AuthorizeAttribute
@@ -369,7 +373,7 @@ items:
     ctor: Microsoft.AspNetCore.Mvc.HttpGetAttribute.#ctor(System.String)
     arguments:
     - type: System.String
-      value: '{paycheckTransactionId}'
+      value: '{paymentTransactionId}'
   nameWithType.vb: PaymentTransactionController.GetPaymentTransactionAsync(Integer)
   fullName.vb: MakesCentsBackend.Controllers.PaymentTransactionController.GetPaymentTransactionAsync(Integer)
   name.vb: GetPaymentTransactionAsync(Integer)
@@ -391,10 +395,12 @@ items:
       repo: https://github.com/Gianna7055/MakesCents.git
     id: UpdatePaymentTransactionAsync
     path: Controllers/PaymentTransactionController.cs
-    startLine: 100
+    startLine: 111
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Controllers
+  summary: HTTP PUT method to update a payment transaction and its splits
+  example: []
   syntax:
     content: >-
       [Authorize]
@@ -405,10 +411,13 @@ items:
     parameters:
     - id: paymentTransactionId
       type: System.Int32
+      description: ''
     - id: paymentTransaction
       type: MakesCentsBackend.Models.UpdatePaymentTransactionRequest
+      description: ''
     return:
       type: System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.ActionResult}
+      description: ''
     content.vb: >-
       <Authorize>
 

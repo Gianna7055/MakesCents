@@ -22,7 +22,7 @@ items:
       repo: https://github.com/Gianna7055/MakesCents.git
     id: EditEnvelopeCategoryRequest
     path: Models/EnvelopeCategoryModels.cs
-    startLine: 94
+    startLine: 113
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Models
@@ -69,7 +69,7 @@ items:
       repo: https://github.com/Gianna7055/MakesCents.git
     id: EnvelopeCategoryId
     path: Models/EnvelopeCategoryModels.cs
-    startLine: 98
+    startLine: 117
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Models
@@ -98,7 +98,7 @@ items:
       repo: https://github.com/Gianna7055/MakesCents.git
     id: UserId
     path: Models/EnvelopeCategoryModels.cs
-    startLine: 99
+    startLine: 118
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Models
@@ -127,7 +127,7 @@ items:
       repo: https://github.com/Gianna7055/MakesCents.git
     id: EnvelopeCategoryName
     path: Models/EnvelopeCategoryModels.cs
-    startLine: 100
+    startLine: 119
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Models

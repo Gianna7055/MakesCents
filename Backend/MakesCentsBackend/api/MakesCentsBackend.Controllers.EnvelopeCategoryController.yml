@@ -291,11 +291,14 @@ items:
       repo: https://github.com/Gianna7055/MakesCents.git
     id: CreateEnvelopeCategoryAsync
     path: Controllers/EnvelopeCategoryController.cs
-    startLine: 41
+    startLine: 42
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Controllers
-  summary: HTTP POST method to create an envelope category
+  summary: >-
+    HTTP POST method to create an envelope category. Still keyed to a persistent
+
+    BudgetId - categories aren't month-scoped.
   example: []
   syntax:
     content: >-
@@ -343,21 +346,26 @@ items:
       repo: https://github.com/Gianna7055/MakesCents.git
     id: GetAllEnvelopeCategoriesAsync
     path: Controllers/EnvelopeCategoryController.cs
-    startLine: 74
+    startLine: 77
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Controllers
-  summary: HTTP GET method to get all envelope categories in a budget
+  summary: >-
+    HTTP GET method to get all envelope categories (with envelopes) for a budget month.
+
+    NOTE: the route param is now a budget_month_id, not a budget_id - the DAO derives
+
+    the persistent budget via a join, and needs the month to resolve rollover envelope amounts.
   example: []
   syntax:
     content: >-
       [Authorize]
 
-      [HttpGet("budget/{budgetId}")]
+      [HttpGet("budget-month/{budgetMonthId}")]
 
-      public Task<ActionResult> GetAllEnvelopeCategoriesAsync(int budgetId)
+      public Task<ActionResult> GetAllEnvelopeCategoriesAsync(int budgetMonthId)
     parameters:
-    - id: budgetId
+    - id: budgetMonthId
       type: System.Int32
       description: ''
     return:
@@ -366,9 +374,9 @@ items:
     content.vb: >-
       <Authorize>
 
-      <HttpGet("budget/{budgetId}")>
+      <HttpGet("budget-month/{budgetMonthId}")>
 
-      Public Function GetAllEnvelopeCategoriesAsync(budgetId As Integer) As Task(Of ActionResult)
+      Public Function GetAllEnvelopeCategoriesAsync(budgetMonthId As Integer) As Task(Of ActionResult)
   overload: MakesCentsBackend.Controllers.EnvelopeCategoryController.GetAllEnvelopeCategoriesAsync*
   attributes:
   - type: Microsoft.AspNetCore.Authorization.AuthorizeAttribute
@@ -378,7 +386,7 @@ items:
     ctor: Microsoft.AspNetCore.Mvc.HttpGetAttribute.#ctor(System.String)
     arguments:
     - type: System.String
-      value: budget/{budgetId}
+      value: budget-month/{budgetMonthId}
   nameWithType.vb: EnvelopeCategoryController.GetAllEnvelopeCategoriesAsync(Integer)
   fullName.vb: MakesCentsBackend.Controllers.EnvelopeCategoryController.GetAllEnvelopeCategoriesAsync(Integer)
   name.vb: GetAllEnvelopeCategoriesAsync(Integer)
@@ -400,10 +408,12 @@ items:
       repo: https://github.com/Gianna7055/MakesCents.git
     id: GetEnvelopeCategoryAsync
     path: Controllers/EnvelopeCategoryController.cs
-    startLine: 108
+    startLine: 116
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Controllers
+  summary: HTTP GET method to get a single envelope category
+  example: []
   syntax:
     content: >-
       [Authorize]
@@ -414,8 +424,10 @@ items:
     parameters:
     - id: envelopeCategoryId
       type: System.Int32
+      description: ''
     return:
       type: System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.ActionResult}
+      description: ''
     content.vb: >-
       <Authorize>
 
@@ -453,7 +465,7 @@ items:
       repo: https://github.com/Gianna7055/MakesCents.git
     id: UpdateEnvelopeCategoryAsync
     path: Controllers/EnvelopeCategoryController.cs
-    startLine: 148
+    startLine: 156
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Controllers
@@ -513,10 +525,12 @@ items:
       repo: https://github.com/Gianna7055/MakesCents.git
     id: DeleteEnvelopeCategoryAsync
     path: Controllers/EnvelopeCategoryController.cs
-    startLine: 183
+    startLine: 195
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Controllers
+  summary: Delete an envelope category
+  example: []
   syntax:
     content: >-
       [Authorize]
@@ -527,8 +541,10 @@ items:
     parameters:
     - id: envelopeCategoryId
       type: System.Int32
+      description: ''
     return:
       type: System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.ActionResult}
+      description: ''
     content.vb: >-
       <Authorize>
 

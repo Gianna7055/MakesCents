@@ -5,13 +5,17 @@ items:
   id: BudgetDAO
   parent: MakesCentsBackend.Services.DataAccessLayer
   children:
-  - MakesCentsBackend.Services.DataAccessLayer.BudgetDAO.#ctor(MySqlConnector.MySqlConnection,MakesCentsBackend.Services.DataAccessLayer.AuthorizationService)
+  - MakesCentsBackend.Services.DataAccessLayer.BudgetDAO.#ctor(MySqlConnector.MySqlConnection,MakesCentsBackend.Services.DataAccessLayer.AuthorizationService,MakesCentsBackend.Services.DataAccessLayer.BudgetTemplateDAO)
   - MakesCentsBackend.Services.DataAccessLayer.BudgetDAO.CreateBudgetAsync(MakesCentsBackend.Models.CreateBudgetRequest)
+  - MakesCentsBackend.Services.DataAccessLayer.BudgetDAO.CreateBudgetMonthAsync(MakesCentsBackend.Models.CreateBudgetMonthRequest)
   - MakesCentsBackend.Services.DataAccessLayer.BudgetDAO.DeleteBudgetAsync(MakesCentsBackend.Models.BaseIdRequest)
-  - MakesCentsBackend.Services.DataAccessLayer.BudgetDAO.GetBudgetAsync(MakesCentsBackend.Models.BaseIdRequest)
-  - MakesCentsBackend.Services.DataAccessLayer.BudgetDAO.GetBudgetAsync(MakesCentsBackend.Models.GetBudgetRequest)
+  - MakesCentsBackend.Services.DataAccessLayer.BudgetDAO.DeleteBudgetMonthAsync(MakesCentsBackend.Models.BaseIdRequest)
+  - MakesCentsBackend.Services.DataAccessLayer.BudgetDAO.GetBudgetMonthAsync(MakesCentsBackend.Models.BaseIdRequest)
+  - MakesCentsBackend.Services.DataAccessLayer.BudgetDAO.GetBudgetMonthAsync(MakesCentsBackend.Models.GetBudgetRequest)
+  - MakesCentsBackend.Services.DataAccessLayer.BudgetDAO.GetUserBudgetsAsync(System.Int32)
   - MakesCentsBackend.Services.DataAccessLayer.BudgetDAO.GetYearBudgetsAsync(MakesCentsBackend.Models.GetBudgetRequest)
   - MakesCentsBackend.Services.DataAccessLayer.BudgetDAO.UpdateBudgetAsync(MakesCentsBackend.Models.EditBudgetRequest)
+  - MakesCentsBackend.Services.DataAccessLayer.BudgetDAO.UpdateBudgetMonthAsync(MakesCentsBackend.Models.EditBudgetMonthRequest)
   langs:
   - csharp
   - vb
@@ -26,7 +30,7 @@ items:
       repo: https://github.com/Gianna7055/MakesCents.git
     id: BudgetDAO
     path: Services/DataAccessLayer/BudgetDAO.cs
-    startLine: 11
+    startLine: 12
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Services.DataAccessLayer
@@ -43,16 +47,16 @@ items:
   - System.Object.MemberwiseClone
   - System.Object.ReferenceEquals(System.Object,System.Object)
   - System.Object.ToString
-- uid: MakesCentsBackend.Services.DataAccessLayer.BudgetDAO.#ctor(MySqlConnector.MySqlConnection,MakesCentsBackend.Services.DataAccessLayer.AuthorizationService)
-  commentId: M:MakesCentsBackend.Services.DataAccessLayer.BudgetDAO.#ctor(MySqlConnector.MySqlConnection,MakesCentsBackend.Services.DataAccessLayer.AuthorizationService)
-  id: '#ctor(MySqlConnector.MySqlConnection,MakesCentsBackend.Services.DataAccessLayer.AuthorizationService)'
+- uid: MakesCentsBackend.Services.DataAccessLayer.BudgetDAO.#ctor(MySqlConnector.MySqlConnection,MakesCentsBackend.Services.DataAccessLayer.AuthorizationService,MakesCentsBackend.Services.DataAccessLayer.BudgetTemplateDAO)
+  commentId: M:MakesCentsBackend.Services.DataAccessLayer.BudgetDAO.#ctor(MySqlConnector.MySqlConnection,MakesCentsBackend.Services.DataAccessLayer.AuthorizationService,MakesCentsBackend.Services.DataAccessLayer.BudgetTemplateDAO)
+  id: '#ctor(MySqlConnector.MySqlConnection,MakesCentsBackend.Services.DataAccessLayer.AuthorizationService,MakesCentsBackend.Services.DataAccessLayer.BudgetTemplateDAO)'
   parent: MakesCentsBackend.Services.DataAccessLayer.BudgetDAO
   langs:
   - csharp
   - vb
-  name: BudgetDAO(MySqlConnection, AuthorizationService)
-  nameWithType: BudgetDAO.BudgetDAO(MySqlConnection, AuthorizationService)
-  fullName: MakesCentsBackend.Services.DataAccessLayer.BudgetDAO.BudgetDAO(MySqlConnector.MySqlConnection, MakesCentsBackend.Services.DataAccessLayer.AuthorizationService)
+  name: BudgetDAO(MySqlConnection, AuthorizationService, BudgetTemplateDAO)
+  nameWithType: BudgetDAO.BudgetDAO(MySqlConnection, AuthorizationService, BudgetTemplateDAO)
+  fullName: MakesCentsBackend.Services.DataAccessLayer.BudgetDAO.BudgetDAO(MySqlConnector.MySqlConnection, MakesCentsBackend.Services.DataAccessLayer.AuthorizationService, MakesCentsBackend.Services.DataAccessLayer.BudgetTemplateDAO)
   type: Constructor
   source:
     remote:
@@ -61,25 +65,29 @@ items:
       repo: https://github.com/Gianna7055/MakesCents.git
     id: .ctor
     path: Services/DataAccessLayer/BudgetDAO.cs
-    startLine: 22
+    startLine: 26
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Services.DataAccessLayer
   summary: Parameterized constructor to bring in DI variables
   example: []
   syntax:
-    content: public BudgetDAO(MySqlConnection connection, AuthorizationService authService)
+    content: public BudgetDAO(MySqlConnection connection, AuthorizationService authService, BudgetTemplateDAO budgetTemplateDAO)
     parameters:
     - id: connection
       type: MySqlConnector.MySqlConnection
       description: ''
     - id: authService
       type: MakesCentsBackend.Services.DataAccessLayer.AuthorizationService
-    content.vb: Public Sub New(connection As MySqlConnection, authService As AuthorizationService)
+      description: ''
+    - id: budgetTemplateDAO
+      type: MakesCentsBackend.Services.DataAccessLayer.BudgetTemplateDAO
+      description: ''
+    content.vb: Public Sub New(connection As MySqlConnection, authService As AuthorizationService, budgetTemplateDAO As BudgetTemplateDAO)
   overload: MakesCentsBackend.Services.DataAccessLayer.BudgetDAO.#ctor*
-  nameWithType.vb: BudgetDAO.New(MySqlConnection, AuthorizationService)
-  fullName.vb: MakesCentsBackend.Services.DataAccessLayer.BudgetDAO.New(MySqlConnector.MySqlConnection, MakesCentsBackend.Services.DataAccessLayer.AuthorizationService)
-  name.vb: New(MySqlConnection, AuthorizationService)
+  nameWithType.vb: BudgetDAO.New(MySqlConnection, AuthorizationService, BudgetTemplateDAO)
+  fullName.vb: MakesCentsBackend.Services.DataAccessLayer.BudgetDAO.New(MySqlConnector.MySqlConnection, MakesCentsBackend.Services.DataAccessLayer.AuthorizationService, MakesCentsBackend.Services.DataAccessLayer.BudgetTemplateDAO)
+  name.vb: New(MySqlConnection, AuthorizationService, BudgetTemplateDAO)
 - uid: MakesCentsBackend.Services.DataAccessLayer.BudgetDAO.CreateBudgetAsync(MakesCentsBackend.Models.CreateBudgetRequest)
   commentId: M:MakesCentsBackend.Services.DataAccessLayer.BudgetDAO.CreateBudgetAsync(MakesCentsBackend.Models.CreateBudgetRequest)
   id: CreateBudgetAsync(MakesCentsBackend.Models.CreateBudgetRequest)
@@ -98,11 +106,14 @@ items:
       repo: https://github.com/Gianna7055/MakesCents.git
     id: CreateBudgetAsync
     path: Services/DataAccessLayer/BudgetDAO.cs
-    startLine: 33
+    startLine: 39
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Services.DataAccessLayer
-  summary: DAO method to create a budget
+  summary: >-
+    DAO method to create the persistent budget entity and link the creating user to it.
+
+    Does not create a month - call CreateBudgetMonthAsync separately for that.
   example: []
   syntax:
     content: public Task<BaseIdResponse> CreateBudgetAsync(CreateBudgetRequest budget)
@@ -115,82 +126,155 @@ items:
       description: ''
     content.vb: Public Function CreateBudgetAsync(budget As CreateBudgetRequest) As Task(Of BaseIdResponse)
   overload: MakesCentsBackend.Services.DataAccessLayer.BudgetDAO.CreateBudgetAsync*
-- uid: MakesCentsBackend.Services.DataAccessLayer.BudgetDAO.GetBudgetAsync(MakesCentsBackend.Models.GetBudgetRequest)
-  commentId: M:MakesCentsBackend.Services.DataAccessLayer.BudgetDAO.GetBudgetAsync(MakesCentsBackend.Models.GetBudgetRequest)
-  id: GetBudgetAsync(MakesCentsBackend.Models.GetBudgetRequest)
+- uid: MakesCentsBackend.Services.DataAccessLayer.BudgetDAO.CreateBudgetMonthAsync(MakesCentsBackend.Models.CreateBudgetMonthRequest)
+  commentId: M:MakesCentsBackend.Services.DataAccessLayer.BudgetDAO.CreateBudgetMonthAsync(MakesCentsBackend.Models.CreateBudgetMonthRequest)
+  id: CreateBudgetMonthAsync(MakesCentsBackend.Models.CreateBudgetMonthRequest)
   parent: MakesCentsBackend.Services.DataAccessLayer.BudgetDAO
   langs:
   - csharp
   - vb
-  name: GetBudgetAsync(GetBudgetRequest)
-  nameWithType: BudgetDAO.GetBudgetAsync(GetBudgetRequest)
-  fullName: MakesCentsBackend.Services.DataAccessLayer.BudgetDAO.GetBudgetAsync(MakesCentsBackend.Models.GetBudgetRequest)
+  name: CreateBudgetMonthAsync(CreateBudgetMonthRequest)
+  nameWithType: BudgetDAO.CreateBudgetMonthAsync(CreateBudgetMonthRequest)
+  fullName: MakesCentsBackend.Services.DataAccessLayer.BudgetDAO.CreateBudgetMonthAsync(MakesCentsBackend.Models.CreateBudgetMonthRequest)
   type: Method
   source:
     remote:
       path: Backend/MakesCentsBackend/Services/DataAccessLayer/BudgetDAO.cs
       branch: master
       repo: https://github.com/Gianna7055/MakesCents.git
-    id: GetBudgetAsync
+    id: CreateBudgetMonthAsync
     path: Services/DataAccessLayer/BudgetDAO.cs
-    startLine: 77
+    startLine: 87
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Services.DataAccessLayer
+  summary: DAO method to create a new month under an existing persistent budget
+  example: []
+  syntax:
+    content: public Task<BaseIdResponse> CreateBudgetMonthAsync(CreateBudgetMonthRequest budgetMonth)
+    parameters:
+    - id: budgetMonth
+      type: MakesCentsBackend.Models.CreateBudgetMonthRequest
+      description: ''
+    return:
+      type: System.Threading.Tasks.Task{MakesCentsBackend.Models.BaseIdResponse}
+      description: ''
+    content.vb: Public Function CreateBudgetMonthAsync(budgetMonth As CreateBudgetMonthRequest) As Task(Of BaseIdResponse)
+  overload: MakesCentsBackend.Services.DataAccessLayer.BudgetDAO.CreateBudgetMonthAsync*
+- uid: MakesCentsBackend.Services.DataAccessLayer.BudgetDAO.GetUserBudgetsAsync(System.Int32)
+  commentId: M:MakesCentsBackend.Services.DataAccessLayer.BudgetDAO.GetUserBudgetsAsync(System.Int32)
+  id: GetUserBudgetsAsync(System.Int32)
+  parent: MakesCentsBackend.Services.DataAccessLayer.BudgetDAO
+  langs:
+  - csharp
+  - vb
+  name: GetUserBudgetsAsync(int)
+  nameWithType: BudgetDAO.GetUserBudgetsAsync(int)
+  fullName: MakesCentsBackend.Services.DataAccessLayer.BudgetDAO.GetUserBudgetsAsync(int)
+  type: Method
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Services/DataAccessLayer/BudgetDAO.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: GetUserBudgetsAsync
+    path: Services/DataAccessLayer/BudgetDAO.cs
+    startLine: 172
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Services.DataAccessLayer
   summary: >-
-    Get the summary of a budget with envelope categories and envelopes
+    DAO method to get every budget a user has access to - just the id and name, since
 
-    Sources: https://chatgpt.com/c/69774450-b594-8330-963c-0342dd63eac2
+    this is meant to be usable before any month or budget id is known (e.g. right after login).
   example: []
   syntax:
-    content: public Task<GetBudgetResponse> GetBudgetAsync(GetBudgetRequest budget)
+    content: public Task<GetUserBudgetsResponse> GetUserBudgetsAsync(int userId)
+    parameters:
+    - id: userId
+      type: System.Int32
+      description: ''
+    return:
+      type: System.Threading.Tasks.Task{MakesCentsBackend.Models.GetUserBudgetsResponse}
+      description: ''
+    content.vb: Public Function GetUserBudgetsAsync(userId As Integer) As Task(Of GetUserBudgetsResponse)
+  overload: MakesCentsBackend.Services.DataAccessLayer.BudgetDAO.GetUserBudgetsAsync*
+  nameWithType.vb: BudgetDAO.GetUserBudgetsAsync(Integer)
+  fullName.vb: MakesCentsBackend.Services.DataAccessLayer.BudgetDAO.GetUserBudgetsAsync(Integer)
+  name.vb: GetUserBudgetsAsync(Integer)
+- uid: MakesCentsBackend.Services.DataAccessLayer.BudgetDAO.GetBudgetMonthAsync(MakesCentsBackend.Models.GetBudgetRequest)
+  commentId: M:MakesCentsBackend.Services.DataAccessLayer.BudgetDAO.GetBudgetMonthAsync(MakesCentsBackend.Models.GetBudgetRequest)
+  id: GetBudgetMonthAsync(MakesCentsBackend.Models.GetBudgetRequest)
+  parent: MakesCentsBackend.Services.DataAccessLayer.BudgetDAO
+  langs:
+  - csharp
+  - vb
+  name: GetBudgetMonthAsync(GetBudgetRequest)
+  nameWithType: BudgetDAO.GetBudgetMonthAsync(GetBudgetRequest)
+  fullName: MakesCentsBackend.Services.DataAccessLayer.BudgetDAO.GetBudgetMonthAsync(MakesCentsBackend.Models.GetBudgetRequest)
+  type: Method
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Services/DataAccessLayer/BudgetDAO.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: GetBudgetMonthAsync
+    path: Services/DataAccessLayer/BudgetDAO.cs
+    startLine: 203
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Services.DataAccessLayer
+  summary: >-
+    Get a budget month - with envelope categories and envelopes - based on the
+
+    userId, month, and year
+  example: []
+  syntax:
+    content: public Task<GetBudgetMonthResponse> GetBudgetMonthAsync(GetBudgetRequest budget)
     parameters:
     - id: budget
       type: MakesCentsBackend.Models.GetBudgetRequest
       description: ''
     return:
-      type: System.Threading.Tasks.Task{MakesCentsBackend.Models.GetBudgetResponse}
+      type: System.Threading.Tasks.Task{MakesCentsBackend.Models.GetBudgetMonthResponse}
       description: ''
-    content.vb: Public Function GetBudgetAsync(budget As GetBudgetRequest) As Task(Of GetBudgetResponse)
-  overload: MakesCentsBackend.Services.DataAccessLayer.BudgetDAO.GetBudgetAsync*
-- uid: MakesCentsBackend.Services.DataAccessLayer.BudgetDAO.GetBudgetAsync(MakesCentsBackend.Models.BaseIdRequest)
-  commentId: M:MakesCentsBackend.Services.DataAccessLayer.BudgetDAO.GetBudgetAsync(MakesCentsBackend.Models.BaseIdRequest)
-  id: GetBudgetAsync(MakesCentsBackend.Models.BaseIdRequest)
+    content.vb: Public Function GetBudgetMonthAsync(budget As GetBudgetRequest) As Task(Of GetBudgetMonthResponse)
+  overload: MakesCentsBackend.Services.DataAccessLayer.BudgetDAO.GetBudgetMonthAsync*
+- uid: MakesCentsBackend.Services.DataAccessLayer.BudgetDAO.GetBudgetMonthAsync(MakesCentsBackend.Models.BaseIdRequest)
+  commentId: M:MakesCentsBackend.Services.DataAccessLayer.BudgetDAO.GetBudgetMonthAsync(MakesCentsBackend.Models.BaseIdRequest)
+  id: GetBudgetMonthAsync(MakesCentsBackend.Models.BaseIdRequest)
   parent: MakesCentsBackend.Services.DataAccessLayer.BudgetDAO
   langs:
   - csharp
   - vb
-  name: GetBudgetAsync(BaseIdRequest)
-  nameWithType: BudgetDAO.GetBudgetAsync(BaseIdRequest)
-  fullName: MakesCentsBackend.Services.DataAccessLayer.BudgetDAO.GetBudgetAsync(MakesCentsBackend.Models.BaseIdRequest)
+  name: GetBudgetMonthAsync(BaseIdRequest)
+  nameWithType: BudgetDAO.GetBudgetMonthAsync(BaseIdRequest)
+  fullName: MakesCentsBackend.Services.DataAccessLayer.BudgetDAO.GetBudgetMonthAsync(MakesCentsBackend.Models.BaseIdRequest)
   type: Method
   source:
     remote:
       path: Backend/MakesCentsBackend/Services/DataAccessLayer/BudgetDAO.cs
       branch: master
       repo: https://github.com/Gianna7055/MakesCents.git
-    id: GetBudgetAsync
+    id: GetBudgetMonthAsync
     path: Services/DataAccessLayer/BudgetDAO.cs
-    startLine: 163
+    startLine: 249
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Services.DataAccessLayer
-  summary: >-
-    Get the summary of a budget with envelope categories and envelopes
-
-    Sources: https://chatgpt.com/c/69774450-b594-8330-963c-0342dd63eac2
+  summary: Get a budget month - with envelope categories and envelopes - based on its budget_month_id
   example: []
   syntax:
-    content: public Task<GetBudgetResponse> GetBudgetAsync(BaseIdRequest budget)
+    content: public Task<GetBudgetMonthResponse> GetBudgetMonthAsync(BaseIdRequest request)
     parameters:
-    - id: budget
+    - id: request
       type: MakesCentsBackend.Models.BaseIdRequest
       description: ''
     return:
-      type: System.Threading.Tasks.Task{MakesCentsBackend.Models.GetBudgetResponse}
+      type: System.Threading.Tasks.Task{MakesCentsBackend.Models.GetBudgetMonthResponse}
       description: ''
-    content.vb: Public Function GetBudgetAsync(budget As BaseIdRequest) As Task(Of GetBudgetResponse)
-  overload: MakesCentsBackend.Services.DataAccessLayer.BudgetDAO.GetBudgetAsync*
+    content.vb: Public Function GetBudgetMonthAsync(request As BaseIdRequest) As Task(Of GetBudgetMonthResponse)
+  overload: MakesCentsBackend.Services.DataAccessLayer.BudgetDAO.GetBudgetMonthAsync*
 - uid: MakesCentsBackend.Services.DataAccessLayer.BudgetDAO.GetYearBudgetsAsync(MakesCentsBackend.Models.GetBudgetRequest)
   commentId: M:MakesCentsBackend.Services.DataAccessLayer.BudgetDAO.GetYearBudgetsAsync(MakesCentsBackend.Models.GetBudgetRequest)
   id: GetYearBudgetsAsync(MakesCentsBackend.Models.GetBudgetRequest)
@@ -209,17 +293,21 @@ items:
       repo: https://github.com/Gianna7055/MakesCents.git
     id: GetYearBudgetsAsync
     path: Services/DataAccessLayer/BudgetDAO.cs
-    startLine: 240
+    startLine: 383
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Services.DataAccessLayer
+  summary: Get up to a year's worth of this user's past budget months, anchored at the given month/year
+  example: []
   syntax:
     content: public Task<GetYearBudgetsResponse> GetYearBudgetsAsync(GetBudgetRequest request)
     parameters:
     - id: request
       type: MakesCentsBackend.Models.GetBudgetRequest
+      description: ''
     return:
       type: System.Threading.Tasks.Task{MakesCentsBackend.Models.GetYearBudgetsResponse}
+      description: ''
     content.vb: Public Function GetYearBudgetsAsync(request As GetBudgetRequest) As Task(Of GetYearBudgetsResponse)
   overload: MakesCentsBackend.Services.DataAccessLayer.BudgetDAO.GetYearBudgetsAsync*
 - uid: MakesCentsBackend.Services.DataAccessLayer.BudgetDAO.UpdateBudgetAsync(MakesCentsBackend.Models.EditBudgetRequest)
@@ -240,11 +328,11 @@ items:
       repo: https://github.com/Gianna7055/MakesCents.git
     id: UpdateBudgetAsync
     path: Services/DataAccessLayer/BudgetDAO.cs
-    startLine: 274
+    startLine: 421
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Services.DataAccessLayer
-  summary: DAO method to update a budget based on given fields
+  summary: DAO method to update a budget's persistent fields (currently just the name)
   example: []
   syntax:
     content: public Task<BaseIdResponse> UpdateBudgetAsync(EditBudgetRequest budget)
@@ -257,6 +345,44 @@ items:
       description: ''
     content.vb: Public Function UpdateBudgetAsync(budget As EditBudgetRequest) As Task(Of BaseIdResponse)
   overload: MakesCentsBackend.Services.DataAccessLayer.BudgetDAO.UpdateBudgetAsync*
+- uid: MakesCentsBackend.Services.DataAccessLayer.BudgetDAO.UpdateBudgetMonthAsync(MakesCentsBackend.Models.EditBudgetMonthRequest)
+  commentId: M:MakesCentsBackend.Services.DataAccessLayer.BudgetDAO.UpdateBudgetMonthAsync(MakesCentsBackend.Models.EditBudgetMonthRequest)
+  id: UpdateBudgetMonthAsync(MakesCentsBackend.Models.EditBudgetMonthRequest)
+  parent: MakesCentsBackend.Services.DataAccessLayer.BudgetDAO
+  langs:
+  - csharp
+  - vb
+  name: UpdateBudgetMonthAsync(EditBudgetMonthRequest)
+  nameWithType: BudgetDAO.UpdateBudgetMonthAsync(EditBudgetMonthRequest)
+  fullName: MakesCentsBackend.Services.DataAccessLayer.BudgetDAO.UpdateBudgetMonthAsync(MakesCentsBackend.Models.EditBudgetMonthRequest)
+  type: Method
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Services/DataAccessLayer/BudgetDAO.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: UpdateBudgetMonthAsync
+    path: Services/DataAccessLayer/BudgetDAO.cs
+    startLine: 473
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Services.DataAccessLayer
+  summary: >-
+    DAO method to update a specific budget month's month/year
+
+    (e.g. correcting a month that was created under the wrong month/year)
+  example: []
+  syntax:
+    content: public Task<BaseIdResponse> UpdateBudgetMonthAsync(EditBudgetMonthRequest budgetMonth)
+    parameters:
+    - id: budgetMonth
+      type: MakesCentsBackend.Models.EditBudgetMonthRequest
+      description: ''
+    return:
+      type: System.Threading.Tasks.Task{MakesCentsBackend.Models.BaseIdResponse}
+      description: ''
+    content.vb: Public Function UpdateBudgetMonthAsync(budgetMonth As EditBudgetMonthRequest) As Task(Of BaseIdResponse)
+  overload: MakesCentsBackend.Services.DataAccessLayer.BudgetDAO.UpdateBudgetMonthAsync*
 - uid: MakesCentsBackend.Services.DataAccessLayer.BudgetDAO.DeleteBudgetAsync(MakesCentsBackend.Models.BaseIdRequest)
   commentId: M:MakesCentsBackend.Services.DataAccessLayer.BudgetDAO.DeleteBudgetAsync(MakesCentsBackend.Models.BaseIdRequest)
   id: DeleteBudgetAsync(MakesCentsBackend.Models.BaseIdRequest)
@@ -275,22 +401,70 @@ items:
       repo: https://github.com/Gianna7055/MakesCents.git
     id: DeleteBudgetAsync
     path: Services/DataAccessLayer/BudgetDAO.cs
-    startLine: 333
+    startLine: 552
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Services.DataAccessLayer
-  summary: DAO method to delete a budget
+  summary: >-
+    DAO method to delete the persistent budget entity. Cascades to remove every month,
+
+    every account, every envelope category (and its envelopes), every paycheck, and
+
+    every planned expense that belongs to it.
   example: []
   syntax:
     content: public Task<BaseResponse> DeleteBudgetAsync(BaseIdRequest request)
     parameters:
     - id: request
       type: MakesCentsBackend.Models.BaseIdRequest
+      description: ''
     return:
       type: System.Threading.Tasks.Task{MakesCentsBackend.Models.BaseResponse}
       description: ''
     content.vb: Public Function DeleteBudgetAsync(request As BaseIdRequest) As Task(Of BaseResponse)
   overload: MakesCentsBackend.Services.DataAccessLayer.BudgetDAO.DeleteBudgetAsync*
+- uid: MakesCentsBackend.Services.DataAccessLayer.BudgetDAO.DeleteBudgetMonthAsync(MakesCentsBackend.Models.BaseIdRequest)
+  commentId: M:MakesCentsBackend.Services.DataAccessLayer.BudgetDAO.DeleteBudgetMonthAsync(MakesCentsBackend.Models.BaseIdRequest)
+  id: DeleteBudgetMonthAsync(MakesCentsBackend.Models.BaseIdRequest)
+  parent: MakesCentsBackend.Services.DataAccessLayer.BudgetDAO
+  langs:
+  - csharp
+  - vb
+  name: DeleteBudgetMonthAsync(BaseIdRequest)
+  nameWithType: BudgetDAO.DeleteBudgetMonthAsync(BaseIdRequest)
+  fullName: MakesCentsBackend.Services.DataAccessLayer.BudgetDAO.DeleteBudgetMonthAsync(MakesCentsBackend.Models.BaseIdRequest)
+  type: Method
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Services/DataAccessLayer/BudgetDAO.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: DeleteBudgetMonthAsync
+    path: Services/DataAccessLayer/BudgetDAO.cs
+    startLine: 587
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Services.DataAccessLayer
+  summary: >-
+    DAO method to delete a single month's budget. Only removes that month's budget_month
+
+    row (and its transactions, via cascade) - accounts, envelope categories, and paychecks
+
+    belong to the persistent budget and are shared across all of its months, so they
+
+    survive the deletion of any single month.
+  example: []
+  syntax:
+    content: public Task<BaseResponse> DeleteBudgetMonthAsync(BaseIdRequest request)
+    parameters:
+    - id: request
+      type: MakesCentsBackend.Models.BaseIdRequest
+      description: ''
+    return:
+      type: System.Threading.Tasks.Task{MakesCentsBackend.Models.BaseResponse}
+      description: ''
+    content.vb: Public Function DeleteBudgetMonthAsync(request As BaseIdRequest) As Task(Of BaseResponse)
+  overload: MakesCentsBackend.Services.DataAccessLayer.BudgetDAO.DeleteBudgetMonthAsync*
 references:
 - uid: MakesCentsBackend.Services.DataAccessLayer
   commentId: N:MakesCentsBackend.Services.DataAccessLayer
@@ -561,7 +735,7 @@ references:
   fullName: System
 - uid: MakesCentsBackend.Services.DataAccessLayer.BudgetDAO.#ctor*
   commentId: Overload:MakesCentsBackend.Services.DataAccessLayer.BudgetDAO.#ctor
-  href: MakesCentsBackend.Services.DataAccessLayer.BudgetDAO.html#MakesCentsBackend_Services_DataAccessLayer_BudgetDAO__ctor_MySqlConnector_MySqlConnection_MakesCentsBackend_Services_DataAccessLayer_AuthorizationService_
+  href: MakesCentsBackend.Services.DataAccessLayer.BudgetDAO.html#MakesCentsBackend_Services_DataAccessLayer_BudgetDAO__ctor_MySqlConnector_MySqlConnection_MakesCentsBackend_Services_DataAccessLayer_AuthorizationService_MakesCentsBackend_Services_DataAccessLayer_BudgetTemplateDAO_
   name: BudgetDAO
   nameWithType: BudgetDAO.BudgetDAO
   fullName: MakesCentsBackend.Services.DataAccessLayer.BudgetDAO.BudgetDAO
@@ -582,6 +756,13 @@ references:
   name: AuthorizationService
   nameWithType: AuthorizationService
   fullName: MakesCentsBackend.Services.DataAccessLayer.AuthorizationService
+- uid: MakesCentsBackend.Services.DataAccessLayer.BudgetTemplateDAO
+  commentId: T:MakesCentsBackend.Services.DataAccessLayer.BudgetTemplateDAO
+  parent: MakesCentsBackend.Services.DataAccessLayer
+  href: MakesCentsBackend.Services.DataAccessLayer.BudgetTemplateDAO.html
+  name: BudgetTemplateDAO
+  nameWithType: BudgetTemplateDAO
+  fullName: MakesCentsBackend.Services.DataAccessLayer.BudgetTemplateDAO
 - uid: MySqlConnector
   commentId: N:MySqlConnector
   isExternal: true
@@ -721,39 +902,56 @@ references:
     name: Tasks
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
-- uid: MakesCentsBackend.Services.DataAccessLayer.BudgetDAO.GetBudgetAsync*
-  commentId: Overload:MakesCentsBackend.Services.DataAccessLayer.BudgetDAO.GetBudgetAsync
-  href: MakesCentsBackend.Services.DataAccessLayer.BudgetDAO.html#MakesCentsBackend_Services_DataAccessLayer_BudgetDAO_GetBudgetAsync_MakesCentsBackend_Models_GetBudgetRequest_
-  name: GetBudgetAsync
-  nameWithType: BudgetDAO.GetBudgetAsync
-  fullName: MakesCentsBackend.Services.DataAccessLayer.BudgetDAO.GetBudgetAsync
-- uid: MakesCentsBackend.Models.GetBudgetRequest
-  commentId: T:MakesCentsBackend.Models.GetBudgetRequest
+- uid: MakesCentsBackend.Services.DataAccessLayer.BudgetDAO.CreateBudgetMonthAsync*
+  commentId: Overload:MakesCentsBackend.Services.DataAccessLayer.BudgetDAO.CreateBudgetMonthAsync
+  href: MakesCentsBackend.Services.DataAccessLayer.BudgetDAO.html#MakesCentsBackend_Services_DataAccessLayer_BudgetDAO_CreateBudgetMonthAsync_MakesCentsBackend_Models_CreateBudgetMonthRequest_
+  name: CreateBudgetMonthAsync
+  nameWithType: BudgetDAO.CreateBudgetMonthAsync
+  fullName: MakesCentsBackend.Services.DataAccessLayer.BudgetDAO.CreateBudgetMonthAsync
+- uid: MakesCentsBackend.Models.CreateBudgetMonthRequest
+  commentId: T:MakesCentsBackend.Models.CreateBudgetMonthRequest
   parent: MakesCentsBackend.Models
-  href: MakesCentsBackend.Models.GetBudgetRequest.html
-  name: GetBudgetRequest
-  nameWithType: GetBudgetRequest
-  fullName: MakesCentsBackend.Models.GetBudgetRequest
-- uid: System.Threading.Tasks.Task{MakesCentsBackend.Models.GetBudgetResponse}
-  commentId: T:System.Threading.Tasks.Task{MakesCentsBackend.Models.GetBudgetResponse}
+  href: MakesCentsBackend.Models.CreateBudgetMonthRequest.html
+  name: CreateBudgetMonthRequest
+  nameWithType: CreateBudgetMonthRequest
+  fullName: MakesCentsBackend.Models.CreateBudgetMonthRequest
+- uid: MakesCentsBackend.Services.DataAccessLayer.BudgetDAO.GetUserBudgetsAsync*
+  commentId: Overload:MakesCentsBackend.Services.DataAccessLayer.BudgetDAO.GetUserBudgetsAsync
+  href: MakesCentsBackend.Services.DataAccessLayer.BudgetDAO.html#MakesCentsBackend_Services_DataAccessLayer_BudgetDAO_GetUserBudgetsAsync_System_Int32_
+  name: GetUserBudgetsAsync
+  nameWithType: BudgetDAO.GetUserBudgetsAsync
+  fullName: MakesCentsBackend.Services.DataAccessLayer.BudgetDAO.GetUserBudgetsAsync
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: System.Threading.Tasks.Task{MakesCentsBackend.Models.GetUserBudgetsResponse}
+  commentId: T:System.Threading.Tasks.Task{MakesCentsBackend.Models.GetUserBudgetsResponse}
   parent: System.Threading.Tasks
   definition: System.Threading.Tasks.Task`1
   href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
-  name: Task<GetBudgetResponse>
-  nameWithType: Task<GetBudgetResponse>
-  fullName: System.Threading.Tasks.Task<MakesCentsBackend.Models.GetBudgetResponse>
-  nameWithType.vb: Task(Of GetBudgetResponse)
-  fullName.vb: System.Threading.Tasks.Task(Of MakesCentsBackend.Models.GetBudgetResponse)
-  name.vb: Task(Of GetBudgetResponse)
+  name: Task<GetUserBudgetsResponse>
+  nameWithType: Task<GetUserBudgetsResponse>
+  fullName: System.Threading.Tasks.Task<MakesCentsBackend.Models.GetUserBudgetsResponse>
+  nameWithType.vb: Task(Of GetUserBudgetsResponse)
+  fullName.vb: System.Threading.Tasks.Task(Of MakesCentsBackend.Models.GetUserBudgetsResponse)
+  name.vb: Task(Of GetUserBudgetsResponse)
   spec.csharp:
   - uid: System.Threading.Tasks.Task`1
     name: Task
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
   - name: <
-  - uid: MakesCentsBackend.Models.GetBudgetResponse
-    name: GetBudgetResponse
-    href: MakesCentsBackend.Models.GetBudgetResponse.html
+  - uid: MakesCentsBackend.Models.GetUserBudgetsResponse
+    name: GetUserBudgetsResponse
+    href: MakesCentsBackend.Models.GetUserBudgetsResponse.html
   - name: '>'
   spec.vb:
   - uid: System.Threading.Tasks.Task`1
@@ -763,9 +961,55 @@ references:
   - name: (
   - name: Of
   - name: " "
-  - uid: MakesCentsBackend.Models.GetBudgetResponse
-    name: GetBudgetResponse
-    href: MakesCentsBackend.Models.GetBudgetResponse.html
+  - uid: MakesCentsBackend.Models.GetUserBudgetsResponse
+    name: GetUserBudgetsResponse
+    href: MakesCentsBackend.Models.GetUserBudgetsResponse.html
+  - name: )
+- uid: MakesCentsBackend.Services.DataAccessLayer.BudgetDAO.GetBudgetMonthAsync*
+  commentId: Overload:MakesCentsBackend.Services.DataAccessLayer.BudgetDAO.GetBudgetMonthAsync
+  href: MakesCentsBackend.Services.DataAccessLayer.BudgetDAO.html#MakesCentsBackend_Services_DataAccessLayer_BudgetDAO_GetBudgetMonthAsync_MakesCentsBackend_Models_GetBudgetRequest_
+  name: GetBudgetMonthAsync
+  nameWithType: BudgetDAO.GetBudgetMonthAsync
+  fullName: MakesCentsBackend.Services.DataAccessLayer.BudgetDAO.GetBudgetMonthAsync
+- uid: MakesCentsBackend.Models.GetBudgetRequest
+  commentId: T:MakesCentsBackend.Models.GetBudgetRequest
+  parent: MakesCentsBackend.Models
+  href: MakesCentsBackend.Models.GetBudgetRequest.html
+  name: GetBudgetRequest
+  nameWithType: GetBudgetRequest
+  fullName: MakesCentsBackend.Models.GetBudgetRequest
+- uid: System.Threading.Tasks.Task{MakesCentsBackend.Models.GetBudgetMonthResponse}
+  commentId: T:System.Threading.Tasks.Task{MakesCentsBackend.Models.GetBudgetMonthResponse}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<GetBudgetMonthResponse>
+  nameWithType: Task<GetBudgetMonthResponse>
+  fullName: System.Threading.Tasks.Task<MakesCentsBackend.Models.GetBudgetMonthResponse>
+  nameWithType.vb: Task(Of GetBudgetMonthResponse)
+  fullName.vb: System.Threading.Tasks.Task(Of MakesCentsBackend.Models.GetBudgetMonthResponse)
+  name.vb: Task(Of GetBudgetMonthResponse)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: MakesCentsBackend.Models.GetBudgetMonthResponse
+    name: GetBudgetMonthResponse
+    href: MakesCentsBackend.Models.GetBudgetMonthResponse.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: MakesCentsBackend.Models.GetBudgetMonthResponse
+    name: GetBudgetMonthResponse
+    href: MakesCentsBackend.Models.GetBudgetMonthResponse.html
   - name: )
 - uid: MakesCentsBackend.Models.BaseIdRequest
   commentId: T:MakesCentsBackend.Models.BaseIdRequest
@@ -826,6 +1070,19 @@ references:
   name: EditBudgetRequest
   nameWithType: EditBudgetRequest
   fullName: MakesCentsBackend.Models.EditBudgetRequest
+- uid: MakesCentsBackend.Services.DataAccessLayer.BudgetDAO.UpdateBudgetMonthAsync*
+  commentId: Overload:MakesCentsBackend.Services.DataAccessLayer.BudgetDAO.UpdateBudgetMonthAsync
+  href: MakesCentsBackend.Services.DataAccessLayer.BudgetDAO.html#MakesCentsBackend_Services_DataAccessLayer_BudgetDAO_UpdateBudgetMonthAsync_MakesCentsBackend_Models_EditBudgetMonthRequest_
+  name: UpdateBudgetMonthAsync
+  nameWithType: BudgetDAO.UpdateBudgetMonthAsync
+  fullName: MakesCentsBackend.Services.DataAccessLayer.BudgetDAO.UpdateBudgetMonthAsync
+- uid: MakesCentsBackend.Models.EditBudgetMonthRequest
+  commentId: T:MakesCentsBackend.Models.EditBudgetMonthRequest
+  parent: MakesCentsBackend.Models
+  href: MakesCentsBackend.Models.EditBudgetMonthRequest.html
+  name: EditBudgetMonthRequest
+  nameWithType: EditBudgetMonthRequest
+  fullName: MakesCentsBackend.Models.EditBudgetMonthRequest
 - uid: MakesCentsBackend.Services.DataAccessLayer.BudgetDAO.DeleteBudgetAsync*
   commentId: Overload:MakesCentsBackend.Services.DataAccessLayer.BudgetDAO.DeleteBudgetAsync
   href: MakesCentsBackend.Services.DataAccessLayer.BudgetDAO.html#MakesCentsBackend_Services_DataAccessLayer_BudgetDAO_DeleteBudgetAsync_MakesCentsBackend_Models_BaseIdRequest_
@@ -865,3 +1122,9 @@ references:
     name: BaseResponse
     href: MakesCentsBackend.Models.BaseResponse.html
   - name: )
+- uid: MakesCentsBackend.Services.DataAccessLayer.BudgetDAO.DeleteBudgetMonthAsync*
+  commentId: Overload:MakesCentsBackend.Services.DataAccessLayer.BudgetDAO.DeleteBudgetMonthAsync
+  href: MakesCentsBackend.Services.DataAccessLayer.BudgetDAO.html#MakesCentsBackend_Services_DataAccessLayer_BudgetDAO_DeleteBudgetMonthAsync_MakesCentsBackend_Models_BaseIdRequest_
+  name: DeleteBudgetMonthAsync
+  nameWithType: BudgetDAO.DeleteBudgetMonthAsync
+  fullName: MakesCentsBackend.Services.DataAccessLayer.BudgetDAO.DeleteBudgetMonthAsync

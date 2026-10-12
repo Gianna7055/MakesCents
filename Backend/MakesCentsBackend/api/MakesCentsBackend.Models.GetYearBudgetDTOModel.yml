@@ -6,7 +6,9 @@ items:
   parent: MakesCentsBackend.Models
   children:
   - MakesCentsBackend.Models.GetYearBudgetDTOModel.BudgetId
+  - MakesCentsBackend.Models.GetYearBudgetDTOModel.BudgetMonthId
   - MakesCentsBackend.Models.GetYearBudgetDTOModel.BudgetName
+  - MakesCentsBackend.Models.GetYearBudgetDTOModel.BudgetTemplateId
   - MakesCentsBackend.Models.GetYearBudgetDTOModel.Month
   - MakesCentsBackend.Models.GetYearBudgetDTOModel.UserId
   - MakesCentsBackend.Models.GetYearBudgetDTOModel.Year
@@ -24,7 +26,7 @@ items:
       repo: https://github.com/Gianna7055/MakesCents.git
     id: GetYearBudgetDTOModel
     path: Models/BudgetModels.cs
-    startLine: 147
+    startLine: 173
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Models
@@ -69,7 +71,7 @@ items:
       repo: https://github.com/Gianna7055/MakesCents.git
     id: BudgetId
     path: Models/BudgetModels.cs
-    startLine: 150
+    startLine: 176
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Models
@@ -80,6 +82,35 @@ items:
       type: System.Int32
     content.vb: Public Property BudgetId As Integer
   overload: MakesCentsBackend.Models.GetYearBudgetDTOModel.BudgetId*
+- uid: MakesCentsBackend.Models.GetYearBudgetDTOModel.BudgetMonthId
+  commentId: P:MakesCentsBackend.Models.GetYearBudgetDTOModel.BudgetMonthId
+  id: BudgetMonthId
+  parent: MakesCentsBackend.Models.GetYearBudgetDTOModel
+  langs:
+  - csharp
+  - vb
+  name: BudgetMonthId
+  nameWithType: GetYearBudgetDTOModel.BudgetMonthId
+  fullName: MakesCentsBackend.Models.GetYearBudgetDTOModel.BudgetMonthId
+  type: Property
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Models/BudgetModels.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: BudgetMonthId
+    path: Models/BudgetModels.cs
+    startLine: 179
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Models
+  syntax:
+    content: public int BudgetMonthId { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property BudgetMonthId As Integer
+  overload: MakesCentsBackend.Models.GetYearBudgetDTOModel.BudgetMonthId*
 - uid: MakesCentsBackend.Models.GetYearBudgetDTOModel.UserId
   commentId: P:MakesCentsBackend.Models.GetYearBudgetDTOModel.UserId
   id: UserId
@@ -98,7 +129,7 @@ items:
       repo: https://github.com/Gianna7055/MakesCents.git
     id: UserId
     path: Models/BudgetModels.cs
-    startLine: 151
+    startLine: 180
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Models
@@ -127,7 +158,7 @@ items:
       repo: https://github.com/Gianna7055/MakesCents.git
     id: Month
     path: Models/BudgetModels.cs
-    startLine: 152
+    startLine: 181
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Models
@@ -156,7 +187,7 @@ items:
       repo: https://github.com/Gianna7055/MakesCents.git
     id: Year
     path: Models/BudgetModels.cs
-    startLine: 153
+    startLine: 182
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Models
@@ -185,7 +216,7 @@ items:
       repo: https://github.com/Gianna7055/MakesCents.git
     id: BudgetName
     path: Models/BudgetModels.cs
-    startLine: 154
+    startLine: 183
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Models
@@ -196,6 +227,35 @@ items:
       type: System.String
     content.vb: Public Property BudgetName As String
   overload: MakesCentsBackend.Models.GetYearBudgetDTOModel.BudgetName*
+- uid: MakesCentsBackend.Models.GetYearBudgetDTOModel.BudgetTemplateId
+  commentId: P:MakesCentsBackend.Models.GetYearBudgetDTOModel.BudgetTemplateId
+  id: BudgetTemplateId
+  parent: MakesCentsBackend.Models.GetYearBudgetDTOModel
+  langs:
+  - csharp
+  - vb
+  name: BudgetTemplateId
+  nameWithType: GetYearBudgetDTOModel.BudgetTemplateId
+  fullName: MakesCentsBackend.Models.GetYearBudgetDTOModel.BudgetTemplateId
+  type: Property
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Models/BudgetModels.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: BudgetTemplateId
+    path: Models/BudgetModels.cs
+    startLine: 185
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Models
+  syntax:
+    content: public int? BudgetTemplateId { get; set; }
+    parameters: []
+    return:
+      type: System.Nullable{System.Int32}
+    content.vb: Public Property BudgetTemplateId As Integer?
+  overload: MakesCentsBackend.Models.GetYearBudgetDTOModel.BudgetTemplateId*
 references:
 - uid: MakesCentsBackend.Models
   commentId: N:MakesCentsBackend.Models
@@ -473,6 +533,12 @@ references:
   nameWithType.vb: Integer
   fullName.vb: Integer
   name.vb: Integer
+- uid: MakesCentsBackend.Models.GetYearBudgetDTOModel.BudgetMonthId*
+  commentId: Overload:MakesCentsBackend.Models.GetYearBudgetDTOModel.BudgetMonthId
+  href: MakesCentsBackend.Models.GetYearBudgetDTOModel.html#MakesCentsBackend_Models_GetYearBudgetDTOModel_BudgetMonthId
+  name: BudgetMonthId
+  nameWithType: GetYearBudgetDTOModel.BudgetMonthId
+  fullName: MakesCentsBackend.Models.GetYearBudgetDTOModel.BudgetMonthId
 - uid: MakesCentsBackend.Models.GetYearBudgetDTOModel.UserId*
   commentId: Overload:MakesCentsBackend.Models.GetYearBudgetDTOModel.UserId
   href: MakesCentsBackend.Models.GetYearBudgetDTOModel.html#MakesCentsBackend_Models_GetYearBudgetDTOModel_UserId
@@ -545,3 +611,60 @@ references:
   nameWithType.vb: String
   fullName.vb: String
   name.vb: String
+- uid: MakesCentsBackend.Models.GetYearBudgetDTOModel.BudgetTemplateId*
+  commentId: Overload:MakesCentsBackend.Models.GetYearBudgetDTOModel.BudgetTemplateId
+  href: MakesCentsBackend.Models.GetYearBudgetDTOModel.html#MakesCentsBackend_Models_GetYearBudgetDTOModel_BudgetTemplateId
+  name: BudgetTemplateId
+  nameWithType: GetYearBudgetDTOModel.BudgetTemplateId
+  fullName: MakesCentsBackend.Models.GetYearBudgetDTOModel.BudgetTemplateId
+- uid: System.Nullable{System.Int32}
+  commentId: T:System.Nullable{System.Int32}
+  parent: System
+  definition: System.Nullable`1
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int?
+  nameWithType: int?
+  fullName: int?
+  nameWithType.vb: Integer?
+  fullName.vb: Integer?
+  name.vb: Integer?
+  spec.csharp:
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '?'
+  spec.vb:
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '?'
+- uid: System.Nullable`1
+  commentId: T:System.Nullable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  name: Nullable<T>
+  nameWithType: Nullable<T>
+  fullName: System.Nullable<T>
+  nameWithType.vb: Nullable(Of T)
+  fullName.vb: System.Nullable(Of T)
+  name.vb: Nullable(Of T)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )

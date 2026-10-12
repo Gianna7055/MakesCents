@@ -6,7 +6,9 @@ items:
   parent: MakesCentsBackend.Models
   children:
   - MakesCentsBackend.Models.CreateTransferTransactionRequest.TransferFromId
+  - MakesCentsBackend.Models.CreateTransferTransactionRequest.TransferFromIsSinkingFund
   - MakesCentsBackend.Models.CreateTransferTransactionRequest.TransferToId
+  - MakesCentsBackend.Models.CreateTransferTransactionRequest.TransferToIsSinkingFund
   - MakesCentsBackend.Models.CreateTransferTransactionRequest.TransferTransactionType
   langs:
   - csharp
@@ -22,7 +24,7 @@ items:
       repo: https://github.com/Gianna7055/MakesCents.git
     id: CreateTransferTransactionRequest
     path: Models/TransferTransactionModels.cs
-    startLine: 27
+    startLine: 28
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Models
@@ -41,7 +43,7 @@ items:
   - System.Object
   - MakesCentsBackend.Models.CreateTransactionRequest
   inheritedMembers:
-  - MakesCentsBackend.Models.CreateTransactionRequest.BudgetId
+  - MakesCentsBackend.Models.CreateTransactionRequest.BudgetMonthId
   - MakesCentsBackend.Models.CreateTransactionRequest.UserId
   - MakesCentsBackend.Models.CreateTransactionRequest.TransactionId
   - MakesCentsBackend.Models.CreateTransactionRequest.TransactionDate
@@ -76,7 +78,7 @@ items:
       repo: https://github.com/Gianna7055/MakesCents.git
     id: TransferFromId
     path: Models/TransferTransactionModels.cs
-    startLine: 31
+    startLine: 32
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Models
@@ -105,7 +107,7 @@ items:
       repo: https://github.com/Gianna7055/MakesCents.git
     id: TransferToId
     path: Models/TransferTransactionModels.cs
-    startLine: 32
+    startLine: 33
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Models
@@ -134,7 +136,7 @@ items:
       repo: https://github.com/Gianna7055/MakesCents.git
     id: TransferTransactionType
     path: Models/TransferTransactionModels.cs
-    startLine: 33
+    startLine: 34
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Models
@@ -145,6 +147,64 @@ items:
       type: MakesCentsBackend.Models.Enums.TransferTransactionType
     content.vb: Public Property TransferTransactionType As TransferTransactionType
   overload: MakesCentsBackend.Models.CreateTransferTransactionRequest.TransferTransactionType*
+- uid: MakesCentsBackend.Models.CreateTransferTransactionRequest.TransferFromIsSinkingFund
+  commentId: P:MakesCentsBackend.Models.CreateTransferTransactionRequest.TransferFromIsSinkingFund
+  id: TransferFromIsSinkingFund
+  parent: MakesCentsBackend.Models.CreateTransferTransactionRequest
+  langs:
+  - csharp
+  - vb
+  name: TransferFromIsSinkingFund
+  nameWithType: CreateTransferTransactionRequest.TransferFromIsSinkingFund
+  fullName: MakesCentsBackend.Models.CreateTransferTransactionRequest.TransferFromIsSinkingFund
+  type: Property
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Models/TransferTransactionModels.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: TransferFromIsSinkingFund
+    path: Models/TransferTransactionModels.cs
+    startLine: 38
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Models
+  syntax:
+    content: public bool? TransferFromIsSinkingFund { get; set; }
+    parameters: []
+    return:
+      type: System.Nullable{System.Boolean}
+    content.vb: Public Property TransferFromIsSinkingFund As Boolean?
+  overload: MakesCentsBackend.Models.CreateTransferTransactionRequest.TransferFromIsSinkingFund*
+- uid: MakesCentsBackend.Models.CreateTransferTransactionRequest.TransferToIsSinkingFund
+  commentId: P:MakesCentsBackend.Models.CreateTransferTransactionRequest.TransferToIsSinkingFund
+  id: TransferToIsSinkingFund
+  parent: MakesCentsBackend.Models.CreateTransferTransactionRequest
+  langs:
+  - csharp
+  - vb
+  name: TransferToIsSinkingFund
+  nameWithType: CreateTransferTransactionRequest.TransferToIsSinkingFund
+  fullName: MakesCentsBackend.Models.CreateTransferTransactionRequest.TransferToIsSinkingFund
+  type: Property
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Models/TransferTransactionModels.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: TransferToIsSinkingFund
+    path: Models/TransferTransactionModels.cs
+    startLine: 39
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Models
+  syntax:
+    content: public bool? TransferToIsSinkingFund { get; set; }
+    parameters: []
+    return:
+      type: System.Nullable{System.Boolean}
+    content.vb: Public Property TransferToIsSinkingFund As Boolean?
+  overload: MakesCentsBackend.Models.CreateTransferTransactionRequest.TransferToIsSinkingFund*
 references:
 - uid: MakesCentsBackend.Models
   commentId: N:MakesCentsBackend.Models
@@ -186,13 +246,13 @@ references:
   name: CreateTransactionRequest
   nameWithType: CreateTransactionRequest
   fullName: MakesCentsBackend.Models.CreateTransactionRequest
-- uid: MakesCentsBackend.Models.CreateTransactionRequest.BudgetId
-  commentId: P:MakesCentsBackend.Models.CreateTransactionRequest.BudgetId
+- uid: MakesCentsBackend.Models.CreateTransactionRequest.BudgetMonthId
+  commentId: P:MakesCentsBackend.Models.CreateTransactionRequest.BudgetMonthId
   parent: MakesCentsBackend.Models.CreateTransactionRequest
-  href: MakesCentsBackend.Models.CreateTransactionRequest.html#MakesCentsBackend_Models_CreateTransactionRequest_BudgetId
-  name: BudgetId
-  nameWithType: CreateTransactionRequest.BudgetId
-  fullName: MakesCentsBackend.Models.CreateTransactionRequest.BudgetId
+  href: MakesCentsBackend.Models.CreateTransactionRequest.html#MakesCentsBackend_Models_CreateTransactionRequest_BudgetMonthId
+  name: BudgetMonthId
+  nameWithType: CreateTransactionRequest.BudgetMonthId
+  fullName: MakesCentsBackend.Models.CreateTransactionRequest.BudgetMonthId
 - uid: MakesCentsBackend.Models.CreateTransactionRequest.UserId
   commentId: P:MakesCentsBackend.Models.CreateTransactionRequest.UserId
   parent: MakesCentsBackend.Models.CreateTransactionRequest
@@ -520,3 +580,66 @@ references:
   - uid: MakesCentsBackend.Models.Enums
     name: Enums
     href: MakesCentsBackend.Models.Enums.html
+- uid: MakesCentsBackend.Models.CreateTransferTransactionRequest.TransferFromIsSinkingFund*
+  commentId: Overload:MakesCentsBackend.Models.CreateTransferTransactionRequest.TransferFromIsSinkingFund
+  href: MakesCentsBackend.Models.CreateTransferTransactionRequest.html#MakesCentsBackend_Models_CreateTransferTransactionRequest_TransferFromIsSinkingFund
+  name: TransferFromIsSinkingFund
+  nameWithType: CreateTransferTransactionRequest.TransferFromIsSinkingFund
+  fullName: MakesCentsBackend.Models.CreateTransferTransactionRequest.TransferFromIsSinkingFund
+- uid: System.Nullable{System.Boolean}
+  commentId: T:System.Nullable{System.Boolean}
+  parent: System
+  definition: System.Nullable`1
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool?
+  nameWithType: bool?
+  fullName: bool?
+  nameWithType.vb: Boolean?
+  fullName.vb: Boolean?
+  name.vb: Boolean?
+  spec.csharp:
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: '?'
+  spec.vb:
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: '?'
+- uid: System.Nullable`1
+  commentId: T:System.Nullable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  name: Nullable<T>
+  nameWithType: Nullable<T>
+  fullName: System.Nullable<T>
+  nameWithType.vb: Nullable(Of T)
+  fullName.vb: System.Nullable(Of T)
+  name.vb: Nullable(Of T)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: MakesCentsBackend.Models.CreateTransferTransactionRequest.TransferToIsSinkingFund*
+  commentId: Overload:MakesCentsBackend.Models.CreateTransferTransactionRequest.TransferToIsSinkingFund
+  href: MakesCentsBackend.Models.CreateTransferTransactionRequest.html#MakesCentsBackend_Models_CreateTransferTransactionRequest_TransferToIsSinkingFund
+  name: TransferToIsSinkingFund
+  nameWithType: CreateTransferTransactionRequest.TransferToIsSinkingFund
+  fullName: MakesCentsBackend.Models.CreateTransferTransactionRequest.TransferToIsSinkingFund

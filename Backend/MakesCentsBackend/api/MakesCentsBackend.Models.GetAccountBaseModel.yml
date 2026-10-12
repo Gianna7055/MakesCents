@@ -10,6 +10,7 @@ items:
   - MakesCentsBackend.Models.GetAccountBaseModel.AccountType
   - MakesCentsBackend.Models.GetAccountBaseModel.Balance
   - MakesCentsBackend.Models.GetAccountBaseModel.BudgetId
+  - MakesCentsBackend.Models.GetAccountBaseModel.Institution
   - MakesCentsBackend.Models.GetAccountBaseModel.UserId
   langs:
   - csharp
@@ -33,11 +34,11 @@ items:
   example: []
   syntax:
     content: >-
-      [ExportTsClass]
+      [ExportTsInterface]
 
       public class GetAccountBaseModel
     content.vb: >-
-      <ExportTsClass>
+      <ExportTsInterface>
 
       Public Class GetAccountBaseModel
   inheritance:
@@ -58,8 +59,8 @@ items:
   - System.Object.ReferenceEquals(System.Object,System.Object)
   - System.Object.ToString
   attributes:
-  - type: TypeGen.Core.TypeAnnotations.ExportTsClassAttribute
-    ctor: TypeGen.Core.TypeAnnotations.ExportTsClassAttribute.#ctor
+  - type: TypeGen.Core.TypeAnnotations.ExportTsInterfaceAttribute
+    ctor: TypeGen.Core.TypeAnnotations.ExportTsInterfaceAttribute.#ctor
     arguments: []
 - uid: MakesCentsBackend.Models.GetAccountBaseModel.AccountId
   commentId: P:MakesCentsBackend.Models.GetAccountBaseModel.AccountId
@@ -206,6 +207,35 @@ items:
       type: System.String
     content.vb: Public Property AccountName As String
   overload: MakesCentsBackend.Models.GetAccountBaseModel.AccountName*
+- uid: MakesCentsBackend.Models.GetAccountBaseModel.Institution
+  commentId: P:MakesCentsBackend.Models.GetAccountBaseModel.Institution
+  id: Institution
+  parent: MakesCentsBackend.Models.GetAccountBaseModel
+  langs:
+  - csharp
+  - vb
+  name: Institution
+  nameWithType: GetAccountBaseModel.Institution
+  fullName: MakesCentsBackend.Models.GetAccountBaseModel.Institution
+  type: Property
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Models/AccountModels.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: Institution
+    path: Models/AccountModels.cs
+    startLine: 124
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Models
+  syntax:
+    content: public string Institution { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Institution As String
+  overload: MakesCentsBackend.Models.GetAccountBaseModel.Institution*
 - uid: MakesCentsBackend.Models.GetAccountBaseModel.Balance
   commentId: P:MakesCentsBackend.Models.GetAccountBaseModel.Balance
   id: Balance
@@ -224,7 +254,7 @@ items:
       repo: https://github.com/Gianna7055/MakesCents.git
     id: Balance
     path: Models/AccountModels.cs
-    startLine: 124
+    startLine: 125
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Models
@@ -584,6 +614,12 @@ references:
   nameWithType.vb: String
   fullName.vb: String
   name.vb: String
+- uid: MakesCentsBackend.Models.GetAccountBaseModel.Institution*
+  commentId: Overload:MakesCentsBackend.Models.GetAccountBaseModel.Institution
+  href: MakesCentsBackend.Models.GetAccountBaseModel.html#MakesCentsBackend_Models_GetAccountBaseModel_Institution
+  name: Institution
+  nameWithType: GetAccountBaseModel.Institution
+  fullName: MakesCentsBackend.Models.GetAccountBaseModel.Institution
 - uid: MakesCentsBackend.Models.GetAccountBaseModel.Balance*
   commentId: Overload:MakesCentsBackend.Models.GetAccountBaseModel.Balance
   href: MakesCentsBackend.Models.GetAccountBaseModel.html#MakesCentsBackend_Models_GetAccountBaseModel_Balance

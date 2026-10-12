@@ -1,0 +1,878 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Namespace MakesCentsBackend.Models | MakesCents </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Namespace MakesCentsBackend.Models | MakesCents ">
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="MakesCents">
+            MakesCents
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="MakesCentsBackend.Models">
+
+  <h1 id="MakesCentsBackend_Models" data-uid="MakesCentsBackend.Models" class="text-break">Namespace MakesCentsBackend.Models</h1>
+  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="markdown level0 remarks"></div>
+
+    <h3 id="classes">
+Classes
+</h3>
+    <dl class="jumplist">
+      <dt><a class="xref" href="MakesCentsBackend.Models.AccountEntityModel.html">AccountEntityModel</a></dt>
+      <dd><p>Model for an abstract account</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="MakesCentsBackend.Models.ApplyBudgetTemplateRequest.html">ApplyBudgetTemplateRequest</a></dt>
+      <dd><p>Request model to apply a template to a budget month, bulk-creating/updating that
+month's envelope funding queue from the template's entries</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="MakesCentsBackend.Models.BankAccountEntityModel.html">BankAccountEntityModel</a></dt>
+      <dd><p>Model for a bank account</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="MakesCentsBackend.Models.BankAccountSummaryDTOModel.html">BankAccountSummaryDTOModel</a></dt>
+      <dd><p>DTO model for getting all accounts</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="MakesCentsBackend.Models.BaseIdRequest.html">BaseIdRequest</a></dt>
+      <dd></dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="MakesCentsBackend.Models.BaseIdResponse.html">BaseIdResponse</a></dt>
+      <dd><p>Base Response for a create or edit function</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="MakesCentsBackend.Models.BaseResponse.html">BaseResponse</a></dt>
+      <dd><p>A base response model with only a status and message</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="MakesCentsBackend.Models.BudgetEntityModel.html">BudgetEntityModel</a></dt>
+      <dd><p>Entity model for a budget</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="MakesCentsBackend.Models.BudgetTemplateEntityModel.html">BudgetTemplateEntityModel</a></dt>
+      <dd><p>Model for a budget template - a named, reusable preset of envelope funding amounts
+(e.g. &quot;Summer&quot;, &quot;Holiday&quot;) that can be applied to a budget month to bulk-create its
+funding queue. Templates aren't tied to any specific month - their envelope entries
+reference persistent envelopes, not a month's instance of one.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="MakesCentsBackend.Models.BudgetTemplateEnvelopeLookupModel.html">BudgetTemplateEnvelopeLookupModel</a></dt>
+      <dd><p>Internal helper: one template envelope entry as read back for applying it to a month -
+not exposed to the API directly.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="MakesCentsBackend.Models.CreateAccountRequest.html">CreateAccountRequest</a></dt>
+      <dd></dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="MakesCentsBackend.Models.CreateAccountResponse.html">CreateAccountResponse</a></dt>
+      <dd><p>Response model for an account</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="MakesCentsBackend.Models.CreateBankAccountRequest.html">CreateBankAccountRequest</a></dt>
+      <dd><p>Request model for creating a bank account model</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="MakesCentsBackend.Models.CreateBankAccountResponse.html">CreateBankAccountResponse</a></dt>
+      <dd><p>Response model for creating a bank account</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="MakesCentsBackend.Models.CreateBudgetMonthRequest.html">CreateBudgetMonthRequest</a></dt>
+      <dd><p>Request model for creating a new month under an existing persistent budget</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="MakesCentsBackend.Models.CreateBudgetRequest.html">CreateBudgetRequest</a></dt>
+      <dd><p>Request model for creating the persistent budget entity (no month yet - see CreateBudgetMonthRequest)</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="MakesCentsBackend.Models.CreateBudgetTemplateRequest.html">CreateBudgetTemplateRequest</a></dt>
+      <dd><p>Request model to create a budget template. No envelopes here yet - use
+SetBudgetTemplateEnvelopesRequest to add/edit its entries afterward.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="MakesCentsBackend.Models.CreateDebtAccountRequest.html">CreateDebtAccountRequest</a></dt>
+      <dd><p>Request model for creating a debt account model</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="MakesCentsBackend.Models.CreateDebtAccountResponse.html">CreateDebtAccountResponse</a></dt>
+      <dd><p>Response model for creating a debt account</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="MakesCentsBackend.Models.CreateEnvelopeCategoryRequest.html">CreateEnvelopeCategoryRequest</a></dt>
+      <dd><p>Request model for creating an envelope category</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="MakesCentsBackend.Models.CreateInvestmentAccountRequest.html">CreateInvestmentAccountRequest</a></dt>
+      <dd><p>Request model to create an investment account</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="MakesCentsBackend.Models.CreateInvestmentAccountResponse.html">CreateInvestmentAccountResponse</a></dt>
+      <dd><p>Response model for creating an investment account</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="MakesCentsBackend.Models.CreatePaycheckRequest.html">CreatePaycheckRequest</a></dt>
+      <dd><p>Request model to create a paycheck</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="MakesCentsBackend.Models.CreatePaymentTransactionRequest.html">CreatePaymentTransactionRequest</a></dt>
+      <dd><p>Request model to create a new payment transaction</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="MakesCentsBackend.Models.CreatePaymentTransactionResponse.html">CreatePaymentTransactionResponse</a></dt>
+      <dd><p>Response model for creating a payment transaction</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="MakesCentsBackend.Models.CreateRolloverEnvelopeRequest.html">CreateRolloverEnvelopeRequest</a></dt>
+      <dd><p>Request class for creating a rollover envelope's persistent definition</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="MakesCentsBackend.Models.CreateSinkingFundEnvelopeRequest.html">CreateSinkingFundEnvelopeRequest</a></dt>
+      <dd><p>Request class for creating a sinking fund envelope</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="MakesCentsBackend.Models.CreateTransactionRequest.html">CreateTransactionRequest</a></dt>
+      <dd><p>Request model to create a new transaction</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="MakesCentsBackend.Models.CreateTransactionSplitRequest.html">CreateTransactionSplitRequest</a></dt>
+      <dd><p>Request model for creating a new transaction split</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="MakesCentsBackend.Models.CreateTransferTransactionRequest.html">CreateTransferTransactionRequest</a></dt>
+      <dd><p>Request model to create a new transfer transaction</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="MakesCentsBackend.Models.CreateTransferTransactionResponse.html">CreateTransferTransactionResponse</a></dt>
+      <dd></dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="MakesCentsBackend.Models.DebtAccountEntityModel.html">DebtAccountEntityModel</a></dt>
+      <dd><p>Model for a debt account</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="MakesCentsBackend.Models.DebtAccountSummaryDTOModel.html">DebtAccountSummaryDTOModel</a></dt>
+      <dd></dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="MakesCentsBackend.Models.EditBudgetMonthRequest.html">EditBudgetMonthRequest</a></dt>
+      <dd><p>Request model for updating a specific budget month's month/year
+(e.g. correcting a month created under the wrong month/year)</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="MakesCentsBackend.Models.EditBudgetRequest.html">EditBudgetRequest</a></dt>
+      <dd><p>Request model for updating a budget's persistent fields (currently just the name)</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="MakesCentsBackend.Models.EditBudgetTemplateRequest.html">EditBudgetTemplateRequest</a></dt>
+      <dd><p>Request model to rename a budget template</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="MakesCentsBackend.Models.EditEnvelopeCategoryRequest.html">EditEnvelopeCategoryRequest</a></dt>
+      <dd><p>Request model for editing an envelope category</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="MakesCentsBackend.Models.EditUserRequest.html">EditUserRequest</a></dt>
+      <dd><p>Request model for editing a user</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="MakesCentsBackend.Models.EnvelopeCategoryEntityModel.html">EnvelopeCategoryEntityModel</a></dt>
+      <dd><p>Model for an envelope category</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="MakesCentsBackend.Models.EnvelopeFundingEntityModel.html">EnvelopeFundingEntityModel</a></dt>
+      <dd><p>Model for a single envelope funding row - one envelope's planned funding amount and
+priority order for a specific budget month. This is a plan, not a money movement -
+actual money still moves into envelopes via transactions.
+EnvelopeId is a display/API-level id - IsSinkingFund says whether it refers to a
+sinking_fund_envelope_id or the persistent rollover_envelope_id (not the month-specific
+rollover_envelope_month_id, which is an internal DAO detail).</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="MakesCentsBackend.Models.FindUserResponse.html">FindUserResponse</a></dt>
+      <dd></dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="MakesCentsBackend.Models.GetAccountBaseModel.html">GetAccountBaseModel</a></dt>
+      <dd><p>Base class for getting a specific account</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="MakesCentsBackend.Models.GetAllAccountsResponse.html">GetAllAccountsResponse</a></dt>
+      <dd><p>Response model for getting all accounts</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="MakesCentsBackend.Models.GetAllBudgetTemplatesResponse.html">GetAllBudgetTemplatesResponse</a></dt>
+      <dd></dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="MakesCentsBackend.Models.GetAllEnvelopeCategoriesResponse.html">GetAllEnvelopeCategoriesResponse</a></dt>
+      <dd><p>Response model for getting all envelope categories</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="MakesCentsBackend.Models.GetAllPaychecksResponse.html">GetAllPaychecksResponse</a></dt>
+      <dd></dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="MakesCentsBackend.Models.GetAllTransactionsDTOResponse.html">GetAllTransactionsDTOResponse</a></dt>
+      <dd></dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="MakesCentsBackend.Models.GetAllTransactionsEntityResponse.html">GetAllTransactionsEntityResponse</a></dt>
+      <dd></dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="MakesCentsBackend.Models.GetBankAccountDTOModel.html">GetBankAccountDTOModel</a></dt>
+      <dd><p>DTO model to get a specific bank account</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="MakesCentsBackend.Models.GetBankAccountDTOResponse.html">GetBankAccountDTOResponse</a></dt>
+      <dd><p>Response model for getting a specific bank account</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="MakesCentsBackend.Models.GetBankAccountEntityModel.html">GetBankAccountEntityModel</a></dt>
+      <dd><p>Entity model to get a specific bank account</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="MakesCentsBackend.Models.GetBankAccountEntityResponse.html">GetBankAccountEntityResponse</a></dt>
+      <dd><p>Response model for getting a specific bank account</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="MakesCentsBackend.Models.GetBudgetMonthDTOModel.html">GetBudgetMonthDTOModel</a></dt>
+      <dd><p>DTO model for sending a budget month to the API</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="MakesCentsBackend.Models.GetBudgetMonthResponse.html">GetBudgetMonthResponse</a></dt>
+      <dd><p>Response model for getting a budget month</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="MakesCentsBackend.Models.GetBudgetRequest.html">GetBudgetRequest</a></dt>
+      <dd><p>Shared lookup key: a user id plus a year/month anchor point. Used both to fetch a single
+budget month (GetBudgetMonthAsync) and as the anchor for a rolling 12-month range
+(GetYearBudgetsAsync) - not itself a response, just the query key for both.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="MakesCentsBackend.Models.GetBudgetTemplateDTOModel.html">GetBudgetTemplateDTOModel</a></dt>
+      <dd></dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="MakesCentsBackend.Models.GetBudgetTemplateEnvelopeDTOModel.html">GetBudgetTemplateEnvelopeDTOModel</a></dt>
+      <dd><p>Model for a single envelope entry within a budget template.
+EnvelopeId is a display/API-level id - IsSinkingFund says whether it refers to a
+sinking_fund_envelope_id or the persistent rollover_envelope_id.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="MakesCentsBackend.Models.GetBudgetTemplateResponse.html">GetBudgetTemplateResponse</a></dt>
+      <dd></dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="MakesCentsBackend.Models.GetDebtAccountDTOModel.html">GetDebtAccountDTOModel</a></dt>
+      <dd><p>DTO model to get a specific debt account</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="MakesCentsBackend.Models.GetDebtAccountDTOResponse.html">GetDebtAccountDTOResponse</a></dt>
+      <dd><p>Response model for getting a specific debt account</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="MakesCentsBackend.Models.GetDebtAccountEntityModel.html">GetDebtAccountEntityModel</a></dt>
+      <dd><p>Entity model to get a specific debt account</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="MakesCentsBackend.Models.GetDebtAccountEntityResponse.html">GetDebtAccountEntityResponse</a></dt>
+      <dd><p>Response model for getting a specific debt account</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="MakesCentsBackend.Models.GetEnvelopeCategoryDTOModel.html">GetEnvelopeCategoryDTOModel</a></dt>
+      <dd></dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="MakesCentsBackend.Models.GetEnvelopeCategoryResponse.html">GetEnvelopeCategoryResponse</a></dt>
+      <dd></dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="MakesCentsBackend.Models.GetEnvelopeFundingDTOModel.html">GetEnvelopeFundingDTOModel</a></dt>
+      <dd><p>DTO model for a single envelope funding row</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="MakesCentsBackend.Models.GetEnvelopeFundingQueueResponse.html">GetEnvelopeFundingQueueResponse</a></dt>
+      <dd><p>Response model for a budget month's funding queue, in priority order</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="MakesCentsBackend.Models.GetInvestmentAccountDTOModel.html">GetInvestmentAccountDTOModel</a></dt>
+      <dd><p>DTO model to get a specific investment account</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="MakesCentsBackend.Models.GetInvestmentAccountDTOResponse.html">GetInvestmentAccountDTOResponse</a></dt>
+      <dd><p>Response model for getting a specific investment account</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="MakesCentsBackend.Models.GetInvestmentAccountEntityModel.html">GetInvestmentAccountEntityModel</a></dt>
+      <dd><p>Entity model to get a specific investment account</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="MakesCentsBackend.Models.GetInvestmentAccountEntityResponse.html">GetInvestmentAccountEntityResponse</a></dt>
+      <dd><p>Response model for getting a specific investment account</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="MakesCentsBackend.Models.GetPaycheckDTOModel.html">GetPaycheckDTOModel</a></dt>
+      <dd></dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="MakesCentsBackend.Models.GetPaycheckResponse.html">GetPaycheckResponse</a></dt>
+      <dd></dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="MakesCentsBackend.Models.GetPaymentTransactionDTOModel.html">GetPaymentTransactionDTOModel</a></dt>
+      <dd></dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="MakesCentsBackend.Models.GetPaymentTransactionResponse.html">GetPaymentTransactionResponse</a></dt>
+      <dd></dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="MakesCentsBackend.Models.GetRolloverEnvelopeBaseModel.html">GetRolloverEnvelopeBaseModel</a></dt>
+      <dd><p>Base fields returned for a rollover envelope in the context of one budget month.
+RemainingAmount/RolloverEnvelopeMonthId are null if not yet activated for that month.
+Planned funding for the month lives on envelope_funding, not here.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="MakesCentsBackend.Models.GetRolloverEnvelopeDTOModel.html">GetRolloverEnvelopeDTOModel</a></dt>
+      <dd><p>DTO model to get a specific rollover envelope for a given month</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="MakesCentsBackend.Models.GetRolloverEnvelopeDTOResponse.html">GetRolloverEnvelopeDTOResponse</a></dt>
+      <dd><p>Response model for getting a specific rollover envelope</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="MakesCentsBackend.Models.GetRolloverEnvelopeEntityModel.html">GetRolloverEnvelopeEntityModel</a></dt>
+      <dd><p>Entity model for getting a specific rollover envelope</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="MakesCentsBackend.Models.GetRolloverEnvelopeEntityResponse.html">GetRolloverEnvelopeEntityResponse</a></dt>
+      <dd><p>Entity response model for getting a specific rollover envelope</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="MakesCentsBackend.Models.GetRolloverEnvelopeMonthRequest.html">GetRolloverEnvelopeMonthRequest</a></dt>
+      <dd><p>Request used to look up a rollover envelope in the context of one specific budget month.
+Built server-side from the route/JWT, same as BaseIdRequest - not sent by the client directly.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="MakesCentsBackend.Models.GetSinkingFundDependentsResponse.html">GetSinkingFundDependentsResponse</a></dt>
+      <dd><p>Response model for the rollover envelopes that use a sinking fund as their transfer target</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="MakesCentsBackend.Models.GetSinkingFundEnvelopeBaseModel.html">GetSinkingFundEnvelopeBaseModel</a></dt>
+      <dd><p>Base fields returned for a sinking fund envelope</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="MakesCentsBackend.Models.GetSinkingFundEnvelopeDTOModel.html">GetSinkingFundEnvelopeDTOModel</a></dt>
+      <dd><p>DTO model to get a specific sinking fund envelope</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="MakesCentsBackend.Models.GetSinkingFundEnvelopeDTOResponse.html">GetSinkingFundEnvelopeDTOResponse</a></dt>
+      <dd><p>Response model for getting a specific sinking fund envelope</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="MakesCentsBackend.Models.GetSinkingFundEnvelopeEntityModel.html">GetSinkingFundEnvelopeEntityModel</a></dt>
+      <dd><p>Entity model for getting a specific sinking fund envelope</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="MakesCentsBackend.Models.GetSinkingFundEnvelopeEntityResponse.html">GetSinkingFundEnvelopeEntityResponse</a></dt>
+      <dd><p>Entity response model for getting a specific sinking fund envelope</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="MakesCentsBackend.Models.GetTransactionDTOModel.html">GetTransactionDTOModel</a></dt>
+      <dd></dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="MakesCentsBackend.Models.GetTransactionEntityModel.html">GetTransactionEntityModel</a></dt>
+      <dd></dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="MakesCentsBackend.Models.GetTransactionSplitDTOModel.html">GetTransactionSplitDTOModel</a></dt>
+      <dd></dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="MakesCentsBackend.Models.GetTransferTransactionDTOModel.html">GetTransferTransactionDTOModel</a></dt>
+      <dd></dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="MakesCentsBackend.Models.GetTransferTransactionDTOResponse.html">GetTransferTransactionDTOResponse</a></dt>
+      <dd></dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="MakesCentsBackend.Models.GetTransferTransactionEntityModel.html">GetTransferTransactionEntityModel</a></dt>
+      <dd><p>Entity model for a specific transfer transaction. TransferFromEnvelopeId/ToEnvelopeId and
+their IsSinkingFund flags are only populated (via a follow-up transaction_split lookup) when
+TransferTransactionType is Envelope - they aren't columns on transfer_transaction itself.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="MakesCentsBackend.Models.GetTransferTransactionEntityResponse.html">GetTransferTransactionEntityResponse</a></dt>
+      <dd></dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="MakesCentsBackend.Models.GetUserBudgetsResponse.html">GetUserBudgetsResponse</a></dt>
+      <dd><p>Response model for every budget a user has access to</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="MakesCentsBackend.Models.GetUserDTOModel.html">GetUserDTOModel</a></dt>
+      <dd><p>DTO model for getting a user</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="MakesCentsBackend.Models.GetUserResponse.html">GetUserResponse</a></dt>
+      <dd></dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="MakesCentsBackend.Models.GetYearBudgetDTOModel.html">GetYearBudgetDTOModel</a></dt>
+      <dd></dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="MakesCentsBackend.Models.GetYearBudgetsResponse.html">GetYearBudgetsResponse</a></dt>
+      <dd></dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="MakesCentsBackend.Models.InvestmentAccountEntityModel.html">InvestmentAccountEntityModel</a></dt>
+      <dd><p>Model for an investment account</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="MakesCentsBackend.Models.InvestmentAccountSummaryDTOModel.html">InvestmentAccountSummaryDTOModel</a></dt>
+      <dd></dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="MakesCentsBackend.Models.LoginRequest.html">LoginRequest</a></dt>
+      <dd><p>Request model for a user</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="MakesCentsBackend.Models.LoginResponse.html">LoginResponse</a></dt>
+      <dd><p>Response model for the login process</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="MakesCentsBackend.Models.PaycheckEntityModel.html">PaycheckEntityModel</a></dt>
+      <dd><p>Model for a paycheck. Forecast-only - a paycheck no longer funds envelopes directly
+(see envelope_funding for that) and isn't tied to any specific month. It exists purely
+to represent expected income on a recurring schedule.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="MakesCentsBackend.Models.PaymentTransactionEntityModel.html">PaymentTransactionEntityModel</a></dt>
+      <dd><p>Model for a payment transaction</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="MakesCentsBackend.Models.PaymentTransactionSnapshotModel.html">PaymentTransactionSnapshotModel</a></dt>
+      <dd><p>Internal helper: the current account_id/total_amount/budget_month_id for a payment
+transaction, read before an update is applied so the old account-balance effect can be
+reversed and the new one applied cleanly.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="MakesCentsBackend.Models.RegisterRequest.html">RegisterRequest</a></dt>
+      <dd></dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="MakesCentsBackend.Models.RegisterResponse.html">RegisterResponse</a></dt>
+      <dd><p>Response model for registration</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="MakesCentsBackend.Models.RolloverEnvelopeDependentModel.html">RolloverEnvelopeDependentModel</a></dt>
+      <dd><p>A rollover envelope that sweeps into a given sinking fund envelope</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="MakesCentsBackend.Models.RolloverEnvelopeEntityModel.html">RolloverEnvelopeEntityModel</a></dt>
+      <dd><p>Model for a rollover envelope's persistent definition.
+No dollar amounts live here - a rollover envelope isn't guaranteed to be active
+every month, so amounts live on the per-month instance (see RolloverEnvelopeMonthEntityModel).</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="MakesCentsBackend.Models.RolloverEnvelopeMonthEntityModel.html">RolloverEnvelopeMonthEntityModel</a></dt>
+      <dd><p>Model for a single month's instance of a rollover envelope.
+Absence of a row for a given (RolloverEnvelopeId, BudgetMonthId) pair means
+the envelope was inactive that month.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="MakesCentsBackend.Models.SetBudgetTemplateEnvelopeItemRequest.html">SetBudgetTemplateEnvelopeItemRequest</a></dt>
+      <dd><p>Request model for a single item within a template's envelope list being set.
+BudgetTemplateEnvelopeId is null for a brand new entry, or the existing entry's id
+to update it in place.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="MakesCentsBackend.Models.SetBudgetTemplateEnvelopesRequest.html">SetBudgetTemplateEnvelopesRequest</a></dt>
+      <dd><p>Request model to set (create/reorder/update/remove all at once) a template's envelope
+entries. The list's order is the funding priority for whenever this template is applied.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="MakesCentsBackend.Models.SetEnvelopeFundingItemRequest.html">SetEnvelopeFundingItemRequest</a></dt>
+      <dd><p>Request model for a single item within a funding queue being set. EnvelopeFundingId is
+null for a brand new row, or the existing row's id to update it in place.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="MakesCentsBackend.Models.SetEnvelopeFundingQueueRequest.html">SetEnvelopeFundingQueueRequest</a></dt>
+      <dd><p>Request model to set (create/reorder/update/remove all at once) the funding queue for a
+budget month. The list's order is the funding priority - item 0 is funded first.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="MakesCentsBackend.Models.SinkingFundEnvelopeEntityModel.html">SinkingFundEnvelopeEntityModel</a></dt>
+      <dd><p>Model for a sinking fund envelope.
+Sinking fund envelopes are persistent - one row holds a live remaining_amount
+that carries forward month to month, unlike rollover envelopes.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="MakesCentsBackend.Models.SummaryAccountDTOModel.html">SummaryAccountDTOModel</a></dt>
+      <dd></dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="MakesCentsBackend.Models.SummaryBudgetResponse.html">SummaryBudgetResponse</a></dt>
+      <dd><p>Response model for a single budget in a user's budget list - just enough to let them
+pick which one to open, before any month/id is known.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="MakesCentsBackend.Models.SummaryBudgetTemplateResponse.html">SummaryBudgetTemplateResponse</a></dt>
+      <dd><p>Response model for a single template in a budget's template list</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="MakesCentsBackend.Models.SummaryEnvelopeCategoryResponse.html">SummaryEnvelopeCategoryResponse</a></dt>
+      <dd><p>Response model for an envelope category for the Get Budget method</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="MakesCentsBackend.Models.SummaryEnvelopeResponse.html">SummaryEnvelopeResponse</a></dt>
+      <dd><p>Response model for a single envelope for the Get Budget method.
+Sinking fund and rollover envelopes come from two different tables with two different
+id spaces, so IsSinkingFund tells the frontend which table EnvelopeId belongs to (same
+pattern SummaryAccountDTOModel uses to distinguish bank/debt/investment accounts).
+RemainingAmount is nullable because a rollover envelope may not be activated for the
+month being viewed.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="MakesCentsBackend.Models.SummaryPaycheckResponse.html">SummaryPaycheckResponse</a></dt>
+      <dd></dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="MakesCentsBackend.Models.SummaryTransactionDTOModel.html">SummaryTransactionDTOModel</a></dt>
+      <dd></dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="MakesCentsBackend.Models.SummaryTransactionEntityModel.html">SummaryTransactionEntityModel</a></dt>
+      <dd></dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="MakesCentsBackend.Models.TransactionEffectSnapshotModel.html">TransactionEffectSnapshotModel</a></dt>
+      <dd><p>Internal helper: what a transaction currently does to account balances, plus whether it is
+soft-deleted. Used by the delete/restore methods to reverse or re-apply its effect.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="MakesCentsBackend.Models.TransactionEntityModel.html">TransactionEntityModel</a></dt>
+      <dd><p>Model for an abstract transaction</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="MakesCentsBackend.Models.TransactionSplitEntityModel.html">TransactionSplitEntityModel</a></dt>
+      <dd><p>Model for a transaction split model.
+EnvelopeId is a display/API-level id - IsSinkingFund says whether it refers to a
+sinking_fund_envelope_id or the persistent rollover_envelope_id (not the month-specific
+rollover_envelope_month_id, which is an internal DAO detail).</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="MakesCentsBackend.Models.TransactionSplitSnapshotModel.html">TransactionSplitSnapshotModel</a></dt>
+      <dd><p>Internal helper: the raw current state of one transaction_split row, used to reverse its
+old effect on an envelope's remaining amount before an update applies the new one.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="MakesCentsBackend.Models.TransactionSplitTransferSideModel.html">TransactionSplitTransferSideModel</a></dt>
+      <dd><p>Internal helper for reading one side of an envelope-to-envelope transfer back out of
+transaction_split (used by TransferTransactionDAO/TransactionDAO, not exposed to the API).</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="MakesCentsBackend.Models.TransferTransactionEntityModel.html">TransferTransactionEntityModel</a></dt>
+      <dd><p>Model for a transfer transaction.
+v3's transfer_transaction table only carries account columns - an envelope-to-envelope
+transfer is a transfer_transaction row of type Envelope with null account columns, paired
+with two opposite-signed transaction_split rows that carry the actual envelope references.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="MakesCentsBackend.Models.TransferTransactionSnapshotModel.html">TransferTransactionSnapshotModel</a></dt>
+      <dd><p>Internal helper: the current type/accounts/total_amount/budget_month_id for a transfer
+transaction, read before an update is applied so the old effect (account balances or
+envelope remaining amounts, depending on type) can be reversed and the new one applied.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="MakesCentsBackend.Models.UpdateAccountRequest.html">UpdateAccountRequest</a></dt>
+      <dd></dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="MakesCentsBackend.Models.UpdateBankAccountRequest.html">UpdateBankAccountRequest</a></dt>
+      <dd></dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="MakesCentsBackend.Models.UpdateDebtAccountRequest.html">UpdateDebtAccountRequest</a></dt>
+      <dd></dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="MakesCentsBackend.Models.UpdateInvestmentAccountRequest.html">UpdateInvestmentAccountRequest</a></dt>
+      <dd></dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="MakesCentsBackend.Models.UpdatePaycheckRequest.html">UpdatePaycheckRequest</a></dt>
+      <dd></dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="MakesCentsBackend.Models.UpdatePaymentTransactionRequest.html">UpdatePaymentTransactionRequest</a></dt>
+      <dd></dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="MakesCentsBackend.Models.UpdatePaymentTransactionResponse.html">UpdatePaymentTransactionResponse</a></dt>
+      <dd></dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="MakesCentsBackend.Models.UpdateRolloverEnvelopeRequest.html">UpdateRolloverEnvelopeRequest</a></dt>
+      <dd><p>Request class for updating a rollover envelope's persistent definition</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="MakesCentsBackend.Models.UpdateSinkingFundEnvelopeRequest.html">UpdateSinkingFundEnvelopeRequest</a></dt>
+      <dd><p>Request class for updating a sinking fund envelope</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="MakesCentsBackend.Models.UpdateTransactionRequest.html">UpdateTransactionRequest</a></dt>
+      <dd></dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="MakesCentsBackend.Models.UpdateTransactionSplitRequest.html">UpdateTransactionSplitRequest</a></dt>
+      <dd></dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="MakesCentsBackend.Models.UpdateTransferTransactionRequest.html">UpdateTransferTransactionRequest</a></dt>
+      <dd></dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="MakesCentsBackend.Models.UserDTOModel.html">UserDTOModel</a></dt>
+      <dd><p>Model for a user</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="MakesCentsBackend.Models.UserDTOResponse.html">UserDTOResponse</a></dt>
+      <dd><p>Response model for a DTO user</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="MakesCentsBackend.Models.UserEntityModel.html">UserEntityModel</a></dt>
+      <dd><p>Model for a user</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="MakesCentsBackend.Models.UserEntityResponse.html">UserEntityResponse</a></dt>
+      <dd><p>Response model for an entity user</p>
+</dd>
+    </dl>
+    <h3 id="structs">
+Structs
+</h3>
+    <dl class="jumplist">
+      <dt><a class="xref" href="MakesCentsBackend.Models.Optional-1.html">Optional&lt;T&gt;</a></dt>
+      <dd><p>Optional class for creating and updating nulls</p>
+</dd>
+    </dl>
+    <h3 id="interfaces">
+Interfaces
+</h3>
+    <dl class="jumplist">
+      <dt><a class="xref" href="MakesCentsBackend.Models.IOptional.html">IOptional</a></dt>
+      <dd></dd>
+    </dl>
+
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

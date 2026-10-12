@@ -5,7 +5,7 @@ items:
   id: CreateTransactionRequest
   parent: MakesCentsBackend.Models
   children:
-  - MakesCentsBackend.Models.CreateTransactionRequest.BudgetId
+  - MakesCentsBackend.Models.CreateTransactionRequest.BudgetMonthId
   - MakesCentsBackend.Models.CreateTransactionRequest.Notes
   - MakesCentsBackend.Models.CreateTransactionRequest.TotalAmount
   - MakesCentsBackend.Models.CreateTransactionRequest.TransactionDate
@@ -57,35 +57,35 @@ items:
   - type: TypeGen.Core.TypeAnnotations.ExportTsClassAttribute
     ctor: TypeGen.Core.TypeAnnotations.ExportTsClassAttribute.#ctor
     arguments: []
-- uid: MakesCentsBackend.Models.CreateTransactionRequest.BudgetId
-  commentId: P:MakesCentsBackend.Models.CreateTransactionRequest.BudgetId
-  id: BudgetId
+- uid: MakesCentsBackend.Models.CreateTransactionRequest.BudgetMonthId
+  commentId: P:MakesCentsBackend.Models.CreateTransactionRequest.BudgetMonthId
+  id: BudgetMonthId
   parent: MakesCentsBackend.Models.CreateTransactionRequest
   langs:
   - csharp
   - vb
-  name: BudgetId
-  nameWithType: CreateTransactionRequest.BudgetId
-  fullName: MakesCentsBackend.Models.CreateTransactionRequest.BudgetId
+  name: BudgetMonthId
+  nameWithType: CreateTransactionRequest.BudgetMonthId
+  fullName: MakesCentsBackend.Models.CreateTransactionRequest.BudgetMonthId
   type: Property
   source:
     remote:
       path: Backend/MakesCentsBackend/Models/TransactionModels.cs
       branch: master
       repo: https://github.com/Gianna7055/MakesCents.git
-    id: BudgetId
+    id: BudgetMonthId
     path: Models/TransactionModels.cs
     startLine: 71
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Models
   syntax:
-    content: public int BudgetId { get; set; }
+    content: public int BudgetMonthId { get; set; }
     parameters: []
     return:
       type: System.Int32
-    content.vb: Public Property BudgetId As Integer
-  overload: MakesCentsBackend.Models.CreateTransactionRequest.BudgetId*
+    content.vb: Public Property BudgetMonthId As Integer
+  overload: MakesCentsBackend.Models.CreateTransactionRequest.BudgetMonthId*
 - uid: MakesCentsBackend.Models.CreateTransactionRequest.UserId
   commentId: P:MakesCentsBackend.Models.CreateTransactionRequest.UserId
   id: UserId
@@ -491,12 +491,12 @@ references:
   name: System
   nameWithType: System
   fullName: System
-- uid: MakesCentsBackend.Models.CreateTransactionRequest.BudgetId*
-  commentId: Overload:MakesCentsBackend.Models.CreateTransactionRequest.BudgetId
-  href: MakesCentsBackend.Models.CreateTransactionRequest.html#MakesCentsBackend_Models_CreateTransactionRequest_BudgetId
-  name: BudgetId
-  nameWithType: CreateTransactionRequest.BudgetId
-  fullName: MakesCentsBackend.Models.CreateTransactionRequest.BudgetId
+- uid: MakesCentsBackend.Models.CreateTransactionRequest.BudgetMonthId*
+  commentId: Overload:MakesCentsBackend.Models.CreateTransactionRequest.BudgetMonthId
+  href: MakesCentsBackend.Models.CreateTransactionRequest.html#MakesCentsBackend_Models_CreateTransactionRequest_BudgetMonthId
+  name: BudgetMonthId
+  nameWithType: CreateTransactionRequest.BudgetMonthId
+  fullName: MakesCentsBackend.Models.CreateTransactionRequest.BudgetMonthId
 - uid: System.Int32
   commentId: T:System.Int32
   parent: System

@@ -25,7 +25,7 @@ items:
       repo: https://github.com/Gianna7055/MakesCents.git
     id: PaycheckLogic
     path: Services/BusinessLogicLayer/PaycheckLogic.cs
-    startLine: 12
+    startLine: 11
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Services.BusinessLogicLayer
@@ -60,7 +60,7 @@ items:
       repo: https://github.com/Gianna7055/MakesCents.git
     id: .ctor
     path: Services/BusinessLogicLayer/PaycheckLogic.cs
-    startLine: 21
+    startLine: 20
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Services.BusinessLogicLayer
@@ -95,22 +95,22 @@ items:
       repo: https://github.com/Gianna7055/MakesCents.git
     id: CreatePaycheckAsync
     path: Services/BusinessLogicLayer/PaycheckLogic.cs
-    startLine: 31
+    startLine: 30
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Services.BusinessLogicLayer
-  summary: Logic method to create a new paycheck
+  summary: Logic method to create a paycheck
   example: []
   syntax:
-    content: public Task<CreatePaycheckResponse> CreatePaycheckAsync(CreatePaycheckRequest paycheck)
+    content: public Task<BaseIdResponse> CreatePaycheckAsync(CreatePaycheckRequest paycheck)
     parameters:
     - id: paycheck
       type: MakesCentsBackend.Models.CreatePaycheckRequest
       description: ''
     return:
-      type: System.Threading.Tasks.Task{MakesCentsBackend.Models.CreatePaycheckResponse}
+      type: System.Threading.Tasks.Task{MakesCentsBackend.Models.BaseIdResponse}
       description: ''
-    content.vb: Public Function CreatePaycheckAsync(paycheck As CreatePaycheckRequest) As Task(Of CreatePaycheckResponse)
+    content.vb: Public Function CreatePaycheckAsync(paycheck As CreatePaycheckRequest) As Task(Of BaseIdResponse)
   overload: MakesCentsBackend.Services.BusinessLogicLayer.PaycheckLogic.CreatePaycheckAsync*
 - uid: MakesCentsBackend.Services.BusinessLogicLayer.PaycheckLogic.GetAllPaychecksAsync(MakesCentsBackend.Models.BaseIdRequest)
   commentId: M:MakesCentsBackend.Services.BusinessLogicLayer.PaycheckLogic.GetAllPaychecksAsync(MakesCentsBackend.Models.BaseIdRequest)
@@ -130,17 +130,21 @@ items:
       repo: https://github.com/Gianna7055/MakesCents.git
     id: GetAllPaychecksAsync
     path: Services/BusinessLogicLayer/PaycheckLogic.cs
-    startLine: 72
+    startLine: 51
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Services.BusinessLogicLayer
+  summary: Logic method to get every paycheck for a budget
+  example: []
   syntax:
     content: public Task<GetAllPaychecksResponse> GetAllPaychecksAsync(BaseIdRequest request)
     parameters:
     - id: request
       type: MakesCentsBackend.Models.BaseIdRequest
+      description: ''
     return:
       type: System.Threading.Tasks.Task{MakesCentsBackend.Models.GetAllPaychecksResponse}
+      description: ''
     content.vb: Public Function GetAllPaychecksAsync(request As BaseIdRequest) As Task(Of GetAllPaychecksResponse)
   overload: MakesCentsBackend.Services.BusinessLogicLayer.PaycheckLogic.GetAllPaychecksAsync*
 - uid: MakesCentsBackend.Services.BusinessLogicLayer.PaycheckLogic.GetPaycheckAsync(MakesCentsBackend.Models.BaseIdRequest)
@@ -161,17 +165,21 @@ items:
       repo: https://github.com/Gianna7055/MakesCents.git
     id: GetPaycheckAsync
     path: Services/BusinessLogicLayer/PaycheckLogic.cs
-    startLine: 90
+    startLine: 73
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Services.BusinessLogicLayer
+  summary: Logic method to get a single paycheck
+  example: []
   syntax:
     content: public Task<GetPaycheckResponse> GetPaycheckAsync(BaseIdRequest request)
     parameters:
     - id: request
       type: MakesCentsBackend.Models.BaseIdRequest
+      description: ''
     return:
       type: System.Threading.Tasks.Task{MakesCentsBackend.Models.GetPaycheckResponse}
+      description: ''
     content.vb: Public Function GetPaycheckAsync(request As BaseIdRequest) As Task(Of GetPaycheckResponse)
   overload: MakesCentsBackend.Services.BusinessLogicLayer.PaycheckLogic.GetPaycheckAsync*
 - uid: MakesCentsBackend.Services.BusinessLogicLayer.PaycheckLogic.UpdatePaycheckAsync(MakesCentsBackend.Models.UpdatePaycheckRequest)
@@ -192,18 +200,22 @@ items:
       repo: https://github.com/Gianna7055/MakesCents.git
     id: UpdatePaycheckAsync
     path: Services/BusinessLogicLayer/PaycheckLogic.cs
-    startLine: 108
+    startLine: 95
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Services.BusinessLogicLayer
+  summary: Logic method to update a paycheck
+  example: []
   syntax:
-    content: public Task<UpdatePaycheckResponse> UpdatePaycheckAsync(UpdatePaycheckRequest paycheck)
+    content: public Task<BaseIdResponse> UpdatePaycheckAsync(UpdatePaycheckRequest paycheck)
     parameters:
     - id: paycheck
       type: MakesCentsBackend.Models.UpdatePaycheckRequest
+      description: ''
     return:
-      type: System.Threading.Tasks.Task{MakesCentsBackend.Models.UpdatePaycheckResponse}
-    content.vb: Public Function UpdatePaycheckAsync(paycheck As UpdatePaycheckRequest) As Task(Of UpdatePaycheckResponse)
+      type: System.Threading.Tasks.Task{MakesCentsBackend.Models.BaseIdResponse}
+      description: ''
+    content.vb: Public Function UpdatePaycheckAsync(paycheck As UpdatePaycheckRequest) As Task(Of BaseIdResponse)
   overload: MakesCentsBackend.Services.BusinessLogicLayer.PaycheckLogic.UpdatePaycheckAsync*
 - uid: MakesCentsBackend.Services.BusinessLogicLayer.PaycheckLogic.DeletePaycheckAsync(MakesCentsBackend.Models.BaseIdRequest)
   commentId: M:MakesCentsBackend.Services.BusinessLogicLayer.PaycheckLogic.DeletePaycheckAsync(MakesCentsBackend.Models.BaseIdRequest)
@@ -223,11 +235,11 @@ items:
       repo: https://github.com/Gianna7055/MakesCents.git
     id: DeletePaycheckAsync
     path: Services/BusinessLogicLayer/PaycheckLogic.cs
-    startLine: 134
+    startLine: 116
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Services.BusinessLogicLayer
-  summary: Logic method to delete an paycheck
+  summary: Logic method to delete a paycheck
   example: []
   syntax:
     content: public Task<BaseResponse> DeletePaycheckAsync(BaseIdRequest request)
@@ -567,26 +579,26 @@ references:
   name: CreatePaycheckRequest
   nameWithType: CreatePaycheckRequest
   fullName: MakesCentsBackend.Models.CreatePaycheckRequest
-- uid: System.Threading.Tasks.Task{MakesCentsBackend.Models.CreatePaycheckResponse}
-  commentId: T:System.Threading.Tasks.Task{MakesCentsBackend.Models.CreatePaycheckResponse}
+- uid: System.Threading.Tasks.Task{MakesCentsBackend.Models.BaseIdResponse}
+  commentId: T:System.Threading.Tasks.Task{MakesCentsBackend.Models.BaseIdResponse}
   parent: System.Threading.Tasks
   definition: System.Threading.Tasks.Task`1
   href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
-  name: Task<CreatePaycheckResponse>
-  nameWithType: Task<CreatePaycheckResponse>
-  fullName: System.Threading.Tasks.Task<MakesCentsBackend.Models.CreatePaycheckResponse>
-  nameWithType.vb: Task(Of CreatePaycheckResponse)
-  fullName.vb: System.Threading.Tasks.Task(Of MakesCentsBackend.Models.CreatePaycheckResponse)
-  name.vb: Task(Of CreatePaycheckResponse)
+  name: Task<BaseIdResponse>
+  nameWithType: Task<BaseIdResponse>
+  fullName: System.Threading.Tasks.Task<MakesCentsBackend.Models.BaseIdResponse>
+  nameWithType.vb: Task(Of BaseIdResponse)
+  fullName.vb: System.Threading.Tasks.Task(Of MakesCentsBackend.Models.BaseIdResponse)
+  name.vb: Task(Of BaseIdResponse)
   spec.csharp:
   - uid: System.Threading.Tasks.Task`1
     name: Task
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
   - name: <
-  - uid: MakesCentsBackend.Models.CreatePaycheckResponse
-    name: CreatePaycheckResponse
-    href: MakesCentsBackend.Models.CreatePaycheckResponse.html
+  - uid: MakesCentsBackend.Models.BaseIdResponse
+    name: BaseIdResponse
+    href: MakesCentsBackend.Models.BaseIdResponse.html
   - name: '>'
   spec.vb:
   - uid: System.Threading.Tasks.Task`1
@@ -596,9 +608,9 @@ references:
   - name: (
   - name: Of
   - name: " "
-  - uid: MakesCentsBackend.Models.CreatePaycheckResponse
-    name: CreatePaycheckResponse
-    href: MakesCentsBackend.Models.CreatePaycheckResponse.html
+  - uid: MakesCentsBackend.Models.BaseIdResponse
+    name: BaseIdResponse
+    href: MakesCentsBackend.Models.BaseIdResponse.html
   - name: )
 - uid: MakesCentsBackend.Models
   commentId: N:MakesCentsBackend.Models
@@ -785,39 +797,6 @@ references:
   name: UpdatePaycheckRequest
   nameWithType: UpdatePaycheckRequest
   fullName: MakesCentsBackend.Models.UpdatePaycheckRequest
-- uid: System.Threading.Tasks.Task{MakesCentsBackend.Models.UpdatePaycheckResponse}
-  commentId: T:System.Threading.Tasks.Task{MakesCentsBackend.Models.UpdatePaycheckResponse}
-  parent: System.Threading.Tasks
-  definition: System.Threading.Tasks.Task`1
-  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
-  name: Task<UpdatePaycheckResponse>
-  nameWithType: Task<UpdatePaycheckResponse>
-  fullName: System.Threading.Tasks.Task<MakesCentsBackend.Models.UpdatePaycheckResponse>
-  nameWithType.vb: Task(Of UpdatePaycheckResponse)
-  fullName.vb: System.Threading.Tasks.Task(Of MakesCentsBackend.Models.UpdatePaycheckResponse)
-  name.vb: Task(Of UpdatePaycheckResponse)
-  spec.csharp:
-  - uid: System.Threading.Tasks.Task`1
-    name: Task
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
-  - name: <
-  - uid: MakesCentsBackend.Models.UpdatePaycheckResponse
-    name: UpdatePaycheckResponse
-    href: MakesCentsBackend.Models.UpdatePaycheckResponse.html
-  - name: '>'
-  spec.vb:
-  - uid: System.Threading.Tasks.Task`1
-    name: Task
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
-  - name: (
-  - name: Of
-  - name: " "
-  - uid: MakesCentsBackend.Models.UpdatePaycheckResponse
-    name: UpdatePaycheckResponse
-    href: MakesCentsBackend.Models.UpdatePaycheckResponse.html
-  - name: )
 - uid: MakesCentsBackend.Services.BusinessLogicLayer.PaycheckLogic.DeletePaycheckAsync*
   commentId: Overload:MakesCentsBackend.Services.BusinessLogicLayer.PaycheckLogic.DeletePaycheckAsync
   href: MakesCentsBackend.Services.BusinessLogicLayer.PaycheckLogic.html#MakesCentsBackend_Services_BusinessLogicLayer_PaycheckLogic_DeletePaycheckAsync_MakesCentsBackend_Models_BaseIdRequest_

@@ -5,7 +5,7 @@ items:
   id: TransferTransactionDAO
   parent: MakesCentsBackend.Services.DataAccessLayer
   children:
-  - MakesCentsBackend.Services.DataAccessLayer.TransferTransactionDAO.#ctor(MySqlConnector.MySqlConnection,MakesCentsBackend.Services.DataAccessLayer.AuthorizationService,MakesCentsBackend.Services.DataAccessLayer.AccountDAO,MakesCentsBackend.Services.DataAccessLayer.EnvelopeDAO,MakesCentsBackend.Services.DataAccessLayer.TransactionDAO)
+  - MakesCentsBackend.Services.DataAccessLayer.TransferTransactionDAO.#ctor(MySqlConnector.MySqlConnection,MakesCentsBackend.Services.DataAccessLayer.AuthorizationService,MakesCentsBackend.Services.DataAccessLayer.AccountDAO,MakesCentsBackend.Services.DataAccessLayer.SinkingFundEnvelopeDAO,MakesCentsBackend.Services.DataAccessLayer.RolloverEnvelopeDAO,MakesCentsBackend.Services.DataAccessLayer.TransactionDAO)
   - MakesCentsBackend.Services.DataAccessLayer.TransferTransactionDAO.CreateTransferTransactionAsync(MakesCentsBackend.Models.CreateTransferTransactionRequest)
   - MakesCentsBackend.Services.DataAccessLayer.TransferTransactionDAO.GetTransferTransactionAsync(MakesCentsBackend.Models.BaseIdRequest)
   - MakesCentsBackend.Services.DataAccessLayer.TransferTransactionDAO.UpdateTransferTransactionAsync(MakesCentsBackend.Models.UpdateTransferTransactionRequest)
@@ -40,16 +40,16 @@ items:
   - System.Object.MemberwiseClone
   - System.Object.ReferenceEquals(System.Object,System.Object)
   - System.Object.ToString
-- uid: MakesCentsBackend.Services.DataAccessLayer.TransferTransactionDAO.#ctor(MySqlConnector.MySqlConnection,MakesCentsBackend.Services.DataAccessLayer.AuthorizationService,MakesCentsBackend.Services.DataAccessLayer.AccountDAO,MakesCentsBackend.Services.DataAccessLayer.EnvelopeDAO,MakesCentsBackend.Services.DataAccessLayer.TransactionDAO)
-  commentId: M:MakesCentsBackend.Services.DataAccessLayer.TransferTransactionDAO.#ctor(MySqlConnector.MySqlConnection,MakesCentsBackend.Services.DataAccessLayer.AuthorizationService,MakesCentsBackend.Services.DataAccessLayer.AccountDAO,MakesCentsBackend.Services.DataAccessLayer.EnvelopeDAO,MakesCentsBackend.Services.DataAccessLayer.TransactionDAO)
-  id: '#ctor(MySqlConnector.MySqlConnection,MakesCentsBackend.Services.DataAccessLayer.AuthorizationService,MakesCentsBackend.Services.DataAccessLayer.AccountDAO,MakesCentsBackend.Services.DataAccessLayer.EnvelopeDAO,MakesCentsBackend.Services.DataAccessLayer.TransactionDAO)'
+- uid: MakesCentsBackend.Services.DataAccessLayer.TransferTransactionDAO.#ctor(MySqlConnector.MySqlConnection,MakesCentsBackend.Services.DataAccessLayer.AuthorizationService,MakesCentsBackend.Services.DataAccessLayer.AccountDAO,MakesCentsBackend.Services.DataAccessLayer.SinkingFundEnvelopeDAO,MakesCentsBackend.Services.DataAccessLayer.RolloverEnvelopeDAO,MakesCentsBackend.Services.DataAccessLayer.TransactionDAO)
+  commentId: M:MakesCentsBackend.Services.DataAccessLayer.TransferTransactionDAO.#ctor(MySqlConnector.MySqlConnection,MakesCentsBackend.Services.DataAccessLayer.AuthorizationService,MakesCentsBackend.Services.DataAccessLayer.AccountDAO,MakesCentsBackend.Services.DataAccessLayer.SinkingFundEnvelopeDAO,MakesCentsBackend.Services.DataAccessLayer.RolloverEnvelopeDAO,MakesCentsBackend.Services.DataAccessLayer.TransactionDAO)
+  id: '#ctor(MySqlConnector.MySqlConnection,MakesCentsBackend.Services.DataAccessLayer.AuthorizationService,MakesCentsBackend.Services.DataAccessLayer.AccountDAO,MakesCentsBackend.Services.DataAccessLayer.SinkingFundEnvelopeDAO,MakesCentsBackend.Services.DataAccessLayer.RolloverEnvelopeDAO,MakesCentsBackend.Services.DataAccessLayer.TransactionDAO)'
   parent: MakesCentsBackend.Services.DataAccessLayer.TransferTransactionDAO
   langs:
   - csharp
   - vb
-  name: TransferTransactionDAO(MySqlConnection, AuthorizationService, AccountDAO, EnvelopeDAO, TransactionDAO)
-  nameWithType: TransferTransactionDAO.TransferTransactionDAO(MySqlConnection, AuthorizationService, AccountDAO, EnvelopeDAO, TransactionDAO)
-  fullName: MakesCentsBackend.Services.DataAccessLayer.TransferTransactionDAO.TransferTransactionDAO(MySqlConnector.MySqlConnection, MakesCentsBackend.Services.DataAccessLayer.AuthorizationService, MakesCentsBackend.Services.DataAccessLayer.AccountDAO, MakesCentsBackend.Services.DataAccessLayer.EnvelopeDAO, MakesCentsBackend.Services.DataAccessLayer.TransactionDAO)
+  name: TransferTransactionDAO(MySqlConnection, AuthorizationService, AccountDAO, SinkingFundEnvelopeDAO, RolloverEnvelopeDAO, TransactionDAO)
+  nameWithType: TransferTransactionDAO.TransferTransactionDAO(MySqlConnection, AuthorizationService, AccountDAO, SinkingFundEnvelopeDAO, RolloverEnvelopeDAO, TransactionDAO)
+  fullName: MakesCentsBackend.Services.DataAccessLayer.TransferTransactionDAO.TransferTransactionDAO(MySqlConnector.MySqlConnection, MakesCentsBackend.Services.DataAccessLayer.AuthorizationService, MakesCentsBackend.Services.DataAccessLayer.AccountDAO, MakesCentsBackend.Services.DataAccessLayer.SinkingFundEnvelopeDAO, MakesCentsBackend.Services.DataAccessLayer.RolloverEnvelopeDAO, MakesCentsBackend.Services.DataAccessLayer.TransactionDAO)
   type: Constructor
   source:
     remote:
@@ -58,14 +58,14 @@ items:
       repo: https://github.com/Gianna7055/MakesCents.git
     id: .ctor
     path: Services/DataAccessLayer/TransferTransactionDAO.cs
-    startLine: 30
+    startLine: 31
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Services.DataAccessLayer
   summary: Parameterized constructor to bring in DI variables
   example: []
   syntax:
-    content: public TransferTransactionDAO(MySqlConnection connection, AuthorizationService authService, AccountDAO accountDAO, EnvelopeDAO envelopeDAO, TransactionDAO transactionDAO)
+    content: public TransferTransactionDAO(MySqlConnection connection, AuthorizationService authService, AccountDAO accountDAO, SinkingFundEnvelopeDAO sinkingFundEnvelopeDAO, RolloverEnvelopeDAO rolloverEnvelopeDAO, TransactionDAO transactionDAO)
     parameters:
     - id: connection
       type: MySqlConnector.MySqlConnection
@@ -75,15 +75,17 @@ items:
       description: ''
     - id: accountDAO
       type: MakesCentsBackend.Services.DataAccessLayer.AccountDAO
-    - id: envelopeDAO
-      type: MakesCentsBackend.Services.DataAccessLayer.EnvelopeDAO
+    - id: sinkingFundEnvelopeDAO
+      type: MakesCentsBackend.Services.DataAccessLayer.SinkingFundEnvelopeDAO
+    - id: rolloverEnvelopeDAO
+      type: MakesCentsBackend.Services.DataAccessLayer.RolloverEnvelopeDAO
     - id: transactionDAO
       type: MakesCentsBackend.Services.DataAccessLayer.TransactionDAO
-    content.vb: Public Sub New(connection As MySqlConnection, authService As AuthorizationService, accountDAO As AccountDAO, envelopeDAO As EnvelopeDAO, transactionDAO As TransactionDAO)
+    content.vb: Public Sub New(connection As MySqlConnection, authService As AuthorizationService, accountDAO As AccountDAO, sinkingFundEnvelopeDAO As SinkingFundEnvelopeDAO, rolloverEnvelopeDAO As RolloverEnvelopeDAO, transactionDAO As TransactionDAO)
   overload: MakesCentsBackend.Services.DataAccessLayer.TransferTransactionDAO.#ctor*
-  nameWithType.vb: TransferTransactionDAO.New(MySqlConnection, AuthorizationService, AccountDAO, EnvelopeDAO, TransactionDAO)
-  fullName.vb: MakesCentsBackend.Services.DataAccessLayer.TransferTransactionDAO.New(MySqlConnector.MySqlConnection, MakesCentsBackend.Services.DataAccessLayer.AuthorizationService, MakesCentsBackend.Services.DataAccessLayer.AccountDAO, MakesCentsBackend.Services.DataAccessLayer.EnvelopeDAO, MakesCentsBackend.Services.DataAccessLayer.TransactionDAO)
-  name.vb: New(MySqlConnection, AuthorizationService, AccountDAO, EnvelopeDAO, TransactionDAO)
+  nameWithType.vb: TransferTransactionDAO.New(MySqlConnection, AuthorizationService, AccountDAO, SinkingFundEnvelopeDAO, RolloverEnvelopeDAO, TransactionDAO)
+  fullName.vb: MakesCentsBackend.Services.DataAccessLayer.TransferTransactionDAO.New(MySqlConnector.MySqlConnection, MakesCentsBackend.Services.DataAccessLayer.AuthorizationService, MakesCentsBackend.Services.DataAccessLayer.AccountDAO, MakesCentsBackend.Services.DataAccessLayer.SinkingFundEnvelopeDAO, MakesCentsBackend.Services.DataAccessLayer.RolloverEnvelopeDAO, MakesCentsBackend.Services.DataAccessLayer.TransactionDAO)
+  name.vb: New(MySqlConnection, AuthorizationService, AccountDAO, SinkingFundEnvelopeDAO, RolloverEnvelopeDAO, TransactionDAO)
 - uid: MakesCentsBackend.Services.DataAccessLayer.TransferTransactionDAO.CreateTransferTransactionAsync(MakesCentsBackend.Models.CreateTransferTransactionRequest)
   commentId: M:MakesCentsBackend.Services.DataAccessLayer.TransferTransactionDAO.CreateTransferTransactionAsync(MakesCentsBackend.Models.CreateTransferTransactionRequest)
   id: CreateTransferTransactionAsync(MakesCentsBackend.Models.CreateTransferTransactionRequest)
@@ -102,17 +104,21 @@ items:
       repo: https://github.com/Gianna7055/MakesCents.git
     id: CreateTransferTransactionAsync
     path: Services/DataAccessLayer/TransferTransactionDAO.cs
-    startLine: 40
+    startLine: 46
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Services.DataAccessLayer
+  summary: DAO method to create a new transfer transaction (account-to-account or envelope-to-envelope)
+  example: []
   syntax:
     content: public Task<CreateTransferTransactionResponse> CreateTransferTransactionAsync(CreateTransferTransactionRequest transferTransaction)
     parameters:
     - id: transferTransaction
       type: MakesCentsBackend.Models.CreateTransferTransactionRequest
+      description: ''
     return:
       type: System.Threading.Tasks.Task{MakesCentsBackend.Models.CreateTransferTransactionResponse}
+      description: ''
     content.vb: Public Function CreateTransferTransactionAsync(transferTransaction As CreateTransferTransactionRequest) As Task(Of CreateTransferTransactionResponse)
   overload: MakesCentsBackend.Services.DataAccessLayer.TransferTransactionDAO.CreateTransferTransactionAsync*
 - uid: MakesCentsBackend.Services.DataAccessLayer.TransferTransactionDAO.GetTransferTransactionAsync(MakesCentsBackend.Models.BaseIdRequest)
@@ -133,17 +139,26 @@ items:
       repo: https://github.com/Gianna7055/MakesCents.git
     id: GetTransferTransactionAsync
     path: Services/DataAccessLayer/TransferTransactionDAO.cs
-    startLine: 166
+    startLine: 224
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Services.DataAccessLayer
+  summary: >-
+    DAO method to get a transfer transaction. For an envelope transfer, the two envelope
+
+    sides are resolved from a follow-up transaction_split lookup rather than columns on
+
+    transfer_transaction, since that table no longer has envelope columns.
+  example: []
   syntax:
     content: public Task<GetTransferTransactionEntityResponse> GetTransferTransactionAsync(BaseIdRequest request)
     parameters:
     - id: request
       type: MakesCentsBackend.Models.BaseIdRequest
+      description: ''
     return:
       type: System.Threading.Tasks.Task{MakesCentsBackend.Models.GetTransferTransactionEntityResponse}
+      description: ''
     content.vb: Public Function GetTransferTransactionAsync(request As BaseIdRequest) As Task(Of GetTransferTransactionEntityResponse)
   overload: MakesCentsBackend.Services.DataAccessLayer.TransferTransactionDAO.GetTransferTransactionAsync*
 - uid: MakesCentsBackend.Services.DataAccessLayer.TransferTransactionDAO.UpdateTransferTransactionAsync(MakesCentsBackend.Models.UpdateTransferTransactionRequest)
@@ -164,17 +179,30 @@ items:
       repo: https://github.com/Gianna7055/MakesCents.git
     id: UpdateTransferTransactionAsync
     path: Services/DataAccessLayer/TransferTransactionDAO.cs
-    startLine: 216
+    startLine: 307
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Services.DataAccessLayer
+  summary: >-
+    DAO method to update a transfer transaction. Reverses whatever the OLD effect was
+
+    (old account balances if it was an account transfer, or old envelope remaining amounts
+
+    if it was an envelope transfer) before applying the NEW effect, so edited amounts,
+
+    re-assigned accounts/envelopes, or even switching between transfer types don't leave
+
+    balances double-counted or stale.
+  example: []
   syntax:
     content: public Task<BaseIdResponse> UpdateTransferTransactionAsync(UpdateTransferTransactionRequest transferTransaction)
     parameters:
     - id: transferTransaction
       type: MakesCentsBackend.Models.UpdateTransferTransactionRequest
+      description: ''
     return:
       type: System.Threading.Tasks.Task{MakesCentsBackend.Models.BaseIdResponse}
+      description: ''
     content.vb: Public Function UpdateTransferTransactionAsync(transferTransaction As UpdateTransferTransactionRequest) As Task(Of BaseIdResponse)
   overload: MakesCentsBackend.Services.DataAccessLayer.TransferTransactionDAO.UpdateTransferTransactionAsync*
 references:
@@ -447,7 +475,7 @@ references:
   fullName: System
 - uid: MakesCentsBackend.Services.DataAccessLayer.TransferTransactionDAO.#ctor*
   commentId: Overload:MakesCentsBackend.Services.DataAccessLayer.TransferTransactionDAO.#ctor
-  href: MakesCentsBackend.Services.DataAccessLayer.TransferTransactionDAO.html#MakesCentsBackend_Services_DataAccessLayer_TransferTransactionDAO__ctor_MySqlConnector_MySqlConnection_MakesCentsBackend_Services_DataAccessLayer_AuthorizationService_MakesCentsBackend_Services_DataAccessLayer_AccountDAO_MakesCentsBackend_Services_DataAccessLayer_EnvelopeDAO_MakesCentsBackend_Services_DataAccessLayer_TransactionDAO_
+  href: MakesCentsBackend.Services.DataAccessLayer.TransferTransactionDAO.html#MakesCentsBackend_Services_DataAccessLayer_TransferTransactionDAO__ctor_MySqlConnector_MySqlConnection_MakesCentsBackend_Services_DataAccessLayer_AuthorizationService_MakesCentsBackend_Services_DataAccessLayer_AccountDAO_MakesCentsBackend_Services_DataAccessLayer_SinkingFundEnvelopeDAO_MakesCentsBackend_Services_DataAccessLayer_RolloverEnvelopeDAO_MakesCentsBackend_Services_DataAccessLayer_TransactionDAO_
   name: TransferTransactionDAO
   nameWithType: TransferTransactionDAO.TransferTransactionDAO
   fullName: MakesCentsBackend.Services.DataAccessLayer.TransferTransactionDAO.TransferTransactionDAO
@@ -475,13 +503,20 @@ references:
   name: AccountDAO
   nameWithType: AccountDAO
   fullName: MakesCentsBackend.Services.DataAccessLayer.AccountDAO
-- uid: MakesCentsBackend.Services.DataAccessLayer.EnvelopeDAO
-  commentId: T:MakesCentsBackend.Services.DataAccessLayer.EnvelopeDAO
+- uid: MakesCentsBackend.Services.DataAccessLayer.SinkingFundEnvelopeDAO
+  commentId: T:MakesCentsBackend.Services.DataAccessLayer.SinkingFundEnvelopeDAO
   parent: MakesCentsBackend.Services.DataAccessLayer
-  href: MakesCentsBackend.Services.DataAccessLayer.EnvelopeDAO.html
-  name: EnvelopeDAO
-  nameWithType: EnvelopeDAO
-  fullName: MakesCentsBackend.Services.DataAccessLayer.EnvelopeDAO
+  href: MakesCentsBackend.Services.DataAccessLayer.SinkingFundEnvelopeDAO.html
+  name: SinkingFundEnvelopeDAO
+  nameWithType: SinkingFundEnvelopeDAO
+  fullName: MakesCentsBackend.Services.DataAccessLayer.SinkingFundEnvelopeDAO
+- uid: MakesCentsBackend.Services.DataAccessLayer.RolloverEnvelopeDAO
+  commentId: T:MakesCentsBackend.Services.DataAccessLayer.RolloverEnvelopeDAO
+  parent: MakesCentsBackend.Services.DataAccessLayer
+  href: MakesCentsBackend.Services.DataAccessLayer.RolloverEnvelopeDAO.html
+  name: RolloverEnvelopeDAO
+  nameWithType: RolloverEnvelopeDAO
+  fullName: MakesCentsBackend.Services.DataAccessLayer.RolloverEnvelopeDAO
 - uid: MakesCentsBackend.Services.DataAccessLayer.TransactionDAO
   commentId: T:MakesCentsBackend.Services.DataAccessLayer.TransactionDAO
   parent: MakesCentsBackend.Services.DataAccessLayer

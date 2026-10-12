@@ -13,14 +13,17 @@ items:
   - uid: MakesCentsBackend.Controllers.BudgetController
     name: BudgetController
     type: Class
+  - uid: MakesCentsBackend.Controllers.BudgetTemplateController
+    name: BudgetTemplateController
+    type: Class
   - uid: MakesCentsBackend.Controllers.DebtAccountController
     name: DebtAccountController
     type: Class
   - uid: MakesCentsBackend.Controllers.EnvelopeCategoryController
     name: EnvelopeCategoryController
     type: Class
-  - uid: MakesCentsBackend.Controllers.EnvelopeController
-    name: EnvelopeController
+  - uid: MakesCentsBackend.Controllers.EnvelopeFundingController
+    name: EnvelopeFundingController
     type: Class
   - uid: MakesCentsBackend.Controllers.InvestmentAccountController
     name: InvestmentAccountController
@@ -33,6 +36,12 @@ items:
     type: Class
   - uid: MakesCentsBackend.Controllers.PlannedExpenseController
     name: PlannedExpenseController
+    type: Class
+  - uid: MakesCentsBackend.Controllers.RolloverEnvelopeController
+    name: RolloverEnvelopeController
+    type: Class
+  - uid: MakesCentsBackend.Controllers.SinkingFundEnvelopeController
+    name: SinkingFundEnvelopeController
     type: Class
   - uid: MakesCentsBackend.Controllers.TransactionController
     name: TransactionController
@@ -49,6 +58,9 @@ items:
   items:
   - uid: MakesCentsBackend.Models.AccountEntityModel
     name: AccountEntityModel
+    type: Class
+  - uid: MakesCentsBackend.Models.ApplyBudgetTemplateRequest
+    name: ApplyBudgetTemplateRequest
     type: Class
   - uid: MakesCentsBackend.Models.BankAccountEntityModel
     name: BankAccountEntityModel
@@ -68,6 +80,12 @@ items:
   - uid: MakesCentsBackend.Models.BudgetEntityModel
     name: BudgetEntityModel
     type: Class
+  - uid: MakesCentsBackend.Models.BudgetTemplateEntityModel
+    name: BudgetTemplateEntityModel
+    type: Class
+  - uid: MakesCentsBackend.Models.BudgetTemplateEnvelopeLookupModel
+    name: BudgetTemplateEnvelopeLookupModel
+    type: Class
   - uid: MakesCentsBackend.Models.CreateAccountRequest
     name: CreateAccountRequest
     type: Class
@@ -80,8 +98,14 @@ items:
   - uid: MakesCentsBackend.Models.CreateBankAccountResponse
     name: CreateBankAccountResponse
     type: Class
+  - uid: MakesCentsBackend.Models.CreateBudgetMonthRequest
+    name: CreateBudgetMonthRequest
+    type: Class
   - uid: MakesCentsBackend.Models.CreateBudgetRequest
     name: CreateBudgetRequest
+    type: Class
+  - uid: MakesCentsBackend.Models.CreateBudgetTemplateRequest
+    name: CreateBudgetTemplateRequest
     type: Class
   - uid: MakesCentsBackend.Models.CreateDebtAccountRequest
     name: CreateDebtAccountRequest
@@ -92,9 +116,6 @@ items:
   - uid: MakesCentsBackend.Models.CreateEnvelopeCategoryRequest
     name: CreateEnvelopeCategoryRequest
     type: Class
-  - uid: MakesCentsBackend.Models.CreateEnvelopeRequest
-    name: CreateEnvelopeRequest
-    type: Class
   - uid: MakesCentsBackend.Models.CreateInvestmentAccountRequest
     name: CreateInvestmentAccountRequest
     type: Class
@@ -104,17 +125,17 @@ items:
   - uid: MakesCentsBackend.Models.CreatePaycheckRequest
     name: CreatePaycheckRequest
     type: Class
-  - uid: MakesCentsBackend.Models.CreatePaycheckResponse
-    name: CreatePaycheckResponse
-    type: Class
-  - uid: MakesCentsBackend.Models.CreatePaycheckSplitRequest
-    name: CreatePaycheckSplitRequest
-    type: Class
   - uid: MakesCentsBackend.Models.CreatePaymentTransactionRequest
     name: CreatePaymentTransactionRequest
     type: Class
   - uid: MakesCentsBackend.Models.CreatePaymentTransactionResponse
     name: CreatePaymentTransactionResponse
+    type: Class
+  - uid: MakesCentsBackend.Models.CreateRolloverEnvelopeRequest
+    name: CreateRolloverEnvelopeRequest
+    type: Class
+  - uid: MakesCentsBackend.Models.CreateSinkingFundEnvelopeRequest
+    name: CreateSinkingFundEnvelopeRequest
     type: Class
   - uid: MakesCentsBackend.Models.CreateTransactionRequest
     name: CreateTransactionRequest
@@ -134,8 +155,14 @@ items:
   - uid: MakesCentsBackend.Models.DebtAccountSummaryDTOModel
     name: DebtAccountSummaryDTOModel
     type: Class
+  - uid: MakesCentsBackend.Models.EditBudgetMonthRequest
+    name: EditBudgetMonthRequest
+    type: Class
   - uid: MakesCentsBackend.Models.EditBudgetRequest
     name: EditBudgetRequest
+    type: Class
+  - uid: MakesCentsBackend.Models.EditBudgetTemplateRequest
+    name: EditBudgetTemplateRequest
     type: Class
   - uid: MakesCentsBackend.Models.EditEnvelopeCategoryRequest
     name: EditEnvelopeCategoryRequest
@@ -146,8 +173,8 @@ items:
   - uid: MakesCentsBackend.Models.EnvelopeCategoryEntityModel
     name: EnvelopeCategoryEntityModel
     type: Class
-  - uid: MakesCentsBackend.Models.EnvelopeEntityModel
-    name: EnvelopeEntityModel
+  - uid: MakesCentsBackend.Models.EnvelopeFundingEntityModel
+    name: EnvelopeFundingEntityModel
     type: Class
   - uid: MakesCentsBackend.Models.FindUserResponse
     name: FindUserResponse
@@ -157,6 +184,9 @@ items:
     type: Class
   - uid: MakesCentsBackend.Models.GetAllAccountsResponse
     name: GetAllAccountsResponse
+    type: Class
+  - uid: MakesCentsBackend.Models.GetAllBudgetTemplatesResponse
+    name: GetAllBudgetTemplatesResponse
     type: Class
   - uid: MakesCentsBackend.Models.GetAllEnvelopeCategoriesResponse
     name: GetAllEnvelopeCategoriesResponse
@@ -182,14 +212,23 @@ items:
   - uid: MakesCentsBackend.Models.GetBankAccountEntityResponse
     name: GetBankAccountEntityResponse
     type: Class
-  - uid: MakesCentsBackend.Models.GetBudgetDTOModel
-    name: GetBudgetDTOModel
+  - uid: MakesCentsBackend.Models.GetBudgetMonthDTOModel
+    name: GetBudgetMonthDTOModel
+    type: Class
+  - uid: MakesCentsBackend.Models.GetBudgetMonthResponse
+    name: GetBudgetMonthResponse
     type: Class
   - uid: MakesCentsBackend.Models.GetBudgetRequest
     name: GetBudgetRequest
     type: Class
-  - uid: MakesCentsBackend.Models.GetBudgetResponse
-    name: GetBudgetResponse
+  - uid: MakesCentsBackend.Models.GetBudgetTemplateDTOModel
+    name: GetBudgetTemplateDTOModel
+    type: Class
+  - uid: MakesCentsBackend.Models.GetBudgetTemplateEnvelopeDTOModel
+    name: GetBudgetTemplateEnvelopeDTOModel
+    type: Class
+  - uid: MakesCentsBackend.Models.GetBudgetTemplateResponse
+    name: GetBudgetTemplateResponse
     type: Class
   - uid: MakesCentsBackend.Models.GetDebtAccountDTOModel
     name: GetDebtAccountDTOModel
@@ -203,26 +242,17 @@ items:
   - uid: MakesCentsBackend.Models.GetDebtAccountEntityResponse
     name: GetDebtAccountEntityResponse
     type: Class
-  - uid: MakesCentsBackend.Models.GetEnvelopeBaseModel
-    name: GetEnvelopeBaseModel
-    type: Class
   - uid: MakesCentsBackend.Models.GetEnvelopeCategoryDTOModel
     name: GetEnvelopeCategoryDTOModel
     type: Class
   - uid: MakesCentsBackend.Models.GetEnvelopeCategoryResponse
     name: GetEnvelopeCategoryResponse
     type: Class
-  - uid: MakesCentsBackend.Models.GetEnvelopeDTOModel
-    name: GetEnvelopeDTOModel
+  - uid: MakesCentsBackend.Models.GetEnvelopeFundingDTOModel
+    name: GetEnvelopeFundingDTOModel
     type: Class
-  - uid: MakesCentsBackend.Models.GetEnvelopeDTOResponse
-    name: GetEnvelopeDTOResponse
-    type: Class
-  - uid: MakesCentsBackend.Models.GetEnvelopeEntityModel
-    name: GetEnvelopeEntityModel
-    type: Class
-  - uid: MakesCentsBackend.Models.GetEnvelopeEntityResponse
-    name: GetEnvelopeEntityResponse
+  - uid: MakesCentsBackend.Models.GetEnvelopeFundingQueueResponse
+    name: GetEnvelopeFundingQueueResponse
     type: Class
   - uid: MakesCentsBackend.Models.GetInvestmentAccountDTOModel
     name: GetInvestmentAccountDTOModel
@@ -242,14 +272,47 @@ items:
   - uid: MakesCentsBackend.Models.GetPaycheckResponse
     name: GetPaycheckResponse
     type: Class
-  - uid: MakesCentsBackend.Models.GetPaycheckSplitDTOModel
-    name: GetPaycheckSplitDTOModel
-    type: Class
   - uid: MakesCentsBackend.Models.GetPaymentTransactionDTOModel
     name: GetPaymentTransactionDTOModel
     type: Class
   - uid: MakesCentsBackend.Models.GetPaymentTransactionResponse
     name: GetPaymentTransactionResponse
+    type: Class
+  - uid: MakesCentsBackend.Models.GetRolloverEnvelopeBaseModel
+    name: GetRolloverEnvelopeBaseModel
+    type: Class
+  - uid: MakesCentsBackend.Models.GetRolloverEnvelopeDTOModel
+    name: GetRolloverEnvelopeDTOModel
+    type: Class
+  - uid: MakesCentsBackend.Models.GetRolloverEnvelopeDTOResponse
+    name: GetRolloverEnvelopeDTOResponse
+    type: Class
+  - uid: MakesCentsBackend.Models.GetRolloverEnvelopeEntityModel
+    name: GetRolloverEnvelopeEntityModel
+    type: Class
+  - uid: MakesCentsBackend.Models.GetRolloverEnvelopeEntityResponse
+    name: GetRolloverEnvelopeEntityResponse
+    type: Class
+  - uid: MakesCentsBackend.Models.GetRolloverEnvelopeMonthRequest
+    name: GetRolloverEnvelopeMonthRequest
+    type: Class
+  - uid: MakesCentsBackend.Models.GetSinkingFundDependentsResponse
+    name: GetSinkingFundDependentsResponse
+    type: Class
+  - uid: MakesCentsBackend.Models.GetSinkingFundEnvelopeBaseModel
+    name: GetSinkingFundEnvelopeBaseModel
+    type: Class
+  - uid: MakesCentsBackend.Models.GetSinkingFundEnvelopeDTOModel
+    name: GetSinkingFundEnvelopeDTOModel
+    type: Class
+  - uid: MakesCentsBackend.Models.GetSinkingFundEnvelopeDTOResponse
+    name: GetSinkingFundEnvelopeDTOResponse
+    type: Class
+  - uid: MakesCentsBackend.Models.GetSinkingFundEnvelopeEntityModel
+    name: GetSinkingFundEnvelopeEntityModel
+    type: Class
+  - uid: MakesCentsBackend.Models.GetSinkingFundEnvelopeEntityResponse
+    name: GetSinkingFundEnvelopeEntityResponse
     type: Class
   - uid: MakesCentsBackend.Models.GetTransactionDTOModel
     name: GetTransactionDTOModel
@@ -271,6 +334,9 @@ items:
     type: Class
   - uid: MakesCentsBackend.Models.GetTransferTransactionEntityResponse
     name: GetTransferTransactionEntityResponse
+    type: Class
+  - uid: MakesCentsBackend.Models.GetUserBudgetsResponse
+    name: GetUserBudgetsResponse
     type: Class
   - uid: MakesCentsBackend.Models.GetUserDTOModel
     name: GetUserDTOModel
@@ -305,11 +371,11 @@ items:
   - uid: MakesCentsBackend.Models.PaycheckEntityModel
     name: PaycheckEntityModel
     type: Class
-  - uid: MakesCentsBackend.Models.PaycheckSplitEntityModel
-    name: PaycheckSplitEntityModel
-    type: Class
   - uid: MakesCentsBackend.Models.PaymentTransactionEntityModel
     name: PaymentTransactionEntityModel
+    type: Class
+  - uid: MakesCentsBackend.Models.PaymentTransactionSnapshotModel
+    name: PaymentTransactionSnapshotModel
     type: Class
   - uid: MakesCentsBackend.Models.RegisterRequest
     name: RegisterRequest
@@ -317,8 +383,38 @@ items:
   - uid: MakesCentsBackend.Models.RegisterResponse
     name: RegisterResponse
     type: Class
+  - uid: MakesCentsBackend.Models.RolloverEnvelopeDependentModel
+    name: RolloverEnvelopeDependentModel
+    type: Class
+  - uid: MakesCentsBackend.Models.RolloverEnvelopeEntityModel
+    name: RolloverEnvelopeEntityModel
+    type: Class
+  - uid: MakesCentsBackend.Models.RolloverEnvelopeMonthEntityModel
+    name: RolloverEnvelopeMonthEntityModel
+    type: Class
+  - uid: MakesCentsBackend.Models.SetBudgetTemplateEnvelopeItemRequest
+    name: SetBudgetTemplateEnvelopeItemRequest
+    type: Class
+  - uid: MakesCentsBackend.Models.SetBudgetTemplateEnvelopesRequest
+    name: SetBudgetTemplateEnvelopesRequest
+    type: Class
+  - uid: MakesCentsBackend.Models.SetEnvelopeFundingItemRequest
+    name: SetEnvelopeFundingItemRequest
+    type: Class
+  - uid: MakesCentsBackend.Models.SetEnvelopeFundingQueueRequest
+    name: SetEnvelopeFundingQueueRequest
+    type: Class
+  - uid: MakesCentsBackend.Models.SinkingFundEnvelopeEntityModel
+    name: SinkingFundEnvelopeEntityModel
+    type: Class
   - uid: MakesCentsBackend.Models.SummaryAccountDTOModel
     name: SummaryAccountDTOModel
+    type: Class
+  - uid: MakesCentsBackend.Models.SummaryBudgetResponse
+    name: SummaryBudgetResponse
+    type: Class
+  - uid: MakesCentsBackend.Models.SummaryBudgetTemplateResponse
+    name: SummaryBudgetTemplateResponse
     type: Class
   - uid: MakesCentsBackend.Models.SummaryEnvelopeCategoryResponse
     name: SummaryEnvelopeCategoryResponse
@@ -335,14 +431,26 @@ items:
   - uid: MakesCentsBackend.Models.SummaryTransactionEntityModel
     name: SummaryTransactionEntityModel
     type: Class
+  - uid: MakesCentsBackend.Models.TransactionEffectSnapshotModel
+    name: TransactionEffectSnapshotModel
+    type: Class
   - uid: MakesCentsBackend.Models.TransactionEntityModel
     name: TransactionEntityModel
     type: Class
   - uid: MakesCentsBackend.Models.TransactionSplitEntityModel
     name: TransactionSplitEntityModel
     type: Class
+  - uid: MakesCentsBackend.Models.TransactionSplitSnapshotModel
+    name: TransactionSplitSnapshotModel
+    type: Class
+  - uid: MakesCentsBackend.Models.TransactionSplitTransferSideModel
+    name: TransactionSplitTransferSideModel
+    type: Class
   - uid: MakesCentsBackend.Models.TransferTransactionEntityModel
     name: TransferTransactionEntityModel
+    type: Class
+  - uid: MakesCentsBackend.Models.TransferTransactionSnapshotModel
+    name: TransferTransactionSnapshotModel
     type: Class
   - uid: MakesCentsBackend.Models.UpdateAccountRequest
     name: UpdateAccountRequest
@@ -353,26 +461,23 @@ items:
   - uid: MakesCentsBackend.Models.UpdateDebtAccountRequest
     name: UpdateDebtAccountRequest
     type: Class
-  - uid: MakesCentsBackend.Models.UpdateEnvelopeRequest
-    name: UpdateEnvelopeRequest
-    type: Class
   - uid: MakesCentsBackend.Models.UpdateInvestmentAccountRequest
     name: UpdateInvestmentAccountRequest
     type: Class
   - uid: MakesCentsBackend.Models.UpdatePaycheckRequest
     name: UpdatePaycheckRequest
     type: Class
-  - uid: MakesCentsBackend.Models.UpdatePaycheckResponse
-    name: UpdatePaycheckResponse
-    type: Class
-  - uid: MakesCentsBackend.Models.UpdatePaycheckSplitRequest
-    name: UpdatePaycheckSplitRequest
-    type: Class
   - uid: MakesCentsBackend.Models.UpdatePaymentTransactionRequest
     name: UpdatePaymentTransactionRequest
     type: Class
   - uid: MakesCentsBackend.Models.UpdatePaymentTransactionResponse
     name: UpdatePaymentTransactionResponse
+    type: Class
+  - uid: MakesCentsBackend.Models.UpdateRolloverEnvelopeRequest
+    name: UpdateRolloverEnvelopeRequest
+    type: Class
+  - uid: MakesCentsBackend.Models.UpdateSinkingFundEnvelopeRequest
+    name: UpdateSinkingFundEnvelopeRequest
     type: Class
   - uid: MakesCentsBackend.Models.UpdateTransactionRequest
     name: UpdateTransactionRequest
@@ -474,14 +579,17 @@ items:
   - uid: MakesCentsBackend.Services.BusinessLogicLayer.BudgetLogic
     name: BudgetLogic
     type: Class
+  - uid: MakesCentsBackend.Services.BusinessLogicLayer.BudgetTemplateLogic
+    name: BudgetTemplateLogic
+    type: Class
   - uid: MakesCentsBackend.Services.BusinessLogicLayer.DebtAccountLogic
     name: DebtAccountLogic
     type: Class
   - uid: MakesCentsBackend.Services.BusinessLogicLayer.EnvelopeCategoryLogic
     name: EnvelopeCategoryLogic
     type: Class
-  - uid: MakesCentsBackend.Services.BusinessLogicLayer.EnvelopeLogic
-    name: EnvelopeLogic
+  - uid: MakesCentsBackend.Services.BusinessLogicLayer.EnvelopeFundingLogic
+    name: EnvelopeFundingLogic
     type: Class
   - uid: MakesCentsBackend.Services.BusinessLogicLayer.InvestmentAccountLogic
     name: InvestmentAccountLogic
@@ -491,6 +599,12 @@ items:
     type: Class
   - uid: MakesCentsBackend.Services.BusinessLogicLayer.PaymentTransactionLogic
     name: PaymentTransactionLogic
+    type: Class
+  - uid: MakesCentsBackend.Services.BusinessLogicLayer.RolloverEnvelopeLogic
+    name: RolloverEnvelopeLogic
+    type: Class
+  - uid: MakesCentsBackend.Services.BusinessLogicLayer.SinkingFundEnvelopeLogic
+    name: SinkingFundEnvelopeLogic
     type: Class
   - uid: MakesCentsBackend.Services.BusinessLogicLayer.TransactionLogic
     name: TransactionLogic
@@ -517,14 +631,17 @@ items:
   - uid: MakesCentsBackend.Services.DataAccessLayer.BudgetDAO
     name: BudgetDAO
     type: Class
+  - uid: MakesCentsBackend.Services.DataAccessLayer.BudgetTemplateDAO
+    name: BudgetTemplateDAO
+    type: Class
   - uid: MakesCentsBackend.Services.DataAccessLayer.DebtAccountDAO
     name: DebtAccountDAO
     type: Class
   - uid: MakesCentsBackend.Services.DataAccessLayer.EnvelopeCategoryDAO
     name: EnvelopeCategoryDAO
     type: Class
-  - uid: MakesCentsBackend.Services.DataAccessLayer.EnvelopeDAO
-    name: EnvelopeDAO
+  - uid: MakesCentsBackend.Services.DataAccessLayer.EnvelopeFundingDAO
+    name: EnvelopeFundingDAO
     type: Class
   - uid: MakesCentsBackend.Services.DataAccessLayer.InvestmentAccountDAO
     name: InvestmentAccountDAO
@@ -534,6 +651,12 @@ items:
     type: Class
   - uid: MakesCentsBackend.Services.DataAccessLayer.PaymentTransactionDAO
     name: PaymentTransactionDAO
+    type: Class
+  - uid: MakesCentsBackend.Services.DataAccessLayer.RolloverEnvelopeDAO
+    name: RolloverEnvelopeDAO
+    type: Class
+  - uid: MakesCentsBackend.Services.DataAccessLayer.SinkingFundEnvelopeDAO
+    name: SinkingFundEnvelopeDAO
     type: Class
   - uid: MakesCentsBackend.Services.DataAccessLayer.TransactionDAO
     name: TransactionDAO

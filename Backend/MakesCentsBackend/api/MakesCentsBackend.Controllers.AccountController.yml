@@ -26,7 +26,7 @@ items:
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Controllers
-  summary: API controller for accounts
+  summary: Controller for generate Account APIs, including Get All Accounts and Delete Account
   example: []
   syntax:
     content: >-
@@ -256,13 +256,14 @@ items:
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Controllers
-  summary: Parameterized constructor to bring in DI variables
+  summary: Parametrized constructor to bring in Dependency Injected Account Logic
   example: []
   syntax:
     content: public AccountController(AccountLogic accountLogic)
     parameters:
     - id: accountLogic
       type: MakesCentsBackend.Services.BusinessLogicLayer.AccountLogic
+      description: ''
     content.vb: Public Sub New(accountLogic As AccountLogic)
   overload: MakesCentsBackend.Controllers.AccountController.#ctor*
   nameWithType.vb: AccountController.New(AccountLogic)
@@ -286,10 +287,12 @@ items:
       repo: https://github.com/Gianna7055/MakesCents.git
     id: GetAllAccounts
     path: Controllers/AccountController.cs
-    startLine: 33
+    startLine: 38
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Controllers
+  summary: Account API to get a list of summaries for all accounts in the given budget
+  example: []
   syntax:
     content: >-
       [Authorize]
@@ -300,8 +303,10 @@ items:
     parameters:
     - id: budgetId
       type: System.Int32
+      description: The id for the budget in question
     return:
       type: System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.ActionResult}
+      description: ''
     content.vb: >-
       <Authorize>
 
@@ -339,10 +344,12 @@ items:
       repo: https://github.com/Gianna7055/MakesCents.git
     id: DeleteAccountAsync
     path: Controllers/AccountController.cs
-    startLine: 71
+    startLine: 80
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Controllers
+  summary: Account API to delete an account based on the given account id
+  example: []
   syntax:
     content: >-
       [Authorize]
@@ -353,8 +360,10 @@ items:
     parameters:
     - id: accountId
       type: System.Int32
+      description: The Id of the account to delete
     return:
       type: System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.ActionResult}
+      description: ''
     content.vb: >-
       <Authorize>
 

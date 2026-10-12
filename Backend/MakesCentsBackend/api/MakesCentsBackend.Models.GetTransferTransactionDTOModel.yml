@@ -6,7 +6,9 @@ items:
   parent: MakesCentsBackend.Models
   children:
   - MakesCentsBackend.Models.GetTransferTransactionDTOModel.TransferFromId
+  - MakesCentsBackend.Models.GetTransferTransactionDTOModel.TransferFromIsSinkingFund
   - MakesCentsBackend.Models.GetTransferTransactionDTOModel.TransferToId
+  - MakesCentsBackend.Models.GetTransferTransactionDTOModel.TransferToIsSinkingFund
   - MakesCentsBackend.Models.GetTransferTransactionDTOModel.TransferTransactionId
   - MakesCentsBackend.Models.GetTransferTransactionDTOModel.TransferTransactionType
   langs:
@@ -23,7 +25,7 @@ items:
       repo: https://github.com/Gianna7055/MakesCents.git
     id: GetTransferTransactionDTOModel
     path: Models/TransferTransactionModels.cs
-    startLine: 79
+    startLine: 92
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Models
@@ -41,7 +43,7 @@ items:
   - MakesCentsBackend.Models.GetTransactionDTOModel
   inheritedMembers:
   - MakesCentsBackend.Models.GetTransactionDTOModel.TransactionId
-  - MakesCentsBackend.Models.GetTransactionDTOModel.BudgetId
+  - MakesCentsBackend.Models.GetTransactionDTOModel.BudgetMonthId
   - MakesCentsBackend.Models.GetTransactionDTOModel.TransactionDate
   - MakesCentsBackend.Models.GetTransactionDTOModel.TotalAmount
   - MakesCentsBackend.Models.GetTransactionDTOModel.IsReconciled
@@ -76,7 +78,7 @@ items:
       repo: https://github.com/Gianna7055/MakesCents.git
     id: TransferTransactionId
     path: Models/TransferTransactionModels.cs
-    startLine: 83
+    startLine: 96
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Models
@@ -105,7 +107,7 @@ items:
       repo: https://github.com/Gianna7055/MakesCents.git
     id: TransferFromId
     path: Models/TransferTransactionModels.cs
-    startLine: 84
+    startLine: 97
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Models
@@ -134,7 +136,7 @@ items:
       repo: https://github.com/Gianna7055/MakesCents.git
     id: TransferToId
     path: Models/TransferTransactionModels.cs
-    startLine: 85
+    startLine: 98
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Models
@@ -163,7 +165,7 @@ items:
       repo: https://github.com/Gianna7055/MakesCents.git
     id: TransferTransactionType
     path: Models/TransferTransactionModels.cs
-    startLine: 86
+    startLine: 99
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Models
@@ -174,6 +176,64 @@ items:
       type: MakesCentsBackend.Models.Enums.TransferTransactionType
     content.vb: Public Property TransferTransactionType As TransferTransactionType
   overload: MakesCentsBackend.Models.GetTransferTransactionDTOModel.TransferTransactionType*
+- uid: MakesCentsBackend.Models.GetTransferTransactionDTOModel.TransferFromIsSinkingFund
+  commentId: P:MakesCentsBackend.Models.GetTransferTransactionDTOModel.TransferFromIsSinkingFund
+  id: TransferFromIsSinkingFund
+  parent: MakesCentsBackend.Models.GetTransferTransactionDTOModel
+  langs:
+  - csharp
+  - vb
+  name: TransferFromIsSinkingFund
+  nameWithType: GetTransferTransactionDTOModel.TransferFromIsSinkingFund
+  fullName: MakesCentsBackend.Models.GetTransferTransactionDTOModel.TransferFromIsSinkingFund
+  type: Property
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Models/TransferTransactionModels.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: TransferFromIsSinkingFund
+    path: Models/TransferTransactionModels.cs
+    startLine: 102
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Models
+  syntax:
+    content: public bool? TransferFromIsSinkingFund { get; set; }
+    parameters: []
+    return:
+      type: System.Nullable{System.Boolean}
+    content.vb: Public Property TransferFromIsSinkingFund As Boolean?
+  overload: MakesCentsBackend.Models.GetTransferTransactionDTOModel.TransferFromIsSinkingFund*
+- uid: MakesCentsBackend.Models.GetTransferTransactionDTOModel.TransferToIsSinkingFund
+  commentId: P:MakesCentsBackend.Models.GetTransferTransactionDTOModel.TransferToIsSinkingFund
+  id: TransferToIsSinkingFund
+  parent: MakesCentsBackend.Models.GetTransferTransactionDTOModel
+  langs:
+  - csharp
+  - vb
+  name: TransferToIsSinkingFund
+  nameWithType: GetTransferTransactionDTOModel.TransferToIsSinkingFund
+  fullName: MakesCentsBackend.Models.GetTransferTransactionDTOModel.TransferToIsSinkingFund
+  type: Property
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Models/TransferTransactionModels.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: TransferToIsSinkingFund
+    path: Models/TransferTransactionModels.cs
+    startLine: 103
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Models
+  syntax:
+    content: public bool? TransferToIsSinkingFund { get; set; }
+    parameters: []
+    return:
+      type: System.Nullable{System.Boolean}
+    content.vb: Public Property TransferToIsSinkingFund As Boolean?
+  overload: MakesCentsBackend.Models.GetTransferTransactionDTOModel.TransferToIsSinkingFund*
 references:
 - uid: MakesCentsBackend.Models
   commentId: N:MakesCentsBackend.Models
@@ -222,13 +282,13 @@ references:
   name: TransactionId
   nameWithType: GetTransactionDTOModel.TransactionId
   fullName: MakesCentsBackend.Models.GetTransactionDTOModel.TransactionId
-- uid: MakesCentsBackend.Models.GetTransactionDTOModel.BudgetId
-  commentId: P:MakesCentsBackend.Models.GetTransactionDTOModel.BudgetId
+- uid: MakesCentsBackend.Models.GetTransactionDTOModel.BudgetMonthId
+  commentId: P:MakesCentsBackend.Models.GetTransactionDTOModel.BudgetMonthId
   parent: MakesCentsBackend.Models.GetTransactionDTOModel
-  href: MakesCentsBackend.Models.GetTransactionDTOModel.html#MakesCentsBackend_Models_GetTransactionDTOModel_BudgetId
-  name: BudgetId
-  nameWithType: GetTransactionDTOModel.BudgetId
-  fullName: MakesCentsBackend.Models.GetTransactionDTOModel.BudgetId
+  href: MakesCentsBackend.Models.GetTransactionDTOModel.html#MakesCentsBackend_Models_GetTransactionDTOModel_BudgetMonthId
+  name: BudgetMonthId
+  nameWithType: GetTransactionDTOModel.BudgetMonthId
+  fullName: MakesCentsBackend.Models.GetTransactionDTOModel.BudgetMonthId
 - uid: MakesCentsBackend.Models.GetTransactionDTOModel.TransactionDate
   commentId: P:MakesCentsBackend.Models.GetTransactionDTOModel.TransactionDate
   parent: MakesCentsBackend.Models.GetTransactionDTOModel
@@ -613,3 +673,38 @@ references:
   - uid: MakesCentsBackend.Models.Enums
     name: Enums
     href: MakesCentsBackend.Models.Enums.html
+- uid: MakesCentsBackend.Models.GetTransferTransactionDTOModel.TransferFromIsSinkingFund*
+  commentId: Overload:MakesCentsBackend.Models.GetTransferTransactionDTOModel.TransferFromIsSinkingFund
+  href: MakesCentsBackend.Models.GetTransferTransactionDTOModel.html#MakesCentsBackend_Models_GetTransferTransactionDTOModel_TransferFromIsSinkingFund
+  name: TransferFromIsSinkingFund
+  nameWithType: GetTransferTransactionDTOModel.TransferFromIsSinkingFund
+  fullName: MakesCentsBackend.Models.GetTransferTransactionDTOModel.TransferFromIsSinkingFund
+- uid: System.Nullable{System.Boolean}
+  commentId: T:System.Nullable{System.Boolean}
+  parent: System
+  definition: System.Nullable`1
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool?
+  nameWithType: bool?
+  fullName: bool?
+  nameWithType.vb: Boolean?
+  fullName.vb: Boolean?
+  name.vb: Boolean?
+  spec.csharp:
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: '?'
+  spec.vb:
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: '?'
+- uid: MakesCentsBackend.Models.GetTransferTransactionDTOModel.TransferToIsSinkingFund*
+  commentId: Overload:MakesCentsBackend.Models.GetTransferTransactionDTOModel.TransferToIsSinkingFund
+  href: MakesCentsBackend.Models.GetTransferTransactionDTOModel.html#MakesCentsBackend_Models_GetTransferTransactionDTOModel_TransferToIsSinkingFund
+  name: TransferToIsSinkingFund
+  nameWithType: GetTransferTransactionDTOModel.TransferToIsSinkingFund
+  fullName: MakesCentsBackend.Models.GetTransferTransactionDTOModel.TransferToIsSinkingFund

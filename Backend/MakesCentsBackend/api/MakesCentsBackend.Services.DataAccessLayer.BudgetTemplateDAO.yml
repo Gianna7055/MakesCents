@@ -1,0 +1,1079 @@
+### YamlMime:ManagedReference
+items:
+- uid: MakesCentsBackend.Services.DataAccessLayer.BudgetTemplateDAO
+  commentId: T:MakesCentsBackend.Services.DataAccessLayer.BudgetTemplateDAO
+  id: BudgetTemplateDAO
+  parent: MakesCentsBackend.Services.DataAccessLayer
+  children:
+  - MakesCentsBackend.Services.DataAccessLayer.BudgetTemplateDAO.#ctor(MySqlConnector.MySqlConnection,MakesCentsBackend.Services.DataAccessLayer.AuthorizationService,MakesCentsBackend.Services.DataAccessLayer.RolloverEnvelopeDAO,MakesCentsBackend.Services.DataAccessLayer.EnvelopeFundingDAO)
+  - MakesCentsBackend.Services.DataAccessLayer.BudgetTemplateDAO.ApplyBudgetTemplateAsync(MakesCentsBackend.Models.ApplyBudgetTemplateRequest)
+  - MakesCentsBackend.Services.DataAccessLayer.BudgetTemplateDAO.ApplyBudgetTemplateWithinTransactionAsync(MakesCentsBackend.Models.ApplyBudgetTemplateRequest,MySqlConnector.MySqlTransaction)
+  - MakesCentsBackend.Services.DataAccessLayer.BudgetTemplateDAO.CreateBudgetTemplateAsync(MakesCentsBackend.Models.CreateBudgetTemplateRequest)
+  - MakesCentsBackend.Services.DataAccessLayer.BudgetTemplateDAO.DeleteBudgetTemplateAsync(MakesCentsBackend.Models.BaseIdRequest)
+  - MakesCentsBackend.Services.DataAccessLayer.BudgetTemplateDAO.GetAllBudgetTemplatesAsync(MakesCentsBackend.Models.BaseIdRequest)
+  - MakesCentsBackend.Services.DataAccessLayer.BudgetTemplateDAO.GetBudgetTemplateAsync(MakesCentsBackend.Models.BaseIdRequest)
+  - MakesCentsBackend.Services.DataAccessLayer.BudgetTemplateDAO.SetBudgetTemplateEnvelopesAsync(MakesCentsBackend.Models.SetBudgetTemplateEnvelopesRequest)
+  - MakesCentsBackend.Services.DataAccessLayer.BudgetTemplateDAO.UpdateBudgetTemplateAsync(MakesCentsBackend.Models.EditBudgetTemplateRequest)
+  langs:
+  - csharp
+  - vb
+  name: BudgetTemplateDAO
+  nameWithType: BudgetTemplateDAO
+  fullName: MakesCentsBackend.Services.DataAccessLayer.BudgetTemplateDAO
+  type: Class
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Services/DataAccessLayer/BudgetTemplateDAO.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: BudgetTemplateDAO
+    path: Services/DataAccessLayer/BudgetTemplateDAO.cs
+    startLine: 16
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Services.DataAccessLayer
+  summary: >-
+    Data access object for budget templates - named, reusable presets of envelope funding
+
+    amounts that can be applied to a budget month to bulk-create its funding queue.
+  example: []
+  syntax:
+    content: public class BudgetTemplateDAO
+    content.vb: Public Class BudgetTemplateDAO
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: MakesCentsBackend.Services.DataAccessLayer.BudgetTemplateDAO.#ctor(MySqlConnector.MySqlConnection,MakesCentsBackend.Services.DataAccessLayer.AuthorizationService,MakesCentsBackend.Services.DataAccessLayer.RolloverEnvelopeDAO,MakesCentsBackend.Services.DataAccessLayer.EnvelopeFundingDAO)
+  commentId: M:MakesCentsBackend.Services.DataAccessLayer.BudgetTemplateDAO.#ctor(MySqlConnector.MySqlConnection,MakesCentsBackend.Services.DataAccessLayer.AuthorizationService,MakesCentsBackend.Services.DataAccessLayer.RolloverEnvelopeDAO,MakesCentsBackend.Services.DataAccessLayer.EnvelopeFundingDAO)
+  id: '#ctor(MySqlConnector.MySqlConnection,MakesCentsBackend.Services.DataAccessLayer.AuthorizationService,MakesCentsBackend.Services.DataAccessLayer.RolloverEnvelopeDAO,MakesCentsBackend.Services.DataAccessLayer.EnvelopeFundingDAO)'
+  parent: MakesCentsBackend.Services.DataAccessLayer.BudgetTemplateDAO
+  langs:
+  - csharp
+  - vb
+  name: BudgetTemplateDAO(MySqlConnection, AuthorizationService, RolloverEnvelopeDAO, EnvelopeFundingDAO)
+  nameWithType: BudgetTemplateDAO.BudgetTemplateDAO(MySqlConnection, AuthorizationService, RolloverEnvelopeDAO, EnvelopeFundingDAO)
+  fullName: MakesCentsBackend.Services.DataAccessLayer.BudgetTemplateDAO.BudgetTemplateDAO(MySqlConnector.MySqlConnection, MakesCentsBackend.Services.DataAccessLayer.AuthorizationService, MakesCentsBackend.Services.DataAccessLayer.RolloverEnvelopeDAO, MakesCentsBackend.Services.DataAccessLayer.EnvelopeFundingDAO)
+  type: Constructor
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Services/DataAccessLayer/BudgetTemplateDAO.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: .ctor
+    path: Services/DataAccessLayer/BudgetTemplateDAO.cs
+    startLine: 32
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Services.DataAccessLayer
+  summary: Parameterized constructor to bring in DI variables
+  example: []
+  syntax:
+    content: public BudgetTemplateDAO(MySqlConnection connection, AuthorizationService authService, RolloverEnvelopeDAO rolloverEnvelopeDAO, EnvelopeFundingDAO envelopeFundingDAO)
+    parameters:
+    - id: connection
+      type: MySqlConnector.MySqlConnection
+      description: ''
+    - id: authService
+      type: MakesCentsBackend.Services.DataAccessLayer.AuthorizationService
+      description: ''
+    - id: rolloverEnvelopeDAO
+      type: MakesCentsBackend.Services.DataAccessLayer.RolloverEnvelopeDAO
+      description: ''
+    - id: envelopeFundingDAO
+      type: MakesCentsBackend.Services.DataAccessLayer.EnvelopeFundingDAO
+      description: ''
+    content.vb: Public Sub New(connection As MySqlConnection, authService As AuthorizationService, rolloverEnvelopeDAO As RolloverEnvelopeDAO, envelopeFundingDAO As EnvelopeFundingDAO)
+  overload: MakesCentsBackend.Services.DataAccessLayer.BudgetTemplateDAO.#ctor*
+  nameWithType.vb: BudgetTemplateDAO.New(MySqlConnection, AuthorizationService, RolloverEnvelopeDAO, EnvelopeFundingDAO)
+  fullName.vb: MakesCentsBackend.Services.DataAccessLayer.BudgetTemplateDAO.New(MySqlConnector.MySqlConnection, MakesCentsBackend.Services.DataAccessLayer.AuthorizationService, MakesCentsBackend.Services.DataAccessLayer.RolloverEnvelopeDAO, MakesCentsBackend.Services.DataAccessLayer.EnvelopeFundingDAO)
+  name.vb: New(MySqlConnection, AuthorizationService, RolloverEnvelopeDAO, EnvelopeFundingDAO)
+- uid: MakesCentsBackend.Services.DataAccessLayer.BudgetTemplateDAO.CreateBudgetTemplateAsync(MakesCentsBackend.Models.CreateBudgetTemplateRequest)
+  commentId: M:MakesCentsBackend.Services.DataAccessLayer.BudgetTemplateDAO.CreateBudgetTemplateAsync(MakesCentsBackend.Models.CreateBudgetTemplateRequest)
+  id: CreateBudgetTemplateAsync(MakesCentsBackend.Models.CreateBudgetTemplateRequest)
+  parent: MakesCentsBackend.Services.DataAccessLayer.BudgetTemplateDAO
+  langs:
+  - csharp
+  - vb
+  name: CreateBudgetTemplateAsync(CreateBudgetTemplateRequest)
+  nameWithType: BudgetTemplateDAO.CreateBudgetTemplateAsync(CreateBudgetTemplateRequest)
+  fullName: MakesCentsBackend.Services.DataAccessLayer.BudgetTemplateDAO.CreateBudgetTemplateAsync(MakesCentsBackend.Models.CreateBudgetTemplateRequest)
+  type: Method
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Services/DataAccessLayer/BudgetTemplateDAO.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: CreateBudgetTemplateAsync
+    path: Services/DataAccessLayer/BudgetTemplateDAO.cs
+    startLine: 46
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Services.DataAccessLayer
+  summary: >-
+    DAO method to create a budget template. No envelope entries yet - use
+
+    SetBudgetTemplateEnvelopesAsync to add them afterward.
+  example: []
+  syntax:
+    content: public Task<BaseIdResponse> CreateBudgetTemplateAsync(CreateBudgetTemplateRequest template)
+    parameters:
+    - id: template
+      type: MakesCentsBackend.Models.CreateBudgetTemplateRequest
+      description: ''
+    return:
+      type: System.Threading.Tasks.Task{MakesCentsBackend.Models.BaseIdResponse}
+      description: ''
+    content.vb: Public Function CreateBudgetTemplateAsync(template As CreateBudgetTemplateRequest) As Task(Of BaseIdResponse)
+  overload: MakesCentsBackend.Services.DataAccessLayer.BudgetTemplateDAO.CreateBudgetTemplateAsync*
+- uid: MakesCentsBackend.Services.DataAccessLayer.BudgetTemplateDAO.GetAllBudgetTemplatesAsync(MakesCentsBackend.Models.BaseIdRequest)
+  commentId: M:MakesCentsBackend.Services.DataAccessLayer.BudgetTemplateDAO.GetAllBudgetTemplatesAsync(MakesCentsBackend.Models.BaseIdRequest)
+  id: GetAllBudgetTemplatesAsync(MakesCentsBackend.Models.BaseIdRequest)
+  parent: MakesCentsBackend.Services.DataAccessLayer.BudgetTemplateDAO
+  langs:
+  - csharp
+  - vb
+  name: GetAllBudgetTemplatesAsync(BaseIdRequest)
+  nameWithType: BudgetTemplateDAO.GetAllBudgetTemplatesAsync(BaseIdRequest)
+  fullName: MakesCentsBackend.Services.DataAccessLayer.BudgetTemplateDAO.GetAllBudgetTemplatesAsync(MakesCentsBackend.Models.BaseIdRequest)
+  type: Method
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Services/DataAccessLayer/BudgetTemplateDAO.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: GetAllBudgetTemplatesAsync
+    path: Services/DataAccessLayer/BudgetTemplateDAO.cs
+    startLine: 95
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Services.DataAccessLayer
+  summary: DAO method to get every template for a budget
+  example: []
+  syntax:
+    content: public Task<GetAllBudgetTemplatesResponse> GetAllBudgetTemplatesAsync(BaseIdRequest request)
+    parameters:
+    - id: request
+      type: MakesCentsBackend.Models.BaseIdRequest
+      description: ''
+    return:
+      type: System.Threading.Tasks.Task{MakesCentsBackend.Models.GetAllBudgetTemplatesResponse}
+      description: ''
+    content.vb: Public Function GetAllBudgetTemplatesAsync(request As BaseIdRequest) As Task(Of GetAllBudgetTemplatesResponse)
+  overload: MakesCentsBackend.Services.DataAccessLayer.BudgetTemplateDAO.GetAllBudgetTemplatesAsync*
+- uid: MakesCentsBackend.Services.DataAccessLayer.BudgetTemplateDAO.GetBudgetTemplateAsync(MakesCentsBackend.Models.BaseIdRequest)
+  commentId: M:MakesCentsBackend.Services.DataAccessLayer.BudgetTemplateDAO.GetBudgetTemplateAsync(MakesCentsBackend.Models.BaseIdRequest)
+  id: GetBudgetTemplateAsync(MakesCentsBackend.Models.BaseIdRequest)
+  parent: MakesCentsBackend.Services.DataAccessLayer.BudgetTemplateDAO
+  langs:
+  - csharp
+  - vb
+  name: GetBudgetTemplateAsync(BaseIdRequest)
+  nameWithType: BudgetTemplateDAO.GetBudgetTemplateAsync(BaseIdRequest)
+  fullName: MakesCentsBackend.Services.DataAccessLayer.BudgetTemplateDAO.GetBudgetTemplateAsync(MakesCentsBackend.Models.BaseIdRequest)
+  type: Method
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Services/DataAccessLayer/BudgetTemplateDAO.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: GetBudgetTemplateAsync
+    path: Services/DataAccessLayer/BudgetTemplateDAO.cs
+    startLine: 129
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Services.DataAccessLayer
+  summary: DAO method to get a single budget template, including its envelope entries
+  example: []
+  syntax:
+    content: public Task<GetBudgetTemplateResponse> GetBudgetTemplateAsync(BaseIdRequest request)
+    parameters:
+    - id: request
+      type: MakesCentsBackend.Models.BaseIdRequest
+      description: ''
+    return:
+      type: System.Threading.Tasks.Task{MakesCentsBackend.Models.GetBudgetTemplateResponse}
+      description: ''
+    content.vb: Public Function GetBudgetTemplateAsync(request As BaseIdRequest) As Task(Of GetBudgetTemplateResponse)
+  overload: MakesCentsBackend.Services.DataAccessLayer.BudgetTemplateDAO.GetBudgetTemplateAsync*
+- uid: MakesCentsBackend.Services.DataAccessLayer.BudgetTemplateDAO.UpdateBudgetTemplateAsync(MakesCentsBackend.Models.EditBudgetTemplateRequest)
+  commentId: M:MakesCentsBackend.Services.DataAccessLayer.BudgetTemplateDAO.UpdateBudgetTemplateAsync(MakesCentsBackend.Models.EditBudgetTemplateRequest)
+  id: UpdateBudgetTemplateAsync(MakesCentsBackend.Models.EditBudgetTemplateRequest)
+  parent: MakesCentsBackend.Services.DataAccessLayer.BudgetTemplateDAO
+  langs:
+  - csharp
+  - vb
+  name: UpdateBudgetTemplateAsync(EditBudgetTemplateRequest)
+  nameWithType: BudgetTemplateDAO.UpdateBudgetTemplateAsync(EditBudgetTemplateRequest)
+  fullName: MakesCentsBackend.Services.DataAccessLayer.BudgetTemplateDAO.UpdateBudgetTemplateAsync(MakesCentsBackend.Models.EditBudgetTemplateRequest)
+  type: Method
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Services/DataAccessLayer/BudgetTemplateDAO.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: UpdateBudgetTemplateAsync
+    path: Services/DataAccessLayer/BudgetTemplateDAO.cs
+    startLine: 190
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Services.DataAccessLayer
+  summary: DAO method to rename a budget template
+  example: []
+  syntax:
+    content: public Task<BaseIdResponse> UpdateBudgetTemplateAsync(EditBudgetTemplateRequest template)
+    parameters:
+    - id: template
+      type: MakesCentsBackend.Models.EditBudgetTemplateRequest
+      description: ''
+    return:
+      type: System.Threading.Tasks.Task{MakesCentsBackend.Models.BaseIdResponse}
+      description: ''
+    content.vb: Public Function UpdateBudgetTemplateAsync(template As EditBudgetTemplateRequest) As Task(Of BaseIdResponse)
+  overload: MakesCentsBackend.Services.DataAccessLayer.BudgetTemplateDAO.UpdateBudgetTemplateAsync*
+- uid: MakesCentsBackend.Services.DataAccessLayer.BudgetTemplateDAO.DeleteBudgetTemplateAsync(MakesCentsBackend.Models.BaseIdRequest)
+  commentId: M:MakesCentsBackend.Services.DataAccessLayer.BudgetTemplateDAO.DeleteBudgetTemplateAsync(MakesCentsBackend.Models.BaseIdRequest)
+  id: DeleteBudgetTemplateAsync(MakesCentsBackend.Models.BaseIdRequest)
+  parent: MakesCentsBackend.Services.DataAccessLayer.BudgetTemplateDAO
+  langs:
+  - csharp
+  - vb
+  name: DeleteBudgetTemplateAsync(BaseIdRequest)
+  nameWithType: BudgetTemplateDAO.DeleteBudgetTemplateAsync(BaseIdRequest)
+  fullName: MakesCentsBackend.Services.DataAccessLayer.BudgetTemplateDAO.DeleteBudgetTemplateAsync(MakesCentsBackend.Models.BaseIdRequest)
+  type: Method
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Services/DataAccessLayer/BudgetTemplateDAO.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: DeleteBudgetTemplateAsync
+    path: Services/DataAccessLayer/BudgetTemplateDAO.cs
+    startLine: 258
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Services.DataAccessLayer
+  summary: >-
+    DAO method to delete a budget template. Cascades to remove its envelope entries.
+
+    Any budget_month that had this template applied keeps its funding queue, but its
+
+    budget_template_id is set back to null (the record of "which template" is lost,
+
+    the funding queue itself is not).
+  example: []
+  syntax:
+    content: public Task<BaseResponse> DeleteBudgetTemplateAsync(BaseIdRequest request)
+    parameters:
+    - id: request
+      type: MakesCentsBackend.Models.BaseIdRequest
+      description: ''
+    return:
+      type: System.Threading.Tasks.Task{MakesCentsBackend.Models.BaseResponse}
+      description: ''
+    content.vb: Public Function DeleteBudgetTemplateAsync(request As BaseIdRequest) As Task(Of BaseResponse)
+  overload: MakesCentsBackend.Services.DataAccessLayer.BudgetTemplateDAO.DeleteBudgetTemplateAsync*
+- uid: MakesCentsBackend.Services.DataAccessLayer.BudgetTemplateDAO.SetBudgetTemplateEnvelopesAsync(MakesCentsBackend.Models.SetBudgetTemplateEnvelopesRequest)
+  commentId: M:MakesCentsBackend.Services.DataAccessLayer.BudgetTemplateDAO.SetBudgetTemplateEnvelopesAsync(MakesCentsBackend.Models.SetBudgetTemplateEnvelopesRequest)
+  id: SetBudgetTemplateEnvelopesAsync(MakesCentsBackend.Models.SetBudgetTemplateEnvelopesRequest)
+  parent: MakesCentsBackend.Services.DataAccessLayer.BudgetTemplateDAO
+  langs:
+  - csharp
+  - vb
+  name: SetBudgetTemplateEnvelopesAsync(SetBudgetTemplateEnvelopesRequest)
+  nameWithType: BudgetTemplateDAO.SetBudgetTemplateEnvelopesAsync(SetBudgetTemplateEnvelopesRequest)
+  fullName: MakesCentsBackend.Services.DataAccessLayer.BudgetTemplateDAO.SetBudgetTemplateEnvelopesAsync(MakesCentsBackend.Models.SetBudgetTemplateEnvelopesRequest)
+  type: Method
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Services/DataAccessLayer/BudgetTemplateDAO.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: SetBudgetTemplateEnvelopesAsync
+    path: Services/DataAccessLayer/BudgetTemplateDAO.cs
+    startLine: 300
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Services.DataAccessLayer
+  summary: >-
+    DAO method to set (create/reorder/update/remove all at once) a template's envelope
+
+    entries. 
+
+    Existing rows not present in the incoming list are deleted.
+
+    Rows with a BudgetTemplateEnvelopeId are updated in place
+
+    Rows without one are inserted new.
+
+    order_index is reassigned by each item's position in the incoming list - kept rows
+
+    are first bumped into a high temporary range before being written back to their final
+
+    low value, since unique_template_order is checked immediately (not deferred) and a
+
+    straight reorder could otherwise collide with another row's still-current value.
+
+    Also enforces that the same envelope can't appear twice in one template
+
+    (unique_template_envelope_sinking / unique_template_envelope_rollover).
+  example: []
+  syntax:
+    content: public Task<GetBudgetTemplateResponse> SetBudgetTemplateEnvelopesAsync(SetBudgetTemplateEnvelopesRequest templateEnvelopes)
+    parameters:
+    - id: templateEnvelopes
+      type: MakesCentsBackend.Models.SetBudgetTemplateEnvelopesRequest
+      description: ''
+    return:
+      type: System.Threading.Tasks.Task{MakesCentsBackend.Models.GetBudgetTemplateResponse}
+      description: ''
+    content.vb: Public Function SetBudgetTemplateEnvelopesAsync(templateEnvelopes As SetBudgetTemplateEnvelopesRequest) As Task(Of GetBudgetTemplateResponse)
+  overload: MakesCentsBackend.Services.DataAccessLayer.BudgetTemplateDAO.SetBudgetTemplateEnvelopesAsync*
+- uid: MakesCentsBackend.Services.DataAccessLayer.BudgetTemplateDAO.ApplyBudgetTemplateWithinTransactionAsync(MakesCentsBackend.Models.ApplyBudgetTemplateRequest,MySqlConnector.MySqlTransaction)
+  commentId: M:MakesCentsBackend.Services.DataAccessLayer.BudgetTemplateDAO.ApplyBudgetTemplateWithinTransactionAsync(MakesCentsBackend.Models.ApplyBudgetTemplateRequest,MySqlConnector.MySqlTransaction)
+  id: ApplyBudgetTemplateWithinTransactionAsync(MakesCentsBackend.Models.ApplyBudgetTemplateRequest,MySqlConnector.MySqlTransaction)
+  parent: MakesCentsBackend.Services.DataAccessLayer.BudgetTemplateDAO
+  langs:
+  - csharp
+  - vb
+  name: ApplyBudgetTemplateWithinTransactionAsync(ApplyBudgetTemplateRequest, MySqlTransaction)
+  nameWithType: BudgetTemplateDAO.ApplyBudgetTemplateWithinTransactionAsync(ApplyBudgetTemplateRequest, MySqlTransaction)
+  fullName: MakesCentsBackend.Services.DataAccessLayer.BudgetTemplateDAO.ApplyBudgetTemplateWithinTransactionAsync(MakesCentsBackend.Models.ApplyBudgetTemplateRequest, MySqlConnector.MySqlTransaction)
+  type: Method
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Services/DataAccessLayer/BudgetTemplateDAO.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: ApplyBudgetTemplateWithinTransactionAsync
+    path: Services/DataAccessLayer/BudgetTemplateDAO.cs
+    startLine: 514
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Services.DataAccessLayer
+  summary: >-
+    Core logic for applying a template to a budget month, runs inside a transaction the
+
+    CALLER owns (doesn't commit/rollback itself) - so it can be reused by BudgetDAO to make
+
+    "create a budget month" and "apply its template" one atomic operation. This ALWAYS
+
+    fully replaces that month's existing funding queue - it does not merge with or
+
+    preserve whatever was there before. Records which template was applied on
+
+    budget_month.budget_template_id.
+  example: []
+  syntax:
+    content: public Task<BaseResponse> ApplyBudgetTemplateWithinTransactionAsync(ApplyBudgetTemplateRequest apply, MySqlTransaction dbTransaction)
+    parameters:
+    - id: apply
+      type: MakesCentsBackend.Models.ApplyBudgetTemplateRequest
+      description: ''
+    - id: dbTransaction
+      type: MySqlConnector.MySqlTransaction
+      description: ''
+    return:
+      type: System.Threading.Tasks.Task{MakesCentsBackend.Models.BaseResponse}
+      description: ''
+    content.vb: Public Function ApplyBudgetTemplateWithinTransactionAsync(apply As ApplyBudgetTemplateRequest, dbTransaction As MySqlTransaction) As Task(Of BaseResponse)
+  overload: MakesCentsBackend.Services.DataAccessLayer.BudgetTemplateDAO.ApplyBudgetTemplateWithinTransactionAsync*
+- uid: MakesCentsBackend.Services.DataAccessLayer.BudgetTemplateDAO.ApplyBudgetTemplateAsync(MakesCentsBackend.Models.ApplyBudgetTemplateRequest)
+  commentId: M:MakesCentsBackend.Services.DataAccessLayer.BudgetTemplateDAO.ApplyBudgetTemplateAsync(MakesCentsBackend.Models.ApplyBudgetTemplateRequest)
+  id: ApplyBudgetTemplateAsync(MakesCentsBackend.Models.ApplyBudgetTemplateRequest)
+  parent: MakesCentsBackend.Services.DataAccessLayer.BudgetTemplateDAO
+  langs:
+  - csharp
+  - vb
+  name: ApplyBudgetTemplateAsync(ApplyBudgetTemplateRequest)
+  nameWithType: BudgetTemplateDAO.ApplyBudgetTemplateAsync(ApplyBudgetTemplateRequest)
+  fullName: MakesCentsBackend.Services.DataAccessLayer.BudgetTemplateDAO.ApplyBudgetTemplateAsync(MakesCentsBackend.Models.ApplyBudgetTemplateRequest)
+  type: Method
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Services/DataAccessLayer/BudgetTemplateDAO.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: ApplyBudgetTemplateAsync
+    path: Services/DataAccessLayer/BudgetTemplateDAO.cs
+    startLine: 627
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Services.DataAccessLayer
+  summary: >-
+    DAO method to apply a template to a budget month as a standalone call. Thin wrapper
+
+    around ApplyBudgetTemplateWithinTransactionAsync that owns its own transaction - see
+
+    that method for what actually happens.
+  example: []
+  syntax:
+    content: public Task<GetEnvelopeFundingQueueResponse> ApplyBudgetTemplateAsync(ApplyBudgetTemplateRequest apply)
+    parameters:
+    - id: apply
+      type: MakesCentsBackend.Models.ApplyBudgetTemplateRequest
+      description: ''
+    return:
+      type: System.Threading.Tasks.Task{MakesCentsBackend.Models.GetEnvelopeFundingQueueResponse}
+      description: ''
+    content.vb: Public Function ApplyBudgetTemplateAsync(apply As ApplyBudgetTemplateRequest) As Task(Of GetEnvelopeFundingQueueResponse)
+  overload: MakesCentsBackend.Services.DataAccessLayer.BudgetTemplateDAO.ApplyBudgetTemplateAsync*
+references:
+- uid: MakesCentsBackend.Services.DataAccessLayer
+  commentId: N:MakesCentsBackend.Services.DataAccessLayer
+  href: MakesCentsBackend.html
+  name: MakesCentsBackend.Services.DataAccessLayer
+  nameWithType: MakesCentsBackend.Services.DataAccessLayer
+  fullName: MakesCentsBackend.Services.DataAccessLayer
+  spec.csharp:
+  - uid: MakesCentsBackend
+    name: MakesCentsBackend
+    href: MakesCentsBackend.html
+  - name: .
+  - uid: MakesCentsBackend.Services
+    name: Services
+    href: MakesCentsBackend.Services.html
+  - name: .
+  - uid: MakesCentsBackend.Services.DataAccessLayer
+    name: DataAccessLayer
+    href: MakesCentsBackend.Services.DataAccessLayer.html
+  spec.vb:
+  - uid: MakesCentsBackend
+    name: MakesCentsBackend
+    href: MakesCentsBackend.html
+  - name: .
+  - uid: MakesCentsBackend.Services
+    name: Services
+    href: MakesCentsBackend.Services.html
+  - name: .
+  - uid: MakesCentsBackend.Services.DataAccessLayer
+    name: DataAccessLayer
+    href: MakesCentsBackend.Services.DataAccessLayer.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: MakesCentsBackend.Services.DataAccessLayer.BudgetTemplateDAO.#ctor*
+  commentId: Overload:MakesCentsBackend.Services.DataAccessLayer.BudgetTemplateDAO.#ctor
+  href: MakesCentsBackend.Services.DataAccessLayer.BudgetTemplateDAO.html#MakesCentsBackend_Services_DataAccessLayer_BudgetTemplateDAO__ctor_MySqlConnector_MySqlConnection_MakesCentsBackend_Services_DataAccessLayer_AuthorizationService_MakesCentsBackend_Services_DataAccessLayer_RolloverEnvelopeDAO_MakesCentsBackend_Services_DataAccessLayer_EnvelopeFundingDAO_
+  name: BudgetTemplateDAO
+  nameWithType: BudgetTemplateDAO.BudgetTemplateDAO
+  fullName: MakesCentsBackend.Services.DataAccessLayer.BudgetTemplateDAO.BudgetTemplateDAO
+  nameWithType.vb: BudgetTemplateDAO.New
+  fullName.vb: MakesCentsBackend.Services.DataAccessLayer.BudgetTemplateDAO.New
+  name.vb: New
+- uid: MySqlConnector.MySqlConnection
+  commentId: T:MySqlConnector.MySqlConnection
+  parent: MySqlConnector
+  isExternal: true
+  name: MySqlConnection
+  nameWithType: MySqlConnection
+  fullName: MySqlConnector.MySqlConnection
+- uid: MakesCentsBackend.Services.DataAccessLayer.AuthorizationService
+  commentId: T:MakesCentsBackend.Services.DataAccessLayer.AuthorizationService
+  parent: MakesCentsBackend.Services.DataAccessLayer
+  href: MakesCentsBackend.Services.DataAccessLayer.AuthorizationService.html
+  name: AuthorizationService
+  nameWithType: AuthorizationService
+  fullName: MakesCentsBackend.Services.DataAccessLayer.AuthorizationService
+- uid: MakesCentsBackend.Services.DataAccessLayer.RolloverEnvelopeDAO
+  commentId: T:MakesCentsBackend.Services.DataAccessLayer.RolloverEnvelopeDAO
+  parent: MakesCentsBackend.Services.DataAccessLayer
+  href: MakesCentsBackend.Services.DataAccessLayer.RolloverEnvelopeDAO.html
+  name: RolloverEnvelopeDAO
+  nameWithType: RolloverEnvelopeDAO
+  fullName: MakesCentsBackend.Services.DataAccessLayer.RolloverEnvelopeDAO
+- uid: MakesCentsBackend.Services.DataAccessLayer.EnvelopeFundingDAO
+  commentId: T:MakesCentsBackend.Services.DataAccessLayer.EnvelopeFundingDAO
+  parent: MakesCentsBackend.Services.DataAccessLayer
+  href: MakesCentsBackend.Services.DataAccessLayer.EnvelopeFundingDAO.html
+  name: EnvelopeFundingDAO
+  nameWithType: EnvelopeFundingDAO
+  fullName: MakesCentsBackend.Services.DataAccessLayer.EnvelopeFundingDAO
+- uid: MySqlConnector
+  commentId: N:MySqlConnector
+  isExternal: true
+  name: MySqlConnector
+  nameWithType: MySqlConnector
+  fullName: MySqlConnector
+- uid: MakesCentsBackend.Services.DataAccessLayer.BudgetTemplateDAO.CreateBudgetTemplateAsync*
+  commentId: Overload:MakesCentsBackend.Services.DataAccessLayer.BudgetTemplateDAO.CreateBudgetTemplateAsync
+  href: MakesCentsBackend.Services.DataAccessLayer.BudgetTemplateDAO.html#MakesCentsBackend_Services_DataAccessLayer_BudgetTemplateDAO_CreateBudgetTemplateAsync_MakesCentsBackend_Models_CreateBudgetTemplateRequest_
+  name: CreateBudgetTemplateAsync
+  nameWithType: BudgetTemplateDAO.CreateBudgetTemplateAsync
+  fullName: MakesCentsBackend.Services.DataAccessLayer.BudgetTemplateDAO.CreateBudgetTemplateAsync
+- uid: MakesCentsBackend.Models.CreateBudgetTemplateRequest
+  commentId: T:MakesCentsBackend.Models.CreateBudgetTemplateRequest
+  parent: MakesCentsBackend.Models
+  href: MakesCentsBackend.Models.CreateBudgetTemplateRequest.html
+  name: CreateBudgetTemplateRequest
+  nameWithType: CreateBudgetTemplateRequest
+  fullName: MakesCentsBackend.Models.CreateBudgetTemplateRequest
+- uid: System.Threading.Tasks.Task{MakesCentsBackend.Models.BaseIdResponse}
+  commentId: T:System.Threading.Tasks.Task{MakesCentsBackend.Models.BaseIdResponse}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<BaseIdResponse>
+  nameWithType: Task<BaseIdResponse>
+  fullName: System.Threading.Tasks.Task<MakesCentsBackend.Models.BaseIdResponse>
+  nameWithType.vb: Task(Of BaseIdResponse)
+  fullName.vb: System.Threading.Tasks.Task(Of MakesCentsBackend.Models.BaseIdResponse)
+  name.vb: Task(Of BaseIdResponse)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: MakesCentsBackend.Models.BaseIdResponse
+    name: BaseIdResponse
+    href: MakesCentsBackend.Models.BaseIdResponse.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: MakesCentsBackend.Models.BaseIdResponse
+    name: BaseIdResponse
+    href: MakesCentsBackend.Models.BaseIdResponse.html
+  - name: )
+- uid: MakesCentsBackend.Models
+  commentId: N:MakesCentsBackend.Models
+  href: MakesCentsBackend.html
+  name: MakesCentsBackend.Models
+  nameWithType: MakesCentsBackend.Models
+  fullName: MakesCentsBackend.Models
+  spec.csharp:
+  - uid: MakesCentsBackend
+    name: MakesCentsBackend
+    href: MakesCentsBackend.html
+  - name: .
+  - uid: MakesCentsBackend.Models
+    name: Models
+    href: MakesCentsBackend.Models.html
+  spec.vb:
+  - uid: MakesCentsBackend
+    name: MakesCentsBackend
+    href: MakesCentsBackend.html
+  - name: .
+  - uid: MakesCentsBackend.Models
+    name: Models
+    href: MakesCentsBackend.Models.html
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+- uid: MakesCentsBackend.Services.DataAccessLayer.BudgetTemplateDAO.GetAllBudgetTemplatesAsync*
+  commentId: Overload:MakesCentsBackend.Services.DataAccessLayer.BudgetTemplateDAO.GetAllBudgetTemplatesAsync
+  href: MakesCentsBackend.Services.DataAccessLayer.BudgetTemplateDAO.html#MakesCentsBackend_Services_DataAccessLayer_BudgetTemplateDAO_GetAllBudgetTemplatesAsync_MakesCentsBackend_Models_BaseIdRequest_
+  name: GetAllBudgetTemplatesAsync
+  nameWithType: BudgetTemplateDAO.GetAllBudgetTemplatesAsync
+  fullName: MakesCentsBackend.Services.DataAccessLayer.BudgetTemplateDAO.GetAllBudgetTemplatesAsync
+- uid: MakesCentsBackend.Models.BaseIdRequest
+  commentId: T:MakesCentsBackend.Models.BaseIdRequest
+  parent: MakesCentsBackend.Models
+  href: MakesCentsBackend.Models.BaseIdRequest.html
+  name: BaseIdRequest
+  nameWithType: BaseIdRequest
+  fullName: MakesCentsBackend.Models.BaseIdRequest
+- uid: System.Threading.Tasks.Task{MakesCentsBackend.Models.GetAllBudgetTemplatesResponse}
+  commentId: T:System.Threading.Tasks.Task{MakesCentsBackend.Models.GetAllBudgetTemplatesResponse}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<GetAllBudgetTemplatesResponse>
+  nameWithType: Task<GetAllBudgetTemplatesResponse>
+  fullName: System.Threading.Tasks.Task<MakesCentsBackend.Models.GetAllBudgetTemplatesResponse>
+  nameWithType.vb: Task(Of GetAllBudgetTemplatesResponse)
+  fullName.vb: System.Threading.Tasks.Task(Of MakesCentsBackend.Models.GetAllBudgetTemplatesResponse)
+  name.vb: Task(Of GetAllBudgetTemplatesResponse)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: MakesCentsBackend.Models.GetAllBudgetTemplatesResponse
+    name: GetAllBudgetTemplatesResponse
+    href: MakesCentsBackend.Models.GetAllBudgetTemplatesResponse.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: MakesCentsBackend.Models.GetAllBudgetTemplatesResponse
+    name: GetAllBudgetTemplatesResponse
+    href: MakesCentsBackend.Models.GetAllBudgetTemplatesResponse.html
+  - name: )
+- uid: MakesCentsBackend.Services.DataAccessLayer.BudgetTemplateDAO.GetBudgetTemplateAsync*
+  commentId: Overload:MakesCentsBackend.Services.DataAccessLayer.BudgetTemplateDAO.GetBudgetTemplateAsync
+  href: MakesCentsBackend.Services.DataAccessLayer.BudgetTemplateDAO.html#MakesCentsBackend_Services_DataAccessLayer_BudgetTemplateDAO_GetBudgetTemplateAsync_MakesCentsBackend_Models_BaseIdRequest_
+  name: GetBudgetTemplateAsync
+  nameWithType: BudgetTemplateDAO.GetBudgetTemplateAsync
+  fullName: MakesCentsBackend.Services.DataAccessLayer.BudgetTemplateDAO.GetBudgetTemplateAsync
+- uid: System.Threading.Tasks.Task{MakesCentsBackend.Models.GetBudgetTemplateResponse}
+  commentId: T:System.Threading.Tasks.Task{MakesCentsBackend.Models.GetBudgetTemplateResponse}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<GetBudgetTemplateResponse>
+  nameWithType: Task<GetBudgetTemplateResponse>
+  fullName: System.Threading.Tasks.Task<MakesCentsBackend.Models.GetBudgetTemplateResponse>
+  nameWithType.vb: Task(Of GetBudgetTemplateResponse)
+  fullName.vb: System.Threading.Tasks.Task(Of MakesCentsBackend.Models.GetBudgetTemplateResponse)
+  name.vb: Task(Of GetBudgetTemplateResponse)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: MakesCentsBackend.Models.GetBudgetTemplateResponse
+    name: GetBudgetTemplateResponse
+    href: MakesCentsBackend.Models.GetBudgetTemplateResponse.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: MakesCentsBackend.Models.GetBudgetTemplateResponse
+    name: GetBudgetTemplateResponse
+    href: MakesCentsBackend.Models.GetBudgetTemplateResponse.html
+  - name: )
+- uid: MakesCentsBackend.Services.DataAccessLayer.BudgetTemplateDAO.UpdateBudgetTemplateAsync*
+  commentId: Overload:MakesCentsBackend.Services.DataAccessLayer.BudgetTemplateDAO.UpdateBudgetTemplateAsync
+  href: MakesCentsBackend.Services.DataAccessLayer.BudgetTemplateDAO.html#MakesCentsBackend_Services_DataAccessLayer_BudgetTemplateDAO_UpdateBudgetTemplateAsync_MakesCentsBackend_Models_EditBudgetTemplateRequest_
+  name: UpdateBudgetTemplateAsync
+  nameWithType: BudgetTemplateDAO.UpdateBudgetTemplateAsync
+  fullName: MakesCentsBackend.Services.DataAccessLayer.BudgetTemplateDAO.UpdateBudgetTemplateAsync
+- uid: MakesCentsBackend.Models.EditBudgetTemplateRequest
+  commentId: T:MakesCentsBackend.Models.EditBudgetTemplateRequest
+  parent: MakesCentsBackend.Models
+  href: MakesCentsBackend.Models.EditBudgetTemplateRequest.html
+  name: EditBudgetTemplateRequest
+  nameWithType: EditBudgetTemplateRequest
+  fullName: MakesCentsBackend.Models.EditBudgetTemplateRequest
+- uid: MakesCentsBackend.Services.DataAccessLayer.BudgetTemplateDAO.DeleteBudgetTemplateAsync*
+  commentId: Overload:MakesCentsBackend.Services.DataAccessLayer.BudgetTemplateDAO.DeleteBudgetTemplateAsync
+  href: MakesCentsBackend.Services.DataAccessLayer.BudgetTemplateDAO.html#MakesCentsBackend_Services_DataAccessLayer_BudgetTemplateDAO_DeleteBudgetTemplateAsync_MakesCentsBackend_Models_BaseIdRequest_
+  name: DeleteBudgetTemplateAsync
+  nameWithType: BudgetTemplateDAO.DeleteBudgetTemplateAsync
+  fullName: MakesCentsBackend.Services.DataAccessLayer.BudgetTemplateDAO.DeleteBudgetTemplateAsync
+- uid: System.Threading.Tasks.Task{MakesCentsBackend.Models.BaseResponse}
+  commentId: T:System.Threading.Tasks.Task{MakesCentsBackend.Models.BaseResponse}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<BaseResponse>
+  nameWithType: Task<BaseResponse>
+  fullName: System.Threading.Tasks.Task<MakesCentsBackend.Models.BaseResponse>
+  nameWithType.vb: Task(Of BaseResponse)
+  fullName.vb: System.Threading.Tasks.Task(Of MakesCentsBackend.Models.BaseResponse)
+  name.vb: Task(Of BaseResponse)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: MakesCentsBackend.Models.BaseResponse
+    name: BaseResponse
+    href: MakesCentsBackend.Models.BaseResponse.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: MakesCentsBackend.Models.BaseResponse
+    name: BaseResponse
+    href: MakesCentsBackend.Models.BaseResponse.html
+  - name: )
+- uid: MakesCentsBackend.Services.DataAccessLayer.BudgetTemplateDAO.SetBudgetTemplateEnvelopesAsync*
+  commentId: Overload:MakesCentsBackend.Services.DataAccessLayer.BudgetTemplateDAO.SetBudgetTemplateEnvelopesAsync
+  href: MakesCentsBackend.Services.DataAccessLayer.BudgetTemplateDAO.html#MakesCentsBackend_Services_DataAccessLayer_BudgetTemplateDAO_SetBudgetTemplateEnvelopesAsync_MakesCentsBackend_Models_SetBudgetTemplateEnvelopesRequest_
+  name: SetBudgetTemplateEnvelopesAsync
+  nameWithType: BudgetTemplateDAO.SetBudgetTemplateEnvelopesAsync
+  fullName: MakesCentsBackend.Services.DataAccessLayer.BudgetTemplateDAO.SetBudgetTemplateEnvelopesAsync
+- uid: MakesCentsBackend.Models.SetBudgetTemplateEnvelopesRequest
+  commentId: T:MakesCentsBackend.Models.SetBudgetTemplateEnvelopesRequest
+  parent: MakesCentsBackend.Models
+  href: MakesCentsBackend.Models.SetBudgetTemplateEnvelopesRequest.html
+  name: SetBudgetTemplateEnvelopesRequest
+  nameWithType: SetBudgetTemplateEnvelopesRequest
+  fullName: MakesCentsBackend.Models.SetBudgetTemplateEnvelopesRequest
+- uid: MakesCentsBackend.Services.DataAccessLayer.BudgetTemplateDAO.ApplyBudgetTemplateWithinTransactionAsync*
+  commentId: Overload:MakesCentsBackend.Services.DataAccessLayer.BudgetTemplateDAO.ApplyBudgetTemplateWithinTransactionAsync
+  href: MakesCentsBackend.Services.DataAccessLayer.BudgetTemplateDAO.html#MakesCentsBackend_Services_DataAccessLayer_BudgetTemplateDAO_ApplyBudgetTemplateWithinTransactionAsync_MakesCentsBackend_Models_ApplyBudgetTemplateRequest_MySqlConnector_MySqlTransaction_
+  name: ApplyBudgetTemplateWithinTransactionAsync
+  nameWithType: BudgetTemplateDAO.ApplyBudgetTemplateWithinTransactionAsync
+  fullName: MakesCentsBackend.Services.DataAccessLayer.BudgetTemplateDAO.ApplyBudgetTemplateWithinTransactionAsync
+- uid: MakesCentsBackend.Models.ApplyBudgetTemplateRequest
+  commentId: T:MakesCentsBackend.Models.ApplyBudgetTemplateRequest
+  parent: MakesCentsBackend.Models
+  href: MakesCentsBackend.Models.ApplyBudgetTemplateRequest.html
+  name: ApplyBudgetTemplateRequest
+  nameWithType: ApplyBudgetTemplateRequest
+  fullName: MakesCentsBackend.Models.ApplyBudgetTemplateRequest
+- uid: MySqlConnector.MySqlTransaction
+  commentId: T:MySqlConnector.MySqlTransaction
+  parent: MySqlConnector
+  isExternal: true
+  name: MySqlTransaction
+  nameWithType: MySqlTransaction
+  fullName: MySqlConnector.MySqlTransaction
+- uid: MakesCentsBackend.Services.DataAccessLayer.BudgetTemplateDAO.ApplyBudgetTemplateAsync*
+  commentId: Overload:MakesCentsBackend.Services.DataAccessLayer.BudgetTemplateDAO.ApplyBudgetTemplateAsync
+  href: MakesCentsBackend.Services.DataAccessLayer.BudgetTemplateDAO.html#MakesCentsBackend_Services_DataAccessLayer_BudgetTemplateDAO_ApplyBudgetTemplateAsync_MakesCentsBackend_Models_ApplyBudgetTemplateRequest_
+  name: ApplyBudgetTemplateAsync
+  nameWithType: BudgetTemplateDAO.ApplyBudgetTemplateAsync
+  fullName: MakesCentsBackend.Services.DataAccessLayer.BudgetTemplateDAO.ApplyBudgetTemplateAsync
+- uid: System.Threading.Tasks.Task{MakesCentsBackend.Models.GetEnvelopeFundingQueueResponse}
+  commentId: T:System.Threading.Tasks.Task{MakesCentsBackend.Models.GetEnvelopeFundingQueueResponse}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<GetEnvelopeFundingQueueResponse>
+  nameWithType: Task<GetEnvelopeFundingQueueResponse>
+  fullName: System.Threading.Tasks.Task<MakesCentsBackend.Models.GetEnvelopeFundingQueueResponse>
+  nameWithType.vb: Task(Of GetEnvelopeFundingQueueResponse)
+  fullName.vb: System.Threading.Tasks.Task(Of MakesCentsBackend.Models.GetEnvelopeFundingQueueResponse)
+  name.vb: Task(Of GetEnvelopeFundingQueueResponse)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: MakesCentsBackend.Models.GetEnvelopeFundingQueueResponse
+    name: GetEnvelopeFundingQueueResponse
+    href: MakesCentsBackend.Models.GetEnvelopeFundingQueueResponse.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: MakesCentsBackend.Models.GetEnvelopeFundingQueueResponse
+    name: GetEnvelopeFundingQueueResponse
+    href: MakesCentsBackend.Models.GetEnvelopeFundingQueueResponse.html
+  - name: )

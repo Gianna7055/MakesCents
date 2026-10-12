@@ -6,8 +6,10 @@ items:
   parent: MakesCentsBackend.Services.BusinessLogicLayer
   children:
   - MakesCentsBackend.Services.BusinessLogicLayer.TransactionLogic.#ctor(MakesCentsBackend.Services.DataAccessLayer.TransactionDAO,AutoMapper.IMapper)
-  - MakesCentsBackend.Services.BusinessLogicLayer.TransactionLogic.DeleteTransactionAsync(MakesCentsBackend.Models.BaseIdRequest)
   - MakesCentsBackend.Services.BusinessLogicLayer.TransactionLogic.GetAllTransactionsAsync(MakesCentsBackend.Models.BaseIdRequest)
+  - MakesCentsBackend.Services.BusinessLogicLayer.TransactionLogic.HardDeleteTransactionAsync(MakesCentsBackend.Models.BaseIdRequest)
+  - MakesCentsBackend.Services.BusinessLogicLayer.TransactionLogic.RestoreTransactionAsync(MakesCentsBackend.Models.BaseIdRequest)
+  - MakesCentsBackend.Services.BusinessLogicLayer.TransactionLogic.SoftDeleteTransactionAsync(MakesCentsBackend.Models.BaseIdRequest)
   langs:
   - csharp
   - vb
@@ -22,7 +24,7 @@ items:
       repo: https://github.com/Gianna7055/MakesCents.git
     id: TransactionLogic
     path: Services/BusinessLogicLayer/TransactionLogic.cs
-    startLine: 12
+    startLine: 11
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Services.BusinessLogicLayer
@@ -57,7 +59,7 @@ items:
       repo: https://github.com/Gianna7055/MakesCents.git
     id: .ctor
     path: Services/BusinessLogicLayer/TransactionLogic.cs
-    startLine: 22
+    startLine: 21
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Services.BusinessLogicLayer
@@ -94,45 +96,54 @@ items:
       repo: https://github.com/Gianna7055/MakesCents.git
     id: GetAllTransactionsAsync
     path: Services/BusinessLogicLayer/TransactionLogic.cs
-    startLine: 29
+    startLine: 34
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Services.BusinessLogicLayer
+  summary: >-
+    Logic method to get every transaction for a budget month.
+
+    NOTE: request.EntityId is a budget_month_id, not a budget_id - transactions are
+
+    scoped to one specific month.
+  example: []
   syntax:
     content: public Task<GetAllTransactionsDTOResponse> GetAllTransactionsAsync(BaseIdRequest request)
     parameters:
     - id: request
       type: MakesCentsBackend.Models.BaseIdRequest
+      description: ''
     return:
       type: System.Threading.Tasks.Task{MakesCentsBackend.Models.GetAllTransactionsDTOResponse}
+      description: ''
     content.vb: Public Function GetAllTransactionsAsync(request As BaseIdRequest) As Task(Of GetAllTransactionsDTOResponse)
   overload: MakesCentsBackend.Services.BusinessLogicLayer.TransactionLogic.GetAllTransactionsAsync*
-- uid: MakesCentsBackend.Services.BusinessLogicLayer.TransactionLogic.DeleteTransactionAsync(MakesCentsBackend.Models.BaseIdRequest)
-  commentId: M:MakesCentsBackend.Services.BusinessLogicLayer.TransactionLogic.DeleteTransactionAsync(MakesCentsBackend.Models.BaseIdRequest)
-  id: DeleteTransactionAsync(MakesCentsBackend.Models.BaseIdRequest)
+- uid: MakesCentsBackend.Services.BusinessLogicLayer.TransactionLogic.SoftDeleteTransactionAsync(MakesCentsBackend.Models.BaseIdRequest)
+  commentId: M:MakesCentsBackend.Services.BusinessLogicLayer.TransactionLogic.SoftDeleteTransactionAsync(MakesCentsBackend.Models.BaseIdRequest)
+  id: SoftDeleteTransactionAsync(MakesCentsBackend.Models.BaseIdRequest)
   parent: MakesCentsBackend.Services.BusinessLogicLayer.TransactionLogic
   langs:
   - csharp
   - vb
-  name: DeleteTransactionAsync(BaseIdRequest)
-  nameWithType: TransactionLogic.DeleteTransactionAsync(BaseIdRequest)
-  fullName: MakesCentsBackend.Services.BusinessLogicLayer.TransactionLogic.DeleteTransactionAsync(MakesCentsBackend.Models.BaseIdRequest)
+  name: SoftDeleteTransactionAsync(BaseIdRequest)
+  nameWithType: TransactionLogic.SoftDeleteTransactionAsync(BaseIdRequest)
+  fullName: MakesCentsBackend.Services.BusinessLogicLayer.TransactionLogic.SoftDeleteTransactionAsync(MakesCentsBackend.Models.BaseIdRequest)
   type: Method
   source:
     remote:
       path: Backend/MakesCentsBackend/Services/BusinessLogicLayer/TransactionLogic.cs
       branch: master
       repo: https://github.com/Gianna7055/MakesCents.git
-    id: DeleteTransactionAsync
+    id: SoftDeleteTransactionAsync
     path: Services/BusinessLogicLayer/TransactionLogic.cs
-    startLine: 54
+    startLine: 59
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Services.BusinessLogicLayer
-  summary: Logic method to delete an transaction
+  summary: Logic method to soft delete a transaction
   example: []
   syntax:
-    content: public Task<BaseResponse> DeleteTransactionAsync(BaseIdRequest request)
+    content: public Task<BaseResponse> SoftDeleteTransactionAsync(BaseIdRequest request)
     parameters:
     - id: request
       type: MakesCentsBackend.Models.BaseIdRequest
@@ -140,8 +151,78 @@ items:
     return:
       type: System.Threading.Tasks.Task{MakesCentsBackend.Models.BaseResponse}
       description: ''
-    content.vb: Public Function DeleteTransactionAsync(request As BaseIdRequest) As Task(Of BaseResponse)
-  overload: MakesCentsBackend.Services.BusinessLogicLayer.TransactionLogic.DeleteTransactionAsync*
+    content.vb: Public Function SoftDeleteTransactionAsync(request As BaseIdRequest) As Task(Of BaseResponse)
+  overload: MakesCentsBackend.Services.BusinessLogicLayer.TransactionLogic.SoftDeleteTransactionAsync*
+- uid: MakesCentsBackend.Services.BusinessLogicLayer.TransactionLogic.RestoreTransactionAsync(MakesCentsBackend.Models.BaseIdRequest)
+  commentId: M:MakesCentsBackend.Services.BusinessLogicLayer.TransactionLogic.RestoreTransactionAsync(MakesCentsBackend.Models.BaseIdRequest)
+  id: RestoreTransactionAsync(MakesCentsBackend.Models.BaseIdRequest)
+  parent: MakesCentsBackend.Services.BusinessLogicLayer.TransactionLogic
+  langs:
+  - csharp
+  - vb
+  name: RestoreTransactionAsync(BaseIdRequest)
+  nameWithType: TransactionLogic.RestoreTransactionAsync(BaseIdRequest)
+  fullName: MakesCentsBackend.Services.BusinessLogicLayer.TransactionLogic.RestoreTransactionAsync(MakesCentsBackend.Models.BaseIdRequest)
+  type: Method
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Services/BusinessLogicLayer/TransactionLogic.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: RestoreTransactionAsync
+    path: Services/BusinessLogicLayer/TransactionLogic.cs
+    startLine: 75
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Services.BusinessLogicLayer
+  summary: Logic method to restore a transaction
+  example: []
+  syntax:
+    content: public Task<BaseResponse> RestoreTransactionAsync(BaseIdRequest request)
+    parameters:
+    - id: request
+      type: MakesCentsBackend.Models.BaseIdRequest
+      description: ''
+    return:
+      type: System.Threading.Tasks.Task{MakesCentsBackend.Models.BaseResponse}
+      description: ''
+    content.vb: Public Function RestoreTransactionAsync(request As BaseIdRequest) As Task(Of BaseResponse)
+  overload: MakesCentsBackend.Services.BusinessLogicLayer.TransactionLogic.RestoreTransactionAsync*
+- uid: MakesCentsBackend.Services.BusinessLogicLayer.TransactionLogic.HardDeleteTransactionAsync(MakesCentsBackend.Models.BaseIdRequest)
+  commentId: M:MakesCentsBackend.Services.BusinessLogicLayer.TransactionLogic.HardDeleteTransactionAsync(MakesCentsBackend.Models.BaseIdRequest)
+  id: HardDeleteTransactionAsync(MakesCentsBackend.Models.BaseIdRequest)
+  parent: MakesCentsBackend.Services.BusinessLogicLayer.TransactionLogic
+  langs:
+  - csharp
+  - vb
+  name: HardDeleteTransactionAsync(BaseIdRequest)
+  nameWithType: TransactionLogic.HardDeleteTransactionAsync(BaseIdRequest)
+  fullName: MakesCentsBackend.Services.BusinessLogicLayer.TransactionLogic.HardDeleteTransactionAsync(MakesCentsBackend.Models.BaseIdRequest)
+  type: Method
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Services/BusinessLogicLayer/TransactionLogic.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: HardDeleteTransactionAsync
+    path: Services/BusinessLogicLayer/TransactionLogic.cs
+    startLine: 91
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Services.BusinessLogicLayer
+  summary: Logic method to hard delete a transaction
+  example: []
+  syntax:
+    content: public Task<BaseResponse> HardDeleteTransactionAsync(BaseIdRequest request)
+    parameters:
+    - id: request
+      type: MakesCentsBackend.Models.BaseIdRequest
+      description: ''
+    return:
+      type: System.Threading.Tasks.Task{MakesCentsBackend.Models.BaseResponse}
+      description: ''
+    content.vb: Public Function HardDeleteTransactionAsync(request As BaseIdRequest) As Task(Of BaseResponse)
+  overload: MakesCentsBackend.Services.BusinessLogicLayer.TransactionLogic.HardDeleteTransactionAsync*
 references:
 - uid: MakesCentsBackend.Services.BusinessLogicLayer
   commentId: N:MakesCentsBackend.Services.BusinessLogicLayer
@@ -602,12 +683,12 @@ references:
     name: Tasks
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
-- uid: MakesCentsBackend.Services.BusinessLogicLayer.TransactionLogic.DeleteTransactionAsync*
-  commentId: Overload:MakesCentsBackend.Services.BusinessLogicLayer.TransactionLogic.DeleteTransactionAsync
-  href: MakesCentsBackend.Services.BusinessLogicLayer.TransactionLogic.html#MakesCentsBackend_Services_BusinessLogicLayer_TransactionLogic_DeleteTransactionAsync_MakesCentsBackend_Models_BaseIdRequest_
-  name: DeleteTransactionAsync
-  nameWithType: TransactionLogic.DeleteTransactionAsync
-  fullName: MakesCentsBackend.Services.BusinessLogicLayer.TransactionLogic.DeleteTransactionAsync
+- uid: MakesCentsBackend.Services.BusinessLogicLayer.TransactionLogic.SoftDeleteTransactionAsync*
+  commentId: Overload:MakesCentsBackend.Services.BusinessLogicLayer.TransactionLogic.SoftDeleteTransactionAsync
+  href: MakesCentsBackend.Services.BusinessLogicLayer.TransactionLogic.html#MakesCentsBackend_Services_BusinessLogicLayer_TransactionLogic_SoftDeleteTransactionAsync_MakesCentsBackend_Models_BaseIdRequest_
+  name: SoftDeleteTransactionAsync
+  nameWithType: TransactionLogic.SoftDeleteTransactionAsync
+  fullName: MakesCentsBackend.Services.BusinessLogicLayer.TransactionLogic.SoftDeleteTransactionAsync
 - uid: System.Threading.Tasks.Task{MakesCentsBackend.Models.BaseResponse}
   commentId: T:System.Threading.Tasks.Task{MakesCentsBackend.Models.BaseResponse}
   parent: System.Threading.Tasks
@@ -641,3 +722,15 @@ references:
     name: BaseResponse
     href: MakesCentsBackend.Models.BaseResponse.html
   - name: )
+- uid: MakesCentsBackend.Services.BusinessLogicLayer.TransactionLogic.RestoreTransactionAsync*
+  commentId: Overload:MakesCentsBackend.Services.BusinessLogicLayer.TransactionLogic.RestoreTransactionAsync
+  href: MakesCentsBackend.Services.BusinessLogicLayer.TransactionLogic.html#MakesCentsBackend_Services_BusinessLogicLayer_TransactionLogic_RestoreTransactionAsync_MakesCentsBackend_Models_BaseIdRequest_
+  name: RestoreTransactionAsync
+  nameWithType: TransactionLogic.RestoreTransactionAsync
+  fullName: MakesCentsBackend.Services.BusinessLogicLayer.TransactionLogic.RestoreTransactionAsync
+- uid: MakesCentsBackend.Services.BusinessLogicLayer.TransactionLogic.HardDeleteTransactionAsync*
+  commentId: Overload:MakesCentsBackend.Services.BusinessLogicLayer.TransactionLogic.HardDeleteTransactionAsync
+  href: MakesCentsBackend.Services.BusinessLogicLayer.TransactionLogic.html#MakesCentsBackend_Services_BusinessLogicLayer_TransactionLogic_HardDeleteTransactionAsync_MakesCentsBackend_Models_BaseIdRequest_
+  name: HardDeleteTransactionAsync
+  nameWithType: TransactionLogic.HardDeleteTransactionAsync
+  fullName: MakesCentsBackend.Services.BusinessLogicLayer.TransactionLogic.HardDeleteTransactionAsync

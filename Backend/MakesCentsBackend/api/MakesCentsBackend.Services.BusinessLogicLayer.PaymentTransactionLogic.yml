@@ -23,7 +23,7 @@ items:
       repo: https://github.com/Gianna7055/MakesCents.git
     id: PaymentTransactionLogic
     path: Services/BusinessLogicLayer/PaymentTransactionLogic.cs
-    startLine: 12
+    startLine: 11
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Services.BusinessLogicLayer
@@ -58,7 +58,7 @@ items:
       repo: https://github.com/Gianna7055/MakesCents.git
     id: .ctor
     path: Services/BusinessLogicLayer/PaymentTransactionLogic.cs
-    startLine: 21
+    startLine: 20
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Services.BusinessLogicLayer
@@ -93,7 +93,7 @@ items:
       repo: https://github.com/Gianna7055/MakesCents.git
     id: CreatePaymentTransactionAsync
     path: Services/BusinessLogicLayer/PaymentTransactionLogic.cs
-    startLine: 31
+    startLine: 30
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Services.BusinessLogicLayer
@@ -128,17 +128,21 @@ items:
       repo: https://github.com/Gianna7055/MakesCents.git
     id: GetPaymentTransactionAsync
     path: Services/BusinessLogicLayer/PaymentTransactionLogic.cs
-    startLine: 78
+    startLine: 81
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Services.BusinessLogicLayer
+  summary: Logic method to get a payment transaction and its splits
+  example: []
   syntax:
     content: public Task<GetPaymentTransactionResponse> GetPaymentTransactionAsync(BaseIdRequest request)
     parameters:
     - id: request
       type: MakesCentsBackend.Models.BaseIdRequest
+      description: ''
     return:
       type: System.Threading.Tasks.Task{MakesCentsBackend.Models.GetPaymentTransactionResponse}
+      description: ''
     content.vb: Public Function GetPaymentTransactionAsync(request As BaseIdRequest) As Task(Of GetPaymentTransactionResponse)
   overload: MakesCentsBackend.Services.BusinessLogicLayer.PaymentTransactionLogic.GetPaymentTransactionAsync*
 - uid: MakesCentsBackend.Services.BusinessLogicLayer.PaymentTransactionLogic.UpdatePaymentTransactionAsync(MakesCentsBackend.Models.UpdatePaymentTransactionRequest)
@@ -159,17 +163,21 @@ items:
       repo: https://github.com/Gianna7055/MakesCents.git
     id: UpdatePaymentTransactionAsync
     path: Services/BusinessLogicLayer/PaymentTransactionLogic.cs
-    startLine: 96
+    startLine: 103
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Services.BusinessLogicLayer
+  summary: Logic method to update a payment transaction and its splits
+  example: []
   syntax:
     content: public Task<UpdatePaymentTransactionResponse> UpdatePaymentTransactionAsync(UpdatePaymentTransactionRequest paymentTransaction)
     parameters:
     - id: paymentTransaction
       type: MakesCentsBackend.Models.UpdatePaymentTransactionRequest
+      description: ''
     return:
       type: System.Threading.Tasks.Task{MakesCentsBackend.Models.UpdatePaymentTransactionResponse}
+      description: ''
     content.vb: Public Function UpdatePaymentTransactionAsync(paymentTransaction As UpdatePaymentTransactionRequest) As Task(Of UpdatePaymentTransactionResponse)
   overload: MakesCentsBackend.Services.BusinessLogicLayer.PaymentTransactionLogic.UpdatePaymentTransactionAsync*
 references:

@@ -7,11 +7,15 @@ items:
   children:
   - MakesCentsBackend.Services.BusinessLogicLayer.BudgetLogic.#ctor(MakesCentsBackend.Services.DataAccessLayer.BudgetDAO)
   - MakesCentsBackend.Services.BusinessLogicLayer.BudgetLogic.CreateBudgetAsync(MakesCentsBackend.Models.CreateBudgetRequest)
+  - MakesCentsBackend.Services.BusinessLogicLayer.BudgetLogic.CreateBudgetMonthAsync(MakesCentsBackend.Models.CreateBudgetMonthRequest)
   - MakesCentsBackend.Services.BusinessLogicLayer.BudgetLogic.DeleteBudgetAsync(MakesCentsBackend.Models.BaseIdRequest)
-  - MakesCentsBackend.Services.BusinessLogicLayer.BudgetLogic.GetBudgetAsync(MakesCentsBackend.Models.BaseIdRequest)
-  - MakesCentsBackend.Services.BusinessLogicLayer.BudgetLogic.GetBudgetAsync(MakesCentsBackend.Models.GetBudgetRequest)
+  - MakesCentsBackend.Services.BusinessLogicLayer.BudgetLogic.DeleteBudgetMonthAsync(MakesCentsBackend.Models.BaseIdRequest)
+  - MakesCentsBackend.Services.BusinessLogicLayer.BudgetLogic.GetBudgetMonthAsync(MakesCentsBackend.Models.BaseIdRequest)
+  - MakesCentsBackend.Services.BusinessLogicLayer.BudgetLogic.GetBudgetMonthAsync(MakesCentsBackend.Models.GetBudgetRequest)
+  - MakesCentsBackend.Services.BusinessLogicLayer.BudgetLogic.GetUserBudgetsAsync(System.Int32)
   - MakesCentsBackend.Services.BusinessLogicLayer.BudgetLogic.GetYearBudgetsAsync(MakesCentsBackend.Models.GetBudgetRequest)
   - MakesCentsBackend.Services.BusinessLogicLayer.BudgetLogic.UpdateBudgetAsync(MakesCentsBackend.Models.EditBudgetRequest)
+  - MakesCentsBackend.Services.BusinessLogicLayer.BudgetLogic.UpdateBudgetMonthAsync(MakesCentsBackend.Models.EditBudgetMonthRequest)
   langs:
   - csharp
   - vb
@@ -26,7 +30,7 @@ items:
       repo: https://github.com/Gianna7055/MakesCents.git
     id: BudgetLogic
     path: Services/BusinessLogicLayer/BudgetLogic.cs
-    startLine: 12
+    startLine: 11
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Services.BusinessLogicLayer
@@ -61,7 +65,7 @@ items:
       repo: https://github.com/Gianna7055/MakesCents.git
     id: .ctor
     path: Services/BusinessLogicLayer/BudgetLogic.cs
-    startLine: 22
+    startLine: 20
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Services.BusinessLogicLayer
@@ -96,11 +100,11 @@ items:
       repo: https://github.com/Gianna7055/MakesCents.git
     id: CreateBudgetAsync
     path: Services/BusinessLogicLayer/BudgetLogic.cs
-    startLine: 32
+    startLine: 30
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Services.BusinessLogicLayer
-  summary: Logic method to create a new budget
+  summary: Logic method to create a new persistent budget (no month yet - see CreateBudgetMonthAsync)
   example: []
   syntax:
     content: public Task<BaseIdResponse> CreateBudgetAsync(CreateBudgetRequest budget)
@@ -113,76 +117,152 @@ items:
       description: ''
     content.vb: Public Function CreateBudgetAsync(budget As CreateBudgetRequest) As Task(Of BaseIdResponse)
   overload: MakesCentsBackend.Services.BusinessLogicLayer.BudgetLogic.CreateBudgetAsync*
-- uid: MakesCentsBackend.Services.BusinessLogicLayer.BudgetLogic.GetBudgetAsync(MakesCentsBackend.Models.GetBudgetRequest)
-  commentId: M:MakesCentsBackend.Services.BusinessLogicLayer.BudgetLogic.GetBudgetAsync(MakesCentsBackend.Models.GetBudgetRequest)
-  id: GetBudgetAsync(MakesCentsBackend.Models.GetBudgetRequest)
+- uid: MakesCentsBackend.Services.BusinessLogicLayer.BudgetLogic.CreateBudgetMonthAsync(MakesCentsBackend.Models.CreateBudgetMonthRequest)
+  commentId: M:MakesCentsBackend.Services.BusinessLogicLayer.BudgetLogic.CreateBudgetMonthAsync(MakesCentsBackend.Models.CreateBudgetMonthRequest)
+  id: CreateBudgetMonthAsync(MakesCentsBackend.Models.CreateBudgetMonthRequest)
   parent: MakesCentsBackend.Services.BusinessLogicLayer.BudgetLogic
   langs:
   - csharp
   - vb
-  name: GetBudgetAsync(GetBudgetRequest)
-  nameWithType: BudgetLogic.GetBudgetAsync(GetBudgetRequest)
-  fullName: MakesCentsBackend.Services.BusinessLogicLayer.BudgetLogic.GetBudgetAsync(MakesCentsBackend.Models.GetBudgetRequest)
+  name: CreateBudgetMonthAsync(CreateBudgetMonthRequest)
+  nameWithType: BudgetLogic.CreateBudgetMonthAsync(CreateBudgetMonthRequest)
+  fullName: MakesCentsBackend.Services.BusinessLogicLayer.BudgetLogic.CreateBudgetMonthAsync(MakesCentsBackend.Models.CreateBudgetMonthRequest)
   type: Method
   source:
     remote:
       path: Backend/MakesCentsBackend/Services/BusinessLogicLayer/BudgetLogic.cs
       branch: master
       repo: https://github.com/Gianna7055/MakesCents.git
-    id: GetBudgetAsync
+    id: CreateBudgetMonthAsync
     path: Services/BusinessLogicLayer/BudgetLogic.cs
-    startLine: 71
+    startLine: 57
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Services.BusinessLogicLayer
-  summary: Logic method to get a budget based on a get budget request
+  summary: Logic method to create a new month under an existing persistent budget
   example: []
   syntax:
-    content: public Task<GetBudgetResponse> GetBudgetAsync(GetBudgetRequest budget)
+    content: public Task<BaseIdResponse> CreateBudgetMonthAsync(CreateBudgetMonthRequest budgetMonth)
+    parameters:
+    - id: budgetMonth
+      type: MakesCentsBackend.Models.CreateBudgetMonthRequest
+      description: ''
+    return:
+      type: System.Threading.Tasks.Task{MakesCentsBackend.Models.BaseIdResponse}
+      description: ''
+    content.vb: Public Function CreateBudgetMonthAsync(budgetMonth As CreateBudgetMonthRequest) As Task(Of BaseIdResponse)
+  overload: MakesCentsBackend.Services.BusinessLogicLayer.BudgetLogic.CreateBudgetMonthAsync*
+- uid: MakesCentsBackend.Services.BusinessLogicLayer.BudgetLogic.GetUserBudgetsAsync(System.Int32)
+  commentId: M:MakesCentsBackend.Services.BusinessLogicLayer.BudgetLogic.GetUserBudgetsAsync(System.Int32)
+  id: GetUserBudgetsAsync(System.Int32)
+  parent: MakesCentsBackend.Services.BusinessLogicLayer.BudgetLogic
+  langs:
+  - csharp
+  - vb
+  name: GetUserBudgetsAsync(int)
+  nameWithType: BudgetLogic.GetUserBudgetsAsync(int)
+  fullName: MakesCentsBackend.Services.BusinessLogicLayer.BudgetLogic.GetUserBudgetsAsync(int)
+  type: Method
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Services/BusinessLogicLayer/BudgetLogic.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: GetUserBudgetsAsync
+    path: Services/BusinessLogicLayer/BudgetLogic.cs
+    startLine: 91
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Services.BusinessLogicLayer
+  summary: >-
+    Logic method to get every budget a user has access to (id and name only) - meant for
+
+    use right after login, before any month or budget id is known yet.
+  example: []
+  syntax:
+    content: public Task<GetUserBudgetsResponse> GetUserBudgetsAsync(int userId)
+    parameters:
+    - id: userId
+      type: System.Int32
+      description: ''
+    return:
+      type: System.Threading.Tasks.Task{MakesCentsBackend.Models.GetUserBudgetsResponse}
+      description: ''
+    content.vb: Public Function GetUserBudgetsAsync(userId As Integer) As Task(Of GetUserBudgetsResponse)
+  overload: MakesCentsBackend.Services.BusinessLogicLayer.BudgetLogic.GetUserBudgetsAsync*
+  nameWithType.vb: BudgetLogic.GetUserBudgetsAsync(Integer)
+  fullName.vb: MakesCentsBackend.Services.BusinessLogicLayer.BudgetLogic.GetUserBudgetsAsync(Integer)
+  name.vb: GetUserBudgetsAsync(Integer)
+- uid: MakesCentsBackend.Services.BusinessLogicLayer.BudgetLogic.GetBudgetMonthAsync(MakesCentsBackend.Models.GetBudgetRequest)
+  commentId: M:MakesCentsBackend.Services.BusinessLogicLayer.BudgetLogic.GetBudgetMonthAsync(MakesCentsBackend.Models.GetBudgetRequest)
+  id: GetBudgetMonthAsync(MakesCentsBackend.Models.GetBudgetRequest)
+  parent: MakesCentsBackend.Services.BusinessLogicLayer.BudgetLogic
+  langs:
+  - csharp
+  - vb
+  name: GetBudgetMonthAsync(GetBudgetRequest)
+  nameWithType: BudgetLogic.GetBudgetMonthAsync(GetBudgetRequest)
+  fullName: MakesCentsBackend.Services.BusinessLogicLayer.BudgetLogic.GetBudgetMonthAsync(MakesCentsBackend.Models.GetBudgetRequest)
+  type: Method
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Services/BusinessLogicLayer/BudgetLogic.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: GetBudgetMonthAsync
+    path: Services/BusinessLogicLayer/BudgetLogic.cs
+    startLine: 107
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Services.BusinessLogicLayer
+  summary: Logic method to get a budget month based on a year/month/user lookup
+  example: []
+  syntax:
+    content: public Task<GetBudgetMonthResponse> GetBudgetMonthAsync(GetBudgetRequest budget)
     parameters:
     - id: budget
       type: MakesCentsBackend.Models.GetBudgetRequest
       description: ''
     return:
-      type: System.Threading.Tasks.Task{MakesCentsBackend.Models.GetBudgetResponse}
+      type: System.Threading.Tasks.Task{MakesCentsBackend.Models.GetBudgetMonthResponse}
       description: ''
-    content.vb: Public Function GetBudgetAsync(budget As GetBudgetRequest) As Task(Of GetBudgetResponse)
-  overload: MakesCentsBackend.Services.BusinessLogicLayer.BudgetLogic.GetBudgetAsync*
-- uid: MakesCentsBackend.Services.BusinessLogicLayer.BudgetLogic.GetBudgetAsync(MakesCentsBackend.Models.BaseIdRequest)
-  commentId: M:MakesCentsBackend.Services.BusinessLogicLayer.BudgetLogic.GetBudgetAsync(MakesCentsBackend.Models.BaseIdRequest)
-  id: GetBudgetAsync(MakesCentsBackend.Models.BaseIdRequest)
+    content.vb: Public Function GetBudgetMonthAsync(budget As GetBudgetRequest) As Task(Of GetBudgetMonthResponse)
+  overload: MakesCentsBackend.Services.BusinessLogicLayer.BudgetLogic.GetBudgetMonthAsync*
+- uid: MakesCentsBackend.Services.BusinessLogicLayer.BudgetLogic.GetBudgetMonthAsync(MakesCentsBackend.Models.BaseIdRequest)
+  commentId: M:MakesCentsBackend.Services.BusinessLogicLayer.BudgetLogic.GetBudgetMonthAsync(MakesCentsBackend.Models.BaseIdRequest)
+  id: GetBudgetMonthAsync(MakesCentsBackend.Models.BaseIdRequest)
   parent: MakesCentsBackend.Services.BusinessLogicLayer.BudgetLogic
   langs:
   - csharp
   - vb
-  name: GetBudgetAsync(BaseIdRequest)
-  nameWithType: BudgetLogic.GetBudgetAsync(BaseIdRequest)
-  fullName: MakesCentsBackend.Services.BusinessLogicLayer.BudgetLogic.GetBudgetAsync(MakesCentsBackend.Models.BaseIdRequest)
+  name: GetBudgetMonthAsync(BaseIdRequest)
+  nameWithType: BudgetLogic.GetBudgetMonthAsync(BaseIdRequest)
+  fullName: MakesCentsBackend.Services.BusinessLogicLayer.BudgetLogic.GetBudgetMonthAsync(MakesCentsBackend.Models.BaseIdRequest)
   type: Method
   source:
     remote:
       path: Backend/MakesCentsBackend/Services/BusinessLogicLayer/BudgetLogic.cs
       branch: master
       repo: https://github.com/Gianna7055/MakesCents.git
-    id: GetBudgetAsync
+    id: GetBudgetMonthAsync
     path: Services/BusinessLogicLayer/BudgetLogic.cs
-    startLine: 93
+    startLine: 129
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Services.BusinessLogicLayer
-  summary: Logic method to get a budget based on a get budget request
+  summary: Logic method to get a budget month based on its budget_month_id
   example: []
   syntax:
-    content: public Task<GetBudgetResponse> GetBudgetAsync(BaseIdRequest budget)
+    content: public Task<GetBudgetMonthResponse> GetBudgetMonthAsync(BaseIdRequest budget)
     parameters:
     - id: budget
       type: MakesCentsBackend.Models.BaseIdRequest
       description: ''
     return:
-      type: System.Threading.Tasks.Task{MakesCentsBackend.Models.GetBudgetResponse}
+      type: System.Threading.Tasks.Task{MakesCentsBackend.Models.GetBudgetMonthResponse}
       description: ''
-    content.vb: Public Function GetBudgetAsync(budget As BaseIdRequest) As Task(Of GetBudgetResponse)
-  overload: MakesCentsBackend.Services.BusinessLogicLayer.BudgetLogic.GetBudgetAsync*
+    content.vb: Public Function GetBudgetMonthAsync(budget As BaseIdRequest) As Task(Of GetBudgetMonthResponse)
+  overload: MakesCentsBackend.Services.BusinessLogicLayer.BudgetLogic.GetBudgetMonthAsync*
 - uid: MakesCentsBackend.Services.BusinessLogicLayer.BudgetLogic.GetYearBudgetsAsync(MakesCentsBackend.Models.GetBudgetRequest)
   commentId: M:MakesCentsBackend.Services.BusinessLogicLayer.BudgetLogic.GetYearBudgetsAsync(MakesCentsBackend.Models.GetBudgetRequest)
   id: GetYearBudgetsAsync(MakesCentsBackend.Models.GetBudgetRequest)
@@ -201,17 +281,21 @@ items:
       repo: https://github.com/Gianna7055/MakesCents.git
     id: GetYearBudgetsAsync
     path: Services/BusinessLogicLayer/BudgetLogic.cs
-    startLine: 110
+    startLine: 151
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Services.BusinessLogicLayer
+  summary: Logic method to get up to a year's worth of a user's past budget months
+  example: []
   syntax:
     content: public Task<GetYearBudgetsResponse> GetYearBudgetsAsync(GetBudgetRequest request)
     parameters:
     - id: request
       type: MakesCentsBackend.Models.GetBudgetRequest
+      description: ''
     return:
       type: System.Threading.Tasks.Task{MakesCentsBackend.Models.GetYearBudgetsResponse}
+      description: ''
     content.vb: Public Function GetYearBudgetsAsync(request As GetBudgetRequest) As Task(Of GetYearBudgetsResponse)
   overload: MakesCentsBackend.Services.BusinessLogicLayer.BudgetLogic.GetYearBudgetsAsync*
 - uid: MakesCentsBackend.Services.BusinessLogicLayer.BudgetLogic.UpdateBudgetAsync(MakesCentsBackend.Models.EditBudgetRequest)
@@ -232,11 +316,11 @@ items:
       repo: https://github.com/Gianna7055/MakesCents.git
     id: UpdateBudgetAsync
     path: Services/BusinessLogicLayer/BudgetLogic.cs
-    startLine: 132
+    startLine: 173
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Services.BusinessLogicLayer
-  summary: Logic method to update a budget based on provided fields
+  summary: Logic method to update a budget's persistent fields (currently just the name)
   example: []
   syntax:
     content: public Task<BaseIdResponse> UpdateBudgetAsync(EditBudgetRequest budget)
@@ -249,6 +333,41 @@ items:
       description: ''
     content.vb: Public Function UpdateBudgetAsync(budget As EditBudgetRequest) As Task(Of BaseIdResponse)
   overload: MakesCentsBackend.Services.BusinessLogicLayer.BudgetLogic.UpdateBudgetAsync*
+- uid: MakesCentsBackend.Services.BusinessLogicLayer.BudgetLogic.UpdateBudgetMonthAsync(MakesCentsBackend.Models.EditBudgetMonthRequest)
+  commentId: M:MakesCentsBackend.Services.BusinessLogicLayer.BudgetLogic.UpdateBudgetMonthAsync(MakesCentsBackend.Models.EditBudgetMonthRequest)
+  id: UpdateBudgetMonthAsync(MakesCentsBackend.Models.EditBudgetMonthRequest)
+  parent: MakesCentsBackend.Services.BusinessLogicLayer.BudgetLogic
+  langs:
+  - csharp
+  - vb
+  name: UpdateBudgetMonthAsync(EditBudgetMonthRequest)
+  nameWithType: BudgetLogic.UpdateBudgetMonthAsync(EditBudgetMonthRequest)
+  fullName: MakesCentsBackend.Services.BusinessLogicLayer.BudgetLogic.UpdateBudgetMonthAsync(MakesCentsBackend.Models.EditBudgetMonthRequest)
+  type: Method
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Services/BusinessLogicLayer/BudgetLogic.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: UpdateBudgetMonthAsync
+    path: Services/BusinessLogicLayer/BudgetLogic.cs
+    startLine: 200
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Services.BusinessLogicLayer
+  summary: Logic method to update a specific budget month's month/year (e.g. fixing a mistake)
+  example: []
+  syntax:
+    content: public Task<BaseIdResponse> UpdateBudgetMonthAsync(EditBudgetMonthRequest budgetMonth)
+    parameters:
+    - id: budgetMonth
+      type: MakesCentsBackend.Models.EditBudgetMonthRequest
+      description: ''
+    return:
+      type: System.Threading.Tasks.Task{MakesCentsBackend.Models.BaseIdResponse}
+      description: ''
+    content.vb: Public Function UpdateBudgetMonthAsync(budgetMonth As EditBudgetMonthRequest) As Task(Of BaseIdResponse)
+  overload: MakesCentsBackend.Services.BusinessLogicLayer.BudgetLogic.UpdateBudgetMonthAsync*
 - uid: MakesCentsBackend.Services.BusinessLogicLayer.BudgetLogic.DeleteBudgetAsync(MakesCentsBackend.Models.BaseIdRequest)
   commentId: M:MakesCentsBackend.Services.BusinessLogicLayer.BudgetLogic.DeleteBudgetAsync(MakesCentsBackend.Models.BaseIdRequest)
   id: DeleteBudgetAsync(MakesCentsBackend.Models.BaseIdRequest)
@@ -267,11 +386,14 @@ items:
       repo: https://github.com/Gianna7055/MakesCents.git
     id: DeleteBudgetAsync
     path: Services/BusinessLogicLayer/BudgetLogic.cs
-    startLine: 159
+    startLine: 232
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Services.BusinessLogicLayer
-  summary: Logic method to delete an budget
+  summary: >-
+    Logic method to delete a persistent budget entirely (cascades every month, account,
+
+    envelope category, paycheck, and planned expense it has)
   example: []
   syntax:
     content: public Task<BaseResponse> DeleteBudgetAsync(BaseIdRequest request)
@@ -284,6 +406,44 @@ items:
       description: ''
     content.vb: Public Function DeleteBudgetAsync(request As BaseIdRequest) As Task(Of BaseResponse)
   overload: MakesCentsBackend.Services.BusinessLogicLayer.BudgetLogic.DeleteBudgetAsync*
+- uid: MakesCentsBackend.Services.BusinessLogicLayer.BudgetLogic.DeleteBudgetMonthAsync(MakesCentsBackend.Models.BaseIdRequest)
+  commentId: M:MakesCentsBackend.Services.BusinessLogicLayer.BudgetLogic.DeleteBudgetMonthAsync(MakesCentsBackend.Models.BaseIdRequest)
+  id: DeleteBudgetMonthAsync(MakesCentsBackend.Models.BaseIdRequest)
+  parent: MakesCentsBackend.Services.BusinessLogicLayer.BudgetLogic
+  langs:
+  - csharp
+  - vb
+  name: DeleteBudgetMonthAsync(BaseIdRequest)
+  nameWithType: BudgetLogic.DeleteBudgetMonthAsync(BaseIdRequest)
+  fullName: MakesCentsBackend.Services.BusinessLogicLayer.BudgetLogic.DeleteBudgetMonthAsync(MakesCentsBackend.Models.BaseIdRequest)
+  type: Method
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Services/BusinessLogicLayer/BudgetLogic.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: DeleteBudgetMonthAsync
+    path: Services/BusinessLogicLayer/BudgetLogic.cs
+    startLine: 249
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Services.BusinessLogicLayer
+  summary: >-
+    Logic method to delete a single month's budget (that month's transactions go with it -
+
+    accounts, envelope categories, and paychecks are unaffected since they're persistent)
+  example: []
+  syntax:
+    content: public Task<BaseResponse> DeleteBudgetMonthAsync(BaseIdRequest request)
+    parameters:
+    - id: request
+      type: MakesCentsBackend.Models.BaseIdRequest
+      description: ''
+    return:
+      type: System.Threading.Tasks.Task{MakesCentsBackend.Models.BaseResponse}
+      description: ''
+    content.vb: Public Function DeleteBudgetMonthAsync(request As BaseIdRequest) As Task(Of BaseResponse)
+  overload: MakesCentsBackend.Services.BusinessLogicLayer.BudgetLogic.DeleteBudgetMonthAsync*
 references:
 - uid: MakesCentsBackend.Services.BusinessLogicLayer
   commentId: N:MakesCentsBackend.Services.BusinessLogicLayer
@@ -731,39 +891,56 @@ references:
     name: Tasks
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
-- uid: MakesCentsBackend.Services.BusinessLogicLayer.BudgetLogic.GetBudgetAsync*
-  commentId: Overload:MakesCentsBackend.Services.BusinessLogicLayer.BudgetLogic.GetBudgetAsync
-  href: MakesCentsBackend.Services.BusinessLogicLayer.BudgetLogic.html#MakesCentsBackend_Services_BusinessLogicLayer_BudgetLogic_GetBudgetAsync_MakesCentsBackend_Models_GetBudgetRequest_
-  name: GetBudgetAsync
-  nameWithType: BudgetLogic.GetBudgetAsync
-  fullName: MakesCentsBackend.Services.BusinessLogicLayer.BudgetLogic.GetBudgetAsync
-- uid: MakesCentsBackend.Models.GetBudgetRequest
-  commentId: T:MakesCentsBackend.Models.GetBudgetRequest
+- uid: MakesCentsBackend.Services.BusinessLogicLayer.BudgetLogic.CreateBudgetMonthAsync*
+  commentId: Overload:MakesCentsBackend.Services.BusinessLogicLayer.BudgetLogic.CreateBudgetMonthAsync
+  href: MakesCentsBackend.Services.BusinessLogicLayer.BudgetLogic.html#MakesCentsBackend_Services_BusinessLogicLayer_BudgetLogic_CreateBudgetMonthAsync_MakesCentsBackend_Models_CreateBudgetMonthRequest_
+  name: CreateBudgetMonthAsync
+  nameWithType: BudgetLogic.CreateBudgetMonthAsync
+  fullName: MakesCentsBackend.Services.BusinessLogicLayer.BudgetLogic.CreateBudgetMonthAsync
+- uid: MakesCentsBackend.Models.CreateBudgetMonthRequest
+  commentId: T:MakesCentsBackend.Models.CreateBudgetMonthRequest
   parent: MakesCentsBackend.Models
-  href: MakesCentsBackend.Models.GetBudgetRequest.html
-  name: GetBudgetRequest
-  nameWithType: GetBudgetRequest
-  fullName: MakesCentsBackend.Models.GetBudgetRequest
-- uid: System.Threading.Tasks.Task{MakesCentsBackend.Models.GetBudgetResponse}
-  commentId: T:System.Threading.Tasks.Task{MakesCentsBackend.Models.GetBudgetResponse}
+  href: MakesCentsBackend.Models.CreateBudgetMonthRequest.html
+  name: CreateBudgetMonthRequest
+  nameWithType: CreateBudgetMonthRequest
+  fullName: MakesCentsBackend.Models.CreateBudgetMonthRequest
+- uid: MakesCentsBackend.Services.BusinessLogicLayer.BudgetLogic.GetUserBudgetsAsync*
+  commentId: Overload:MakesCentsBackend.Services.BusinessLogicLayer.BudgetLogic.GetUserBudgetsAsync
+  href: MakesCentsBackend.Services.BusinessLogicLayer.BudgetLogic.html#MakesCentsBackend_Services_BusinessLogicLayer_BudgetLogic_GetUserBudgetsAsync_System_Int32_
+  name: GetUserBudgetsAsync
+  nameWithType: BudgetLogic.GetUserBudgetsAsync
+  fullName: MakesCentsBackend.Services.BusinessLogicLayer.BudgetLogic.GetUserBudgetsAsync
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: System.Threading.Tasks.Task{MakesCentsBackend.Models.GetUserBudgetsResponse}
+  commentId: T:System.Threading.Tasks.Task{MakesCentsBackend.Models.GetUserBudgetsResponse}
   parent: System.Threading.Tasks
   definition: System.Threading.Tasks.Task`1
   href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
-  name: Task<GetBudgetResponse>
-  nameWithType: Task<GetBudgetResponse>
-  fullName: System.Threading.Tasks.Task<MakesCentsBackend.Models.GetBudgetResponse>
-  nameWithType.vb: Task(Of GetBudgetResponse)
-  fullName.vb: System.Threading.Tasks.Task(Of MakesCentsBackend.Models.GetBudgetResponse)
-  name.vb: Task(Of GetBudgetResponse)
+  name: Task<GetUserBudgetsResponse>
+  nameWithType: Task<GetUserBudgetsResponse>
+  fullName: System.Threading.Tasks.Task<MakesCentsBackend.Models.GetUserBudgetsResponse>
+  nameWithType.vb: Task(Of GetUserBudgetsResponse)
+  fullName.vb: System.Threading.Tasks.Task(Of MakesCentsBackend.Models.GetUserBudgetsResponse)
+  name.vb: Task(Of GetUserBudgetsResponse)
   spec.csharp:
   - uid: System.Threading.Tasks.Task`1
     name: Task
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
   - name: <
-  - uid: MakesCentsBackend.Models.GetBudgetResponse
-    name: GetBudgetResponse
-    href: MakesCentsBackend.Models.GetBudgetResponse.html
+  - uid: MakesCentsBackend.Models.GetUserBudgetsResponse
+    name: GetUserBudgetsResponse
+    href: MakesCentsBackend.Models.GetUserBudgetsResponse.html
   - name: '>'
   spec.vb:
   - uid: System.Threading.Tasks.Task`1
@@ -773,9 +950,55 @@ references:
   - name: (
   - name: Of
   - name: " "
-  - uid: MakesCentsBackend.Models.GetBudgetResponse
-    name: GetBudgetResponse
-    href: MakesCentsBackend.Models.GetBudgetResponse.html
+  - uid: MakesCentsBackend.Models.GetUserBudgetsResponse
+    name: GetUserBudgetsResponse
+    href: MakesCentsBackend.Models.GetUserBudgetsResponse.html
+  - name: )
+- uid: MakesCentsBackend.Services.BusinessLogicLayer.BudgetLogic.GetBudgetMonthAsync*
+  commentId: Overload:MakesCentsBackend.Services.BusinessLogicLayer.BudgetLogic.GetBudgetMonthAsync
+  href: MakesCentsBackend.Services.BusinessLogicLayer.BudgetLogic.html#MakesCentsBackend_Services_BusinessLogicLayer_BudgetLogic_GetBudgetMonthAsync_MakesCentsBackend_Models_GetBudgetRequest_
+  name: GetBudgetMonthAsync
+  nameWithType: BudgetLogic.GetBudgetMonthAsync
+  fullName: MakesCentsBackend.Services.BusinessLogicLayer.BudgetLogic.GetBudgetMonthAsync
+- uid: MakesCentsBackend.Models.GetBudgetRequest
+  commentId: T:MakesCentsBackend.Models.GetBudgetRequest
+  parent: MakesCentsBackend.Models
+  href: MakesCentsBackend.Models.GetBudgetRequest.html
+  name: GetBudgetRequest
+  nameWithType: GetBudgetRequest
+  fullName: MakesCentsBackend.Models.GetBudgetRequest
+- uid: System.Threading.Tasks.Task{MakesCentsBackend.Models.GetBudgetMonthResponse}
+  commentId: T:System.Threading.Tasks.Task{MakesCentsBackend.Models.GetBudgetMonthResponse}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<GetBudgetMonthResponse>
+  nameWithType: Task<GetBudgetMonthResponse>
+  fullName: System.Threading.Tasks.Task<MakesCentsBackend.Models.GetBudgetMonthResponse>
+  nameWithType.vb: Task(Of GetBudgetMonthResponse)
+  fullName.vb: System.Threading.Tasks.Task(Of MakesCentsBackend.Models.GetBudgetMonthResponse)
+  name.vb: Task(Of GetBudgetMonthResponse)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: MakesCentsBackend.Models.GetBudgetMonthResponse
+    name: GetBudgetMonthResponse
+    href: MakesCentsBackend.Models.GetBudgetMonthResponse.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: MakesCentsBackend.Models.GetBudgetMonthResponse
+    name: GetBudgetMonthResponse
+    href: MakesCentsBackend.Models.GetBudgetMonthResponse.html
   - name: )
 - uid: MakesCentsBackend.Models.BaseIdRequest
   commentId: T:MakesCentsBackend.Models.BaseIdRequest
@@ -836,6 +1059,19 @@ references:
   name: EditBudgetRequest
   nameWithType: EditBudgetRequest
   fullName: MakesCentsBackend.Models.EditBudgetRequest
+- uid: MakesCentsBackend.Services.BusinessLogicLayer.BudgetLogic.UpdateBudgetMonthAsync*
+  commentId: Overload:MakesCentsBackend.Services.BusinessLogicLayer.BudgetLogic.UpdateBudgetMonthAsync
+  href: MakesCentsBackend.Services.BusinessLogicLayer.BudgetLogic.html#MakesCentsBackend_Services_BusinessLogicLayer_BudgetLogic_UpdateBudgetMonthAsync_MakesCentsBackend_Models_EditBudgetMonthRequest_
+  name: UpdateBudgetMonthAsync
+  nameWithType: BudgetLogic.UpdateBudgetMonthAsync
+  fullName: MakesCentsBackend.Services.BusinessLogicLayer.BudgetLogic.UpdateBudgetMonthAsync
+- uid: MakesCentsBackend.Models.EditBudgetMonthRequest
+  commentId: T:MakesCentsBackend.Models.EditBudgetMonthRequest
+  parent: MakesCentsBackend.Models
+  href: MakesCentsBackend.Models.EditBudgetMonthRequest.html
+  name: EditBudgetMonthRequest
+  nameWithType: EditBudgetMonthRequest
+  fullName: MakesCentsBackend.Models.EditBudgetMonthRequest
 - uid: MakesCentsBackend.Services.BusinessLogicLayer.BudgetLogic.DeleteBudgetAsync*
   commentId: Overload:MakesCentsBackend.Services.BusinessLogicLayer.BudgetLogic.DeleteBudgetAsync
   href: MakesCentsBackend.Services.BusinessLogicLayer.BudgetLogic.html#MakesCentsBackend_Services_BusinessLogicLayer_BudgetLogic_DeleteBudgetAsync_MakesCentsBackend_Models_BaseIdRequest_
@@ -875,3 +1111,9 @@ references:
     name: BaseResponse
     href: MakesCentsBackend.Models.BaseResponse.html
   - name: )
+- uid: MakesCentsBackend.Services.BusinessLogicLayer.BudgetLogic.DeleteBudgetMonthAsync*
+  commentId: Overload:MakesCentsBackend.Services.BusinessLogicLayer.BudgetLogic.DeleteBudgetMonthAsync
+  href: MakesCentsBackend.Services.BusinessLogicLayer.BudgetLogic.html#MakesCentsBackend_Services_BusinessLogicLayer_BudgetLogic_DeleteBudgetMonthAsync_MakesCentsBackend_Models_BaseIdRequest_
+  name: DeleteBudgetMonthAsync
+  nameWithType: BudgetLogic.DeleteBudgetMonthAsync
+  fullName: MakesCentsBackend.Services.BusinessLogicLayer.BudgetLogic.DeleteBudgetMonthAsync

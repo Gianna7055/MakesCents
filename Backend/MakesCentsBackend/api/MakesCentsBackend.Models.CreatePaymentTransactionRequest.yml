@@ -43,7 +43,7 @@ items:
   - System.Object
   - MakesCentsBackend.Models.CreateTransactionRequest
   inheritedMembers:
-  - MakesCentsBackend.Models.CreateTransactionRequest.BudgetId
+  - MakesCentsBackend.Models.CreateTransactionRequest.BudgetMonthId
   - MakesCentsBackend.Models.CreateTransactionRequest.UserId
   - MakesCentsBackend.Models.CreateTransactionRequest.TransactionId
   - MakesCentsBackend.Models.CreateTransactionRequest.TransactionDate
@@ -246,13 +246,13 @@ references:
   name: CreateTransactionRequest
   nameWithType: CreateTransactionRequest
   fullName: MakesCentsBackend.Models.CreateTransactionRequest
-- uid: MakesCentsBackend.Models.CreateTransactionRequest.BudgetId
-  commentId: P:MakesCentsBackend.Models.CreateTransactionRequest.BudgetId
+- uid: MakesCentsBackend.Models.CreateTransactionRequest.BudgetMonthId
+  commentId: P:MakesCentsBackend.Models.CreateTransactionRequest.BudgetMonthId
   parent: MakesCentsBackend.Models.CreateTransactionRequest
-  href: MakesCentsBackend.Models.CreateTransactionRequest.html#MakesCentsBackend_Models_CreateTransactionRequest_BudgetId
-  name: BudgetId
-  nameWithType: CreateTransactionRequest.BudgetId
-  fullName: MakesCentsBackend.Models.CreateTransactionRequest.BudgetId
+  href: MakesCentsBackend.Models.CreateTransactionRequest.html#MakesCentsBackend_Models_CreateTransactionRequest_BudgetMonthId
+  name: BudgetMonthId
+  nameWithType: CreateTransactionRequest.BudgetMonthId
+  fullName: MakesCentsBackend.Models.CreateTransactionRequest.BudgetMonthId
 - uid: MakesCentsBackend.Models.CreateTransactionRequest.UserId
   commentId: P:MakesCentsBackend.Models.CreateTransactionRequest.UserId
   parent: MakesCentsBackend.Models.CreateTransactionRequest

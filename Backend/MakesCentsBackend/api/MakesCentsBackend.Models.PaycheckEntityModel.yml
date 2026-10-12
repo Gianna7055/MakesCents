@@ -9,8 +9,8 @@ items:
   - MakesCentsBackend.Models.PaycheckEntityModel.CreatedAt
   - MakesCentsBackend.Models.PaycheckEntityModel.LastUpdatedAt
   - MakesCentsBackend.Models.PaycheckEntityModel.PaycheckId
+  - MakesCentsBackend.Models.PaycheckEntityModel.PaycheckName
   - MakesCentsBackend.Models.PaycheckEntityModel.PaycheckRegularity
-  - MakesCentsBackend.Models.PaycheckEntityModel.PaycheckSplits
   - MakesCentsBackend.Models.PaycheckEntityModel.SecondaryDate
   - MakesCentsBackend.Models.PaycheckEntityModel.StartingDate
   - MakesCentsBackend.Models.PaycheckEntityModel.TotalAmount
@@ -28,11 +28,16 @@ items:
       repo: https://github.com/Gianna7055/MakesCents.git
     id: PaycheckEntityModel
     path: Models/PaycheckModels.cs
-    startLine: 13
+    startLine: 15
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Models
-  summary: Model for a paycheck
+  summary: >-
+    Model for a paycheck. Forecast-only - a paycheck no longer funds envelopes directly
+
+    (see envelope_funding for that) and isn't tied to any specific month. It exists purely
+
+    to represent expected income on a recurring schedule.
   example: []
   syntax:
     content: public class PaycheckEntityModel
@@ -65,7 +70,7 @@ items:
       repo: https://github.com/Gianna7055/MakesCents.git
     id: PaycheckId
     path: Models/PaycheckModels.cs
-    startLine: 16
+    startLine: 18
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Models
@@ -94,7 +99,7 @@ items:
       repo: https://github.com/Gianna7055/MakesCents.git
     id: BudgetId
     path: Models/PaycheckModels.cs
-    startLine: 17
+    startLine: 19
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Models
@@ -105,6 +110,35 @@ items:
       type: System.Int32
     content.vb: Public Property BudgetId As Integer
   overload: MakesCentsBackend.Models.PaycheckEntityModel.BudgetId*
+- uid: MakesCentsBackend.Models.PaycheckEntityModel.PaycheckName
+  commentId: P:MakesCentsBackend.Models.PaycheckEntityModel.PaycheckName
+  id: PaycheckName
+  parent: MakesCentsBackend.Models.PaycheckEntityModel
+  langs:
+  - csharp
+  - vb
+  name: PaycheckName
+  nameWithType: PaycheckEntityModel.PaycheckName
+  fullName: MakesCentsBackend.Models.PaycheckEntityModel.PaycheckName
+  type: Property
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Models/PaycheckModels.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: PaycheckName
+    path: Models/PaycheckModels.cs
+    startLine: 20
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Models
+  syntax:
+    content: public string PaycheckName { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property PaycheckName As String
+  overload: MakesCentsBackend.Models.PaycheckEntityModel.PaycheckName*
 - uid: MakesCentsBackend.Models.PaycheckEntityModel.StartingDate
   commentId: P:MakesCentsBackend.Models.PaycheckEntityModel.StartingDate
   id: StartingDate
@@ -123,7 +157,7 @@ items:
       repo: https://github.com/Gianna7055/MakesCents.git
     id: StartingDate
     path: Models/PaycheckModels.cs
-    startLine: 18
+    startLine: 21
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Models
@@ -152,7 +186,7 @@ items:
       repo: https://github.com/Gianna7055/MakesCents.git
     id: SecondaryDate
     path: Models/PaycheckModels.cs
-    startLine: 19
+    startLine: 22
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Models
@@ -181,7 +215,7 @@ items:
       repo: https://github.com/Gianna7055/MakesCents.git
     id: TotalAmount
     path: Models/PaycheckModels.cs
-    startLine: 20
+    startLine: 23
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Models
@@ -210,7 +244,7 @@ items:
       repo: https://github.com/Gianna7055/MakesCents.git
     id: PaycheckRegularity
     path: Models/PaycheckModels.cs
-    startLine: 21
+    startLine: 24
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Models
@@ -239,7 +273,7 @@ items:
       repo: https://github.com/Gianna7055/MakesCents.git
     id: CreatedAt
     path: Models/PaycheckModels.cs
-    startLine: 22
+    startLine: 25
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Models
@@ -268,7 +302,7 @@ items:
       repo: https://github.com/Gianna7055/MakesCents.git
     id: LastUpdatedAt
     path: Models/PaycheckModels.cs
-    startLine: 23
+    startLine: 26
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Models
@@ -279,35 +313,6 @@ items:
       type: System.DateTime
     content.vb: Public Property LastUpdatedAt As Date
   overload: MakesCentsBackend.Models.PaycheckEntityModel.LastUpdatedAt*
-- uid: MakesCentsBackend.Models.PaycheckEntityModel.PaycheckSplits
-  commentId: P:MakesCentsBackend.Models.PaycheckEntityModel.PaycheckSplits
-  id: PaycheckSplits
-  parent: MakesCentsBackend.Models.PaycheckEntityModel
-  langs:
-  - csharp
-  - vb
-  name: PaycheckSplits
-  nameWithType: PaycheckEntityModel.PaycheckSplits
-  fullName: MakesCentsBackend.Models.PaycheckEntityModel.PaycheckSplits
-  type: Property
-  source:
-    remote:
-      path: Backend/MakesCentsBackend/Models/PaycheckModels.cs
-      branch: master
-      repo: https://github.com/Gianna7055/MakesCents.git
-    id: PaycheckSplits
-    path: Models/PaycheckModels.cs
-    startLine: 24
-  assemblies:
-  - MakesCentsBackend
-  namespace: MakesCentsBackend.Models
-  syntax:
-    content: public List<PaycheckSplitEntityModel> PaycheckSplits { get; set; }
-    parameters: []
-    return:
-      type: System.Collections.Generic.List{MakesCentsBackend.Models.PaycheckSplitEntityModel}
-    content.vb: Public Property PaycheckSplits As List(Of PaycheckSplitEntityModel)
-  overload: MakesCentsBackend.Models.PaycheckEntityModel.PaycheckSplits*
 references:
 - uid: MakesCentsBackend.Models
   commentId: N:MakesCentsBackend.Models
@@ -591,6 +596,23 @@ references:
   name: BudgetId
   nameWithType: PaycheckEntityModel.BudgetId
   fullName: MakesCentsBackend.Models.PaycheckEntityModel.BudgetId
+- uid: MakesCentsBackend.Models.PaycheckEntityModel.PaycheckName*
+  commentId: Overload:MakesCentsBackend.Models.PaycheckEntityModel.PaycheckName
+  href: MakesCentsBackend.Models.PaycheckEntityModel.html#MakesCentsBackend_Models_PaycheckEntityModel_PaycheckName
+  name: PaycheckName
+  nameWithType: PaycheckEntityModel.PaycheckName
+  fullName: MakesCentsBackend.Models.PaycheckEntityModel.PaycheckName
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
 - uid: MakesCentsBackend.Models.PaycheckEntityModel.StartingDate*
   commentId: Overload:MakesCentsBackend.Models.PaycheckEntityModel.StartingDate
   href: MakesCentsBackend.Models.PaycheckEntityModel.html#MakesCentsBackend_Models_PaycheckEntityModel_StartingDate
@@ -742,107 +764,3 @@ references:
   name: LastUpdatedAt
   nameWithType: PaycheckEntityModel.LastUpdatedAt
   fullName: MakesCentsBackend.Models.PaycheckEntityModel.LastUpdatedAt
-- uid: MakesCentsBackend.Models.PaycheckEntityModel.PaycheckSplits*
-  commentId: Overload:MakesCentsBackend.Models.PaycheckEntityModel.PaycheckSplits
-  href: MakesCentsBackend.Models.PaycheckEntityModel.html#MakesCentsBackend_Models_PaycheckEntityModel_PaycheckSplits
-  name: PaycheckSplits
-  nameWithType: PaycheckEntityModel.PaycheckSplits
-  fullName: MakesCentsBackend.Models.PaycheckEntityModel.PaycheckSplits
-- uid: System.Collections.Generic.List{MakesCentsBackend.Models.PaycheckSplitEntityModel}
-  commentId: T:System.Collections.Generic.List{MakesCentsBackend.Models.PaycheckSplitEntityModel}
-  parent: System.Collections.Generic
-  definition: System.Collections.Generic.List`1
-  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
-  name: List<PaycheckSplitEntityModel>
-  nameWithType: List<PaycheckSplitEntityModel>
-  fullName: System.Collections.Generic.List<MakesCentsBackend.Models.PaycheckSplitEntityModel>
-  nameWithType.vb: List(Of PaycheckSplitEntityModel)
-  fullName.vb: System.Collections.Generic.List(Of MakesCentsBackend.Models.PaycheckSplitEntityModel)
-  name.vb: List(Of PaycheckSplitEntityModel)
-  spec.csharp:
-  - uid: System.Collections.Generic.List`1
-    name: List
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
-  - name: <
-  - uid: MakesCentsBackend.Models.PaycheckSplitEntityModel
-    name: PaycheckSplitEntityModel
-    href: MakesCentsBackend.Models.PaycheckSplitEntityModel.html
-  - name: '>'
-  spec.vb:
-  - uid: System.Collections.Generic.List`1
-    name: List
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
-  - name: (
-  - name: Of
-  - name: " "
-  - uid: MakesCentsBackend.Models.PaycheckSplitEntityModel
-    name: PaycheckSplitEntityModel
-    href: MakesCentsBackend.Models.PaycheckSplitEntityModel.html
-  - name: )
-- uid: System.Collections.Generic.List`1
-  commentId: T:System.Collections.Generic.List`1
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
-  name: List<T>
-  nameWithType: List<T>
-  fullName: System.Collections.Generic.List<T>
-  nameWithType.vb: List(Of T)
-  fullName.vb: System.Collections.Generic.List(Of T)
-  name.vb: List(Of T)
-  spec.csharp:
-  - uid: System.Collections.Generic.List`1
-    name: List
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
-  - name: <
-  - name: T
-  - name: '>'
-  spec.vb:
-  - uid: System.Collections.Generic.List`1
-    name: List
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
-  - name: (
-  - name: Of
-  - name: " "
-  - name: T
-  - name: )
-- uid: System.Collections.Generic
-  commentId: N:System.Collections.Generic
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system
-  name: System.Collections.Generic
-  nameWithType: System.Collections.Generic
-  fullName: System.Collections.Generic
-  spec.csharp:
-  - uid: System
-    name: System
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system
-  - name: .
-  - uid: System.Collections
-    name: Collections
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections
-  - name: .
-  - uid: System.Collections.Generic
-    name: Generic
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
-  spec.vb:
-  - uid: System
-    name: System
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system
-  - name: .
-  - uid: System.Collections
-    name: Collections
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections
-  - name: .
-  - uid: System.Collections.Generic
-    name: Generic
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections.generic

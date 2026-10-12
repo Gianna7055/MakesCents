@@ -44,23 +44,30 @@ items:
   - MakesCentsBackend.Models.BaseIdResponse
   - MakesCentsBackend.Models.CreateAccountResponse
   - MakesCentsBackend.Models.GetAllAccountsResponse
+  - MakesCentsBackend.Models.GetAllBudgetTemplatesResponse
   - MakesCentsBackend.Models.GetAllEnvelopeCategoriesResponse
   - MakesCentsBackend.Models.GetAllPaychecksResponse
   - MakesCentsBackend.Models.GetAllTransactionsDTOResponse
   - MakesCentsBackend.Models.GetAllTransactionsEntityResponse
   - MakesCentsBackend.Models.GetBankAccountDTOResponse
   - MakesCentsBackend.Models.GetBankAccountEntityResponse
-  - MakesCentsBackend.Models.GetBudgetResponse
+  - MakesCentsBackend.Models.GetBudgetMonthResponse
+  - MakesCentsBackend.Models.GetBudgetTemplateResponse
   - MakesCentsBackend.Models.GetDebtAccountDTOResponse
   - MakesCentsBackend.Models.GetDebtAccountEntityResponse
-  - MakesCentsBackend.Models.GetEnvelopeDTOResponse
-  - MakesCentsBackend.Models.GetEnvelopeEntityResponse
+  - MakesCentsBackend.Models.GetEnvelopeFundingQueueResponse
   - MakesCentsBackend.Models.GetInvestmentAccountDTOResponse
   - MakesCentsBackend.Models.GetInvestmentAccountEntityResponse
   - MakesCentsBackend.Models.GetPaycheckResponse
   - MakesCentsBackend.Models.GetPaymentTransactionResponse
+  - MakesCentsBackend.Models.GetRolloverEnvelopeDTOResponse
+  - MakesCentsBackend.Models.GetRolloverEnvelopeEntityResponse
+  - MakesCentsBackend.Models.GetSinkingFundDependentsResponse
+  - MakesCentsBackend.Models.GetSinkingFundEnvelopeDTOResponse
+  - MakesCentsBackend.Models.GetSinkingFundEnvelopeEntityResponse
   - MakesCentsBackend.Models.GetTransferTransactionDTOResponse
   - MakesCentsBackend.Models.GetTransferTransactionEntityResponse
+  - MakesCentsBackend.Models.GetUserBudgetsResponse
   - MakesCentsBackend.Models.GetUserResponse
   - MakesCentsBackend.Models.UserDTOResponse
   - MakesCentsBackend.Models.UserEntityResponse

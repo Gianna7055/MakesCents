@@ -8,6 +8,7 @@ items:
   - MakesCentsBackend.Models.SummaryEnvelopeResponse.EnvelopeCategoryId
   - MakesCentsBackend.Models.SummaryEnvelopeResponse.EnvelopeId
   - MakesCentsBackend.Models.SummaryEnvelopeResponse.EnvelopeName
+  - MakesCentsBackend.Models.SummaryEnvelopeResponse.IsSinkingFund
   - MakesCentsBackend.Models.SummaryEnvelopeResponse.RemainingAmount
   langs:
   - csharp
@@ -18,16 +19,27 @@ items:
   type: Class
   source:
     remote:
-      path: Backend/MakesCentsBackend/Models/EnvelopeModels.cs
+      path: Backend/MakesCentsBackend/Models/EnvelopeCategoryModels.cs
       branch: master
       repo: https://github.com/Gianna7055/MakesCents.git
     id: SummaryEnvelopeResponse
-    path: Models/EnvelopeModels.cs
-    startLine: 39
+    path: Models/EnvelopeCategoryModels.cs
+    startLine: 45
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Models
-  summary: Response model for an envelope for the Get Budget method
+  summary: >-
+    Response model for a single envelope for the Get Budget method.
+
+    Sinking fund and rollover envelopes come from two different tables with two different
+
+    id spaces, so IsSinkingFund tells the frontend which table EnvelopeId belongs to (same
+
+    pattern SummaryAccountDTOModel uses to distinguish bank/debt/investment accounts).
+
+    RemainingAmount is nullable because a rollover envelope may not be activated for the
+
+    month being viewed.
   example: []
   syntax:
     content: >-
@@ -65,12 +77,12 @@ items:
   type: Property
   source:
     remote:
-      path: Backend/MakesCentsBackend/Models/EnvelopeModels.cs
+      path: Backend/MakesCentsBackend/Models/EnvelopeCategoryModels.cs
       branch: master
       repo: https://github.com/Gianna7055/MakesCents.git
     id: EnvelopeId
-    path: Models/EnvelopeModels.cs
-    startLine: 43
+    path: Models/EnvelopeCategoryModels.cs
+    startLine: 49
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Models
@@ -94,12 +106,12 @@ items:
   type: Property
   source:
     remote:
-      path: Backend/MakesCentsBackend/Models/EnvelopeModels.cs
+      path: Backend/MakesCentsBackend/Models/EnvelopeCategoryModels.cs
       branch: master
       repo: https://github.com/Gianna7055/MakesCents.git
     id: EnvelopeCategoryId
-    path: Models/EnvelopeModels.cs
-    startLine: 44
+    path: Models/EnvelopeCategoryModels.cs
+    startLine: 50
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Models
@@ -123,12 +135,12 @@ items:
   type: Property
   source:
     remote:
-      path: Backend/MakesCentsBackend/Models/EnvelopeModels.cs
+      path: Backend/MakesCentsBackend/Models/EnvelopeCategoryModels.cs
       branch: master
       repo: https://github.com/Gianna7055/MakesCents.git
     id: EnvelopeName
-    path: Models/EnvelopeModels.cs
-    startLine: 45
+    path: Models/EnvelopeCategoryModels.cs
+    startLine: 51
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Models
@@ -152,22 +164,51 @@ items:
   type: Property
   source:
     remote:
-      path: Backend/MakesCentsBackend/Models/EnvelopeModels.cs
+      path: Backend/MakesCentsBackend/Models/EnvelopeCategoryModels.cs
       branch: master
       repo: https://github.com/Gianna7055/MakesCents.git
     id: RemainingAmount
-    path: Models/EnvelopeModels.cs
-    startLine: 46
+    path: Models/EnvelopeCategoryModels.cs
+    startLine: 52
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Models
   syntax:
-    content: public decimal RemainingAmount { get; set; }
+    content: public decimal? RemainingAmount { get; set; }
     parameters: []
     return:
-      type: System.Decimal
-    content.vb: Public Property RemainingAmount As Decimal
+      type: System.Nullable{System.Decimal}
+    content.vb: Public Property RemainingAmount As Decimal?
   overload: MakesCentsBackend.Models.SummaryEnvelopeResponse.RemainingAmount*
+- uid: MakesCentsBackend.Models.SummaryEnvelopeResponse.IsSinkingFund
+  commentId: P:MakesCentsBackend.Models.SummaryEnvelopeResponse.IsSinkingFund
+  id: IsSinkingFund
+  parent: MakesCentsBackend.Models.SummaryEnvelopeResponse
+  langs:
+  - csharp
+  - vb
+  name: IsSinkingFund
+  nameWithType: SummaryEnvelopeResponse.IsSinkingFund
+  fullName: MakesCentsBackend.Models.SummaryEnvelopeResponse.IsSinkingFund
+  type: Property
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Models/EnvelopeCategoryModels.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: IsSinkingFund
+    path: Models/EnvelopeCategoryModels.cs
+    startLine: 53
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Models
+  syntax:
+    content: public bool IsSinkingFund { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property IsSinkingFund As Boolean
+  overload: MakesCentsBackend.Models.SummaryEnvelopeResponse.IsSinkingFund*
 references:
 - uid: MakesCentsBackend.Models
   commentId: N:MakesCentsBackend.Models
@@ -474,14 +515,71 @@ references:
   name: RemainingAmount
   nameWithType: SummaryEnvelopeResponse.RemainingAmount
   fullName: MakesCentsBackend.Models.SummaryEnvelopeResponse.RemainingAmount
-- uid: System.Decimal
-  commentId: T:System.Decimal
+- uid: System.Nullable{System.Decimal}
+  commentId: T:System.Nullable{System.Decimal}
+  parent: System
+  definition: System.Nullable`1
+  href: https://learn.microsoft.com/dotnet/api/system.decimal
+  name: decimal?
+  nameWithType: decimal?
+  fullName: decimal?
+  nameWithType.vb: Decimal?
+  fullName.vb: Decimal?
+  name.vb: Decimal?
+  spec.csharp:
+  - uid: System.Decimal
+    name: decimal
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.decimal
+  - name: '?'
+  spec.vb:
+  - uid: System.Decimal
+    name: Decimal
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.decimal
+  - name: '?'
+- uid: System.Nullable`1
+  commentId: T:System.Nullable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  name: Nullable<T>
+  nameWithType: Nullable<T>
+  fullName: System.Nullable<T>
+  nameWithType.vb: Nullable(Of T)
+  fullName.vb: System.Nullable(Of T)
+  name.vb: Nullable(Of T)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: MakesCentsBackend.Models.SummaryEnvelopeResponse.IsSinkingFund*
+  commentId: Overload:MakesCentsBackend.Models.SummaryEnvelopeResponse.IsSinkingFund
+  href: MakesCentsBackend.Models.SummaryEnvelopeResponse.html#MakesCentsBackend_Models_SummaryEnvelopeResponse_IsSinkingFund
+  name: IsSinkingFund
+  nameWithType: SummaryEnvelopeResponse.IsSinkingFund
+  fullName: MakesCentsBackend.Models.SummaryEnvelopeResponse.IsSinkingFund
+- uid: System.Boolean
+  commentId: T:System.Boolean
   parent: System
   isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.decimal
-  name: decimal
-  nameWithType: decimal
-  fullName: decimal
-  nameWithType.vb: Decimal
-  fullName.vb: Decimal
-  name.vb: Decimal
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean

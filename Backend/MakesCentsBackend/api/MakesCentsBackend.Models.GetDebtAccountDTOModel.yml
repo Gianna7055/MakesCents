@@ -51,6 +51,7 @@ items:
   - MakesCentsBackend.Models.GetAccountBaseModel.UserId
   - MakesCentsBackend.Models.GetAccountBaseModel.AccountType
   - MakesCentsBackend.Models.GetAccountBaseModel.AccountName
+  - MakesCentsBackend.Models.GetAccountBaseModel.Institution
   - MakesCentsBackend.Models.GetAccountBaseModel.Balance
   - System.Object.Equals(System.Object)
   - System.Object.Equals(System.Object,System.Object)
@@ -373,6 +374,13 @@ references:
   name: AccountName
   nameWithType: GetAccountBaseModel.AccountName
   fullName: MakesCentsBackend.Models.GetAccountBaseModel.AccountName
+- uid: MakesCentsBackend.Models.GetAccountBaseModel.Institution
+  commentId: P:MakesCentsBackend.Models.GetAccountBaseModel.Institution
+  parent: MakesCentsBackend.Models.GetAccountBaseModel
+  href: MakesCentsBackend.Models.GetAccountBaseModel.html#MakesCentsBackend_Models_GetAccountBaseModel_Institution
+  name: Institution
+  nameWithType: GetAccountBaseModel.Institution
+  fullName: MakesCentsBackend.Models.GetAccountBaseModel.Institution
 - uid: MakesCentsBackend.Models.GetAccountBaseModel.Balance
   commentId: P:MakesCentsBackend.Models.GetAccountBaseModel.Balance
   parent: MakesCentsBackend.Models.GetAccountBaseModel

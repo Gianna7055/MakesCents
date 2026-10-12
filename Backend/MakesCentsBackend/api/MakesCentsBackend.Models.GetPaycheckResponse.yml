@@ -22,7 +22,7 @@ items:
       repo: https://github.com/Gianna7055/MakesCents.git
     id: GetPaycheckResponse
     path: Models/PaycheckModels.cs
-    startLine: 98
+    startLine: 77
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Models
@@ -70,7 +70,7 @@ items:
       repo: https://github.com/Gianna7055/MakesCents.git
     id: Paycheck
     path: Models/PaycheckModels.cs
-    startLine: 102
+    startLine: 81
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Models
@@ -99,7 +99,7 @@ items:
       repo: https://github.com/Gianna7055/MakesCents.git
     id: .ctor
     path: Models/PaycheckModels.cs
-    startLine: 104
+    startLine: 83
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Models
@@ -128,7 +128,7 @@ items:
       repo: https://github.com/Gianna7055/MakesCents.git
     id: .ctor
     path: Models/PaycheckModels.cs
-    startLine: 106
+    startLine: 85
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Models

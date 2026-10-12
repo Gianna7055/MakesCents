@@ -8,7 +8,6 @@ items:
   - MakesCentsBackend.Models.CreatePaycheckRequest.BudgetId
   - MakesCentsBackend.Models.CreatePaycheckRequest.PaycheckName
   - MakesCentsBackend.Models.CreatePaycheckRequest.PaycheckRegularity
-  - MakesCentsBackend.Models.CreatePaycheckRequest.PaycheckSplits
   - MakesCentsBackend.Models.CreatePaycheckRequest.SecondaryDate
   - MakesCentsBackend.Models.CreatePaycheckRequest.StartingDate
   - MakesCentsBackend.Models.CreatePaycheckRequest.TotalAmount
@@ -27,11 +26,11 @@ items:
       repo: https://github.com/Gianna7055/MakesCents.git
     id: CreatePaycheckRequest
     path: Models/PaycheckModels.cs
-    startLine: 30
+    startLine: 32
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Models
-  summary: Request method to create a paycheck
+  summary: Request model to create a paycheck
   example: []
   syntax:
     content: >-
@@ -74,7 +73,7 @@ items:
       repo: https://github.com/Gianna7055/MakesCents.git
     id: BudgetId
     path: Models/PaycheckModels.cs
-    startLine: 33
+    startLine: 35
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Models
@@ -103,7 +102,7 @@ items:
       repo: https://github.com/Gianna7055/MakesCents.git
     id: UserId
     path: Models/PaycheckModels.cs
-    startLine: 34
+    startLine: 36
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Models
@@ -132,7 +131,7 @@ items:
       repo: https://github.com/Gianna7055/MakesCents.git
     id: PaycheckName
     path: Models/PaycheckModels.cs
-    startLine: 35
+    startLine: 37
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Models
@@ -161,7 +160,7 @@ items:
       repo: https://github.com/Gianna7055/MakesCents.git
     id: StartingDate
     path: Models/PaycheckModels.cs
-    startLine: 36
+    startLine: 38
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Models
@@ -190,7 +189,7 @@ items:
       repo: https://github.com/Gianna7055/MakesCents.git
     id: SecondaryDate
     path: Models/PaycheckModels.cs
-    startLine: 37
+    startLine: 39
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Models
@@ -219,7 +218,7 @@ items:
       repo: https://github.com/Gianna7055/MakesCents.git
     id: TotalAmount
     path: Models/PaycheckModels.cs
-    startLine: 38
+    startLine: 40
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Models
@@ -248,7 +247,7 @@ items:
       repo: https://github.com/Gianna7055/MakesCents.git
     id: PaycheckRegularity
     path: Models/PaycheckModels.cs
-    startLine: 39
+    startLine: 41
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Models
@@ -259,35 +258,6 @@ items:
       type: MakesCentsBackend.Models.Enums.PaycheckRegularity
     content.vb: Public Property PaycheckRegularity As PaycheckRegularity
   overload: MakesCentsBackend.Models.CreatePaycheckRequest.PaycheckRegularity*
-- uid: MakesCentsBackend.Models.CreatePaycheckRequest.PaycheckSplits
-  commentId: P:MakesCentsBackend.Models.CreatePaycheckRequest.PaycheckSplits
-  id: PaycheckSplits
-  parent: MakesCentsBackend.Models.CreatePaycheckRequest
-  langs:
-  - csharp
-  - vb
-  name: PaycheckSplits
-  nameWithType: CreatePaycheckRequest.PaycheckSplits
-  fullName: MakesCentsBackend.Models.CreatePaycheckRequest.PaycheckSplits
-  type: Property
-  source:
-    remote:
-      path: Backend/MakesCentsBackend/Models/PaycheckModels.cs
-      branch: master
-      repo: https://github.com/Gianna7055/MakesCents.git
-    id: PaycheckSplits
-    path: Models/PaycheckModels.cs
-    startLine: 40
-  assemblies:
-  - MakesCentsBackend
-  namespace: MakesCentsBackend.Models
-  syntax:
-    content: public List<CreatePaycheckSplitRequest> PaycheckSplits { get; set; }
-    parameters: []
-    return:
-      type: System.Collections.Generic.List{MakesCentsBackend.Models.CreatePaycheckSplitRequest}
-    content.vb: Public Property PaycheckSplits As List(Of CreatePaycheckSplitRequest)
-  overload: MakesCentsBackend.Models.CreatePaycheckRequest.PaycheckSplits*
 references:
 - uid: MakesCentsBackend.Models
   commentId: N:MakesCentsBackend.Models
@@ -729,107 +699,3 @@ references:
   - uid: MakesCentsBackend.Models.Enums
     name: Enums
     href: MakesCentsBackend.Models.Enums.html
-- uid: MakesCentsBackend.Models.CreatePaycheckRequest.PaycheckSplits*
-  commentId: Overload:MakesCentsBackend.Models.CreatePaycheckRequest.PaycheckSplits
-  href: MakesCentsBackend.Models.CreatePaycheckRequest.html#MakesCentsBackend_Models_CreatePaycheckRequest_PaycheckSplits
-  name: PaycheckSplits
-  nameWithType: CreatePaycheckRequest.PaycheckSplits
-  fullName: MakesCentsBackend.Models.CreatePaycheckRequest.PaycheckSplits
-- uid: System.Collections.Generic.List{MakesCentsBackend.Models.CreatePaycheckSplitRequest}
-  commentId: T:System.Collections.Generic.List{MakesCentsBackend.Models.CreatePaycheckSplitRequest}
-  parent: System.Collections.Generic
-  definition: System.Collections.Generic.List`1
-  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
-  name: List<CreatePaycheckSplitRequest>
-  nameWithType: List<CreatePaycheckSplitRequest>
-  fullName: System.Collections.Generic.List<MakesCentsBackend.Models.CreatePaycheckSplitRequest>
-  nameWithType.vb: List(Of CreatePaycheckSplitRequest)
-  fullName.vb: System.Collections.Generic.List(Of MakesCentsBackend.Models.CreatePaycheckSplitRequest)
-  name.vb: List(Of CreatePaycheckSplitRequest)
-  spec.csharp:
-  - uid: System.Collections.Generic.List`1
-    name: List
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
-  - name: <
-  - uid: MakesCentsBackend.Models.CreatePaycheckSplitRequest
-    name: CreatePaycheckSplitRequest
-    href: MakesCentsBackend.Models.CreatePaycheckSplitRequest.html
-  - name: '>'
-  spec.vb:
-  - uid: System.Collections.Generic.List`1
-    name: List
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
-  - name: (
-  - name: Of
-  - name: " "
-  - uid: MakesCentsBackend.Models.CreatePaycheckSplitRequest
-    name: CreatePaycheckSplitRequest
-    href: MakesCentsBackend.Models.CreatePaycheckSplitRequest.html
-  - name: )
-- uid: System.Collections.Generic.List`1
-  commentId: T:System.Collections.Generic.List`1
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
-  name: List<T>
-  nameWithType: List<T>
-  fullName: System.Collections.Generic.List<T>
-  nameWithType.vb: List(Of T)
-  fullName.vb: System.Collections.Generic.List(Of T)
-  name.vb: List(Of T)
-  spec.csharp:
-  - uid: System.Collections.Generic.List`1
-    name: List
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
-  - name: <
-  - name: T
-  - name: '>'
-  spec.vb:
-  - uid: System.Collections.Generic.List`1
-    name: List
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
-  - name: (
-  - name: Of
-  - name: " "
-  - name: T
-  - name: )
-- uid: System.Collections.Generic
-  commentId: N:System.Collections.Generic
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system
-  name: System.Collections.Generic
-  nameWithType: System.Collections.Generic
-  fullName: System.Collections.Generic
-  spec.csharp:
-  - uid: System
-    name: System
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system
-  - name: .
-  - uid: System.Collections
-    name: Collections
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections
-  - name: .
-  - uid: System.Collections.Generic
-    name: Generic
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
-  spec.vb:
-  - uid: System
-    name: System
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system
-  - name: .
-  - uid: System.Collections
-    name: Collections
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections
-  - name: .
-  - uid: System.Collections.Generic
-    name: Generic
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections.generic

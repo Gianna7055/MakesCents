@@ -212,11 +212,11 @@ items:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Models
   syntax:
-    content: public List<EnvelopeEntityModel> Envelopes { get; set; }
+    content: public List<SummaryEnvelopeResponse> Envelopes { get; set; }
     parameters: []
     return:
-      type: System.Collections.Generic.List{MakesCentsBackend.Models.EnvelopeEntityModel}
-    content.vb: Public Property Envelopes As List(Of EnvelopeEntityModel)
+      type: System.Collections.Generic.List{MakesCentsBackend.Models.SummaryEnvelopeResponse}
+    content.vb: Public Property Envelopes As List(Of SummaryEnvelopeResponse)
   overload: MakesCentsBackend.Models.EnvelopeCategoryEntityModel.Envelopes*
 references:
 - uid: MakesCentsBackend.Models
@@ -547,26 +547,26 @@ references:
   name: Envelopes
   nameWithType: EnvelopeCategoryEntityModel.Envelopes
   fullName: MakesCentsBackend.Models.EnvelopeCategoryEntityModel.Envelopes
-- uid: System.Collections.Generic.List{MakesCentsBackend.Models.EnvelopeEntityModel}
-  commentId: T:System.Collections.Generic.List{MakesCentsBackend.Models.EnvelopeEntityModel}
+- uid: System.Collections.Generic.List{MakesCentsBackend.Models.SummaryEnvelopeResponse}
+  commentId: T:System.Collections.Generic.List{MakesCentsBackend.Models.SummaryEnvelopeResponse}
   parent: System.Collections.Generic
   definition: System.Collections.Generic.List`1
   href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
-  name: List<EnvelopeEntityModel>
-  nameWithType: List<EnvelopeEntityModel>
-  fullName: System.Collections.Generic.List<MakesCentsBackend.Models.EnvelopeEntityModel>
-  nameWithType.vb: List(Of EnvelopeEntityModel)
-  fullName.vb: System.Collections.Generic.List(Of MakesCentsBackend.Models.EnvelopeEntityModel)
-  name.vb: List(Of EnvelopeEntityModel)
+  name: List<SummaryEnvelopeResponse>
+  nameWithType: List<SummaryEnvelopeResponse>
+  fullName: System.Collections.Generic.List<MakesCentsBackend.Models.SummaryEnvelopeResponse>
+  nameWithType.vb: List(Of SummaryEnvelopeResponse)
+  fullName.vb: System.Collections.Generic.List(Of MakesCentsBackend.Models.SummaryEnvelopeResponse)
+  name.vb: List(Of SummaryEnvelopeResponse)
   spec.csharp:
   - uid: System.Collections.Generic.List`1
     name: List
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
   - name: <
-  - uid: MakesCentsBackend.Models.EnvelopeEntityModel
-    name: EnvelopeEntityModel
-    href: MakesCentsBackend.Models.EnvelopeEntityModel.html
+  - uid: MakesCentsBackend.Models.SummaryEnvelopeResponse
+    name: SummaryEnvelopeResponse
+    href: MakesCentsBackend.Models.SummaryEnvelopeResponse.html
   - name: '>'
   spec.vb:
   - uid: System.Collections.Generic.List`1
@@ -576,9 +576,9 @@ references:
   - name: (
   - name: Of
   - name: " "
-  - uid: MakesCentsBackend.Models.EnvelopeEntityModel
-    name: EnvelopeEntityModel
-    href: MakesCentsBackend.Models.EnvelopeEntityModel.html
+  - uid: MakesCentsBackend.Models.SummaryEnvelopeResponse
+    name: SummaryEnvelopeResponse
+    href: MakesCentsBackend.Models.SummaryEnvelopeResponse.html
   - name: )
 - uid: System.Collections.Generic.List`1
   commentId: T:System.Collections.Generic.List`1

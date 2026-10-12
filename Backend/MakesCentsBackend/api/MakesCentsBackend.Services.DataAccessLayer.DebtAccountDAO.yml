@@ -133,17 +133,21 @@ items:
       repo: https://github.com/Gianna7055/MakesCents.git
     id: GetDebtAccountAsync
     path: Services/DataAccessLayer/DebtAccountDAO.cs
-    startLine: 117
+    startLine: 121
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Services.DataAccessLayer
+  summary: DAO method to get a debt account, including its transaction history
+  example: []
   syntax:
     content: public Task<GetDebtAccountEntityResponse> GetDebtAccountAsync(BaseIdRequest request)
     parameters:
     - id: request
       type: MakesCentsBackend.Models.BaseIdRequest
+      description: ''
     return:
       type: System.Threading.Tasks.Task{MakesCentsBackend.Models.GetDebtAccountEntityResponse}
+      description: ''
     content.vb: Public Function GetDebtAccountAsync(request As BaseIdRequest) As Task(Of GetDebtAccountEntityResponse)
   overload: MakesCentsBackend.Services.DataAccessLayer.DebtAccountDAO.GetDebtAccountAsync*
 - uid: MakesCentsBackend.Services.DataAccessLayer.DebtAccountDAO.UpdateDebtAccountAsync(MakesCentsBackend.Models.UpdateDebtAccountRequest)
@@ -164,17 +168,21 @@ items:
       repo: https://github.com/Gianna7055/MakesCents.git
     id: UpdateDebtAccountAsync
     path: Services/DataAccessLayer/DebtAccountDAO.cs
-    startLine: 209
+    startLine: 223
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Services.DataAccessLayer
+  summary: DAO method to update a debt account
+  example: []
   syntax:
     content: public Task<BaseIdResponse> UpdateDebtAccountAsync(UpdateDebtAccountRequest debtAccount)
     parameters:
     - id: debtAccount
       type: MakesCentsBackend.Models.UpdateDebtAccountRequest
+      description: ''
     return:
       type: System.Threading.Tasks.Task{MakesCentsBackend.Models.BaseIdResponse}
+      description: ''
     content.vb: Public Function UpdateDebtAccountAsync(debtAccount As UpdateDebtAccountRequest) As Task(Of BaseIdResponse)
   overload: MakesCentsBackend.Services.DataAccessLayer.DebtAccountDAO.UpdateDebtAccountAsync*
 references:

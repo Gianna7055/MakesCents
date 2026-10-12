@@ -290,7 +290,7 @@ items:
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Controllers
-  summary: HTTP POST method to create a new transfer transaction
+  summary: HTTP POST method to create a new transfer transaction (account-to-account or envelope-to-envelope)
   example: []
   syntax:
     content: >-
@@ -338,28 +338,32 @@ items:
       repo: https://github.com/Gianna7055/MakesCents.git
     id: GetTransferTransactionAsync
     path: Controllers/TransferTransactionController.cs
-    startLine: 65
+    startLine: 70
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Controllers
+  summary: HTTP GET method to get a transfer transaction
+  example: []
   syntax:
     content: >-
       [Authorize]
 
-      [HttpGet("{paycheckTransactionId}")]
+      [HttpGet("{transactionId}")]
 
-      public Task<ActionResult> GetTransferTransactionAsync(int paycheckTransactionId)
+      public Task<ActionResult> GetTransferTransactionAsync(int transactionId)
     parameters:
-    - id: paycheckTransactionId
+    - id: transactionId
       type: System.Int32
+      description: ''
     return:
       type: System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.ActionResult}
+      description: ''
     content.vb: >-
       <Authorize>
 
-      <HttpGet("{paycheckTransactionId}")>
+      <HttpGet("{transactionId}")>
 
-      Public Function GetTransferTransactionAsync(paycheckTransactionId As Integer) As Task(Of ActionResult)
+      Public Function GetTransferTransactionAsync(transactionId As Integer) As Task(Of ActionResult)
   overload: MakesCentsBackend.Controllers.TransferTransactionController.GetTransferTransactionAsync*
   attributes:
   - type: Microsoft.AspNetCore.Authorization.AuthorizeAttribute
@@ -369,7 +373,7 @@ items:
     ctor: Microsoft.AspNetCore.Mvc.HttpGetAttribute.#ctor(System.String)
     arguments:
     - type: System.String
-      value: '{paycheckTransactionId}'
+      value: '{transactionId}'
   nameWithType.vb: TransferTransactionController.GetTransferTransactionAsync(Integer)
   fullName.vb: MakesCentsBackend.Controllers.TransferTransactionController.GetTransferTransactionAsync(Integer)
   name.vb: GetTransferTransactionAsync(Integer)
@@ -391,10 +395,12 @@ items:
       repo: https://github.com/Gianna7055/MakesCents.git
     id: UpdateTransferTransactionAsync
     path: Controllers/TransferTransactionController.cs
-    startLine: 99
+    startLine: 110
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Controllers
+  summary: HTTP PUT method to update a transfer transaction
+  example: []
   syntax:
     content: >-
       [Authorize]
@@ -405,10 +411,13 @@ items:
     parameters:
     - id: transferTransactionId
       type: System.Int32
+      description: ''
     - id: transferTransaction
       type: MakesCentsBackend.Models.UpdateTransferTransactionRequest
+      description: ''
     return:
       type: System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.ActionResult}
+      description: ''
     content.vb: >-
       <Authorize>
 

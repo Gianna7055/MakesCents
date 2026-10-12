@@ -7,6 +7,7 @@ items:
   children:
   - MakesCentsBackend.Models.GetTransactionSplitDTOModel.Amount
   - MakesCentsBackend.Models.GetTransactionSplitDTOModel.EnvelopeId
+  - MakesCentsBackend.Models.GetTransactionSplitDTOModel.IsSinkingFund
   - MakesCentsBackend.Models.GetTransactionSplitDTOModel.TransactionId
   - MakesCentsBackend.Models.GetTransactionSplitDTOModel.TransactionSplitId
   langs:
@@ -23,7 +24,7 @@ items:
       repo: https://github.com/Gianna7055/MakesCents.git
     id: GetTransactionSplitDTOModel
     path: Models/TransactionSplitModels.cs
-    startLine: 35
+    startLine: 40
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Models
@@ -68,7 +69,7 @@ items:
       repo: https://github.com/Gianna7055/MakesCents.git
     id: TransactionSplitId
     path: Models/TransactionSplitModels.cs
-    startLine: 39
+    startLine: 44
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Models
@@ -97,7 +98,7 @@ items:
       repo: https://github.com/Gianna7055/MakesCents.git
     id: TransactionId
     path: Models/TransactionSplitModels.cs
-    startLine: 40
+    startLine: 45
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Models
@@ -126,7 +127,7 @@ items:
       repo: https://github.com/Gianna7055/MakesCents.git
     id: EnvelopeId
     path: Models/TransactionSplitModels.cs
-    startLine: 41
+    startLine: 46
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Models
@@ -137,6 +138,35 @@ items:
       type: System.Int32
     content.vb: Public Property EnvelopeId As Integer
   overload: MakesCentsBackend.Models.GetTransactionSplitDTOModel.EnvelopeId*
+- uid: MakesCentsBackend.Models.GetTransactionSplitDTOModel.IsSinkingFund
+  commentId: P:MakesCentsBackend.Models.GetTransactionSplitDTOModel.IsSinkingFund
+  id: IsSinkingFund
+  parent: MakesCentsBackend.Models.GetTransactionSplitDTOModel
+  langs:
+  - csharp
+  - vb
+  name: IsSinkingFund
+  nameWithType: GetTransactionSplitDTOModel.IsSinkingFund
+  fullName: MakesCentsBackend.Models.GetTransactionSplitDTOModel.IsSinkingFund
+  type: Property
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Models/TransactionSplitModels.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: IsSinkingFund
+    path: Models/TransactionSplitModels.cs
+    startLine: 47
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Models
+  syntax:
+    content: public bool IsSinkingFund { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property IsSinkingFund As Boolean
+  overload: MakesCentsBackend.Models.GetTransactionSplitDTOModel.IsSinkingFund*
 - uid: MakesCentsBackend.Models.GetTransactionSplitDTOModel.Amount
   commentId: P:MakesCentsBackend.Models.GetTransactionSplitDTOModel.Amount
   id: Amount
@@ -155,7 +185,7 @@ items:
       repo: https://github.com/Gianna7055/MakesCents.git
     id: Amount
     path: Models/TransactionSplitModels.cs
-    startLine: 42
+    startLine: 48
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Models
@@ -455,6 +485,23 @@ references:
   name: EnvelopeId
   nameWithType: GetTransactionSplitDTOModel.EnvelopeId
   fullName: MakesCentsBackend.Models.GetTransactionSplitDTOModel.EnvelopeId
+- uid: MakesCentsBackend.Models.GetTransactionSplitDTOModel.IsSinkingFund*
+  commentId: Overload:MakesCentsBackend.Models.GetTransactionSplitDTOModel.IsSinkingFund
+  href: MakesCentsBackend.Models.GetTransactionSplitDTOModel.html#MakesCentsBackend_Models_GetTransactionSplitDTOModel_IsSinkingFund
+  name: IsSinkingFund
+  nameWithType: GetTransactionSplitDTOModel.IsSinkingFund
+  fullName: MakesCentsBackend.Models.GetTransactionSplitDTOModel.IsSinkingFund
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
 - uid: MakesCentsBackend.Models.GetTransactionSplitDTOModel.Amount*
   commentId: Overload:MakesCentsBackend.Models.GetTransactionSplitDTOModel.Amount
   href: MakesCentsBackend.Models.GetTransactionSplitDTOModel.html#MakesCentsBackend_Models_GetTransactionSplitDTOModel_Amount

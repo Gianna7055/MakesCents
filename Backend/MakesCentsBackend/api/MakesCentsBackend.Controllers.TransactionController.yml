@@ -6,8 +6,10 @@ items:
   parent: MakesCentsBackend.Controllers
   children:
   - MakesCentsBackend.Controllers.TransactionController.#ctor(MakesCentsBackend.Services.BusinessLogicLayer.TransactionLogic)
-  - MakesCentsBackend.Controllers.TransactionController.DeleteTransactionAsync(System.Int32)
   - MakesCentsBackend.Controllers.TransactionController.GetAllTransactionsAsync(System.Int32)
+  - MakesCentsBackend.Controllers.TransactionController.HardDeleteTransactionAsync(System.Int32)
+  - MakesCentsBackend.Controllers.TransactionController.RestoreTransactionAsync(System.Int32)
+  - MakesCentsBackend.Controllers.TransactionController.SoftDeleteTransactionAsync(System.Int32)
   langs:
   - csharp
   - vb
@@ -287,28 +289,37 @@ items:
       repo: https://github.com/Gianna7055/MakesCents.git
     id: GetAllTransactionsAsync
     path: Controllers/TransactionController.cs
-    startLine: 32
+    startLine: 39
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Controllers
+  summary: >-
+    HTTP GET method to get every transaction for a budget month.
+
+    NOTE: the route param is now a budget_month_id, not a budget_id - transactions are
+
+    scoped to one specific month.
+  example: []
   syntax:
     content: >-
       [Authorize]
 
-      [HttpGet("{budgetId}")]
+      [HttpGet("budget-month/{budgetMonthId}")]
 
-      public Task<ActionResult> GetAllTransactionsAsync(int budgetId)
+      public Task<ActionResult> GetAllTransactionsAsync(int budgetMonthId)
     parameters:
-    - id: budgetId
+    - id: budgetMonthId
       type: System.Int32
+      description: ''
     return:
       type: System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.ActionResult}
+      description: ''
     content.vb: >-
       <Authorize>
 
-      <HttpGet("{budgetId}")>
+      <HttpGet("budget-month/{budgetMonthId}")>
 
-      Public Function GetAllTransactionsAsync(budgetId As Integer) As Task(Of ActionResult)
+      Public Function GetAllTransactionsAsync(budgetMonthId As Integer) As Task(Of ActionResult)
   overload: MakesCentsBackend.Controllers.TransactionController.GetAllTransactionsAsync*
   attributes:
   - type: Microsoft.AspNetCore.Authorization.AuthorizeAttribute
@@ -318,51 +329,55 @@ items:
     ctor: Microsoft.AspNetCore.Mvc.HttpGetAttribute.#ctor(System.String)
     arguments:
     - type: System.String
-      value: '{budgetId}'
+      value: budget-month/{budgetMonthId}
   nameWithType.vb: TransactionController.GetAllTransactionsAsync(Integer)
   fullName.vb: MakesCentsBackend.Controllers.TransactionController.GetAllTransactionsAsync(Integer)
   name.vb: GetAllTransactionsAsync(Integer)
-- uid: MakesCentsBackend.Controllers.TransactionController.DeleteTransactionAsync(System.Int32)
-  commentId: M:MakesCentsBackend.Controllers.TransactionController.DeleteTransactionAsync(System.Int32)
-  id: DeleteTransactionAsync(System.Int32)
+- uid: MakesCentsBackend.Controllers.TransactionController.SoftDeleteTransactionAsync(System.Int32)
+  commentId: M:MakesCentsBackend.Controllers.TransactionController.SoftDeleteTransactionAsync(System.Int32)
+  id: SoftDeleteTransactionAsync(System.Int32)
   parent: MakesCentsBackend.Controllers.TransactionController
   langs:
   - csharp
   - vb
-  name: DeleteTransactionAsync(int)
-  nameWithType: TransactionController.DeleteTransactionAsync(int)
-  fullName: MakesCentsBackend.Controllers.TransactionController.DeleteTransactionAsync(int)
+  name: SoftDeleteTransactionAsync(int)
+  nameWithType: TransactionController.SoftDeleteTransactionAsync(int)
+  fullName: MakesCentsBackend.Controllers.TransactionController.SoftDeleteTransactionAsync(int)
   type: Method
   source:
     remote:
       path: Backend/MakesCentsBackend/Controllers/TransactionController.cs
       branch: master
       repo: https://github.com/Gianna7055/MakesCents.git
-    id: DeleteTransactionAsync
+    id: SoftDeleteTransactionAsync
     path: Controllers/TransactionController.cs
-    startLine: 67
+    startLine: 78
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Controllers
+  summary: HTTP DELETE method to soft delete a transaction
+  example: []
   syntax:
     content: >-
       [Authorize]
 
       [HttpDelete("{transactionId}")]
 
-      public Task<ActionResult> DeleteTransactionAsync(int transactionId)
+      public Task<ActionResult> SoftDeleteTransactionAsync(int transactionId)
     parameters:
     - id: transactionId
       type: System.Int32
+      description: ''
     return:
       type: System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.ActionResult}
+      description: ''
     content.vb: >-
       <Authorize>
 
       <HttpDelete("{transactionId}")>
 
-      Public Function DeleteTransactionAsync(transactionId As Integer) As Task(Of ActionResult)
-  overload: MakesCentsBackend.Controllers.TransactionController.DeleteTransactionAsync*
+      Public Function SoftDeleteTransactionAsync(transactionId As Integer) As Task(Of ActionResult)
+  overload: MakesCentsBackend.Controllers.TransactionController.SoftDeleteTransactionAsync*
   attributes:
   - type: Microsoft.AspNetCore.Authorization.AuthorizeAttribute
     ctor: Microsoft.AspNetCore.Authorization.AuthorizeAttribute.#ctor
@@ -372,9 +387,123 @@ items:
     arguments:
     - type: System.String
       value: '{transactionId}'
-  nameWithType.vb: TransactionController.DeleteTransactionAsync(Integer)
-  fullName.vb: MakesCentsBackend.Controllers.TransactionController.DeleteTransactionAsync(Integer)
-  name.vb: DeleteTransactionAsync(Integer)
+  nameWithType.vb: TransactionController.SoftDeleteTransactionAsync(Integer)
+  fullName.vb: MakesCentsBackend.Controllers.TransactionController.SoftDeleteTransactionAsync(Integer)
+  name.vb: SoftDeleteTransactionAsync(Integer)
+- uid: MakesCentsBackend.Controllers.TransactionController.RestoreTransactionAsync(System.Int32)
+  commentId: M:MakesCentsBackend.Controllers.TransactionController.RestoreTransactionAsync(System.Int32)
+  id: RestoreTransactionAsync(System.Int32)
+  parent: MakesCentsBackend.Controllers.TransactionController
+  langs:
+  - csharp
+  - vb
+  name: RestoreTransactionAsync(int)
+  nameWithType: TransactionController.RestoreTransactionAsync(int)
+  fullName: MakesCentsBackend.Controllers.TransactionController.RestoreTransactionAsync(int)
+  type: Method
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Controllers/TransactionController.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: RestoreTransactionAsync
+    path: Controllers/TransactionController.cs
+    startLine: 111
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Controllers
+  summary: HTTP PATCH method to restore a soft-deleted transaction
+  example: []
+  syntax:
+    content: >-
+      [Authorize]
+
+      [HttpPatch("{transactionId}/restore")]
+
+      public Task<ActionResult> RestoreTransactionAsync(int transactionId)
+    parameters:
+    - id: transactionId
+      type: System.Int32
+      description: ''
+    return:
+      type: System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.ActionResult}
+      description: ''
+    content.vb: >-
+      <Authorize>
+
+      <HttpPatch("{transactionId}/restore")>
+
+      Public Function RestoreTransactionAsync(transactionId As Integer) As Task(Of ActionResult)
+  overload: MakesCentsBackend.Controllers.TransactionController.RestoreTransactionAsync*
+  attributes:
+  - type: Microsoft.AspNetCore.Authorization.AuthorizeAttribute
+    ctor: Microsoft.AspNetCore.Authorization.AuthorizeAttribute.#ctor
+    arguments: []
+  - type: Microsoft.AspNetCore.Mvc.HttpPatchAttribute
+    ctor: Microsoft.AspNetCore.Mvc.HttpPatchAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: '{transactionId}/restore'
+  nameWithType.vb: TransactionController.RestoreTransactionAsync(Integer)
+  fullName.vb: MakesCentsBackend.Controllers.TransactionController.RestoreTransactionAsync(Integer)
+  name.vb: RestoreTransactionAsync(Integer)
+- uid: MakesCentsBackend.Controllers.TransactionController.HardDeleteTransactionAsync(System.Int32)
+  commentId: M:MakesCentsBackend.Controllers.TransactionController.HardDeleteTransactionAsync(System.Int32)
+  id: HardDeleteTransactionAsync(System.Int32)
+  parent: MakesCentsBackend.Controllers.TransactionController
+  langs:
+  - csharp
+  - vb
+  name: HardDeleteTransactionAsync(int)
+  nameWithType: TransactionController.HardDeleteTransactionAsync(int)
+  fullName: MakesCentsBackend.Controllers.TransactionController.HardDeleteTransactionAsync(int)
+  type: Method
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Controllers/TransactionController.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: HardDeleteTransactionAsync
+    path: Controllers/TransactionController.cs
+    startLine: 144
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Controllers
+  summary: HTTP DELETE method to permanently delete a transaction
+  example: []
+  syntax:
+    content: >-
+      [Authorize]
+
+      [HttpDelete("{transactionId}/permanent")]
+
+      public Task<ActionResult> HardDeleteTransactionAsync(int transactionId)
+    parameters:
+    - id: transactionId
+      type: System.Int32
+      description: ''
+    return:
+      type: System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.ActionResult}
+      description: ''
+    content.vb: >-
+      <Authorize>
+
+      <HttpDelete("{transactionId}/permanent")>
+
+      Public Function HardDeleteTransactionAsync(transactionId As Integer) As Task(Of ActionResult)
+  overload: MakesCentsBackend.Controllers.TransactionController.HardDeleteTransactionAsync*
+  attributes:
+  - type: Microsoft.AspNetCore.Authorization.AuthorizeAttribute
+    ctor: Microsoft.AspNetCore.Authorization.AuthorizeAttribute.#ctor
+    arguments: []
+  - type: Microsoft.AspNetCore.Mvc.HttpDeleteAttribute
+    ctor: Microsoft.AspNetCore.Mvc.HttpDeleteAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: '{transactionId}/permanent'
+  nameWithType.vb: TransactionController.HardDeleteTransactionAsync(Integer)
+  fullName.vb: MakesCentsBackend.Controllers.TransactionController.HardDeleteTransactionAsync(Integer)
+  name.vb: HardDeleteTransactionAsync(Integer)
 references:
 - uid: MakesCentsBackend.Controllers
   commentId: N:MakesCentsBackend.Controllers
@@ -9526,9 +9655,21 @@ references:
     name: Tasks
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
-- uid: MakesCentsBackend.Controllers.TransactionController.DeleteTransactionAsync*
-  commentId: Overload:MakesCentsBackend.Controllers.TransactionController.DeleteTransactionAsync
-  href: MakesCentsBackend.Controllers.TransactionController.html#MakesCentsBackend_Controllers_TransactionController_DeleteTransactionAsync_System_Int32_
-  name: DeleteTransactionAsync
-  nameWithType: TransactionController.DeleteTransactionAsync
-  fullName: MakesCentsBackend.Controllers.TransactionController.DeleteTransactionAsync
+- uid: MakesCentsBackend.Controllers.TransactionController.SoftDeleteTransactionAsync*
+  commentId: Overload:MakesCentsBackend.Controllers.TransactionController.SoftDeleteTransactionAsync
+  href: MakesCentsBackend.Controllers.TransactionController.html#MakesCentsBackend_Controllers_TransactionController_SoftDeleteTransactionAsync_System_Int32_
+  name: SoftDeleteTransactionAsync
+  nameWithType: TransactionController.SoftDeleteTransactionAsync
+  fullName: MakesCentsBackend.Controllers.TransactionController.SoftDeleteTransactionAsync
+- uid: MakesCentsBackend.Controllers.TransactionController.RestoreTransactionAsync*
+  commentId: Overload:MakesCentsBackend.Controllers.TransactionController.RestoreTransactionAsync
+  href: MakesCentsBackend.Controllers.TransactionController.html#MakesCentsBackend_Controllers_TransactionController_RestoreTransactionAsync_System_Int32_
+  name: RestoreTransactionAsync
+  nameWithType: TransactionController.RestoreTransactionAsync
+  fullName: MakesCentsBackend.Controllers.TransactionController.RestoreTransactionAsync
+- uid: MakesCentsBackend.Controllers.TransactionController.HardDeleteTransactionAsync*
+  commentId: Overload:MakesCentsBackend.Controllers.TransactionController.HardDeleteTransactionAsync
+  href: MakesCentsBackend.Controllers.TransactionController.html#MakesCentsBackend_Controllers_TransactionController_HardDeleteTransactionAsync_System_Int32_
+  name: HardDeleteTransactionAsync
+  nameWithType: TransactionController.HardDeleteTransactionAsync
+  fullName: MakesCentsBackend.Controllers.TransactionController.HardDeleteTransactionAsync

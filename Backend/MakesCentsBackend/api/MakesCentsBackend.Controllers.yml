@@ -7,13 +7,16 @@ items:
   - MakesCentsBackend.Controllers.AccountController
   - MakesCentsBackend.Controllers.BankAccountController
   - MakesCentsBackend.Controllers.BudgetController
+  - MakesCentsBackend.Controllers.BudgetTemplateController
   - MakesCentsBackend.Controllers.DebtAccountController
   - MakesCentsBackend.Controllers.EnvelopeCategoryController
-  - MakesCentsBackend.Controllers.EnvelopeController
+  - MakesCentsBackend.Controllers.EnvelopeFundingController
   - MakesCentsBackend.Controllers.InvestmentAccountController
   - MakesCentsBackend.Controllers.PaycheckController
   - MakesCentsBackend.Controllers.PaymentTransactionController
   - MakesCentsBackend.Controllers.PlannedExpenseController
+  - MakesCentsBackend.Controllers.RolloverEnvelopeController
+  - MakesCentsBackend.Controllers.SinkingFundEnvelopeController
   - MakesCentsBackend.Controllers.TransactionController
   - MakesCentsBackend.Controllers.TransferTransactionController
   - MakesCentsBackend.Controllers.UserController
@@ -45,6 +48,12 @@ references:
   name: BudgetController
   nameWithType: BudgetController
   fullName: MakesCentsBackend.Controllers.BudgetController
+- uid: MakesCentsBackend.Controllers.BudgetTemplateController
+  commentId: T:MakesCentsBackend.Controllers.BudgetTemplateController
+  href: MakesCentsBackend.Controllers.BudgetTemplateController.html
+  name: BudgetTemplateController
+  nameWithType: BudgetTemplateController
+  fullName: MakesCentsBackend.Controllers.BudgetTemplateController
 - uid: MakesCentsBackend.Controllers.DebtAccountController
   commentId: T:MakesCentsBackend.Controllers.DebtAccountController
   href: MakesCentsBackend.Controllers.DebtAccountController.html
@@ -57,12 +66,12 @@ references:
   name: EnvelopeCategoryController
   nameWithType: EnvelopeCategoryController
   fullName: MakesCentsBackend.Controllers.EnvelopeCategoryController
-- uid: MakesCentsBackend.Controllers.EnvelopeController
-  commentId: T:MakesCentsBackend.Controllers.EnvelopeController
-  href: MakesCentsBackend.Controllers.EnvelopeController.html
-  name: EnvelopeController
-  nameWithType: EnvelopeController
-  fullName: MakesCentsBackend.Controllers.EnvelopeController
+- uid: MakesCentsBackend.Controllers.EnvelopeFundingController
+  commentId: T:MakesCentsBackend.Controllers.EnvelopeFundingController
+  href: MakesCentsBackend.Controllers.EnvelopeFundingController.html
+  name: EnvelopeFundingController
+  nameWithType: EnvelopeFundingController
+  fullName: MakesCentsBackend.Controllers.EnvelopeFundingController
 - uid: MakesCentsBackend.Controllers.InvestmentAccountController
   commentId: T:MakesCentsBackend.Controllers.InvestmentAccountController
   href: MakesCentsBackend.Controllers.InvestmentAccountController.html
@@ -87,6 +96,18 @@ references:
   name: PlannedExpenseController
   nameWithType: PlannedExpenseController
   fullName: MakesCentsBackend.Controllers.PlannedExpenseController
+- uid: MakesCentsBackend.Controllers.RolloverEnvelopeController
+  commentId: T:MakesCentsBackend.Controllers.RolloverEnvelopeController
+  href: MakesCentsBackend.Controllers.RolloverEnvelopeController.html
+  name: RolloverEnvelopeController
+  nameWithType: RolloverEnvelopeController
+  fullName: MakesCentsBackend.Controllers.RolloverEnvelopeController
+- uid: MakesCentsBackend.Controllers.SinkingFundEnvelopeController
+  commentId: T:MakesCentsBackend.Controllers.SinkingFundEnvelopeController
+  href: MakesCentsBackend.Controllers.SinkingFundEnvelopeController.html
+  name: SinkingFundEnvelopeController
+  nameWithType: SinkingFundEnvelopeController
+  fullName: MakesCentsBackend.Controllers.SinkingFundEnvelopeController
 - uid: MakesCentsBackend.Controllers.TransactionController
   commentId: T:MakesCentsBackend.Controllers.TransactionController
   href: MakesCentsBackend.Controllers.TransactionController.html

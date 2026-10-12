@@ -8,9 +8,14 @@ items:
   - MakesCentsBackend.Services.DataAccessLayer.AuthorizationService.#ctor(MySqlConnector.MySqlConnection)
   - MakesCentsBackend.Services.DataAccessLayer.AuthorizationService.VerifyUserOwnsAccountAsync(System.Nullable{System.Int32},System.Nullable{System.Int32},MySqlConnector.MySqlTransaction)
   - MakesCentsBackend.Services.DataAccessLayer.AuthorizationService.VerifyUserOwnsBudgetAsync(System.Nullable{System.Int32},System.Nullable{System.Int32},MySqlConnector.MySqlTransaction)
-  - MakesCentsBackend.Services.DataAccessLayer.AuthorizationService.VerifyUserOwnsEnvelopeAsync(System.Nullable{System.Int32},System.Nullable{System.Int32},MySqlConnector.MySqlTransaction)
+  - MakesCentsBackend.Services.DataAccessLayer.AuthorizationService.VerifyUserOwnsBudgetMonthAsync(System.Nullable{System.Int32},System.Nullable{System.Int32},MySqlConnector.MySqlTransaction)
+  - MakesCentsBackend.Services.DataAccessLayer.AuthorizationService.VerifyUserOwnsBudgetTemplateAsync(System.Nullable{System.Int32},System.Nullable{System.Int32},MySqlConnector.MySqlTransaction)
   - MakesCentsBackend.Services.DataAccessLayer.AuthorizationService.VerifyUserOwnsEnvelopeCategoryAsync(System.Nullable{System.Int32},System.Nullable{System.Int32},MySqlConnector.MySqlTransaction)
+  - MakesCentsBackend.Services.DataAccessLayer.AuthorizationService.VerifyUserOwnsEnvelopeFundingAsync(System.Nullable{System.Int32},System.Nullable{System.Int32},MySqlConnector.MySqlTransaction)
   - MakesCentsBackend.Services.DataAccessLayer.AuthorizationService.VerifyUserOwnsPaycheckAsync(System.Nullable{System.Int32},System.Nullable{System.Int32},MySqlConnector.MySqlTransaction)
+  - MakesCentsBackend.Services.DataAccessLayer.AuthorizationService.VerifyUserOwnsRolloverEnvelopeAsync(System.Nullable{System.Int32},System.Nullable{System.Int32},MySqlConnector.MySqlTransaction)
+  - MakesCentsBackend.Services.DataAccessLayer.AuthorizationService.VerifyUserOwnsRolloverEnvelopeMonthAsync(System.Nullable{System.Int32},System.Nullable{System.Int32},MySqlConnector.MySqlTransaction)
+  - MakesCentsBackend.Services.DataAccessLayer.AuthorizationService.VerifyUserOwnsSinkingFundEnvelopeAsync(System.Nullable{System.Int32},System.Nullable{System.Int32},MySqlConnector.MySqlTransaction)
   - MakesCentsBackend.Services.DataAccessLayer.AuthorizationService.VerifyUserOwnsTransactionAsync(System.Nullable{System.Int32},System.Nullable{System.Int32},MySqlConnector.MySqlTransaction)
   langs:
   - csharp
@@ -122,6 +127,94 @@ items:
   nameWithType.vb: AuthorizationService.VerifyUserOwnsBudgetAsync(Integer?, Integer?, MySqlTransaction)
   fullName.vb: MakesCentsBackend.Services.DataAccessLayer.AuthorizationService.VerifyUserOwnsBudgetAsync(Integer?, Integer?, MySqlConnector.MySqlTransaction)
   name.vb: VerifyUserOwnsBudgetAsync(Integer?, Integer?, MySqlTransaction)
+- uid: MakesCentsBackend.Services.DataAccessLayer.AuthorizationService.VerifyUserOwnsBudgetMonthAsync(System.Nullable{System.Int32},System.Nullable{System.Int32},MySqlConnector.MySqlTransaction)
+  commentId: M:MakesCentsBackend.Services.DataAccessLayer.AuthorizationService.VerifyUserOwnsBudgetMonthAsync(System.Nullable{System.Int32},System.Nullable{System.Int32},MySqlConnector.MySqlTransaction)
+  id: VerifyUserOwnsBudgetMonthAsync(System.Nullable{System.Int32},System.Nullable{System.Int32},MySqlConnector.MySqlTransaction)
+  parent: MakesCentsBackend.Services.DataAccessLayer.AuthorizationService
+  langs:
+  - csharp
+  - vb
+  name: VerifyUserOwnsBudgetMonthAsync(int?, int?, MySqlTransaction?)
+  nameWithType: AuthorizationService.VerifyUserOwnsBudgetMonthAsync(int?, int?, MySqlTransaction?)
+  fullName: MakesCentsBackend.Services.DataAccessLayer.AuthorizationService.VerifyUserOwnsBudgetMonthAsync(int?, int?, MySqlConnector.MySqlTransaction?)
+  type: Method
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Services/DataAccessLayer/AuthorizationService.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: VerifyUserOwnsBudgetMonthAsync
+    path: Services/DataAccessLayer/AuthorizationService.cs
+    startLine: 61
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Services.DataAccessLayer
+  summary: Auth method to check if a user owns the specific month's budget instance specified
+  example: []
+  syntax:
+    content: public Task<bool> VerifyUserOwnsBudgetMonthAsync(int? budgetMonthId, int? userId, MySqlTransaction? transaction = null)
+    parameters:
+    - id: budgetMonthId
+      type: System.Nullable{System.Int32}
+      description: ''
+    - id: userId
+      type: System.Nullable{System.Int32}
+      description: ''
+    - id: transaction
+      type: MySqlConnector.MySqlTransaction
+      description: ''
+    return:
+      type: System.Threading.Tasks.Task{System.Boolean}
+      description: ''
+    content.vb: Public Function VerifyUserOwnsBudgetMonthAsync(budgetMonthId As Integer?, userId As Integer?, transaction As MySqlTransaction = Nothing) As Task(Of Boolean)
+  overload: MakesCentsBackend.Services.DataAccessLayer.AuthorizationService.VerifyUserOwnsBudgetMonthAsync*
+  nameWithType.vb: AuthorizationService.VerifyUserOwnsBudgetMonthAsync(Integer?, Integer?, MySqlTransaction)
+  fullName.vb: MakesCentsBackend.Services.DataAccessLayer.AuthorizationService.VerifyUserOwnsBudgetMonthAsync(Integer?, Integer?, MySqlConnector.MySqlTransaction)
+  name.vb: VerifyUserOwnsBudgetMonthAsync(Integer?, Integer?, MySqlTransaction)
+- uid: MakesCentsBackend.Services.DataAccessLayer.AuthorizationService.VerifyUserOwnsEnvelopeFundingAsync(System.Nullable{System.Int32},System.Nullable{System.Int32},MySqlConnector.MySqlTransaction)
+  commentId: M:MakesCentsBackend.Services.DataAccessLayer.AuthorizationService.VerifyUserOwnsEnvelopeFundingAsync(System.Nullable{System.Int32},System.Nullable{System.Int32},MySqlConnector.MySqlTransaction)
+  id: VerifyUserOwnsEnvelopeFundingAsync(System.Nullable{System.Int32},System.Nullable{System.Int32},MySqlConnector.MySqlTransaction)
+  parent: MakesCentsBackend.Services.DataAccessLayer.AuthorizationService
+  langs:
+  - csharp
+  - vb
+  name: VerifyUserOwnsEnvelopeFundingAsync(int?, int?, MySqlTransaction?)
+  nameWithType: AuthorizationService.VerifyUserOwnsEnvelopeFundingAsync(int?, int?, MySqlTransaction?)
+  fullName: MakesCentsBackend.Services.DataAccessLayer.AuthorizationService.VerifyUserOwnsEnvelopeFundingAsync(int?, int?, MySqlConnector.MySqlTransaction?)
+  type: Method
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Services/DataAccessLayer/AuthorizationService.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: VerifyUserOwnsEnvelopeFundingAsync
+    path: Services/DataAccessLayer/AuthorizationService.cs
+    startLine: 91
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Services.DataAccessLayer
+  summary: Auth method to check if a user owns the envelope funding row specified
+  example: []
+  syntax:
+    content: public Task<bool> VerifyUserOwnsEnvelopeFundingAsync(int? envelopeFundingId, int? userId, MySqlTransaction? transaction = null)
+    parameters:
+    - id: envelopeFundingId
+      type: System.Nullable{System.Int32}
+      description: ''
+    - id: userId
+      type: System.Nullable{System.Int32}
+      description: ''
+    - id: transaction
+      type: MySqlConnector.MySqlTransaction
+      description: ''
+    return:
+      type: System.Threading.Tasks.Task{System.Boolean}
+      description: ''
+    content.vb: Public Function VerifyUserOwnsEnvelopeFundingAsync(envelopeFundingId As Integer?, userId As Integer?, transaction As MySqlTransaction = Nothing) As Task(Of Boolean)
+  overload: MakesCentsBackend.Services.DataAccessLayer.AuthorizationService.VerifyUserOwnsEnvelopeFundingAsync*
+  nameWithType.vb: AuthorizationService.VerifyUserOwnsEnvelopeFundingAsync(Integer?, Integer?, MySqlTransaction)
+  fullName.vb: MakesCentsBackend.Services.DataAccessLayer.AuthorizationService.VerifyUserOwnsEnvelopeFundingAsync(Integer?, Integer?, MySqlConnector.MySqlTransaction)
+  name.vb: VerifyUserOwnsEnvelopeFundingAsync(Integer?, Integer?, MySqlTransaction)
 - uid: MakesCentsBackend.Services.DataAccessLayer.AuthorizationService.VerifyUserOwnsEnvelopeCategoryAsync(System.Nullable{System.Int32},System.Nullable{System.Int32},MySqlConnector.MySqlTransaction)
   commentId: M:MakesCentsBackend.Services.DataAccessLayer.AuthorizationService.VerifyUserOwnsEnvelopeCategoryAsync(System.Nullable{System.Int32},System.Nullable{System.Int32},MySqlConnector.MySqlTransaction)
   id: VerifyUserOwnsEnvelopeCategoryAsync(System.Nullable{System.Int32},System.Nullable{System.Int32},MySqlConnector.MySqlTransaction)
@@ -140,7 +233,7 @@ items:
       repo: https://github.com/Gianna7055/MakesCents.git
     id: VerifyUserOwnsEnvelopeCategoryAsync
     path: Services/DataAccessLayer/AuthorizationService.cs
-    startLine: 61
+    startLine: 122
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Services.DataAccessLayer
@@ -166,34 +259,34 @@ items:
   nameWithType.vb: AuthorizationService.VerifyUserOwnsEnvelopeCategoryAsync(Integer?, Integer?, MySqlTransaction)
   fullName.vb: MakesCentsBackend.Services.DataAccessLayer.AuthorizationService.VerifyUserOwnsEnvelopeCategoryAsync(Integer?, Integer?, MySqlConnector.MySqlTransaction)
   name.vb: VerifyUserOwnsEnvelopeCategoryAsync(Integer?, Integer?, MySqlTransaction)
-- uid: MakesCentsBackend.Services.DataAccessLayer.AuthorizationService.VerifyUserOwnsEnvelopeAsync(System.Nullable{System.Int32},System.Nullable{System.Int32},MySqlConnector.MySqlTransaction)
-  commentId: M:MakesCentsBackend.Services.DataAccessLayer.AuthorizationService.VerifyUserOwnsEnvelopeAsync(System.Nullable{System.Int32},System.Nullable{System.Int32},MySqlConnector.MySqlTransaction)
-  id: VerifyUserOwnsEnvelopeAsync(System.Nullable{System.Int32},System.Nullable{System.Int32},MySqlConnector.MySqlTransaction)
+- uid: MakesCentsBackend.Services.DataAccessLayer.AuthorizationService.VerifyUserOwnsSinkingFundEnvelopeAsync(System.Nullable{System.Int32},System.Nullable{System.Int32},MySqlConnector.MySqlTransaction)
+  commentId: M:MakesCentsBackend.Services.DataAccessLayer.AuthorizationService.VerifyUserOwnsSinkingFundEnvelopeAsync(System.Nullable{System.Int32},System.Nullable{System.Int32},MySqlConnector.MySqlTransaction)
+  id: VerifyUserOwnsSinkingFundEnvelopeAsync(System.Nullable{System.Int32},System.Nullable{System.Int32},MySqlConnector.MySqlTransaction)
   parent: MakesCentsBackend.Services.DataAccessLayer.AuthorizationService
   langs:
   - csharp
   - vb
-  name: VerifyUserOwnsEnvelopeAsync(int?, int?, MySqlTransaction?)
-  nameWithType: AuthorizationService.VerifyUserOwnsEnvelopeAsync(int?, int?, MySqlTransaction?)
-  fullName: MakesCentsBackend.Services.DataAccessLayer.AuthorizationService.VerifyUserOwnsEnvelopeAsync(int?, int?, MySqlConnector.MySqlTransaction?)
+  name: VerifyUserOwnsSinkingFundEnvelopeAsync(int?, int?, MySqlTransaction?)
+  nameWithType: AuthorizationService.VerifyUserOwnsSinkingFundEnvelopeAsync(int?, int?, MySqlTransaction?)
+  fullName: MakesCentsBackend.Services.DataAccessLayer.AuthorizationService.VerifyUserOwnsSinkingFundEnvelopeAsync(int?, int?, MySqlConnector.MySqlTransaction?)
   type: Method
   source:
     remote:
       path: Backend/MakesCentsBackend/Services/DataAccessLayer/AuthorizationService.cs
       branch: master
       repo: https://github.com/Gianna7055/MakesCents.git
-    id: VerifyUserOwnsEnvelopeAsync
+    id: VerifyUserOwnsSinkingFundEnvelopeAsync
     path: Services/DataAccessLayer/AuthorizationService.cs
-    startLine: 91
+    startLine: 152
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Services.DataAccessLayer
-  summary: Auth method to check if a user owns the envelope specified
+  summary: Auth method to check if a user owns the sinking fund envelope specified
   example: []
   syntax:
-    content: public Task<bool> VerifyUserOwnsEnvelopeAsync(int? envelopeId, int? userId, MySqlTransaction? transaction = null)
+    content: public Task<bool> VerifyUserOwnsSinkingFundEnvelopeAsync(int? sinkingFundEnvelopeId, int? userId, MySqlTransaction? transaction = null)
     parameters:
-    - id: envelopeId
+    - id: sinkingFundEnvelopeId
       type: System.Nullable{System.Int32}
       description: ''
     - id: userId
@@ -205,11 +298,105 @@ items:
     return:
       type: System.Threading.Tasks.Task{System.Boolean}
       description: ''
-    content.vb: Public Function VerifyUserOwnsEnvelopeAsync(envelopeId As Integer?, userId As Integer?, transaction As MySqlTransaction = Nothing) As Task(Of Boolean)
-  overload: MakesCentsBackend.Services.DataAccessLayer.AuthorizationService.VerifyUserOwnsEnvelopeAsync*
-  nameWithType.vb: AuthorizationService.VerifyUserOwnsEnvelopeAsync(Integer?, Integer?, MySqlTransaction)
-  fullName.vb: MakesCentsBackend.Services.DataAccessLayer.AuthorizationService.VerifyUserOwnsEnvelopeAsync(Integer?, Integer?, MySqlConnector.MySqlTransaction)
-  name.vb: VerifyUserOwnsEnvelopeAsync(Integer?, Integer?, MySqlTransaction)
+    content.vb: Public Function VerifyUserOwnsSinkingFundEnvelopeAsync(sinkingFundEnvelopeId As Integer?, userId As Integer?, transaction As MySqlTransaction = Nothing) As Task(Of Boolean)
+  overload: MakesCentsBackend.Services.DataAccessLayer.AuthorizationService.VerifyUserOwnsSinkingFundEnvelopeAsync*
+  nameWithType.vb: AuthorizationService.VerifyUserOwnsSinkingFundEnvelopeAsync(Integer?, Integer?, MySqlTransaction)
+  fullName.vb: MakesCentsBackend.Services.DataAccessLayer.AuthorizationService.VerifyUserOwnsSinkingFundEnvelopeAsync(Integer?, Integer?, MySqlConnector.MySqlTransaction)
+  name.vb: VerifyUserOwnsSinkingFundEnvelopeAsync(Integer?, Integer?, MySqlTransaction)
+- uid: MakesCentsBackend.Services.DataAccessLayer.AuthorizationService.VerifyUserOwnsRolloverEnvelopeAsync(System.Nullable{System.Int32},System.Nullable{System.Int32},MySqlConnector.MySqlTransaction)
+  commentId: M:MakesCentsBackend.Services.DataAccessLayer.AuthorizationService.VerifyUserOwnsRolloverEnvelopeAsync(System.Nullable{System.Int32},System.Nullable{System.Int32},MySqlConnector.MySqlTransaction)
+  id: VerifyUserOwnsRolloverEnvelopeAsync(System.Nullable{System.Int32},System.Nullable{System.Int32},MySqlConnector.MySqlTransaction)
+  parent: MakesCentsBackend.Services.DataAccessLayer.AuthorizationService
+  langs:
+  - csharp
+  - vb
+  name: VerifyUserOwnsRolloverEnvelopeAsync(int?, int?, MySqlTransaction?)
+  nameWithType: AuthorizationService.VerifyUserOwnsRolloverEnvelopeAsync(int?, int?, MySqlTransaction?)
+  fullName: MakesCentsBackend.Services.DataAccessLayer.AuthorizationService.VerifyUserOwnsRolloverEnvelopeAsync(int?, int?, MySqlConnector.MySqlTransaction?)
+  type: Method
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Services/DataAccessLayer/AuthorizationService.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: VerifyUserOwnsRolloverEnvelopeAsync
+    path: Services/DataAccessLayer/AuthorizationService.cs
+    startLine: 184
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Services.DataAccessLayer
+  summary: >-
+    Auth method to check if a user owns the persistent rollover envelope definition specified
+
+    (used by planned_expense, which points at the definition rather than a specific month's instance)
+  example: []
+  syntax:
+    content: public Task<bool> VerifyUserOwnsRolloverEnvelopeAsync(int? rolloverEnvelopeId, int? userId, MySqlTransaction? transaction = null)
+    parameters:
+    - id: rolloverEnvelopeId
+      type: System.Nullable{System.Int32}
+      description: ''
+    - id: userId
+      type: System.Nullable{System.Int32}
+      description: ''
+    - id: transaction
+      type: MySqlConnector.MySqlTransaction
+      description: ''
+    return:
+      type: System.Threading.Tasks.Task{System.Boolean}
+      description: ''
+    content.vb: Public Function VerifyUserOwnsRolloverEnvelopeAsync(rolloverEnvelopeId As Integer?, userId As Integer?, transaction As MySqlTransaction = Nothing) As Task(Of Boolean)
+  overload: MakesCentsBackend.Services.DataAccessLayer.AuthorizationService.VerifyUserOwnsRolloverEnvelopeAsync*
+  nameWithType.vb: AuthorizationService.VerifyUserOwnsRolloverEnvelopeAsync(Integer?, Integer?, MySqlTransaction)
+  fullName.vb: MakesCentsBackend.Services.DataAccessLayer.AuthorizationService.VerifyUserOwnsRolloverEnvelopeAsync(Integer?, Integer?, MySqlConnector.MySqlTransaction)
+  name.vb: VerifyUserOwnsRolloverEnvelopeAsync(Integer?, Integer?, MySqlTransaction)
+- uid: MakesCentsBackend.Services.DataAccessLayer.AuthorizationService.VerifyUserOwnsRolloverEnvelopeMonthAsync(System.Nullable{System.Int32},System.Nullable{System.Int32},MySqlConnector.MySqlTransaction)
+  commentId: M:MakesCentsBackend.Services.DataAccessLayer.AuthorizationService.VerifyUserOwnsRolloverEnvelopeMonthAsync(System.Nullable{System.Int32},System.Nullable{System.Int32},MySqlConnector.MySqlTransaction)
+  id: VerifyUserOwnsRolloverEnvelopeMonthAsync(System.Nullable{System.Int32},System.Nullable{System.Int32},MySqlConnector.MySqlTransaction)
+  parent: MakesCentsBackend.Services.DataAccessLayer.AuthorizationService
+  langs:
+  - csharp
+  - vb
+  name: VerifyUserOwnsRolloverEnvelopeMonthAsync(int?, int?, MySqlTransaction?)
+  nameWithType: AuthorizationService.VerifyUserOwnsRolloverEnvelopeMonthAsync(int?, int?, MySqlTransaction?)
+  fullName: MakesCentsBackend.Services.DataAccessLayer.AuthorizationService.VerifyUserOwnsRolloverEnvelopeMonthAsync(int?, int?, MySqlConnector.MySqlTransaction?)
+  type: Method
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Services/DataAccessLayer/AuthorizationService.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: VerifyUserOwnsRolloverEnvelopeMonthAsync
+    path: Services/DataAccessLayer/AuthorizationService.cs
+    startLine: 216
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Services.DataAccessLayer
+  summary: >-
+    Auth method to check if a user owns the specific month's rollover envelope instance specified
+
+    (used by transaction_split and paycheck_split, which point at the monthly instance)
+  example: []
+  syntax:
+    content: public Task<bool> VerifyUserOwnsRolloverEnvelopeMonthAsync(int? rolloverEnvelopeMonthId, int? userId, MySqlTransaction? transaction = null)
+    parameters:
+    - id: rolloverEnvelopeMonthId
+      type: System.Nullable{System.Int32}
+      description: ''
+    - id: userId
+      type: System.Nullable{System.Int32}
+      description: ''
+    - id: transaction
+      type: MySqlConnector.MySqlTransaction
+      description: ''
+    return:
+      type: System.Threading.Tasks.Task{System.Boolean}
+      description: ''
+    content.vb: Public Function VerifyUserOwnsRolloverEnvelopeMonthAsync(rolloverEnvelopeMonthId As Integer?, userId As Integer?, transaction As MySqlTransaction = Nothing) As Task(Of Boolean)
+  overload: MakesCentsBackend.Services.DataAccessLayer.AuthorizationService.VerifyUserOwnsRolloverEnvelopeMonthAsync*
+  nameWithType.vb: AuthorizationService.VerifyUserOwnsRolloverEnvelopeMonthAsync(Integer?, Integer?, MySqlTransaction)
+  fullName.vb: MakesCentsBackend.Services.DataAccessLayer.AuthorizationService.VerifyUserOwnsRolloverEnvelopeMonthAsync(Integer?, Integer?, MySqlConnector.MySqlTransaction)
+  name.vb: VerifyUserOwnsRolloverEnvelopeMonthAsync(Integer?, Integer?, MySqlTransaction)
 - uid: MakesCentsBackend.Services.DataAccessLayer.AuthorizationService.VerifyUserOwnsAccountAsync(System.Nullable{System.Int32},System.Nullable{System.Int32},MySqlConnector.MySqlTransaction)
   commentId: M:MakesCentsBackend.Services.DataAccessLayer.AuthorizationService.VerifyUserOwnsAccountAsync(System.Nullable{System.Int32},System.Nullable{System.Int32},MySqlConnector.MySqlTransaction)
   id: VerifyUserOwnsAccountAsync(System.Nullable{System.Int32},System.Nullable{System.Int32},MySqlConnector.MySqlTransaction)
@@ -228,7 +415,7 @@ items:
       repo: https://github.com/Gianna7055/MakesCents.git
     id: VerifyUserOwnsAccountAsync
     path: Services/DataAccessLayer/AuthorizationService.cs
-    startLine: 122
+    startLine: 248
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Services.DataAccessLayer
@@ -272,7 +459,7 @@ items:
       repo: https://github.com/Gianna7055/MakesCents.git
     id: VerifyUserOwnsPaycheckAsync
     path: Services/DataAccessLayer/AuthorizationService.cs
-    startLine: 152
+    startLine: 278
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Services.DataAccessLayer
@@ -298,6 +485,50 @@ items:
   nameWithType.vb: AuthorizationService.VerifyUserOwnsPaycheckAsync(Integer?, Integer?, MySqlTransaction)
   fullName.vb: MakesCentsBackend.Services.DataAccessLayer.AuthorizationService.VerifyUserOwnsPaycheckAsync(Integer?, Integer?, MySqlConnector.MySqlTransaction)
   name.vb: VerifyUserOwnsPaycheckAsync(Integer?, Integer?, MySqlTransaction)
+- uid: MakesCentsBackend.Services.DataAccessLayer.AuthorizationService.VerifyUserOwnsBudgetTemplateAsync(System.Nullable{System.Int32},System.Nullable{System.Int32},MySqlConnector.MySqlTransaction)
+  commentId: M:MakesCentsBackend.Services.DataAccessLayer.AuthorizationService.VerifyUserOwnsBudgetTemplateAsync(System.Nullable{System.Int32},System.Nullable{System.Int32},MySqlConnector.MySqlTransaction)
+  id: VerifyUserOwnsBudgetTemplateAsync(System.Nullable{System.Int32},System.Nullable{System.Int32},MySqlConnector.MySqlTransaction)
+  parent: MakesCentsBackend.Services.DataAccessLayer.AuthorizationService
+  langs:
+  - csharp
+  - vb
+  name: VerifyUserOwnsBudgetTemplateAsync(int?, int?, MySqlTransaction?)
+  nameWithType: AuthorizationService.VerifyUserOwnsBudgetTemplateAsync(int?, int?, MySqlTransaction?)
+  fullName: MakesCentsBackend.Services.DataAccessLayer.AuthorizationService.VerifyUserOwnsBudgetTemplateAsync(int?, int?, MySqlConnector.MySqlTransaction?)
+  type: Method
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Services/DataAccessLayer/AuthorizationService.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: VerifyUserOwnsBudgetTemplateAsync
+    path: Services/DataAccessLayer/AuthorizationService.cs
+    startLine: 308
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Services.DataAccessLayer
+  summary: Auth method to check if a user owns the budget template specified
+  example: []
+  syntax:
+    content: public Task<bool> VerifyUserOwnsBudgetTemplateAsync(int? budgetTemplateId, int? userId, MySqlTransaction? transaction = null)
+    parameters:
+    - id: budgetTemplateId
+      type: System.Nullable{System.Int32}
+      description: ''
+    - id: userId
+      type: System.Nullable{System.Int32}
+      description: ''
+    - id: transaction
+      type: MySqlConnector.MySqlTransaction
+      description: ''
+    return:
+      type: System.Threading.Tasks.Task{System.Boolean}
+      description: ''
+    content.vb: Public Function VerifyUserOwnsBudgetTemplateAsync(budgetTemplateId As Integer?, userId As Integer?, transaction As MySqlTransaction = Nothing) As Task(Of Boolean)
+  overload: MakesCentsBackend.Services.DataAccessLayer.AuthorizationService.VerifyUserOwnsBudgetTemplateAsync*
+  nameWithType.vb: AuthorizationService.VerifyUserOwnsBudgetTemplateAsync(Integer?, Integer?, MySqlTransaction)
+  fullName.vb: MakesCentsBackend.Services.DataAccessLayer.AuthorizationService.VerifyUserOwnsBudgetTemplateAsync(Integer?, Integer?, MySqlConnector.MySqlTransaction)
+  name.vb: VerifyUserOwnsBudgetTemplateAsync(Integer?, Integer?, MySqlTransaction)
 - uid: MakesCentsBackend.Services.DataAccessLayer.AuthorizationService.VerifyUserOwnsTransactionAsync(System.Nullable{System.Int32},System.Nullable{System.Int32},MySqlConnector.MySqlTransaction)
   commentId: M:MakesCentsBackend.Services.DataAccessLayer.AuthorizationService.VerifyUserOwnsTransactionAsync(System.Nullable{System.Int32},System.Nullable{System.Int32},MySqlConnector.MySqlTransaction)
   id: VerifyUserOwnsTransactionAsync(System.Nullable{System.Int32},System.Nullable{System.Int32},MySqlConnector.MySqlTransaction)
@@ -316,7 +547,7 @@ items:
       repo: https://github.com/Gianna7055/MakesCents.git
     id: VerifyUserOwnsTransactionAsync
     path: Services/DataAccessLayer/AuthorizationService.cs
-    startLine: 182
+    startLine: 338
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Services.DataAccessLayer
@@ -796,18 +1027,42 @@ references:
     name: Tasks
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+- uid: MakesCentsBackend.Services.DataAccessLayer.AuthorizationService.VerifyUserOwnsBudgetMonthAsync*
+  commentId: Overload:MakesCentsBackend.Services.DataAccessLayer.AuthorizationService.VerifyUserOwnsBudgetMonthAsync
+  href: MakesCentsBackend.Services.DataAccessLayer.AuthorizationService.html#MakesCentsBackend_Services_DataAccessLayer_AuthorizationService_VerifyUserOwnsBudgetMonthAsync_System_Nullable_System_Int32__System_Nullable_System_Int32__MySqlConnector_MySqlTransaction_
+  name: VerifyUserOwnsBudgetMonthAsync
+  nameWithType: AuthorizationService.VerifyUserOwnsBudgetMonthAsync
+  fullName: MakesCentsBackend.Services.DataAccessLayer.AuthorizationService.VerifyUserOwnsBudgetMonthAsync
+- uid: MakesCentsBackend.Services.DataAccessLayer.AuthorizationService.VerifyUserOwnsEnvelopeFundingAsync*
+  commentId: Overload:MakesCentsBackend.Services.DataAccessLayer.AuthorizationService.VerifyUserOwnsEnvelopeFundingAsync
+  href: MakesCentsBackend.Services.DataAccessLayer.AuthorizationService.html#MakesCentsBackend_Services_DataAccessLayer_AuthorizationService_VerifyUserOwnsEnvelopeFundingAsync_System_Nullable_System_Int32__System_Nullable_System_Int32__MySqlConnector_MySqlTransaction_
+  name: VerifyUserOwnsEnvelopeFundingAsync
+  nameWithType: AuthorizationService.VerifyUserOwnsEnvelopeFundingAsync
+  fullName: MakesCentsBackend.Services.DataAccessLayer.AuthorizationService.VerifyUserOwnsEnvelopeFundingAsync
 - uid: MakesCentsBackend.Services.DataAccessLayer.AuthorizationService.VerifyUserOwnsEnvelopeCategoryAsync*
   commentId: Overload:MakesCentsBackend.Services.DataAccessLayer.AuthorizationService.VerifyUserOwnsEnvelopeCategoryAsync
   href: MakesCentsBackend.Services.DataAccessLayer.AuthorizationService.html#MakesCentsBackend_Services_DataAccessLayer_AuthorizationService_VerifyUserOwnsEnvelopeCategoryAsync_System_Nullable_System_Int32__System_Nullable_System_Int32__MySqlConnector_MySqlTransaction_
   name: VerifyUserOwnsEnvelopeCategoryAsync
   nameWithType: AuthorizationService.VerifyUserOwnsEnvelopeCategoryAsync
   fullName: MakesCentsBackend.Services.DataAccessLayer.AuthorizationService.VerifyUserOwnsEnvelopeCategoryAsync
-- uid: MakesCentsBackend.Services.DataAccessLayer.AuthorizationService.VerifyUserOwnsEnvelopeAsync*
-  commentId: Overload:MakesCentsBackend.Services.DataAccessLayer.AuthorizationService.VerifyUserOwnsEnvelopeAsync
-  href: MakesCentsBackend.Services.DataAccessLayer.AuthorizationService.html#MakesCentsBackend_Services_DataAccessLayer_AuthorizationService_VerifyUserOwnsEnvelopeAsync_System_Nullable_System_Int32__System_Nullable_System_Int32__MySqlConnector_MySqlTransaction_
-  name: VerifyUserOwnsEnvelopeAsync
-  nameWithType: AuthorizationService.VerifyUserOwnsEnvelopeAsync
-  fullName: MakesCentsBackend.Services.DataAccessLayer.AuthorizationService.VerifyUserOwnsEnvelopeAsync
+- uid: MakesCentsBackend.Services.DataAccessLayer.AuthorizationService.VerifyUserOwnsSinkingFundEnvelopeAsync*
+  commentId: Overload:MakesCentsBackend.Services.DataAccessLayer.AuthorizationService.VerifyUserOwnsSinkingFundEnvelopeAsync
+  href: MakesCentsBackend.Services.DataAccessLayer.AuthorizationService.html#MakesCentsBackend_Services_DataAccessLayer_AuthorizationService_VerifyUserOwnsSinkingFundEnvelopeAsync_System_Nullable_System_Int32__System_Nullable_System_Int32__MySqlConnector_MySqlTransaction_
+  name: VerifyUserOwnsSinkingFundEnvelopeAsync
+  nameWithType: AuthorizationService.VerifyUserOwnsSinkingFundEnvelopeAsync
+  fullName: MakesCentsBackend.Services.DataAccessLayer.AuthorizationService.VerifyUserOwnsSinkingFundEnvelopeAsync
+- uid: MakesCentsBackend.Services.DataAccessLayer.AuthorizationService.VerifyUserOwnsRolloverEnvelopeAsync*
+  commentId: Overload:MakesCentsBackend.Services.DataAccessLayer.AuthorizationService.VerifyUserOwnsRolloverEnvelopeAsync
+  href: MakesCentsBackend.Services.DataAccessLayer.AuthorizationService.html#MakesCentsBackend_Services_DataAccessLayer_AuthorizationService_VerifyUserOwnsRolloverEnvelopeAsync_System_Nullable_System_Int32__System_Nullable_System_Int32__MySqlConnector_MySqlTransaction_
+  name: VerifyUserOwnsRolloverEnvelopeAsync
+  nameWithType: AuthorizationService.VerifyUserOwnsRolloverEnvelopeAsync
+  fullName: MakesCentsBackend.Services.DataAccessLayer.AuthorizationService.VerifyUserOwnsRolloverEnvelopeAsync
+- uid: MakesCentsBackend.Services.DataAccessLayer.AuthorizationService.VerifyUserOwnsRolloverEnvelopeMonthAsync*
+  commentId: Overload:MakesCentsBackend.Services.DataAccessLayer.AuthorizationService.VerifyUserOwnsRolloverEnvelopeMonthAsync
+  href: MakesCentsBackend.Services.DataAccessLayer.AuthorizationService.html#MakesCentsBackend_Services_DataAccessLayer_AuthorizationService_VerifyUserOwnsRolloverEnvelopeMonthAsync_System_Nullable_System_Int32__System_Nullable_System_Int32__MySqlConnector_MySqlTransaction_
+  name: VerifyUserOwnsRolloverEnvelopeMonthAsync
+  nameWithType: AuthorizationService.VerifyUserOwnsRolloverEnvelopeMonthAsync
+  fullName: MakesCentsBackend.Services.DataAccessLayer.AuthorizationService.VerifyUserOwnsRolloverEnvelopeMonthAsync
 - uid: MakesCentsBackend.Services.DataAccessLayer.AuthorizationService.VerifyUserOwnsAccountAsync*
   commentId: Overload:MakesCentsBackend.Services.DataAccessLayer.AuthorizationService.VerifyUserOwnsAccountAsync
   href: MakesCentsBackend.Services.DataAccessLayer.AuthorizationService.html#MakesCentsBackend_Services_DataAccessLayer_AuthorizationService_VerifyUserOwnsAccountAsync_System_Nullable_System_Int32__System_Nullable_System_Int32__MySqlConnector_MySqlTransaction_
@@ -820,6 +1075,12 @@ references:
   name: VerifyUserOwnsPaycheckAsync
   nameWithType: AuthorizationService.VerifyUserOwnsPaycheckAsync
   fullName: MakesCentsBackend.Services.DataAccessLayer.AuthorizationService.VerifyUserOwnsPaycheckAsync
+- uid: MakesCentsBackend.Services.DataAccessLayer.AuthorizationService.VerifyUserOwnsBudgetTemplateAsync*
+  commentId: Overload:MakesCentsBackend.Services.DataAccessLayer.AuthorizationService.VerifyUserOwnsBudgetTemplateAsync
+  href: MakesCentsBackend.Services.DataAccessLayer.AuthorizationService.html#MakesCentsBackend_Services_DataAccessLayer_AuthorizationService_VerifyUserOwnsBudgetTemplateAsync_System_Nullable_System_Int32__System_Nullable_System_Int32__MySqlConnector_MySqlTransaction_
+  name: VerifyUserOwnsBudgetTemplateAsync
+  nameWithType: AuthorizationService.VerifyUserOwnsBudgetTemplateAsync
+  fullName: MakesCentsBackend.Services.DataAccessLayer.AuthorizationService.VerifyUserOwnsBudgetTemplateAsync
 - uid: MakesCentsBackend.Services.DataAccessLayer.AuthorizationService.VerifyUserOwnsTransactionAsync*
   commentId: Overload:MakesCentsBackend.Services.DataAccessLayer.AuthorizationService.VerifyUserOwnsTransactionAsync
   href: MakesCentsBackend.Services.DataAccessLayer.AuthorizationService.html#MakesCentsBackend_Services_DataAccessLayer_AuthorizationService_VerifyUserOwnsTransactionAsync_System_Nullable_System_Int32__System_Nullable_System_Int32__MySqlConnector_MySqlTransaction_

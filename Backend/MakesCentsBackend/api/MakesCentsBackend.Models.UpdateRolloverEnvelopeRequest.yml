@@ -1,0 +1,563 @@
+### YamlMime:ManagedReference
+items:
+- uid: MakesCentsBackend.Models.UpdateRolloverEnvelopeRequest
+  commentId: T:MakesCentsBackend.Models.UpdateRolloverEnvelopeRequest
+  id: UpdateRolloverEnvelopeRequest
+  parent: MakesCentsBackend.Models
+  children:
+  - MakesCentsBackend.Models.UpdateRolloverEnvelopeRequest.EnvelopeCategoryId
+  - MakesCentsBackend.Models.UpdateRolloverEnvelopeRequest.EnvelopeName
+  - MakesCentsBackend.Models.UpdateRolloverEnvelopeRequest.RolloverEnvelopeId
+  - MakesCentsBackend.Models.UpdateRolloverEnvelopeRequest.TransferEnvelopeId
+  - MakesCentsBackend.Models.UpdateRolloverEnvelopeRequest.UserId
+  langs:
+  - csharp
+  - vb
+  name: UpdateRolloverEnvelopeRequest
+  nameWithType: UpdateRolloverEnvelopeRequest
+  fullName: MakesCentsBackend.Models.UpdateRolloverEnvelopeRequest
+  type: Class
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Models/RolloverEnvelopeModels.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: UpdateRolloverEnvelopeRequest
+    path: Models/RolloverEnvelopeModels.cs
+    startLine: 149
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Models
+  summary: Request class for updating a rollover envelope's persistent definition
+  example: []
+  syntax:
+    content: >-
+      [ExportTsClass]
+
+      public class UpdateRolloverEnvelopeRequest
+    content.vb: >-
+      <ExportTsClass>
+
+      Public Class UpdateRolloverEnvelopeRequest
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+  attributes:
+  - type: TypeGen.Core.TypeAnnotations.ExportTsClassAttribute
+    ctor: TypeGen.Core.TypeAnnotations.ExportTsClassAttribute.#ctor
+    arguments: []
+- uid: MakesCentsBackend.Models.UpdateRolloverEnvelopeRequest.RolloverEnvelopeId
+  commentId: P:MakesCentsBackend.Models.UpdateRolloverEnvelopeRequest.RolloverEnvelopeId
+  id: RolloverEnvelopeId
+  parent: MakesCentsBackend.Models.UpdateRolloverEnvelopeRequest
+  langs:
+  - csharp
+  - vb
+  name: RolloverEnvelopeId
+  nameWithType: UpdateRolloverEnvelopeRequest.RolloverEnvelopeId
+  fullName: MakesCentsBackend.Models.UpdateRolloverEnvelopeRequest.RolloverEnvelopeId
+  type: Property
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Models/RolloverEnvelopeModels.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: RolloverEnvelopeId
+    path: Models/RolloverEnvelopeModels.cs
+    startLine: 153
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Models
+  syntax:
+    content: public int RolloverEnvelopeId { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property RolloverEnvelopeId As Integer
+  overload: MakesCentsBackend.Models.UpdateRolloverEnvelopeRequest.RolloverEnvelopeId*
+- uid: MakesCentsBackend.Models.UpdateRolloverEnvelopeRequest.UserId
+  commentId: P:MakesCentsBackend.Models.UpdateRolloverEnvelopeRequest.UserId
+  id: UserId
+  parent: MakesCentsBackend.Models.UpdateRolloverEnvelopeRequest
+  langs:
+  - csharp
+  - vb
+  name: UserId
+  nameWithType: UpdateRolloverEnvelopeRequest.UserId
+  fullName: MakesCentsBackend.Models.UpdateRolloverEnvelopeRequest.UserId
+  type: Property
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Models/RolloverEnvelopeModels.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: UserId
+    path: Models/RolloverEnvelopeModels.cs
+    startLine: 154
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Models
+  syntax:
+    content: public int UserId { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property UserId As Integer
+  overload: MakesCentsBackend.Models.UpdateRolloverEnvelopeRequest.UserId*
+- uid: MakesCentsBackend.Models.UpdateRolloverEnvelopeRequest.EnvelopeCategoryId
+  commentId: P:MakesCentsBackend.Models.UpdateRolloverEnvelopeRequest.EnvelopeCategoryId
+  id: EnvelopeCategoryId
+  parent: MakesCentsBackend.Models.UpdateRolloverEnvelopeRequest
+  langs:
+  - csharp
+  - vb
+  name: EnvelopeCategoryId
+  nameWithType: UpdateRolloverEnvelopeRequest.EnvelopeCategoryId
+  fullName: MakesCentsBackend.Models.UpdateRolloverEnvelopeRequest.EnvelopeCategoryId
+  type: Property
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Models/RolloverEnvelopeModels.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: EnvelopeCategoryId
+    path: Models/RolloverEnvelopeModels.cs
+    startLine: 155
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Models
+  syntax:
+    content: public int? EnvelopeCategoryId { get; set; }
+    parameters: []
+    return:
+      type: System.Nullable{System.Int32}
+    content.vb: Public Property EnvelopeCategoryId As Integer?
+  overload: MakesCentsBackend.Models.UpdateRolloverEnvelopeRequest.EnvelopeCategoryId*
+- uid: MakesCentsBackend.Models.UpdateRolloverEnvelopeRequest.EnvelopeName
+  commentId: P:MakesCentsBackend.Models.UpdateRolloverEnvelopeRequest.EnvelopeName
+  id: EnvelopeName
+  parent: MakesCentsBackend.Models.UpdateRolloverEnvelopeRequest
+  langs:
+  - csharp
+  - vb
+  name: EnvelopeName
+  nameWithType: UpdateRolloverEnvelopeRequest.EnvelopeName
+  fullName: MakesCentsBackend.Models.UpdateRolloverEnvelopeRequest.EnvelopeName
+  type: Property
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Models/RolloverEnvelopeModels.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: EnvelopeName
+    path: Models/RolloverEnvelopeModels.cs
+    startLine: 156
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Models
+  syntax:
+    content: public string? EnvelopeName { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property EnvelopeName As String
+  overload: MakesCentsBackend.Models.UpdateRolloverEnvelopeRequest.EnvelopeName*
+- uid: MakesCentsBackend.Models.UpdateRolloverEnvelopeRequest.TransferEnvelopeId
+  commentId: P:MakesCentsBackend.Models.UpdateRolloverEnvelopeRequest.TransferEnvelopeId
+  id: TransferEnvelopeId
+  parent: MakesCentsBackend.Models.UpdateRolloverEnvelopeRequest
+  langs:
+  - csharp
+  - vb
+  name: TransferEnvelopeId
+  nameWithType: UpdateRolloverEnvelopeRequest.TransferEnvelopeId
+  fullName: MakesCentsBackend.Models.UpdateRolloverEnvelopeRequest.TransferEnvelopeId
+  type: Property
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Models/RolloverEnvelopeModels.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: TransferEnvelopeId
+    path: Models/RolloverEnvelopeModels.cs
+    startLine: 157
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Models
+  syntax:
+    content: public int? TransferEnvelopeId { get; set; }
+    parameters: []
+    return:
+      type: System.Nullable{System.Int32}
+    content.vb: Public Property TransferEnvelopeId As Integer?
+  overload: MakesCentsBackend.Models.UpdateRolloverEnvelopeRequest.TransferEnvelopeId*
+references:
+- uid: MakesCentsBackend.Models
+  commentId: N:MakesCentsBackend.Models
+  href: MakesCentsBackend.html
+  name: MakesCentsBackend.Models
+  nameWithType: MakesCentsBackend.Models
+  fullName: MakesCentsBackend.Models
+  spec.csharp:
+  - uid: MakesCentsBackend
+    name: MakesCentsBackend
+    href: MakesCentsBackend.html
+  - name: .
+  - uid: MakesCentsBackend.Models
+    name: Models
+    href: MakesCentsBackend.Models.html
+  spec.vb:
+  - uid: MakesCentsBackend
+    name: MakesCentsBackend
+    href: MakesCentsBackend.html
+  - name: .
+  - uid: MakesCentsBackend.Models
+    name: Models
+    href: MakesCentsBackend.Models.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: MakesCentsBackend.Models.UpdateRolloverEnvelopeRequest.RolloverEnvelopeId*
+  commentId: Overload:MakesCentsBackend.Models.UpdateRolloverEnvelopeRequest.RolloverEnvelopeId
+  href: MakesCentsBackend.Models.UpdateRolloverEnvelopeRequest.html#MakesCentsBackend_Models_UpdateRolloverEnvelopeRequest_RolloverEnvelopeId
+  name: RolloverEnvelopeId
+  nameWithType: UpdateRolloverEnvelopeRequest.RolloverEnvelopeId
+  fullName: MakesCentsBackend.Models.UpdateRolloverEnvelopeRequest.RolloverEnvelopeId
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: MakesCentsBackend.Models.UpdateRolloverEnvelopeRequest.UserId*
+  commentId: Overload:MakesCentsBackend.Models.UpdateRolloverEnvelopeRequest.UserId
+  href: MakesCentsBackend.Models.UpdateRolloverEnvelopeRequest.html#MakesCentsBackend_Models_UpdateRolloverEnvelopeRequest_UserId
+  name: UserId
+  nameWithType: UpdateRolloverEnvelopeRequest.UserId
+  fullName: MakesCentsBackend.Models.UpdateRolloverEnvelopeRequest.UserId
+- uid: MakesCentsBackend.Models.UpdateRolloverEnvelopeRequest.EnvelopeCategoryId*
+  commentId: Overload:MakesCentsBackend.Models.UpdateRolloverEnvelopeRequest.EnvelopeCategoryId
+  href: MakesCentsBackend.Models.UpdateRolloverEnvelopeRequest.html#MakesCentsBackend_Models_UpdateRolloverEnvelopeRequest_EnvelopeCategoryId
+  name: EnvelopeCategoryId
+  nameWithType: UpdateRolloverEnvelopeRequest.EnvelopeCategoryId
+  fullName: MakesCentsBackend.Models.UpdateRolloverEnvelopeRequest.EnvelopeCategoryId
+- uid: System.Nullable{System.Int32}
+  commentId: T:System.Nullable{System.Int32}
+  parent: System
+  definition: System.Nullable`1
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int?
+  nameWithType: int?
+  fullName: int?
+  nameWithType.vb: Integer?
+  fullName.vb: Integer?
+  name.vb: Integer?
+  spec.csharp:
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '?'
+  spec.vb:
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '?'
+- uid: System.Nullable`1
+  commentId: T:System.Nullable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  name: Nullable<T>
+  nameWithType: Nullable<T>
+  fullName: System.Nullable<T>
+  nameWithType.vb: Nullable(Of T)
+  fullName.vb: System.Nullable(Of T)
+  name.vb: Nullable(Of T)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: MakesCentsBackend.Models.UpdateRolloverEnvelopeRequest.EnvelopeName*
+  commentId: Overload:MakesCentsBackend.Models.UpdateRolloverEnvelopeRequest.EnvelopeName
+  href: MakesCentsBackend.Models.UpdateRolloverEnvelopeRequest.html#MakesCentsBackend_Models_UpdateRolloverEnvelopeRequest_EnvelopeName
+  name: EnvelopeName
+  nameWithType: UpdateRolloverEnvelopeRequest.EnvelopeName
+  fullName: MakesCentsBackend.Models.UpdateRolloverEnvelopeRequest.EnvelopeName
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: MakesCentsBackend.Models.UpdateRolloverEnvelopeRequest.TransferEnvelopeId*
+  commentId: Overload:MakesCentsBackend.Models.UpdateRolloverEnvelopeRequest.TransferEnvelopeId
+  href: MakesCentsBackend.Models.UpdateRolloverEnvelopeRequest.html#MakesCentsBackend_Models_UpdateRolloverEnvelopeRequest_TransferEnvelopeId
+  name: TransferEnvelopeId
+  nameWithType: UpdateRolloverEnvelopeRequest.TransferEnvelopeId
+  fullName: MakesCentsBackend.Models.UpdateRolloverEnvelopeRequest.TransferEnvelopeId

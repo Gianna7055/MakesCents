@@ -25,10 +25,17 @@ items:
       repo: https://github.com/Gianna7055/MakesCents.git
     id: PaycheckDAO
     path: Services/DataAccessLayer/PaycheckDAO.cs
-    startLine: 15
+    startLine: 18
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Services.DataAccessLayer
+  summary: >-
+    Data access object for paychecks. Paychecks are forecast-only now - they don't fund
+
+    envelopes directly (see EnvelopeFundingDAO for that) and aren't tied to any specific
+
+    month, so this is plain single-table CRUD.
+  example: []
   syntax:
     content: public class PaycheckDAO
     content.vb: Public Class PaycheckDAO
@@ -60,17 +67,21 @@ items:
       repo: https://github.com/Gianna7055/MakesCents.git
     id: .ctor
     path: Services/DataAccessLayer/PaycheckDAO.cs
-    startLine: 25
+    startLine: 30
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Services.DataAccessLayer
+  summary: Parameterized constructor to bring in DI variables
+  example: []
   syntax:
     content: public PaycheckDAO(MySqlConnection connection, AuthorizationService authService)
     parameters:
     - id: connection
       type: MySqlConnector.MySqlConnection
+      description: ''
     - id: authService
       type: MakesCentsBackend.Services.DataAccessLayer.AuthorizationService
+      description: ''
     content.vb: Public Sub New(connection As MySqlConnection, authService As AuthorizationService)
   overload: MakesCentsBackend.Services.DataAccessLayer.PaycheckDAO.#ctor*
   nameWithType.vb: PaycheckDAO.New(MySqlConnection, AuthorizationService)
@@ -94,22 +105,22 @@ items:
       repo: https://github.com/Gianna7055/MakesCents.git
     id: CreatePaycheckAsync
     path: Services/DataAccessLayer/PaycheckDAO.cs
-    startLine: 36
+    startLine: 41
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Services.DataAccessLayer
-  summary: DAO method to create a new paycheck
+  summary: DAO method to create a paycheck
   example: []
   syntax:
-    content: public Task<CreatePaycheckResponse> CreatePaycheckAsync(CreatePaycheckRequest paycheck)
+    content: public Task<BaseIdResponse> CreatePaycheckAsync(CreatePaycheckRequest paycheck)
     parameters:
     - id: paycheck
       type: MakesCentsBackend.Models.CreatePaycheckRequest
       description: ''
     return:
-      type: System.Threading.Tasks.Task{MakesCentsBackend.Models.CreatePaycheckResponse}
+      type: System.Threading.Tasks.Task{MakesCentsBackend.Models.BaseIdResponse}
       description: ''
-    content.vb: Public Function CreatePaycheckAsync(paycheck As CreatePaycheckRequest) As Task(Of CreatePaycheckResponse)
+    content.vb: Public Function CreatePaycheckAsync(paycheck As CreatePaycheckRequest) As Task(Of BaseIdResponse)
   overload: MakesCentsBackend.Services.DataAccessLayer.PaycheckDAO.CreatePaycheckAsync*
 - uid: MakesCentsBackend.Services.DataAccessLayer.PaycheckDAO.GetAllPaychecksAsync(MakesCentsBackend.Models.BaseIdRequest)
   commentId: M:MakesCentsBackend.Services.DataAccessLayer.PaycheckDAO.GetAllPaychecksAsync(MakesCentsBackend.Models.BaseIdRequest)
@@ -129,17 +140,21 @@ items:
       repo: https://github.com/Gianna7055/MakesCents.git
     id: GetAllPaychecksAsync
     path: Services/DataAccessLayer/PaycheckDAO.cs
-    startLine: 121
+    startLine: 90
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Services.DataAccessLayer
+  summary: DAO method to get every paycheck for a budget
+  example: []
   syntax:
     content: public Task<GetAllPaychecksResponse> GetAllPaychecksAsync(BaseIdRequest request)
     parameters:
     - id: request
       type: MakesCentsBackend.Models.BaseIdRequest
+      description: ''
     return:
       type: System.Threading.Tasks.Task{MakesCentsBackend.Models.GetAllPaychecksResponse}
+      description: ''
     content.vb: Public Function GetAllPaychecksAsync(request As BaseIdRequest) As Task(Of GetAllPaychecksResponse)
   overload: MakesCentsBackend.Services.DataAccessLayer.PaycheckDAO.GetAllPaychecksAsync*
 - uid: MakesCentsBackend.Services.DataAccessLayer.PaycheckDAO.GetPaycheckAsync(MakesCentsBackend.Models.BaseIdRequest)
@@ -160,17 +175,21 @@ items:
       repo: https://github.com/Gianna7055/MakesCents.git
     id: GetPaycheckAsync
     path: Services/DataAccessLayer/PaycheckDAO.cs
-    startLine: 154
+    startLine: 127
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Services.DataAccessLayer
+  summary: DAO method to get a single paycheck
+  example: []
   syntax:
     content: public Task<GetPaycheckResponse> GetPaycheckAsync(BaseIdRequest request)
     parameters:
     - id: request
       type: MakesCentsBackend.Models.BaseIdRequest
+      description: ''
     return:
       type: System.Threading.Tasks.Task{MakesCentsBackend.Models.GetPaycheckResponse}
+      description: ''
     content.vb: Public Function GetPaycheckAsync(request As BaseIdRequest) As Task(Of GetPaycheckResponse)
   overload: MakesCentsBackend.Services.DataAccessLayer.PaycheckDAO.GetPaycheckAsync*
 - uid: MakesCentsBackend.Services.DataAccessLayer.PaycheckDAO.UpdatePaycheckAsync(MakesCentsBackend.Models.UpdatePaycheckRequest)
@@ -191,18 +210,22 @@ items:
       repo: https://github.com/Gianna7055/MakesCents.git
     id: UpdatePaycheckAsync
     path: Services/DataAccessLayer/PaycheckDAO.cs
-    startLine: 210
+    startLine: 171
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Services.DataAccessLayer
+  summary: DAO method to update a paycheck based on given fields
+  example: []
   syntax:
-    content: public Task<UpdatePaycheckResponse> UpdatePaycheckAsync(UpdatePaycheckRequest paycheck)
+    content: public Task<BaseIdResponse> UpdatePaycheckAsync(UpdatePaycheckRequest paycheck)
     parameters:
     - id: paycheck
       type: MakesCentsBackend.Models.UpdatePaycheckRequest
+      description: ''
     return:
-      type: System.Threading.Tasks.Task{MakesCentsBackend.Models.UpdatePaycheckResponse}
-    content.vb: Public Function UpdatePaycheckAsync(paycheck As UpdatePaycheckRequest) As Task(Of UpdatePaycheckResponse)
+      type: System.Threading.Tasks.Task{MakesCentsBackend.Models.BaseIdResponse}
+      description: ''
+    content.vb: Public Function UpdatePaycheckAsync(paycheck As UpdatePaycheckRequest) As Task(Of BaseIdResponse)
   overload: MakesCentsBackend.Services.DataAccessLayer.PaycheckDAO.UpdatePaycheckAsync*
 - uid: MakesCentsBackend.Services.DataAccessLayer.PaycheckDAO.DeletePaycheckAsync(MakesCentsBackend.Models.BaseIdRequest)
   commentId: M:MakesCentsBackend.Services.DataAccessLayer.PaycheckDAO.DeletePaycheckAsync(MakesCentsBackend.Models.BaseIdRequest)
@@ -222,17 +245,21 @@ items:
       repo: https://github.com/Gianna7055/MakesCents.git
     id: DeletePaycheckAsync
     path: Services/DataAccessLayer/PaycheckDAO.cs
-    startLine: 393
+    startLine: 258
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Services.DataAccessLayer
+  summary: DAO method to delete a paycheck
+  example: []
   syntax:
     content: public Task<BaseResponse> DeletePaycheckAsync(BaseIdRequest request)
     parameters:
     - id: request
       type: MakesCentsBackend.Models.BaseIdRequest
+      description: ''
     return:
       type: System.Threading.Tasks.Task{MakesCentsBackend.Models.BaseResponse}
+      description: ''
     content.vb: Public Function DeletePaycheckAsync(request As BaseIdRequest) As Task(Of BaseResponse)
   overload: MakesCentsBackend.Services.DataAccessLayer.PaycheckDAO.DeletePaycheckAsync*
 references:
@@ -545,26 +572,26 @@ references:
   name: CreatePaycheckRequest
   nameWithType: CreatePaycheckRequest
   fullName: MakesCentsBackend.Models.CreatePaycheckRequest
-- uid: System.Threading.Tasks.Task{MakesCentsBackend.Models.CreatePaycheckResponse}
-  commentId: T:System.Threading.Tasks.Task{MakesCentsBackend.Models.CreatePaycheckResponse}
+- uid: System.Threading.Tasks.Task{MakesCentsBackend.Models.BaseIdResponse}
+  commentId: T:System.Threading.Tasks.Task{MakesCentsBackend.Models.BaseIdResponse}
   parent: System.Threading.Tasks
   definition: System.Threading.Tasks.Task`1
   href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
-  name: Task<CreatePaycheckResponse>
-  nameWithType: Task<CreatePaycheckResponse>
-  fullName: System.Threading.Tasks.Task<MakesCentsBackend.Models.CreatePaycheckResponse>
-  nameWithType.vb: Task(Of CreatePaycheckResponse)
-  fullName.vb: System.Threading.Tasks.Task(Of MakesCentsBackend.Models.CreatePaycheckResponse)
-  name.vb: Task(Of CreatePaycheckResponse)
+  name: Task<BaseIdResponse>
+  nameWithType: Task<BaseIdResponse>
+  fullName: System.Threading.Tasks.Task<MakesCentsBackend.Models.BaseIdResponse>
+  nameWithType.vb: Task(Of BaseIdResponse)
+  fullName.vb: System.Threading.Tasks.Task(Of MakesCentsBackend.Models.BaseIdResponse)
+  name.vb: Task(Of BaseIdResponse)
   spec.csharp:
   - uid: System.Threading.Tasks.Task`1
     name: Task
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
   - name: <
-  - uid: MakesCentsBackend.Models.CreatePaycheckResponse
-    name: CreatePaycheckResponse
-    href: MakesCentsBackend.Models.CreatePaycheckResponse.html
+  - uid: MakesCentsBackend.Models.BaseIdResponse
+    name: BaseIdResponse
+    href: MakesCentsBackend.Models.BaseIdResponse.html
   - name: '>'
   spec.vb:
   - uid: System.Threading.Tasks.Task`1
@@ -574,9 +601,9 @@ references:
   - name: (
   - name: Of
   - name: " "
-  - uid: MakesCentsBackend.Models.CreatePaycheckResponse
-    name: CreatePaycheckResponse
-    href: MakesCentsBackend.Models.CreatePaycheckResponse.html
+  - uid: MakesCentsBackend.Models.BaseIdResponse
+    name: BaseIdResponse
+    href: MakesCentsBackend.Models.BaseIdResponse.html
   - name: )
 - uid: MakesCentsBackend.Models
   commentId: N:MakesCentsBackend.Models
@@ -763,39 +790,6 @@ references:
   name: UpdatePaycheckRequest
   nameWithType: UpdatePaycheckRequest
   fullName: MakesCentsBackend.Models.UpdatePaycheckRequest
-- uid: System.Threading.Tasks.Task{MakesCentsBackend.Models.UpdatePaycheckResponse}
-  commentId: T:System.Threading.Tasks.Task{MakesCentsBackend.Models.UpdatePaycheckResponse}
-  parent: System.Threading.Tasks
-  definition: System.Threading.Tasks.Task`1
-  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
-  name: Task<UpdatePaycheckResponse>
-  nameWithType: Task<UpdatePaycheckResponse>
-  fullName: System.Threading.Tasks.Task<MakesCentsBackend.Models.UpdatePaycheckResponse>
-  nameWithType.vb: Task(Of UpdatePaycheckResponse)
-  fullName.vb: System.Threading.Tasks.Task(Of MakesCentsBackend.Models.UpdatePaycheckResponse)
-  name.vb: Task(Of UpdatePaycheckResponse)
-  spec.csharp:
-  - uid: System.Threading.Tasks.Task`1
-    name: Task
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
-  - name: <
-  - uid: MakesCentsBackend.Models.UpdatePaycheckResponse
-    name: UpdatePaycheckResponse
-    href: MakesCentsBackend.Models.UpdatePaycheckResponse.html
-  - name: '>'
-  spec.vb:
-  - uid: System.Threading.Tasks.Task`1
-    name: Task
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
-  - name: (
-  - name: Of
-  - name: " "
-  - uid: MakesCentsBackend.Models.UpdatePaycheckResponse
-    name: UpdatePaycheckResponse
-    href: MakesCentsBackend.Models.UpdatePaycheckResponse.html
-  - name: )
 - uid: MakesCentsBackend.Services.DataAccessLayer.PaycheckDAO.DeletePaycheckAsync*
   commentId: Overload:MakesCentsBackend.Services.DataAccessLayer.PaycheckDAO.DeletePaycheckAsync
   href: MakesCentsBackend.Services.DataAccessLayer.PaycheckDAO.html#MakesCentsBackend_Services_DataAccessLayer_PaycheckDAO_DeletePaycheckAsync_MakesCentsBackend_Models_BaseIdRequest_

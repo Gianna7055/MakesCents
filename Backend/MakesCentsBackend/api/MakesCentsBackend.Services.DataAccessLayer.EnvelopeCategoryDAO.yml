@@ -134,17 +134,28 @@ items:
       repo: https://github.com/Gianna7055/MakesCents.git
     id: GetAllEnvelopeCategoriesAsync
     path: Services/DataAccessLayer/EnvelopeCategoryDAO.cs
-    startLine: 80
+    startLine: 87
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Services.DataAccessLayer
+  summary: >-
+    DAO method to get all envelope categories (with their envelopes) for a given budget month.
+
+    Sinking fund envelopes are persistent (no month context needed); rollover envelopes are
+
+    joined to this month's instance. The budget_id is derived via a join to budget_month
+
+    rather than taken as a separate parameter, since a budget_month_id already implies it.
+  example: []
   syntax:
     content: public Task<GetAllEnvelopeCategoriesResponse> GetAllEnvelopeCategoriesAsync(BaseIdRequest request)
     parameters:
     - id: request
       type: MakesCentsBackend.Models.BaseIdRequest
+      description: ''
     return:
       type: System.Threading.Tasks.Task{MakesCentsBackend.Models.GetAllEnvelopeCategoriesResponse}
+      description: ''
     content.vb: Public Function GetAllEnvelopeCategoriesAsync(request As BaseIdRequest) As Task(Of GetAllEnvelopeCategoriesResponse)
   overload: MakesCentsBackend.Services.DataAccessLayer.EnvelopeCategoryDAO.GetAllEnvelopeCategoriesAsync*
 - uid: MakesCentsBackend.Services.DataAccessLayer.EnvelopeCategoryDAO.GetEnvelopeCategoryAsync(MakesCentsBackend.Models.BaseIdRequest)
@@ -165,7 +176,7 @@ items:
       repo: https://github.com/Gianna7055/MakesCents.git
     id: GetEnvelopeCategoryAsync
     path: Services/DataAccessLayer/EnvelopeCategoryDAO.cs
-    startLine: 141
+    startLine: 180
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Services.DataAccessLayer
@@ -196,7 +207,7 @@ items:
       repo: https://github.com/Gianna7055/MakesCents.git
     id: UpdateEnvelopeCategoryAsync
     path: Services/DataAccessLayer/EnvelopeCategoryDAO.cs
-    startLine: 181
+    startLine: 220
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Services.DataAccessLayer
@@ -231,17 +242,21 @@ items:
       repo: https://github.com/Gianna7055/MakesCents.git
     id: DeleteEnvelopeCategoryAsync
     path: Services/DataAccessLayer/EnvelopeCategoryDAO.cs
-    startLine: 252
+    startLine: 292
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Services.DataAccessLayer
-  summary: DAO method to delete an envelope category
+  summary: >-
+    DAO method to delete an envelope category. Cascades to remove every sinking fund and
+
+    rollover envelope in it as well.
   example: []
   syntax:
     content: public Task<BaseResponse> DeleteEnvelopeCategoryAsync(BaseIdRequest request)
     parameters:
     - id: request
       type: MakesCentsBackend.Models.BaseIdRequest
+      description: ''
     return:
       type: System.Threading.Tasks.Task{MakesCentsBackend.Models.BaseResponse}
       description: ''

@@ -7,6 +7,7 @@ items:
   children:
   - MakesCentsBackend.Models.CreateTransactionSplitRequest.Amount
   - MakesCentsBackend.Models.CreateTransactionSplitRequest.EnvelopeId
+  - MakesCentsBackend.Models.CreateTransactionSplitRequest.IsSinkingFund
   - MakesCentsBackend.Models.CreateTransactionSplitRequest.TransactionId
   langs:
   - csharp
@@ -22,7 +23,7 @@ items:
       repo: https://github.com/Gianna7055/MakesCents.git
     id: CreateTransactionSplitRequest
     path: Models/TransactionSplitModels.cs
-    startLine: 26
+    startLine: 30
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Models
@@ -69,7 +70,7 @@ items:
       repo: https://github.com/Gianna7055/MakesCents.git
     id: TransactionId
     path: Models/TransactionSplitModels.cs
-    startLine: 29
+    startLine: 33
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Models
@@ -98,7 +99,7 @@ items:
       repo: https://github.com/Gianna7055/MakesCents.git
     id: EnvelopeId
     path: Models/TransactionSplitModels.cs
-    startLine: 30
+    startLine: 34
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Models
@@ -109,6 +110,35 @@ items:
       type: System.Int32
     content.vb: Public Property EnvelopeId As Integer
   overload: MakesCentsBackend.Models.CreateTransactionSplitRequest.EnvelopeId*
+- uid: MakesCentsBackend.Models.CreateTransactionSplitRequest.IsSinkingFund
+  commentId: P:MakesCentsBackend.Models.CreateTransactionSplitRequest.IsSinkingFund
+  id: IsSinkingFund
+  parent: MakesCentsBackend.Models.CreateTransactionSplitRequest
+  langs:
+  - csharp
+  - vb
+  name: IsSinkingFund
+  nameWithType: CreateTransactionSplitRequest.IsSinkingFund
+  fullName: MakesCentsBackend.Models.CreateTransactionSplitRequest.IsSinkingFund
+  type: Property
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Models/TransactionSplitModels.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: IsSinkingFund
+    path: Models/TransactionSplitModels.cs
+    startLine: 35
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Models
+  syntax:
+    content: public bool IsSinkingFund { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property IsSinkingFund As Boolean
+  overload: MakesCentsBackend.Models.CreateTransactionSplitRequest.IsSinkingFund*
 - uid: MakesCentsBackend.Models.CreateTransactionSplitRequest.Amount
   commentId: P:MakesCentsBackend.Models.CreateTransactionSplitRequest.Amount
   id: Amount
@@ -127,7 +157,7 @@ items:
       repo: https://github.com/Gianna7055/MakesCents.git
     id: Amount
     path: Models/TransactionSplitModels.cs
-    startLine: 31
+    startLine: 36
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Models
@@ -421,6 +451,23 @@ references:
   name: EnvelopeId
   nameWithType: CreateTransactionSplitRequest.EnvelopeId
   fullName: MakesCentsBackend.Models.CreateTransactionSplitRequest.EnvelopeId
+- uid: MakesCentsBackend.Models.CreateTransactionSplitRequest.IsSinkingFund*
+  commentId: Overload:MakesCentsBackend.Models.CreateTransactionSplitRequest.IsSinkingFund
+  href: MakesCentsBackend.Models.CreateTransactionSplitRequest.html#MakesCentsBackend_Models_CreateTransactionSplitRequest_IsSinkingFund
+  name: IsSinkingFund
+  nameWithType: CreateTransactionSplitRequest.IsSinkingFund
+  fullName: MakesCentsBackend.Models.CreateTransactionSplitRequest.IsSinkingFund
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
 - uid: MakesCentsBackend.Models.CreateTransactionSplitRequest.Amount*
   commentId: Overload:MakesCentsBackend.Models.CreateTransactionSplitRequest.Amount
   href: MakesCentsBackend.Models.CreateTransactionSplitRequest.html#MakesCentsBackend_Models_CreateTransactionSplitRequest_Amount

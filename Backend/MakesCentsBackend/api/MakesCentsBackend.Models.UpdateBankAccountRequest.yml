@@ -27,11 +27,11 @@ items:
   namespace: MakesCentsBackend.Models
   syntax:
     content: >-
-      [ExportTsInterface]
+      [ExportTsClass]
 
       public class UpdateBankAccountRequest : UpdateAccountRequest
     content.vb: >-
-      <ExportTsInterface>
+      <ExportTsClass>
 
       Public Class UpdateBankAccountRequest Inherits UpdateAccountRequest
   inheritance:
@@ -51,8 +51,8 @@ items:
   - System.Object.ReferenceEquals(System.Object,System.Object)
   - System.Object.ToString
   attributes:
-  - type: TypeGen.Core.TypeAnnotations.ExportTsInterfaceAttribute
-    ctor: TypeGen.Core.TypeAnnotations.ExportTsInterfaceAttribute.#ctor
+  - type: TypeGen.Core.TypeAnnotations.ExportTsClassAttribute
+    ctor: TypeGen.Core.TypeAnnotations.ExportTsClassAttribute.#ctor
     arguments: []
 - uid: MakesCentsBackend.Models.UpdateBankAccountRequest.BankAccountId
   commentId: P:MakesCentsBackend.Models.UpdateBankAccountRequest.BankAccountId

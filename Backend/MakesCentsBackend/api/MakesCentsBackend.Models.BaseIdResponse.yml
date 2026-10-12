@@ -42,7 +42,6 @@ items:
   - System.Object
   - MakesCentsBackend.Models.BaseResponse
   derivedClasses:
-  - MakesCentsBackend.Models.CreatePaycheckResponse
   - MakesCentsBackend.Models.CreatePaymentTransactionResponse
   - MakesCentsBackend.Models.CreateTransferTransactionResponse
   - MakesCentsBackend.Models.FindUserResponse
@@ -50,7 +49,6 @@ items:
   - MakesCentsBackend.Models.GetYearBudgetsResponse
   - MakesCentsBackend.Models.LoginResponse
   - MakesCentsBackend.Models.RegisterResponse
-  - MakesCentsBackend.Models.UpdatePaycheckResponse
   - MakesCentsBackend.Models.UpdatePaymentTransactionResponse
   inheritedMembers:
   - MakesCentsBackend.Models.BaseResponse.HttpStatus

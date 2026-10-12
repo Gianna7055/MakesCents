@@ -1,0 +1,1053 @@
+### YamlMime:ManagedReference
+items:
+- uid: MakesCentsBackend.Services.DataAccessLayer.SinkingFundEnvelopeDAO
+  commentId: T:MakesCentsBackend.Services.DataAccessLayer.SinkingFundEnvelopeDAO
+  id: SinkingFundEnvelopeDAO
+  parent: MakesCentsBackend.Services.DataAccessLayer
+  children:
+  - MakesCentsBackend.Services.DataAccessLayer.SinkingFundEnvelopeDAO.#ctor(MySqlConnector.MySqlConnection,MakesCentsBackend.Services.DataAccessLayer.AuthorizationService)
+  - MakesCentsBackend.Services.DataAccessLayer.SinkingFundEnvelopeDAO.CreateSinkingFundEnvelopeAsync(MakesCentsBackend.Models.CreateSinkingFundEnvelopeRequest)
+  - MakesCentsBackend.Services.DataAccessLayer.SinkingFundEnvelopeDAO.DeleteSinkingFundEnvelopeAsync(MakesCentsBackend.Models.BaseIdRequest)
+  - MakesCentsBackend.Services.DataAccessLayer.SinkingFundEnvelopeDAO.GetRolloverDependentsAsync(MakesCentsBackend.Models.BaseIdRequest)
+  - MakesCentsBackend.Services.DataAccessLayer.SinkingFundEnvelopeDAO.GetSinkingFundEnvelopeAsync(MakesCentsBackend.Models.BaseIdRequest)
+  - MakesCentsBackend.Services.DataAccessLayer.SinkingFundEnvelopeDAO.GetSinkingFundEnvelopeForUpdateAsync(MakesCentsBackend.Models.BaseIdRequest)
+  - MakesCentsBackend.Services.DataAccessLayer.SinkingFundEnvelopeDAO.UpdateRemainingAmountAsync(System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Decimal},MySqlConnector.MySqlTransaction,MySqlConnector.MySqlConnection)
+  - MakesCentsBackend.Services.DataAccessLayer.SinkingFundEnvelopeDAO.UpdateSinkingFundEnvelopeAsync(MakesCentsBackend.Models.UpdateSinkingFundEnvelopeRequest)
+  langs:
+  - csharp
+  - vb
+  name: SinkingFundEnvelopeDAO
+  nameWithType: SinkingFundEnvelopeDAO
+  fullName: MakesCentsBackend.Services.DataAccessLayer.SinkingFundEnvelopeDAO
+  type: Class
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Services/DataAccessLayer/SinkingFundEnvelopeDAO.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: SinkingFundEnvelopeDAO
+    path: Services/DataAccessLayer/SinkingFundEnvelopeDAO.cs
+    startLine: 20
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Services.DataAccessLayer
+  summary: >-
+    Data access object for sinking fund envelopes.
+
+    Sinking fund envelopes are persistent - one row per envelope, with a live
+
+    remaining_amount that carries forward month to month (no monthly instance table,
+
+    unlike rollover envelopes).
+  example: []
+  syntax:
+    content: public class SinkingFundEnvelopeDAO
+    content.vb: Public Class SinkingFundEnvelopeDAO
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: MakesCentsBackend.Services.DataAccessLayer.SinkingFundEnvelopeDAO.#ctor(MySqlConnector.MySqlConnection,MakesCentsBackend.Services.DataAccessLayer.AuthorizationService)
+  commentId: M:MakesCentsBackend.Services.DataAccessLayer.SinkingFundEnvelopeDAO.#ctor(MySqlConnector.MySqlConnection,MakesCentsBackend.Services.DataAccessLayer.AuthorizationService)
+  id: '#ctor(MySqlConnector.MySqlConnection,MakesCentsBackend.Services.DataAccessLayer.AuthorizationService)'
+  parent: MakesCentsBackend.Services.DataAccessLayer.SinkingFundEnvelopeDAO
+  langs:
+  - csharp
+  - vb
+  name: SinkingFundEnvelopeDAO(MySqlConnection, AuthorizationService)
+  nameWithType: SinkingFundEnvelopeDAO.SinkingFundEnvelopeDAO(MySqlConnection, AuthorizationService)
+  fullName: MakesCentsBackend.Services.DataAccessLayer.SinkingFundEnvelopeDAO.SinkingFundEnvelopeDAO(MySqlConnector.MySqlConnection, MakesCentsBackend.Services.DataAccessLayer.AuthorizationService)
+  type: Constructor
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Services/DataAccessLayer/SinkingFundEnvelopeDAO.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: .ctor
+    path: Services/DataAccessLayer/SinkingFundEnvelopeDAO.cs
+    startLine: 32
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Services.DataAccessLayer
+  summary: Parameterized constructor to bring in DI variables
+  example: []
+  syntax:
+    content: public SinkingFundEnvelopeDAO(MySqlConnection connection, AuthorizationService authService)
+    parameters:
+    - id: connection
+      type: MySqlConnector.MySqlConnection
+      description: ''
+    - id: authService
+      type: MakesCentsBackend.Services.DataAccessLayer.AuthorizationService
+      description: ''
+    content.vb: Public Sub New(connection As MySqlConnection, authService As AuthorizationService)
+  overload: MakesCentsBackend.Services.DataAccessLayer.SinkingFundEnvelopeDAO.#ctor*
+  nameWithType.vb: SinkingFundEnvelopeDAO.New(MySqlConnection, AuthorizationService)
+  fullName.vb: MakesCentsBackend.Services.DataAccessLayer.SinkingFundEnvelopeDAO.New(MySqlConnector.MySqlConnection, MakesCentsBackend.Services.DataAccessLayer.AuthorizationService)
+  name.vb: New(MySqlConnection, AuthorizationService)
+- uid: MakesCentsBackend.Services.DataAccessLayer.SinkingFundEnvelopeDAO.CreateSinkingFundEnvelopeAsync(MakesCentsBackend.Models.CreateSinkingFundEnvelopeRequest)
+  commentId: M:MakesCentsBackend.Services.DataAccessLayer.SinkingFundEnvelopeDAO.CreateSinkingFundEnvelopeAsync(MakesCentsBackend.Models.CreateSinkingFundEnvelopeRequest)
+  id: CreateSinkingFundEnvelopeAsync(MakesCentsBackend.Models.CreateSinkingFundEnvelopeRequest)
+  parent: MakesCentsBackend.Services.DataAccessLayer.SinkingFundEnvelopeDAO
+  langs:
+  - csharp
+  - vb
+  name: CreateSinkingFundEnvelopeAsync(CreateSinkingFundEnvelopeRequest)
+  nameWithType: SinkingFundEnvelopeDAO.CreateSinkingFundEnvelopeAsync(CreateSinkingFundEnvelopeRequest)
+  fullName: MakesCentsBackend.Services.DataAccessLayer.SinkingFundEnvelopeDAO.CreateSinkingFundEnvelopeAsync(MakesCentsBackend.Models.CreateSinkingFundEnvelopeRequest)
+  type: Method
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Services/DataAccessLayer/SinkingFundEnvelopeDAO.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: CreateSinkingFundEnvelopeAsync
+    path: Services/DataAccessLayer/SinkingFundEnvelopeDAO.cs
+    startLine: 43
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Services.DataAccessLayer
+  summary: DAO method to create a sinking fund envelope
+  example: []
+  syntax:
+    content: public Task<BaseIdResponse> CreateSinkingFundEnvelopeAsync(CreateSinkingFundEnvelopeRequest envelope)
+    parameters:
+    - id: envelope
+      type: MakesCentsBackend.Models.CreateSinkingFundEnvelopeRequest
+      description: ''
+    return:
+      type: System.Threading.Tasks.Task{MakesCentsBackend.Models.BaseIdResponse}
+      description: ''
+    content.vb: Public Function CreateSinkingFundEnvelopeAsync(envelope As CreateSinkingFundEnvelopeRequest) As Task(Of BaseIdResponse)
+  overload: MakesCentsBackend.Services.DataAccessLayer.SinkingFundEnvelopeDAO.CreateSinkingFundEnvelopeAsync*
+- uid: MakesCentsBackend.Services.DataAccessLayer.SinkingFundEnvelopeDAO.UpdateRemainingAmountAsync(System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Decimal},MySqlConnector.MySqlTransaction,MySqlConnector.MySqlConnection)
+  commentId: M:MakesCentsBackend.Services.DataAccessLayer.SinkingFundEnvelopeDAO.UpdateRemainingAmountAsync(System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Decimal},MySqlConnector.MySqlTransaction,MySqlConnector.MySqlConnection)
+  id: UpdateRemainingAmountAsync(System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Decimal},MySqlConnector.MySqlTransaction,MySqlConnector.MySqlConnection)
+  parent: MakesCentsBackend.Services.DataAccessLayer.SinkingFundEnvelopeDAO
+  langs:
+  - csharp
+  - vb
+  name: UpdateRemainingAmountAsync(int?, int?, decimal?, MySqlTransaction, MySqlConnection)
+  nameWithType: SinkingFundEnvelopeDAO.UpdateRemainingAmountAsync(int?, int?, decimal?, MySqlTransaction, MySqlConnection)
+  fullName: MakesCentsBackend.Services.DataAccessLayer.SinkingFundEnvelopeDAO.UpdateRemainingAmountAsync(int?, int?, decimal?, MySqlConnector.MySqlTransaction, MySqlConnector.MySqlConnection)
+  type: Method
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Services/DataAccessLayer/SinkingFundEnvelopeDAO.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: UpdateRemainingAmountAsync
+    path: Services/DataAccessLayer/SinkingFundEnvelopeDAO.cs
+    startLine: 96
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Services.DataAccessLayer
+  summary: DAO method to update the remaining amount of a sinking fund envelope by the amount
+  example: []
+  syntax:
+    content: public Task<bool> UpdateRemainingAmountAsync(int? userId, int? sinkingFundEnvelopeId, decimal? amount, MySqlTransaction dbTransaction, MySqlConnection connection)
+    parameters:
+    - id: userId
+      type: System.Nullable{System.Int32}
+      description: ''
+    - id: sinkingFundEnvelopeId
+      type: System.Nullable{System.Int32}
+      description: ''
+    - id: amount
+      type: System.Nullable{System.Decimal}
+      description: ''
+    - id: dbTransaction
+      type: MySqlConnector.MySqlTransaction
+      description: ''
+    - id: connection
+      type: MySqlConnector.MySqlConnection
+      description: ''
+    return:
+      type: System.Threading.Tasks.Task{System.Boolean}
+      description: ''
+    content.vb: Public Function UpdateRemainingAmountAsync(userId As Integer?, sinkingFundEnvelopeId As Integer?, amount As Decimal?, dbTransaction As MySqlTransaction, connection As MySqlConnection) As Task(Of Boolean)
+  overload: MakesCentsBackend.Services.DataAccessLayer.SinkingFundEnvelopeDAO.UpdateRemainingAmountAsync*
+  nameWithType.vb: SinkingFundEnvelopeDAO.UpdateRemainingAmountAsync(Integer?, Integer?, Decimal?, MySqlTransaction, MySqlConnection)
+  fullName.vb: MakesCentsBackend.Services.DataAccessLayer.SinkingFundEnvelopeDAO.UpdateRemainingAmountAsync(Integer?, Integer?, Decimal?, MySqlConnector.MySqlTransaction, MySqlConnector.MySqlConnection)
+  name.vb: UpdateRemainingAmountAsync(Integer?, Integer?, Decimal?, MySqlTransaction, MySqlConnection)
+- uid: MakesCentsBackend.Services.DataAccessLayer.SinkingFundEnvelopeDAO.GetSinkingFundEnvelopeAsync(MakesCentsBackend.Models.BaseIdRequest)
+  commentId: M:MakesCentsBackend.Services.DataAccessLayer.SinkingFundEnvelopeDAO.GetSinkingFundEnvelopeAsync(MakesCentsBackend.Models.BaseIdRequest)
+  id: GetSinkingFundEnvelopeAsync(MakesCentsBackend.Models.BaseIdRequest)
+  parent: MakesCentsBackend.Services.DataAccessLayer.SinkingFundEnvelopeDAO
+  langs:
+  - csharp
+  - vb
+  name: GetSinkingFundEnvelopeAsync(BaseIdRequest)
+  nameWithType: SinkingFundEnvelopeDAO.GetSinkingFundEnvelopeAsync(BaseIdRequest)
+  fullName: MakesCentsBackend.Services.DataAccessLayer.SinkingFundEnvelopeDAO.GetSinkingFundEnvelopeAsync(MakesCentsBackend.Models.BaseIdRequest)
+  type: Method
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Services/DataAccessLayer/SinkingFundEnvelopeDAO.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: GetSinkingFundEnvelopeAsync
+    path: Services/DataAccessLayer/SinkingFundEnvelopeDAO.cs
+    startLine: 133
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Services.DataAccessLayer
+  summary: DAO method to get a single sinking fund envelope, including its transaction history
+  example: []
+  syntax:
+    content: public Task<GetSinkingFundEnvelopeEntityResponse> GetSinkingFundEnvelopeAsync(BaseIdRequest request)
+    parameters:
+    - id: request
+      type: MakesCentsBackend.Models.BaseIdRequest
+      description: ''
+    return:
+      type: System.Threading.Tasks.Task{MakesCentsBackend.Models.GetSinkingFundEnvelopeEntityResponse}
+      description: ''
+    content.vb: Public Function GetSinkingFundEnvelopeAsync(request As BaseIdRequest) As Task(Of GetSinkingFundEnvelopeEntityResponse)
+  overload: MakesCentsBackend.Services.DataAccessLayer.SinkingFundEnvelopeDAO.GetSinkingFundEnvelopeAsync*
+- uid: MakesCentsBackend.Services.DataAccessLayer.SinkingFundEnvelopeDAO.GetSinkingFundEnvelopeForUpdateAsync(MakesCentsBackend.Models.BaseIdRequest)
+  commentId: M:MakesCentsBackend.Services.DataAccessLayer.SinkingFundEnvelopeDAO.GetSinkingFundEnvelopeForUpdateAsync(MakesCentsBackend.Models.BaseIdRequest)
+  id: GetSinkingFundEnvelopeForUpdateAsync(MakesCentsBackend.Models.BaseIdRequest)
+  parent: MakesCentsBackend.Services.DataAccessLayer.SinkingFundEnvelopeDAO
+  langs:
+  - csharp
+  - vb
+  name: GetSinkingFundEnvelopeForUpdateAsync(BaseIdRequest)
+  nameWithType: SinkingFundEnvelopeDAO.GetSinkingFundEnvelopeForUpdateAsync(BaseIdRequest)
+  fullName: MakesCentsBackend.Services.DataAccessLayer.SinkingFundEnvelopeDAO.GetSinkingFundEnvelopeForUpdateAsync(MakesCentsBackend.Models.BaseIdRequest)
+  type: Method
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Services/DataAccessLayer/SinkingFundEnvelopeDAO.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: GetSinkingFundEnvelopeForUpdateAsync
+    path: Services/DataAccessLayer/SinkingFundEnvelopeDAO.cs
+    startLine: 241
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Services.DataAccessLayer
+  summary: DAO method to get a single sinking fund envelope without its transaction history (for update flows)
+  example: []
+  syntax:
+    content: public Task<GetSinkingFundEnvelopeEntityResponse> GetSinkingFundEnvelopeForUpdateAsync(BaseIdRequest request)
+    parameters:
+    - id: request
+      type: MakesCentsBackend.Models.BaseIdRequest
+      description: ''
+    return:
+      type: System.Threading.Tasks.Task{MakesCentsBackend.Models.GetSinkingFundEnvelopeEntityResponse}
+      description: ''
+    content.vb: Public Function GetSinkingFundEnvelopeForUpdateAsync(request As BaseIdRequest) As Task(Of GetSinkingFundEnvelopeEntityResponse)
+  overload: MakesCentsBackend.Services.DataAccessLayer.SinkingFundEnvelopeDAO.GetSinkingFundEnvelopeForUpdateAsync*
+- uid: MakesCentsBackend.Services.DataAccessLayer.SinkingFundEnvelopeDAO.UpdateSinkingFundEnvelopeAsync(MakesCentsBackend.Models.UpdateSinkingFundEnvelopeRequest)
+  commentId: M:MakesCentsBackend.Services.DataAccessLayer.SinkingFundEnvelopeDAO.UpdateSinkingFundEnvelopeAsync(MakesCentsBackend.Models.UpdateSinkingFundEnvelopeRequest)
+  id: UpdateSinkingFundEnvelopeAsync(MakesCentsBackend.Models.UpdateSinkingFundEnvelopeRequest)
+  parent: MakesCentsBackend.Services.DataAccessLayer.SinkingFundEnvelopeDAO
+  langs:
+  - csharp
+  - vb
+  name: UpdateSinkingFundEnvelopeAsync(UpdateSinkingFundEnvelopeRequest)
+  nameWithType: SinkingFundEnvelopeDAO.UpdateSinkingFundEnvelopeAsync(UpdateSinkingFundEnvelopeRequest)
+  fullName: MakesCentsBackend.Services.DataAccessLayer.SinkingFundEnvelopeDAO.UpdateSinkingFundEnvelopeAsync(MakesCentsBackend.Models.UpdateSinkingFundEnvelopeRequest)
+  type: Method
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Services/DataAccessLayer/SinkingFundEnvelopeDAO.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: UpdateSinkingFundEnvelopeAsync
+    path: Services/DataAccessLayer/SinkingFundEnvelopeDAO.cs
+    startLine: 278
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Services.DataAccessLayer
+  summary: DAO method to update a sinking fund envelope based on given fields
+  example: []
+  syntax:
+    content: public Task<BaseIdResponse> UpdateSinkingFundEnvelopeAsync(UpdateSinkingFundEnvelopeRequest envelope)
+    parameters:
+    - id: envelope
+      type: MakesCentsBackend.Models.UpdateSinkingFundEnvelopeRequest
+      description: ''
+    return:
+      type: System.Threading.Tasks.Task{MakesCentsBackend.Models.BaseIdResponse}
+      description: ''
+    content.vb: Public Function UpdateSinkingFundEnvelopeAsync(envelope As UpdateSinkingFundEnvelopeRequest) As Task(Of BaseIdResponse)
+  overload: MakesCentsBackend.Services.DataAccessLayer.SinkingFundEnvelopeDAO.UpdateSinkingFundEnvelopeAsync*
+- uid: MakesCentsBackend.Services.DataAccessLayer.SinkingFundEnvelopeDAO.GetRolloverDependentsAsync(MakesCentsBackend.Models.BaseIdRequest)
+  commentId: M:MakesCentsBackend.Services.DataAccessLayer.SinkingFundEnvelopeDAO.GetRolloverDependentsAsync(MakesCentsBackend.Models.BaseIdRequest)
+  id: GetRolloverDependentsAsync(MakesCentsBackend.Models.BaseIdRequest)
+  parent: MakesCentsBackend.Services.DataAccessLayer.SinkingFundEnvelopeDAO
+  langs:
+  - csharp
+  - vb
+  name: GetRolloverDependentsAsync(BaseIdRequest)
+  nameWithType: SinkingFundEnvelopeDAO.GetRolloverDependentsAsync(BaseIdRequest)
+  fullName: MakesCentsBackend.Services.DataAccessLayer.SinkingFundEnvelopeDAO.GetRolloverDependentsAsync(MakesCentsBackend.Models.BaseIdRequest)
+  type: Method
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Services/DataAccessLayer/SinkingFundEnvelopeDAO.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: GetRolloverDependentsAsync
+    path: Services/DataAccessLayer/SinkingFundEnvelopeDAO.cs
+    startLine: 368
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Services.DataAccessLayer
+  summary: >-
+    DAO method to get the rollover envelopes that use this sinking fund envelope as their
+
+    transfer target - these have to be pointed at a different sinking fund before this
+
+    one can be deleted
+  example: []
+  syntax:
+    content: public Task<GetSinkingFundDependentsResponse> GetRolloverDependentsAsync(BaseIdRequest request)
+    parameters:
+    - id: request
+      type: MakesCentsBackend.Models.BaseIdRequest
+      description: ''
+    return:
+      type: System.Threading.Tasks.Task{MakesCentsBackend.Models.GetSinkingFundDependentsResponse}
+      description: ''
+    content.vb: Public Function GetRolloverDependentsAsync(request As BaseIdRequest) As Task(Of GetSinkingFundDependentsResponse)
+  overload: MakesCentsBackend.Services.DataAccessLayer.SinkingFundEnvelopeDAO.GetRolloverDependentsAsync*
+- uid: MakesCentsBackend.Services.DataAccessLayer.SinkingFundEnvelopeDAO.DeleteSinkingFundEnvelopeAsync(MakesCentsBackend.Models.BaseIdRequest)
+  commentId: M:MakesCentsBackend.Services.DataAccessLayer.SinkingFundEnvelopeDAO.DeleteSinkingFundEnvelopeAsync(MakesCentsBackend.Models.BaseIdRequest)
+  id: DeleteSinkingFundEnvelopeAsync(MakesCentsBackend.Models.BaseIdRequest)
+  parent: MakesCentsBackend.Services.DataAccessLayer.SinkingFundEnvelopeDAO
+  langs:
+  - csharp
+  - vb
+  name: DeleteSinkingFundEnvelopeAsync(BaseIdRequest)
+  nameWithType: SinkingFundEnvelopeDAO.DeleteSinkingFundEnvelopeAsync(BaseIdRequest)
+  fullName: MakesCentsBackend.Services.DataAccessLayer.SinkingFundEnvelopeDAO.DeleteSinkingFundEnvelopeAsync(MakesCentsBackend.Models.BaseIdRequest)
+  type: Method
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Services/DataAccessLayer/SinkingFundEnvelopeDAO.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: DeleteSinkingFundEnvelopeAsync
+    path: Services/DataAccessLayer/SinkingFundEnvelopeDAO.cs
+    startLine: 401
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Services.DataAccessLayer
+  summary: DAO method to delete a sinking fund envelope
+  example: []
+  syntax:
+    content: public Task<BaseResponse> DeleteSinkingFundEnvelopeAsync(BaseIdRequest request)
+    parameters:
+    - id: request
+      type: MakesCentsBackend.Models.BaseIdRequest
+      description: ''
+    return:
+      type: System.Threading.Tasks.Task{MakesCentsBackend.Models.BaseResponse}
+      description: ''
+    content.vb: Public Function DeleteSinkingFundEnvelopeAsync(request As BaseIdRequest) As Task(Of BaseResponse)
+  overload: MakesCentsBackend.Services.DataAccessLayer.SinkingFundEnvelopeDAO.DeleteSinkingFundEnvelopeAsync*
+references:
+- uid: MakesCentsBackend.Services.DataAccessLayer
+  commentId: N:MakesCentsBackend.Services.DataAccessLayer
+  href: MakesCentsBackend.html
+  name: MakesCentsBackend.Services.DataAccessLayer
+  nameWithType: MakesCentsBackend.Services.DataAccessLayer
+  fullName: MakesCentsBackend.Services.DataAccessLayer
+  spec.csharp:
+  - uid: MakesCentsBackend
+    name: MakesCentsBackend
+    href: MakesCentsBackend.html
+  - name: .
+  - uid: MakesCentsBackend.Services
+    name: Services
+    href: MakesCentsBackend.Services.html
+  - name: .
+  - uid: MakesCentsBackend.Services.DataAccessLayer
+    name: DataAccessLayer
+    href: MakesCentsBackend.Services.DataAccessLayer.html
+  spec.vb:
+  - uid: MakesCentsBackend
+    name: MakesCentsBackend
+    href: MakesCentsBackend.html
+  - name: .
+  - uid: MakesCentsBackend.Services
+    name: Services
+    href: MakesCentsBackend.Services.html
+  - name: .
+  - uid: MakesCentsBackend.Services.DataAccessLayer
+    name: DataAccessLayer
+    href: MakesCentsBackend.Services.DataAccessLayer.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: MakesCentsBackend.Services.DataAccessLayer.SinkingFundEnvelopeDAO.#ctor*
+  commentId: Overload:MakesCentsBackend.Services.DataAccessLayer.SinkingFundEnvelopeDAO.#ctor
+  href: MakesCentsBackend.Services.DataAccessLayer.SinkingFundEnvelopeDAO.html#MakesCentsBackend_Services_DataAccessLayer_SinkingFundEnvelopeDAO__ctor_MySqlConnector_MySqlConnection_MakesCentsBackend_Services_DataAccessLayer_AuthorizationService_
+  name: SinkingFundEnvelopeDAO
+  nameWithType: SinkingFundEnvelopeDAO.SinkingFundEnvelopeDAO
+  fullName: MakesCentsBackend.Services.DataAccessLayer.SinkingFundEnvelopeDAO.SinkingFundEnvelopeDAO
+  nameWithType.vb: SinkingFundEnvelopeDAO.New
+  fullName.vb: MakesCentsBackend.Services.DataAccessLayer.SinkingFundEnvelopeDAO.New
+  name.vb: New
+- uid: MySqlConnector.MySqlConnection
+  commentId: T:MySqlConnector.MySqlConnection
+  parent: MySqlConnector
+  isExternal: true
+  name: MySqlConnection
+  nameWithType: MySqlConnection
+  fullName: MySqlConnector.MySqlConnection
+- uid: MakesCentsBackend.Services.DataAccessLayer.AuthorizationService
+  commentId: T:MakesCentsBackend.Services.DataAccessLayer.AuthorizationService
+  parent: MakesCentsBackend.Services.DataAccessLayer
+  href: MakesCentsBackend.Services.DataAccessLayer.AuthorizationService.html
+  name: AuthorizationService
+  nameWithType: AuthorizationService
+  fullName: MakesCentsBackend.Services.DataAccessLayer.AuthorizationService
+- uid: MySqlConnector
+  commentId: N:MySqlConnector
+  isExternal: true
+  name: MySqlConnector
+  nameWithType: MySqlConnector
+  fullName: MySqlConnector
+- uid: MakesCentsBackend.Services.DataAccessLayer.SinkingFundEnvelopeDAO.CreateSinkingFundEnvelopeAsync*
+  commentId: Overload:MakesCentsBackend.Services.DataAccessLayer.SinkingFundEnvelopeDAO.CreateSinkingFundEnvelopeAsync
+  href: MakesCentsBackend.Services.DataAccessLayer.SinkingFundEnvelopeDAO.html#MakesCentsBackend_Services_DataAccessLayer_SinkingFundEnvelopeDAO_CreateSinkingFundEnvelopeAsync_MakesCentsBackend_Models_CreateSinkingFundEnvelopeRequest_
+  name: CreateSinkingFundEnvelopeAsync
+  nameWithType: SinkingFundEnvelopeDAO.CreateSinkingFundEnvelopeAsync
+  fullName: MakesCentsBackend.Services.DataAccessLayer.SinkingFundEnvelopeDAO.CreateSinkingFundEnvelopeAsync
+- uid: MakesCentsBackend.Models.CreateSinkingFundEnvelopeRequest
+  commentId: T:MakesCentsBackend.Models.CreateSinkingFundEnvelopeRequest
+  parent: MakesCentsBackend.Models
+  href: MakesCentsBackend.Models.CreateSinkingFundEnvelopeRequest.html
+  name: CreateSinkingFundEnvelopeRequest
+  nameWithType: CreateSinkingFundEnvelopeRequest
+  fullName: MakesCentsBackend.Models.CreateSinkingFundEnvelopeRequest
+- uid: System.Threading.Tasks.Task{MakesCentsBackend.Models.BaseIdResponse}
+  commentId: T:System.Threading.Tasks.Task{MakesCentsBackend.Models.BaseIdResponse}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<BaseIdResponse>
+  nameWithType: Task<BaseIdResponse>
+  fullName: System.Threading.Tasks.Task<MakesCentsBackend.Models.BaseIdResponse>
+  nameWithType.vb: Task(Of BaseIdResponse)
+  fullName.vb: System.Threading.Tasks.Task(Of MakesCentsBackend.Models.BaseIdResponse)
+  name.vb: Task(Of BaseIdResponse)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: MakesCentsBackend.Models.BaseIdResponse
+    name: BaseIdResponse
+    href: MakesCentsBackend.Models.BaseIdResponse.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: MakesCentsBackend.Models.BaseIdResponse
+    name: BaseIdResponse
+    href: MakesCentsBackend.Models.BaseIdResponse.html
+  - name: )
+- uid: MakesCentsBackend.Models
+  commentId: N:MakesCentsBackend.Models
+  href: MakesCentsBackend.html
+  name: MakesCentsBackend.Models
+  nameWithType: MakesCentsBackend.Models
+  fullName: MakesCentsBackend.Models
+  spec.csharp:
+  - uid: MakesCentsBackend
+    name: MakesCentsBackend
+    href: MakesCentsBackend.html
+  - name: .
+  - uid: MakesCentsBackend.Models
+    name: Models
+    href: MakesCentsBackend.Models.html
+  spec.vb:
+  - uid: MakesCentsBackend
+    name: MakesCentsBackend
+    href: MakesCentsBackend.html
+  - name: .
+  - uid: MakesCentsBackend.Models
+    name: Models
+    href: MakesCentsBackend.Models.html
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+- uid: MakesCentsBackend.Services.DataAccessLayer.SinkingFundEnvelopeDAO.UpdateRemainingAmountAsync*
+  commentId: Overload:MakesCentsBackend.Services.DataAccessLayer.SinkingFundEnvelopeDAO.UpdateRemainingAmountAsync
+  href: MakesCentsBackend.Services.DataAccessLayer.SinkingFundEnvelopeDAO.html#MakesCentsBackend_Services_DataAccessLayer_SinkingFundEnvelopeDAO_UpdateRemainingAmountAsync_System_Nullable_System_Int32__System_Nullable_System_Int32__System_Nullable_System_Decimal__MySqlConnector_MySqlTransaction_MySqlConnector_MySqlConnection_
+  name: UpdateRemainingAmountAsync
+  nameWithType: SinkingFundEnvelopeDAO.UpdateRemainingAmountAsync
+  fullName: MakesCentsBackend.Services.DataAccessLayer.SinkingFundEnvelopeDAO.UpdateRemainingAmountAsync
+- uid: System.Nullable{System.Int32}
+  commentId: T:System.Nullable{System.Int32}
+  parent: System
+  definition: System.Nullable`1
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int?
+  nameWithType: int?
+  fullName: int?
+  nameWithType.vb: Integer?
+  fullName.vb: Integer?
+  name.vb: Integer?
+  spec.csharp:
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '?'
+  spec.vb:
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '?'
+- uid: System.Nullable{System.Decimal}
+  commentId: T:System.Nullable{System.Decimal}
+  parent: System
+  definition: System.Nullable`1
+  href: https://learn.microsoft.com/dotnet/api/system.decimal
+  name: decimal?
+  nameWithType: decimal?
+  fullName: decimal?
+  nameWithType.vb: Decimal?
+  fullName.vb: Decimal?
+  name.vb: Decimal?
+  spec.csharp:
+  - uid: System.Decimal
+    name: decimal
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.decimal
+  - name: '?'
+  spec.vb:
+  - uid: System.Decimal
+    name: Decimal
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.decimal
+  - name: '?'
+- uid: MySqlConnector.MySqlTransaction
+  commentId: T:MySqlConnector.MySqlTransaction
+  parent: MySqlConnector
+  isExternal: true
+  name: MySqlTransaction
+  nameWithType: MySqlTransaction
+  fullName: MySqlConnector.MySqlTransaction
+- uid: System.Threading.Tasks.Task{System.Boolean}
+  commentId: T:System.Threading.Tasks.Task{System.Boolean}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<bool>
+  nameWithType: Task<bool>
+  fullName: System.Threading.Tasks.Task<bool>
+  nameWithType.vb: Task(Of Boolean)
+  fullName.vb: System.Threading.Tasks.Task(Of Boolean)
+  name.vb: Task(Of Boolean)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+- uid: System.Nullable`1
+  commentId: T:System.Nullable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  name: Nullable<T>
+  nameWithType: Nullable<T>
+  fullName: System.Nullable<T>
+  nameWithType.vb: Nullable(Of T)
+  fullName.vb: System.Nullable(Of T)
+  name.vb: Nullable(Of T)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: MakesCentsBackend.Services.DataAccessLayer.SinkingFundEnvelopeDAO.GetSinkingFundEnvelopeAsync*
+  commentId: Overload:MakesCentsBackend.Services.DataAccessLayer.SinkingFundEnvelopeDAO.GetSinkingFundEnvelopeAsync
+  href: MakesCentsBackend.Services.DataAccessLayer.SinkingFundEnvelopeDAO.html#MakesCentsBackend_Services_DataAccessLayer_SinkingFundEnvelopeDAO_GetSinkingFundEnvelopeAsync_MakesCentsBackend_Models_BaseIdRequest_
+  name: GetSinkingFundEnvelopeAsync
+  nameWithType: SinkingFundEnvelopeDAO.GetSinkingFundEnvelopeAsync
+  fullName: MakesCentsBackend.Services.DataAccessLayer.SinkingFundEnvelopeDAO.GetSinkingFundEnvelopeAsync
+- uid: MakesCentsBackend.Models.BaseIdRequest
+  commentId: T:MakesCentsBackend.Models.BaseIdRequest
+  parent: MakesCentsBackend.Models
+  href: MakesCentsBackend.Models.BaseIdRequest.html
+  name: BaseIdRequest
+  nameWithType: BaseIdRequest
+  fullName: MakesCentsBackend.Models.BaseIdRequest
+- uid: System.Threading.Tasks.Task{MakesCentsBackend.Models.GetSinkingFundEnvelopeEntityResponse}
+  commentId: T:System.Threading.Tasks.Task{MakesCentsBackend.Models.GetSinkingFundEnvelopeEntityResponse}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<GetSinkingFundEnvelopeEntityResponse>
+  nameWithType: Task<GetSinkingFundEnvelopeEntityResponse>
+  fullName: System.Threading.Tasks.Task<MakesCentsBackend.Models.GetSinkingFundEnvelopeEntityResponse>
+  nameWithType.vb: Task(Of GetSinkingFundEnvelopeEntityResponse)
+  fullName.vb: System.Threading.Tasks.Task(Of MakesCentsBackend.Models.GetSinkingFundEnvelopeEntityResponse)
+  name.vb: Task(Of GetSinkingFundEnvelopeEntityResponse)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: MakesCentsBackend.Models.GetSinkingFundEnvelopeEntityResponse
+    name: GetSinkingFundEnvelopeEntityResponse
+    href: MakesCentsBackend.Models.GetSinkingFundEnvelopeEntityResponse.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: MakesCentsBackend.Models.GetSinkingFundEnvelopeEntityResponse
+    name: GetSinkingFundEnvelopeEntityResponse
+    href: MakesCentsBackend.Models.GetSinkingFundEnvelopeEntityResponse.html
+  - name: )
+- uid: MakesCentsBackend.Services.DataAccessLayer.SinkingFundEnvelopeDAO.GetSinkingFundEnvelopeForUpdateAsync*
+  commentId: Overload:MakesCentsBackend.Services.DataAccessLayer.SinkingFundEnvelopeDAO.GetSinkingFundEnvelopeForUpdateAsync
+  href: MakesCentsBackend.Services.DataAccessLayer.SinkingFundEnvelopeDAO.html#MakesCentsBackend_Services_DataAccessLayer_SinkingFundEnvelopeDAO_GetSinkingFundEnvelopeForUpdateAsync_MakesCentsBackend_Models_BaseIdRequest_
+  name: GetSinkingFundEnvelopeForUpdateAsync
+  nameWithType: SinkingFundEnvelopeDAO.GetSinkingFundEnvelopeForUpdateAsync
+  fullName: MakesCentsBackend.Services.DataAccessLayer.SinkingFundEnvelopeDAO.GetSinkingFundEnvelopeForUpdateAsync
+- uid: MakesCentsBackend.Services.DataAccessLayer.SinkingFundEnvelopeDAO.UpdateSinkingFundEnvelopeAsync*
+  commentId: Overload:MakesCentsBackend.Services.DataAccessLayer.SinkingFundEnvelopeDAO.UpdateSinkingFundEnvelopeAsync
+  href: MakesCentsBackend.Services.DataAccessLayer.SinkingFundEnvelopeDAO.html#MakesCentsBackend_Services_DataAccessLayer_SinkingFundEnvelopeDAO_UpdateSinkingFundEnvelopeAsync_MakesCentsBackend_Models_UpdateSinkingFundEnvelopeRequest_
+  name: UpdateSinkingFundEnvelopeAsync
+  nameWithType: SinkingFundEnvelopeDAO.UpdateSinkingFundEnvelopeAsync
+  fullName: MakesCentsBackend.Services.DataAccessLayer.SinkingFundEnvelopeDAO.UpdateSinkingFundEnvelopeAsync
+- uid: MakesCentsBackend.Models.UpdateSinkingFundEnvelopeRequest
+  commentId: T:MakesCentsBackend.Models.UpdateSinkingFundEnvelopeRequest
+  parent: MakesCentsBackend.Models
+  href: MakesCentsBackend.Models.UpdateSinkingFundEnvelopeRequest.html
+  name: UpdateSinkingFundEnvelopeRequest
+  nameWithType: UpdateSinkingFundEnvelopeRequest
+  fullName: MakesCentsBackend.Models.UpdateSinkingFundEnvelopeRequest
+- uid: MakesCentsBackend.Services.DataAccessLayer.SinkingFundEnvelopeDAO.GetRolloverDependentsAsync*
+  commentId: Overload:MakesCentsBackend.Services.DataAccessLayer.SinkingFundEnvelopeDAO.GetRolloverDependentsAsync
+  href: MakesCentsBackend.Services.DataAccessLayer.SinkingFundEnvelopeDAO.html#MakesCentsBackend_Services_DataAccessLayer_SinkingFundEnvelopeDAO_GetRolloverDependentsAsync_MakesCentsBackend_Models_BaseIdRequest_
+  name: GetRolloverDependentsAsync
+  nameWithType: SinkingFundEnvelopeDAO.GetRolloverDependentsAsync
+  fullName: MakesCentsBackend.Services.DataAccessLayer.SinkingFundEnvelopeDAO.GetRolloverDependentsAsync
+- uid: System.Threading.Tasks.Task{MakesCentsBackend.Models.GetSinkingFundDependentsResponse}
+  commentId: T:System.Threading.Tasks.Task{MakesCentsBackend.Models.GetSinkingFundDependentsResponse}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<GetSinkingFundDependentsResponse>
+  nameWithType: Task<GetSinkingFundDependentsResponse>
+  fullName: System.Threading.Tasks.Task<MakesCentsBackend.Models.GetSinkingFundDependentsResponse>
+  nameWithType.vb: Task(Of GetSinkingFundDependentsResponse)
+  fullName.vb: System.Threading.Tasks.Task(Of MakesCentsBackend.Models.GetSinkingFundDependentsResponse)
+  name.vb: Task(Of GetSinkingFundDependentsResponse)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: MakesCentsBackend.Models.GetSinkingFundDependentsResponse
+    name: GetSinkingFundDependentsResponse
+    href: MakesCentsBackend.Models.GetSinkingFundDependentsResponse.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: MakesCentsBackend.Models.GetSinkingFundDependentsResponse
+    name: GetSinkingFundDependentsResponse
+    href: MakesCentsBackend.Models.GetSinkingFundDependentsResponse.html
+  - name: )
+- uid: MakesCentsBackend.Services.DataAccessLayer.SinkingFundEnvelopeDAO.DeleteSinkingFundEnvelopeAsync*
+  commentId: Overload:MakesCentsBackend.Services.DataAccessLayer.SinkingFundEnvelopeDAO.DeleteSinkingFundEnvelopeAsync
+  href: MakesCentsBackend.Services.DataAccessLayer.SinkingFundEnvelopeDAO.html#MakesCentsBackend_Services_DataAccessLayer_SinkingFundEnvelopeDAO_DeleteSinkingFundEnvelopeAsync_MakesCentsBackend_Models_BaseIdRequest_
+  name: DeleteSinkingFundEnvelopeAsync
+  nameWithType: SinkingFundEnvelopeDAO.DeleteSinkingFundEnvelopeAsync
+  fullName: MakesCentsBackend.Services.DataAccessLayer.SinkingFundEnvelopeDAO.DeleteSinkingFundEnvelopeAsync
+- uid: System.Threading.Tasks.Task{MakesCentsBackend.Models.BaseResponse}
+  commentId: T:System.Threading.Tasks.Task{MakesCentsBackend.Models.BaseResponse}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<BaseResponse>
+  nameWithType: Task<BaseResponse>
+  fullName: System.Threading.Tasks.Task<MakesCentsBackend.Models.BaseResponse>
+  nameWithType.vb: Task(Of BaseResponse)
+  fullName.vb: System.Threading.Tasks.Task(Of MakesCentsBackend.Models.BaseResponse)
+  name.vb: Task(Of BaseResponse)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: MakesCentsBackend.Models.BaseResponse
+    name: BaseResponse
+    href: MakesCentsBackend.Models.BaseResponse.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: MakesCentsBackend.Models.BaseResponse
+    name: BaseResponse
+    href: MakesCentsBackend.Models.BaseResponse.html
+  - name: )

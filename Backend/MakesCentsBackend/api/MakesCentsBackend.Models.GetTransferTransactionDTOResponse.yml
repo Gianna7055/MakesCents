@@ -22,7 +22,7 @@ items:
       repo: https://github.com/Gianna7055/MakesCents.git
     id: GetTransferTransactionDTOResponse
     path: Models/TransferTransactionModels.cs
-    startLine: 90
+    startLine: 107
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Models
@@ -70,7 +70,7 @@ items:
       repo: https://github.com/Gianna7055/MakesCents.git
     id: TransferTransaction
     path: Models/TransferTransactionModels.cs
-    startLine: 94
+    startLine: 111
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Models
@@ -99,7 +99,7 @@ items:
       repo: https://github.com/Gianna7055/MakesCents.git
     id: .ctor
     path: Models/TransferTransactionModels.cs
-    startLine: 96
+    startLine: 113
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Models
@@ -128,7 +128,7 @@ items:
       repo: https://github.com/Gianna7055/MakesCents.git
     id: .ctor
     path: Models/TransferTransactionModels.cs
-    startLine: 97
+    startLine: 114
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Models

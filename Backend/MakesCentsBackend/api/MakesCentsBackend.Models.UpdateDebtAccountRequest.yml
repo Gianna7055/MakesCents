@@ -197,11 +197,11 @@ items:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Models
   syntax:
-    content: public Optional<DateOnly?> AmountOfNextBill { get; set; }
+    content: public Optional<decimal?> AmountOfNextBill { get; set; }
     parameters: []
     return:
-      type: MakesCentsBackend.Models.Optional{System.Nullable{System.DateOnly}}
-    content.vb: Public Property AmountOfNextBill As [Optional](Of DateOnly?)
+      type: MakesCentsBackend.Models.Optional{System.Nullable{System.Decimal}}
+    content.vb: Public Property AmountOfNextBill As [Optional](Of Decimal?)
   overload: MakesCentsBackend.Models.UpdateDebtAccountRequest.AmountOfNextBill*
 - uid: MakesCentsBackend.Models.UpdateDebtAccountRequest.DebtPaymentRegularity
   commentId: P:MakesCentsBackend.Models.UpdateDebtAccountRequest.DebtPaymentRegularity
@@ -717,6 +717,41 @@ references:
   name: AmountOfNextBill
   nameWithType: UpdateDebtAccountRequest.AmountOfNextBill
   fullName: MakesCentsBackend.Models.UpdateDebtAccountRequest.AmountOfNextBill
+- uid: MakesCentsBackend.Models.Optional{System.Nullable{System.Decimal}}
+  commentId: T:MakesCentsBackend.Models.Optional{System.Nullable{System.Decimal}}
+  parent: MakesCentsBackend.Models
+  definition: MakesCentsBackend.Models.Optional`1
+  href: MakesCentsBackend.Models.Optional-1.html
+  name: Optional<decimal?>
+  nameWithType: Optional<decimal?>
+  fullName: MakesCentsBackend.Models.Optional<decimal?>
+  nameWithType.vb: Optional(Of Decimal?)
+  fullName.vb: MakesCentsBackend.Models.Optional(Of Decimal?)
+  name.vb: Optional(Of Decimal?)
+  spec.csharp:
+  - uid: MakesCentsBackend.Models.Optional`1
+    name: Optional
+    href: MakesCentsBackend.Models.Optional-1.html
+  - name: <
+  - uid: System.Decimal
+    name: decimal
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.decimal
+  - name: '?'
+  - name: '>'
+  spec.vb:
+  - uid: MakesCentsBackend.Models.Optional`1
+    name: Optional
+    href: MakesCentsBackend.Models.Optional-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Decimal
+    name: Decimal
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.decimal
+  - name: '?'
+  - name: )
 - uid: MakesCentsBackend.Models.UpdateDebtAccountRequest.DebtPaymentRegularity*
   commentId: Overload:MakesCentsBackend.Models.UpdateDebtAccountRequest.DebtPaymentRegularity
   href: MakesCentsBackend.Models.UpdateDebtAccountRequest.html#MakesCentsBackend_Models_UpdateDebtAccountRequest_DebtPaymentRegularity

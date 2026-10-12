@@ -8,12 +8,15 @@ items:
   - MakesCentsBackend.Services.DataAccessLayer.AuthorizationService
   - MakesCentsBackend.Services.DataAccessLayer.BankAccountDAO
   - MakesCentsBackend.Services.DataAccessLayer.BudgetDAO
+  - MakesCentsBackend.Services.DataAccessLayer.BudgetTemplateDAO
   - MakesCentsBackend.Services.DataAccessLayer.DebtAccountDAO
   - MakesCentsBackend.Services.DataAccessLayer.EnvelopeCategoryDAO
-  - MakesCentsBackend.Services.DataAccessLayer.EnvelopeDAO
+  - MakesCentsBackend.Services.DataAccessLayer.EnvelopeFundingDAO
   - MakesCentsBackend.Services.DataAccessLayer.InvestmentAccountDAO
   - MakesCentsBackend.Services.DataAccessLayer.PaycheckDAO
   - MakesCentsBackend.Services.DataAccessLayer.PaymentTransactionDAO
+  - MakesCentsBackend.Services.DataAccessLayer.RolloverEnvelopeDAO
+  - MakesCentsBackend.Services.DataAccessLayer.SinkingFundEnvelopeDAO
   - MakesCentsBackend.Services.DataAccessLayer.TransactionDAO
   - MakesCentsBackend.Services.DataAccessLayer.TransferTransactionDAO
   - MakesCentsBackend.Services.DataAccessLayer.UserDAO
@@ -55,6 +58,13 @@ references:
   name: BudgetDAO
   nameWithType: BudgetDAO
   fullName: MakesCentsBackend.Services.DataAccessLayer.BudgetDAO
+- uid: MakesCentsBackend.Services.DataAccessLayer.BudgetTemplateDAO
+  commentId: T:MakesCentsBackend.Services.DataAccessLayer.BudgetTemplateDAO
+  parent: MakesCentsBackend.Services.DataAccessLayer
+  href: MakesCentsBackend.Services.DataAccessLayer.BudgetTemplateDAO.html
+  name: BudgetTemplateDAO
+  nameWithType: BudgetTemplateDAO
+  fullName: MakesCentsBackend.Services.DataAccessLayer.BudgetTemplateDAO
 - uid: MakesCentsBackend.Services.DataAccessLayer.DebtAccountDAO
   commentId: T:MakesCentsBackend.Services.DataAccessLayer.DebtAccountDAO
   parent: MakesCentsBackend.Services.DataAccessLayer
@@ -69,13 +79,13 @@ references:
   name: EnvelopeCategoryDAO
   nameWithType: EnvelopeCategoryDAO
   fullName: MakesCentsBackend.Services.DataAccessLayer.EnvelopeCategoryDAO
-- uid: MakesCentsBackend.Services.DataAccessLayer.EnvelopeDAO
-  commentId: T:MakesCentsBackend.Services.DataAccessLayer.EnvelopeDAO
+- uid: MakesCentsBackend.Services.DataAccessLayer.EnvelopeFundingDAO
+  commentId: T:MakesCentsBackend.Services.DataAccessLayer.EnvelopeFundingDAO
   parent: MakesCentsBackend.Services.DataAccessLayer
-  href: MakesCentsBackend.Services.DataAccessLayer.EnvelopeDAO.html
-  name: EnvelopeDAO
-  nameWithType: EnvelopeDAO
-  fullName: MakesCentsBackend.Services.DataAccessLayer.EnvelopeDAO
+  href: MakesCentsBackend.Services.DataAccessLayer.EnvelopeFundingDAO.html
+  name: EnvelopeFundingDAO
+  nameWithType: EnvelopeFundingDAO
+  fullName: MakesCentsBackend.Services.DataAccessLayer.EnvelopeFundingDAO
 - uid: MakesCentsBackend.Services.DataAccessLayer.InvestmentAccountDAO
   commentId: T:MakesCentsBackend.Services.DataAccessLayer.InvestmentAccountDAO
   parent: MakesCentsBackend.Services.DataAccessLayer
@@ -97,6 +107,20 @@ references:
   name: PaymentTransactionDAO
   nameWithType: PaymentTransactionDAO
   fullName: MakesCentsBackend.Services.DataAccessLayer.PaymentTransactionDAO
+- uid: MakesCentsBackend.Services.DataAccessLayer.RolloverEnvelopeDAO
+  commentId: T:MakesCentsBackend.Services.DataAccessLayer.RolloverEnvelopeDAO
+  parent: MakesCentsBackend.Services.DataAccessLayer
+  href: MakesCentsBackend.Services.DataAccessLayer.RolloverEnvelopeDAO.html
+  name: RolloverEnvelopeDAO
+  nameWithType: RolloverEnvelopeDAO
+  fullName: MakesCentsBackend.Services.DataAccessLayer.RolloverEnvelopeDAO
+- uid: MakesCentsBackend.Services.DataAccessLayer.SinkingFundEnvelopeDAO
+  commentId: T:MakesCentsBackend.Services.DataAccessLayer.SinkingFundEnvelopeDAO
+  parent: MakesCentsBackend.Services.DataAccessLayer
+  href: MakesCentsBackend.Services.DataAccessLayer.SinkingFundEnvelopeDAO.html
+  name: SinkingFundEnvelopeDAO
+  nameWithType: SinkingFundEnvelopeDAO
+  fullName: MakesCentsBackend.Services.DataAccessLayer.SinkingFundEnvelopeDAO
 - uid: MakesCentsBackend.Services.DataAccessLayer.TransactionDAO
   commentId: T:MakesCentsBackend.Services.DataAccessLayer.TransactionDAO
   parent: MakesCentsBackend.Services.DataAccessLayer

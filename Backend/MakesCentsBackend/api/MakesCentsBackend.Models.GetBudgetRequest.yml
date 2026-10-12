@@ -5,7 +5,8 @@ items:
   id: GetBudgetRequest
   parent: MakesCentsBackend.Models
   children:
-  - MakesCentsBackend.Models.GetBudgetRequest.#ctor(System.Int32,MakesCentsBackend.Models.Enums.Month,System.Int32)
+  - MakesCentsBackend.Models.GetBudgetRequest.#ctor(System.Int32,System.Int32,MakesCentsBackend.Models.Enums.Month,System.Int32)
+  - MakesCentsBackend.Models.GetBudgetRequest.BudgetId
   - MakesCentsBackend.Models.GetBudgetRequest.Month
   - MakesCentsBackend.Models.GetBudgetRequest.UserId
   - MakesCentsBackend.Models.GetBudgetRequest.Year
@@ -23,11 +24,16 @@ items:
       repo: https://github.com/Gianna7055/MakesCents.git
     id: GetBudgetRequest
     path: Models/BudgetModels.cs
-    startLine: 54
+    startLine: 92
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Models
-  summary: DTO model for getting a budget
+  summary: >-
+    Shared lookup key: a user id plus a year/month anchor point. Used both to fetch a single
+
+    budget month (GetBudgetMonthAsync) and as the anchor for a rolling 12-month range
+
+    (GetYearBudgetsAsync) - not itself a response, just the query key for both.
   example: []
   syntax:
     content: >-
@@ -70,7 +76,7 @@ items:
       repo: https://github.com/Gianna7055/MakesCents.git
     id: UserId
     path: Models/BudgetModels.cs
-    startLine: 57
+    startLine: 95
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Models
@@ -81,6 +87,35 @@ items:
       type: System.Int32
     content.vb: Public Property UserId As Integer
   overload: MakesCentsBackend.Models.GetBudgetRequest.UserId*
+- uid: MakesCentsBackend.Models.GetBudgetRequest.BudgetId
+  commentId: P:MakesCentsBackend.Models.GetBudgetRequest.BudgetId
+  id: BudgetId
+  parent: MakesCentsBackend.Models.GetBudgetRequest
+  langs:
+  - csharp
+  - vb
+  name: BudgetId
+  nameWithType: GetBudgetRequest.BudgetId
+  fullName: MakesCentsBackend.Models.GetBudgetRequest.BudgetId
+  type: Property
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Models/BudgetModels.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: BudgetId
+    path: Models/BudgetModels.cs
+    startLine: 98
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Models
+  syntax:
+    content: public int BudgetId { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property BudgetId As Integer
+  overload: MakesCentsBackend.Models.GetBudgetRequest.BudgetId*
 - uid: MakesCentsBackend.Models.GetBudgetRequest.Month
   commentId: P:MakesCentsBackend.Models.GetBudgetRequest.Month
   id: Month
@@ -99,7 +134,7 @@ items:
       repo: https://github.com/Gianna7055/MakesCents.git
     id: Month
     path: Models/BudgetModels.cs
-    startLine: 59
+    startLine: 100
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Models
@@ -140,7 +175,7 @@ items:
       repo: https://github.com/Gianna7055/MakesCents.git
     id: Year
     path: Models/BudgetModels.cs
-    startLine: 62
+    startLine: 103
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Models
@@ -163,16 +198,16 @@ items:
     arguments:
     - type: System.Type
       value: MakesCentsBackend.Models.Converters.SafeDefaultConverter{System.Int32}
-- uid: MakesCentsBackend.Models.GetBudgetRequest.#ctor(System.Int32,MakesCentsBackend.Models.Enums.Month,System.Int32)
-  commentId: M:MakesCentsBackend.Models.GetBudgetRequest.#ctor(System.Int32,MakesCentsBackend.Models.Enums.Month,System.Int32)
-  id: '#ctor(System.Int32,MakesCentsBackend.Models.Enums.Month,System.Int32)'
+- uid: MakesCentsBackend.Models.GetBudgetRequest.#ctor(System.Int32,System.Int32,MakesCentsBackend.Models.Enums.Month,System.Int32)
+  commentId: M:MakesCentsBackend.Models.GetBudgetRequest.#ctor(System.Int32,System.Int32,MakesCentsBackend.Models.Enums.Month,System.Int32)
+  id: '#ctor(System.Int32,System.Int32,MakesCentsBackend.Models.Enums.Month,System.Int32)'
   parent: MakesCentsBackend.Models.GetBudgetRequest
   langs:
   - csharp
   - vb
-  name: GetBudgetRequest(int, Month, int)
-  nameWithType: GetBudgetRequest.GetBudgetRequest(int, Month, int)
-  fullName: MakesCentsBackend.Models.GetBudgetRequest.GetBudgetRequest(int, MakesCentsBackend.Models.Enums.Month, int)
+  name: GetBudgetRequest(int, int, Month, int)
+  nameWithType: GetBudgetRequest.GetBudgetRequest(int, int, Month, int)
+  fullName: MakesCentsBackend.Models.GetBudgetRequest.GetBudgetRequest(int, int, MakesCentsBackend.Models.Enums.Month, int)
   type: Constructor
   source:
     remote:
@@ -181,16 +216,19 @@ items:
       repo: https://github.com/Gianna7055/MakesCents.git
     id: .ctor
     path: Models/BudgetModels.cs
-    startLine: 71
+    startLine: 113
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Models
   summary: Parameterized constructor for a Get Budget DTO
   example: []
   syntax:
-    content: public GetBudgetRequest(int userId, Month month, int year)
+    content: public GetBudgetRequest(int userId, int budgetId, Month month, int year)
     parameters:
     - id: userId
+      type: System.Int32
+      description: ''
+    - id: budgetId
       type: System.Int32
       description: ''
     - id: month
@@ -199,11 +237,11 @@ items:
     - id: year
       type: System.Int32
       description: ''
-    content.vb: Public Sub New(userId As Integer, month As Month, year As Integer)
+    content.vb: Public Sub New(userId As Integer, budgetId As Integer, month As Month, year As Integer)
   overload: MakesCentsBackend.Models.GetBudgetRequest.#ctor*
-  nameWithType.vb: GetBudgetRequest.New(Integer, Month, Integer)
-  fullName.vb: MakesCentsBackend.Models.GetBudgetRequest.New(Integer, MakesCentsBackend.Models.Enums.Month, Integer)
-  name.vb: New(Integer, Month, Integer)
+  nameWithType.vb: GetBudgetRequest.New(Integer, Integer, Month, Integer)
+  fullName.vb: MakesCentsBackend.Models.GetBudgetRequest.New(Integer, Integer, MakesCentsBackend.Models.Enums.Month, Integer)
+  name.vb: New(Integer, Integer, Month, Integer)
 references:
 - uid: MakesCentsBackend.Models
   commentId: N:MakesCentsBackend.Models
@@ -481,6 +519,12 @@ references:
   nameWithType.vb: Integer
   fullName.vb: Integer
   name.vb: Integer
+- uid: MakesCentsBackend.Models.GetBudgetRequest.BudgetId*
+  commentId: Overload:MakesCentsBackend.Models.GetBudgetRequest.BudgetId
+  href: MakesCentsBackend.Models.GetBudgetRequest.html#MakesCentsBackend_Models_GetBudgetRequest_BudgetId
+  name: BudgetId
+  nameWithType: GetBudgetRequest.BudgetId
+  fullName: MakesCentsBackend.Models.GetBudgetRequest.BudgetId
 - uid: MakesCentsBackend.Models.GetBudgetRequest.Month*
   commentId: Overload:MakesCentsBackend.Models.GetBudgetRequest.Month
   href: MakesCentsBackend.Models.GetBudgetRequest.html#MakesCentsBackend_Models_GetBudgetRequest_Month
@@ -532,7 +576,7 @@ references:
   fullName: MakesCentsBackend.Models.GetBudgetRequest.Year
 - uid: MakesCentsBackend.Models.GetBudgetRequest.#ctor*
   commentId: Overload:MakesCentsBackend.Models.GetBudgetRequest.#ctor
-  href: MakesCentsBackend.Models.GetBudgetRequest.html#MakesCentsBackend_Models_GetBudgetRequest__ctor_System_Int32_MakesCentsBackend_Models_Enums_Month_System_Int32_
+  href: MakesCentsBackend.Models.GetBudgetRequest.html#MakesCentsBackend_Models_GetBudgetRequest__ctor_System_Int32_System_Int32_MakesCentsBackend_Models_Enums_Month_System_Int32_
   name: GetBudgetRequest
   nameWithType: GetBudgetRequest.GetBudgetRequest
   fullName: MakesCentsBackend.Models.GetBudgetRequest.GetBudgetRequest

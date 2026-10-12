@@ -8,6 +8,7 @@ items:
   - MakesCentsBackend.Models.TransactionSplitEntityModel.Amount
   - MakesCentsBackend.Models.TransactionSplitEntityModel.CreatedAt
   - MakesCentsBackend.Models.TransactionSplitEntityModel.EnvelopeId
+  - MakesCentsBackend.Models.TransactionSplitEntityModel.IsSinkingFund
   - MakesCentsBackend.Models.TransactionSplitEntityModel.LastUpdatedAt
   - MakesCentsBackend.Models.TransactionSplitEntityModel.TransactionId
   - MakesCentsBackend.Models.TransactionSplitEntityModel.TransactionSplitId
@@ -25,11 +26,18 @@ items:
       repo: https://github.com/Gianna7055/MakesCents.git
     id: TransactionSplitEntityModel
     path: Models/TransactionSplitModels.cs
-    startLine: 12
+    startLine: 15
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Models
-  summary: Model for a transaction split model
+  summary: >-
+    Model for a transaction split model.
+
+    EnvelopeId is a display/API-level id - IsSinkingFund says whether it refers to a
+
+    sinking_fund_envelope_id or the persistent rollover_envelope_id (not the month-specific
+
+    rollover_envelope_month_id, which is an internal DAO detail).
   example: []
   syntax:
     content: public class TransactionSplitEntityModel
@@ -62,7 +70,7 @@ items:
       repo: https://github.com/Gianna7055/MakesCents.git
     id: TransactionSplitId
     path: Models/TransactionSplitModels.cs
-    startLine: 15
+    startLine: 18
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Models
@@ -91,7 +99,7 @@ items:
       repo: https://github.com/Gianna7055/MakesCents.git
     id: TransactionId
     path: Models/TransactionSplitModels.cs
-    startLine: 16
+    startLine: 19
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Models
@@ -120,7 +128,7 @@ items:
       repo: https://github.com/Gianna7055/MakesCents.git
     id: EnvelopeId
     path: Models/TransactionSplitModels.cs
-    startLine: 17
+    startLine: 20
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Models
@@ -131,6 +139,35 @@ items:
       type: System.Int32
     content.vb: Public Property EnvelopeId As Integer
   overload: MakesCentsBackend.Models.TransactionSplitEntityModel.EnvelopeId*
+- uid: MakesCentsBackend.Models.TransactionSplitEntityModel.IsSinkingFund
+  commentId: P:MakesCentsBackend.Models.TransactionSplitEntityModel.IsSinkingFund
+  id: IsSinkingFund
+  parent: MakesCentsBackend.Models.TransactionSplitEntityModel
+  langs:
+  - csharp
+  - vb
+  name: IsSinkingFund
+  nameWithType: TransactionSplitEntityModel.IsSinkingFund
+  fullName: MakesCentsBackend.Models.TransactionSplitEntityModel.IsSinkingFund
+  type: Property
+  source:
+    remote:
+      path: Backend/MakesCentsBackend/Models/TransactionSplitModels.cs
+      branch: master
+      repo: https://github.com/Gianna7055/MakesCents.git
+    id: IsSinkingFund
+    path: Models/TransactionSplitModels.cs
+    startLine: 21
+  assemblies:
+  - MakesCentsBackend
+  namespace: MakesCentsBackend.Models
+  syntax:
+    content: public bool IsSinkingFund { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property IsSinkingFund As Boolean
+  overload: MakesCentsBackend.Models.TransactionSplitEntityModel.IsSinkingFund*
 - uid: MakesCentsBackend.Models.TransactionSplitEntityModel.Amount
   commentId: P:MakesCentsBackend.Models.TransactionSplitEntityModel.Amount
   id: Amount
@@ -149,7 +186,7 @@ items:
       repo: https://github.com/Gianna7055/MakesCents.git
     id: Amount
     path: Models/TransactionSplitModels.cs
-    startLine: 18
+    startLine: 22
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Models
@@ -178,7 +215,7 @@ items:
       repo: https://github.com/Gianna7055/MakesCents.git
     id: CreatedAt
     path: Models/TransactionSplitModels.cs
-    startLine: 19
+    startLine: 23
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Models
@@ -207,7 +244,7 @@ items:
       repo: https://github.com/Gianna7055/MakesCents.git
     id: LastUpdatedAt
     path: Models/TransactionSplitModels.cs
-    startLine: 20
+    startLine: 24
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Models
@@ -507,6 +544,23 @@ references:
   name: EnvelopeId
   nameWithType: TransactionSplitEntityModel.EnvelopeId
   fullName: MakesCentsBackend.Models.TransactionSplitEntityModel.EnvelopeId
+- uid: MakesCentsBackend.Models.TransactionSplitEntityModel.IsSinkingFund*
+  commentId: Overload:MakesCentsBackend.Models.TransactionSplitEntityModel.IsSinkingFund
+  href: MakesCentsBackend.Models.TransactionSplitEntityModel.html#MakesCentsBackend_Models_TransactionSplitEntityModel_IsSinkingFund
+  name: IsSinkingFund
+  nameWithType: TransactionSplitEntityModel.IsSinkingFund
+  fullName: MakesCentsBackend.Models.TransactionSplitEntityModel.IsSinkingFund
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
 - uid: MakesCentsBackend.Models.TransactionSplitEntityModel.Amount*
   commentId: Overload:MakesCentsBackend.Models.TransactionSplitEntityModel.Amount
   href: MakesCentsBackend.Models.TransactionSplitEntityModel.html#MakesCentsBackend_Models_TransactionSplitEntityModel_Amount

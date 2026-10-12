@@ -95,17 +95,21 @@ items:
       repo: https://github.com/Gianna7055/MakesCents.git
     id: CreateTransferTransactionAsync
     path: Services/BusinessLogicLayer/TransferTransactionLogic.cs
-    startLine: 28
+    startLine: 33
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Services.BusinessLogicLayer
+  summary: Logic method to create a new transfer transaction (account-to-account or envelope-to-envelope)
+  example: []
   syntax:
     content: public Task<CreateTransferTransactionResponse> CreateTransferTransactionAsync(CreateTransferTransactionRequest transferTransaction)
     parameters:
     - id: transferTransaction
       type: MakesCentsBackend.Models.CreateTransferTransactionRequest
+      description: ''
     return:
       type: System.Threading.Tasks.Task{MakesCentsBackend.Models.CreateTransferTransactionResponse}
+      description: ''
     content.vb: Public Function CreateTransferTransactionAsync(transferTransaction As CreateTransferTransactionRequest) As Task(Of CreateTransferTransactionResponse)
   overload: MakesCentsBackend.Services.BusinessLogicLayer.TransferTransactionLogic.CreateTransferTransactionAsync*
 - uid: MakesCentsBackend.Services.BusinessLogicLayer.TransferTransactionLogic.GetTransferTransactionAsync(MakesCentsBackend.Models.BaseIdRequest)
@@ -126,17 +130,21 @@ items:
       repo: https://github.com/Gianna7055/MakesCents.git
     id: GetTransferTransactionAsync
     path: Services/BusinessLogicLayer/TransferTransactionLogic.cs
-    startLine: 45
+    startLine: 61
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Services.BusinessLogicLayer
+  summary: Logic method to get a transfer transaction
+  example: []
   syntax:
     content: public Task<GetTransferTransactionDTOResponse> GetTransferTransactionAsync(BaseIdRequest request)
     parameters:
     - id: request
       type: MakesCentsBackend.Models.BaseIdRequest
+      description: ''
     return:
       type: System.Threading.Tasks.Task{MakesCentsBackend.Models.GetTransferTransactionDTOResponse}
+      description: ''
     content.vb: Public Function GetTransferTransactionAsync(request As BaseIdRequest) As Task(Of GetTransferTransactionDTOResponse)
   overload: MakesCentsBackend.Services.BusinessLogicLayer.TransferTransactionLogic.GetTransferTransactionAsync*
 - uid: MakesCentsBackend.Services.BusinessLogicLayer.TransferTransactionLogic.UpdateTransferTransactionAsync(MakesCentsBackend.Models.UpdateTransferTransactionRequest)
@@ -157,17 +165,21 @@ items:
       repo: https://github.com/Gianna7055/MakesCents.git
     id: UpdateTransferTransactionAsync
     path: Services/BusinessLogicLayer/TransferTransactionLogic.cs
-    startLine: 77
+    startLine: 100
   assemblies:
   - MakesCentsBackend
   namespace: MakesCentsBackend.Services.BusinessLogicLayer
+  summary: Logic method to update a transfer transaction
+  example: []
   syntax:
     content: public Task<BaseIdResponse> UpdateTransferTransactionAsync(UpdateTransferTransactionRequest transferTransaction)
     parameters:
     - id: transferTransaction
       type: MakesCentsBackend.Models.UpdateTransferTransactionRequest
+      description: ''
     return:
       type: System.Threading.Tasks.Task{MakesCentsBackend.Models.BaseIdResponse}
+      description: ''
     content.vb: Public Function UpdateTransferTransactionAsync(transferTransaction As UpdateTransferTransactionRequest) As Task(Of BaseIdResponse)
   overload: MakesCentsBackend.Services.BusinessLogicLayer.TransferTransactionLogic.UpdateTransferTransactionAsync*
 references:
