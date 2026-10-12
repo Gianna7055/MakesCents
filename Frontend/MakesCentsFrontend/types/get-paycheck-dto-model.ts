@@ -5,7 +5,6 @@
 
 import { DateOnly } from "./date-only";
 import { PaycheckRegularity } from "./paycheck-regularity";
-import { GetPaycheckSplitDTOModel } from "./get-paycheck-split-dto-model";
 
 export interface GetPaycheckDTOModel {
     paycheckId: number;
@@ -15,5 +14,4 @@ export interface GetPaycheckDTOModel {
     secondaryDate: DateOnly;
     totalAmount: number;
     paycheckRegularity: PaycheckRegularity;
-    paycheckSplits: GetPaycheckSplitDTOModel[];
 }

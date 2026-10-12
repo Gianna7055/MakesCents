@@ -3,6 +3,9 @@
  * Any changes made to this file can be lost when this file is regenerated.
  */
 
+/**
+ * Request model for updating a budget's persistent fields (currently just the name)
+ */
 export class EditBudgetRequest {
     budgetId: number;
     userId: number;

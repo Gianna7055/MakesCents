@@ -3,6 +3,9 @@
  * Any changes made to this file can be lost when this file is regenerated.
  */
 
+/**
+ * Enum for Debt Payment Regularities for the Debt Account Model
+ */
 export enum DebtPaymentRegularity {
     Unknown = 1,
     Weekly = 2,

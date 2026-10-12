@@ -6,6 +6,9 @@
 import { BaseResponse } from "./base-response";
 import { GetBankAccountDTOModel } from "./get-bank-account-dto-model";
 
+/**
+ * Response model for getting a specific bank account
+ */
 export interface GetBankAccountDTOResponse extends BaseResponse {
     bankAccount: GetBankAccountDTOModel;
 }

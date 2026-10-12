@@ -5,6 +5,9 @@
 
 import { BaseIdResponse } from "./base-id-response";
 
+/**
+ * Response model for the login process
+ */
 export interface LoginResponse extends BaseIdResponse {
     token: string;
 }

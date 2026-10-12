@@ -8,4 +8,5 @@ export class UpdateTransactionSplitRequest {
     transactionSplitId: number;
     amount: number;
     envelopeId: number;
+    isSinkingFund: boolean;
 }

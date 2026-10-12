@@ -10,6 +10,9 @@ import { PaycheckEntityModel } from "./paycheck-entity-model";
 import { TransactionEntityModel } from "./transaction-entity-model";
 import { PlannedExpenseEntity } from "./planned-expense-entity";
 
+/**
+ * Entity model for a budget
+ */
 export class BudgetEntityModel {
     budgetId: number;
     userId: number;

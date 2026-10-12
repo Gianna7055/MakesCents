@@ -3,6 +3,9 @@
  * Any changes made to this file can be lost when this file is regenerated.
  */
 
+/**
+ * Enum for Debt Account Types for the Debt Account Model
+ */
 export enum DebtAccountType {
     Unknown = 1,
     CreditCard = 2,

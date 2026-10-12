@@ -5,6 +5,9 @@
 
 import { BaseIdResponse } from "./base-id-response";
 
+/**
+ * Response model for registration
+ */
 export interface RegisterResponse extends BaseIdResponse {
     token: string;
 }

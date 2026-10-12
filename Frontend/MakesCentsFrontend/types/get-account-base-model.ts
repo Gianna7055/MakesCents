@@ -5,6 +5,9 @@
 
 import { AccountType } from "./account-type";
 
+/**
+ * Base class for getting a specific account
+ */
 export interface GetAccountBaseModel {
     accountId: number;
     budgetId: number;

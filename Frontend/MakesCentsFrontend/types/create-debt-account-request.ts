@@ -9,6 +9,9 @@ import { Optional } from "./optional";
 import { DateOnly } from "./date-only";
 import { DebtPaymentRegularity } from "./debt-payment-regularity";
 
+/**
+ * Request model for creating a debt account model
+ */
 export class CreateDebtAccountRequest extends CreateAccountRequest {
     debtAccountType: DebtAccountType = 1;
     debtAccountNumber: Optional<number>;

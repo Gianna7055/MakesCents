@@ -6,8 +6,10 @@
 import { DateOnly } from "./date-only";
 import { Optional } from "./optional";
 import { PaycheckRegularity } from "./paycheck-regularity";
-import { CreatePaycheckSplitRequest } from "./create-paycheck-split-request";
 
+/**
+ * Request model to create a paycheck
+ */
 export class CreatePaycheckRequest {
     budgetId: number;
     userId: number;
@@ -16,5 +18,4 @@ export class CreatePaycheckRequest {
     secondaryDate: Optional<DateOnly>;
     totalAmount: number;
     paycheckRegularity: PaycheckRegularity = 1;
-    paycheckSplits: CreatePaycheckSplitRequest[] = [];
 }

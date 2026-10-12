@@ -3,6 +3,9 @@
  * Any changes made to this file can be lost when this file is regenerated.
  */
 
+/**
+ * Enum for Paycheck Regularities for the Paycheck Model
+ */
 export enum PaycheckRegularity {
     Unknown = 1,
     Weekly = 2,

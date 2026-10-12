@@ -3,6 +3,9 @@
  * Any changes made to this file can be lost when this file is regenerated.
  */
 
+/**
+ * Enum for Payment Transaction Types for the Payment Transaction Model
+ */
 export enum PaymentTransactionType {
     Unknown = 1,
     ATM = 2,

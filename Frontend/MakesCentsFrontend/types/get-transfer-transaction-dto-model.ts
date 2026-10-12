@@ -11,4 +11,6 @@ export interface GetTransferTransactionDTOModel extends GetTransactionDTOModel {
     transferFromId: number;
     transferToId: number;
     transferTransactionType: TransferTransactionType;
+    transferFromIsSinkingFund: boolean;
+    transferToIsSinkingFund: boolean;
 }

@@ -5,6 +5,9 @@
 
 import { SummaryAccountDTOModel } from "./summary-account-dto-model";
 
+/**
+ * DTO model for getting all accounts
+ */
 export interface BankAccountSummaryDTOModel extends SummaryAccountDTOModel {
     bankAccountId: number;
 }

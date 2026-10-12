@@ -3,6 +3,9 @@
  * Any changes made to this file can be lost when this file is regenerated.
  */
 
+/**
+ * Enum for Transfer Transaction Types for the Transfer Transaction Model
+ */
 export enum TransferTransactionType {
     Unknown = 1,
     Account = 2,
