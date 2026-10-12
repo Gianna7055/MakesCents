@@ -29,7 +29,11 @@ Repo for the Makes Cents Capstone Project
 2 Tab: in MakesCentsFrontend folder: npx expo run:ios --device --scheme MakesCents or npx expo start --dev-client --lan
 3 Tab: ipconfig getifaddr en0 to get the makesCentsURL IP address (in the datasource.ts file)
 
-# Usernames and Password
+# Commands
 
-capstoneguest: 1234
-username: password
+To run typegen: From the MakesCentsBackend folder: run dotnet build, then dotnet-typegen generate
+
+# Usernames and Password ("[Username]": "[Password]")
+
+"capstoneguest": "1234"
+"username": "password"
