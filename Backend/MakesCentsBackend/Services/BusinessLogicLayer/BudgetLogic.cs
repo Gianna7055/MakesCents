@@ -171,7 +171,7 @@ namespace MakesCentsBackend.Services.BusinessLogicLayer
         /// </summary>
         /// <param name="budget"></param>
         /// <returns></returns>
-        public async Task<BaseIdResponse> UpdateBudgetAsync(EditBudgetRequest budget)
+        public async Task<BaseIdResponse> UpdateBudgetAsync(UpdateBudgetRequest budget)
         {
             // Declare and initialize
             BaseIdResponse response;
@@ -198,7 +198,7 @@ namespace MakesCentsBackend.Services.BusinessLogicLayer
         /// </summary>
         /// <param name="budgetMonth"></param>
         /// <returns></returns>
-        public async Task<BaseIdResponse> UpdateBudgetMonthAsync(EditBudgetMonthRequest budgetMonth)
+        public async Task<BaseIdResponse> UpdateBudgetMonthAsync(UpdateBudgetMonthRequest budgetMonth)
         {
             // Declare and initialize
             BaseIdResponse response;

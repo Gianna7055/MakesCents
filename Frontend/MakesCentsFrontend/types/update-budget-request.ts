@@ -6,7 +6,7 @@
 /**
  * Request model for updating a budget's persistent fields (currently just the name)
  */
-export class EditBudgetRequest {
+export class UpdateBudgetRequest {
     budgetId: number;
     userId: number;
     budgetName: string;

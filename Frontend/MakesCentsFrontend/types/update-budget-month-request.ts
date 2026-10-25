@@ -9,7 +9,7 @@ import { Month } from "./month";
  * Request model for updating a specific budget month's month/year
  * (e.g. correcting a month created under the wrong month/year)
  */
-export class EditBudgetMonthRequest {
+export class UpdateBudgetMonthRequest {
     budgetMonthId: number;
     userId: number;
     month: Month;

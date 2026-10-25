@@ -419,7 +419,7 @@ namespace MakesCentsBackend.Services.DataAccessLayer
         /// </summary>
         /// <param name="budget"></param>
         /// <returns></returns>
-        public async Task<BaseIdResponse> UpdateBudgetAsync(EditBudgetRequest budget)
+        public async Task<BaseIdResponse> UpdateBudgetAsync(UpdateBudgetRequest budget)
         {
             // Declare and initialize
             List<string> updates = new List<string>();
@@ -471,7 +471,7 @@ namespace MakesCentsBackend.Services.DataAccessLayer
         /// </summary>
         /// <param name="budgetMonth"></param>
         /// <returns></returns>
-        public async Task<BaseIdResponse> UpdateBudgetMonthAsync(EditBudgetMonthRequest budgetMonth)
+        public async Task<BaseIdResponse> UpdateBudgetMonthAsync(UpdateBudgetMonthRequest budgetMonth)
         {
             // Declare and initialize
             List<string> updates = new List<string>();

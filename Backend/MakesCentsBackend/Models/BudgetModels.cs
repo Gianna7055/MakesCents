@@ -190,7 +190,7 @@ namespace MakesCentsBackend.Models
     /// Request model for updating a budget's persistent fields (currently just the name)
     /// </summary>
     [ExportTsClass]
-    public class EditBudgetRequest
+    public class UpdateBudgetRequest
     {
         public int BudgetId { get; set; } = 0;
         public int UserId { get; set; } = 0;
@@ -202,7 +202,7 @@ namespace MakesCentsBackend.Models
     /// (e.g. correcting a month created under the wrong month/year)
     /// </summary>
     [ExportTsClass]
-    public class EditBudgetMonthRequest
+    public class UpdateBudgetMonthRequest
     {
         public int BudgetMonthId { get; set; } = 0;
         public int UserId { get; set; } = 0;

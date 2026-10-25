@@ -81,7 +81,7 @@ namespace MakesCentsBackend.Controllers
         /// <returns></returns>
         [Authorize]
         [HttpPut("{budgetId}")]
-        public async Task<ActionResult> UpdateBudgetAsync(int budgetId, EditBudgetRequest budget)
+        public async Task<ActionResult> UpdateBudgetAsync(int budgetId, UpdateBudgetRequest budget)
         {
             // Check to make sure the budget is not null
             if (budget == null)
@@ -367,7 +367,7 @@ namespace MakesCentsBackend.Controllers
         /// <returns></returns>
         [Authorize]
         [HttpPut("months/{budgetMonthId}")]
-        public async Task<ActionResult> UpdateBudgetMonthAsync(int budgetMonthId, EditBudgetMonthRequest budgetMonth)
+        public async Task<ActionResult> UpdateBudgetMonthAsync(int budgetMonthId, UpdateBudgetMonthRequest budgetMonth)
         {
             // Check to make sure the budget month is not null
             if (budgetMonth == null)
